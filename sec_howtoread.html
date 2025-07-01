@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to Read Mathematics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.8.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.962d00926ef9460e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.2e7f40e86ae7d163.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch_intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_intro.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_problemsolving.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a Function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-4" class="internal"><span class="title">The Definition of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-5" class="internal"><span class="title">Domain and Range of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-6" class="internal"><span class="title">Non-Functions and the Vertical Line Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-7" class="internal"><span class="title">Real-world Examples of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-8" class="internal"><span class="title">Interval Notation for Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-9" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3" class="internal"><span class="title">Parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6" class="internal"><span class="title">Different Equations of Lines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7" class="internal"><span class="title">Finding <span class="process-math">\(x\)</span>-intercepts of Quadratic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_avgchange.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Average Rate of Change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-4" class="internal"><span class="title">Definition of Average Rate of Change of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-5" class="internal"><span class="title">Average Change of a Linear Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-6" class="internal"><span class="title">Visualizing Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-7" class="internal"><span class="title">Average Change in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-8" class="internal"><span class="title">Concavity and Average Change of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-9" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-5" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Modeling with Quadratic Functions: Falling Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Polynomial and Rational Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="title">Definition of Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="title">Rules for Fractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="title">Definition of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_power_alg.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Power Functions and Other Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-4" class="internal"><span class="title">Review of Exponent Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-5" class="internal"><span class="title">Definitions of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-6" class="internal"><span class="title">Integer Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-7" class="internal"><span class="title">Power Functions with Rational Powers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-8" class="internal"><span class="title">Using Square Roots to Find Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-9" class="internal"><span class="title">A Summary of Algebraic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-10" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving Inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Rules for Inequalities and Solving Linear Inequalities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="title">Solving Inequalities That Involve Quadratics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5-3" class="internal"><span class="title">Application: Rewriting a Piecewise-Defined Function by Solving an Inequality</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6" class="internal"><span class="title">Solving Inequalities That Involve Products and Quotients</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6-3" class="internal"><span class="title">Application: Finding the Domain of a Function with an Even Root</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-7" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Composition of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Definition of Composition of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Domain of Compositions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-7" class="internal"><span class="title">Function Composition and Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Transformations and Symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Application: The Vertex Form of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-7" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_howtoread"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">0.1</span><span class="space"> </span><span class="title">How to Read Mathematics</span>
+</h2>
+<section class="subsection" id="sec_howtoread-2"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Learning Goals</span>
+</h3>
+<ul class="disc" id="sec_howtoread-2-2">
+<li id="sec_howtoread-2-2-1">
+<div class="para" id="sec_howtoread-2-2-1-1">See suggestions for how to read math, and start thinking about how to implement these to best suit your needs and learning style<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-2-2">
+<div class="para" id="sec_howtoread-2-2-2-1">Learn how mathematics texts are organized around Definitions, Theorems, and Examples<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para logical" id="sec_howtoread-2-3">
+<div class="para">There are many websites that provide guidance for students on how to read mathematics. Here are a few of them:</div>
+<ul class="disc" id="sec_howtoread-2-3-1">
+<li id="sec_howtoread-2-3-1-1">
+<div class="para" id="sec_howtoread-2-3-1-1-1">
+<a class="external" href="https://www.maa.org/node/121566" target="_blank">https://www.maa.org/node/121566</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-2-3-1-1-1-2"><summary class="ptx-footnote__number" title="Footnote 0.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-2-3-1-1-1-2"><code class="code-inline tex2jax_ignore">www.maa.org/node/121566</code></div></details>,<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-3-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-3-1-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-3-1-2">
+<div class="para" id="sec_howtoread-2-3-1-2-1">
+<a class="external" href="https://web.stonehill.edu/compsci/History_Math/math-read.htm" target="_blank">https://web.stonehill.edu/compsci/History_Math/math-read.htm</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-2-3-1-2-1-2"><summary class="ptx-footnote__number" title="Footnote 0.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-2-3-1-2-1-2"><code class="code-inline tex2jax_ignore">web.stonehill.edu/compsci/History_Math/math-read.htm</code></div></details>,<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-3-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-3-1-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-3-1-3">
+<div class="para" id="sec_howtoread-2-3-1-3-1">
+<a class="external" href="https://www.macalester.edu/max/math-econ-119/howtoread/" target="_blank">https://www.macalester.edu/max/math-econ-119/howtoread/</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-2-3-1-3-1-2"><summary class="ptx-footnote__number" title="Footnote 0.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-2-3-1-3-1-2"><code class="code-inline tex2jax_ignore">www.macalester.edu/max/math-econ-119/howtoread/</code></div></details>,<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-3-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-3-1-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-3-1-4">
+<div class="para" id="sec_howtoread-2-3-1-4-1">
+<a class="external" href="https://brownmath.com/stfa/read.htm" target="_blank">https://brownmath.com/stfa/read.htm</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-2-3-1-4-1-2"><summary class="ptx-footnote__number" title="Footnote 0.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-2-3-1-4-1-2"><code class="code-inline tex2jax_ignore">brownmath.com/stfa/read.htm</code></div></details>, and<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-3-1-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-3-1-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-3-1-5">
+<div class="para" id="sec_howtoread-2-3-1-5-1">
+<a class="external" href="https://drive.google.com/file/d/1A0LT4BeL-J7Sw_jITi0iCwRnvYQut535/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1A0LT4BeL-J7Sw_jITi0iCwRnvYQut535/view?usp=sharing</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-2-3-1-5-1-2"><summary class="ptx-footnote__number" title="Footnote 0.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-2-3-1-5-1-2"><code class="code-inline tex2jax_ignore">drive.google.com/file/d/1A0LT4BeL-J7Sw_jITi0iCwRnvYQut535/view?usp=sharing</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-3-1-5-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-3-1-5" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_howtoread-2-4">They all provide good advice and the main idea they all emphasize is that reading math (or really any technical writing) is going to take time and require your active involvement in order to understand what is written. However, you only have a limited amount of time in your day and you probably also have a very heavy workload, so you will need to read strategically, as well as actively.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_howtoread-2-5">Keep in mind as you read this section that you will need to take these ideas and experiment with them to find a system that works best for you. Just as everyone learns in different ways, everyone has a different way of reading that works best for them. If you have never learned mathematics by reading before, be patient with yourself and expect to improve over time as you adjust to the new format and refine your workflow.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec_howtoread-2-6"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">0.1.1</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="sec_howtoread-2-6-1-1">
+<div class="para">Think about the following questions as you read.</div>
+<ul class="disc" id="sec_howtoread-2-6-1-1-1">
+<li id="sec_howtoread-2-6-1-1-1-1">
+<div class="para" id="sec_howtoread-2-6-1-1-1-1-1">Which of the ideas presented in this section resonate most with you?<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-6-1-1-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-6-1-1-1-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-6-1-1-1-2">
+<div class="para" id="sec_howtoread-2-6-1-1-1-2-1">Which strategies do you already employ?<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-6-1-1-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-6-1-1-1-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-6-1-1-1-3">
+<div class="para" id="sec_howtoread-2-6-1-1-1-3-1">What do you think you will start by trying?<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-6-1-1-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-6-1-1-1-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-2-6-1-1-1-4">
+<div class="para" id="sec_howtoread-2-6-1-1-1-4-1">How will you know if your reading method is working for you or requires changing?<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-6-1-1-1-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-2-6-1-1-1-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-2-6-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 0.1.1"><a href="#sec_howtoread-2-6" title="Copy permalink for Checkpoint 0.1.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_howtoread-2" title="Copy permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="sec_howtoread-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">General "Do’s" for Reading Math</span>
+</h3>
+<div class="para" id="sec_howtoread-3-2">Here are some bits of general, practical advice to keep in mind while reading a math textbook. Some will work better for you and some will not, but you should keep an open mind about them all. If your methods are not producing the results you want, look through this list again and adopt some new methods that look like they will help with the issues you have identified.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="sec_howtoread-3-3">
+<li id="sec_howtoread-3-3-1">
+<span class="heading"><span class="title">Read multiple times and in multiple ways.</span></span><div class="para" id="sec_howtoread-3-3-1-2">You will almost certainly not understand or remember everything after a single reading! Expect to return to your notes and the textbook several times in order to fully grasp the material.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="circle" id="sec_howtoread-3-3-1-3">
+<li id="sec_howtoread-3-3-1-3-1">
+<div class="para" id="sec_howtoread-3-3-1-3-1-1">You may wish to skim through quickly first before reading a section in depth. Other people prefer to go through slowly first for details and then reread briefly to get the big picture. Try one or the other, depending on how much time and patience you have at the time.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-1-3-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-1-3-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-1-3-2">
+<div class="para" id="sec_howtoread-3-3-1-3-2-1">If you are very confused by the reading before coming to class, return to the textbook after class and reread it to see how your new understanding helps the ideas fit together.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-1-3-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-1-3-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-1-3-3">
+<div class="para" id="sec_howtoread-3-3-1-3-3-1">Return to definitions, theorems, formulas, and examples while working through homework problems. In particular, find any examples that seem to solve a similar problem.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-1-3-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-1-3-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-1-3-4">
+<div class="para" id="sec_howtoread-3-3-1-3-4-1">\text{ Do not } read through the textbook as a way to study for exams unless you have a specific purpose in doing so (creating a concept map, listing definitions, summarizing formulas,…). Reading the textbook without actively engaging with it is not an effective method of studying. See <a href="sec_howtostudy.html" class="internal" title="Section 0.3: How to Study Math">Section 0.3</a> for tips on studying mathematics.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-1-3-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-1-3-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Item: Read multiple times and in multiple ways"><a href="#sec_howtoread-3-3-1" title="Copy permalink for Item: Read multiple times and in multiple ways">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-2">
+<span class="heading"><span class="title">Read with paper and pencil (or tablet and stylus) nearby.</span></span><div class="para" id="sec_howtoread-3-3-2-2">You should take notes (especially of definitions and theorems) in a dedicated place in your notebook or tablet. Put key words in the margins so you can quickly skim your notes to find information. Underline or highlight as you would like, but be careful not to overuse such markings. Periodically summarize the big ideas of what you are reading, either by using appropriate headers or at the margins of your paper. If you do not already have your own note-taking method, I recommend the Cornell Note Taking System. You can find details at <a class="external" href="https://lsc.cornell.edu/how-to-study/taking-notes/cornell-note-taking-system/" target="_blank">https://lsc.cornell.edu/how-to-study/taking-notes/cornell-note-taking-system/</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-2-2-2"><summary class="ptx-footnote__number" title="Footnote 0.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-2-2-2"><code class="code-inline tex2jax_ignore">lsc.cornell.edu/how-to-study/taking-notes/cornell-note-taking-system/</code></div></details>. This involves organizing your page into multiple sections to capture different types of information: notes, cues (could be questions or key words), and summary. Math makes the most sense when you see it done out in front of you. One of the main challenges to reading mathematics is following lengthy computations. Working through these on paper at the same time as reading will help you follow each step, as well as pinpoint when you stop being able to follow the computation. This may not be the best to do the first time you read, however, as you may get lost in the details and forget why you were doing the computation. However, if you feel your eyes glazing in over in the middle of a lengthy equation, writing it down will help you focus, capture all of the details, and retain it in your memory.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Read with paper and pencil (or tablet and stylus) nearby"><a href="#sec_howtoread-3-3-2" title="Copy permalink for Item: Read with paper and pencil (or tablet and stylus) nearby">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-3">
+<span class="heading"><span class="title">Keep track of your questions.</span></span><div class="para" id="sec_howtoread-3-3-3-2">If something doesn’t make sense, write down (in your notes) an explicit question that could help you understand. Flag your notes with post-its or stars or some other way that you can easily find them again; this is a benefit to Cornell notes as there is a separate area for questions. As you read more, you may answer your own questions and can add those answers to your notes. If not, you will want to be able to find these questions to ask them during class, office hours, or tutoring.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Keep track of your questions"><a href="#sec_howtoread-3-3-3" title="Copy permalink for Item: Keep track of your questions">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-4">
+<span class="heading"><span class="title">Avoid distractions while reading and choose your work environment deliberately.</span></span><div class="para" id="sec_howtoread-3-3-4-2">You may be able to read a novel or magazine with Netflix in the background or chatting with friends. If you read math and are not really concentrating on it, you will get very little out of it, and it will seem more difficult than it really is. 30 minutes spent focusing solely on your reading is more beneficial than spending 3 hours "reading" while distracted. If you are reading as part of a study group, make sure to set some ground rules about how often people are allowed to ask questions. Experiment with different environments to find what allows you to focus best. <em class="emphasis">Silence the notifications on your phone/computer/tablet while you are reading!</em> If that makes you uncomfortable, set a timer to check your notifications periodically (no more than every 15 minutes). Listening to music may be too distracting for you, or it may help you resist other distractions. Vary the type of music you listen to; some people prefer anything familiar while others need soothing or loud music. You may work better in a familiar environment, such as your dorm room, or you may need an impersonal space, such as the library. You may need a quiet, still space, or you may need ambient noise and bustle. Consider drinking water or another beverage while reading, or rewarding yourself periodically with a small snack such as an M&amp;M. Mathematicians famously like to work in coffee shops, both for the ambient noise and the ease of obtaining more caffeine! Lastly, you will need to find what time of day works best for you for reading. You may prefer to read first thing in the morning when your brain is fresh, or you may think best in the evening or late at night when you do not have to think about what to do for the rest of the day. You may be forced to read at a particular time based on your schedule, but try to pay attention to when during the day your brain seems the most ready to focus and work.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-4-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Avoid distractions while reading and choose your work environment deliberately"><a href="#sec_howtoread-3-3-4" title="Copy permalink for Item: Avoid distractions while reading and choose your work environment deliberately">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-5">
+<span class="heading"><span class="title">Keep the big picture in mind.</span></span><div class="para" id="sec_howtoread-3-3-5-2">Even though the details of mathematics are important, the way that they fit together to work toward a larger goal give them real meaning. For each section you read, make sure you know the key ideas that are introduced as well as how they relate to the key ideas of previous sections. Cornell Notes (linked above) are great at helping to do this as they provide an explicit section of the page in which to summarize what you’ve learned. As you go through a calculation, always remember why that calculation is being done. What problem does it solve? What larger goal do the symbols represent? As you read an example, think about what definitions and theorems it illustrates, or if it shows how a mathematical concept can be used beyond the classroom. Ask what the motivation is behind the definitions and formulas; why was it worth inventing them in the first place?<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-5-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Keep the big picture in mind"><a href="#sec_howtoread-3-3-5" title="Copy permalink for Item: Keep the big picture in mind">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-6">
+<span class="heading"><span class="title">Pay attention to details.</span></span><div class="para" id="sec_howtoread-3-3-6-2">In mathematics, every symbol and word counts, each sentence contributes to the bigger picture, and every diagram, table, and figure is purposeful. If you are at all uncertain about the meaning of a term or symbol, look it up or ask someone to explain it. Keep a list of new vocabulary. Pay attention to how symbols are used within mathematical expressions. For example, there is a vast difference between the symbols <span class="process-math">\(=, \approx\text{,}\)</span> and <span class="process-math">\(\rightarrow\)</span> in mathematics. You probably won’t have time to work through every example while you read, but at some point, make sure you know how to get from each step of a calculation to the next. In particular, be sure to notice when a definition, theorem, or formula is being applied, or if there is some other short-cut being used to get from one line to the next. Being able to follow a solution is a precursor to being able to solve problems for yourself. You may need to reread sentences a few times in order to fully understand what they are saying. Pay particular attention to how it relates to the material that has come before and how it fits into the current context. Is it introducing a new idea, building on an old idea, supporting a previous statement, pointing out something important, … ?<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-6-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Pay attention to details"><a href="#sec_howtoread-3-3-6" title="Copy permalink for Item: Pay attention to details">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7">
+<span class="heading"><span class="title">Seek out alternate sources.</span></span><div class="para logical" id="sec_howtoread-3-3-7-2">
+<div class="para">This textbook contains all of the content you are responsible for, but that doesn’t mean that it will contain enough examples or make perfect sense for every concept it introduces. Use other books, people, and technology to get answers to your questions and other perspectives on material that does not make sense to you. Do a quick internet search based on your questions, or ask your classmates, instructor, or tutors. YouTube is an <em class="emphasis">excellent</em> resource for modern learners of mathematics! However, be careful to find reputable sources for your information. Some of the best channels I’ve found are:</div>
+<ul class="circle" id="sec_howtoread-3-3-7-2-2">
+<li id="sec_howtoread-3-3-7-2-2-1">
+<div class="para" id="sec_howtoread-3-3-7-2-2-1-1">
+<a class="external" href="https://www.youtube.com/c/khanacademy" target="_blank">Khan Academy</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-1-1-2"><summary class="ptx-footnote__number" title="Footnote 0.7"><sup> 7 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-1-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/c/khanacademy</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-2">
+<div class="para" id="sec_howtoread-3-3-7-2-2-2-1">
+<a class="external" href="https://www.youtube.com/c/TheOrganicChemistryTutor" target="_blank">The Organic Chemistry Tutor</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-2-1-2"><summary class="ptx-footnote__number" title="Footnote 0.8"><sup> 8 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-2-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/c/TheOrganicChemistryTutor</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-3">
+<div class="para" id="sec_howtoread-3-3-7-2-2-3-1">
+<a class="external" href="https://www.youtube.com/channel/UCFe6jenM1Bc54qtBsIJGRZQ" target="_blank">patrickJMT</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-3-1-2"><summary class="ptx-footnote__number" title="Footnote 0.9"><sup> 9 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-3-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/channel/UCFe6jenM1Bc54qtBsIJGRZQ</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-4">
+<div class="para" id="sec_howtoread-3-3-7-2-2-4-1">
+<a class="external" href="https://www.youtube.com/channel/UC0cd_-e49hZpWLH3UIwoWRA" target="_blank">Professor Dave Explains</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-4-1-2"><summary class="ptx-footnote__number" title="Footnote 0.10"><sup> 10 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-4-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/channel/UC0cd_-e49hZpWLH3UIwoWRA</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-5">
+<div class="para" id="sec_howtoread-3-3-7-2-2-5-1">
+<a class="external" href="https://www.youtube.com/channel/UC2dmTHObhCCacuzBeL7JTew" target="_blank">K. O. Math</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-5-1-2"><summary class="ptx-footnote__number" title="Footnote 0.11"><sup> 11 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-5-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/channel/UC2dmTHObhCCacuzBeL7JTew</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-5-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-5" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-6">
+<div class="para" id="sec_howtoread-3-3-7-2-2-6-1">
+<a class="external" href="https://www.youtube.com/c/ProfessorHeatherPierce" target="_blank">Professor Heather Pierce</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-6-1-2"><summary class="ptx-footnote__number" title="Footnote 0.12"><sup> 12 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-6-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/c/ProfessorHeatherPierce</code></div></details><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-6-1-3"><summary class="ptx-footnote__number" title="Footnote 0.13"><sup> 13 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-6-1-3">Disclaimer: this is a friend of mine from graduate school, but she makes some great videos!</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-6-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-6" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-7">
+<div class="para" id="sec_howtoread-3-3-7-2-2-7-1">
+<a class="external" href="https://www.youtube.com/c/numberphile" target="_blank">Numberphile</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-7-1-2"><summary class="ptx-footnote__number" title="Footnote 0.14"><sup> 14 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-7-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/c/numberphile</code></div></details> (more for general interest; less instructional)<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-7-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-7" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-8">
+<div class="para" id="sec_howtoread-3-3-7-2-2-8-1">
+<a class="external" href="https://www.youtube.com/channel/UCthQFmHq8BrXpw-ISqeDxkg" target="_blank">Hands on Math</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-8-1-2"><summary class="ptx-footnote__number" title="Footnote 0.15"><sup> 15 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-8-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/channel/UCthQFmHq8BrXpw-ISqeDxkg</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-8-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-8" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-9">
+<div class="para" id="sec_howtoread-3-3-7-2-2-9-1">
+<a class="external" href="https://www.youtube.com/channel/UCNVMxRMEwvo9AS-Jfh6fQFg" target="_blank">Mathispower4u</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-9-1-2"><summary class="ptx-footnote__number" title="Footnote 0.16"><sup> 16 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-9-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/channel/UCNVMxRMEwvo9AS-Jfh6fQFg</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-9-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-9" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-10">
+<div class="para" id="sec_howtoread-3-3-7-2-2-10-1">
+<a class="external" href="https://www.youtube.com/c/profrobbob" target="_blank">ProfRobBob</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-10-1-2"><summary class="ptx-footnote__number" title="Footnote 0.17"><sup> 17 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-10-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/c/profrobbob</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-10-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-10" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-2-2-11">
+<div class="para" id="sec_howtoread-3-3-7-2-2-11-1">
+<a class="external" href="https://www.youtube.com/channel/UCoHhuummRZaIVX7bD4t2czg" target="_blank">Professor Leonard</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-2-2-11-1-2"><summary class="ptx-footnote__number" title="Footnote 0.18"><sup> 18 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-2-2-11-1-2"><code class="code-inline tex2jax_ignore">www.youtube.com/channel/UCoHhuummRZaIVX7bD4t2czg</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2-2-11-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-2-2-11" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="circle" id="sec_howtoread-3-3-7-3">
+<li id="sec_howtoread-3-3-7-3-1">
+<div class="para" id="sec_howtoread-3-3-7-3-1-1">
+<a class="external" href="https://tutorial.math.lamar.edu/" target="_blank">Paul’s Online Math Notes</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-3-1-1-2"><summary class="ptx-footnote__number" title="Footnote 0.19"><sup> 19 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-3-1-1-2"><code class="code-inline tex2jax_ignore">tutorial.math.lamar.edu/</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-3-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-3-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-7-3-2">
+<div class="para" id="sec_howtoread-3-3-7-3-2-1">
+<a class="external" href="https://activecalculus.org/" target="_blank">Active Calculus and Active Prelude to Calculus</a><details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-7-3-2-1-2"><summary class="ptx-footnote__number" title="Footnote 0.20"><sup> 20 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-7-3-2-1-2"><code class="code-inline tex2jax_ignore">activecalculus.org/</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-7-3-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_howtoread-3-3-7-3-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Item: Seek out alternate sources"><a href="#sec_howtoread-3-3-7" title="Copy permalink for Item: Seek out alternate sources">🔗</a></div>
+</li>
+<li id="sec_howtoread-3-3-8">
+<span class="heading"><span class="title">Make it your own.</span></span><div class="para" id="sec_howtoread-3-3-8-2">The most important thing to do while reading math is to find a system that works for you and to make the content that you are learning relevant to your own interests. Everyone has a different set of tools and a different level of "chunking up" complicated ideas. Make the idea fit in with your own perspective and experience. Some people are most satisfied when they see a mathematical idea unfold from start to finish, following an idea from its origins and rediscovering why it is true, either via logical reasoning or experimentation. Other people need to contextualize information in a real-world context, in which case they prefer to motivate an idea with an application or tangible problem. Research shows<details class="ptx-footnote" aria-live="polite" id="sec_howtoread-3-3-8-2-1"><summary class="ptx-footnote__number" title="Footnote 0.21"><sup> 21 </sup></summary><div class="ptx-footnote__contents" id="sec_howtoread-3-3-8-2-1">Association for Psychological Science. "Curiosity is critical to academic performance." ScienceDaily. ScienceDaily, 28 October 2011. <a class="external" href="https://www.sciencedaily.com/releases/2011/10/111027150211.htm" target="_blank">https://www.sciencedaily.com/releases/2011/10/111027150211.htm</a> accessed August 10, 2022 and Gruber, Gelman, Ranganath. "States of Curiosity Modulate Hippocampus-Dependent Learning via the Dopaminergic Circuit" Neuron, 2 October, 2014. <a class="external" href="https://doi.org/10.1016/j.neuron.2014.08.060" target="_blank">https://doi.org/10.1016/j.neuron.2014.08.060</a> accessed August 10, 2022.</div></details> that curiosity is the key to learning and academic performance, so find some nugget of information that you find interesting and use it to spark your curiosity in mathematics as a subject.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-3-3-8-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Make it your own"><a href="#sec_howtoread-3-3-8" title="Copy permalink for Item: Make it your own">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description='Subsection: General "Do’s" for Reading Math'><a href="#sec_howtoread-3" title='Copy permalink for Subsection: General "Do’s" for Reading Math'>🔗</a></div></section><section class="subsection" id="sec_defexthm"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Definitions, Examples, and Theorems</span>
+</h3>
+<div class="para logical" id="sec_defexthm-2">
+<div class="para">The last section held general advice. This one contains specific directions for making sure you catch the most important parts of your reading. Pay special attention to definitions, examples, and theorems in a math text. They generally contain the most useful information and are the structure used to organize a mathematical text.</div>
+<ul class="disc" id="sec_defexthm-2-1">
+<li id="sec_defexthm-2-1-1">
+<span class="heading"><span class="title">Definitions.</span></span><div class="para" id="sec_defexthm-2-1-1-2">Mathematics uses words very precisely, and not always in the same way that you would use them in your daily life. Mathematical definitions give the precise meaning of certain words that are meant to represent a specific idea. Words are typically written in bold the first time they are defined, which is intended to make them stand out from the surrounding text. If they are especially important, they are numbered and labeled, like so: <figure class="figure figure-like" id="fig_definition1-1"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Definition1-1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.2<span class="period">.</span></span><span class="space"> </span>The words function, function notation, independent variable, and dependent variable are defined. The definition is numbered and has an orange bar to the left to make it more visible.<div class="autopermalink" data-description="Figure 0.1.2"><a href="#fig_definition1-1" title="Copy permalink for Figure 0.1.2">🔗</a></div></figcaption></figure> The above definition may or may not make sense to you or agree with what you think of when you hear the word "function." If you don’t immediately understand a definition, you may need to come back to it again later after reading some examples, asking questions, or finding alternate explanations of the term via Google or YouTube. When you encounter a new mathematical definition, you should write the term in your notes along with the accompanying definition, along with any other ideas that help you to understand it. While trying to be as precise as possible, write the mathematical meaning of the word in your own words, potentially accompanied by an example or two to help understand what the definition is intended to mean.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-2-1-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Definitions"><a href="#sec_defexthm-2-1-1" title="Copy permalink for Item: Definitions">🔗</a></div>
+</li>
+<li id="sec_defexthm-2-1-2">
+<span class="heading"><span class="title">Theorems and Formulas.</span></span><div class="para" id="sec_defexthm-2-1-2-2">A mathematical Theorem is typically extremely important. If definitions are stones and examples show you how to put them together, then a theorem is a finished archway or wall. It is a mathematical fact, formula, classification, or connection between ideas that is especially useful for some purpose or is the culmination of a string of ideas leading to a particular goal. Think of mathematical knowledge as the city that is made up of houses constructed from the walls and archways of Theorems. <figure class="figure figure-like" id="fig_archway"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/archway.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.3<span class="period">.</span></span><span class="space"> </span>Definitions are put together to form Theorems. Theorems fit together to form a body of knowledge, such as the Theory of Calculus.<div class="autopermalink" data-description="Figure 0.1.3"><a href="#fig_archway" title="Copy permalink for Figure 0.1.3">🔗</a></div></figcaption></figure> Theorems can also be called <em class="emphasis">Propositions, Corollaries, or Lemmas</em>, though we will not get into the distinction between these, and are typically so important that they are separated from the surrounding text in a shaded box. They are numbered so that they can be referred to easily: <figure class="figure figure-like" id="sec_defexthm-2-1-2-2-3"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Theorem1-1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.4<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.4"><a href="#sec_defexthm-2-1-2-2-3" title="Copy permalink for Figure 0.1.4">🔗</a></div></figcaption></figure> Theorem 1.1 is a "classification" and gives a visual condition that categorizes a graph as either a function or not a function. The theorem also has a name by which it is commonly referred: the Vertical Line Test. Names of theorems often serve to remind us of their contents, though sometimes they refer to the person who discovered the theorem. <figure class="figure figure-like" id="sec_defexthm-2-1-2-2-4"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Theorem1-2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.5<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.5"><a href="#sec_defexthm-2-1-2-2-4" title="Copy permalink for Figure 0.1.5">🔗</a></div></figcaption></figure> Theorem 1.2 is a "formula" and provides a short-cut for factoring the difference of two numbers or expressions that are written as squares. <figure class="figure figure-like" id="sec_defexthm-2-1-2-2-5"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Theorem1-3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.6<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.6"><a href="#sec_defexthm-2-1-2-2-5" title="Copy permalink for Figure 0.1.6">🔗</a></div></figcaption></figure> Theorem 1.3 tells us a mathematical "fact" about products of numbers or expressions that are equal to zero. This is a very important property that relies on the theoretical structure of real numbers and real-valued functions. Theorem 1.3 is also the connection between the algebraic method of factoring and the task of solving an equation. Whenever you see a theorem, you should add it to you notes and take extra special care that you understand the purpose and meaning of the theorem. Because this course will not focus on mathematical proofs (logical arguments that explain rigorously why a theorem is true), you may or may not fully understand why a theorem is always true. The text should provide enough examples to suggest why it is true, or you could come up with a few more examples on your own if you are not yet convinced.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-2-1-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Theorems and Formulas"><a href="#sec_defexthm-2-1-2" title="Copy permalink for Item: Theorems and Formulas">🔗</a></div>
+</li>
+<li id="sec_defexthm-2-1-3">
+<span class="heading"><span class="title">Examples and Non-Examples.</span></span><div class="para" id="sec_defexthm-2-1-3-2">It’s not usually possible to get a full understanding of a concept without seeing it used a few times. The purpose of examples is to build your intuitive understanding, either by motivating an idea, clarifying details of a definition, theorem, or formula, showing how the idea can be used in context or to solve a problem, or providing multiple viewpoints from which to think about an idea. They may be mentioned briefly in a paragraph and you will have to recognize them via key words like, "For instance…" and "… such as…". Other times, they are contained in separate environments meant to call more attention to them: <figure class="figure figure-like" id="sec_defexthm-2-1-3-2-4"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Example1-1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.7<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.7"><a href="#sec_defexthm-2-1-3-2-4" title="Copy permalink for Figure 0.1.7">🔗</a></div></figcaption></figure> Example 1.1 follows immediately after Definition 1.1 in the text and illustrates the idea of a function introduced there, as well as the terms independent and dependent variable. It also introduces a new symbol and its meaning, the set <span class="process-math">\(\mathbb{R}\)</span> of all real numbers. If Definition 1.1 did not make sense to you when you read it earlier, return to it and compare it with this example to see how the abstracted ideas in the definition are made more concrete in this example. <figure class="figure figure-like" id="sec_defexthm-2-1-3-2-6"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Example1-22.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.8<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.8"><a href="#sec_defexthm-2-1-3-2-6" title="Copy permalink for Figure 0.1.8">🔗</a></div></figcaption></figure> Example 1.22 follows Theorem 1.2 in the text as shown, and demonstrates how to use the formula presented for factoring a difference of squares. <figure class="figure figure-like" id="sec_defexthm-2-1-3-2-7"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Example1-23.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.9<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.9"><a href="#sec_defexthm-2-1-3-2-7" title="Copy permalink for Figure 0.1.9">🔗</a></div></figcaption></figure> Example 1.23 follows Theorem 1.3 in the text as shown. It begins with an expression that was factored in a previous example, and demonstrates how the property of multiplication in Theorem 1.3 allows us to set each of the factored expressions equal to zero and solve in order to determine where the full expression is equal to zero. The example goes on to contextualize the calculation graphically and provides a clickable link to a Desmos graph (you should always click on these as you are reading) in order to verify that the algebraic work is correct. A "non-example" is typically an example of something that does <em class="emphasis">not</em> fit a mathematical idea. <figure class="figure figure-like" id="sec_defexthm-2-1-3-2-9"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/Example1-8.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.1.10<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 0.1.10"><a href="#sec_defexthm-2-1-3-2-9" title="Copy permalink for Figure 0.1.10">🔗</a></div></figcaption></figure> Example 1.8 illustrates how Theorem 1.1, the Vertical Line Test, is applied, and also provides an example of a graph that is NOT a function, meaning a "non-example" of a function. Non-examples are often just as enlightening as examples, if not more-so, because they show the limitations of the mathematical idea.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-2-1-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Examples and Non-Examples"><a href="#sec_defexthm-2-1-3" title="Copy permalink for Item: Examples and Non-Examples">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_defexthm-3">The four examples above illustrate definitions and theorems found in the text. Example 1.23 also makes connections to methods demonstrated in another example and a way of verifying and visualizing the result of a calculation. Some examples may illustrate a general method of solving a category of problems. Motivational examples may give you an intuitive or contextual introduction into an idea, while applied examples show you how a mathematical idea can be used in a real-world problem.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_defexthm-4">
+<div class="para">Here is a list of strategies to experiment with that can help you get the most benefit from the examples provided in the textbook. You do not have to implement all of them all of the time, but should consider these as suggestions to add to your toolbox of reading strategies:</div>
+<ul class="disc" id="sec_defexthm-4-1">
+<li id="sec_defexthm-4-1-1">
+<div class="para" id="sec_defexthm-4-1-1-1">Whenever you see an example, you should always think about what purpose it is serving. A good question to ask yourself is, "How is this an example of what I was just reading?"<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-4-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_defexthm-4-1-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_defexthm-4-1-2">
+<div class="para" id="sec_defexthm-4-1-2-1">Some examples will pose a problem to be solved and demonstrate how to solve it. Think about how to answer the problem, even for just a moment, before you read the solution. If you don’t know where to start or were very wrong, you know you did not understand the concept underlying the example and may want to skim over earlier material again after reading the solution.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-4-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_defexthm-4-1-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_defexthm-4-1-3">
+<div class="para" id="sec_defexthm-4-1-3-1">Summarize the main idea of an example after reading it and how it relates to the definition, theorem, formula, idea, etc. that it is meant to illustrate.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-4-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_defexthm-4-1-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_defexthm-4-1-4">
+<div class="para" id="sec_defexthm-4-1-4-1">Make note of any questions that come into your mind as you read the example, such as how to get from one step of a calculation to the next, or whether the same idea could be used in a different context.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-4-1-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_defexthm-4-1-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_defexthm-4-1-5">
+<div class="para" id="sec_defexthm-4-1-5-1">Try to think of other similar examples, as well as non-examples, before moving on to a new topic.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-4-1-5-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_defexthm-4-1-5" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defexthm-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Definitions, Examples, and Theorems"><a href="#sec_defexthm" title="Copy permalink for Subsection: Definitions, Examples, and Theorems">🔗</a></div></section><section class="subsection" id="sec_howtoread-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Summary</span>
+</h3>
+<div class="para" id="sec_howtoread-5-2">The following terms were introduced in this section:<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-5-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_howtoread-5-3">
+<em class="emphasis">Key ideas:</em> Reading mathematics requires you to be actively involved in order to understand what is written. You will have to find a balance between efficiency and thoroughness in order to effectively learn from a mathematical text without spending hours and hours reading. This will likely take some experimentation with different strategies, so be patient and give yourself time to build this important skill.<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-5-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_howtoread-5-4">\fbox{Remember to return to Canvas and complete the Section 0.1 R&amp;R!}<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-5-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_howtoread-5-5">\fbox{\fbox{ End of Section 0.1}}<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-5-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_howtoread-5-6">\rule{1.1\textwidth}{2pt}<div class="autopermalink" data-description="Paragraph"><a href="#sec_howtoread-5-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Summary"><a href="#sec_howtoread-5" title="Copy permalink for Subsection: Summary">🔗</a></div></section><div class="autopermalink" data-description="Section 0.1: How to Read Mathematics"><a href="#sec_howtoread" title="Copy permalink for Section 0.1: How to Read Mathematics">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch_intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_problemsolving.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Transformations and Symmetry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.8.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.962d00926ef9460e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.2e7f40e86ae7d163.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_func_comp.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a Function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-4" class="internal"><span class="title">The Definition of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-5" class="internal"><span class="title">Domain and Range of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-6" class="internal"><span class="title">Non-Functions and the Vertical Line Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-7" class="internal"><span class="title">Real-world Examples of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-8" class="internal"><span class="title">Interval Notation for Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-9" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3" class="internal"><span class="title">Parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6" class="internal"><span class="title">Different Equations of Lines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7" class="internal"><span class="title">Finding <span class="process-math">\(x\)</span>-intercepts of Quadratic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_avgchange.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Average Rate of Change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-4" class="internal"><span class="title">Definition of Average Rate of Change of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-5" class="internal"><span class="title">Average Change of a Linear Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-6" class="internal"><span class="title">Visualizing Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-7" class="internal"><span class="title">Average Change in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-8" class="internal"><span class="title">Concavity and Average Change of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-9" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-5" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Modeling with Quadratic Functions: Falling Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Polynomial and Rational Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="title">Definition of Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="title">Rules for Fractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="title">Definition of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_power_alg.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Power Functions and Other Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-4" class="internal"><span class="title">Review of Exponent Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-5" class="internal"><span class="title">Definitions of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-6" class="internal"><span class="title">Integer Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-7" class="internal"><span class="title">Power Functions with Rational Powers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-8" class="internal"><span class="title">Using Square Roots to Find Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-9" class="internal"><span class="title">A Summary of Algebraic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-10" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving Inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Rules for Inequalities and Solving Linear Inequalities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="title">Solving Inequalities That Involve Quadratics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5-3" class="internal"><span class="title">Application: Rewriting a Piecewise-Defined Function by Solving an Inequality</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6" class="internal"><span class="title">Solving Inequalities That Involve Products and Quotients</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6-3" class="internal"><span class="title">Application: Finding the Domain of a Function with an Even Root</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-7" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Composition of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Definition of Composition of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Domain of Compositions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-7" class="internal"><span class="title">Function Composition and Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Transformations and Symmetry</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Application: The Vertex Form of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-7" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_func_transf"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.10</span><span class="space"> </span><span class="title">Transformations and Symmetry</span>
+</h2>
+<section class="introduction" id="sec_func_transf-2"><div class="para" id="sec_func_transf-2-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-2-1" title="Copy permalink for Paragraph">🔗</a></div></div></section><section class="subsection" id="sec_func_transf-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Learning Goals</span>
+</h3>
+<div class="para logical" id="sec_func_transf-3-2">
+<ul class="disc" id="sec_func_transf-3-2-1">
+<li id="sec_func_transf-3-2-1-1">
+<div class="para" id="sec_func_transf-3-2-1-1-1">Learn about transformations of functions and how they influence the shape of a graph.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-3-2-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-3-2-1-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_func_transf-3-2-1-2">
+<div class="para" id="sec_func_transf-3-2-1-2-1">Understand how the definitions of even and odd functions correspond to certain types of symmetry in the graph of a function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-3-2-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-3-2-1-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_func_transf-3-2-1-3">
+<div class="para" id="sec_func_transf-3-2-1-3-1">Determine algebraically whether a function is even, odd, or neither.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-3-2-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-3-2-1-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_func_transf-3-2-1-4">
+<div class="para" id="sec_func_transf-3-2-1-4-1">Application: the vertex form of a quadratic function arises from a series of transformations of the function <span class="process-math">\(y=x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-3-2-1-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-3-2-1-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_func_transf-3" title="Copy permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="sec_func_transf-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Transformations</span>
+</h3>
+<div class="para" id="sec_func_transf-4-2">In this section, we examine a few specific compositions of functions that give rise to what are called <em class="emphasis">transformations</em>. Given a function <span class="process-math">\(f(x)\)</span> and constants <span class="process-math">\(a, b, c\text{,}\)</span> and <span class="process-math">\(d\text{,}\)</span> we could consider such modifications as <span class="process-math">\(f(x+a),
+f(x)+b, f(cx)\text{,}\)</span> and <span class="process-math">\(df(x)\text{.}\)</span> Each of these transformations changes <span class="process-math">\(f(x)\)</span> graphically and algebraically.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_func_transf-4-3">What exactly is the result of adding or multiplying, and what difference does it make to do so on the inside versus the outside of the function? Take a moment to use this <a class="external" href="https://www.desmos.com/calculator/zq0dcadodr" target="_blank">Desmos graph</a><details class="ptx-footnote" aria-live="polite" id="sec_func_transf-4-3-2"><summary class="ptx-footnote__number" title="Footnote 1.32"><sup> 32 </sup></summary><div class="ptx-footnote__contents" id="sec_func_transf-4-3-2"><code class="code-inline tex2jax_ignore">www.desmos.com/calculator/zq0dcadodr</code></div></details> to explore for yourself. The original function <span class="process-math">\(f(x)\)</span> is graphed in blue. Adjusting each of the sliders for <span class="process-math">\(a, b, c\text{,}\)</span> and <span class="process-math">\(d\)</span> will generate a new graph <span class="process-math">\(g(x)\)</span> in orange corresponding to the modification <span class="process-math">\(f(x+a),
+f(x)+b, f(cx)\text{,}\)</span> and <span class="process-math">\(df(x)\text{.}\)</span> <em class="emphasis">Note: you will probably need to access the Desmos graph via a computer, rather than a tablet or phone, in order for the sliders to work correctly.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_func_transf-4-4"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Vertical Translation.</span>
+</h4>
+<div class="para" id="sec_func_transf-4-4-2-1">Transforming <span class="process-math">\(f(x)\)</span> to <span class="process-math">\(f(x)\pm b\)</span> adds/subtracts <span class="process-math">\(b\)</span> units to every output of <span class="process-math">\(f(x)\text{.}\)</span> This means that the graph of <span class="process-math">\(y=f(x)\)</span> shifts up or down vertically <span class="process-math">\(b\)</span> units everywhere, to become the graph of <span class="process-math">\(y=f(x)+b\)</span> or <span class="process-math">\(y=f(x)-b\text{,}\)</span> as illustrated by the red and green graphs, respectively, shown in <a href="sec_func_transf.html#fig_taalmanpage64a" class="xref" data-knowl="./knowl/xref/fig_taalmanpage64a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.2">Figure 1.10.2</a> below.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-4-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_taalmanpage64a"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage64a.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.2<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=f(x)+2\)</span> shifts <span class="process-math">\(f(x)\)</span> up two units. <span class="process-math">\(y=f(x)-2\)</span> shifts <span class="process-math">\(f(x)\)</span> down two units.<div class="autopermalink" data-description="Figure 1.10.2"><a href="#fig_taalmanpage64a" title="Copy permalink for Figure 1.10.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.10.1: Vertical Translation"><a href="#sec_func_transf-4-4" title="Copy permalink for Example 1.10.1: Vertical Translation">🔗</a></div></article><article class="example example-like" id="sec_func_transf-4-5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.3</span><span class="period">.</span><span class="space"> </span><span class="title">Horizontal Translation.</span>
+</h4>
+<div class="para" id="sec_func_transf-4-5-2-1">If we instead add or subtract a constant to the independent variable and transform <span class="process-math">\(f(x)\)</span> to <span class="process-math">\(f(x\pm a)\text{,}\)</span> the graph shifts left or right horizontally by <span class="process-math">\(a\)</span> units, as illustrated in the green and red graphs shown in <a href="sec_func_transf.html#fig_taalmanpage64b" class="xref" data-knowl="./knowl/xref/fig_taalmanpage64b.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.4">Figure 1.10.4</a> below.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-5-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_taalmanpage64b"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage64b.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.4<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=f(x+5)\)</span> shifts <span class="process-math">\(f(x)\)</span> left five units. <span class="process-math">\(y=f(x-5)\)</span> shifts <span class="process-math">\(f(x)\)</span> right five units.<div class="autopermalink" data-description="Figure 1.10.4"><a href="#fig_taalmanpage64b" title="Copy permalink for Figure 1.10.4">🔗</a></div></figcaption></figure> <div class="para" id="sec_func_transf-4-5-2-3">Note that the shift to the left for <span class="process-math">\(f(x+5)\)</span> and to the right for <span class="process-math">\(f(x-5)\)</span> might be the opposite of what we might initially expect.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-5-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.10.3: Horizontal Translation"><a href="#sec_func_transf-4-5" title="Copy permalink for Example 1.10.3: Horizontal Translation">🔗</a></div></article><article class="example example-like" id="ex_vstretch"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.5</span><span class="period">.</span><span class="space"> </span><span class="title">Vertical Stretch or Shrink.</span>
+</h4>
+<div class="para" id="ex_vstretch-2-1">If we instead transform <span class="process-math">\(f(x)\)</span> by multiplication to <span class="process-math">\(df(x)\text{,}\)</span> then the graph of <span class="process-math">\(y=f(x)\)</span> expands or contracts vertically by a factor of <span class="process-math">\(d\)</span> to become the graph of <span class="process-math">\(y=df(x)\text{,}\)</span> as shown in the red and green graphs in <a href="sec_func_transf.html#fig_taalmanpage65a" class="xref" data-knowl="./knowl/xref/fig_taalmanpage65a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.6">Figure 1.10.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_vstretch-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_taalmanpage65a"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage65a.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.6<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=2f(x)\)</span> stretches <span class="process-math">\(f(x)\)</span> vertically by 2. <span class="process-math">\(y=\frac{1}{2}f(x)\)</span> compresses <span class="process-math">\(f(x)\)</span> vertically by 2.<div class="autopermalink" data-description="Figure 1.10.6"><a href="#fig_taalmanpage65a" title="Copy permalink for Figure 1.10.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.10.5: Vertical Stretch or Shrink"><a href="#ex_vstretch" title="Copy permalink for Example 1.10.5: Vertical Stretch or Shrink">🔗</a></div></article><article class="example example-like" id="ex_hstretch"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.7</span><span class="period">.</span><span class="space"> </span><span class="title">Horizontal Stretch or Shrink.</span>
+</h4>
+<div class="para" id="ex_hstretch-2-1">In contrast, if we do the same transformation to the independent variable and transform <span class="process-math">\(f(x)\)</span> to <span class="process-math">\(f(cx)\text{,}\)</span> this contracts or expands the graph of <span class="process-math">\(y=f(x)\)</span> by a factor of <span class="process-math">\(c\)</span> in the horizontal direction, as illustrated in the red and green graphs in <a href="sec_func_transf.html#fig_taalmanpage65b" class="xref" data-knowl="./knowl/xref/fig_taalmanpage65b.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.8">Figure 1.10.8</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_hstretch-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_taalmanpage65b"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage65b.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.8<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=f(2x)\)</span> compresses <span class="process-math">\(f(x)\)</span> horizontally by 2. <span class="process-math">\(y=f\left(\frac{1}{2}x\right)\)</span> stretches <span class="process-math">\(f(x)\)</span> horizontally by 2.<div class="autopermalink" data-description="Figure 1.10.8"><a href="#fig_taalmanpage65b" title="Copy permalink for Figure 1.10.8">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.10.7: Horizontal Stretch or Shrink"><a href="#ex_hstretch" title="Copy permalink for Example 1.10.7: Horizontal Stretch or Shrink">🔗</a></div></article><div class="para" id="sec_func_transf-4-8">
+<em class="emphasis">Reflections:</em> Note that in Examples <a href="sec_func_transf.html#ex_vstretch" class="xref" data-knowl="./knowl/xref/ex_vstretch.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.10.5: Vertical Stretch or Shrink">Example 1.10.5</a> and <a href="sec_func_transf.html#ex_hstretch" class="xref" data-knowl="./knowl/xref/ex_hstretch.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.10.7: Horizontal Stretch or Shrink">Example 1.10.7</a>, the values of <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> used were positive. What happens if we multiply <span class="process-math">\(x\)</span> or <span class="process-math">\(f(x)\)</span> by a negative number? We can answer that question just by looking at what happens when we multiply by <span class="process-math">\(-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_func_transf-4-9"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.9</span><span class="period">.</span><span class="space"> </span><span class="title">Vertical and Horizontal Reflection.</span>
+</h4>
+<div class="para" id="sec_func_transf-4-9-2-1">Changing <span class="process-math">\(f(x)\)</span> to <span class="process-math">\(-f(x)\)</span> transforms all positive outputs into negative outputs, and vice versa. The graph of <span class="process-math">\(y=f(x)\)</span> is then reflected across the <span class="process-math">\(x\)</span>-axis to become the graph of <span class="process-math">\(y=-f(x)\text{,}\)</span> as shown in the red graph in <a href="sec_func_transf.html#fig_taalmanpage65c" class="xref" data-knowl="./knowl/xref/fig_taalmanpage65c.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.10">Figure 1.10.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-9-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_func_transf-4-9-2-2">If we instead multiply the independent variable by <span class="process-math">\(-1\text{,}\)</span> then we obtain a reflection across the <span class="process-math">\(y\)</span>-axis, as shown in the graph graph in <a href="sec_func_transf.html#fig_taalmanpage65c" class="xref" data-knowl="./knowl/xref/fig_taalmanpage65c.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.10">Figure 1.10.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-9-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_taalmanpage65c"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage65c.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.10<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=f(-x)\)</span> reflects across the <span class="process-math">\(y\)</span>-axis (red). <span class="process-math">\(y=-f(x)\)</span> reflects across the <span class="process-math">\(x\)</span>-axis (green).<div class="autopermalink" data-description="Figure 1.10.10"><a href="#fig_taalmanpage65c" title="Copy permalink for Figure 1.10.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.10.9: Vertical and Horizontal Reflection"><a href="#sec_func_transf-4-9" title="Copy permalink for Example 1.10.9: Vertical and Horizontal Reflection">🔗</a></div></article><div class="para" id="sec_func_transf-4-10">Now if we want to transform <span class="process-math">\(f(x)\)</span> to <span class="process-math">\(f(-2x)\text{,}\)</span> for example, we can transform <span class="process-math">\(f(x)\)</span> first to <span class="process-math">\(f(2x)\)</span> and then by reflection to <span class="process-math">\(f(-2x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-10" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_func_transf-4-11">The table that follows summarizes the graphical and algebraic effects of the transformations just discussed.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-11" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="sec_func_transf-4-12"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.11<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Table 1.10.11"><a href="#sec_func_transf-4-12" title="Copy permalink for Table 1.10.11">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><em class="emphasis">Transformation</em></td>
+<td class="l m b0 r0 l0 t0 lines"><em class="emphasis">Graphical Result</em></td>
+<td class="l m b0 r0 l0 t0 lines"><em class="emphasis">Algebraic Result</em></td>
+</tr>
+<tr>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x+a)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">shifts left <span class="process-math">\(a\)</span> units if <span class="process-math">\(a&gt;0\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((x,y)\rightarrow (x-a,y)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">shifts right <span class="process-math">\(a\)</span> units if <span class="process-math">\(a\lt 0\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)+b\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">shifts up <span class="process-math">\(b\)</span> units if <span class="process-math">\(b&gt;0\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((x,y)\rightarrow (x,y+b)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">shifts down <span class="process-math">\(b\)</span> units if <span class="process-math">\(b\lt 0\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(cx)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">horizontal compression by <span class="process-math">\(c\)</span> if <span class="process-math">\(c&gt;1\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((x,y)\rightarrow\left(\frac{1}{c} x,y\right)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">horizontal stretch by <span class="process-math">\(c\)</span> if <span class="process-math">\(0\lt c\lt 1\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(df(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">vertical stretch by <span class="process-math">\(d\)</span> if <span class="process-math">\(d&gt;1\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((x,y)\rightarrow (x,dx)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">vertical compression by <span class="process-math">\(d\)</span> if <span class="process-math">\(0\lt d\lt 1\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-f(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">graph reflects across the <span class="process-math">\(x\)</span>-axis</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((x,y)\rightarrow (x,-y)\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(-x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">graph reflects across the <span class="process-math">\(y\)</span>-axis</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((x,y)\rightarrow (-x,y)\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure><article class="example example-like" id="sec_func_transf-4-13"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.12</span><span class="period">.</span>
+</h4>
+<div class="para" id="sec_func_transf-4-13-1-1">Consider the function <span class="process-math">\(r\)</span> given in <a href="sec_func_transf.html#fig_APCfigure1-8-13" class="xref" data-knowl="./knowl/xref/fig_APCfigure1-8-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.13">Figure 1.10.13</a> below. Describe in words how the function <span class="process-math">\(m(x) = 2r(x+1)-1\)</span> is the result of three transformations of <span class="process-math">\(r(x)\text{.}\)</span> Does the order in which these transformations occur matter? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_APCfigure1-8-13"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure1-8-13.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.13<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(y=r(x)\text{.}\)</span><div class="autopermalink" data-description="Figure 1.10.13"><a href="#fig_APCfigure1-8-13" title="Copy permalink for Figure 1.10.13">🔗</a></div></figcaption></figure><div class="solutions"><details id="sec_func_transf-4-13-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sec_func_transf-4-13-2-1">There are three basic transformations involved: a vertical shift of 1 unit down, a horizontal shift of 1 unit left, and a vertical stretch by a factor of 2. To understand the order in which these transformations are applied, it’s essential to remember that a function is a <em class="emphasis">process</em> that converts inputs to outputs.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_func_transf-4-13-2-2">
+<div class="para">By the algebraic rule for <span class="process-math">\(m\text{,}\)</span> <span class="process-math">\(m(x) = 2r(x+1)-1\text{.}\)</span> In words, this means that given an input <span class="process-math">\(x\)</span> for <span class="process-math">\(m\text{,}\)</span> we do the following processes in this particular order:</div>
+<ol class="decimal" id="sec_func_transf-4-13-2-2-5">
+<li id="sec_func_transf-4-13-2-2-5-1">
+<div class="para" id="sec_func_transf-4-13-2-2-5-1-1">add 1 to <span class="process-math">\(x\)</span> and then apply the function <span class="process-math">\(r\)</span> to the quantity <span class="process-math">\(x+1\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-2-5-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_func_transf-4-13-2-2-5-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-13-2-2-5-2">
+<div class="para" id="sec_func_transf-4-13-2-2-5-2-1">multiply the output of <span class="process-math">\(r(x+1)\)</span> by 2;<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-2-5-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_func_transf-4-13-2-2-5-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-13-2-2-5-3">
+<div class="para" id="sec_func_transf-4-13-2-2-5-3-1">subtract 1 from the output of <span class="process-math">\(2r(x+1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-2-5-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec_func_transf-4-13-2-2-5-3" title="Copy permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_func_transf-4-13-2-3">
+<div class="para">These three steps correspond to three basic transformations:</div>
+<ol class="decimal" id="sec_func_transf-4-13-2-3-1">
+<li id="sec_func_transf-4-13-2-3-1-1">
+<div class="para" id="sec_func_transf-4-13-2-3-1-1-1">shift the graph of <span class="process-math">\(r\)</span> to the left by 1 unit;<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-3-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_func_transf-4-13-2-3-1-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-13-2-3-1-2">
+<div class="para" id="sec_func_transf-4-13-2-3-1-2-1">stretch the resulting graph vertically by a factor of 2;<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-3-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_func_transf-4-13-2-3-1-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-13-2-3-1-3">
+<div class="para" id="sec_func_transf-4-13-2-3-1-3-1">shift the resulting graph vertically by <span class="process-math">\(-1\)</span> units.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-3-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec_func_transf-4-13-2-3-1-3" title="Copy permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_func_transf-4-13-2-4">
+<div class="para">We can see the graphical impact of these algebraic steps by taking them one at a time. Note that in each of the following figures, we track the point <span class="process-math">\((2,-1)\)</span> from the original function.</div>
+<ol class="decimal" id="sec_func_transf-4-13-2-4-2">
+<li id="sec_func_transf-4-13-2-4-2-1">
+<div class="para" id="sec_func_transf-4-13-2-4-2-1-1">In <a href="sec_func_transf.html#fig_APCfigure1-8-14" class="xref" data-knowl="./knowl/xref/fig_APCfigure1-8-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.14">Figure 1.10.14</a>, we see the function that results from a shift of 1 unit left of the function <span class="process-math">\(y=r(x)\)</span> in <a href="sec_func_transf.html#fig_APCfigure1-8-13" class="xref" data-knowl="./knowl/xref/fig_APCfigure1-8-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.13">Figure 1.10.13</a>. The tracked point first moves left 1 unit to <span class="process-math">\((1,-1)\text{.}\)</span> (Each time we take an additional step, we will de-emphasize the preceding function by having it appear in lighter color and dashed.) <figure class="figure figure-like" id="fig_APCfigure1-8-14"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure1-8-14.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.14<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(y=r(x+1)\text{.}\)</span><div class="autopermalink" data-description="Figure 1.10.14"><a href="#fig_APCfigure1-8-14" title="Copy permalink for Figure 1.10.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-4-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_func_transf-4-13-2-4-2-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-13-2-4-2-2">
+<div class="para" id="sec_func_transf-4-13-2-4-2-2-1">Continuing, we now consider the function <span class="process-math">\(y=2r(x+1)\text{,}\)</span> which results in a vertical stretch away from the <span class="process-math">\(x\)</span>-axis by a factor of 2, as seen in <a href="sec_func_transf.html#fig_APCfigure1-8-15" class="xref" data-knowl="./knowl/xref/fig_APCfigure1-8-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.15">Figure 1.10.15</a>. The tracked point is stretched vertically by a factor of 2 away from the <span class="process-math">\(x\)</span>-axis to <span class="process-math">\((1,-2)\text{.}\)</span> <figure class="figure figure-like" id="fig_APCfigure1-8-15"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure1-8-15.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.15<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(y=2r(x+1)\text{.}\)</span><div class="autopermalink" data-description="Figure 1.10.15"><a href="#fig_APCfigure1-8-15" title="Copy permalink for Figure 1.10.15">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-4-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_func_transf-4-13-2-4-2-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-13-2-4-2-3">
+<div class="para" id="sec_func_transf-4-13-2-4-2-3-1">Finally, we arrive at <span class="process-math">\(y=2r(x+1)-1\)</span> by subtracting 1 from the previous graph; this of course is a vertical shift of <span class="process-math">\(-1\)</span> units, and produces the graph of <span class="process-math">\(m\)</span> shown in red in <a href="sec_func_transf.html#fig_APCfigure1-8-16" class="xref" data-knowl="./knowl/xref/fig_APCfigure1-8-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.16">Figure 1.10.16</a>. The tracked point is shifted 1 unit down to the point <span class="process-math">\((1,-3)\text{.}\)</span> <figure class="figure figure-like" id="fig_APCfigure1-8-16"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure1-8-16.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.16<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(m(x)=2r(x+1)-1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.10.16"><a href="#fig_APCfigure1-8-16" title="Copy permalink for Figure 1.10.16">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-4-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec_func_transf-4-13-2-4-2-3" title="Copy permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_func_transf-4-13-2-5">
+<div class="para">While there are some transformations that can be executed in either order (such as the combination of a horizontal translation and a vertical translation, in other situations order matters. In this example, we have to apply the vertical stretch <em class="emphasis">before</em> applying the vertical shift, Algebraically, this is because</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2r(x+1)-1\neq 2[r(x+1)-1]\text{.}
+\end{equation*}
+</div>
+<div class="para">The quantity <span class="process-math">\(2r(x+1)-1\)</span> multiplies the function <span class="process-math">\(r(x+1)\)</span> by 2 first (the stretch) and then the vertical shift follows; the quantity <span class="process-math">\(2[r(x+1)-1]\)</span> shifts the function <span class="process-math">\(r(x+1)\)</span> down 1 unit first, and then executes a vertical stretch by a factor of 2. In the latter scenario, the point <span class="process-math">\((1,-1)\)</span> that lies on <span class="process-math">\(r(x+1)\)</span> gets transformed first to <span class="process-math">\((1,-2)\)</span> and then to <span class="process-math">\((1,-4)\text{,}\)</span> which is not the same as the point <span class="process-math">\((1,-3)\)</span> that lies on <span class="process-math">\(m(x)=2r(x+1)-1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-13-2-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.10.12.1"><a href="#sec_func_transf-4-13-2" title="Copy permalink for Solution 1.10.12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.10.12"><a href="#sec_func_transf-4-13" title="Copy permalink for Example 1.10.12">🔗</a></div></article><article class="exercise exercise-like" id="sec_func_transf-4-14"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.17</span><span class="period">.</span><span class="space"> </span><span class="title">Vertical and horizontal translations, stretches, and reflections.</span>
+</h4>
+<div class="para" id="sec_func_transf-4-14-2-1">The figure that follows shows a piece of the graph of a parabola with five marked points. Sketch graphs for each of the given transformations. On each graph, mark the new coordinates of the five marked points<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-14-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="sec_func_transf-4-14-2-2"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/TaalmanPage69.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.18<span class="period">.</span></span><span class="space"> </span><div class="autopermalink" data-description="Figure 1.10.18"><a href="#sec_func_transf-4-14-2-2" title="Copy permalink for Figure 1.10.18">🔗</a></div></figcaption></figure> <ol class="lower-alpha ol-marker-1" id="sec_func_transf-4-14-2-3">
+<li id="sec_func_transf-4-14-2-3-1">
+<div class="para" id="sec_func_transf-4-14-2-3-1-1">
+<span class="process-math">\(f(x)+3, f(x)-3, f(x+3)\text{,}\)</span> and <span class="process-math">\(f(x-3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-14-2-3-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.10.17.a"><a href="#sec_func_transf-4-14-2-3-1" title="Copy permalink for Item 1.10.17.a">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-14-2-3-2">
+<div class="para" id="sec_func_transf-4-14-2-3-2-1">
+<span class="process-math">\(2f(x), \frac{1}{2}f(x), f(2x)\text{,}\)</span> and <span class="process-math">\(f\left(\frac{1}{2} x\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-14-2-3-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.10.17.b"><a href="#sec_func_transf-4-14-2-3-2" title="Copy permalink for Item 1.10.17.b">🔗</a></div>
+</li>
+<li id="sec_func_transf-4-14-2-3-3">
+<div class="para" id="sec_func_transf-4-14-2-3-3-1">
+<span class="process-math">\(-f(x)\)</span> and <span class="process-math">\(f(-x)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-4-14-2-3-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.10.17.c"><a href="#sec_func_transf-4-14-2-3-3" title="Copy permalink for Item 1.10.17.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Checkpoint 1.10.17: Vertical and horizontal translations, stretches, and reflections"><a href="#sec_func_transf-4-14" title="Copy permalink for Checkpoint 1.10.17: Vertical and horizontal translations, stretches, and reflections">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Transformations"><a href="#sec_func_transf-4" title="Copy permalink for Subsection: Transformations">🔗</a></div></section><section class="subsection" id="sec_symmetry"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Symmetry</span>
+</h3>
+<div class="para" id="sec_symmetry-2">Some graphs do not change under certain transformations. For example, the graph of <span class="process-math">\(f(x) = x^2\)</span> shown in <a href="sec_func_transf.html#fig_taalmanpage66a" class="xref" data-knowl="./knowl/xref/fig_taalmanpage66a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.19">Figure 1.10.19</a> below remains the same if we reflect it across the <span class="process-math">\(y\)</span>-axis. We say that this function has <em class="emphasis"><span class="process-math">\(y\)</span>-axis symmetry</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_taalmanpage66a"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/TaalmanPage66a.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.19<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=x^2\)</span> is preserved under reflection across the <span class="process-math">\(y\)</span>-axis.<div class="autopermalink" data-description="Figure 1.10.19"><a href="#fig_taalmanpage66a" title="Copy permalink for Figure 1.10.19">🔗</a></div></figcaption></figure><div class="para" id="sec_symmetry-4">As another example, the graph of <span class="process-math">\(g(x) = x^3\)</span> shown in <a href="sec_func_transf.html#fig_taalmanpage66b" class="xref" data-knowl="./knowl/xref/fig_taalmanpage66b.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.20">Figure 1.10.20</a> below remains the same if we reflect it first across the <span class="process-math">\(y\)</span>-axis and then across the <span class="process-math">\(x\)</span>-axis. This double-reflection across the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axis is equivalent to rotation around the origin by <span class="process-math">\(180^\circ\text{.}\)</span> Take a moment to experiment with this: on a piece of scrap paper, draw a smiley face or some other picture. Flip the paper vertically and then horizontally (or horizontally and then vertically). This gives you the same result as rotating the paper by 180 degrees. A function that is preserved under the transformation of <span class="process-math">\(180^\circ\)</span> rotation is said to have <span class="process-math">\(180^\circ\)</span> <em class="emphasis">rotational symmetry</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_taalmanpage66b"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/TaalmanPage66b.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.20<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y=x^3\)</span> is preserved under <span class="process-math">\(180^\circ\)</span> rotation about the origin.<div class="autopermalink" data-description="Figure 1.10.20"><a href="#fig_taalmanpage66b" title="Copy permalink for Figure 1.10.20">🔗</a></div></figcaption></figure><div class="para" id="sec_symmetry-6">These types of symmetries are also called <em class="emphasis">even symmetry</em> and <em class="emphasis">odd symmetry</em>, since power functions with even powers all have <span class="process-math">\(y\)</span>-axis symmetry and power functions with odd powers all have rotational symmetry. Because graphical reflections correspond to multiplication by <span class="process-math">\(-1\text{,}\)</span> we can describe functions with even and odd symmetry algebraically as follows:<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_symmetry-7"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.10.21</span><span class="period">.</span><span class="space"> </span><span class="title">Even and Odd Functions.</span>
+</h4>
+<div class="para logical" id="sec_symmetry-7-2-1">
+<div class="para">Even functions have <span class="process-math">\(y\)</span>-axis symmetry while odd functions have rotational symmetry:</div>
+<ul class="disc" id="sec_symmetry-7-2-1-2">
+<li id="sec_symmetry-7-2-1-2-1">
+<div class="para" id="sec_symmetry-7-2-1-2-1-1">A function <span class="process-math">\(f\)</span> is an <em class="emphasis">even function</em> if <span class="process-math">\(f(-x)=f(x)\)</span> for all <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-7-2-1-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_symmetry-7-2-1-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_symmetry-7-2-1-2-2">
+<div class="para" id="sec_symmetry-7-2-1-2-2-1">A function <span class="process-math">\(f\)</span> is an <em class="emphasis">odd function</em> if <span class="process-math">\(f(-x)=-f(x)\)</span> for all <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-7-2-1-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_symmetry-7-2-1-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-7-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.10.21: Even and Odd Functions"><a href="#sec_symmetry-7" title="Copy permalink for Definition 1.10.21: Even and Odd Functions">🔗</a></div></article><div class="para logical" id="sec_symmetry-8">
+<div class="para">For example, the function <span class="process-math">\(f(x) = x^2\)</span> is even because for all <span class="process-math">\(x\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(-x) = (-x)^2 = (-1)^2(x)^2 = x^2 = f(x)\text{.}
+\end{equation*}
+</div>
+<div class="para">In contrast, the function <span class="process-math">\(g(x) = x^3\)</span> is odd because for all <span class="process-math">\(x\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(-x) = (-x)^3 = (-1)^3(x)^3 = -x^3 = -g(x)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_symmetry-9">Note that many functions are neither even nor odd. In fact, it is quite hard for a function to be either even or odd, since this would require the graph to have one of these two specific symmetries.<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-9" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_symmetry-10"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.22</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="sec_symmetry-10-1-1">
+<div class="para">
+<span class="process-math">\(h(x) = x^2+x\)</span> is neither even nor odd.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+h(-x) = (-x)^2+(-x) = x^2-x
+\end{equation*}
+</div>
+<div class="para">and so we can see that <span class="process-math">\(h(-x)\neq h(x)\text{,}\)</span> thus <span class="process-math">\(h(x)\)</span> is not even. Similarly, since <span class="process-math">\(-h(x) = -x^2-x\text{,}\)</span> we can also see that <span class="process-math">\(h(-x)\neq -h(x)\text{,}\)</span> thus <span class="process-math">\(h(x)\)</span> is not odd. Consequently, the function <span class="process-math">\(h(x) = x^2+x\)</span> has neither <span class="process-math">\(y\)</span>-axis symmetry nor rotational symmetry. Confirm this for yourself by graphing <span class="process-math">\(h(x)\)</span> using Desmos or a graphing calculator.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-10-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.10.22"><a href="#sec_symmetry-10" title="Copy permalink for Example 1.10.22">🔗</a></div></article><article class="exercise exercise-like" id="sec_symmetry-11"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.23</span><span class="period">.</span>
+</h4>
+<div class="para" id="sec_symmetry-11-1-1">Sketch a graph that has neither <span class="process-math">\(y\)</span>-axis symmetry nor <span class="process-math">\(180^\circ\)</span> rotational symmetry. Congratulations! You have drawn the graph of a function that is neither even nor odd.<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-11-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.10.23"><a href="#sec_symmetry-11" title="Copy permalink for Checkpoint 1.10.23">🔗</a></div></article><article class="example example-like" id="sec_symmetry-12"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.24</span><span class="period">.</span><span class="space"> </span><span class="title">Testing if functions are even or odd.</span>
+</h4>
+<div class="para logical" id="sec_symmetry-12-2-1">
+<div class="para">Determine whether each of the following function is even, odd, or neither.</div>
+<ol class="decimal ol-marker-11" id="sec_symmetry-12-2-1-1" start="0">
+<li id="sec_symmetry-12-2-1-1-1">
+<div class="para" id="sec_symmetry-12-2-1-1-1-1">
+<span class="process-math">\(\displaystyle f(x) = \frac{1}{x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-2-1-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_symmetry-12-2-1-1-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec_symmetry-12-2-1-1-2">
+<div class="para" id="sec_symmetry-12-2-1-1-2-1">
+<span class="process-math">\(\displaystyle g(x) = x^4-x^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-2-1-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_symmetry-12-2-1-1-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec_symmetry-12-2-1-1-3">
+<div class="para" id="sec_symmetry-12-2-1-1-3-1">
+<span class="process-math">\(\displaystyle h(x) = \frac{2+x}{1+x^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-2-1-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec_symmetry-12-2-1-1-3" title="Copy permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec_symmetry-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec_symmetry-12-3-1">
+<div class="para">We first determine algebraically whether each function satisfies the definition of even or odd (or if it does not) and then verify graphically.</div>
+<ol class="decimal ol-marker-11" id="sec_symmetry-12-3-1-1" start="0">
+<li id="sec_symmetry-12-3-1-1-1">
+<div class="para logical" id="sec_symmetry-12-3-1-1-1-1">
+<div class="para">To determine whether <span class="process-math">\(f\)</span> is even or odd (or neither) we must calculate <span class="process-math">\(f(-x)\)</span> and determine if it is equal to <span class="process-math">\(f(x), -f(x)\text{,}\)</span> or neither. If <span class="process-math">\(f(-x)=f(x)\text{,}\)</span> it is even, and if <span class="process-math">\(f(-x)=-f(x)\text{,}\)</span> it is odd. We have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(-x) = \frac{1}{-x} = -\frac{1}{x}  = -f(x)\text{,}
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(f(x) = \frac{1}{x}\)</span> is an odd function since it satisfies <span class="process-math">\(f(-x)=-f(x)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-3-1-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_symmetry-12-3-1-1-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec_symmetry-12-3-1-1-2">
+<div class="para logical" id="sec_symmetry-12-3-1-1-2-1">
+<div class="para">We follow the same procedure to determine whether <span class="process-math">\(g(x)\)</span> is even, odd, or neither. If <span class="process-math">\(g(-x)=g(x)\text{,}\)</span> it is even, if <span class="process-math">\(g(-x)=-g(x)\text{,}\)</span> it is odd, and if neither of those two things is true, then it is neither even nor odd. Well</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(-x) = (-x)^4-(-x)^2  = x^4-x^2 = g(x)\text{,}
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(g(x)\)</span> is an even function.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-3-1-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_symmetry-12-3-1-1-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec_symmetry-12-3-1-1-3">
+<div class="para logical" id="sec_symmetry-12-3-1-1-3-1">
+<div class="para">Following the same line of reasoning, we must examine <span class="process-math">\(h(-x)\)</span> to determine if it is equal to either <span class="process-math">\(h(x)\)</span> or <span class="process-math">\(-h(x)\text{,}\)</span> or neither.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+h(-x) = \frac{2+(-x)}{1+(-x)^2} = \frac{2-x}{1+x^2}\text{.}
+\end{equation*}
+</div>
+<div class="para">This does not appear to be equal to either <span class="process-math">\(h(x)\)</span> or <span class="process-math">\(-h(x)\text{.}\)</span> Indeed,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-h(x) = -\frac{2+x}{1+x^2} = \frac{-2-x}{1+x^2}\neq h(-x) =  \frac{2-x}{1+x^2}\text{.}
+\end{equation*}
+</div>
+<div class="para">Hence the function <span class="process-math">\(h(x)\)</span> is neither even nor odd.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-3-1-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec_symmetry-12-3-1-1-3" title="Copy permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_symmetry-12-3-2">The graphs of <span class="process-math">\(f(x), g(x)\text{,}\)</span> and <span class="process-math">\(h(x)\)</span> appear below in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig_taalmanpage72a-c" missing or not unique]</code>:<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_taalmanpage72a"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage72a.png" class="contained"></div>
+<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage72b.png" class="contained"></div>
+<span class="process-math">\(g(x) =  x^4+x^2\)</span><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage72c.png" class="contained"></div>
+<span class="process-math">\(h(x) = \frac{2+x}{1+x^2}\)</span><span class="process-math">\(f(x), g(x)\text{,}\)</span><span class="process-math">\(h(x)\)</span><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10.25<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(f(x) =  \frac{1}{x}\)</span> is an odd function.<div class="autopermalink" data-description="Figure 1.10.25"><a href="#fig_taalmanpage72a" title="Copy permalink for Figure 1.10.25">🔗</a></div></figcaption></figure><div class="para" id="sec_symmetry-12-3-4">We can see in <a href="sec_func_transf.html#fig_taalmanpage72a" class="xref" data-knowl="./knowl/xref/fig_taalmanpage72a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.10.25">Figure 1.10.25</a> that <span class="process-math">\(f(x) = \frac{1}{x}\)</span> has <span class="process-math">\(180^\circ\)</span> rotational symmetry about the origin, which confirms that <span class="process-math">\(f(x)\)</span> is an odd function. In <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig_taalmanpage72b" missing or not unique]</code>, we see that <span class="process-math">\(g(x) = x^4+x^2\)</span> has reflectional symmetry across the <span class="process-math">\(y\)</span>-axis, confirming that <span class="process-math">\(g(x)\)</span> is an even function. Lastly, in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig_taalmanpage72c" missing or not unique]</code>, we see that <span class="process-math">\(h(x) = \frac{2+x}{1+x^2}\)</span> has neither type of symmetry, confirming that <span class="process-math">\(h(x)\)</span> is neither even nor odd.<div class="autopermalink" data-description="Paragraph"><a href="#sec_symmetry-12-3-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.10.24.1"><a href="#sec_symmetry-12-3" title="Copy permalink for Solution 1.10.24.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.10.24: Testing if functions are even or odd"><a href="#sec_symmetry-12" title="Copy permalink for Example 1.10.24: Testing if functions are even or odd">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Symmetry"><a href="#sec_symmetry" title="Copy permalink for Subsection: Symmetry">🔗</a></div></section><section class="subsection" id="sec_func_transf-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Application: The Vertex Form of a Quadratic Function</span>
+</h3>
+<div class="para" id="sec_func_transf-6-2">There is another "standard" form in which you may see a quadratic function, called the <em class="emphasis">vertex form</em>:<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_func_transf-6-3"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.10.26</span><span class="period">.</span><span class="space"> </span><span class="title">Vertex form of a quadratic function.</span>
+</h4>
+<div class="para logical" id="sec_func_transf-6-3-2-1">
+<div class="para">A quadratic function with vertex <span class="process-math">\((h,k)\)</span> may be written in the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y=a(x-h)^2+k\text{.}
+\end{equation*}
+</div>
+<div class="para">The constant <span class="process-math">\(a\)</span> may be determined from one other point on the graph of the function.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-3-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.10.26: Vertex form of a quadratic function"><a href="#sec_func_transf-6-3" title="Copy permalink for Definition 1.10.26: Vertex form of a quadratic function">🔗</a></div></article><div class="para logical" id="sec_func_transf-6-4">
+<div class="para">This form arises from taking the parabola <span class="process-math">\(f(x)=x^2\)</span> and applying appropriate transformations to obtain any other parabola as follows:</div>
+<ul class="disc" id="sec_func_transf-6-4-2">
+<li id="sec_func_transf-6-4-2-1">
+<div class="para" id="sec_func_transf-6-4-2-1-1">First, shift <span class="process-math">\(f(x)=x^2\)</span> horizontally via <span class="process-math">\(f(x-h)\text{.}\)</span> If the parabola must shift to the right, use a positive value for <span class="process-math">\(h\text{.}\)</span> If the parabola must shift to the left, use a negative value for <span class="process-math">\(h\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-4-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-6-4-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_func_transf-6-4-2-2">
+<div class="para" id="sec_func_transf-6-4-2-2-1">Next, stretch the parabola vertically via <span class="process-math">\(af(x-h)\text{.}\)</span> If the parabola must shrink, use a value of <span class="process-math">\(a\)</span> that is between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\text{.}\)</span> If the parabola must be reflected across the <span class="process-math">\(x\)</span>-axis, use a negative value of <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-4-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-6-4-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="sec_func_transf-6-4-2-3">
+<div class="para" id="sec_func_transf-6-4-2-3-1">Finally, shift the parabola vertically via <span class="process-math">\(af(x-h)+k\text{.}\)</span> If the parabola must shift up, use a positive value for <span class="process-math">\(k\text{.}\)</span> If the parabola must shift down, use a negative value for <span class="process-math">\(k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-4-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_func_transf-6-4-2-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_func_transf-6-5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10.27</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="sec_func_transf-6-5-1-1">
+<div class="para">We can reason graphically via transformations of <span class="process-math">\(y=x^2\)</span> to determine whether the parabola</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(x) = -3(x+1)^2+9
+\end{equation*}
+</div>
+<div class="para">has 0, 1, or 2 <span class="process-math">\(x\)</span>-intercepts.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-5-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_func_transf-6-5-1-2">The vertex of the parabola has shifted left by one unit (<span class="process-math">\(h=-1\)</span>) and up by nine units (<span class="process-math">\(k=9\)</span>) from the graph of <span class="process-math">\(y=x^2\text{,}\)</span> so the vertex of <span class="process-math">\(p(x)\)</span> is in the second quadrant at the point <span class="process-math">\((-1,9)\text{.}\)</span> The coefficient of <span class="process-math">\(-3\)</span> has reflected the graph over the <span class="process-math">\(x\)</span>-axis, so <span class="process-math">\(p(x)\)</span> opens downward. Thus we know that <span class="process-math">\(p(x)\)</span> must have 2 <span class="process-math">\(x\)</span>-intercepts. See if you can find them algebraically.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-5-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.10.27"><a href="#sec_func_transf-6-5" title="Copy permalink for Example 1.10.27">🔗</a></div></article><article class="exercise exercise-like" id="sec_func_transf-6-6"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.28</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="sec_func_transf-6-6-1-1">
+<div class="para">Simplify the vertex form of a quadratic function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = a(x-h)^2+k
+\end{equation*}
+</div>
+<div class="para">by combining like terms in order to determine formulas for the parameters <span class="process-math">\(a,b\text{,}\)</span> and <span class="process-math">\(c\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = a(x-h)^2+k = ax^2+bx+c\text{.}
+\end{equation*}
+</div>
+<div class="para">These will be in terms of the letters <span class="process-math">\(a, h\text{,}\)</span> and <span class="process-math">\(k\text{.}\)</span> (Hint: the formula for <span class="process-math">\(a\)</span> is <span class="process-math">\(a=a\text{.}\)</span>)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-6-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_func_transf-6-6-1-2">Recall from Exercise <a href="sec_linearandquadraticfunctions.html#ex_quadraticparameters" class="xref" data-knowl="./knowl/xref/ex_quadraticparameters.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 1.2.9">Checkpoint 1.2.9</a> that we explored how the parameters <span class="process-math">\(a, b\text{,}\)</span> and <span class="process-math">\(c\)</span> impact the graph of <span class="process-math">\(y=ax^2+bx+c\text{.}\)</span> Experiment with the Desmos graph at<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-6-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <a class="external" href="https://www.desmos.com/calculator/yayrd6etuz" target="_blank">https://www.desmos.com/calculator/yayrd6etuz</a><details class="ptx-footnote" aria-live="polite" id="sec_func_transf-6-6-1-4"><summary class="ptx-footnote__number" title="Footnote 1.33"><sup> 33 </sup></summary><div class="ptx-footnote__contents" id="sec_func_transf-6-6-1-4"><code class="code-inline tex2jax_ignore">www.desmos.com/calculator/yayrd6etuz</code></div></details> <div class="para" id="sec_func_transf-6-6-1-5">if you do not remember. We see in this exercise how the values of <span class="process-math">\(a, b\text{,}\)</span> and <span class="process-math">\(c\)</span> are obtained based on the location of the vertex and width of the parabola.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-6-6-1-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.10.28"><a href="#sec_func_transf-6-6" title="Copy permalink for Checkpoint 1.10.28">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Application: The Vertex Form of a Quadratic Function"><a href="#sec_func_transf-6" title="Copy permalink for Subsection: Application: The Vertex Form of a Quadratic Function">🔗</a></div></section><section class="subsection" id="sec_func_transf-7"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Summary</span>
+</h3>
+<div class="para" id="sec_func_transf-7-2">The following terms were introduced in this section:<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-7-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<span class="process-math">\(y\)</span><span class="process-math">\(180^\circ\)</span><div class="para" id="sec_func_transf-7-5">
+<em class="emphasis">Key ideas:</em> Adding, subtracting, multiplying, or dividing a function by a number results a predictable change in the graph that leaves some aspects of the shape of the graph unchanged. Some graphs have particular types of symmetry that confer special names on those functions (even and odd), and we can determine algebraically whether or not a function has these types of symmetry.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_transf-7-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Summary"><a href="#sec_func_transf-7" title="Copy permalink for Subsection: Summary">🔗</a></div></section><div class="autopermalink" data-description="Section 1.10: Transformations and Symmetry"><a href="#sec_func_transf" title="Copy permalink for Section 1.10: Transformations and Symmetry">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_func_comp.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
