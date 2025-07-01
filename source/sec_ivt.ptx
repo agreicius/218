@@ -1,0 +1,596 @@
+<section xml:id="sec_ivt">
+  <title>The Intermediate Value Theorem</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Understand the statement of the Intermediate Value Theorem:
+          <ul>
+            <li>
+              <p>
+                Represent the variables and notation in the Theorem visually.
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the hypotheses of the theorem and why they are necessary.
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the conclusion of the theorem and the ways in which it may fail if the hypotheses are not true.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand how the IVT implies that a function can change sign only at zeros and discontinuities.
+        </p>
+      </li>
+      <li>
+        <p>
+          Determine where a piecewise-defined function is positive and negative.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Motivational Scenario</title>
+    <p>
+      I'm melting sugar into caramel while watching the latest episode of The Great British Baking Show on Netflix.
+      It's taking forever for my stove to come up to temperature and I need to be careful:
+      sugar caramelizes at 340 degrees Fahrenheit (170 degrees Celsius) and will quickly start to burn if it gets too hot.
+    </p>
+    <p>
+      I'm momentarily transfixed by Abdul's stunning parrot mask biscuit showstopper.
+      Oh no!
+      My sugar has overheated and burned.
+      I'm so annoyed with myself.
+      If I had paid more attention, I could have caught the moment it reached the right temperature and prevented this disaster.
+    </p>
+    <p>
+      There are several (mathematical) assumptions that feed into my frustration.
+      <ol>
+        <li>
+          <p>
+            The temperature of the sugar could not have jumped over <m>340^\circ</m>F.
+          </p>
+        </li>
+        <li>
+          <p>
+            There is a point in time at which the temperature was exactly <m>340^\circ</m>F.
+          </p>
+        </li>
+        <li>
+          <p>
+            That time must have been while I was distracted because the sugar went from too cool to too hot when I wasn't looking.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      All of these assumptions
+      (and my resulting frustration)
+      are encapsulated by the Intermediate Value Theorem,
+      which states that continuous functions,
+      such as temperature, cannot skip values,
+      such as <m>340^\circ</m>F.
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Intermediate Value Theorem</title>
+    <p>
+      In this section,
+      we examine an important consequence of continuity that extends beyond our desire to describe a single value of a function.
+      If <m>f</m> is continuous between two values <m>x=a</m> and <m>x=b</m>,
+      then the corresponding values of <m>f(x)</m> go through every possible intermediate value between the <m>y</m>-values <m>f(a)</m> and <m>f(b)</m>.
+      This is intuitively obvious if we think of continuous functions as having
+      <q>unbroken</q>
+      graphs.
+    </p>
+    <p>
+      For example,
+      consider the function <m>f</m> in the figure that follows.
+      The function is equal to every {\t intermediate} value <m>y=K</m> between <m>y=f(a)</m> and <m>y=f(b)</m>:
+    </p>
+    <figure xml:id="fig_taalmanpage129c">
+      <caption>The continuous function <m>f(x)</m> has height <m>y=K</m> at <m>x=c</m>.</caption>
+      <image width="37%" source="TaalmanPage129c.png"/>
+    </figure>
+    <p>
+      In general, passing through all such "intermediate values" is a property that holds for every function that is continuous on a closed interval <m>[a,b]</m>:
+    </p>
+    <theorem>
+      <title>The Intermediate Value Theorem</title>
+      <statement>
+        <p>
+          Suppose that <m>f</m> is a continuous function on a closed interval <m>[a,b]</m> such that
+          <m>f(a)\neq f(b)</m> and <m>K</m> is any <m>y</m>-value strictly between <m>y=f(a)</m> and <m>y=f(b)</m>.
+          Then there exists at least one <m>x</m>-value <m>c</m> between <m>x=a</m> and <m>x=b</m> such that <m>f(c)=K</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This important consequence of continuity may seem obvious,
+      but in fact it relies on a subtle mathematical property of the real numbers called the
+      <em>Least Upper Bound Axiom.</em>
+      Properly explaining why the Intermediate Value Theorem is true is outside of the scope of this book.
+    </p>
+    <p>
+      In the Intermediate Value Theorem,
+      the hypothesis that <m>f</m> be continuous on a closed interval is essential.
+      If <m>f</m> either fails to be continuous on the interior of the interval or fails to be continuous at a closed endpoint,
+      then the conclusion of this theorem does not necessarily hold.
+      For example,
+      the function below fails to be continuous on <m>[a,b]</m> and also fails to satisfy the conclusion of the Intermediate Value Theorem for the pictured value of <m>K</m>.
+    </p>
+    <p>
+      Note that this theorem has two different parts:
+      <ul>
+        <li>
+          <p>
+            The <em>hypothesis</em> of the theorem are the conditions that need to be met in order to apply the theorem.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <em>conclusion</em> of the theorem is what the theorem tells us to be true,
+            given that the conditions in the hypothesis are met.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The <em>hypotheses</em> of the Intermediate Value Theorem are
+      <ul>
+        <li>
+          <p>
+            <m>f</m> must be continuous on the closed interval <m>[a,b]</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>f(a)\neq f(b)</m>, and
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>K</m> must be a <m>y</m>-value strictly between <m>f(a)</m> and <m>f(b)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The <em>conclusion</em> of the Intermediate Value Theorem is
+      <ul>
+        <li>
+          <p>
+            that there is at least one value <m>x=c</m> that is between <m>x=a</m> and <m>x=b</m> such that <m>f(c)=K</m>,
+            meaning that the function <m>f</m> has height <m>y=K</m> <em>somewhere</em>
+            on the interval from <m>x=a</m> to <m>x=b</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example xml:id="ex_IVTintroex">
+      <statement>
+        <p>
+          We can use the Intermediate Value Theorem to show that
+          <me>
+            x^4+x=3
+          </me>
+          has a solution for some <m>x</m>-value between <m>x=1</m> and <m>x=2</m>.
+        </p>
+        <p>
+          First, define the function <m>f(x) = x^4+x</m>.
+          We are given <m>x</m>-values <m>x=1</m> and <m>x=2</m>,
+          so in the IVT, we are using <m>a=1</m> and <m>b=2</m>.
+          We want to know that <m>f(x) = 3</m>,
+          so in the IVT we are using <m>K=3</m>.
+        </p>
+        <p>
+          Let's check that the hypotheses of the IVT are true:
+          <ul>
+            <li>
+              <p>
+                <m>f</m> is algebraic with domain <m>\mathbb{R}</m>,
+                hence <m>f</m> is continuous on <m>[1,2]</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(1) = (1)^4+1 = 2</m> and
+                <m>f(2) = (2)^4+2 = 18</m>, so <m>f(1)\neq f(2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>K=3</m> is strictly between
+                <m>f(1) = 2</m> and <m>f(2) = 18</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Since the hypotheses are all met,
+          we may use the conclusion:
+          <ul>
+            <li>
+              <p>
+                There is a value of <m>x=c</m> between <m>x=1</m> and <m>x=2</m> such that
+                <me>
+                  \begin{aligned}f(c) \amp = 3\\ c^4+c \amp = 3 \end{aligned}
+                </me>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus we know that <m>x=c</m> is a solution to the equation <m>x^4+x=3</m> and that <m>1\lt c\lt 2</m>.
+        </p>
+        <p>
+          Do we know the precise value of <m>c</m>?
+          No, we do not.
+          We can <em>guess</em> that <m>x=c</m> is fairly close to <m>x=1</m>,
+          since <m>f(1)=2</m> is close to <m>K=3</m> (especially compared to <m>f(2) = 18</m>),
+          but we don't know that for a fact.
+          It's also possible that there is more than one solution to the equation <m>x^4+x=3</m> between <m>x=1</m> and <m>x=2</m>.
+          The IVT does not specify how many values of <m>c</m> there are,
+          just that at least one exists.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use Desmos to graph <m>f(x) = x^4+x</m> and <m>y=3</m>.
+          How many values of <m>x=c</m> are there with
+          <m>f(c) = 3</m> and <m>1\lt c\lt 2</m>?
+          Estimate them from the graph.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      As noted in Example <xref ref="ex_IVTintroex" autoname="yes"/>,
+      there may be more than one value of <m>c</m> which satisfies the conclusion of the IVT:
+    </p>
+    <figure xml:id="fig_IVTPic1">
+      <caption>There may be only one <m>x=c</m> with <m>f(c) = K</m> (pictured here <m>f(c)=N</m>).</caption>
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="73%" source="IVTPic1.png"/>
+      \end{subfigure}
+      \hspace{.2in}
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="73%" source="IVTPic2.png"/>
+      \caption{There may be more than one <m>x=c</m> with <m>f(c) = K</m> (pictured here <m>f(c)=N</m>).} \end{subfigure}
+      \caption{There is <em>at least</em> one <m>x=c</m> with <m>f(c) = K</m> (pictured here <m>f(c) = N</m>). }
+    </figure>
+    <example>
+      <title>A real-world illustration of the Intermediate Value Theorem</title>
+      <statement>
+        <p>
+          Consider the function <m>w(t)</m> that describes a particular person's weight at <m>t</m> years of age between the ages of 18 and 45.
+        </p>
+        <p>
+          The weight function <m>w(t)</m> should be continuous on <m>[18,45]</m> because a person's weight changes continuously over time and cannot jump from one value to another.
+          (We are assuming typical circumstances,
+          so that a person does not get a serious haircut, lose a limb,
+          or somehow otherwise get their weight to change drastically in an instant.)
+        </p>
+        <p>
+          The Intermediate Value Theorem tells us that for every weight <m>K</m> between <m>w(18)</m> and <m>w(45)</m>,
+          there is some time <m>c</m> between 18 and 45 for which <m>w(c) = K</m>.
+          For example, if the person weighed
+          <m>w(18)=130</m> pounds at age 18 and <m>w(45)=163</m> pounds at age 45,
+          then there must be some age between 18 and 45 at which the person weighed, say,
+          exactly 144 pounds.
+          In fact, we know that the person must have weighed all of the weights between 130 and 163 pounds,
+          at least once between ages 18 and 45.
+        </p>
+        <p>
+          It's also entirely possible that the person may have weighed exactly 144 pounds multiple times between ages 18 and 45,
+          and we don't know exactly when the person weighed exactly 144 pounds from the theorem.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_applyingIVT">
+      <title>Applying the Intermediate Value Theorem</title>
+      <statement>
+        <p>
+          The function <m>f(x) = x^3-3x+1</m> is continuous everywhere as we saw in <xref ref="thm_contofalgebraicfunctions">Theorem</xref>.
+          We use the Intermediate Value Theorem to conclude that there is some point <m>c</m> for which <m>f(c)=2</m>,
+          even though we cannot solve the equation <m>x^3-3x+1=2</m> by hand.
+        </p>
+        <p>
+          To show that there is some <m>c</m> with <m>f(c)=2</m>,
+          we need to find values <m>a</m> and <m>b</m> such that <m>K=2</m> is between <m>y=f(a)</m> and <m>y=f(b)</m>,
+          and apply the Intermediate Value Theorem.
+          By trial and error, we can find such values <m>a</m> and <m>b</m>,
+          by testing different value of <m>f(x)</m> until we find one that is less than and one that is greater than <m>2</m>.
+          For example,
+          <me>
+            \begin{aligned}f(0)\amp =0^3-3(0)+1 = 1\lt 2,\\ f(2)\amp =2^3-3(2)+1 = 3>2. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Since <m>f</m> is continuous on <m>[0,2]</m> and <m>K=2</m> satisfies <m>f(0)\lt K\lt f(2)</m>,
+          by the Intermediate Value Theorem there is some value <m>c</m> between <m>x=0</m> and <m>x=2</m> for which <m>f(c)=2</m>.
+          Note that the Intermediate Value Theorem doesn't tell us where <m>c</m> is,
+          only that such a <m>c</m> exists somewhere in the interval <m>(0,2)</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use Desmos to graph <m>f(x) = x^3-3x+1</m> and <m>y=2</m>.
+          Click on the point of intersection that is between the <m>x</m>-values <m>x=0</m> and <m>x=2</m> and estimate the value of <m>c</m> predicted by the IVT in <xref ref="ex_applyingIVT">Example</xref>.
+          There are other values of <m>c</m> that also satisfy <m>f(c)=2</m>,
+          but they are not on the interval where we used the Theorem.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Why All of the Hypotheses of the IVT are Necessary</title>
+    <p>
+      The conclusion of the Intermediate Value Theorem may fail if any one of the hypotheses of the theorem is not satisfied.
+      <ul>
+        <li>
+          <title>Continuous on an interval</title>
+          <p>
+            Suppose that <m>f(x)</m> is discontinuous somewhere on the interval <m>[a,b]</m>.
+            Such a graph may look like the one in <xref ref="fig_taalmanpage129e" autoname="yes"/>.
+            <figure xml:id="fig_taalmanpage129e">
+              <caption>A discontinuous function may miss a <m>y</m>-value <m>K</m> between <m>f(a)</m> and <m>f(b)</m>.</caption>
+              <image width="37%" source="TaalmanPage129e.png"/>
+            </figure>
+            We can see from the graph that a function that is not continuous on <m>[a,b]</m> may miss a <m>y</m>-value between <m>f(a)</m> and <m>f(b)</m>.
+          </p>
+        </li>
+        <li>
+          <title>The interval is closed</title>
+          <p>
+            Suppose that <m>f(x)</m> is discontinuous at one of the endpoints of the interval <m>[a,b]</m>.
+            Such a graph may look like the one in <xref ref="fig_taalmanpage129d-mod" autoname="yes"/>.
+            <figure xml:id="fig_taalmanpage129d-mod">
+              <caption>A function continuous on <m>[a,b)</m> may miss a <m>y</m>-value <m>K</m> between <m>f(a)</m> and <m>f(b)</m>.</caption>
+              <image width="37%" source="TaalmanPage129d-mod.png"/>
+            </figure>
+            We can see from the graph that a function that is not continuous at one of the endpoints,
+            for example at <m>x=b</m>,
+            may miss a <m>y</m>-value between <m>f(a)</m> and <m>f(b)</m>.
+          </p>
+        </li>
+        <li>
+          <title><m>K</m> is between <m>f(a)</m> and <m>f(b)</m></title>
+          <p>
+            If <m>K</m> is not between the <m>y</m>-values <m>f(a)</m> and <m>f(b)</m>,
+            then that value may be outside the range of <m>y</m>-values that the function has,
+            as displayed in <xref ref="fig_taalmanpage129a-mod" autoname="yes"/> below.
+            <figure xml:id="fig_taalmanpage129a-mod">
+              <caption>A function may miss a <m>y</m>-value <m>K</m> that is not between <m>f(a)</m> and <m>f(b)</m>.</caption>
+              <image width="37%" source="TaalmanPage129a-mod.png"/>
+            </figure>
+          </p>
+        </li>
+        <li>
+          <title><m>\mathbf{f(a)\neq f(b)}</m></title>
+          <p>
+            If <m>f(a)=f(b)</m>,
+            then there are no <m>y</m>-values <m>K</m> that are strictly between <m>f(a)</m> and <m>f(b)</m>.
+            In other words, there are no "intermediate" values to consider.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Where a Function Can Change Sign</title>
+    <p>
+      Dear reader,
+      you have been using the Intermediate Value Theorem for some time now without knowing it!
+      An extremely useful special case of the Intermediate Value Theorem is the case when we consider the intermediate value <m>K=0</m>.
+      In this case,
+      the Intermediate Value Theorem says that if <m>f</m> is continuous on <m>[a,b]</m> and <m>f(a)</m> and <m>f(b)</m> have opposite signs
+      (one positive, one negative),
+      then there exists at least one <m>x=c</m> between <m>x=a</m> and <m>x=b</m> where <m>f(c)=0</m>,
+      meaning that <m>x=c</m> is a zero of <m>f(x)</m>.
+    </p>
+    <p>
+      Said another way:
+      if a function is going to switch from positive to negative or vice versa,
+      it either has to pass through the <m>x</m>-axis somewhere
+      (where <m>y=0</m>),
+      or else it has to jump over it somehow,
+      meaning it is discontinuous.
+      The IVT forces the function to cross the <m>x</m>-axis at a specific value <m>x=c</m> in order to change signs,
+      unless the function is discontinuous,
+      in which case the IVT does not apply.
+    </p>
+    <p>
+      We use this special application of the IVT every time we solve an inequality by checking signs between zeros and discontinuities!
+    </p>
+    <theorem xml:id="thm_changesign">
+      <title>A Function Can Change Sign Only at Zeros and Discontinuities</title>
+      <statement>
+        <p>
+          A function <m>f</m> can change sign
+          (from positive to negative or vice versa)
+          at a point <m>x=c</m> only if <m>f(x)</m> is zero, undefined,
+          or discontinuous at <m>x=c</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The graph in <xref ref="fig_taalmanpage130a" autoname="yes"/> at the left shows a function <m>f</m> that is continuous on <m>[a,b]</m>,
+      and changes sign only at its zeros <m>c_1, c_2</m>, and <m>c_3</m>.
+      The graph in <xref ref="fig_taalmanpage130b" autoname="yes"/> at the right is discontinuous somewhere in <m>[a,b]</m> and therefore can change sign as we move from left to right without ever crossing the <m>y</m>-axis.
+    </p>
+    <figure xml:id="fig_taalmanpage130a">
+      <caption><m>f(x)</m> can change sign at zeros.</caption>
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="73%" source="TaalmanPage130a.png"/>
+      \end{subfigure}
+      \hspace{.2in}
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="73%" source="TaalmanPage130b.png"/>
+      \caption{<m>f(x)</m> can change sign at a discontinuity.} \end{subfigure}
+      \caption{A function can change sign only at zeros and discontinuities. }
+    </figure>
+    <exercise>
+      <statement>
+        <p>
+          Explain in your own words why a function <m>f</m> can change sign at <m>x=c</m> only if <m>f(x)</m> is zero,
+          undefined,
+          or discontinuous at <m>x=c</m>.
+          (Imagine that you are explaining this to one of your classmates while working at the board during class.)
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Determine the intervals on which the function
+          <me>
+            f(x) = \begin{cases}x+1,\amp  \text{ if }  x\lt -2\\ (x+1)^2,\amp  \text{ if }  -2\leq x\leq 1\\ 2-x,\amp  \text{ if }  x>1 \end{cases}
+          </me>
+          is positive and negative.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The piecewise-defined function <m>f</m> can be discontinuous only at its break points <m>x=-2</m> and <m>x=1</m>.
+          We check whether the left and right limits at each point are the same.
+          <ul>
+            <li>
+              <p>
+                At <m>x=-2</m>,
+                we use the piece <m>x+1</m> to the left and the piece <m>(x+1)^2</m> to the right:
+                <me>
+                  \begin{aligned}\lim_{x\to -2^-}f(x) \amp = \lim_{x\to -2^-}x+1 = -2+1 = -1\\ \lim_{x\to -2^+}f(x) \amp =\lim_{x\to -2^+}(x+1)^2 = (-2+1)^2 = (-1)^2 = 1 \end{aligned}
+                </me>
+                The left and right limits are different,
+                so the function is discontinuous at <m>x=-2</m>; it has a jump.
+              </p>
+            </li>
+            <li>
+              <p>
+                At <m>x=1</m> we use the piece <m>(x+1)^2</m> to the left and the piece <m>2-x</m> to the right:
+                <me>
+                  \begin{aligned}\lim_{x\to 1^-}f(x) \amp = \lim_{x\to 1^-}(x+1)^2 = (1+1)^2 = (2)^2 = 4\\ \lim_{x\to 1^+}f(x) \amp =\lim_{x\to 1^+}2-x = 2-1 = 1 \end{aligned}
+                </me>
+                The left and right limits are different,
+                so the function is discontinuous at <m>x=1</m>; this is also a jump.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus <m>f(x)</m> is discontinuous at <m>x=-2,1</m>.
+        </p>
+        <p>
+          Next, let's check whether <m>f(x)</m> is ever equal to zero.
+          We must look at each piece of the function separately,
+          and remember what <m>x</m>-values we use for each piece.
+          <ul>
+            <li>
+              <p>
+                Its first piece, <m>x+1</m> is equal to zero when <m>x=-1</m>,
+                which is not on the interval <m>x\lt -2</m> where that piece is used.
+                So that part of the function is never equal to zero.
+              </p>
+            </li>
+            <li>
+              <p>
+                The second piece <m>(x+1)^2</m> is zero at <m>x=-1</m>.
+                That is within the interval
+                <m>-2\leq x\leq 1</m> on which the piece is used,
+                so the function is equal to zero at <m>x=-1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The third piece <m>2-x</m> is zero when <m>x=2</m>.
+                That is on the interval <m>x>1</m> where that piece is used,
+                so the function is also equal to zero at <m>x=2</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus <m>f(x)</m> is equal to zero at <m>x=-1, 2</m>.
+        </p>
+        <p>
+          By <xref ref="thm_changesign">Theorem</xref>
+          the function <m>f</m> can change sign only at the zeros,
+          <m>x=-1, 2</m>, and discontinuities, <m>x=-2,1</m>.
+          We put these points on a number line,
+          marking 0 for zeros and <sc>DC</sc> for discontinuities,
+          then check the sign of <m>f</m> one time between each of these points:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) ;
+\foreach \x in  {-2,-1,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {-2,-1,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {-1,2}
+\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {-2,1}
+\draw[shift={(\x,3pt)}] node[above] {\(^\text{ DC } \)};
+\foreach \x in  {-1.5,0,1.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {-2.5,2.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          Lastly, recall that <m>f(x)</m> is defined at each of the discontinuities.
+          <m>f(-2) = 1</m> and <m>f(1) = 4</m>,
+          so <m>f(x)</m> is positive at both of these endpoints.
+          Remember that <m>0</m> is neither positive nor negative.
+          Thus reading from the signs on the number line,
+          we see that <m>f(x)</m> is positive between <m>-2</m> and <m>-1</m>,
+          including at <m>-2</m>,
+          and also between <m>-1</m> and <m>2</m>,
+          where at <m>x=1</m> the function remains positive.
+        </p>
+        <p>
+          \fbox{ <m>f(x)</m> is negative on
+          <m>(-\infty,-2)\cup(2,\infty)</m> and positive on <m>[-2,-1)\cup(-1,2)</m>. }
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    the Intermediate Value Theorem, hypothesis, conclusion.
+    <p>
+      <em>Key ideas:</em> The hypotheses of a theorem must be true in order to apply the conclusion of the theorem,
+      so we must always check the hypotheses before using a theorem.
+      The Intermediate Value Theorem tells us that a continuous function on a closed interval must be equal to all of its intermediate <m>y</m>-values at some point
+      (or multiple points).
+      Because of the IVT, a function can only change sign at zeros or discontinuities.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      We can apply the IVT to find intervals of <m>x</m>-values on which a continuous function must be equal to a particular value <m>y=K</m>,
+      provided that we know the function is equal to values that are larger and smaller than <m>K</m>.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 2.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,927 @@
+<section>
+  <title>Global Extrema and Optimization</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Define global extrema, also called absolute extrema.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visually identify global extrema on a graph.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand where global extrema of a function can occur and how a function can fail to have global extrema.
+        </p>
+      </li>
+      <li>
+        <p>
+          The Single Critical Point Theorem tells us conditions under which a local extrema is also a global extrema.
+        </p>
+      </li>
+      <li>
+        <p>
+          Solve applied optimization word problems by modeling the objective quantity with a function and finding the global extremum of the function.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Defining Global Extrema</title>
+    <p>
+      Many real-world problems involve optimization, that is,
+      finding the overall largest or smallest values of a function on an interval.
+      For example,
+      a company might be interested in the maximum amount of profit it can make or in the minimum cost of producing an object.
+      In this section,
+      we will learn conditions under which local minima and maxima are also global minima and maxima (extrema),
+      so that we can solve such real-world problems.
+      In a later section,
+      we will learn a general method for finding global extrema on an interval,
+      and consider the more theoretical problem of whether they exist.
+    </p>
+    <p>
+      Global extrema, also called absolute extrema,
+      are defined to be the most extreme values of a function,
+      meaning the largest and smallest <m>y</m>-values of the function.
+      More formally:
+    </p>
+    <definition>
+      <title>Global or Absolute Extrema</title>
+      <statement>
+        <p>
+          Given a function <m>f</m>,
+          we say that <m>f(c)</m> is a <em>global</em> or
+          <em>absolute maximum</em>
+          of <m>f</m> <em>on an interval <m>I</m></em>
+          provided that <m>f(c)\geq f(x)</m> for all <m>x</m> in the interval <m>I</m>,
+          and similarly we call <m>f(c)</m> a <em>global</em> or
+          <em>absolute minimum</em>
+          of <m>f</m> whenever <m>f(c)\leq f(x)</m> for all <m>x</m> in the interval <m>I</m>.
+        </p>
+        <p>
+          We can also talk about the global maximum or minimum of <m>f</m> without referring to a specific interval,
+          in which case we mean the global maximum or minimum on the entire domain of <m>f</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Another way to say this is that <m>f</m> has a global minimum at <m>x=c</m> if <m>y=f(c)</m> is smaller than
+      (or equal to)
+      all other values of <m>f</m>,
+      and that <m>f</m> has a global maximum at <m>x=c</m> if <m>y=f(c)</m> is bigger than
+      (or equal to)
+      all other values of <m>f</m>.
+    </p>
+    <p>
+      Recall from <xref ref="subsec_propgraphs1">Section</xref>
+      that a local maximum is the largest value of a function within a small region
+      (like a "hilltop")
+      and that a local minimum is the smallest value of a function within a small region
+      (like a "valley).
+      Sometimes, local extrema are also global extrema,
+      and sometimes they are not.
+    </p>
+    <example xml:id="ex_firstglobalmaxpictures">
+      <statement>
+        <p>
+          For example,
+          the following four functions each have a local maximum at the critical point <m>x=2</m>.
+          However, the local maximum is not always a global maximum:
+        </p>
+        <p>
+          <image width="73%" source="TaalmanPage261.png"/>
+        </p>
+        <p>
+          Only in the left-most graph is the local maximum also a global maximum.
+          In the graph of <m>g</m>,
+          the global maximum on <m>[1,5]</m> is instead at the right endpoint <m>x=5</m>.
+          In the right two graphs of <m>h</m> and <m>k</m>,
+          there is no global maximum on the interval,
+          because there is no point on either graph that is higher than all other points on its graph.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Which of the functions in <xref ref="ex_firstglobalmaxpictures">Example</xref>
+          has a global maximum at an endpoint?
+          Which has a global maximum at a critical point?
+          Which has no global maximum, and why?
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_algfindingglobalextr">
+      <title>Algebraically Finding Global Extrema</title>
+      <statement>
+        <p>
+          We can use derivatives to help us determine where a function has a global extremum,
+          using our knowledge from finding local extrema.
+        </p>
+        <p>
+          Recall from <xref ref="ex_concavityexample">Example</xref>
+          that the function <m>f(x) = 2x^3 -9x^2 +12x-4</m> has first derivative
+          <me>
+            f'(x) = 6x^2-18x+12 = 6(x^2-3x+2) = 6(x-1)(x-2)
+          </me>
+          and so has critical points at <m>x=1</m> and <m>x=2</m>.
+          In <xref ref="ex_concavityexamplesecondderivtest">Example</xref>
+          we used the second derivative to show that <m>x=1</m> is a local maximum and <m>x=2</m> is a local minimum.
+          Is either of these local extrema also a global extrema?
+        </p>
+        <p>
+          The answer depends on context:
+          do we want to consider the entire domain of the function or only part of it?
+          Let's use the graph of <m>f(x)</m> below to help us decide:
+        </p>
+        <figure xml:id="fig_algfindingglobalextr">
+          <caption>The graph of <m>f(x) = 2x^3 -9x^2 +12x-4</m>.</caption>
+          <image width="46%" source="ConcavityEx.png"/>
+        </figure>
+        <p>
+          If we are looking on the entire domain of <m>f(x)</m>,
+          namely on the interval <m>(-\infty,\infty)</m>,
+          then we can see that neither local extrema is a global extrema,
+          since the function has infinitely large values in both the positive and negative direction;
+          in terms of limits,
+          <me>
+            \lim_{x\to-\infty}f(x) = -\infty
+          </me>
+          so that <m>f(x)</m> has no global minimum, and
+          <me>
+            \lim_{x\to\infty}f(x) = \infty
+          </me>
+          so that <m>f(x)</m> has no global maximum.
+        </p>
+        <p>
+          What if we restrict our attention to a smaller interval of <m>x</m>-values?
+          For example,
+          let's consider intervals that only contain one critical point:
+        </p>
+        <p>
+          We can see that on the interval <m>[0,1.5]</m>,
+          the local maximum at <m>x=1</m> is also a global maximum,
+          because the largest <m>y</m>-value of the function
+          <em>on that interval</em> occurs at <m>x=1</m>;
+          we do not consider the points whose <m>x</m>-coordinate is outside of <m>[0,1.5]</m>.
+        </p>
+        <p>
+          Similarly, on the interval <m>[1.5,\infty)</m>,
+          the local minimum at <m>x=2</m> is also a global minimum,
+          because the smallest <m>y</m>-value of the function
+          <em>on that interval</em> occurs at <m>x=2</m>;
+          we do not consider the points whose <m>x</m>-coordinate is outside of <m>[1.5,\infty)</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The key in <xref ref="ex_algfindingglobalextr">Example</xref>
+      to seeing why we only include one critical point is a variation on <xref ref="thm_localextremaarecriticalpoints">Theorem</xref>:
+      turning points of a function must be critical points,
+      so if we are working on an interval that does not contain any additional turning points,
+      the local minimum or maximum must provide the overall largest or smallest <m>y</m>-value.
+      This is because a continuous function cannot achieve larger or smaller value than the local extrema without first "turning around"
+      (technically: switching between increasing and decreasing).
+    </p>
+    <p>
+      The following theorem summarizes these details and provides us with one way of determining whether a local minimum or maximum is also a global minimum or minimum without needing a graph of the function.
+      Note that the theorem specifies a specific interval <m>I</m>,
+      which we saw in <xref ref="ex_algfindingglobalextr">Example</xref>
+      is crucial for determining whether or not the local extrema is also a global extrema
+      (on that particular interval).
+    </p>
+    <theorem xml:id="thm_SCPT">
+      <title>Single Critical Point Theorem</title>
+      <statement>
+        <p>
+          Suppose that <m>f</m> is a continuous function on an interval <m>I</m> that contains only one local extremum
+          (minimum or maximum)
+          at the point <m>x=c</m>.
+          <ul>
+            <li>
+              <p>
+                If <m>x=c</m> is a local maximum,
+                then <m>f(c)</m> is the absolute maximum on the interval <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>x=c</m> is a local minimum,
+                then <m>f(c)</m> is the absolute minimum on the interval <m>I</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The Single Critical Point Theorem (SCPT for short) applies to many real-world applications where,
+      due to physical constraints,
+      the quantity under consideration will have only one critical point.
+      If this theorem applies,
+      we can instead test to see whether the critical point is a local minimum or maximum
+      (via either the first or second derivative test),
+      rather than comparing the value at the critical point to limits or values at endpoints.
+      We will use this theorem extensively in the next section.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use a few pictures to illustrate why a local min/max of a continuous function must automatically also be a global min/max if the function only has the one local min/max.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Optimization: Global Extrema in Context</title>
+    <p>
+      For the remainder of this section,
+      we practice solving optimization problems
+      (finding global extrema)
+      that arise as the result of real-world problems.
+      Finding the global extrema of a function <m>f</m> on an interval <m>I</m> is a mathematical problem that we need limits and derivatives to solve.
+      On the other hand, real-world problems are less straightforward,
+      since they are expressed in full sentences in which the variables,
+      constants,
+      functions,
+      and relationships are describe in words instead of in mathematical notation.
+      To solve a real-world problem we must first translate it into a mathematical global extrema problem.
+      Once we solve the mathematical problem,
+      we can translate the solution back into the real world context.
+    </p>
+    <p>
+      Many students have difficulty getting started with word problems because of the translation from words to equations,
+      and don't even get to the mathematical solving step.
+      Here is an example of how to approach translating to mathematical equations,
+      using the problem-solving framework we have been working on this semester:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's translate
+        </p>
+        ``Calvin throws a baseball straight into the air at 50 feet per second, releasing the ball when his hand is 5 feet above the ground. How high did Calvin throw the baseball?"
+        <p>
+          into a mathematical problem of finding a global extrema on an interval.
+        </p>
+        <p>
+          To figure out how to answer this problem with calculus,
+          we need to get some equations and variables to work with.
+          As we saw in the Problem Solving Framework of <xref ref="sec_problemsolving">Section</xref>,
+          good place to start is to <em>Meet the Problem:</em>
+          list what you know and what you want to find, choose variable names.
+          <ul>
+            <li>
+              <p>
+                We are measuring the height of the ball as a function of time,
+                so let <m>s(t)</m> be the height/position of the baseball at time <m>t</m>,
+                measured in feet, with <m>t</m> measured in seconds.
+              </p>
+            </li>
+            <li>
+              <p>
+                We are told that <m>v(0) = 50</m> ft/sec is the velocity of the ball at time <m>t=0</m> sec.
+              </p>
+            </li>
+            <li>
+              <p>
+                We are told that <m>s(0) = 5</m> ft is the height of the ball at time <m>t=0</m> sec.
+              </p>
+            </li>
+            <li>
+              <p>
+                We want to find the maximum height of the baseball during the time that it is in the air.
+              </p>
+            </li>
+            <li>
+              <p>
+                We know from our own intuition that the ball will rise and then fall,
+                so the graph of the height of the ball should have a single local maximum and no other critical points.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Now we can begin to <em>Make a Plan:</em>
+          brainstorm relevant formulas and theorems and make a step-by-step plan:
+          <ul>
+            <li>
+              <p>
+                We saw in our study of quadratic functions that the equation
+                <m>s(t) = -16t^2+v_0t+s_0</m> models the height of  an object with initial velocity <m>v_0</m> and initial height <m>s_0</m>.
+                Thus we can set <m>v_0=50</m> and <m>s_0=5</m> so that we have a function
+                <me>
+                  s(t) = -16t^2+50t+5
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The maximum value we are looking for should be at a critical point,
+                where the ball reaches its peak and begins to fall,
+                so we can take the derivative of <m>s(t)</m>,
+                set it equal to zero and solve.
+              </p>
+            </li>
+            <li>
+              <p>
+                We want to make sure that the critical point we found is a local maximum,
+                and we could use either the First or Second Derivative Test to confirm this.
+              </p>
+            </li>
+            <li>
+              <p>
+                Our intuition tells us that there should be only one critical point,
+                so we should be able to use the Single Critical Point Theorem in order to conclude that the local maximum is a global maximum.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus we see that the mathematical problem we wish to solve is one of maximizing a function:
+        </p>
+        ``Find the global maximum value of <m>s(t) = -16t^2+50t+5</m>."
+        <p>
+          We also know that our first step will be to take the derivative and the second step will be to set it equal to zero and solve.
+          From there, our plan depends on the details of our answers.
+        </p>
+        <p>
+          Let's <em>Carry Out the Plan</em> and see how it goes:
+          <ul>
+            <li>
+              <p>
+                Begin by taking the derivative:
+                <me>
+                  s'(t)=-32t+50
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the critical points of <m>s(t)</m>:
+                <me>
+                  \begin{aligned}s'(t) \amp =0\\ -32t+50\amp = 0\\ t\amp =\frac{50}{32}=1.5625 \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Since the second derivative of <m>s(t)</m> is easy to calculate,
+                we will use the Second Derivative Test to confirm that the critical point is a local maximum:
+                <me>
+                  s''(t) = -32 \text{ thus }  s''(1.5625) = -32 \lt 0
+                </me>
+                Thus <m>t=1.5625</m> is a local maximum.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is indeed only a single critical point, <m>t=1.5625</m>,
+                and so the Single Critical Point Theorem tells us that the local maximum
+                <m>t=1.5625</m> is also the global maximum.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Let's now <em>Reflect Back:</em>
+          Translating back into context,
+          we have found the time <m>t=1.5625</m> seconds at which the ball attains its maximum height.
+          However, the problem asked us to find the height of the ball at this time,
+          so we still have work to do!
+          Since the height of the ball is given by <m>s(t) = -16t^2+50t+5</m>,
+          we can plug in <m>t=1.5625</m> to get our answer:
+          <me>
+            s(1.5625) = -16(1.5625)^2+50(1.5625)+5\approx 44.06
+          </me>
+        </p>
+        <p>
+          Translating back to the real-world context,
+          we can say that Calvin threw the baseball to a height of just over 44 feet.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In general, when translating a word problem,
+      we must identify any variables or functions and express them in mathematical notation with letters and symbols.
+      With those same letters and symbols we can construct labeled diagrams,
+      formulas and relationships in mathematical notation.
+      We must keep translating until we form a well-posed mathematical problem that we know how to solve with the tools and techniques of calculus.
+      In the context of optimization problems,
+      this means that we must identify a specific function of which we wish to find a global maximum or minimum value.
+      At the moment,
+      our numerical techniques are limited to finding <em>local</em>
+      maximum and minimum values,
+      so we use the Single Critical Point Theorem
+      (<xref ref="thm_SCPT">Theorem</xref>)
+      as often as we can.
+    </p>
+    <p>
+      The following is another problem that involves translating carefully from word problem to mathematical function.
+    </p>
+    <example xml:id="ex_Taalman3-4Example4">
+      <title>Minimization with Distance and Speeds</title>
+      <statement>
+        <p>
+          While you are on a camping trip,
+          your tent accidentally catches fire.
+          Luckily, you happen to be standing right at the edge of a stream with a bucket in your hand!
+          The stream runs east-west,
+          and the tent is 40 feet north of the stream and 100 feet farther east than you are,
+          as shown below.
+        </p>
+        <p>
+          <image width="75%" source="TaalmanPage267a.png"/>
+        </p>
+        <p>
+          You can run only half as fast while carrying the full bucket as you can with the empty bucket,
+          and thus any distance travelled with the full bucket is effectively twice as long.
+          What is the fastest way for you to get water to the tent?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Meet the Problem:</em> This is a complicated problem so let's get started by thinking about two explicit possibilities:
+          getting water immediately or getting water as late as possible.
+          On the one hand,
+          notice that if you were to get water immediately and run diagonally to the tent,
+          you would run the entire distance with a full bucket of water at half your normal speed.
+          On the other hand,
+          if you were to run along the side of the stream until you were directly south of the tent,
+          get water and run north to the tent,
+          you would have a lot of total distance to run.
+          Clearly, it would be more efficient for you to run along the side of the stream for a while,
+          fill the bucket, and then run diagonally to the tent.
+          The question is,
+          how far should you run along the side of the stream before you stop to full up the bucket?
+        </p>
+        <p>
+          Here is a list of what we know so far:
+          <ul>
+            <li>
+              <p>
+                The tent is 40 feet from the stream and 100 feet east.
+              </p>
+            </li>
+            <li>
+              <p>
+                We want to run partway along the stream before scooping up water and then run diagonally to the tent.
+              </p>
+            </li>
+            <li>
+              <p>
+                It will take us twice as long to run the distance on the diagonal,
+                since our bucket will be full of water.
+              </p>
+            </li>
+            <li>
+              <p>
+                We want to minimize the amount of time it takes us to get to our burning tent.
+                This means minimizing the "effective distance" that we run,
+                taking into account our slower speed after filling the bucket.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          We need some mathematical notation to get our heads around this problem.
+          Suppose <m>x</m> is the distance you will run along the stream before filling your bucket.
+          The distance you will run with the full bucket is then the hypotenuse <m>h</m> of a right triangle with legs of length <m>40</m> feet and <m>100-x</m> feet.
+        </p>
+        <p>
+          <image width="75%" source="TaalmanPage267b-nohyp.png"/>
+        </p>
+        <p>
+          <em>Make a Plan:</em>
+          <ul>
+            <li>
+              <p>
+                We can see that there is a right triangle in the picture above whose hypotenuse we need to use,
+                so we will probably need the Pythagorean Theorem.
+              </p>
+            </li>
+            <li>
+              <p>
+                We also need to multiply the distance <m>h</m> by 2 when finding our function for how long it will take us to run,
+                because it will take us twice as long to run that distance.
+              </p>
+            </li>
+            <li>
+              <p>
+                Once we have a function for our "effective" distance,
+                we can find critical points by taking the derivative and setting it equal to zero.
+              </p>
+            </li>
+            <li>
+              <p>
+                We want to find the critical point that gives us the shortest total trip,
+                so we are looking for a local minimum.
+              </p>
+            </li>
+            <li>
+              <p>
+                Again, based on intuition,
+                we think that there is probably one shortest path that fits the context of the problem,
+                so we will hopefully be able to use the Single Critical Point Theorem (SCPT) to justify why a local minimum is also an absolute minimum.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          <em>Carry out the Plan:</em> We have two variables:
+          <m>x</m> and <m>h</m>,
+          but this is a single-variable calculus course and we only know how to take derivatives when there is one variable!
+          Fortunately,
+          we can use the Pythagorean Theorem to solve for <m>h</m> in terms of <m>x</m>.
+          By the Pythagorean Theorem, we know that <m>h^2 = 40^2+(100-x)^2</m>,
+          so you will have to run <m>h=\sqrt{40^2+(100-x)^2}</m> feet with a full bucket of water,
+          as show here:
+        </p>
+        <p>
+          <image width="75%" source="TaalmanPage267b.png"/>
+        </p>
+        <p>
+          Since it takes you twice as long to run with a full bucket of water,
+          the total <em>effective</em> distance you will have to run is
+          <me>
+            \begin{aligned}D(x) \amp = x+2h\\ \amp =x+2\sqrt{40^2+(100-x)^2}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          This is the function we want to minimize.
+          <ul>
+            <li>
+              <p>
+                Take the derivative:
+                <me>
+                  \begin{aligned}D(x)\amp =x+2\sqrt{40^2+(100-x)^2}\\ \amp = x+(40^2+(100-x)^2)^{1/2}\\ \textrm{so}  \amp \\ D'(x) \amp =1+2(1/2)(40^2+(100-x)^2)^{-1/2}\cdot (2(100-x)\cdot (-1))\\ \amp = 1+\frac{-2(100-x)}{\sqrt{40^2+(100-x)^2}} \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find critical points:  We need to simplify <m>D'(x)</m> before we attempt to find its zeros or the values where it does not exist.
+                With a bit of algebra we are able to write <m>D'(x)</m> in the form of a quotient:
+                <me>
+                  \begin{aligned}D'(x) \amp = 1+\frac{-2(100-x)}{\sqrt{40^2+(100-x)^2}}\\ \amp = \frac{\sqrt{40^2+(100-x)^2}}{\sqrt{40^2+(100-x)^2}}+\frac{-2(100-x)}{\sqrt{40^2+(100-x)^2}}\\ \amp =\frac{\sqrt{40^2+(100-x)^2}-2(100-x)}{\sqrt{40^2+(100-x)^2}}. \end{aligned}
+                </me>
+                From this quotient form it is easier to pick out any places where <m>D'(x)</m> is zero or undefined.
+                To find values for which <m>D'(x)</m> is undefined,
+                we set the denominator equal to 0:
+                <me>
+                  \begin{aligned}\sqrt{40^2+(100-x)^2} \amp =0\\ 40^2+(100-x)^2 \amp =0\\ (100-x)^2 \amp = -40 \end{aligned}
+                </me>
+                Because we cannot take the square root of a negative number,
+                at this point we know that there are no <m>x</m>-values that are solutions to this equation.
+                Thus the denominator of <m>D'(x)</m> is never zero,
+                and  <m>D'(x)</m> is never undefined.
+                To find values for which <m>D'(x)=0</m>,
+                we set the numerator equal to 0 and solve
+                <me>
+                  \begin{aligned}\sqrt{40^2+(100-x)^2}-2(100-x)\amp =0\\ \sqrt{40^2+(100-x)^2}\amp =2(100-x)\\ 40^2+(100-x)^2\amp =4(100-x)^2\\ 1600+10,000-200x+x^2\amp =40,000-800x+4x^2\\ 0\amp =3x^2-600x+28400\\ x\amp =100\pm\frac{40}{3}\sqrt{3}, \end{aligned}
+                </me>
+                with the last equality coming from use of the quadratic formula for <m>3x^2-600x+28400=0</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          At this point we are a little concerned because we have two critical points.
+          But what is the interval of <m>x</m>-values that we are interested in?
+          From the diagram we can see that <m>x</m> must be between 0 and 100 feet,
+          since you clearly would not want to run away from your tent,
+          or past the tent.
+          The endpoint cases <m>x=0</m> and <m>x=100</m> correspond to the two special cases we discussed earlier:
+          the case when you get water immediately and the case when you run the full 100 feet along the stream before getting water.
+        </p>
+        <p>
+          Notice that <m>x=100+\frac{40}{3}\sqrt{3}\approx 123.1</m> is not in the interval <m>[0,100]</m>,
+          but <m>x=100-\frac{40}{3}\sqrt{3}\approx 76.9</m> is.
+          Thus using our intuition about the context of the problem,
+          we are able to reduce the problem to an interval where we have only a single critical point,
+          and thus use the SCPT.
+          <ul>
+            <li>
+              <p>
+                We will use the First Derivative Test instead of the Second Derivative Test in order to confirm that <m>x = 100-\frac{40}{3}\sqrt{3} \approx 76.9</m> is a local minimum,
+                mainly because calculating the second derivative of <m>D(x)</m> seems prohibitively complex.
+                Testing points on either side of the critical point <m>x=100-\frac{40}{3}\sqrt{3}\approx 76.9</m>,
+                say <m>x=75</m> and <m>x=80</m>, we get
+                <me>
+                  D'(75)\approx -0.06  \text{ and }  D'(80)\approx 0.106
+                </me>.
+                This tells us that <m>D(x)</m> changes from decreasing to increasing at <m>x = =100-\frac{40}{3}\sqrt{3}\approx 76.9</m>,
+                and thus that <m>x=100-\frac{40}{3}\sqrt{3}\approx 76.9</m> is a local minimum on <m>[0,100]</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the SCPT, we know that on the interval <m>[0,100]</m>,
+                the value <m>x = 100-\frac{40}{3}\sqrt{3} \approx 76.9</m> gives us the absolute minimum of <m>D(x)=x+2\sqrt{40^2+(100-x)^2}</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          <em>Reflect Back:</em> The work that we just did shows that the global minimum of <m>D(x)</m> on the interval <m>[0,100]</m> is at <m>x=100-\frac{40}{3}\sqrt{3}\approx 76.9</m>.
+          This means that the quickest way to bring water to our burning tent is for us to run a little under 77 feet along the side of the stream,
+          fill the bucket, and then run diagonally to the tent.
+          This matches our intuition that we would want to run partway along the stream before filling our bucket.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In your own words, explain why the length
+          <m>\sqrt{40^2+(100-x)^2}</m> of the hypotenuse in <xref ref="ex_Taalman3-4Example4">Example</xref>
+          was multiplied by 2 in the distance function <m>D(x)</m>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Optimization with Constraint Equations</title>
+    <p>
+      At this point we only know how to find global extrema of single-variable functions,
+      meaning functions with one independent variable,
+      so to solve more complicated problems,
+      we will sometimes have to use what are called "constraint equations" to reduce multivariable functions to single-variable functions.
+    </p>
+    <p>
+      Notice that in <xref ref="ex_Taalman3-4Example4">Example</xref>,
+      we had two different distances, <m>x</m>,
+      the distance run along the stream,
+      and the hypotenuse <m>h</m>, the distance run with the bucket full.
+      We were able to relate <m>x</m> and <m>h</m> via <m>h=\sqrt{40^2+(100-x)^2}</m>,
+      using the Pythagorean Theorem and the observation that the base of the triangle must have length <m>100-x</m>.
+      This kind of additional relationship between variables is called a
+      <em>constraint equation</em>.
+    </p>
+    <p>
+      In the examples that follow,
+      we will examine problems that initially appear to involve multiple variables,
+      but can be reduced to a problem in a single variable by using a constraint equation to substitute for one variable in terms of another.
+      In these problem,
+      we have an additional task of distinguishing between the constraint and the quantity to be optimized,
+      also called the <em>objective function</em>.
+      We will proceed very carefully.
+    </p>
+    <example xml:id="ex_Taalman3-4Example2">
+      <statement>
+        <p>
+          Farmers Ben and Jerry want to build a rectangular pen for their chickens.
+          They want to build the pen so that it has the largest area possible,
+          and they have only 100 feet of chicken wire fencing.
+          What dimensions should they use for the pen?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>l</m> and <m>w</m> represent the length and width of the pen, in feet.
+          We know that the perimeter <m>P=2w+2l</m> of the pen must be 100 feet,
+          since that is how much chicken wire fencing Ben and Jerry have;
+          therefore <m>2w+2l=100</m>.
+          We are interested in maximizing the area <m>A=lw</m> of the pen.
+          The following diagram summarizes this information:
+          <image width="75%" source="TaalmanPage264b.png"/>
+        </p>
+        <p>
+          At this point,
+          the function <m>A</m> that we wish to maximize is written in terms of two variables,
+          but our calculus techniques work only for functions of one variable.
+          Luckily, we can use the constraint equation
+          <m>2w+2l=100</m> to solve for one variable in terms of the other,
+          substitute into the equation for <m>A</m>,
+          and reduce <m>A</m> to a one-variable function that we can optimize.
+          Solving for <m>l</m> in terms of <m>w</m> we have:
+          <me>
+            \begin{aligned}2w+2l\amp =100\\ 2l \amp  =100-2w\\ l\amp =50-w. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Using this equation,
+          we can write the area function completely in terms of <m>w</m>:
+          <me>
+            A=lw=(50-w)w=50w-w^2
+          </me>.
+        </p>
+        <p>
+          We now have our objective function:
+          the single-variable function
+          <m>A(w)=50w-w^2</m> that we wish to maximize.
+          We have now determined that the underlying mathematical problem for this word problem is:
+        </p>
+        <q>Find the global maximum value of <m>A(w)=50w-w^2</m>.</q>
+        <p>
+          We know how to solve problems like this:
+          take the derivative and set it equal to zero to find critical points,
+          verify that the critical point is a local maximum,
+          provided that there is only one critical point allowed by our problem,
+          use the Single Critical Point Theorem to conclude that the local maximum is a global maximum.
+          <ul>
+            <li>
+              <p>
+                Take the derivative:
+                <me>
+                  A'(w)=50-2w
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find critical points: <m>A'(w)=0</m> when <m>w=25</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the second derivative test on the critical point <m>w=25</m> to check and see whether this point is a local maximum.
+                We see that <m>A''(w)=-2</m>,
+                so that <m>A''(25)=-2\lt 0</m>,
+                which tells us that the function is concave down at <m>w=25</m>,
+                and therefore,
+                by the second derivative test,
+                <m>A(w)</m> has a local maximum at <m>w=25</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                This tells us that <m>w=25</m> is also a global maximum,
+                by the Single Critical Point Theorem.
+                Since <m>A(w)=50w-w^2</m> is continuous for all values of <m>w</m>,
+                it is not necessary to specify an interval.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus the width of the fence should be 25 feet long,
+          and the length of the fence,
+          <m>l</m>, should be <m>l=50-25=25</m> feet as well.
+          The final answer to the word problem is that Farmers Ben and Jerry should build a square chicken pen where each side is 25 feet long.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Consider the problem
+        </p>
+        ''Find two real numbers <m>x</m> and <m>y</m> whose sum is 36 and whose product is as large as possible."
+        <p>
+          What is the constraint given in the problem?
+          How would you write it as an equation in <m>x</m> and <m>y</m>?
+          What is the quantity to be optimized?
+          How would you write it as an equation in <m>x</m> and <m>y</m>?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Let's look at a similar problem to <xref ref="ex_Taalman3-4Example2">Example</xref>.
+      This time, instead of being constrained by an amount of building material available,
+      we are limited by a budget for the materials.
+      We must think about the quantities involved,
+      and also about how much they cost.
+    </p>
+    <example xml:id="ex_Taalman3-4Example3">
+      <statement>
+        <p>
+          You work for a company that makes jewelry boxes.
+          Your boss tells you that each jewelry box must have a square base and an open top,
+          and that you can spend $3.75 on the materials for each box.
+          The people in production tell you that the material for the sides of the box cost 2 cents per square inch while the reinforced material for the base of the box costs 5 cents per square inch.
+          What is the largest volume that you can make and still stay within budget?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          From a quick reading of the problem,
+          we can see that we wish to maximize the volume of a jewelry box given certain monetary constraints.
+          Let's begin with a simple picture,
+          assign variable names, and list what we know in mathematical language.
+          Suppose that <m>x</m> is the length of the sides of the square base and <m>y</m> is the height of the jewelry box,
+          both measured in inches.
+          The surface area of each of the sides is <m>xy</m> square inches and will cost <m>0.02</m> dollars per square inch,
+          so the material to make each of the four sides of the box will cost <m>0.02xy</m> dollars.
+          The surface area of the base of the box is <m>x^2</m> and will cost <m>0.05</m> dollars per square inch,
+          so the material to make the base of the box will cost <m>0.05x^2</m>.
+          The budget for the box is $3.75,
+          therefore we must have <m>0.02(4xy)+0.05x^2=3.75</m>.
+          We wish to maximize the volume <m>x^2y</m> of the box:
+        </p>
+        <p>
+          <image width="92.5%" source="TaalmanPage265.png"/>
+        </p>
+        <p>
+          Again, the function to be optimized is written in terms of two variables at this point,
+          but we can use the constraint to solve for one variable in terms of the other.
+          It is easiest to solve for <m>y</m> in terms of <m>x</m>:
+          <me>
+            \begin{aligned}0.08xy+0.05x^2 \amp =3.75\\ 0.08xy \amp = 3.75-0.05x^2\\ y\amp =\frac{3.75-0.05x^2}{0.08x}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          We can use this equation for <m>y</m> to write the volume <m>V</m> in terms of one variable.
+          Doing this and simplifying as much as possible, we have
+          <me>
+            \begin{aligned}V\amp = x^2y\\ \amp =x^2\left(\frac{3.75-0.05x^2}{0.08x}\right)\\ \amp =\frac{1}{0.08}x(3.75-0.05x^2)\\ \amp =46.875x-0.625x^3. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Notice that it would not make sense to have a negative value for <m>x</m>,
+          so we may assume that our domain for the problem is <m>x\geq 0</m>.
+          We have now completely translated this word problem into the following math problem:
+        </p>
+        ``Find the global minimum value of <m>V(x)=46.875x-0.625x^3</m> on the interval <m>[0,\infty)</m>."
+        <p>
+          To solve this problem,
+          we will begin by finding the critical points of <m>V(x)</m> in the interval <m>[0,\infty)</m>.
+          <ul>
+            <li>
+              <p>
+                Take the derivative:
+                <me>
+                  V'(x)=46.875-3(0.625)x^2 = 46.875-1.875x^2
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find critical points:  <m>V'(x)=0</m> when
+                <me>
+                  \begin{aligned}46.875-1.875x^2 \amp = 0\\ x^2 \amp = \frac{46.875}{1.875} \\ x^2\amp = 25\\ x \amp = \pm 5 \end{aligned}
+                </me>
+                but only <m>x=5</m> is in the interval <m>[0,\infty)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Since there is only one critical point on the interval and the function is continuous,
+                we can check to make sure that this is a local maximum,
+                and the Single Critical Point Theorem will tell us that it is also the global maximum.
+                Using the Second Derivative Test,
+                we calculate that <m>V''(x) = -2(1.875)x = 3.75x</m> and <m>V''(5) = 3.75(5) = 18.75>0</m>.
+                Thus <m>V</m> is concave down at <m>x=5</m>,
+                telling us that <m>x=5</m> is a local maximum.
+                By the Single Critical Point Theorem,
+                it is also a global maximum.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          We now see that <m>x=5</m> is the location of the global maximum of <m>V(x)</m> on <m>[0,\infty)</m>.
+          Therefore, the largest jewelry box that we can make with the given cost restrictions has a volume of <m>V(5) = 156.25</m> cubic inches.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Suppose the box in <xref ref="ex_Taalman3-4Example3">Example</xref>
+          has a lid made out of the same material as the sides that costs 2 cents per square inch.
+        </p>
+        <p>
+          <em>Think about it:</em> Should the maximum possible volume of the box be larger or smaller with the addition of the lid,
+          given the same budget for the box?
+          Why?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    Global or absolute maximum on an interval, global or absolute minimum on an interval, global extrema; the Single Critical Point Theorem; constraint equation, objective function.
+    <p>
+      <em>Key ideas:</em> A global maximum is the largest overall <m>y</m>-value on an interval.
+      A global minimum is the smallest overall <m>y</m>-value on an interval.
+      A continuous function with a single local extrema on an interval has a global maximum or minimum at that extremum.
+      We can use the problem-solving framework to carefully translate optimization word problems into functions and use derivatives to determine global maxima or minima.
+      In some problems,
+      we need to use an extra "constraint" equation to eliminate a variable in a multivariable problem,
+      and thereby obtain a single-variable "objective" function to maximize or minimize.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      The Problem Solving Framework is indispensable for solving optimization word problems: Meet the Problem, Make a Plan, Carry out Your Plan, Reflect Back.
+      Critiquing the Problem is a fun alternate step,
+      and you can feel free to point out how ridiculous some of these textbook problems are.
+      Can you think of better problems?
+      Can you solve them?
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 4.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

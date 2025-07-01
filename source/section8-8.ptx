@@ -1,0 +1,523 @@
+<section>
+  <title>Derivatives of Inverse  Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Deduce and practice using the derivative of the arcsine function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Deduce a formula for the derivative of an arbitrary inverse function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Practice finding the derivative of an inverse function at a point,
+          given information about the corresponding point on the original function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find formulas for the derivatives of the arccosine and arctangent functions using the formula for the derivative of an arbitrary inverse function.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Derivatives of Inverse Trigonometric Functions</title>
+    <p>
+      In this section,
+      we develop formulas for differentiating the inverse trigonometric functions,
+      along with a formula for differentiating any inverse function.
+      We begin by developing a formula for the arcsine function.
+    </p>
+    <p>
+      Recall that if <m>y=\sin^{-1} x</m>,
+      then for <m>-\frac{\pi}{2}\leq y\leq \frac{\pi}{2}</m>,
+      we can write <m>\sin y = x</m>.
+      Then we take the derivative of both sides with respect to <m>x</m> and remember that <m>y</m> is a function of <m>x</m>,
+      so we have to use implicit differentiation/the chain rule on the left-hand side:
+      <me>
+        \begin{aligned}\frac{d}{dx}(\sin y) \amp = \frac{d}{dx}(x) \amp  \leftarrow\text{ derivative with respect to } x\\ \cos(y)\cdot\frac{dy}{dx} \amp = 1 \amp  \leftarrow\text{ chain rule on the left-hand side } \\ \frac{dy}{dx} \amp = \frac{1}{\cos y} \amp  \leftarrow\text{ solving for } \frac{dy}{dx} \end{aligned}
+      </me>
+    </p>
+    <p>
+      But remember that <m>y</m> is a function of <m>x</m>,
+      and so we would like to be able to write its derivative
+      <m>\frac{dy}{dx}</m> as a function of <m>x</m>.
+      We substitute <m>y=\sin^{-1}x</m>
+      (this is what we started with)
+      and remember that we can simplify compositions of trigonometric and inverse trigonometric functions as in <xref ref="sec_simplifyingcompositionsoftrigandinversetrig">Section</xref>:
+      <me>
+        \begin{aligned}\frac{dy}{dx} \amp = \frac{1}{\cos y} \amp  \\ \amp = \frac{1}{\cos(\sin^{-1} x)} \amp \leftarrow\text{ substituting }  y=\sin^{-1}x\\ \amp = \frac{1}{\sqrt{1-x^2}}\amp \leftarrow\text{ simplification from <xref ref="sec_simplifyingcompositionsoftrigandinversetrig">Section</xref> } \end{aligned}
+      </me>
+    </p>
+    <p>
+      Thus we have shown that
+      <me>
+        \frac{d}{dx}(\sin^{-1} x) = \frac{1}{\sqrt{1-x^2}}
+      </me>
+    </p>
+    <p>
+      An interesting fact about the derivative of the arcsine function is that its domain is slightly smaller than the domain of the original arcsine function.
+      The graphs of these two functions are below.
+      Note that the domain of <m>f(x) = \arcsin x</m> is <m>[-1,1]</m> while the domain of <m>f'(x) = \frac{1}{\sqrt{1-x^2}}</m> is <m>(-1,1)</m>.
+    </p>
+    <figure xml:id="fig_TaalmanPage441ad">
+      <caption>The graph of <m>f(x) = \sin^{-1}x</m> (left; blue) has domain <m>[-1,1]</m> and the graph of <m>f'(x) = \frac{1}{\sqrt{1-x^2}}</m> (right; red) has domain <m>(-1,1)</m>.</caption>
+      <image width="37%" source="TaalmanPage441a.png"/> \qquad<image width="37%" source="TaalmanPage441d.png"/>
+    </figure>
+    <p>
+      If you look closely at the graph of <m>f(x) = \arcsin x</m>,
+      you should notice that at the ends of the domain the tangent lines will be vertical
+      (the tangent lines at the corresponding points on the graph of <m>y=\sin x</m> are horizontal).
+      Since a vertical line has undefined slope,
+      the derivative does not exist at these points.
+      This means that the derivative of arcsine is not defined at <m>x=1</m> or <m>x=-1</m>.
+      This is precisely what we see in the graph of <m>f'(x) = \frac{1}{\sqrt{1-x^2}}</m>:
+      there is a vertical asymptote at <m>x=1</m> and <m>x=-1</m>.
+    </p>
+    <p>
+      If none of the above made any sense to you, fear not!
+      You can still use the formula for the derivative without understanding it.
+      The next few examples demonstrate how to take the derivative of functions involving arcsine.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>f(x) = (\sin^{-1}x)^2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>f(x) = (\sin^{-1}x)^2</m> is a composition of
+          <m>(\cdot)^2</m> with the inverse trigonometric function <m>\sin^{-1}x</m> on the inside.
+          By the chain rule,
+          <me>
+            \frac{d}{dx}[(\sin^{-1}x)^2] = 2(\sin^{-1}x)^1\left(\frac{1}{\sqrt{1-x^2}}\right) = \frac{2\sin^{-1}x}{\sqrt{1-x^2}}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>g(x) = \sin^{-1}(x^2)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>g(x) = \sin^{-1}(x^2)</m> is a composition of
+          <m>\sin^{-1}(\cdot)</m> with <m>x^2</m> on the inside.
+          By the chain rule,
+          <me>
+            \frac{d}{dx}[(\sin^{-1}(x^2)] = \frac{1}{\sqrt{1-(x^2)^2}}\cdot 2x = \frac{2x}{\sqrt{1-x^4}}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>h(x) = x\sin^{-1}(3x+1)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>h(x)=x\sin^{-1}(3x+1)</m> is a product of two functions,
+          <m>x</m> and <m>\sin^{-1}(3x+1)</m>,
+          and thus we begin with the product rule.
+          We will also need the chain rule to differentiate the composition <m>\sin^{-1}(3x+1)</m>:
+          <me>
+            \begin{aligned}h'(x) \amp = (1)\cdot \sin^{-1}(3x+1) +x\cdot\frac{1}{\sqrt{1-(3x+1)^2}}\cdot(3)\\ \amp = \sin^{-1}(3x+1) +\frac{3x}{\sqrt{1-(3x+1)^2}}. \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Calculate the derivatives of
+          <m>j(x) = 3\sin^{-1} x</m> and <m>k(x) = \sin^{-1}(3x)</m>.
+          How are they different?
+          <em>Why</em> are they different?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Derivatives of Arbitrary Inverse Functions</title>
+    <p>
+      We could develop formulas for the derivatives of the arccosine and arctangent functions the same way that we developed the above formula for the derivative of arcsine.
+      On the other hand,
+      it would be nice to develop one general formula for derivatives of any inverse function instead of developing them one by one,
+      so we'll do that instead in this section.
+    </p>
+    <p>
+      Suppose now that <m>f</m> and
+      <m>g=f^{-1}</m> are differentiable functions that are inverses of each other.
+      Then by definition, <m>y=f(x)</m> if and only if <m>g(y)=x</m> and
+      <m>f(g(x)) = x</m> for every <m>x</m> in the domain of <m>g=f^{-1}</m>.
+      Taking the derivative of <m>f(g(x)) = x</m>:
+      <me>
+        \begin{aligned}\frac{d}{dx}[f(g(x))] \amp = \frac{d}{dx}[x]\\ f'(g(x))g'(x) \amp = 1\amp \leftarrow\text{ using the chain rule } \\ g'(x) \amp = \frac{1}{f'(g(x))}\amp \leftarrow\text{ solving for } g'(x)\\ (f^{-1})'(x) \amp = \frac{1}{f'(f^{-1}(x))}\amp \leftarrow\text{ recall that \(g = f^{-1}\) and substitute} \end{aligned}
+      </me>
+    </p>
+    <p>
+      Thus we have found that if we know <m>f(x)</m> has derivative <m>f'(x)</m> and inverse <m>f^{-1}(x)</m>,
+      the derivative of the inverse function <m>f^{-1}(x)</m> is
+      <me>
+        \left[f^{-1}(x)\right]^\prime =(f^{-1})'(x) =  \frac{1}{f'\left(f^{-1}(x)\right)}
+      </me>
+      meaning the reciprocal of the composition <m>f'\circ f^{-1}</m>.
+    </p>
+    <example>
+      <title>Another Way to Deduce the Derivative of Arcsine</title>
+      <statement>
+        <p>
+          Note that this is consistent with our work finding a derivative for <m>f^{-1}(x) = \sin^{-1}x</m>.
+          Because <m>f(x) = \sin x</m> has derivative <m>f'(x) = \cos x</m>,
+          we found that the derivative of <m>f^{-1}(x) = \sin^{-1}x</m> was
+          <me>
+            (f^{-1})'(x) =  \frac{1}{f'\left(f^{-1}(x)\right)} = \frac{1}{\cos(\sin^{-1}x)}
+          </me>
+          before simplifying.
+          We <em>also</em> know from <xref ref="sec_simplifyingcompositionsoftrigandinversetrig">Section</xref>
+          that <m>\cos(\sin^{-1}x) = \sqrt{1-x^2}</m>, and so
+          <me>
+            (f^{-1})'(x) =  \frac{1}{f'\left(f^{-1}(x)\right)} = \frac{1}{\cos(\sin^{-1}x)} = \frac{1}{\sqrt{1-x^2}}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      <em>Visual Interpretation:</em>
+      We can make sense of this formula for the derivative of the inverse visually,
+      using what we know about graphs of inverse functions.
+      If we graph the function <m>y=f(x)</m> and its inverse <m>y=f^{-1}(x) = g(x)</m>,
+      remember that the point <m>(a,b)</m> is on the graph of <m>y=f(x)</m> if and only if the point <m>(b,a)</m> is on the graph of <m>y=f^{-1}(x) = g(x)</m>.
+      This is because
+      <me>
+        b=f(a) \Leftrightarrow f^{-1}(b) =a
+      </me>.
+      We can graph the tangent line to <m>y=f(x)</m> at <m>x=a</m> and when we reflect over the line <m>y=x</m>,
+      we should get the tangent line to <m>y=f^{-1}(x)</m> at <m>x=b</m>.
+      Take a careful look at the graph in <xref ref="fig_ACFigure2-6-6">Figure</xref>
+      below and how it relates to what was just said:
+    </p>
+    <figure xml:id="fig_ACFigure2-6-6">
+      <caption>The tangent line to <m>f(x)</m> at <m>(a,b)</m> and the tangent line to <m>g(x) = f^{-1}(x)</m> at <m>(b,a)</m>. Each is the reflection of the other over the line <m>y=x</m>.</caption>
+      <image width="46%" source="ACFigure2-6-6.png"/>
+    </figure>
+    <p>
+      Since <m>f^{-1}(b)=a</m>,
+      the slope on the graph of the tangent line to <m>f^{-1}(x)</m> at <m>x=b</m>
+      (light green)
+      is given by
+      <me>
+        (f^{-1})'(b) = \frac{1}{f'\left(f^{-1}(b)\right)} = \frac{1}{f'(a)}
+      </me>,
+      meaning, it is the <em>reciprocal</em>
+      of the slope of the tangent line to <m>f(x)</m> at <m>x=a</m>
+      (dark green).
+      In other words,
+      flipping the tangent line over the line <m>y=x</m> results in a tangent line with reciprocal slope.
+    </p>
+    <p>
+      <xref ref="ex_xcubedinversederivative">Example</xref>
+      and <xref ref="ex_expinversederivative">Example</xref>
+      demonstrate this reciprocal relationship via the functions
+      <m>f(x) = x^3</m> and <m>f(x) = \ln x</m>, respectively.
+    </p>
+    <example xml:id="ex_xcubedinversederivative">
+      <statement>
+        <p>
+          The function <m>f(x) = x^3</m> is one-to-one and has inverse function <m>f^{-1}(x) = \sqrt[3]{x}</m>.
+          The point <m>(2,2^3) = (2,8)</m> is on the graph of <m>f(x)</m> while the point
+          <m>(8,\sqrt[3]{8}) = (8,2)</m> is on the graph of <m>f^{-1}(x)</m>.
+          What we have just found out is that the slope of the tangent line to
+          <m>f(x) = x^3</m> at <m>x=2</m> is the reciprocal of the slope of the tangent line to the graph of <m>f^{-1}(x) = \sqrt[3]{x}</m> at <m>x=8</m>.
+        </p>
+        <p>
+          Let's verify this algebraically.
+          First, we know the derivative of
+          <m>f(x) = x^3</m> is <m>f'(x) = 3x^2</m>,
+          and so <m>f'(2) = 3(2)^2 = 12</m> is the slope of the tangent line to <m>f(x) = x^3</m> at <m>x=2</m>.
+          On other other hand,
+          the derivative of <m>f^{-1}(x) = \sqrt[3]{x}=x^{1/3}</m> is
+          <m>(f^{-1})'(x)= \frac{1}{3}x^{-2/3} = \frac{1}{3(\sqrt[3]{x})^2}</m>,
+          and so at <m>x=8</m>,
+          the slope of the tangent line to
+          <m>f^{-1}(x) = \sqrt[3]{x}</m> is <m>(f^{-1})'(8)=\frac{1}{3(\sqrt[3]{8})^2} = \frac{1}{3(2)^2} = \frac{1}{12}</m>.
+        </p>
+        <p>
+          This is graphed below and you can find an interactive graph at
+        </p>
+        <p>
+          <url href="https://www.desmos.com/calculator/6ab9nuujwi">https://www.desmos.com/calculator/6ab9nuujwi</url>
+        </p>
+        <figure xml:id="fig_xcubedtangentandinverse">
+          <caption>The graph of <m>f(x) = x^3</m> has tangent line with slope 12 at the point <m>x=2</m> and the graph of <m>f^{-1}(x) = \sqrt[3]{x}</m> has tangent line with slope <m>\frac{1}{12}</m> at the point <m>x=8</m>.</caption>
+          <image width="46%" source="xcubedtangentandinverse.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example xml:id="ex_expinversederivative">
+      <statement>
+        <p>
+          For another example, the function
+          <m>f(x) = e^x</m> has inverse <m>f^{-1}(x) = \ln x</m>.
+          Recall that <m>f'(x) = e^x</m> is the derivative of <m>e^x</m>.
+          Using the formula developed earlier, we see that
+          <me>
+            (f^{-1})'(x) = \frac{1}{f'\left(f^{-1}(x)\right)} = \frac{1}{e^{\ln x}} = \frac{1}{x}
+          </me>
+          since we know <m>e^{\ln x} = x</m>.
+          This is another way of showing that <m>\frac{d}{dx}(\ln x) = \frac{1}{x}</m>.
+          <em>Note that mathematics is always consistent with itself;
+          you have now seen two different ways to find the derivative of <m>\ln x</m>,
+          and they both agree that <m>\frac{d}{dx}[\ln x] = \frac{1}{x}</m>.</em>
+        </p>
+        <p>
+          Additionally,
+          note that at the point <m>(2,e^2)\approx (2,7.389)</m>,
+          the graph of <m>f(x) = e^x</m> has a tangent line of slope <m>f'(2) = e^2\approx 7.389</m>.
+          On the other hand, at the point <m>(e^2,2)\approx (7.389,2)</m>,
+          the graph of <m>f^{-1}(x) = \ln x</m> has a tangent line of slope <m>(f^{-1})'(2) = \frac{1}{e^2}\approx 0.135</m>.
+        </p>
+        <p>
+          This is graphed below and you can find an interactive graph at
+        </p>
+        <p>
+          <url href="https://www.desmos.com/calculator/mpd45sqtaz">https://www.desmos.com/calculator/mpd45sqtaz</url>
+        </p>
+        <figure xml:id="fig_exptangentandinverse">
+          <caption>The graph of <m>f(x) = e^x</m> has tangent line with slope <m>e^2</m> at <m>x=2</m> and the graph of <m>f^{-1}(x) =\ln x</m> has tangent line with slope <m>\frac{1}{e^2}</m> at the point <m>x=e^2</m>.</caption>
+          <image width="46%" source="exptangentandinverse.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      Lastly, <xref ref="ex_abstractinversederivative">Example</xref>
+      demonstrates that we can determine the value of the derivative of an inverse of an unknown function if we have sufficient information about the unknown function.
+    </p>
+    <example xml:id="ex_abstractinversederivative">
+      <statement>
+        <p>
+          Suppose we have a mystery function <m>f(x)</m>.
+          We are told that <m>f</m> is one-to-one,
+          <m>f(5) = 3</m> and <m>f\,'(5) = \frac{1}{2}</m>.
+        </p>
+        <p>
+          From this information alone,
+          we know that <m>f</m> has an inverse function
+          <m>f^{-1}(x)</m> and that <m>f^{-1}(3)=5</m>.
+          Moreover, <m>(f^{-1})'(3) = \frac{1}{f'(5)} = \frac{1}{1/2} = 2</m>;
+          the slope of the tangent line to the inverse of <m>f</m> at <m>x=3</m> is <m>m=2</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Suppose you know that a function <m>f</m> is invertible and has a tangent line of slope <m>-3</m> at the point <m>(0,1)</m>.
+          What is the slope of the tangent line to the
+          <em>inverse function</em>
+          <m>f^{-1}</m> at the point <m>(1,0)</m>?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Derivatives of Arccosine and Arctangent</title>
+    <p>
+      Using the formula for the derivative of the inverse of a function from the previous section,
+      we can quickly find derivatives for
+      <m>y=\cos^{-1}x</m> and <m>y=\tan^{-1}x</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          If <m>f(x) = \cos x</m> and <m>0\leq x\leq \pi</m>,
+          we know that <m>f^{-1}(x) = \cos^{-1}x</m> for <m>-1\leq x\leq 1</m>.
+          Recall that <m>f'(x) = -\sin x</m>.
+          Then
+          <me>
+            \frac{d}{dx}[\cos^{-1}(x)] = \frac{1}{f'(f^{-1}(x))} = \frac{1}{-\sin(\cos^{-1}x)} = \frac{-1}{ \sqrt{1-x^2}}
+          </me>
+          since <m>\sin(\cos^{-1}x) = \sqrt{1-x^2}</m>.
+          To see this,
+          let <m>x=\cos \theta</m> be the adjacent side of a triangle with hypotenuse <m>1</m>,
+          which then has opposite side length
+          <m>\sqrt{1-x^2}</m> by the Pythagorean Theorem.
+          (You have done several such simplifications already and should be able to do this yourself.)
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          If <m>f(x) = \tan x</m> and <m>-\frac{\pi}{2}\lt x\lt \frac{\pi}{2}</m>,
+          we know that <m>f^{-1}(x) = \tan^{-1}x</m> for all real numbers <m>x</m>.
+          Recall that <m>f'(x) = \sec^2 x</m>.
+          Then
+          <me>
+            \frac{d}{dx}[\tan^{-1}(x)] = \frac{1}{f'(f^{-1}(x))} = \frac{1}{\sec^2(\tan^{-1}x)} = \cos^2(\tan^{-1}x)
+          </me>
+          since <m>\sec  = \frac{1}{\cos}</m>.
+          In order to simplify <m>\cos^2(\tan^{-1}x)</m>,
+          let <m>x=\tan \theta</m> so that we have a triangle with opposite side <m>x</m> and adjacent side <m>1</m>:
+          <image width="18%" source="arctanx.png"/> Using the Pythagorean Theorem,
+          the hypotenuse is <m>\sqrt{1+x^2}</m> and so
+          <me>
+            \frac{d}{dx}[\tan^{-1}(x)] = \cos^2(\tan^{-1}x) = \left(\frac{1}{\sqrt{1+x^2}}\right)^2 = \frac{1}{1+x^2}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Note that the domain of <m>\arctan x</m> and the domain of its derivative <m>\frac{1}{1+x^2}</m> are both
+      <m>(-\infty,\infty)</m> since <m>1+x^2</m> is never equal to zero!
+      The graphs of these two functions are below:
+    </p>
+    <figure xml:id="fig_TaalmanPage441be">
+      <caption>The graphs of <m>f(x) = \tan^{-1}x</m> (left; blue) and <m>f'(x) = \frac{1}{1+x^2}</m> (right; red) both have domain <m>(-\infty,\infty)</m>.</caption>
+      <image width="37%" source="TaalmanPage441b.png"/> \qquad<image width="37%" source="TaalmanPage441e.png"/>
+    </figure>
+    <p>
+      We have now proven the following theorem,
+      which gives us formulas for the derivatives of our three inverse trigonometric functions:
+    </p>
+    <theorem>
+      <title>Derivatives of Inverse Trigonometric Functions</title>
+      <statement>
+        <p>
+          For all values of <m>x</m> at which the following functions are defined,
+          <me>
+            \begin{aligned}\frac{d}{dx}\left[\sin^{-1}x\right] \amp =\frac{1}{\sqrt{1-x^2}}\\ \\ \frac{d}{dx}\left[\cos^{-1}x\right]\amp =\frac{-1}{\sqrt{1-x^2}}\\ \\ \frac{d}{dx}\left[\tan^{-1}x\right]\amp =\frac{1}{1+x^2} \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <exercise>
+      <statement>
+        <p>
+          Find the equation of the tangent line to <m>y=\tan^{-1} x</m> at <m>x=1</m>.
+          Check your work by using Desmos to graph
+          <m>y=\tan^{-1}x</m> and the equation of the line you find.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The next three examples demonstrate how to take derivatives of functions involving the arctangent and arccosine functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>f(x) = \tan^{-1}\sqrt{x}</m>.
+          What is the domain of <m>f(x)</m>?
+          Of <m>f'(x)</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>f(x) = \tan^{-1}\sqrt{x}</m> is a composition of the arctangent function with <m>\sqrt{x}</m> on the inside.
+          By the chain rule,
+          <me>
+            f'(x)= \frac{1}{1+(\sqrt{x})^2}\cdot \frac{1}{2}x^{-1/2} = \frac{1}{1+x}\cdot \frac{1}{2\sqrt{x}} = \frac{1}{2\sqrt{x}(1+x)}
+          </me>
+        </p>
+        <p>
+          The domain of <m>f(x) = \tan^{-1}\sqrt{x}</m> is <m>x\geq 0</m> since arctangent can take any argument,
+          but we need a nonnegative number inside the square root.
+        </p>
+        <p>
+          The domain of <m>f'(x) = \frac{1}{2\sqrt{x}(1+x)}</m> is <m>x>0</m> since we do not want to a denominator of 0.
+        </p>
+        <p>
+          <em>It is also true that the derivative <m>f'(x)</m> is undefined when <m>1+x = 0</m>,
+          so when <m>x=-1</m>,
+          but this is not in the domain of <m>f(x)</m> so is not relevant.
+          The derivative of a function can only be defined on the domain of the function.</em>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>g(x) = \dfrac{5}{\cos^{-1}x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Here, it is especially tempting to try to simplify using the <m>-1</m> as an exponent,
+          but in this context,
+          the <m>-1</m> superscript indicates the arccosine function,
+          not the reciprocal of cosine.
+          We can instead rewrite
+          <me>
+            g(x) = 5(\cos^{-1}x)^{-1}
+          </me>
+          in order to take the derivative using the chain rule with inside function <m>\cos^{-1}x</m>:
+          <me>
+            g'(x) = 5(-1)(\cos^{-1}x)^{-2}\cdot \frac{-1}{\sqrt{1-x^2}} = \frac{5}{(\cos^{-1}x)^2\sqrt{1-x^2}}
+          </me>.
+          You could also use the quotient rule,
+          but the above computation is much quicker.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>h(x) = \sin^2(\tan^{-1}e^{3x})</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We'll begin by rewriting the notation <m>\sin^2 u</m> as
+          <m>(\sin u)^2</m> so we can see the correct order for the differentiation rules.
+          The function <m>h(x)</m> is actually a composition of
+          <em>five</em> functions:
+          <m>(\cdot)^2, \sin (\cdot), \tan^{-1}(\cdot),
+          e^{(\cdot)}</m>, and <m>3x</m>.
+          Thus we will have to apply the chain rule several times and will proceed carefully,
+          writing several intermediate steps:
+          <me>
+            \begin{aligned}h'(x) \amp = \frac{d}{dx}\left(\sin^2(\tan^{-1}e^{3x})\right)\\ \amp = \frac{d}{dx}\left(\left(\sin(\tan^{-1}e^{3x})\right)^2\right)\amp \leftarrow\text{ rewrite function } \\ \amp = 2(\sin(\tan^{-1}e^{3x}))^1\frac{d}{dx}(\sin(\tan^{-1}e^{3x}))\amp \leftarrow\text{ chain rule with } (\cdot)^2\\ \amp =2\sin(\tan^{-1}e^{3x})\cos(\tan^{-1}e^{3x})\frac{d}{dx}(\tan^{-1}e^{3x})\amp \leftarrow\text{ chain rule with } \sin (\cdot)\\ \amp =2\sin(\tan^{-1}e^{3x})\cos(\tan^{-1}e^{3x})\frac{1}{1+(e^{3x})^2}\frac{d}{dx}(e^{3x})\amp \leftarrow\text{ chain rule with } \tan^{-1} (\cdot)\\ \amp =2\sin(\tan^{-1}e^{3x})\cos(\tan^{-1}e^{3x})\frac{1}{1+(e^{3x})^2}e^{3x}\frac{d}{dx}(3x)\amp \leftarrow\text{ chain rule with } e^{(\cdot)}\\ \amp =2\sin(\tan^{-1}e^{3x})\cos(\tan^{-1}e^{3x})\frac{1}{1+(e^{3x})^2}e^{3x}(3)\amp \leftarrow\text{ derivative of the innermost function, } 3x\\ \amp =\frac{6e^{3x}\sin(\tan^{-1}e^{3x})\cos(\tan^{-1}e^{3x})}{1+3^{6x}}\amp \leftarrow\text{ simplifying } \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following formulas were introduced in this section:
+    </p>
+    Derivatives of arcsine, arccosine, and arctangent. The derivative of an arbitrary inverse function, in terms of the original function.
+    <p>
+      <em>Key ideas:</em> The derivatives of the inverse trigonometric functions are all algebraic functions.
+      The slope of the tangent line to <m>f(x)</m> at a point <m>(a,b)</m> is the reciprocal of the slope of the tangent line to
+      <m>f^{-1}(x)</m> at the point <m>(b,a)</m>.
+      The formula for the derivative of an arbitrary inverse function can be applied to find formulas for the derivatives of arcsine,
+      arccosine,
+      and arctangent, as well as the natural logarithm <m>\ln x</m>.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Compositions of trigonometric and inverse trigonometric functions simplify to algebraic expressions.
+      You still have to use <em>all</em>
+      of the previous derivative rules you have learned so far.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 7.8}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

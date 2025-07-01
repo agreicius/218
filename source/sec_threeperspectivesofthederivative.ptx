@@ -1,0 +1,896 @@
+<section xml:id="sec_threeperspectivesofthederivative">
+  <title>Three Perspectives of the Derivative</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Calculate derivatives as instantaneous rates of change.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize instantaneous rates of change as limits of average rates of change.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visualize derivatives as slopes of tangent lines.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize tangent lines as limits of secant lines.
+        </p>
+      </li>
+      <li>
+        <p>
+          Graph derivatives as associated slope functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize where an associated slope function will be zero,
+          increasing, and decreasing.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>The Derivative as Instantaneous Rate of Change</title>
+    <p>
+      The <em>instantaneous rate of change</em>
+      of a function is an idea that sits at the foundation of calculus.
+      It is a generalization of the notion of instantaneous velocity and measures how fast a particular function is changing at a given point.
+      If the original function represents the position of a moving object,
+      this instantaneous rate of change is precisely the velocity of the object.
+      In other contexts,
+      instantaneous rate of change could measure the number of cells added to a bacteria culture per day,
+      the change in fuel efficiency resulting from increasing a car's speed,
+      or the increase in a mortgage payment for each percentage point increase in interest rate.
+      The instantaneous rate of change can also be interpreted geometrically on the function's graph,
+      and this connection is fundamental to many of the main ideas in calculus.
+    </p>
+    <p>
+      Recall from Section <xref ref="sec_avgchange" autoname="yes"/> that for a moving object with position function <m>s(t)</m>,
+      its <em>average velocity</em> on the time interval from <m>t=a</m> to <m>t=b</m> is given by the quotient
+      <me>
+        AV_{[a,b]} = \frac{s(b)-s(a)}{b-a}
+      </me>.
+      If we look at an interval starting at <m>t=a</m> and ending at <m>t=a+h</m>,
+      then this formula becomes
+      <me>
+        AV_{[a,a+h]} = \frac{s(a+h)-s(a)}{(a+h)-a}
+      </me>.
+      The denominator can simplify by cancelling the <m>a</m>'s, and so we arrive at the formula:
+      <me>
+        AV_{[a,a+h]} = \frac{s(a+h)-s(a)}{h}
+      </me>.
+      This represents the average velocity of an object starting at time <m>t=a</m> and measuring over a time interval of length <m>h</m>.
+      We can estimate the <em>instantaneous velocity</em>
+      of the object at <m>t=a</m> by taking smaller and smaller values of <m>h</m> for the width of the interval.
+    </p>
+    <example xml:id="ex_fallingballaveragevelocitylimits">
+      <statement>
+        <p>
+          Suppose that the height <m>s</m> of a ball at time <m>t</m>
+          (in seconds)
+          is given in feet by the formula <m>s(t) = 64-16(t-1)^2</m>.
+          A graph of <m>s(t)</m> for <m>0\leq t\leq 3</m> is:
+        </p>
+        <p>
+          <image width="46%" source="ACPrev1-1-1Graph.png"/>
+        </p>
+        <p>
+          Let's find the average velocity of the ball on intervals approaching <m>t=0.8</m>.
+        </p>
+        <p>
+          On <m>[0.8,1.2]</m>, the average velocity is
+          <me>
+            AV_{[0.8,1.2]} = \frac{s(1.2)-s(0.8)}{1.2-0.8} = \frac{63.36-63.36}{0.4} = 0 \text{ ft/sec. }
+          </me>
+        </p>
+        <p>
+          Note that this average velocity is on an interval of length <m>h=0.4</m> starting at <m>t=0.8</m>.
+          The ball has zero <em>average</em> velocity,
+          but we know from the graph that the ball is not stationary during this interval.
+        </p>
+        <p>
+          If we calculate the average velocity on <m>[0.8,0.9]</m>,
+          <m>[0.8,0.81]</m>, <m>[0.8,0.801]</m>, and <m>[0.8,0.8001]</m>,
+          corresponding to <m>h=0.1, 0.01</m>,
+          and <m>0.001</m>, as well,
+          we have the average rates of change in <xref ref="tab_fallingballavgvelocitiesrightlimit" autoname="yes"/> on intervals that approach the time <m>t=0.8</m>.
+        </p>
+        <table xml:id="tab_fallingballavgvelocitiesrightlimit">
+          <title>Average velocities of a falling ball on intervals to the right of <m>t=0.8</m>.</title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>[0.8,1.2]</m></cell>
+              <cell><m>[0.8,0.9]</m></cell>
+              <cell><m>[0.8,0.81]</m></cell>
+              <cell><m>[0.8,0.801]</m></cell>
+              <cell><m>[0.8,0.8001]</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Avg. Vel. (ft/sec)</cell>
+              <cell>0</cell>
+              <cell>4.8</cell>
+              <cell>6.24</cell>
+              <cell>6.384</cell>
+              <cell>6.3984</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Notice that we can't use our average velocity formula to calculate the exact instantaneous velocity at time <m>t=0.8</m>,
+          as <m>AV_{[0.8,0.8]}</m> is undefined.
+          However, the table above leads us to think that the instantaneous velocity of the ball at <m>t=0.8</m> seconds is probably very close to 6.4 ft/sec.
+        </p>
+        <p>
+          What were we doing in the previous calculations?
+          We were taking the limit as <m>h\to 0</m> of <m>AV_{[0.8,0.8+h]}</m>.
+          Note however that we only used <em>positive</em> values for <m>h</m>,
+          so really we were taking <m>h\to 0^+</m>.
+          Let's see what happens when we consider <m>h\to 0^-</m>.
+        </p>
+        <p>
+          On <m>[0.4,0.8]</m>, the average velocity is
+          <me>
+            AV_{[0.4,0.8]} = \frac{s(0.8)-s(0.4)}{0.8-0.4} = \frac{63.36-58.24}{0.4} = 12.8 \text{ ft/sec. }
+          </me>
+        </p>
+        <p>
+          On this interval,
+          we are using <m>h=-0.4</m> to represent taking an interval of length <m>0.4</m>
+          <em>prior to</em> <m>t=0.8</m>.
+          In the same way,
+          we consider <m>h=-0.1, -0.01</m>, and <m>-0.001</m>,
+          corresponding to the intervals <m>[0.7,0.8], [0.79,0.8]</m>,
+          <m>[0.799,0.8]</m>, and <m>[7.999,0.8]</m>.
+          The average velocities are recorded in <xref ref="tab_fallingballavgvelocitiesleftlimit" autoname="yes"/>.
+        </p>
+        <table xml:id="tab_fallingballavgvelocitiesleftlimit">
+          <title>Average velocities of a falling ball on intervals to the left of <m>t=0.8</m>.</title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>[0.4,0.8]</m></cell>
+              <cell><m>[0.7,0.8]</m></cell>
+              <cell><m>[0.79,0.8]</m></cell>
+              <cell><m>[0.799,0.8]</m></cell>
+              <cell><m>[7.999,0.8]</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Avg. Vel. (ft/sec)</cell>
+              <cell>12.8</cell>
+              <cell>8</cell>
+              <cell>6.56</cell>
+              <cell>6.416</cell>
+              <cell>6.4016</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Moreover, let's remember how we can interpret average velocities visually:
+          <m>AV_{[0.4,0.8]}</m> is the slope of the line segment between the points
+          <m>(0.4,s(0.4))</m> and <m>(0.8,s(0.8))</m>.
+          As the interval gets smaller,
+          the line segment gets shorter and the slope approaches the velocity at <m>t=0.8</m>.
+        </p>
+        <p>
+          <image width="65%" source="Example2-2Pic.png"/>
+        </p>
+        <p>
+          Experiment with the Desmos graph
+        </p>
+        <url href="https://www.desmos.com/calculator/vjtx5t1wkv">https://www.desmos.com/calculator/vjtx5t1wkv</url>
+        <p>
+          Use the slider for <m>h</m> to move the point at
+          <m>(b,s(b))</m> closer and farther from <m>t=0.8</m>,
+          to see how the slope of this line changes.
+          From our work above,
+          we know that the slope of the line "at <m>t=0.8</m>" is approximately 6.4, even though Desmos tells us that it's undefined.
+        </p>
+        <p>
+          If we zoom in very close to the point
+          <m>(0.8,s(0.8))</m> on the Desmos graph above,
+          note that the graph appears straighter and straighter.
+          In fact, it gets closer and closer to the orange line as long as <m>h</m> is small enough.
+          Try setting <m>h=0.001</m> and zooming in very close to <m>(0.8,s(0.8))</m> to see this.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In a similar way,
+      we make the following definition for an arbitrary function <m>y=f(x)</m>:
+    </p>
+    <definition>
+      <statement>
+        <p>
+          For a function <m>f</m>,
+          the <em>average rate of change</em>
+          of <m>f</m> on the interval <m>[a,a+h]</m> is given by the value
+          <me>
+            AV_{[a,a+h]} = \frac{f(a+h)-f(a)}{h}
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      It is essential that you understand how the average rate of change of <m>f</m> on an interval is connected to its graph,
+      so we review this concept from <xref ref="sec_avgchange">Section</xref>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose that <m>f</m> is the function given by the graph below and that <m>a</m> and <m>a+h</m> are the input values as labeled on the <m>x</m>-axis.
+        </p>
+        <p>
+          <image width="46%" source="ACPrev1-3-1Graph.png"/>
+        </p>
+        <p>
+          The points <m>(a,f(a))</m> and
+          <m>(a+h,f(a+h))</m> are labeled in red on the graph.
+          We draw a line segment between these two points,
+          and from it construct a right triangle whose hypotenuse is the line segment between the points and whose legs are parallel to the <m>x</m>- and <m>y</m>-axes.
+        </p>
+        <p>
+          <image width="46%" source="ACPrev1-3-1GraphwTriangle.pdf"/>
+        </p>
+        <p>
+          The base of the triangle has length
+          <m>h=(a+h)-a</m> and the height of the triangle has length <m>f(a+h)-f(a)</m>.
+          Thus the slope of the line segment connecting
+          <m>(a,f(a))</m> and <m>(a+h,f(a+h))</m> is
+          <me>
+            \frac{\text{ rise } }{\text{ run } } = \frac{f(a+h)-f(a)}{h}=\dfrac{\Delta f}{\Delta x}
+          </me>
+          where we can use the notation <m>\Delta f</m>,
+          read "delta <m>f</m>", to represent the
+          <em>change in <m>\mathbf{f}</m></em> and <m>\Delta x</m>,
+          read "delta <m>x</m>", to represent the
+          <em>change in <m>\mathbf{x}</m></em>
+          as a quick way of writing these quantities.
+          They will be extremely important for our study of rates of change.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Just as we defined instantaneous velocity in terms of average velocity,
+      we now define the instantaneous rate of change of a function at a point in terms of the average rate of change of the function <m>f</m> over related intervals.
+      This instantaneous rate of change of <m>f</m> at <m>x=a</m> is called
+      <em>the derivative of <m>f</m> at <m>x=a</m></em>,
+      and is denoted by <m>f\,'(a)</m>,
+      which is pronounced "<m>f</m>-prime of <m>a</m>". Another common notation for <m>f\,'(a)</m> is
+      <me>
+        f\,'(a) =  \frac{df}{dx}\Big|_{x=a}
+      </me>
+      which is pronounced "dee <m>f</m> dee <m>x</m> at <m>x</m> equal to <m>a</m>." This is called Leibniz notation,
+      after the mathematician Gottfried Leibniz.<fn>
+      <url href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz</url>
+      Leibniz is credited as one of the inventors of calculus.
+      Isaac Newton is the other,
+      and the two of them did not agree about their approach to the subject,
+      so we have two different sets of notation (Leibniz notation and prime notation,
+      developed by Newton).
+      </fn>
+    </p>
+    <definition xml:id="def_derivoffunctionatpoint">
+      <title>The Derivative of a Function at a Point</title>
+      <statement>
+        <p>
+          The <em>derivative of <m>f</m> with respect to <m>x</m> evaluated at <m>x=a</m></em> is the number
+          <me>
+            f\,'(a)=\frac{df}{dx}\Big|_{x=a}=\displaystyle\lim_{h\to0}\frac{f(a+h)-f(a)}{h}
+          </me>
+          provided that this limit exists.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      There is a curious phrase at the end of this definition that you may have missed:
+    </p>
+    "provided that this limit exists."
+    <p>
+      Note that this limit has the form
+      <m>\frac{0}{0}</m> and so is indeterminate.
+      We saw in Example <xref ref="ex_fallingballaveragevelocitylimits" autoname="yes"/> that such a limit may exist,
+      but we know from experience that not all <m>\frac{0}{0}</m> limits exist.
+      A function is said to be <em>differentiable</em>
+      if the limit in Definition <xref ref="def_derivoffunctionatpoint" autoname="yes"/> exists.
+      We give a visual interpretation of what it means for a function to be differentiable in the next section.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain how the derivative (a.k.a. the instantaneous rate of change) of a function is the limit of average rates of change.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Derivative as the Slope of the Tangent Line</title>
+    <p>
+      In this section,
+      we consider the derivative at a given value as the slope of a certain line,
+      which we will call the <em>tangent line</em>.
+      What exactly is a tangent line?
+      Read on<ellipsis/>
+    </p>
+    <p>
+      When we compute an instantaneous rate of change,
+      we allow the interval <m>[a,a+h]</m> to shrink as <m>h\to 0</m>.
+      We can think of one endpoint of the interval as "sliding towards" the other.
+      In particular,
+      provided that <m>f</m> has a derivative at <m>(a,f(a))</m>,
+      the point <m>(a+h,f(a+h))</m> will approach <m>(a,f(a))</m> as <m>h\to 0</m>.
+    </p>
+    <p>
+      On each interval <m>[a,a+h]</m> there is a line through the two points
+      <m>(a,f(a))</m> and <m>(a+h,f(a+h))</m>.
+      This line is called a <em>secant line</em>.
+      A secant line to a curve is simply a line that passes through two points on the curve.
+      The line that these secant lines approach as <m>h\to 0</m> is the tangent line.
+    </p>
+    <p>
+      The picture below shows a sequence of figures with several different lines through the points
+      <m>(a,f(a))</m> and <m>(a+h, f(a+h))</m>,
+      generated by different values of <m>h</m>.
+      These lines
+      (shown in the first three figures in magenta),
+      are the secant lines to the curve <m>y=f(x)</m>.
+      For each such line,
+      the slope of the secant line is <m>m=\frac{f(a+h)-f(a)}{h}</m>,
+      where the value of <m>h</m> depends on the location of the point we choose.
+      We can see in the diagram how, as <m>h\to 0</m>,
+      the secant lines start to approach the single line that passes through the point <m>(a,f(a))</m>.
+      If the limit of the slopes of the secant lines exists,
+      we say that the resulting value is the
+      <em>slope of the tangent line to the curve</em>.
+      This <em>tangent line</em>
+      (shown in the right-most figure in green)
+      to the graph of <m>y=f(x)</m> at the point
+      <m>(a,f(a))</m> has slope <m>m=f\,'(a)</m>.
+    </p>
+    <p>
+      <image width="73%" source="ACFigure1_3_SecToTanSeq.png"/>
+    </p>
+    <p>
+      Because the process of taking a limit is a dynamic one,
+      it can be helpful to use computing technology to visualize it.
+      Use the Desmos graph at
+      <url href="https://www.desmos.com/calculator/jezop0dekw">https://www.desmos.com/calculator/jezop0dekw</url>
+      to explore this idea.
+      You can drag the points around on the graph,
+      adjust the slider for <m>x=a</m> to change the point where you're taking the derivative,
+      adjust the slider for <m>h</m> to change how far apart the points are,
+      and even change the function that you're taking the derivative of.
+      It also tells you the value <m>m</m> of the slope of the line between the points.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use the Desmos graph from above:
+        </p>
+        <url href="https://www.desmos.com/calculator/jezop0dekw">https://www.desmos.com/calculator/jezop0dekw</url>
+        <p>
+          to:
+          <ul>
+            <li>
+              <p>
+                graph a function <m>f(x)</m> of your choice,
+              </p>
+            </li>
+            <li>
+              <p>
+                pick a value <m>x=a</m> and
+              </p>
+            </li>
+            <li>
+              <p>
+                estimate the slope of the line between <m>(a,f(a))</m> and
+                <m>(a+h, f(a+h))</m> for a very small value of <m>h</m>.
+                This is calculated in the fourth line from the top on the left as the quantity
+                <me>
+                  m = \frac{f(a+h)-f(a)}{h}
+                </me>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      If the tangent line at <m>x=a</m> exists,
+      the graph of <m>f</m> looks like a straight line when viewed up close at <m>(a,f(a))</m>.
+      In the picture below we combine the four graphs in the picture above into the single one on the left,
+      and zoom in on the box centered at <m>(a,f(a))</m> on the right.
+      Note how the tangent line sits relative to the curve <m>y=f(x)</m> at
+      <m>(a,f(a))</m> and how closely it resembles the curve near <m>x=a</m>.
+      A function is differentiable precisely when the tangent line is close to the curve when viewed up close.
+      We will revisit this idea in great detail in a later section.
+    </p>
+    <figure>
+      <caption>The tangent line is a limit of secant lines. When viewed up close, a function is differentiable precisely when the tangent line is close to the curve.</caption>
+      <image width="70%" source="ACFigure1-3-6.png"/>
+    </figure>
+    <p>
+      \fbox{ The derivative <m>f\,'(a)</m> measures the slope of the tangent line to the curve <m>y=f(x)</m> at <m>(a,f(a))</m>. }
+    </p>
+    <definition>
+      <statement>
+        <p>
+          The <em>tangent line to a function <m>f(x)</m> at the point <m>x=a</m> </em>
+          is the line with slope <m>m=f\,'(a)</m> that passes through the point <m>(a,f(a))</m>,
+          provided that <m>f\,'(a)</m> exists.
+          This can be visualized as the limit as <m>h\to 0</m> of secant lines through the points
+          <m>(a,f(a))</m> and <m>(a+h,f(a+h))</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>Estimating the slope of a tangent line with a sequence of secant lines</title>
+      <statement>
+        <p>
+          Estimate the slope of the line tangent to the graph of <m>f(x) = -\frac{1}{2}x^2+3x</m> at the point
+          <m>(2,f(2))</m> by calculating a sequence of slopes of secant lines.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The tangent line passes through the point
+          <m>(2,f(2)) = (2,4)</m> since <m>f(2) = -\frac{1}{2}(2)^2+3(2)=4</m>.
+          It is shown in red in each of the graphs that follow.
+          Since we only know one point on this line,
+          we cannot compute its slope directly.
+          We will approximate its slope by considering a sequence of slopes of secant lines on smaller and smaller intervals,
+          namely <m>[2,3], [2,2.5], [2,2.25]</m>,
+          and <m>[2,2.1]</m>, as shown in the graphs below:
+        </p>
+        <p>
+          <image width="73%" source="TaalmanPage170a.png"/>
+        </p>
+        <p>
+          In the definition of the derivative,
+          we can think of this as a sequence of <m>h</m>-values <m>h=1, h=0.5, h=0.25</m>,
+          and <m>h=0.1</m> approaching zero.
+        </p>
+        <p>
+          The slope of the secant line from <m>x=2</m> to <m>x=3</m> in the leftmost graph is given by
+          <me>
+            \frac{f(3)-f(2)}{3-2} = \frac{\left(-\frac{1}{2}(3)^2+3(3)\right)-\left(-\frac{1}{2}(2)^2+3(2)\right)}{3-2} = \frac{4.5-4}{3-2} = 0.5
+          </me>
+        </p>
+        <p>
+          Similarly, the slopes of the remaining three secant lines are given by
+          <me>
+            \frac{f(2.5)-f(2)}{2.5-2}=0.75,  \frac{f(2.25)-f(2)}{2.25-2}=0.875,  \text{ and }  \frac{f(2.1)-f(2)}{2.1-2}=0.95
+          </me>.
+        </p>
+        <p>
+          Each of these slopes is an approximation to the slope of the red tangent line.
+          As the graphs shown suggest,
+          we would expect this sequence of slopes to be getting closer and closer to the actual slope of the red tangent line;
+          notice for example that, in the last figure shown,
+          the green secant line is almost indistinguishable from the red tangent line.
+        </p>
+        <p>
+          In a similar fashion we can calculate the slopes of secant lines from the left of <m>x=2</m>.
+          For example,
+          the slope of the secant line from <m>x=1</m> to <m>x=2</m> is given by
+          <me>
+            \frac{f(1)-f(2)}{1-2} = \frac{\left(-\frac{1}{2}(1)^2+3(1)\right)-\left(-\frac{1}{2}(2)^2+3(2)\right)}{1-2} = \frac{2.5-4}{1-2} = 1.5
+          </me>.
+        </p>
+        <p>
+          Over the smaller intervals <m>[1,5,2], [1.75,2]</m>,
+          and <m>[1.9,2]</m> we have secant lines with slopes given by
+          <me>
+            \frac{f(1.5)-f(2)}{1.5-2}=1.25,  \frac{f(1.75)-f(2)}{1.75-2}=1.125, \text{ and }  \frac{f(1.9)-f(2)}{1.9-2} = 1.05
+          </me>.
+        </p>
+        <p>
+          Putting all this information together,
+          we obtain the following table:
+        </p>
+        <tabular>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>[1,2]</m></cell>
+            <cell><m>[1.5,2]</m></cell>
+            <cell><m>[1.75,2]</m></cell>
+            <cell><m>[1.9,2]</m></cell>
+            <cell><m>t=2</m></cell>
+            <cell><m>[2,2.1]</m></cell>
+            <cell><m>[2,2.25]</m></cell>
+            <cell><m>[2,2.5]</m></cell>
+            <cell><m>[2,3]</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Slope</cell>
+            <cell>1.5</cell>
+            <cell>1.25</cell>
+            <cell>1.125</cell>
+            <cell>1.05</cell>
+            <cell><m>\ast</m></cell>
+            <cell>0.95</cell>
+            <cell>0.875</cell>
+            <cell>0.75</cell>
+            <cell>0.5</cell>
+          </row>
+        </tabular>
+        <p>
+          From this table,
+          we might guess that the slope of the tangent line is 1.
+          This guess is only an estimate;
+          the slope of the tangent line might instead be something like 0.97 or 1.02,
+          but we don't have enough information to say otherwise at this point.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain how the derivative (a.k.a. the slope of the tangent line) is a limit of slopes of secant lines to a curve.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_associatedslopefunction">
+    <title>The Derivative as an Associated Slope Function</title>
+    <p>
+      Let's see another approach at visualizing the derivative.
+      Intuitively speaking,
+      if the graph of a function <m>f</m> is <em>smooth</em>
+      on an interval <m>(a,b)</m>,
+      meaning that it does not have any corners, cusps, jumps,
+      or holes,
+      then at every point <m>(x,f(x))</m> on the graph of <m>f</m> on the interval <m>(a,b)</m> we can consider the direction,
+      or <em>slope</em>, of the function at that point.
+      What we really mean by this is that we consider the slope of the tangent line at that point.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, in the figure that follows,
+          the tangent line drawn at <m>x=-1</m> points in the same direction as the function <m>f</m> at <m>(-1, f(-1))</m>.
+          More precisely,
+          if you imagine yourself in a tiny car driving along the graph of <m>f</m> with your headlights on,
+          then that line represents the direction that your headlights are pointing when you reach the point
+          <m>(-1,f(-1))</m> from the right or left.
+          Similarly, the line drawn at <m>x=4</m> represents the direction of the graph of <m>f</m> at the point <m>(4,f(4))</m>.
+        </p>
+        <figure>
+          <image width="37%" source="TaalmanPage164a.png"/>
+        </figure>
+        <p>
+          We can use the graph of a smooth function <m>f</m> to define a new function whose output at each point <m>x</m> is the slope of the tangent line at <m>x</m>.
+          For example,
+          the slopes shown on the graph of <m>f</m> in <xref ref="fig_taalmanpage164bc" autoname="yes"/> on the left are used to define heights on the graph of the
+          <em>associated slope function</em> at the right.
+          This associated slope function is what we will define in the next section as the
+          <em>derivative function</em>
+          of <m>f(x)</m> and denote as <m>f\,'(x)</m>,
+          that assigns to each input value <m>x=a</m> a number corresponding to the slope of the tangent line to <m>f(x)</m> at <m>x=a</m>.
+        </p>
+        <figure xml:id="fig_taalmanpage164bc">
+          <caption>The height of the derivative <m>f'(x)</m> is the slope of the tangent line to <m>f(x)</m>.</caption>
+          <image width="84%" source="TaalmanPage164b-c.png"/>
+        </figure>
+      </statement>
+    </example>
+    <definition>
+      <statement>
+        <p>
+          The <em>associated slope function of <m>f</m></em>
+          is the function that assigns to each <m>x=a</m> the slope of the tangent line to <m>f</m> at <m>x=a</m>.
+          This is the derivative function <m>f\,'(x)</m>,
+          to be defined using limits in the next section.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <title>Sketching the graph of an associated slope function</title>
+      <statement>
+        <p>
+          Given the following graph of the smooth function <m>f</m>,
+          sketch the graph of its associated slope function <m>f\,'</m>:
+        </p>
+        <figure>
+          <caption>The graph of a function <m>f(x)</m>.</caption>
+          <image width="46%" source="TaalmanPage168a.png"/>
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          A good place to begin is by marking all the locations on the graph of <m>f</m> where the tangent line is horizontal and thus has slope 0.
+          In this case that happens at <m>x=0</m> and <m>x=2</m>,
+          as shown next at the left.
+          Thus the associated slope function <m>f\,'</m> has zeroes at <m>x=0</m> and <m>x=2</m>,
+          as shown next at the right.
+        </p>
+        <figure>
+          <image width="92.5%" source="TaalmanPage168b.png"/>
+        </figure>
+        <p>
+          Looking again at the graph of <m>f</m>,
+          we see that its tangent lines have positive slope between <m>x=0</m> and <m>x=2</m>
+          (see, for example, the positive slope marked at <m>x=1</m>).
+          This means that, in the graph of <m>f\,'</m>,
+          the heights will be positive between <m>x=0</m> and <m>x=2</m>.
+          Similarly, the negative slopes on the graph of <m>f</m> to the left of <m>x=0</m> and to the right of <m>x=2</m> correspond to negative heights on the graph of <m>f\,'</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The next example shows four more graphs of functions and their associated slope functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For each given graph,
+          sketch an approximate graph of its associated slope function.
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-f.png"/>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-g.png"/>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-r.png"/>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-w.png"/>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For each graph, look at<ellipsis/>
+          <ul>
+            <li>
+              <p>
+                where the tangent line is horizontal.
+                The slope function will have a zero
+                (cross the <m>x</m>-axis)
+                at the same <m>x</m>-value.
+              </p>
+            </li>
+            <li>
+              <p>
+                where the function is increasing.
+                The slope function will be positive there.
+              </p>
+            </li>
+            <li>
+              <p>
+                where the function is decreasing.
+                The slope function will be negative there.
+              </p>
+            </li>
+            <li>
+              <p>
+                where the function is steep.
+                The slope function will have a large magnitude
+                (be large and positive or large and negative).
+              </p>
+            </li>
+            <li>
+              <p>
+                where the function is not steep.
+                The slope function will have a small magnitude
+                (be small and positive or small and negative).
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-f-s.png"/>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-g-s.png"/>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-r-s.png"/>
+        </p>
+        <p>
+          <image width="40%" source="ACActivity1-4-2-w-s.png"/>
+        </p>
+        <p>
+          Notice that the slope function for <m>w(x)</m> is not continuous for some <m>x</m>-values.
+          This is because the graph of <m>w(x)</m> changes slopes suddenly at all of the "cusps" where it touches the <m>x</m>-axis.
+          We will examine this phenomenon later when we discuss where a function is differentiable.
+        </p>
+      </solution>
+    </example>
+    <p>
+      For a dynamic investigation that allows you to experiment with graphing <m>f'</m> when given the graph of <m>f</m> see
+      <url href="http://gvsu.edu/s/8y">http://gvsu.edu/s/8y</url>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Draw the associated slope function for the graph below.
+          Meaning, if the curve below is the graph of <m>y=s(t)</m>,
+          draw <m>s\,'(t)</m> by considering the slopes of the tangent lines to <m>s(t)</m> at different values of <m>t</m>.
+          <ul>
+            <li>
+              <p>
+                Start with where the curve has a horizontal tangent line and fill in the spaces between.
+              </p>
+            </li>
+            <li>
+              <p>
+                The slope function is positive where the graph below is increasing,
+                and negative where the graph below is decreasing.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          <image width="37%" source="BungeeJumper.png"/>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Since we began this section with an example of finding the velocity of an object given its position function,
+      let's end by revisiting this application.
+      In the language we have developed in this section, we can now say that
+    </p>
+    "Velocity is the derivative of position."
+    <example>
+      <title>Graphing Velocity from Position</title>
+      <statement>
+        <p>
+          Suppose that the graph that follows describes your distance from home one morning as you drive back and forth from your sister's house.
+          Describe a possible scenario for your travels that morning.
+          Then sketch the corresponding graph of your velocity.
+        </p>
+        <p>
+          <image width="56%" source="TaalmanPage168c.png"/>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          One possible scenario is this: You drive to your sister's house for a visit.
+          After talking to her for a few minutes,
+          you realize you forgot something at home and race back to get it.
+          In the middle of returning to your sister's house,
+          you have to stop at a red light for a couple of minutes.
+          Following the times marked on the time axis,
+          we see that from 0 to <m>a</m> you drive to your sister's house,
+          you talk until <m>b</m>, race home from <m>b</m> to <m>c</m>,
+          leave your house at <m>d</m> and get stopped at the light at <m>e</m>,
+          and move on at <m>f</m> until you get back to your sister's house at <m>g</m>.
+          <image width="93%" source="TaalmanPage169a.png"/>
+        </p>
+        <p>
+          The graph of your velocity that morning is the graph of the associated slope function for the given position graph.
+          The slope of the position graph is positive from 0 to <m>a</m>,
+          zero from <m>a</m> to <m>b</m>,
+          negative and steep from <m>b</m> to <m>c</m>,
+          zero from <m>c</m> to <m>d</m>,
+          positive and steep from <m>d</m> to <m>e</m>,
+          zero from <m>e</m> to <m>f</m>,
+          positive and steep from <m>f</m> to <m>g</m>,
+          and finally zero again after <m>g</m>.
+          The previous sentence also describes the height of the corresponding velocity graph,
+          where steep slope values correspond to large magnitudes of velocity:
+        </p>
+        <p>
+          <image width="56%" source="TaalmanPage169b.png"/>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain how to graph the derivative function (a.k.a. associated slope function) from the graph of a function
+          (with just a picture, not a formula for the function).
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    instantaneous rate of change, instantaneous velocity, average rate of change on an interval <m>[a,a+h]</m>; <m>\Delta f</m>, meaning the change in <m>f</m>, and <m>\Delta x</m>, meaning the change in <m>x</m>; the derivative of a function at a point; the tangent line to a function at a point, secant line, slope of the tangent line to the curve; a smooth function, associated slope function, derivative function
+    <p>
+      <em>Key ideas:</em> The derivative of <m>f</m> at the value <m>x=a</m> is defined as the limit of the average rate of change of <m>f</m> on the interval <m>[a,a+h]</m> as <m>h\to 0</m>.
+      Because the quantity <m>\frac{f(a+h)-f(a)}{h}</m> represents the slope of the line through
+      <m>(a,f(a))</m> and <m>(a+h,f(a+h))</m>,
+      when we compute the derivative we are taking the limit of a collection of slopes of lines.
+      Thus the derivative itself represents the slope of a particularly important line,
+      the tangent line.
+      For each <m>x</m>,
+      the slope of the tangent line to <m>f(x)</m> is the height of <m>f\,'(x)</m>.
+      Where the graph of <m>f</m> is increasing,
+      the derivative <m>f\,'</m> is above the <m>x</m>-axis.
+      Where the graph of <m>f</m> is decreasing,
+      the derivative <m>f\,'</m> is below the <m>x</m>-axis.
+      Where <m>f</m> has a horizontal tangent line,
+      the derivative <m>f\,'</m> has a <m>x</m>-intercept.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      The limit defining the derivative of <m>f</m> at the value <m>x=a</m> may not exist,
+      so not every function has a derivative at every point.
+      We say that a function is <em>differentiable</em>
+      at <m>x=a</m> if it has a derivative at <m>x=a</m>.
+      We will explore this concept more in a later section.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 3.1}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

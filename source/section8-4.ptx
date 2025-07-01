@@ -1,0 +1,611 @@
+<section>
+  <title>Defining Inverse Trigonometric Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Recall that functions must be one-to-one in order to have an inverse.
+          As a result,
+          we must restrict the domains of the trigonometric functions in order to define their (partial) inverse functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Define the inverse functions arccosine, arcsine,
+          and arctangent, and determine their domains and ranges.
+        </p>
+      </li>
+      <li>
+        <p>
+          Practice calculating values of inverse trigonometric functions,
+          and learn what common mistakes to avoid while doing so.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>A Brief Recap of Inverse Functions</title>
+    <p>
+      Recall from <xref ref="sec_inversefunctions">Section</xref>
+      that a function has an inverse only if the function is one-to-one,
+      or in other words that it passes the Horizontal Line Test.
+      This allows us to "reverse" a function <m>y=f(x)</m> to obtain a function <m>f^{-1}(y) = x</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, if <m>f(x) = x^3</m>,
+          then <m>f^{-1}(y) = \sqrt[3]{y}</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          For another example, if <m>f(x) = e^x</m>,
+          then <m>f^{-1}(y) = \ln y</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Given a one-to-one function <m>f(x)</m>,
+      its inverse is by definition the function
+      <m>f^{-1}(x)</m> with the property that
+      <me>
+        f^{-1}(f(x)) = x\text{ and }  f(f^{-1}(y)) = y
+      </me>
+      for all <m>x</m> in the domain of <m>f</m> and for all <m>y</m> in the domain of <m>f^{-1}</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For <m>f(x) = x^3</m>, we have
+          <me>
+            f^{-1}(f(x)) = \sqrt[3]{x^3} = x,\text{ for all real numbers } x
+          </me>
+          <me>
+            f(f^{-1}(y)) = (\sqrt[3]{y})^3 = y,\text{ for all real numbers } y
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          For <m>f(x) = e^x</m>, we have
+          <me>
+            f^{-1}(f(x)) = \ln(e^x) = x,\text{ for all real numbers } x
+          </me>
+          <me>
+            f(f^{-1}(y)) = e^{\ln y} = y,\text{ for all positive real numbers } y
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      If a function fails to be one-to-one,
+      then it does not have an inverse.
+      However, we can restrict the domain on which we consider the function in order to make the remaining function one-to-one,
+      and define an inverse of the function restricted to that domain.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>f(x) = x^2+1</m> fails the horizontal line test and therefore is not one-to one on the domain <m>(-\infty,\infty)</m>.
+          But on the restricted domain <m>[0,\infty)</m>,
+          the function <m>f(x) = x^2+1</m> is one-to-one,
+          as we can see in <xref ref="fig_RestrictedDomain">Figure</xref> below:
+        </p>
+        <figure xml:id="fig_RestrictedDomain">
+          <caption>The function <m>f(x) = x^2+1</m> on the <em>restricted</em> domain <m>[0,\infty)</m> is indeed one-to-one.</caption>
+          <image width="46%" source="RestrictedDomain.png"/>
+        </figure>
+        <p>
+          From the graph in <xref ref="fig_RestrictedDomain">Figure</xref>
+          we also see that the range of <m>f(x)</m> is <m>[1,\infty)</m>.
+          This tells us that the domain of <m>f^{-1}</m> is
+          <m>[1,\infty)</m> before we do any computations.
+        </p>
+        <p>
+          A formula for the inverse for <m>f</m> can be computed via
+          <me>
+            \begin{aligned}y \amp = x^2+1\\ y-1 \amp = x^2\\ \pm\sqrt{y-1} \amp = x \end{aligned}
+          </me>
+        </p>
+        <p>
+          It seems that we have <em>two</em>
+          formulas for <m>f^{-1}</m>,
+          consisting of <m>\sqrt{y-1}</m> and <m>-\sqrt{y-1}</m>.
+          However, since we have restricted the domain for <m>x</m> to <m>x\geq 0</m>,
+          we only want the positive square root and can write
+          <me>
+            x = f^{-1}(y) = \sqrt{y-1}
+          </me>
+        </p>
+        <p>
+          Now we can verify explicitly that the domain of <m>f^{-1}</m> is the range <m>[1,\infty)</m> of <m>f</m>,
+          since we need <m>y-1\geq 0</m> within the square root,
+          meaning that <m>y\geq 1</m>.
+        </p>
+        <p>
+          Let's check our work both algebraically and geometrically:
+        </p>
+        <p>
+          We can check that the definition of an inverse function is satisfied by simplifying the compositions
+          <m>f\circ f^{-1}</m> and <m>f^{-1}\circ f</m>:
+          <me>
+            f^{-1}(f(x)) = \sqrt{(x^2+1)-1} = \sqrt{x^2} = x,\text{ for all } x\geq 0
+          </me>
+          <me>
+            f(f^{-1}(y)) = (\sqrt{y-1})^2+1 = (y-1)+1 = y,\text{ for all } y\geq 1
+          </me>
+        </p>
+        <p>
+          Visually, we see that the graph of
+          <m>f^{-1}(x) = \sqrt{x-1}</m> is the graph of <m>f(x)</m> reflected over the line <m>y=x</m>:
+        </p>
+        <figure>
+          <caption><m>f(x)</m> (in blue) on the restricted domain <m>[0,\infty)</m> and its inverse <m>f^{-1}(x)</m> (in green).</caption>
+          <image width="46%" source="RestrictedDomainAndInverse.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      In the rest of this section,
+      we discuss inverses of the trigonometric functions.
+      There is a rather significant obstacle to this:
+      none of them are one-to-one.
+    </p>
+    <p>
+      The function <m>y=\sin \theta</m> takes angles as inputs and returns <m>y</m>-coordinates on the unit circle as outputs.
+      Is there a way to reverse this function to an inverse function
+      <m>\sin^{-1}y = \theta</m> that takes <m>y</m>-coordinates on the unit circle as inputs and returns angles as outputs?
+      Not immediately, since <m>\sin \theta</m> is not one-to-one:
+      many angles correspond to any given <m>y</m>-coordinate on the unit circle.
+    </p>
+    <p>
+      In fact, <em>none</em> of the six trigonometric functions are one-to-one,
+      but after restricting domains we can construct the so-called inverse trigonometric functions.
+      In this section,
+      we will focus on the inverse of only three of the six inverse trigonometric functions: Those for cosine, sine,
+      and tangent.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Give three examples of angles <m>\theta</m> for which <m>\sin\theta = 1</m>.
+          This shows us that we cannot "reverse" the function sine without restricting its domain.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The arccosine function</title>
+    <p>
+      The function cosine repeats itself over and over and over again,
+      so there are many different intervals we could use to define an inverse.
+      The important part is that we pick one domain and stick to it consistently.
+    </p>
+    <p>
+      Consider the plot of the standard cosine function in <xref ref="fig_APCFigure4-3-1">Figure</xref>
+      below along with the emphasized portion of the graph on <m>[0,\pi]</m>.
+    </p>
+    <figure xml:id="fig_APCFigure4-3-1">
+      <caption><m>y = \cos t</m> is one-to-one on the interval <m>[0,\pi]</m>.</caption>
+      <image width="84%" source="APCFigure4-3-1.png"/>
+    </figure>
+    <p>
+      If we consider <m>g(t) = \cos t</m> for only <m>0\leq t\leq \pi</m>,
+      then the domain of <m>g(t)</m> is the interval <m>[0,\pi]</m>,
+      but its range is still <m>[-1,1]</m>,
+      the entire range of the cosine function.
+      Since <m>g</m> is decreasing on its domain,
+      we can see that it passes the Horizontal Line Test.
+      Thus <m>g</m> has an inverse function,
+      and before computing anything we know that the inverse <m>g^{-1}</m> has domain <m>[-1,1]</m> and range <m>[0,\pi]</m>.
+      Note that <m>g</m> is defined in terms of the cosine function,
+      but because it has a different domain,
+      it is <em>not</em> the cosine function.
+      This restricted version of the cosine function has an inverse function,
+      which we call the <em>arccosine</em> function.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          For any real number <m>x</m> that satisfies <m>-1\leq x\leq 1</m>,
+          the <em>arccosine of <m>x</m></em>, denoted
+          <me>
+            \arccos(x) = \cos^{-1}(x)
+          </me>
+          is the angle <m>\theta</m> satisfying
+          <m>0\leq \theta\leq \pi</m> such that <m>\cos(\theta) = x</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note particularly that the <em>output</em>
+      of the arccosine function is an angle.
+      In addition, recall that in the context of the unit circle,
+      an angle measured in radians and the corresponding arc length along the unit circle are numerically equal.
+      This is why we use the "arc" in "arccosine": given a value <m>1\leq x\leq 1</m>,
+      the arccosine function produces the corresponding <em>arc</em>
+      (measured counterclockwise from <m>(1,0)</m>),
+      such that the cosine of that arc is <m>x</m>.
+    </p>
+    <p>
+      Below we see that graph of
+      <m>y=\cos t</m> restricted to the domain <m>[0,\pi]</m>
+      (in light blue)
+      along with the graph of the arccosine function <m>y=\arccos t</m>
+      (in dark blue),
+      plotted on the same axis.
+      (If you ask me,
+      the graph of arccosine is not particularly enlightening and not worth remembering,
+      but here it is anyway.)
+    </p>
+    <figure xml:id="fig_APCarccosgraph">
+      <caption>The graph of <m>y=\arccos t</m> (dark blue) is the graph of <m>y=\cos t</m> restricted to <m>0\leq t\leq \pi</m> (light blue) reflected over <m>y=t</m>.</caption>
+      <image width="37%" source="APCarccosgraph.png"/>
+    </figure>
+    <p>
+      Just as the natural logarithm function allowed us to rewrite exponential equations in an equivalent way,
+      the arccosine function allows us to do likewise for certain angles and cosine outputs.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For instance,
+          saying <m>\cos(\frac{\pi}{2}) = 0</m> is the same as writing <m>\frac{\pi}{2} = \arccos(0)</m>,
+          which reads "<m>\frac{\pi}{2}</m> is the angle whose cosine is <m>0</m>".
+        </p>
+      </statement>
+    </example>
+    <p>
+      Indeed, these relationships are reflected in the plot in <xref ref="fig_APCarccosgraph">Figure</xref> above,
+      where we see that any point <m>(a,b)</m> that lies on the graph of
+      <m>y=\cos t</m> corresponds to the point <m>(b,a)</m> that lies on the graph of <m>y=\arccos t</m>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          We know that <m>\cos(\frac{\pi}{4}) = \frac{\sqrt{2}}{2}</m>.
+          What is the exact value of <m>\arccos(\frac{\sqrt{2}}{2})</m>?
+          How about the exact value of <m>\arccos(-\frac{\sqrt{2}}{2})</m>?
+          <em>Recall: the range of <m>\arccos(x)</m> is <m>[0,\pi]</m>,
+          meaning that your answer should be an angle
+          (in radian measure)
+          between <m>0</m> and <m>\pi</m>.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      \fbox{There are two equivalent notations for all of the inverse trigonometric functions.
+      <me>
+        \arccos x\text{ and }  \cos^{-1} x
+      </me>
+      mean the exact same thing:
+      the inverse function of <m>\cos \theta</m> restricted to the domain <m>0\leq \theta\leq \pi</m>.
+      You will see the two notations used interchangeably,
+      both here and in other sources. }}
+    </p>
+  </subsection>
+  <subsection>
+    <title>The arcsine function</title>
+    <p>
+      We can develop an inverse function for a restricted version of the sine function in a similar way.
+      As with the cosine function,
+      we need to choose an interval on which the sine function is always increasing or always decreasing in order to have the function pass the Horizontal Line Test.
+      The standard choice is the domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> on which
+      <m>f(t) = \sin t</m> is increasing and attains all of the values in the range of the sine function.
+      Thus we consider <m>f(t) = \sin t</m> with domain
+      <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> and range <m>[-1,1]</m> and hence define the corresponding arcsine function.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          For any real number <m>x</m> that satisfies <m>-1\leq x\leq 1</m>,
+          the <em>arcsine of <m>x</m></em>, denoted
+          <me>
+            \arcsin(x) = \sin^{-1}(x)
+          </me>
+          is the angle <m>\theta</m> satisfying
+          <m>-\frac{\pi}{2}\leq \theta\leq \frac{\pi}{2}</m> such that <m>\sin(\theta) = x</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The graphs of <m>y=\sin x</m> restricted to
+      <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> and <m>y=\arcsin x</m> appear below.
+      Note that the domain of the arcsine function is <m>[-1,1]</m> and its range is <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m>.
+    </p>
+    <figure xml:id="fig_TaalmanPage438a">
+      <caption><m>y=\sin x</m> restricted to the domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m>.</caption>
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="70%" source="TaalmanPage438a.png"/>
+      \end{subfigure}
+      \hspace{.5in}
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="70%" source="TaalmanPage439a.png"/>
+      \caption{<m>y=\sin^{-1}x</m>.} \end{subfigure}
+      \caption{The graph of <m>y=\sin x</m> on the restricted domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> (left) and the graph of <m>y=\sin^{-1}x</m> (right).}
+    </figure>
+    <example>
+      <statement>
+        <p>
+          We can calculate the exact value of
+          <m>\sin^{-1}\left(\frac{1}{2}\right)</m> using the unit circle.
+          First, we translate from inverse trigonometric function to trigonometric function:
+          <me>
+            \theta = \sin^{-1}\left(\frac{1}{2}\right) \qquad \Longleftrightarrow\qquad \sin\theta = \frac{1}{2}\text{ with }  -\frac{\pi}{2}\leq \theta\leq \frac{\pi}{2}
+          </me>
+        </p>
+        <p>
+          There are infinitely many angles whose sine is <m>\frac{1}{2}</m>;
+          recall that this means the <m>y</m>-value of the point on the unit circle must be <m>\frac{1}{2}</m>.
+          Only one of those angles is in the restricted domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> shown below:
+        </p>
+        <figure xml:id="fig_TaalmanPage442b">
+          <caption>The only point on the unit circle in the restricted domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> with height <m>\frac{1}{2}</m>.</caption>
+          <image width="37%" source="TaalmanPage442b.png"/>
+        </figure>
+        <p>
+          Either using a labeled picture of the unit circle and finding where sine is <m>\frac{1}{2}</m> on this domain,
+          or fitting a <m>30-60-90</m> triangle into the picture as shown below,
+          we see that the only angle meeting both of these criteria is <m>\theta = \frac{\pi}{6}</m>.
+        </p>
+        <figure>
+          <caption><m>\theta = \frac{\pi}{6}</m> is the only angle in <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> whose sine is equal to <m>\frac{1}{2}</m>.</caption>
+          <image width="37%" source="TaalmanPage442c.png"/>
+        </figure>
+        <p>
+          Therefore <m>\arcsin\left(\frac{1}{2}\right) = \frac{\pi}{6}</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the labeled picture of the unit circle you created in <xref ref="ex_trigvaluesonunitcircle">Exercise</xref>
+          to determine the following values exactly:
+          <m>\arcsin(-1), \arcsin\left(-\frac{\sqrt{2}}{2}\right)</m>,
+          and <m>\arcsin(0)</m>.
+        </p>
+        <p>
+          <em>Remember, you should have only one answer for each,
+          the answer should be an angle,
+          and the angle should be between
+          <m>-\frac{\pi}{2}</m> and <m>\frac{\pi}{2}</m>.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      There are two standard notations for the arcsin function:
+      <m>\arcsin t</m> and <m>\sin^{-1} t</m>.
+      The latter reminds us that the arcsin function is the inverse of the sine function,
+      but we must be careful about how we apply this because of the restriction on the domain of sine.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          we can compute <m>\sin^{-1}\left(\sin\left(-\frac{\pi}{4}\right)\right) = -\frac{\pi}{4}</m> via the property
+          <m>\sin^{-1}(\sin x) = x</m> of inverse functions.
+          However, this is only true because
+          <m>-\frac{\pi}{4}</m> is within the restricted domain
+          <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> used to define the arcsine function.
+        </p>
+        <p>
+          By contrast,
+          suppose we wish to simplify <m>\sin^{-1}\left(\sin\left(\frac{3\pi}{4}\right)\right)</m>.
+          You may be tempted to say that
+          <m>\sin^{-1}\left(\sin\left(\frac{3\pi}{4}\right)\right)</m> is equal to <m>\frac{3\pi}{4}</m>.
+          However, <m>\frac{3\pi}{4}</m> is not in the domain of the restricted sine function.
+          We must calculate <m>\sin\left(\frac{3\pi}{4}\right)</m> and then evaluate the inverse sine function at that value (or otherwise translate the angle
+          <m>\frac{3\pi}{4}</m> to the correct angle between
+          <m>-\frac{\pi}{2}</m> and <m>\frac{\pi}{2}</m>.
+          We know that <m>\sin\left(\frac{3\pi}{4}\right)=\frac{\sqrt{2}}{2}</m>,
+          as shown next at the left.
+          To find the value of <m>\sin^{-1}\left(\frac{\sqrt{2}}{2}\right)</m>,
+          we must find the angle in <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> whose sine is <m>\frac{\sqrt{2}}{2}</m>.
+          This angle is <m>\frac{\pi}{4}</m>, as shown at the right.
+        </p>
+        <p>
+          <image width="75%" source="TaalmanPage444.png"/>
+        </p>
+        <p>
+          Therefore <m>\sin^{-1}\left(\sin\left(\frac{3\pi}{4}\right)\right) =\sin^{-1}\left(\frac{\sqrt{2}}{2}\right)= \frac{\pi}{4}</m>.
+        </p>
+        <p>
+          Alternately,
+          it is completely accurate to use our knowledge of the unit-circle definition of sine as the <m>y</m>-coordinate on the unit circle to say that we would like the angle between <m>-\frac{\pi}{2}</m> and
+          <m>\frac{\pi}{2}</m> with the same <m>y</m>-coordinate.
+          For this example,
+          we must simply reflect the point on the unit circle over the <m>y</m>-axis,
+          and determine that the appropriate angle at that point is <m>\frac{\pi}{4}</m>.
+          Use whatever form of this intuition you prefer.
+          In either case, I recommend drawing a quick picture of the unit circle to help your reasoning.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          <em>True or False?</em> <m>\sin^{-1}(\sin(5\pi)) = 5\pi</m>.
+          Write a complete sentence to explain your reasoning.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      \fbox{ Although we use the notation <m>\sin^2 x</m> to represent
+      <m>(\sin x)^2</m> and the notation <m>x^{-1}</m> to represent <m>\frac{1}{x}</m>,
+      the notation <m>\sin^{-1}x</m> does <em>not</em>
+      represent <m>\frac{1}{\sin x}</m>.
+      Inverse functions in general have nothing to do with reciprocals,
+      despite what one might imagine from the notation. }
+    </p>
+  </subsection>
+  <subsection>
+    <title>The arctangent function</title>
+    <p>
+      Finally, we develop an inverse function for a restricted version of the tangent function.
+      We choose the domain <m>\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m> on which
+      <m>y=\tan t</m> is increasing and attains all of the values in the range
+      <m>(-\infty,\infty)</m> of the tangent function.
+    </p>
+    <figure xml:id="fig_TaalmanPage438b">
+      <caption><m>y=\tan x</m> restricted to the domain <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="73%" source="TaalmanPage438b.png"/>
+      \end{subfigure}
+      \hspace{.5in}
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="73%" source="TaalmanPage439b.png"/>
+      \caption{<m>y=\tan^{-1}x</m>.} \end{subfigure}
+      \caption{The graph of <m>y=\tan x</m> on the restricted domain <m>(-\frac{\pi}{2},\frac{\pi}{2})</m> (left) and the graph of <m>y=\tan^{-1}x</m> (right).}
+    </figure>
+    <p>
+      <em>Note:</em> The graph of
+      <m>y=\arctan x</m> is the only graph of an inverse trigonometric function that is worth remembering.
+      This is also the most useful of all of the inverse trigonometric functions,
+      the reason for which you will learn later.
+    </p>
+    <p>
+      Since the range of the tangent function is <m>(-\infty,\infty)</m>,
+      this is the domain of the arctangent function.
+      Likewise the range of the arctangent function is the restricted domain
+      <m>\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m> on which the tangent function is one-to-one.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          For any real number <m>x</m>,
+          the <em>arctangent of <m>x</m></em>, denoted
+          <me>
+            \arctan(x) = \tan^{-1}(x)
+          </me>
+          is the angle <m>\theta</m> satisfying
+          <m>-\frac{\pi}{2}\lt  \theta\lt  \frac{\pi}{2}</m> such that <m>\tan(\theta) = x</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          Let's calculate the value of
+          <m>\arctan(-\sqrt{3}) = \tan^{-1}(-\sqrt{3})</m> using the unit circle.
+          Translating to the tangent function, we need:
+          <me>
+            \theta = \tan^{-1}(-\sqrt{3}) \qquad \Longleftrightarrow\qquad \tan\theta =-\sqrt{3}\text{ with }  -\frac{\pi}{2}\lt  \theta\lt  \frac{\pi}{2}
+          </me>
+        </p>
+        <p>
+          In terms of sine and cosine, this means that
+          <me>
+            \frac{\sin\theta}{\cos\theta} = -\sqrt{3} \qquad \Longleftrightarrow\qquad \sin\theta = -\sqrt{3}\cos\theta
+          </me>
+        </p>
+        <p>
+          We now have to think of an angle <m>\theta</m> in the first or fourth quadrant of the unit circle whose sine is <m>-\sqrt{3}</m> times its cosine.
+          Since <m>\tan^{-1} x</m> is a function,
+          there must be only one such angle;
+          we will try to "guess" it.
+        </p>
+        <p>
+          Since <m>\tan\theta</m> is negative,
+          the angle <m>\theta</m> must be in the fourth quadrant.
+          Since only <m>30-60-90</m> triangles involve <m>\sqrt{3}</m>,
+          we must have one as our reference triangle.
+          Lastly, with a little guess-and-check,
+          we can determine that the triangle must be in the position shown to the right of <xref ref="fig_TaalmanPage442d">Figure</xref>.
+          From this, we conclude that the angle must be <m>-\frac{\pi}{3}</m>.
+        </p>
+        <figure xml:id="fig_TaalmanPage442d">
+          <caption>In order to have <m>\tan\theta = -\sqrt{3}</m>, we must have a <m>30-60-90</m> reference triangle, with terminal angle <m>-\frac{\pi}{3}</m>.</caption>
+          <image width="93%" source="TaalmanPage442d.png"/>
+        </figure>
+        <p>
+          Thus we have now shown that <m>\tan^{-1}(-\sqrt{3}) = -\frac{\pi}{3}</m>.
+        </p>
+        <p>
+          Note that it is <em>not correct</em>
+          to say <m>\tan^{-1}(-\sqrt{3}) = \frac{2\pi}{3}</m>,
+          even though <m>\tan\left(\frac{2\pi}{3}\right) = -\sqrt{3}</m>,
+          since we have specifically defined the range of the arctangent function to be <m>\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m>.
+          Thus any angle that we get as an output from <m>\tan^{-1}</m> must be between
+          <m>-\frac{\pi}{2}</m> and <m>\frac{\pi}{2}</m>.
+        </p>
+        <p>
+          Likewise, it is <em>not correct</em>
+          to say that <m>\tan^{-1}(-\sqrt{3}) = \frac{5\pi}{3}</m>,
+          even though <m>\frac{5\pi}{3}</m> and
+          <m>-\frac{\pi}{3}</m> intersect the unit circle at the same point.
+          Again, the function arctangent is specifically defined so that we are using only the angles between
+          <m>-\frac{\pi}{2}</m> and <m>\frac{\pi}{2}</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the labeled picture of the unit circle you created in <xref ref="ex_trigvaluesonunitcircle">Exercise</xref>
+          to determine the following values exactly:
+          <m>\arctan(0), \arctan(1)</m>, and <m>\arctan(-1)</m>.
+        </p>
+        <p>
+          <em>Remember that <m>\tan\theta = \frac{\sin\theta}{\cos\theta}</m> and that your answer should be an angle between
+          <m>-\frac{\pi}{2}</m> and <m>\frac{\pi}{2}</m>.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We summarize the domains and ranges of the functions defined in this section:
+    </p>
+    <p>
+      \fbox{<em>Domains and Ranges for Arccosine, Arcsine, and Arctangent:</em>
+      <ul>
+        <li>
+          <p>
+            <m>\arccos x = \cos^{-1} x</m> has domain <m>[-1,1]</m> and range <m>\left[0,\pi\right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\arcsin x = \sin^{-1} x</m> has domain <m>[-1,1]</m> and range <m>\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\arctan x = \tan^{-1} x</m> has domain
+            <m>(-\infty,\infty)</m> and range <m>\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following functions were introduced in this section:
+    </p>
+    The arccosine function: <m>\arccos x = \cos^{-1}</m>, the arcsine function: <m>\arcsin x = \sin^{-1}x</m>, and the arctangent function: <m>\arctan x = \tan^{-1}x</m>.
+    <p>
+      <em>Key ideas:</em> Each of the inverse trigonometric functions arises from taking a restricted domain of the corresponding trigonometric function on which the latter is one-to-one.
+      Take particular care that the output of any inverse trigonometric function is within these restricted intervals.
+      Inverse functions "reverse" the original function,
+      but in this case we only have "partial" inverse functions,
+      so it's more complicated.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      The notation <m>f^{-1}</m> does NOT mean <m>\frac{1}{f}</m>.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 7.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

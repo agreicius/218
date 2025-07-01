@@ -1,0 +1,830 @@
+<section>
+  <title>The Product and Quotient Rules</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Recognize when to apply the Product Rule.
+        </p>
+      </li>
+      <li>
+        <p>
+          Successfully apply the Product Rule and simplify the result.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize when to apply the Quotient Rule.
+        </p>
+      </li>
+      <li>
+        <p>
+          Successfully apply the Quotient Rule and simplify the result.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Derivatives Do NOT Distribute Over Products and Quotients</title>
+    <p>
+      As mentioned in the previous section,
+      the following are <sc>NOT</sc> valid rules for taking derivatives:
+      <me>
+        \frac{d}{dx}\left[f(x)\cdot g(x)\right] = \frac{d}{dx}[f(x)]\cdot\frac{d}{dx}[g(x)]
+      </me>
+      and
+      <me>
+        \frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{\frac{d}{dx}[f(x)]}{\frac{d}{dx}[g(x)]}
+      </me>
+    </p>
+    <p>
+      Here are two basic examples illustrating why:
+    </p>
+    <example>
+      <title>Non-example: The Derivative Does NOT Distribute Over a Product</title>
+      <statement>
+        <p>
+          We can calculate the derivative of <m>x^2\cdot x^3</m> by simplifying:
+          <me>
+            x^2\cdot x^3 = x^5
+          </me>
+          and then taking the derivative:
+          <me>
+            \frac{d}{dx}(x^2\cdot x^3) = \frac{d}{dx}(x^5) = 5x^4
+          </me>.
+        </p>
+        <p>
+          However, if we try to multiply the derivatives
+          <m>\frac{d}{dx}(x^2) = 2x</m> and <m>\frac{d}{dx}(x^3) = 3x^2</m>, we get
+          <me>
+            \frac{d}{dx}(x^2)\cdot \frac{d}{dx}(x^3) = (2x)\cdot (3x^2) = 6x^3
+          </me>.
+        </p>
+        <p>
+          So we can clearly see that
+          <me>
+            \frac{d}{dx}(x^2\cdot x^3) \neq \frac{d}{dx}(x^2)\cdot \frac{d}{dx}(x^3)
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>Non-example: The Derivative Does NOT Distribute Over a Quotient</title>
+      <statement>
+        <p>
+          Similarly, we can calculate the derivative of
+          <m>\dfrac{x^3}{x^2}</m> by simplifying first:
+          <me>
+            \frac{d}{dx}\left(\frac{x^3}{x^2}\right) = \frac{d}{dx}(x) = 1
+          </me>.
+        </p>
+        <p>
+          However, if we try to make a quotient from the derivatives
+          <m>\frac{d}{dx}(x^2) = 2x</m> and <m>\frac{d}{dx}(x^3) = 3x^2</m>, we get
+          <me>
+            \frac{\frac{d}{dx}(x^3)}{\frac{d}{dx}(x^2) } = \frac{3x^2}{2x} = \frac{3x}{2}
+          </me>
+        </p>
+        <p>
+          So we can clearly see that
+          <me>
+            \frac{d}{dx}\left(\frac{x^3}{x^2}\right)\neq \frac{\frac{d}{dx}(x^3)}{\frac{d}{dx}(x^2) }
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Consider the functions <m>f(x) = x^2+1</m> and <m>g(x) = x^3</m>.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Simplify <m>f(x)\cdot g(x) = (x^2+1)(x^3)</m> by distributing.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use your answer to part (a) to calculate <m>\frac{d}{dx}[f(x)\cdot g(x)]</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>f'(x)</m> and <m>g'(x)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplify <m>f'(x)\cdot g'(x)</m> using your answers to part (c).
+              </p>
+            </li>
+            <li>
+              <p>
+                Observe that your answers to parts (b) and (d) are NOT the same.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      How exactly, then,
+      are we supposed to take derivatives of product and quotients without simplifying first?
+      Read on<ellipsis/>
+    </p>
+  </subsection>
+  <subsection xml:id="sec_productruleincontext">
+    <title>Real-World Motivation for the Derivative of a Product</title>
+    <p>
+      Say that an investor is regularly purchasing stock in a particular company.
+      Let <m>N(t)</m> represent the number of shares owned on day <m>t</m>,
+      where <m>t=0</m> represents the first day on which shares were purchased.
+      Let <m>S(t)</m> give the value of one share of the stock on day <m>t</m>;
+      note that the units on <m>S(t)</m> are dollars per share.
+      To compute the total value of the stock on day <m>t</m>,
+      we take the product
+      <me>
+        V(t) \text{ dollars }  = N(t)\cdot S(t) \text{ (shares)\(\cdot\) (dollars per share). }
+      </me>
+    </p>
+    <p>
+      Observe that over time,
+      both the number of shares and the value of a given share will vary.
+      The derivative <m>N\,'(t)</m> measures the rate at which the number of shares is changing,
+      while <m>S\,'(t)</m> measures the rate at which the value per share is changing.
+      How do these respective rates of change affect the rate of change of the total value function?
+    </p>
+    <p>
+      To help us understand the relationship among changes in <m>N,S</m>,
+      and <m>V</m>,
+      let's consider some specific data.
+      <ul>
+        <li>
+          <p>
+            Suppose that on day 100,
+            the investor owns 520 shares of stock and the stock's current value is $27.50 per share.
+            This tells us that <m>N(100) = 520</m> and <m>S(100) = 27.50</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            On day 100, the investor purchases an additional 12 shares
+            (so the number of shares held is rising at a rate of 12 shares per day).
+          </p>
+        </li>
+        <li>
+          <p>
+            On that same day the price of the stock is rising at a rate of 0.75 dollars per share per day.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      In calculus notation,
+      the latter two facts tell us that <m>N\,'(100)=12</m>
+      (shares per day)
+      and <m>S\,'(100)=0.75</m>
+      (dollars per share per day).
+      At what rate is the value of the investor's total holdings changing on day 100?
+    </p>
+    <p>
+      Observe that the increase in total value comes from two sources:
+      the growing number of shares,
+      and the rising value of each share.
+      If only the number of shares is increasing
+      (and the value of each share is constant),
+      the rate at which which total value would rise is the product of the current value of the shares and the rate at which the number of shares is changing.
+      That is, the rate at which total value would change is given by
+      <me>
+        S(100)\cdot N\,'(100) = 27.50 \frac{\text{ dollars } }{\text{ share } }\cdot 12\frac{\text{ shares } }{\text{ day } } = 330\frac{\text{ dollars } }{\text{ day } }
+      </me>
+    </p>
+    <p>
+      Note particularly how the units make sense and show the rate at which the total value <m>V</m> is changing,
+      measured in dollars per day.
+    </p>
+    <p>
+      If instead the number of shares is constant,
+      but the value of each share is rising,
+      the rate at which the total value would rise is the product of the number of shares and the rate of change of share value.
+      The total value is rising at a rate of
+      <me>
+        N(100)\cdot S\,'(100) = 520\text{ shares } \cdot 0.75\frac{\text{ dollars per share } }{\text{ day } } = 390\frac{\text{ dollars } }{\text{ day } }
+      </me>
+    </p>
+    <p>
+      Of course, when both the number of shares and the value of each share are changing,
+      we have to include both of these sources.
+      In that case, the rate at which the total value is rising is
+      <me>
+        V\,'(100) = S(100)\cdot N\,'(100)+N(100)\cdot S\,'(100) =330+390=720\frac{\text{ dollars } }{\text{ day } }
+      </me>
+    </p>
+    <p>
+      We expect the total value of the investor's holdings to rise by about $720 on the 100th day.
+    </p>
+    <p>
+      The key observation is the following formula,
+      which we will soon learn is called the Product Rule:
+      <me>
+        V\,' = \frac{d}{dt}\left[N\cdot S\right] = S\cdot N\,'+N\cdot S\,'
+      </me>
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Product Rule</title>
+    <theorem xml:id="thm_productrule">
+      <title>Derivatives of Products of Functions</title>
+      <statement>
+        <p>
+          If <m>f</m> and <m>g</m> are functions,
+          then for all <m>x</m> where the functions involved are differentiable,
+          <me>
+            <md>
+              \textrm{\textbf{Product Rule:}} \amp \qquad \frac{d}{dx}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)
+            </md>
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Some people remember the product rule by remembering the pattern of differentiating one piece and not the other in both possible ways and then adding them;
+      there is one derivative and one original function in each term
+      (this generalizes to products of more than two functions;
+      we'll play with that in class later).
+    </p>
+    <p>
+      You will have to practice the product rule enough that it becomes automatic,
+      because it will be needed often throughout the rest of the course.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, with our earlier example of
+          <m>f(x) = x^2+1</m> and <m>g(x) = x^3</m>,
+          we can differentiate <m>f(x)g(x)</m> without multiplying it out first:
+          <me>
+            \begin{aligned}\frac{d}{dx}(f(x)g(x)) \amp = f'(x) g(x)+f(x) g'(x) \amp   \leftarrow\text{ product rule } \\ \amp = (2x)(x^3) +(x^2+1)(3x^2)\amp   \leftarrow f'(x) = 2x, \text{ and } g(x)=3x^2\\ \amp = 2x^4+3x^4+3x^2 \amp   \leftarrow\text{ algebra } \\ \amp = 5x^4+3x^2 \end{aligned}
+          </me>
+        </p>
+        <p>
+          This is exactly what you should have found earlier by multiplying out
+          <m>f(x)g(x)</m> first and then taking the derivative.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The rest of this subsection attempts to provide sufficient examples for you to begin to understand the product rule.
+      Approach these examples with patience.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>h(x) = (3x+1)(2-7x)</m> two ways:
+          <ul>
+            <li>
+              <p>
+                using the product rule
+              </p>
+            </li>
+            <li>
+              <p>
+                by simplifying first
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Using the product rule, we need to know that
+          <m>\frac{d}{dx}(3x+1) = 3</m> and <m>\frac{d}{dx}(2-7x) = -7</m> so that
+          <me>
+            \begin{aligned}h'(x) \amp = f'(x) g(x)+f(x) g'(x) \amp   \leftarrow\text{ product rule } \\ \amp = (3)(2-7x)+(3x+1)(-7)\amp   \leftarrow \frac{d}{dx}(3x+1) = 3, \text{ and } \frac{d}{dx}(2-7x) = -7\\ \amp = 6-21x-21x-7 \amp   \leftarrow\text{ algebra } \\ \amp = -42x-1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Simplifying first,
+          <me>
+            h(x) = 6x-21x^2+2-7x = -21x^2-x+2
+          </me>
+          which has derivative
+          <me>
+            h'(x) = -21(2x)-1 = -42x-1
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Your turn!
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Find the derivative of <m>h(x) = (x^{5})(x^{12})</m> two ways:
+          <ul>
+            <li>
+              <p>
+                using the product rule
+              </p>
+            </li>
+            <li>
+              <p>
+                by simplifying first
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Make sure your answers match each other.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>q(t)\cdot r(t)</m> given that
+          <m>q(t) = 4t^3-2t^7+5</m> and <m>r(t) = \frac{1}{t^3}+ \frac{1}{t}-15</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          While we <em>could</em> simplify the product
+          <m>q(t)\cdot r(t)</m>, it would be a headache.
+          Instead, we compute the derivative via the product rule.
+          First, we calculate the individual derivatives:
+          <me>
+            \begin{aligned}q'(t) \amp = 12t^2-14t^6\\ r'(t) \amp = -\frac{3}{t^4}-\frac{1}{t^2} \end{aligned}
+          </me>
+          so that we can plug them into the product rule:
+          <me>
+            \begin{aligned}\frac{d}{dx}[q(t)\cdot r(t)]\amp = q'(t) r(t)+q(t) r'(t)\\ \amp = (12t^2-14t^6)\left( \frac{1}{t^3}+ \frac{1}{t}-15\right)+(4t^3-2t^7+5)\left(-\frac{3}{t^4}-\frac{1}{t^2}\right) \end{aligned}
+          </me>
+        </p>
+        <p>
+          We will not attempt to simplify this last expression.
+          WeBWorK will accept it as it is.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can even take derivatives of functions without having an explicit formula,
+      provided that we know a few appropriate values:
+    </p>
+    <example>
+      <statement>
+        <p>
+          If <m>h(x) = \sqrt{x}\ g(x)</m> and we know that
+          <m>g(4) = 7</m> and <m>g'(4) = 3</m>,
+          we can still find <m>h'(4)</m>.
+        </p>
+        <p>
+          Applying the product rule, we get
+          <me>
+            \begin{aligned}h'(x) \amp = \frac{d}{dx}\left[\sqrt{x}\ g(x)\right]\\ \amp = \frac{d}{dx}\left[\sqrt{x}\right]\cdot g(x)+ \sqrt{x}\cdot \frac{d}{dx}\left[g(x)\right]\\ \amp =\frac{1}{2}x^{-1/2}\cdot g(x)+\sqrt{x}\cdot g'(x)\\ \amp = \frac{g(x)}{2\sqrt{x}}+\sqrt{x}\ g'(x) \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now we can evaluate at <m>x=4</m>:
+          <me>
+            h'(4) = \frac{g(4)}{2\sqrt{4}}+\sqrt{4}\ g'(4) = \frac{7}{2(2)}+2(3) = \frac{7}{4}+6 = \frac{31}{4}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let <m>h(t) = f(t)\cdot g(t)</m>.
+          Use the figures below to find the exact value of <m>h'(1)</m>.
+        </p>
+        <figure xml:id="fig_AC-sec-2-3-Ex-8-f">
+          <caption>The graph of <m>y=f(t)</m>.</caption>
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="80%" source="AC-sec-2-3-Ex-8-f.png"/>
+          \end{subfigure}
+          \hspace{.5in}
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="80%" source="AC-sec-2-3-Ex-8-g.png"/>
+          \caption{The graph of <m>y=g(t)</m>.} \end{subfigure}
+          \caption{Graphs of <m>y=f(t)</m> and <m>y=g(t)</m>.}
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          First, observe that
+          <me>
+            h'(t) = f'(t)g(t)+f(t)g'(t)
+          </me>
+          so that
+          <me>
+            h'(1) = f'(1)g(1)+f(1)g'(1)
+          </me>.
+          Thus we will need the values <m>f(1), g(1), f'(1)</m>,
+          and <m>g'(1)</m> from the graphs.
+        </p>
+        <p>
+          On the graph of <m>y=f(t)</m>,
+          we can see that <m>f(1) = 0</m>.
+          On the graph of <m>y=g(t)</m>,
+          we cannot see the value of <m>g(1)</m> without determining the equation of the line segment containing <m>x=1</m>.
+          The slope looks to be <m>\frac{\text{ rise } }{\text{ run } } = \frac{2}{3/2} = \frac{4}{3}</m> and we can see that the <m>y</m>-intercept is <m>0</m>,
+          so that <m>g(t) = \frac{4}{3}x</m>.
+          Thus <m>g(1) = \frac{4}{3}</m>.
+        </p>
+        <p>
+          Since <m>f(t)</m> and <m>g(t)</m> are piecewise-linear functions,
+          their derivatives at any point is given by the slope of the line segment at that point.
+          On the graph of <m>y=f(t)</m>,
+          the slope of the line segment containing <m>x=1</m> looks to be <m>\frac{\text{ rise } }{\text{ run } } = \frac{1}{3/2} = \frac{2}{3}</m>.
+          Thus <m>f'(1) = \frac{2}{3}</m>.
+          On the graph of <m>y=g(t)</m>,
+          we already observed that the slope of the line segment containing <m>x=1</m> looks to be <m>\frac{4}{3}</m>.
+          Thus <m>g'(1) = \frac{4}{3}</m>.
+        </p>
+        <p>
+          Putting these values together, we have
+          <me>
+            h'(1) = f'(1)g(1)+f(1)g'(1) = \left(\frac{2}{3}\right)\left(\frac{4}{3}\right)+(0)\left(\frac{4}{3}\right) = \frac{8}{9}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Let <m>f</m> and <m>g</m> be differentiable functions for which the following information is known:
+          <me>
+            f(2)=5, g(2)=-3, f'(2)=-1/2, g'(2)=2
+          </me>.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Let <m>h</m> be the new function defined by the rule <m>h(x) = g(x)\cdot f(x)</m>.
+                Determine <m>h(2)</m> and <m>h'(2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find an equation for the tangent line to <m>y=h(x)</m> at the point <m>(2,h(2))</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Quotient Rule</title>
+    <theorem xml:id="thm_quotientrule">
+      <title>Derivatives of Quotients of Functions</title>
+      <statement>
+        <p>
+          If <m>f</m> and <m>g</m> are functions,
+          then for all <m>x</m> where the functions involved are differentiable,
+          <me>
+            <md>
+              \textrm{\textbf{Quotient Rule:}} \amp \qquad  \frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}
+            </md>
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Some people remember the quotient rule with a phrase like,
+    </p>
+    <em>lo d-hi minus hi d-lo, square the bottom down below</em>
+    <p>
+      where the "lo" function is the one in the denominator,
+      the "hi" function is the one in the numerator,
+      and the "d" means to take the derivative.<fn>
+      I (Dr.
+      Goldstein) have known this formula for over 20 years and still cannot use it reliably without this mnemonic.
+      You'll see me get it wrong at least once,
+      so please always be on your guard and catch my mistakes!
+      </fn>
+    </p>
+    <p>
+      Similar to the product rule,
+      you will have to practice the quotient rule enough that it becomes automatic,
+      because it will be needed often throughout the rest of the course.
+    </p>
+    <p>
+      Once again, the rest of this subsection attempts to provide sufficient examples for you to begin to understand the quotient rule.
+      This rule takes lots of practice to get the hang of.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>f(x)=x^2+1</m> and <m>g(x)=x^3</m>.
+          Find the derivative of the quotient <m>\frac{f(x)}{g(x)}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the quotient rule, we find
+          <me>
+            <md>
+              \frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)\amp =\frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}\\ \amp =\frac{(2x)(x^3)-(x^2+1)(3x^2)}{(x^3)^2}\\ \amp =\frac{2x^4-(3x^4+3x^2)}{x^6}\\ \amp =\frac{-x^4-3x^2}{x^6}\\ \amp =\frac{x^2(-x^2-3)}{x^6}\\ \amp =\frac{-x^2-3}{x^4.}
+            </md>
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Note that in the last example,
+      <me>
+        \frac{f(x)}{g(x)} = \frac{x^2+1}{x^3}  = \frac{x^2}{x^3}+\frac{1}{x^3} = x^{-1}+x^{-3}
+      </me>
+      and it is much easier to take the derivative of this:
+      <me>
+        \frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = -x^{-2}-3x^{-4}
+      </me>
+    </p>
+    <p>
+      If we want, we could consolidate this into a single fraction without any negative exponents,
+      and thereby get the same expression,
+      <m>\frac{-x^2-3}{x^4}</m>, as at the end of the last example.
+      (It's very much up to opinion which of these expressions is the "simplest." Both are correct and are expressed concisely.)
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>h(x) = \dfrac{x^7+\sqrt{x}}{x^3}</m> two ways:
+          <ul>
+            <li>
+              <p>
+                using the quotient rule
+              </p>
+            </li>
+            <li>
+              <p>
+                by simplifying first
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Using the quotient rule,
+          we need to know that <m>\frac{d}{dx}(x^7+\sqrt{x}) = 7x^6+\frac{1}{2}x^{-1/2}</m> and <m>\frac{d}{dx} (x^3)= 3x^2</m> so that
+          <me>
+            h'(x) = \frac{(x^3)\cdot \left(7x^6+\frac{1}{2}x^{-1/2}\right) - \left(x^7+\sqrt{x}\right)\cdot (3x^2)}{(x^3)^2}
+          </me>
+        </p>
+        <p>
+          This is a bit of a mess,
+          but we can simplify it by first distributing and combining like terms in the numerator,
+          then distributing the denominator and simplifying powers of <m>x</m>:
+          <me>
+            \begin{aligned}h'(x) \amp = \frac{7x^9+\frac{1}{2}x^{5/2} - 3x^9-3x^{5/2}}{x^6}\\ \amp = \frac{4x^9-\frac{5}{2}x^{5/2}}{x^6}\\ \amp =\frac{4x^9}{x^6}-\frac{\frac{5}{2}x^{5/2}}{x^6}\\ \amp = 4x^3 - \frac{5}{2}x^{-7/2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now let's simplify <m>h(x)</m> first:
+          <me>
+            h(x) = \frac{x^7+\sqrt{x}}{x^3} = \frac{x^7}{x^3}+\frac{\sqrt{x}}{x^3} = x^4+x^{-5/2}
+          </me>
+          and thus the derivative is
+          <me>
+            h'(x) = 4x^3-\frac{5}{2}x^{-7/2}
+          </me>
+          as we found before.
+        </p>
+        <p>
+          <em>Be very careful with the fractions in the exponents!</em>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find the derivative of the functions below in two ways:
+          <ul>
+            <li>
+              <p>
+                using the quotient rule
+              </p>
+            </li>
+            <li>
+              <p>
+                by simplifying first
+              </p>
+            </li>
+          </ul>
+          <ol marker="labelalphtopsep5ptitemsep5pt">
+            <li>
+              <p>
+                <m>g(x)=\dfrac{x^2}{x^{-3}}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x)=\dfrac{x^7+\sqrt{x}}{x^3}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          <em>Note:</em> no matter what method you choose to differentiate,
+          you should get the same derivative.
+          But, as always is true in math,
+          there are many different ways to solve the same problem!
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We can see in all of the examples above that it is much easier to avoid using the quotient rule whenever possible.
+      Thus: always try simplifying with algebra before taking the derivative!
+      However, sometimes using the quotient rule is unavoidable:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>y=\dfrac{x^2+x-2}{x^3+6}</m>.
+          There is no algebra that will make this expression simpler in order to make taking the derivative easier.
+          Thus using the quotient rule, we have
+          <me>
+            \begin{aligned}y' \amp = \frac{(x^3+6)\frac{d}{dx}(x^2+x-2) - (x^2+x-2)\frac{d}{dx}(x^3+6)}{(x^3+6)^2}\\ \amp =\frac{(x^3+6)(2x+1) - (x^2+x-2)(3x^2)}{(x^3+6)^2}\\ \amp = \frac{(2x^4+x^3+12x+6)-(3x^4+3x^3-6x^2)}{(x^3+6)^2}\\ \amp = \frac{-x^4-2x^3+6x^2+12x+6}{(x^3+6)^2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Note that there was no use in simplifying the denominator of the above fraction.
+          It is simpler left factored.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let <m>f</m> and <m>g</m> be differentiable functions for which the following information is known:
+          <me>
+            f(2)=5, g(2)=-3, f'(2)=-1/2, g'(2)=2
+          </me>.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Let <m>r</m> be the function defined by the rule <m>r(x) = \frac{g(x)}{f(x)}</m>.
+                Determine <m>r'(2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>r</m> increasing, decreasing, or neither at <m>x=2</m>?
+                Why?
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimate the value of <m>r(2.06)</m> by using the local linearization of <m>r</m> at the point <m>(2,r(2))</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                First observe that if <m>r(x) = \frac{g(x)}{f(x)}</m>,
+                then <m>r'(x) = \frac{f(x)g'(x)-g(x)f'(x)}{(f(x))^2}</m> so that
+                <me>
+                  \begin{aligned}r'(2) \amp =  \frac{f(2)g'(2)-g(2)f'(2)}{(f(2))^2}\\ \amp = \frac{(5)(2)-(-3)(-1/2)}{(5)^2}\\ \amp =\frac{10-3/2}{25}\\ \amp = \frac{17/2}{25}\\ \amp = \frac{17}{50} \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>r</m> is increasing at <m>x=2</m> since <m>r'(2) = \frac{17}{50}</m> is positive.
+              </p>
+            </li>
+            <li>
+              <p>
+                First note that we expect <m>r(2.06)</m> to be larger than <m>r(2)</m> since <m>r</m> is increasing at <m>x=2</m> by part (b).
+                <m>r(2) = \frac{g(2)}{f(2)} = -\frac{3}{5}</m>.
+                The local linearization of <m>r</m> at the point <m>(2,r(2))</m> is
+                <me>
+                  y=\frac{17}{50}(x-2)-\frac{3}{5}
+                </me>.
+                Then
+                <me>
+                  r(2.06)\approx \frac{17}{50}(2.06-2)-\frac{3}{5} = \frac{17}{50}(0.06)-\frac{3}{5} = -0.5796
+                </me>.
+                Since <m>r(2) = -\frac{3}{5} = -0.6</m>,
+                <m>r(2.06)</m> is indeed larger than <m>r(2)</m>, as we expected.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Let <m>k(t) = f(t)/ g(t)</m>.
+          Use the figures below to find the exact value of <m>k'(-2)</m>.
+        </p>
+        <figure xml:id="fig_AC-sec-2-3-Ex-8-fagain">
+          <caption>The graph of <m>y=f(t)</m>.</caption>
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="80%" source="AC-sec-2-3-Ex-8-f.png"/>
+          \end{subfigure}
+          \hspace{.5in}
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="80%" source="AC-sec-2-3-Ex-8-g.png"/>
+          \caption{The graph of <m>y=g(t)</m>.} \end{subfigure}
+          \caption{Graphs of <m>y=f(t)</m> and <m>y=g(t)</m>.}
+        </figure>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Proof of the Product Rule</title>
+    <p>
+      The proof of the product rule is interesting enough to include,
+      though you will not need to do any calculations like it;
+      feel free to skip it if you are running short on time or attention.
+      The proof uses the definition of the derivative with a small "trick" of adding a fancy "0" in the numerator.
+      In the next section,
+      we will prove the quotient rule once we have learned the chain rule.
+    </p>
+    <proof>
+      <p>
+        Suppose <m>f</m> and <m>g</m> are differentiable functions (meaning that the derivatives <m>f'</m> and <m>g'</m> exist.
+        We wish to show that <m>(fg)' = f'g+fg'</m>.
+        We will apply the definition of the derivative to the left side of that equation and then use a long string of algebra and limit rules to rewrite it in terms of <m>f', g, f</m>,
+        and <m>g'</m>.
+        This will be made possible in the second step of the following calculating by adding and subtracting the same expression,
+        <me>
+          f(x)g(x+h)
+        </me>
+        from the numerator, effectively adding an overly-complicated 0.
+        <me>
+          \begin{aligned}(fg)' \amp = \lim_{h\to 0}\frac{f(x+h)g(x+h)+f(x)g(x)}{h} \\ \amp = \lim_{h\to 0}\frac{f(x+h)g(x+h)-f(x)g(x+h)+f(x)g(x+h)+f(x)g(x)}{h} \end{aligned}
+        </me>
+      </p>
+      <p>
+        Notice in the middle of the numerator,
+        we have inserted <m>-f(x)g(x+h)+f(x)g(x+h)</m>, which is equal to 0.
+        This allows us in the next step to factor <m>g(x+h)</m> from the first two terms and <m>f(x)</m> from the third and fourth terms.
+        Then we split up the fractions slightly using algebra and distribute the limits,
+        using limit rules.
+        <me>
+          \begin{aligned}(fg)' \amp = \lim_{h\to 0}\frac{\Big(f(x+h)-f(x)\Big)\cdot g(x+h)+f(x)\cdot\Big(g(x+h)+g(x)\Big)}{h} \\ \amp = \lim_{h\to 0}\left(\frac{\Big(f(x+h)-f(x)\Big)\cdot g(x+h)}{h}+\frac{f(x)\cdot\Big(g(x+h)+g(x)\Big)}{h} \right)\\ \amp = \lim_{h\to 0}\left(\frac{\Big(f(x+h)-f(x)\Big)}{h}\cdot g(x+h)+f(x)\cdot\frac{\Big(g(x+h)+g(x)\Big)}{h} \right)\\ \amp = \lim_{h\to 0}\left(\frac{\Big(f(x+h)-f(x)\Big)}{h}\right)\cdot\lim_{h\to 0}g(x+h)+ \lim_{h\to 0}f(x)\cdot \lim_{h\to 0}\left(\frac{\Big(g(x+h)+g(x)\Big)}{h} \right)\\ \amp = \lim_{h\to 0}\left(\frac{\Big(f(x+h)-f(x)\Big)}{h}\right)\cdot g(x)+f(x)\cdot \lim_{h\to 0}\left(\frac{\Big(g(x+h)+g(x)\Big)}{h} \right) \end{aligned}
+        </me>
+      </p>
+      <p>
+        In this last step,
+        we have used the fact that <m>g(x)</m> must be continuous,
+        since it is differentiable,
+        so the limit at <m>h=0</m> of <m>g(x+h)</m> is the value <m>g(x+0) = g(x)</m>.
+        Now we recognize the derivative of <m>f</m> at the beginning of the first term,
+        and the derivative of <m>g</m> a the end of the second term.
+        At last, this is equal to
+        <me>
+          \begin{aligned}(fg)'  = f'(x)g(x)+f(x)g'(x) \end{aligned}
+        </me>
+      </p>
+      <p>
+        Notice that throughout the entire calculation,
+        our goal was to extract the expressions that represent the derivatives of <m>f</m> and <m>g</m>.
+        The algebra steps were not meant to "simplify"; they were meant to get us closer to the final form of <m>f'g+fg'</m>.
+      </p>
+    </proof>
+    <p>
+      If you would like a more intuitive justification of the product rule,
+      there is a good explanation in terms of areas at
+      <url href="https://www.youtube.com/watch?v=Q7GpE_jQ1Jo">https://www.youtube.com/watch?v=Q7GpE_jQ1Jo</url>.
+      You should also go back and reread <xref ref="sec_productruleincontext">Subsection</xref>
+      now that you have learned and practiced the Product Rule.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following formulas were introduced in this section:
+    </p>
+    The Product Rule, the Quotient Rule.
+    <p>
+      <em>Key ideas:</em> Derivatives do NOT distribute over products and quotients.
+      In order to take the derivative of two functions that are multiplied together,
+      you need to use the product rule.
+      In order to take the derivative of a fraction of functions,
+      you need to use the quotient rule.
+      Both require a LOT of practice in order to do them correctly and quickly.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Derivatives are instantaneous rates of change and have units of output units per input unit.
+      Derivatives are also slopes of tangent lines.
+      Functions are increasing when their derivatives are positive and are decreasing when their derivatives are negative.
+      The local linearization, a.k.a. the equation of the tangent line,
+      can be used to estimate the value of a function near the point of tangency.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 3.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,862 @@
+<section xml:id="sec_findingglobalextrema">
+  <title>Finding Global Extrema</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Define global extrema, also called absolute extrema.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visually identify global extrema on a graph.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand where global extrema of a function can occur and how a function can fail to have global extrema.
+        </p>
+      </li>
+      <li>
+        <p>
+          Follow a method for algebraically finding global extrema without needing a graph.
+        </p>
+      </li>
+      <li>
+        <p>
+          The Extreme Value Theorem tells us conditions under which a function must have global extrema.
+        </p>
+      </li>
+      <li>
+        <p>
+          The Single Critical Point Theorem tells us conditions under which a local extrema is also a global extrema.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Defining Global Extrema</title>
+    <p>
+      Many real-world problems involve optimization, that is,
+      finding the overall largest or smallest values of a function on an interval.
+      For example,
+      a company might be interested in the maximum amount of profit it can make or in the minimum cost of producing an object.
+      In this section and the next,
+      we will learn how to use limits, derivatives,
+      and values to find the global extrema of a function on an interval,
+      so that we can solve such real-world problems.
+    </p>
+    <p>
+      Global extrema, also called absolute extrema,
+      are defined to be the most extreme values of a function,
+      meaning the largest and smallest <m>y</m>-values of the function.
+      More formally:
+    </p>
+    <definition>
+      <title>Global or Absolute Extrema</title>
+      <statement>
+        <p>
+          Given a function <m>f</m>,
+          we say that <m>f(c)</m> is a <em>global</em> or
+          <em>absolute maximum</em>
+          of <m>f</m> <em>on an interval <m>I</m></em>
+          provided that <m>f(c)\geq f(x)</m> for all <m>x</m> in the interval <m>I</m>,
+          and similarly we call <m>f(c)</m> a <em>global</em> or
+          <em>absolute minimum</em>
+          of <m>f</m> whenever <m>f(c)\leq f(x)</m> for all <m>x</m> in the interval <m>I</m>.
+        </p>
+        <p>
+          We can also talk about the global maximum or minimum of <m>f</m> without referring to a specific interval,
+          in which case we mean the global maximum or minimum on the entire domain of <m>f</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Another way to say this is that <m>f</m> has a global minimum at <m>x=c</m> if <m>y=f(c)</m> is smaller than
+      (or equal to)
+      all other values of <m>f</m>,
+      and that <m>f</m> has a global maximum at <m>x=c</m> if <m>y=f(c)</m> is bigger than
+      (or equal to)
+      all other values of <m>f</m>.
+    </p>
+    <p>
+      Recall from <xref ref="subsec_propgraphs1">Section</xref>
+      that a local maximum is the largest value of a function within a small region
+      (like a "hilltop")
+      and that a local minimum is the smallest value of a function within a small region
+      (like a "valley).
+      Sometimes, local extrema are also global extrema,
+      and sometimes they are not.
+    </p>
+    <example xml:id="ex_globalmaxpictures">
+      <statement>
+        <p>
+          For example,
+          the following four functions each have a local maximum at the critical point <m>x=2</m>.
+          However, the local maximum is not always a global maximum:
+        </p>
+        <p>
+          <image width="73%" source="TaalmanPage261.png"/>
+        </p>
+        <p>
+          Only in the left-most graph is the local maximum also a global maximum.
+          In the graph of <m>g</m>,
+          the global maximum on <m>[1,5]</m> is instead at the right endpoint <m>x=5</m>.
+          In the right two graphs of <m>h</m> and <m>k</m>,
+          there is no global maximum on the interval,
+          because there is no point on either graph that is higher than all other points on its graph.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The previous example suggests a way of finding global extrema:
+      it's possible that they will occur at a critical point or at the endpoint of an interval,
+      or a global extrema may not occur at all if the interval is not closed or the function is discontinuous on the interval.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Which of the functions in <xref ref="ex_globalmaxpictures">Example</xref>
+          has a global maximum at an endpoint?
+          Which has a global maximum at a critical point?
+          Which has no global maximum, and why?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>How to Find Global Maxima and Minima</title>
+    <p>
+      Although derivatives can help us locate local extrema,
+      they do not always provide enough information to detect global extrema.
+      The pictures in <xref ref="ex_globalmaxpictures">Example</xref>
+      suggest that to find a global extremum of a function on an interval,
+      we must compare the following:
+    </p>
+    <p>
+      \fbox{
+      <ul>
+        <li>
+          <p>
+            The values <m>y=f(c)</m> for each critical point <m>x=c</m> within the interval.
+          </p>
+        </li>
+        <li>
+          <p>
+            The values <m>y=f(c)</m> at any closed endpoints <m>x=c</m> of the interval.
+          </p>
+        </li>
+        <li>
+          <p>
+            The limits <m>\ds\lim_{x\to c}f(x)</m> at any open endpoints or discontinuous points <m>x=c</m> on the interval.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Whichever of these three values is largest determines the location,
+      if any, of the global maximum of <m>f</m> on the interval.
+      Whichever is smallest determines the location,
+      if any, of the global minimum.
+    </p>
+    <p>
+      We begin with the functions <m>f</m> and <m>h</m> pictured in <xref ref="ex_globalmaxpictures">Example</xref>
+      to get a sense for how this process works in practice in a setting where we can see the values of the function from a graph:
+    </p>
+    <example xml:id="ex_globalminmaxf">
+      <statement>
+        <p>
+          For example,
+          in the graph of <m>f</m> from <xref ref="ex_globalmaxpictures">Example</xref>,
+          there is a critical point at <m>x=2</m> and the endpoints of the interval are <m>x=1</m> and <m>x=5</m>.
+          There are no discontinuous points on the interval.
+        </p>
+        <p>
+          We list these <m>x</m>-values as potential locations of global extrema:
+        </p>
+        <table>
+          <title>The function <m>f</m> has potential global extrema at its critical point <m>x=2</m> and the endpoints of the interval <m>[1,5]</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>f(x)</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          From the graph,
+          we can see that the <m>y</m>-value at <m>x=2</m> is <m>f(2) = 2</m>,
+          and that the <m>y</m>-values at <m>x=1</m> and <m>x=5</m> are <m>f(1)=f(5) = 0</m>.
+        </p>
+        <figure>
+          <caption>The function <m>f</m> on the interval <m>[1,5]</m> has a critical point at <m>x=2</m>.</caption>
+          <image width="37%" source="TaalmanPage261f.png"/>
+        </figure>
+        <p>
+          Listing these values in the table:
+        </p>
+        <table>
+          <title>The largest value of <m>f</m> is <m>y=2</m> at <m>x=2</m>. The smallest value of <m>f</m> is <m>y=0</m> at <m>x=1, 5</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>f(x)</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell>0</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We can see that the highest value of the function is <m>y=2</m> at <m>x=2</m>,
+          so <m>y=2</m> is the global maximum value of <m>f</m> on <m>[1,5]</m>,
+          and it occurs at <m>x=2</m>.
+          We can also see that the lowest value is <m>y=0</m>,
+          so <m>y=0</m> is the global minimum of <m>f</m> on <m>[1,5]</m>,
+          and it occurs at the two points <m>x=1</m> and <m>x=5</m>.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_globalminmaxh">
+      <statement>
+        <p>
+          Now we consider the function <m>h</m> from <xref ref="ex_globalmaxpictures">Example</xref>:
+        </p>
+        <figure>
+          <caption>The function <m>h</m> on the interval <m>[1,5)</m> has a critical point at <m>x=2</m>.</caption>
+          <image width="37%" source="TaalmanPage261h.png"/>
+        </figure>
+        <p>
+          <m>h</m> has a critical point at <m>x=2</m> and there is a closed endpoint at <m>x=1</m>.
+          The function is not defined at <m>x=5</m>,
+          represented by the hole on the graph and the parenthesis on the right of the interval <m>[1,5)</m>.
+          Thus we have potential global extrema at <m>x=1</m> and <m>x=2</m>,
+          but we also have to check the limit of the function at <m>x=5</m> to determine if the values of the function are bigger or smaller there than at other points.
+          We record these values in a table,
+          making note that we are taking the limit from the left at <m>x=5</m>:
+        </p>
+        <table>
+          <title>The function <m>h</m> has potential global extrema at <m>x=1</m> and <m>x=2</m>, and may be larger or smaller as <m>x\to 5^-</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>h(x)</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>{\to 5^-}</m></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We can see that <m>h(2)=2</m> and <m>h(1)=0</m> at the left endpoint.
+          At the open right endpoint we have <m>\ds\lim_{x\to 5^-} h(x) = 4</m>.
+          Organizing this information in a table:
+        </p>
+        <table>
+          <title>The smallest value of <m>h</m> on <m>[1,5)</m> is <m>y=0</m> at <m>x=1</m>, and <m>h</m> does not have a largest value on <m>[1,5)</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>h(x)</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell><m>{\to 5^-}</m></cell>
+              <cell><m>\to 4</m></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Since the limit at the open right endpoint is larger than the value at the left endpoint and the value a the critical point,
+          the function <m>h</m> has no global maximum on <m>[1,5)</m>.
+          However, the value <m>y=0</m> is the global minimum of <m>h(x)</m> on <m>[1,5)</m>,
+          and occurs at <m>x=1</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain why <m>h(x)</m> in <xref ref="ex_globalminmaxh">Example</xref>
+          does not have a global maximum at <m>x=5</m>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Now, let's see an example of finding the global minimum and maximum values of a function when we do not have a graph.
+      Remember that we have to compare the values of the function at critical points,
+      endpoints, and any non-domain points.
+    </p>
+    <example xml:id="ex_globalminmaxopeninterval">
+      <statement>
+        <p>
+          Find the global maximum and minimum values, if any,
+          of the function <m>f(x) = 2x^3-15x^2+24x+20</m> on the interval <m>(0,6)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Our goal will be to use the derivative to identify critical points on the interior of the interval and then compare the values at the critical points with values or limits at the ends of the interval or any non-domain points.
+          In this case the function is a polynomial,
+          so there are not any non-domain points.
+          However, the interval is open,
+          so we will compare the values at the critical points with the limits at <m>x\to 0</m> and <m>x\to 6</m>.
+          Step by step, we have
+          <ol marker="labelRomanitemsep5pttopsep5pt">
+            <li>
+              <p>
+                Take the derivative and factor.
+                <me>
+                  f'(x) = 6x^2-30x+24=6(x^2-5x+4) = 6(x-1)(x-4)
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find critical points and list all of the "points of interest."
+                <me>
+                  f'(x) = 6(x-1)(x-4) = 0\text{ at } x=1\text{ and } x=4
+                </me>
+                <tabular>
+                  <row>
+                    <cell><m>x</m></cell>
+                    <cell><m>f(x)</m></cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>x\to 0^+</m></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell>1</cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell>4</cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>{\to 6^-}</m></cell>
+                    <cell></cell>
+                  </row>
+                </tabular>
+              </p>
+            </li>
+            <li>
+              <p>
+                Compute the values of <m>f</m> at each critical point and the limits at the open endpoints.
+                <me>
+                  \begin{aligned}\lim_{x\to 0^+}f(x) \amp =  2(0)^3-15(0)^2+24(0)+20 = 20\\ f(1) \amp =  2(1)^3-15(1)^2+24(1)+20 = 31\\ f(4) \amp =  2(4)^3-15(4)^2+24(4)+20 = 4\\ \lim_{x\to 6^-}f(x) \amp =   2(6)^3-15(6)^2+24(6)+20 = 56 \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Compare the values of <m>f</m> at the key points to determine the largest and smallest overall value,
+                and whether the function achieves that value.
+                <tabular>
+                  <row>
+                    <cell><m>x</m></cell>
+                    <cell><m>f(x)</m></cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>x\to 0^+</m></cell>
+                    <cell><m>\to 20</m></cell>
+                  </row>
+                  <row>
+                    <cell>1</cell>
+                    <cell>31</cell>
+                  </row>
+                  <row>
+                    <cell>4</cell>
+                    <cell>4</cell>
+                  </row>
+                  <row>
+                    <cell><m>{\to 6^-}</m></cell>
+                    <cell><m>\to 56</m></cell>
+                  </row>
+                </tabular>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          The value of <m>y=31</m> at <m>x=1</m> is exceeded by the limit <m>y\to 56</m> of <m>f</m> at the right endpoint <m>x\to 6^-</m>,
+          so the function <m>f</m> has no global maximum on the interval <m>(0,6)</m>.
+          The minimum value <m>y=4</m> at <m>x=4</m> is less than the limit at either end of the interval,
+          thus is indeed the smallest overall <m>y</m>-value of the function on the interval.
+          Therefore, <m>y=4</m> is the global minimum of <m>f</m> on <m>(0,6)</m> and occurs at <m>x=4</m>.
+        </p>
+        <p>
+          The graph of <m>f</m> on <m>(0,6)</m> looks like this:
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage264a.png"/>
+        </p>
+        <p>
+          We can see that there is a local maximum at <m>x=1</m>,
+          even though it is not a global maximum.
+          The local minimum at <m>x=4</m> is also the global minimum.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the steps below to find the global maximum and minimum of
+          <me>
+            f(x) = 3x^4-16x^3+18x^2\text{ on the interval } [-1,4]
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Find the derivative <m>f'(x)</m> and factor it completely.
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine the critical points of <m>f(x)</m>.
+                There are three and they are all between <m>x=-1</m> and <m>x=4</m>.
+                Organize the values of the function in a table
+                (like the one below; <m>c_1, c_2</m>,
+                and <m>c_3</m> should be the critical points, arranged in order).
+                <tabular>
+                  <row>
+                    <cell><m>x</m></cell>
+                    <cell><m>f(x)</m></cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>-1</m></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>c_1</m></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>c_2</m></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>c_3</m></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>4</m></cell>
+                    <cell></cell>
+                  </row>
+                </tabular>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate the value of the original function
+                <m>f(x) = 3x^4-16x^3+18x^2</m> at all three of the critical points,
+                along with the two endpoints <m>x=-1</m> and <m>x=4</m>.
+                Put these values in the table.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the table to determine the smallest <m>y</m>-value
+                (this is the global minimum)
+                and largest <m>y</m>-value
+                (this is the global maximum),
+                along with the <m>x</m>-value(s) where they occur.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Extreme Value Theorem</title>
+    <p>
+      We have seen that some functions have both a global maximum and minimum, a.k.a.
+      <em>extreme values</em>, whereas others do not.
+      The following theorem gives conditions under which a function is guaranteed to have extreme values,
+      meaning possess both a global maximum value and a global minimum value.
+    </p>
+    <theorem>
+      <title>The Extreme Value Theorem</title>
+      <statement>
+        <p>
+          If <m>f</m> is continuous on a closed interval <m>[a,b]</m>,
+          then it always attains an absolute maximum value and an absolute minimum value on that interval.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      In the Extreme Value Theorem,
+      there are two essential hypotheses:
+      <ul>
+        <li>
+          <p>
+            That <m>f</m> is continuous.
+          </p>
+        </li>
+        <li>
+          <p>
+            That the interval is closed.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      If <m>f</m> either fails to be continuous on the interior of the interval or fails to be continuous at a closed endpoint,
+      then the conclusion of this theorem does not necessarily hold.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          each of the following functions is NOT continuous on <m>[a,b]</m>,
+          and also is missing either a global minimum or global maximum on <m>[a,b]</m>:
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage129d.png"/> \qquad<image width="37%" source="TaalmanPage129f.png"/>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          <em>True or False:</em> If <m>f</m> is discontinuous or the interval is open,
+          then <m>f</m> will never have a global minimum nor a global maximum value on the interval.
+        </p>
+        <p>
+          <em>Hint: Look back at <xref ref="ex_globalminmaxh">Example</xref>
+          and <xref ref="ex_globalminmaxopeninterval">Example</xref>.</em>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>A real-world illustration of the Extreme Value Theorem</title>
+      <statement>
+        <p>
+          Consider the function <m>w(t)</m> that describes a particular person's weight at <m>t</m> years of age between the ages of 18 and 45.
+          The function <m>w(t)</m> is continuous on <m>[18,45]</m> because a person's weight changes continuously over time and cannot jump from one value to another.
+          (We are assuming typical circumstances,
+          so that a person does not get a serious haircut, lose a limb,
+          or somehow otherwise get their weight to change drastically in an instant.)
+        </p>
+        <p>
+          The Extreme Value Theorem tells us that there is some time <m>t_{max}</m> between 18 and 45 at which the person's weight was greatest,
+          and some time <m>t_{min}</m> between 18 and 45 at which the person's weight was the least.
+          In other words, at some time between 18 and 45 years of age,
+          the person must have had a maximum weight and a minimum weight.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Examples of Global Extrema in Context</title>
+    <p>
+      Here are two preliminary examples of problems whose solutions rely on finding a global minimum or maximum.
+      The next section will feature an in-depth exploration of two other applications where finding a global minimum or maximum is useful for solving real-word problems.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For time <m>t\geq 0</m>, in days,
+          the rate at which photosynthesis takes place in the leaf of a plant,
+          represented by the rate at which oxygen is produced, is approximated by
+          <me>
+            p(t) = 100(e^{-0.02t}-e^{-0.1t})
+          </me>.
+          When is photosynthesis occurring the fastest?
+          What is the rate at that time?<fn>
+          Examples adapted from Rodney Gentry,
+          <em>Introduction to Calculus for the Biological and Health Sciences</em> Addison-Wesley, 1978.
+          Found in Hughes-Hallet, <em>Applied Calculus</em> 6ed, Wiley.
+          </fn>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Photosynthesis is fastest at the global maximum of <m>p(t)</m>.
+          To find this maximum value, we first find critical points.
+          We differentiate, set equal to zero, and solve for <m>t</m>:
+          <me>
+            \begin{aligned}p'(t) = 100(-0.02e^{-0.02t}+0.1e^{-0.1t}) \amp = 0\\ -0.02e^{-0.02t} \amp =-0.1e^{-0.1t}\\ \frac{e^{-0.02t}}{e^{-0.1t}} \amp = \frac{0.1}{0.02}\\ e^{-0.02t+0.1t} \amp = 5\\ e^{0.08t} \amp = 5\\ 0.08t \amp = \ln 5\\ t \amp =\frac{\ln 5}{0.08}\approx 20.12\text{ days } \end{aligned}
+          </me>
+        </p>
+        <p>
+          We are working on the interval <m>t\geq 0</m>,
+          as so we compute <m>p(0)</m>, <m>p(20.12)</m>,
+          and <m>\ds\lim_{t\to\infty}p(t)</m> to determine whether
+          <m>t\approx 20.12</m> gives us the global maximum value we are looking for:
+        </p>
+        <tabular>
+          <row>
+            <cell><m>t</m></cell>
+            <cell><m>p(t)=100(e^{-0.02t}-e^{-0.1t})</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell><m>p(0) = 0</m></cell>
+          </row>
+          <row>
+            <cell><m>20.12</m></cell>
+            <cell><m>p(20.12)\approx 53.50</m></cell>
+          </row>
+          <row>
+            <cell><m>\to\infty</m></cell>
+            <cell><m>\lim_{t\to\infty}p(t) = 0</m></cell>
+          </row>
+        </tabular>
+        <p>
+          So we see that <m>t\approx 20.12</m> days does indeed give us the maximum value of <m>p(t)</m>,
+          meaning the maximum rate at which oxygen is produced.
+          We already calculated the maximum rate.
+          It is
+          <me>
+            p(20.12) = 100(e^{-0.02(20.12)}-e^{-0.1(20.12)})\approx 53.50
+          </me>.
+        </p>
+        <p>
+          Photosynthesis occurs fastest after about 20 days.
+          The maximum rate is about 53.5 units of oxygen per day.
+        </p>
+        <p>
+          Below is a graph illustrating <m>p(t)</m> and the maximum value.
+          Note that there is only one critical point and it is a local maximum.
+          This will always result in a global maximum.
+        </p>
+        <p>
+          <image width="56%" source="HughesHallettPage189.png"/>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Here is a useful observation in the last example that is worth stating formally:
+    </p>
+    <theorem xml:id="thm_SCPT">
+      <title>Single Critical Point Theorem</title>
+      <statement>
+        <p>
+          Suppose that <m>f</m> is a continuous function on an interval <m>I</m> that contains only one local extremum
+          (minimum or maximum)
+          at the point <m>x=c</m>.
+          <ul>
+            <li>
+              <p>
+                If <m>x=c</m> is a local maximum,
+                then <m>f(c)</m> is the absolute maximum on the interval <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>x=c</m> is a local minimum,
+                then <m>f(c)</m> is the absolute minimum on the interval <m>I</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The Single Critical Point Theorem (SCPT for short) applies to many real-world applications where,
+      due to physical constraints,
+      the quantity under consideration will have only one critical point.
+      If this theorem applies,
+      we can instead test to see whether the critical point is a local minimum or maximum
+      (via either the first or second derivative test),
+      rather than comparing the value at the critical point to limits or values at endpoints.
+      We will use this theorem extensively in the next section.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use a few pictures to illustrate why a local min/max of a continuous function must automatically also be a global min/max if the function only has the one local min/max.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The last example here is one in which a function is given graphically and the maximum and minimum values are read from a graph,
+      but not in the way you might think.
+      We already know how to estimate the maximum and minimum values of <m>f(x)</m> from a graph of <m>f(x)</m> <mdash/> read off the highest and lowest values.
+      In this example,
+      we see how to estimate the minimum value of the quantity
+      <me>
+        \frac{f(x)}{x}
+      </me>
+      from a graph of <m>f(x)</m>.
+      The context may be familiar to you from discussions of environmental policy:
+      the fuel efficiency and gas consumption of cars.<fn>
+      Adapted from Peter D. Taylor,
+      <em>Calculus: The analysis of Functions</em>
+      (Toronto: Wall &amp; Emerson, 1992).
+      Found in Hughes-Hallett, <em>Applied Calculus</em> 6ed, Wiley.
+      </fn>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's investigate what driving speed maximizes fuel efficiency,
+          meaning the number of gallons needed to travel a certain number of miles.
+          This is the same as finding the minimum amount of gas needed to drive a certain distance.
+          The function <m>g(v)</m> stands for gas consumption,
+          where <m>g</m> is measured in gallons/hour.
+          It is a function of velocity,
+          <m>v</m>, measured in mph.
+          The graph of <m>g(v)</m> is shown below.
+        </p>
+        <figure xml:id="fig_HughesHallettPage190a_png">
+          <caption>The graph of <m>g(v)</m>, gas consumption (gal/hour) as a function of velocity (mph).</caption>
+          <image width="46%" source="HughesHallettPage190a.png"/>
+        </figure>
+        <p>
+          We want to minimize the gas consumption per <em>mile</em>,
+          not the gas consumption per hour.
+          So we do not want to minimize the function <m>g(v)</m>.
+          It has the wrong units.
+          However, notice that
+          <me>
+            \begin{aligned}\text{ Units of } \frac{g(v)}{v} \amp = \frac{\text{ gallons/hour } }{\text{ miles/hour } } \\ \amp = \frac{\text{ gallons } }{\text{ hour } }\cdot\frac{\text{ hour } }{\text{ miles } } \\ \amp = \frac{\text{ gallons } }{\text{ miles } }, \end{aligned}
+          </me>
+          suggesting we instead minimize the function <m>G(v)=g(v)/v</m>.
+          We can still use the picture in <xref ref="fig_HughesHallettPage190a_png">Figure</xref>
+          of gas consumption versus velocity to estimate the velocity which minimizes <m>G(v)=g(v)/v</m>.
+        </p>
+        <p>
+          We want to find the minimum value of <m>G=g/v</m> when <m>g</m> and <m>v</m> are related by the graph above.
+          We could use the picture to sketch a graph of <m>G</m> against <m>v</m> and estimate a critical point.
+          But there is an easier way.
+          Because <m>g</m> is the vertical measure of the graph in <xref ref="fig_HughesHallettPage190a_png">Figure</xref>
+          and <m>v</m> is the horizontal measure of the graph,
+          <m>g/v</m> is the slope of the line from the origin <m>(0,0)</m> to the point <m>P=(v,g)</m>,
+          viewed as rise over run:
+          <me>
+            \text{ slope }  = \frac{\text{ rise } }{\text{ run } } \frac{g-0}{v-0} = \frac{g}{v}
+          </me>
+        </p>
+        <figure xml:id="fig_HughesHallettPage190b_png">
+          <caption><m>g/v</m> is the slope from the origin to <m>P = (v,g)</m> on the graph of <m>g</m>.</caption>
+          <image width="46%" source="HughesHallettPage190b.png"/>
+        </figure>
+        <p>
+          Where on the curve should <m>P</m> be to make the slope a minimum?
+          From <xref ref="fig_HughesHallettPage190b_png">Figure</xref> above,
+          we see that the slope of the line is both a local and global minimum when the line is tangent to the curve.
+          From <xref ref="fig_HughesHallettPage190c_png">Figure</xref> below,
+          we see that the velocity at this point is about 50 mph.
+        </p>
+        <figure xml:id="fig_HughesHallettPage190c_png">
+          <caption>The line from the origin to the graph has minimum slope at <m>v\approx 50</m>.</caption>
+          <image width="56%" source="HughesHallettPage190c.png"/>
+        </figure>
+        <p>
+          Thus to minimize gas consumption per mile,
+          we should drive at a velocity of about 50 mph.
+          This is the speed at which the fuel efficiency of the car is maximized,
+          since the least gas is needed to drive a certain number of miles.
+        </p>
+      </statement>
+    </example>
+    <p>
+      You might ask why we need to work from a graph of <m>g</m> in the above example instead of simply working from the graph of <m>G</m>.
+      The quantity <m>g</m> is much easier to measure:
+      put a car on a test track and drive it at a fixed speed,
+      measuring how much gas is used in an hour.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    Global or absolute maximum on an interval, global or absolute minimum on an interval, global extrema; the Extreme Value Theorem, the Single Critical Point Theorem.
+    <p>
+      <em>Key ideas:</em> A global maximum is the largest overall <m>y</m>-value on an interval.
+      A global minimum is the smallest overall <m>y</m>-value on an interval.
+      Global extrema can occur at critical points,
+      endpoints, and discontinuous points on an interval.
+      A continuous function on a closed interval has both a global maximum and minimum.
+      Functions that are discontinuous on an interval <em>can</em>
+      fail to have either a global minimum or maximum
+      (but they don't have to).
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      A continuous function with a single local extrema on an interval has a global maximum or minimum at that extremum.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 6.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

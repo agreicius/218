@@ -1,0 +1,767 @@
+<section>
+  <title>L'H&#xf4;pital's Rule</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Recognize visually how derivatives can be used to calculate indeterminate limits of the forms
+          <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn L'H&#xf4;pital's rule, how to apply it,
+          and when it can be applied.
+        </p>
+      </li>
+      <li>
+        <p>
+          See how to rewrite other indeterminate forms in order to apply L'H&#xf4;pital's rule.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>A Visual Approach to Indeterminate Limits</title>
+    <p>
+      As you know very well by now,
+      limits of the form <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m> are indeterminate.
+      This means that, at first glance,
+      it is not clear whether such a limit exists or what it might be equal to.
+      In some cases we can resolve the indeterminate form with algebra,
+      as we did last semester.
+      However, with the introduction of exponential and logarithmic functions,
+      algebra at last meets its "limit."
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the limits
+          <me>
+            \lim_{x\to 0}\frac{\ln(1+x)}{x}\qquad\text{ and } \qquad\lim_{x\to\infty}\frac{x}{e^x}
+          </me>
+        </p>
+        <p>
+          The first limit evaluates to
+          <me>
+            \lim_{x\to 0}\frac{\ln(1+x)}{x} = \frac{\ln(1)}{0} = \frac{0}{0}
+          </me>
+          and thus is indeterminate.
+          There is no algebra that will let us alter this expression so that it is not indeterminate.
+        </p>
+        <p>
+          The second limit evaluates to
+          <me>
+            \lim_{x\to\infty}\frac{x}{e^x} = \frac{\infty}{\infty}
+          </me>
+          and thus is also indeterminate.
+          Again, there is no algebra that will let us alter this expression so that it is not indeterminate.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In general, limits of fractions that involve a mixture of different types of functions (polynomial,
+      exponential,
+      logarithmic <ellipsis/>) are usually more resistant to algebra.
+      By looking at the graphs of the functions that make up such a fraction,
+      we get some clue as to how to approach such limits,
+      as the next two examples illustrate.
+    </p>
+    <example xml:id="ex_lhopital0limitgraph">
+      <title>Graphically Comparing Functions in a $\frac{0}{0}$ Limit</title>
+      <statement>
+        <p>
+          For another example, consider the limit
+          <me>
+            \lim_{x\to0}\frac{x^2}{2^x-1}
+          </me>
+        </p>
+        <p>
+          As <m>x\to0</m>, we have <m>x^2\to0</m> and
+          <m>(2^x-1)\to (1-1)\to0</m> and thus this limit is of the indeterminate form <m>\frac{0}{0}</m>.
+          This indeterminate limit cannot be simplified with algebra.
+          So what can we do?
+        </p>
+        <p>
+          We can approach the problem graphically.
+          The graphs of <m>f(x)=x^2</m> and <m>g(x)=2^x-1</m> are shown below.
+          Since we are interested in the limit as <m>x\to0</m>,
+          we should focus on what happens as we look at smaller and smaller graphing windows around <m>x=0</m>,
+          as shown in the second and third graphs.
+        </p>
+        <figure xml:id="fig_TaalmanPage388a">
+          <caption>From <m>x=-2</m> to <m>x=2</m>.</caption>
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="90%" source="TaalmanPage388a.png"/>
+          \end{subfigure}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="90%" source="TaalmanPage388b.png"/>
+          \caption{From <m>x=-0.5</m> to <m>x=0.5</m>.} \end{subfigure}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="90%" source="TaalmanPage388c.png"/>
+          \caption{From <m>x=-0.1</m> to <m>x=0.1</m>. The graphs appear almost linear.} \end{subfigure}
+          \caption{The graphs of <m>f(x)=x^2</m> and <m>g(x) = 2^x</m> on smaller and smaller windows around <m>x=0</m>.}
+        </figure>
+        <p>
+          Near <m>x=0</m>, the graph of
+          <m>f(x)=x^2</m> loks a lot like its horizontal tangent line <m>y=0</m>,
+          and the graph of <m>g(x)=2^x-1</m> looks a lot like its tangent line <m>y=x</m>.
+          Thus, we would anticipate the behavior of the quotient
+          <m>\frac{f(x)}{g(x)}=\frac{x^2}{2^x-1}</m> as <m>x\to0</m> to be similar to that of the quotient
+          <m>\frac{0}{x}</m> of the corresponding tangent lines at <m>x=0</m>.
+          From this information it would be reasonable to guess that
+          <me>
+            \lim_{x\to0}\frac{x^2}{2^x-1}=\lim_{x\to 0}\frac{0}{x} = \lim_{x\to 0}0=0
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The previous example suggests that we may be able to use the limit of tangent lines in place of the limit of the functions.
+      We can also use tangent lines to examine limits of the indeterminate form
+      <m>\frac{\infty}{\infty}</m> as we will see in the next example.
+    </p>
+    <example xml:id="ex_lhopitalinfinitylimitgraph">
+      <title>Graphically Comparing Functions in a $\frac{\infty}{\infty}$ Limit</title>
+      <statement>
+        <p>
+          For example, consider the limit
+          <me>
+            \displaystyle\lim_{x\to\infty}\frac{x^2}{2^x-1}
+          </me>.
+          This is the same quotient <m>\frac{x^2}{2^x-1}</m> of functions as before,
+          but with the limit as <m>x\to\infty</m> instead of as <m>x\to0</m>.
+          As <m>x\to\infty</m>, we have
+          <m>x^2\to\infty</m> and <m>2^x-1\to\infty</m>,
+          and therefore the limit is of the indeterminate form <m>\frac{\infty}{\infty}</m>.
+        </p>
+        <p>
+          Again, we cannot simplify this expression with algebra.
+          Let's examine what happens as we look at larger graphing windows to see the behavior of <m>f(x)=x^2</m> and
+          <m>g(x)=2^x-1</m> as <m>x\to\infty</m>:
+        </p>
+        <p>
+          <image width="73%" source="TaalmanPage389.png"/>
+        </p>
+        <figure xml:id="fig_TaalmanPage388aX">
+          <caption>From <m>x=-2</m> to <m>x=2</m>.</caption>
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="90%" source="TaalmanPage389a.png"/>
+          \end{subfigure}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="90%" source="TaalmanPage389b.png"/>
+          \caption{From <m>x=-2</m> to <m>x=6</m>.} \end{subfigure}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="90%" source="TaalmanPage389c.png"/>
+          \caption{From <m>x=-2</m> to <m>x=12</m>. The graphs are much different here.} \end{subfigure}
+          \caption{The graphs of <m>f(x)=x^2</m> and <m>g(x) = 2^x</m> on larger and larger windows as <m>x\to\infty</m>.}
+        </figure>
+        <p>
+          From the right most graph,
+          we can see that the heights on the graph of
+          <m>g(x)=2^x-1</m> are in some sense approaching <m>\infty</m> in a fundamentally faster way than the heights on the graph of <m>f(x)=x^2</m>.
+          Specifically, the slopes of
+          <m>g(x)=2^x-1</m> are significantly steeper than the slopes of
+          <m>f(x)=x^2</m> for large values of <m>x</m>.
+          Accordingly, we would anticipate that as
+          <m>x\to\infty</m> the values of <m>2^x-1</m> would win the race to infinity and that the limit <m>\displaystyle\lim_{x\to\infty}\frac{x^2}{2^x-1}=0</m>.
+          Once again, a ratio of slopes has helped us to guess the value of the limit of a quotient.
+        </p>
+      </statement>
+    </example>
+    <p>
+      This geometric interpretation is the basis for the powerful limit technique known as
+      <em>L'H&#xf4;pital's Rule</em>.
+      To summarize,
+      we can use the derivatives of the functions involved in either <m>\frac{0}{0}</m> or
+      <m>\frac{\infty}{\infty}</m> limits in order to evaluate the limit.
+    </p>
+    <exercise xml:id="ex_introlhopital">
+      <statement>
+        <p>
+          The above two examples suggest that we can use the derivatives of the functions involved in either <m>\frac{0}{0}</m> or
+          <m>\frac{\infty}{\infty}</m> limits in order to evaluate the limit.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                The limit
+                <me>
+                  \lim_{x\to 0}\frac{\ln(1+x)}{x}
+                </me>
+                has indeterminate form <m>\frac{0}{0}</m>.
+                Find the derivatives of <m>f(x) = \ln(1+x)</m> and <m>g(x) = x</m>.
+                Is the limit of the derivatives
+                <me>
+                  \lim_{x\to 0}\frac{f'(x)}{g'(x)}
+                </me>
+                still indeterminate?
+              </p>
+            </li>
+            <li>
+              <p>
+                The limit
+                <me>
+                  \lim_{x\to \infty}\frac{x}{e^x}
+                </me>
+                has indeterminate form <m>\frac{\infty}{\infty}</m>.
+                Find the derivatives of <m>f(x) = x</m> and <m>g(x) = e^x</m>.
+                Is the limit of the derivatives
+                <me>
+                  \lim_{x\to \infty}\frac{f'(x)}{g'(x)}
+                </me>
+                still indeterminate?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>L'H&#xf4;pital's Rule for the Indeterminate Forms <m>\frac{0}{0}</m> and <m>\frac{\infty}{\infty}</m></title>
+    <p>
+      The ideas we have developed regarding limits of fractions suggest the theorem that follows.
+      This key theorem will allow us to solve some limits of the indeterminate form <m>\frac{0}{0}</m> or
+      <m>\frac{\infty}{\infty}</m> by relating them to the fractions of the corresponding derivatives:
+    </p>
+    <theorem xml:id="thm_lhopital">
+      <title>L'H&#xf4;pital's Rule</title>
+      <statement>
+        <p>
+          If <m>f</m> and <m>g</m> are differentiable and both approach zero or both approach <m>\pm\infty</m> as <m>x\to a</m>
+          (where <m>a</m> is allowed to be <m>\infty</m>),
+          then
+          <me>
+            \lim_{x\to a}\frac{f(x)}{g(x)}  = \lim_{x\to a}\frac{f'(x)}{g'(x)}
+          </me>
+          provided the righthand limit exists.
+        </p>
+        <p>
+          <em>Theoretical detail:</em> To be technically correct,
+          we need to add the additional hypothesis that
+          <m>g'(x)\neq0</m> on an open interval that contains <m>a</m> or in every neighborhood of infinity if <m>a</m> is <m>\infty</m>;
+          this is almost always met in practice.
+        </p>
+      </statement>
+    </theorem>
+    <example xml:id="ex_lhopital0limitcalculation">
+      <statement>
+        <p>
+          Use L'H&#xf4;pital's rule to calculate the limit of <m>\displaystyle\lim_{x\to0}\frac{x^2}{2^x-1}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since the limit <m>\displaystyle\lim_{x\to0}\frac{x^2}{2^x-1}</m> is of the indeterminate form
+          <m>\frac{0}{0}</m>, L'H&#xf4;pital's rule applies and says that we can calculate it by considering instead the limit of the quotient of the derivatives of the numerator and denominator:
+          <me>
+            \begin{aligned}\displaystyle\lim_{x\to0}\frac{x^2}{2^x-1} \amp = \frac{0}{0}\\ \amp \stackrel[L'H]{}=\displaystyle\lim_{x\to0}\frac{\frac{d}{dx}(x^2)}{\frac{d}{dx}(2^x-1)}\\ \amp =\displaystyle\lim_{x\to0}\frac{2x}{(\ln2)2^x}\\ \amp =\frac{0}{(\ln2)2^0}\\ \amp =\frac{0}{(\ln2)(1)}\\ \amp =0. \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      \fbox{Two things to note:
+      <ul>
+        <li>
+          <p>
+            It is considered good mathematical practice to write ``L'H" under the equals sign where you apply L'H&#xf4;pital's rule,
+            to indicate your reasoning in that step.
+            It not only makes the calculation more clear,
+            but also indicates that we are using a major Theorem.
+          </p>
+        </li>
+        <li>
+          <p>
+            Do NOT using the quotient rule to compute derivatives because you are NOT taking the derivative
+            <me>
+              \frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)
+            </me>
+            when using L'H&#xf4;pital's rule.
+            As explained in the previous section,
+            this theorem is comparing the rates of change of each function
+            (meaning their derivatives)
+            in order to compute the limit.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example xml:id="ex_lhopitalinfinitylimitcalculation">
+      <statement>
+        <p>
+          Use L'H&#xf4;pital's rule to calculate the limit of <m>\displaystyle\lim_{x\to\infty}\frac{x^2}{2^x-1}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The limit <m>\displaystyle\lim_{x\to\infty}\frac{x^2}{2^x-1}</m> is of the indeterminate form <m>\frac{\infty}{\infty}</m>,
+          so L'H&#xf4;pital's rule applies.
+          Again, we replace the numerator and denominator of the quoitent with their derivatives:
+          <me>
+            \begin{aligned}\displaystyle\lim_{x\to\infty}\frac{x^2}{2^x-1}\amp = \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}=\displaystyle\lim_{x\to\infty}\frac{\frac{d}{dx}(x^2)}{\frac{d}{dx}(2^x-1)}\\ \amp =\displaystyle\lim_{x\to\infty}\frac{2x}{(\ln2)2^x}\\ \amp =\frac{\infty}{\infty}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Unfortunately,
+          our application of L'H&#xf4;pital's rule was not sufficient to resolve the limit here,
+          because if we let <m>x\to\infty</m>,
+          we have <m>2x\to\infty</m> and <m>(\ln2)2^x\to\infty</m>,
+          so our limit is still in the indeterminate form <m>\frac{\infty}{\infty}</m>.
+          However, this means that we can apply L'H&#xf4;pital's rule again!
+          <me>
+            \begin{aligned}\displaystyle\lim_{x\to\infty}\frac{2x}{(\ln2)2^x}\amp = \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}=\displaystyle\lim_{x\to\infty}\frac{\frac{d}{dx}(2x)}{\frac{d}{dx}((\ln2)2^x)}\\ \amp =\displaystyle\lim_{x\to\infty}\frac{2}{(\ln2)^22^x}\\ \amp = \frac{2}{\infty}\\ \amp = 0 \end{aligned}
+          </me>
+        </p>
+        <p>
+          As <m>x\to\infty</m> the denominator of this limit approaches <m>\infty</m> while the numerator is equal to <m>2</m>,
+          hence the limit goes to 0.
+          Combining these two applications of L'H&#xf4;pital's rule,
+          we see that the original limit is equal to zero:
+          <me>
+            \displaystyle\lim_{x\to\infty}\frac{x^2}{2^x-1}=0
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Notice that the answers in <xref ref="ex_lhopital0limitcalculation">Example</xref>
+      and <xref ref="ex_lhopital0limitgraph">Example</xref> agree,
+      and that the answers in Example <xref ref="ex_lhopitalinfinitylimitcalculation">Example</xref>
+      and <xref ref="ex_lhopitalinfinitylimitgraph">Example</xref> agree.
+      The graphical motivation of comparing the growth of the two functions is precisely the reason why L'H&#xf4;pital's rule is true.
+    </p>
+    <p>
+      \fbox{ Pay special attention to the fact that L'H&#xf4;pital's Rule is a <em>Theorem</em>
+      and has hypotheses: The limit must be of the form
+      <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+      It is vital to check when applying L'H&#xf4;pital's rule is that the limit is of one of those two indeterminate forms.
+      If the limit is not in one of those two forms,
+      then L'H&#xf4;pital's rule cannot be applied.
+      Not only that,
+      if you DO use L'H&#xf4;pital's rule when it does not apply,
+      you will not necessarily get the correct value of the limit. }
+    </p>
+    <example>
+      <statement>
+        <p>
+          Determine whether or not L'H&#xf4;pital's rule applies to <m>\displaystyle\lim_{x\to0}\frac{x^2}{1+2^x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          L'H&#xf4;pital's rule does not apply,
+          as <m>\displaystyle\lim_{x\to0}\frac{x^2}{1+2^x}</m> does not have either form
+          <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+          Instead, it approaches <m>\frac{0}{1+2^0}=\frac{0}{1+1}=0</m> as <m>x\to0</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Determine whether or not L'H&#xf4;pital's rule applies to each of the following limits.
+          In other words, determine whether the limit has the form
+          <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 1}\frac{x^2-2x+1}{x-1}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to \infty} (2^x-\ln x)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to\infty}\frac{2^x}{1-3^x}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Evaluate each of the following limits.
+          If you use L'H&#xf4;pital's rule,
+          indicate where it was used,
+          and be certain its hypotheses are met before you apply it.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 1}\frac{2\ln(x)}{1-e^{x-1}}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to\infty}\frac{2\ln(x)}{1-e^{x-1}}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Since <m>\ds\lim_{x\to 1}\frac{2\ln(x)}{1-e^{x-1}}</m> is indeterminate of the form <m>\frac{0}{0}</m>,
+                we may apply L'H&#xf4;pital's rule.
+                <me>
+                  \begin{aligned}\ds\lim_{x\to 1}\frac{2\ln(x)}{1-e^{x-1}}  \amp = \frac{0}{0}\\ \amp \stackrel[L'H]{}=\ds\lim_{x\to 1}\frac{\frac{2}{x}}{-e^{x-1}} \\ \amp =\frac{2}{-e^{0}}\\ \amp = \frac{2}{1}\\ \amp =-2. \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Since <m>\ds\lim_{x\to\infty}\frac{2\ln(x)}{1-e^{x-1}}</m> is indeterminate of the form <m>\frac{\infty}{-\infty}</m>,
+                we may apply L'H&#xf4;pital's rule.
+                <me>
+                  \begin{aligned}\ds\lim_{x\to \infty}\frac{2\ln(x)}{1-e^{x-1}}  \amp = \frac{\infty}{-\infty}\\ \amp \stackrel[L'H]{}=\ds\lim_{x\to \infty}\frac{\frac{2}{x}}{-e^{x-1}} \\ \amp =\frac{\frac{2}{\infty}}{-e^{\infty}}\\ \amp =\frac{0}{-\infty}\\ \amp =0. \end{aligned}
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Evaluate each of the following limits.
+          If you use L'H&#xf4;pital's rule,
+          indicate where it was used,
+          and be certain its hypotheses are met before you apply it.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 0}\frac{\ln(1+x)}{x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to\infty}\frac{x}{e^x}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          <em>Note: these are the same limits from <xref ref="ex_introlhopital">Exercise</xref>.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Sometimes L'H&#xf4;pital's rule must be applied multiple times to a limit.
+      After each application,
+      we must check to make sure that the hypotheses of L'H&#xf4;pital's rule still apply
+      (in other words, that the limit is still of the form
+      <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>)
+      before applying it again.
+      We should also ask ourselves whether L'H&#xf4;pital's rule has made the limit easier to compute.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The limit
+          <me>
+            \lim_{x\to\infty}\frac{e^x}{x^2}
+          </me>
+          has the form <m>\frac{\infty}{\infty}</m>,
+          and so we may apply L'H&#xf4;pital's rule:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{e^x}{x^2}  \amp = \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{e^x}{2x}\\ \amp = \frac{\infty}{\infty} \end{aligned}
+          </me>
+        </p>
+        <p>
+          The new limit <m>\ds\lim_{x\to\infty}\frac{e^x}{2x}</m> still has the form <m>\frac{\infty}{\infty}</m>,
+          and so we may use L'H&#xf4;pital's rule again.
+          Additionally, we note that while the numerator has not changed,
+          the denominator has gone down a degree,
+          and so we have made the limit a little simpler than it was originally:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{e^x}{2x} \amp = \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{e^x}{2}\\ \amp = \frac{\infty}{2} \\ \amp = \infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus the original limit is also equal to <m>\infty</m>:
+          <me>
+            \lim_{x\to\infty}\frac{e^x}{x^2} = \infty
+          </me>.
+          Note that it would be wrong to use L'H&#xf4;pital's rule for a third time because
+          <m>\ds\lim_{x\to\infty}\frac{e^x}{2}</m> does not have the form <m>\frac{\infty}{\infty}</m>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>L'H&#xf4;pital's Rule for the Indeterminate Forms <m>0\cdot \infty</m> and <m>\infty-\infty</m></title>
+    <p>
+      As mentioned, L'H&#xf4;pital's rule can only be used for limits of the form
+      <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+      However, we can use it for limits of other forms,
+      for example <m>0\cdot \infty</m> and <m>\infty-\infty</m>,
+      if we are first able to use algebra to rewrite the limit to have the form
+      <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+    </p>
+    <example xml:id="ex_rewriting0infty">
+      <statement>
+        <p>
+          Use L'H&#xf4;pital's rule to calculate the limit of <m>\displaystyle\lim_{x\to\infty}x^2e^{-3x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          As <m>x\to\infty</m> we have
+          <m>x^2\to\infty</m> and <m>e^{-3x}\to0</m>,
+          so the limit <m>\displaystyle\lim_{x\to\infty}x^2e^{-3x}</m> is in the indeterminate form <m>\infty\cdot 0</m> :
+          <me>
+            \lim_{x\to\infty}x^2e^{-3x} = \infty\cdot 0
+          </me>.
+        </p>
+        <p>
+          Therefore, this limit is <em>not yet</em>
+          in a form to which we can apply L'H&#xf4;pital's rule.
+          Luckily, limits of the indeterminate form
+          <m>\infty\cdot0</m> can always be rewritten as a quotient of the form
+          <m>\frac{\infty}{\infty}</m> or <m>\frac{0}{0}</m>,
+          by moving one of the factors to the denominator via using an exponent of <m>-1</m>.
+          In this example,
+          since <m>e^{-3x}</m> has a negative exponent already,
+          it is natural to move it to the denominator:
+          <me>
+            \displaystyle\lim_{x\to\infty}x^2e^{-3x}=\displaystyle\lim_{x\to\infty}\frac{x^2}{e^{3x}}
+          </me>
+        </p>
+        <p>
+          The limit is now indeterminate and has the form <m>\frac{\infty}{\infty}</m>.
+          Hence we can apply L'H&#xf4;pital's rule:
+          <md>
+            <mrow>\displaystyle\lim_{x\to\infty}x^2e^{-3x} \amp =\displaystyle\lim_{x\to\infty}\frac{x^2}{e^{3x}} = \frac{\infty}{\infty}\amp \leftarrow\amp \textrm{ rewrite to form } \frac{\infty}{\infty}</mrow>
+            <mrow>\amp \stackrel[L'H]{}=\displaystyle\lim_{x\to\infty}\frac{2x}{3e^{3x}} = \frac{\infty}{\infty}\amp \leftarrow\amp \textrm{ apply L'H\^opital's rule; still of the form } \frac{\infty}{\infty}</mrow>
+            <mrow>\amp \stackrel[L'H]{}=\displaystyle\lim_{x\to\infty}\frac{2}{9e^{3x}} \amp \leftarrow\amp \textrm{ apply L'H\^opital's rule }</mrow>
+            <mrow>\amp = \frac{2}{\infty} \amp \leftarrow\amp \textrm{ Since } 9e^{3x}\to\infty\textrm{ as } x\to\infty</mrow>
+            <mrow>\amp =0</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Let's see what happens if we try to compute the limit from <xref ref="ex_rewriting0infty">Example</xref> by rewriting
+          <me>
+            \lim_{x\to \infty} x^2e^{-3x} = \lim_{x\to\infty}\frac{e^{-3x}}{x^{-2}}
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Compute <m>\frac{d}{dx}(e^{-3x})</m> and <m>\frac{d}{dx}(x^{-2})</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Apply L'H&#xf4;pital's rule to
+                <m>\ds\lim_{x\to\infty}\frac{e^{-3x}}{x^{-2}}</m> using the derivatives you calculated from part (a).
+                This is still "correct" because the limit has the form <m>\frac{0}{0}</m>,
+                but is this new limit an improvement over <m>\ds\lim_{x\to\infty}\frac{e^{-3x}}{x^{-2}}</m>?
+                Why or why not?
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          <em>We will begin class by discussing this Exercise.</em>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Use L'H&#xf4;pital's rule to calculate the limit of <m>\displaystyle\lim_{x\to0^+}x\ln x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Note that we consider only the limit from the right of 0, since <m>\ln x</m> is not defined for negative numbers.
+        </p>
+        <p>
+          As <m>x\to0^{+}</m>, we have <m>x\to0</m> and <m>\ln x\to-\infty</m>,
+          and therefore the limit <m>\displaystyle\lim_{x\to0^+}x\ln x</m> is in the indeterminate form <m>0(-\infty)</m>:
+          <me>
+            \displaystyle\lim_{x\to0^+}x\ln x = 0(-\infty)
+          </me>
+        </p>
+        <p>
+          In order to apply L'H&#xf4;pital's rule we must rewrite the limit in the form
+          <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+          In this case,
+          it is easier to leave <m>\ln x</m> in the numerator;
+          as <m>x\to0^+</m> we have
+          <md>
+            <mrow>\displaystyle\lim_{x\to0^+}x\ln x \amp =\displaystyle\lim_{x\to0^+}\frac{\ln x}{x^{-1}} = \frac{-\infty}{\infty}\amp \leftarrow\amp \textrm{ limit is now in form } \frac{-\infty}{\infty}</mrow>
+            <mrow>\amp \stackrel[L'H]{}=\displaystyle\lim_{x\to0^+}\frac{1/x}{-1/x^2} = \frac{\infty}{-\infty}\amp \leftarrow\amp \textrm{ apply L'H\^opital's rule }</mrow>
+          </md>
+        </p>
+        <p>
+          This last expression still has an indeterminate form,
+          but now it can be simplified using algebra:
+          <me>
+            \frac{1/x}{-1/x^2}  = \frac{1}{x}\cdot\frac{-x^2}{1} = \frac{-x^2}{x} = -x
+          </me>
+        </p>
+        <p>
+          Lastly, we finish computing the limit
+          <me>
+            \displaystyle\lim_{x\to0^+}-x=0
+          </me>
+        </p>
+        <p>
+          Thus we have found that
+          <me>
+            \lim_{x\to0^+}x\ln x = 0
+          </me>.
+        </p>
+        <p>
+          <em>Note:</em> We <em>could</em>
+          have applied L'H&#xf4;pital's rule a second time in this problem.
+          Immediately after the first application of the rule,
+          the limit <m>\displaystyle\lim_{x\to0^+}\frac{1/x}{-1/x^2}</m> was again in the indeterminate form <m>\frac{\infty}{-\infty}</m>.
+          However, simplifying via algebra instead resulted in a very easy limit that we could evaluate.
+          You should <em>always</em> look for the simplest possible means of evaluating any limit,
+          applying algebraic methods before using a fancy theorem like L'H&#xf4;pital's rule.
+        </p>
+      </solution>
+    </example>
+    <p>
+      \fbox{In general,
+      we have two choices for rewriting limits of the form
+      <m>0\cdot\infty</m> in order to use L'H&#xf4;pital's rule.
+      We can rewrite
+      <me>
+        0\cdot\infty = \frac{0}{\infty^{-1}} = \frac{0}{0}
+      </me>
+      or
+      <me>
+        0\cdot\infty = \frac{\infty}{0^{-1}} = \frac{\infty}{\infty}
+      </me>.
+      Which one we choose depends entirely on whether the derivatives of the rewritten numerator and denominator are "easier" to work with in the new limit. }}
+    </p>
+    <p>
+      We can also rewrite some limits of the form
+      <m>\infty-\infty</m> in order to use L'H&#xf4;pital's rule.
+      However, this generally only works if the original limit contains fractions in one or both terms:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use L'H&#xf4;pital's rule to calculate the limit of <m>\displaystyle\lim_{x\to0}\left(\frac{1}{x}-\frac{1}{e^x-1}\right)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          As <m>x\to0</m>,
+          both <m>\dfrac{1}{x}</m> and <m>\dfrac{1}{e^x-1}</m> become infinite,
+          so the limit <m>\displaystyle\lim_{x\to0}\left(\frac{1}{x}-\frac{1}{e^x-1}\right)</m> is potentially of the indeterminate form <m>\infty-\infty</m>.
+        </p>
+        <p>
+          To be honest, we are playing pretty fast and loose here.
+          Specifically,
+          we are not bothering to examine whether the terms <m>\dfrac{1}{x}</m> and
+          <m>\dfrac{1}{e^x-1}</m> approach <m>\infty</m> or <m>-\infty</m>.
+          Without knowing that,
+          we don't know for sure whether this limit is of the indeterminate form
+          <m>\infty-\infty</m> or the non-indeterminate form <m>\infty+\infty</m>.
+          We could look from the left and right and do this more precisely if we are asked to,
+          but it is easier to instead do some algebra so that we can apply L'H&#xf4;pital's rule:
+          <md>
+            <mrow>\displaystyle\lim_{x\to0}\left(\frac{1}{x}-\frac{1}{e^x-1}\right)\amp = \ds\lim_{x\to 0}\left(\frac{e^x-1}{x(e^x-1)}-\frac{x}{x(e^x-1)}\right) \amp  \leftarrow\amp \textrm{ find a common denominator}</mrow>
+            <mrow>\amp = \displaystyle\lim_{x\to0}\frac{(e^x-1)-x}{x(e^x-1)} = \frac{0}{0}\amp \leftarrow\amp \textrm{ combine fractions; form is now}  \frac{0}{0}</mrow>
+            <mrow>\amp \stackrel[L'H]{}=\displaystyle\lim_{x\to0}\frac{e^x-1}{(e^x-1)+xe^x} = \frac{0}{0}\amp \leftarrow\amp \textrm{ apply L'H\^opital's rule; still }  \frac{0}{0}</mrow>
+            <mrow>\amp \stackrel[L'H]{}=\displaystyle\lim_{x\to0}\frac{e^x}{e^x+e^x+xe^x}\amp \leftarrow\amp \textrm{ apply L'H\^opital's rule again }</mrow>
+            <mrow>\amp =\frac{e^0}{e^0+e^0+0e^0}\amp \leftarrow\amp \textrm{ evaluate the limit }</mrow>
+            <mrow>\amp = \frac{1}{1+1+0}</mrow>
+            <mrow>\amp =\frac{1}{2}</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      In case you are still skeptical about using L'H&#xf4;pital's rule,
+      we can check that the above three limits are correct using graphs:
+    </p>
+    <p>
+      <image width="73%" source="TaalmanPage394.png"/>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Determine whether each of the statements below is
+          <em>True</em> or <em>False</em>.
+          In general, a mathematical statement is only true if it is <em>always</em> true;
+          if there are <em>any</em> situations in which it is not true,
+          it is considered false.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <em>True or False:</em> If a limit has an indeterminate form,
+                then that limit does not exist.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>True or False:</em> L'H&#xf4;pital's rule can be used to find the limit of any fraction <m>\frac{f(x)}{g(x)}</m> as <m>x\to a</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>True or False:</em> When using L'H&#xf4;pital's rule,
+                you need to apply the quotient rule in the differentiation step.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>True or False:</em> L'H&#xf4;pital's rule applies only to limits as <m>x\to0</m> or <m>x\to\infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>True or False:</em> L'H&#xf4;pital's rule rule applies only to limits of the indeterminate form
+                <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following theorem was introduced in this section:
+    </p>
+    L'H&#xf4;pital's rule.
+    <p>
+      <em>Key ideas:</em> L'H&#xf4;pital's rule applies only to limits of the form
+      <m>\frac{0}{0}</m> and <m>\frac{\infty}{\infty}</m>.
+      L'H&#xf4;pital's rule does NOT involve using the quotient rule.
+      L'H&#xf4;pital's rule can be applied to limits of the forms <m>0\cdot \infty</m> or
+      <m>\infty-\infty</m> only after algebraically manipulating them to be of either form
+      <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Algebra is still the best way to evaluate a limit.
+      Only resort to fancy methods if there are no algebraic options.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 6.2}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

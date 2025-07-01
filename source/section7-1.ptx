@@ -1,0 +1,1002 @@
+<section>
+  <title>Curve Sketching and Applications of Derivatives</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Review the curve sketching method and the information we can obtain about a function from algebra,
+          limits, and its first two derivatives.
+        </p>
+      </li>
+      <li>
+        <p>
+          Apply the curve sketching method to exponential and logarithmic functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Describe the growth of exponential functions as proportional to their size.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn about the logistic model for population growth.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use curve sketching techniques to establish some key properties of the logistic model:
+          carrying capacity and the point of maximum population growth.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Review of Curve Sketching Method</title>
+    <p>
+      In this section,
+      we use our newfound derivative rules to confirm that exponential and logarithmic functions have the shapes we have observed.
+      We will also learn one more model for population growth and use curve-sketching techniques to analyze its shape.
+    </p>
+    <p>
+      Recall the information we can find about a function using either algebra or the first two derivatives:
+      <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+        <li>
+          <p>
+            the domain.
+          </p>
+        </li>
+        <li>
+          <p>
+            the <m>y</m>-intercept.
+          </p>
+        </li>
+        <li>
+          <p>
+            any <m>x</m>-intercepts that we can find easily
+            (many times this is not possible without more advanced algebraic methods).
+            Potentially a sign analysis for the function itself that shows where it is above and below the <m>x</m>-axis,
+            but this requires complete knowledge of all <m>x</m>-intercepts.
+          </p>
+        </li>
+        <li>
+          <p>
+            any even or odd symmetry.
+          </p>
+        </li>
+        <li>
+          <p>
+            the behavior of the function at any non-domain points,
+            meaning the limits as <m>x\to c</m> for any value <m>x=c</m> not in the domain of the function.
+            We make special note of any holes or vertical asymptotes.
+          </p>
+        </li>
+        <li>
+          <p>
+            the "end behavior" of the graph,
+            meaning the limits as <m>x\to\pm\infty</m>.
+            We make special note of any horizontal asymptotes.
+          </p>
+        </li>
+        <li>
+          <p>
+            any local minima or maxima,
+            along with where the function is increasing and decreasing using the first derivative.
+          </p>
+        </li>
+        <li>
+          <p>
+            any inflection points and where the function is concave up and concave down using the second derivative.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      We may not use every part of this method in the examples that follow.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Curve Sketching with Exponential Functions</title>
+    <p>
+      In this section, we describe the shape of exponential functions,
+      starting with the limits at <m>\infty</m> and <m>-\infty</m> of <m>e^x</m>.
+    </p>
+    <p>
+      We know from our initial exploration of <m>e</m> that <m>2\lt e\lt 3</m>,
+      and in particular that <m>e>1</m>.
+      This means that the graphs of <m>e^x</m> has the same general shape and behavior as the graphs of <m>b^x</m> for <m>b>1</m>.
+      Because of this,
+      we already know the limits of <m>e^x</m> and <m>\ln x</m> as <m>x\to\pm\infty</m>:
+    </p>
+    <theorem xml:id="thm_limitsofe">
+      <title>Limits of the Natural Exponential Function</title>
+      <statement>
+        <me>
+          \lim_{x\to\infty} e^x = \infty\qquad\text{ and } \qquad\lim_{x\to-\infty}e^x = 0
+        </me>
+      </statement>
+    </theorem>
+    <example>
+      <title>The Shape of $e^{kx}$</title>
+      <statement>
+        <p>
+          In this example,
+          we confirm the basic shape of exponential functions <m>f(x) = e^{kx}</m> for <m>k>0</m>.
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                <em>Domain.</em> <m>f(x) = e^{kx}</m> is defined for all real numbers,
+                since any input of <m>x</m> will result in a power of <m>e</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em><m>y</m>-intercept.</em> We know that there is a <m>y</m>-intercept of <m>y=f(0) = e^{k(0)} = e^0 = 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em><m>x</m>-intercepts and sign of <m>f(x)</m></em>: For <m>f(x) = e^{kx}</m> when <m>k>0</m>,
+                we know that <m>f(x)</m> is always positive,
+                since any power of the positive number <m>e</m> will be positive.
+                Thus there are no <m>x</m>-intercepts.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>even or odd symmetry.</em> There is no even or odd symmetry since <m>f(-x) = e^{-kx}</m> is neither equal to
+                <m>f(x) = e^{kx}</m> nor equal to <m>-f(x) = -e^{kx}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Vertical Asymptotes.</em> Since <m>f(x) = e^{kx}</m> is never undefined,
+                there are no vertical asymptotes
+                (or any other types of discontinuities whose limits we must evaluate).
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Horizontal Asymptotes</em> <xref ref="thm_limitsofe">Theorem</xref>
+                tells us that <m>f(x) = e^{kx}</m> will have a horizontal asymptote to the left at <m>y=0</m> since
+                <me>
+                  \lim_{x\to-\infty}e^{kx} = e^{-\infty} = 0
+                </me>
+                There is no right horizontal asymptote since
+                <me>
+                  \lim_{x\to\infty}e^{kx} = e^{\infty} = \infty
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>First-derivative information</em>
+                The derivative is <m>f'(x) = ke^{kx}</m>,
+                which is never 0 and never undefined.
+                It is always positive,
+                since <m>k</m> is positive and <m>e^{kx}</m> is positive for all <m>x</m>.
+                Thus <m>f(x) = e^{kx}</m> is always increasing.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Second-derivative information</em>
+                The second derivative is <m>f''(x) = k^2e^{kx}</m>,
+                which is also always positive for the same reasons,
+                and thus <m>f(x) = e^{kx}</m> is always concave up.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Thus when <m>k>0</m>,
+          <m>f(x) = e^{kx}</m> has the general shape we see below,
+          which is the same as the shape of <m>f(x) = b^x</m> for <m>b>1</m>:
+        </p>
+        <figure>
+          <caption><m>f(x) = e^{kx}</m> has the same shape as <m>f(x) = b^x</m> for <m>k>0</m> and <m>b>1</m>.</caption>
+          <image width="37%" source="TaalmanPage366c.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          <em>Fill in the Blank</em> The function
+          <m>f(x) = Ae^{kx}</m> models exponential growth when <m>k</m>\rule[-.25em]{.25in}{1pt} and models exponential decay when <m>k</m>\rule[-.25em]{.25in}{1pt}.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      In the next example,
+      we use curve-sketching techniques to draw the graph of a function involving exponential functions whose shape we do not yet know:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Sketch an accurate labeled graph of the function <m>f(x) = \dfrac{6}{4-2^x}</m>.
+          Include complete sign chart analyses of
+          <m>f,
+          f'</m>, and <m>f''</m>, and calculate any relevant limits.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Domain:</em> <m>f(x)</m> is undefined when its denominator is zero.
+          Solving for <m>x</m>:
+          <me>
+            \begin{aligned}4-2^x \amp = 0\\ 4 \amp = 2^{x}\\ 2^2 \amp = 2^x\\ 2 \amp = 2 \end{aligned}
+          </me>
+          we see that <m>f(x)</m> has domain <m>(-\infty,2)\cup(2,\infty)</m>.
+        </p>
+        <p>
+          <em><m>x</m>-intercepts</em> <m>f(x)</m> has no <m>x</m>-intercepts because its numerator is <m>6</m> and is never equal to 0.
+        </p>
+        <p>
+          <em>Limits.</em> Since the domain of <m>f</m> is <m>(-\infty,2)\cup(2,\infty)</m>,
+          we must investigate the limits of <m>f(x) = \frac{6}{4-2^x}</m> as
+          <m>x\to\pm\infty</m> and as <m>x\to 2</m> from the left and the right.
+        </p>
+        <p>
+          As <m>x\to 2^-</m> we have <m>4-2^x\to 0^+</m> and thus
+          <me>
+            \lim_{x\to 2^-}\frac{6}{4-2^x} = \frac{6}{0^+} = \infty
+          </me>,
+          and as <m>x\to 2^+</m> we have <m>4-2^x\to 0^-</m> and thus
+          <me>
+            \lim_{x\to 2^+}\frac{6}{4-2^x} = \frac{6}{0^-} = -\infty
+          </me>.
+          Thus the graph of <m>f</m> has a vertical asymptote at <m>x=2</m>,
+          where the graph approaches <m>\infty</m> to the left of 2 and approaches <m>-\infty</m> to the right of <m>2</m>.
+        </p>
+        <p>
+          As <m>x\to\infty</m> the denominator <m>4-2^x</m> of <m>f(x)</m> approaches <m>-\infty</m>, and thus
+          <me>
+            \lim_{x\to\infty}\frac{6}{4-2^x} = \frac{6}{-\infty} = 0
+          </me>.
+        </p>
+        <p>
+          As <m>x\to-\infty</m>,
+          the denominator <m>4-2^x</m> approaches <m>4</m>, and thus
+          <me>
+            \lim_{x\to-\infty}\frac{6}{4-2^x} = \frac{6}{4} = \frac{3}{2}
+          </me>.
+          This information tells us that the graph of <m>f</m> has
+          <em>two</em> horizontal asymptotes:
+          at <m>y=0</m> on the right and at <m>y=\frac{3}{2}</m> on the left.
+        </p>
+        <p>
+          <em>Derivatives:</em> Let's begin by finding and simplifying the first and second derivatives of <m>f(x)</m>.
+          The first derivative of <m>f(x) = 6(4-2^x)^{-1}</m> is
+          <me>
+            f'(x) = 6(-1)(4-2^x)^{-2}(-(\ln 2)2^x) = \frac{6(\ln 2)2^x}{(4-2^x)^2}
+          </me>.
+          Differentiating that result using the quotient rule and then factoring to simplify as much as possible so that we can easily identify roots,
+          we find that the second derivative of <m>f</m> is
+          <me>
+            \begin{aligned}f''(x) \amp = \frac{6(\ln 2)(\ln 2)2^x(4-2^x)^2-(6(\ln 2)2^x)(2)(4-2^x)^1(-(\ln 2)2^x)}{(4-2^x)^4}\\ \amp =\frac{6(\ln 2)^22^x(4-2^x)((4-2^x)+2\cdot 2^x)}{(4-2^x)^4}\\ \amp =\frac{6(\ln 2)^2 2^x(4+2^x)}{(4-2^x)^3}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          To determine the intervals on which
+          <m>f,
+          f'</m> and <m>f''</m> are positive and negative we must first locate the values of <m>x</m> for which these functions are zero or do not exist.
+          The function
+          <me>
+            f(x) = \frac{6}{4-2^x}
+          </me>
+          is never zero,
+          but is undefined where its denominator is zero, at <m>x=2</m>.
+        </p>
+        <p>
+          Looking at the formula for
+          <me>
+            f'(x) \frac{6(\ln 2)2^x}{(4-2^x)^2}
+          </me>,
+          we can see that it is never zero
+          (since <m>2^x</m> is never zero),
+          but is also undefined at <m>x=2</m>.
+          Thus <m>x=2</m> is the only critical point of <m>f</m> and the only point we will mark on the number line for <m>f'</m>.
+        </p>
+        <p>
+          Similarly, from the formula for
+          <me>
+            f''(x) = \frac{6(\ln 2)^2 2^x(4+2^x)}{(4-2^x)^3}
+          </me>,
+          we can see that <m>f''(x)</m> is never zero
+          (since neither <m>2^x</m> nor <m>4+2^x</m> can ever be zero),
+          but it is undefined at <m>x=2</m>.
+        </p>
+        <p>
+          Checking signs on either side of <m>x=2</m> for each function,
+          we obtain the following set of number lines:
+        </p>
+        <figure>
+          <caption>Sign charts for <m>f(x), f'(x)</m>, and <m>f''(x)</m>.</caption>
+          <image width="46%" source="TaalmanPage370.png"/>
+        </figure>
+        <p>
+          We now know that <m>f(x)</m> is positive, increasing,
+          and concave up on <m>(-\infty,2)</m> and negative, increasing,
+          and concave down on <m>(2,\infty)</m>.
+          The graph has no <m>x</m>-intercepts,
+          no extrema, and no inflection points.
+          The graph of <m>f</m> has a vertical asymptote at <m>x=2</m>,
+          where the graph approaches <m>\infty</m> to the left of 2 and approaches <m>-\infty</m> to the right of <m>2</m>.
+          The graph of <m>f</m> has <em>two</em> horizontal asymptotes:
+          at <m>y=0</m> on the right and at <m>y=\frac{3}{2}</m> on the left.
+        </p>
+        <p>
+          Putting all of this information together,
+          we can now sketch the graph:
+        </p>
+        <figure>
+          <caption>The graph of <m>f(x) = \dfrac{6}{4-2^x}</m>.</caption>
+          <image width="37%" source="TaalmanPage371.png"/>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Curve sketching with logarithms</title>
+    <p>
+      In this section, we describe the shape of logarithmic functions,
+      starting with the limits at <m>\infty</m> and <m>-\infty</m> of <m>\ln x</m>.
+    </p>
+    <p>
+      Since <m>e>1</m>, the limits of
+      <m>\ln x = \log_e x</m> are the same as the limits of <m>\log_b x</m> for <m>b>1</m>:
+    </p>
+    <theorem xml:id="thm_limitsofln">
+      <title>Limits of the Natural  Logarithmic Function</title>
+      <statement>
+        <me>
+          \lim_{x\to\infty}\ln x = \infty\qquad\text{ and } \qquad\lim_{x\to0^+}\ln x = -\infty
+        </me>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          In this example,
+          we use derivatives to verify that the shape of the graph of <m>f(x) = \ln x</m> is what we expect.
+        </p>
+        <p>
+          First, note that the domain of <m>\ln x</m> is
+          <m>(0,\infty)</m> and that <m>\ln x = 0</m> when <m>x=1</m>.
+        </p>
+        <p>
+          <m>f(x)</m> has no even or odd symmetry since
+          <m>f(-x) = \ln (-x)</m> is not even defined for the same values of <m>x</m> for which <m>f(x)</m> is defined (its domain is <m>(-\infty,0)</m>).
+        </p>
+        <p>
+          <xref ref="thm_limitsofln">Theorem</xref>
+          establishes that <m>f(x)</m> has a vertical asymptote to the right of <m>x=0</m>,
+          and no horizontal asymptote.
+        </p>
+        <p>
+          The first derivative is <m>f'(x) = \frac{1}{x}</m>,
+          which is positive on the domain <m>x>0</m>,
+          and thus <m>f(x) = \ln x</m> is increasing on its domain.
+        </p>
+        <p>
+          The second derivative is
+          <me>
+            f''(x) = \frac{d}{dx}\left(\frac{1}{x}\right) = \frac{d}{dx}(x^{-1}) = -x^{-2} = -\frac{1}{x^2}
+          </me>,
+          which is negative for all <m>x</m>-values with <m>x\neq 0</m>.
+          Thus we see that <m>f(x) = \ln x</m> is concave down.
+        </p>
+        <p>
+          Overall, <m>f(x) = \ln x</m> is increasing and concave down on
+          <m>(0,\infty)</m> with a root at <m>x=0</m>, so the graph is:
+        </p>
+        <figure>
+          <caption>The graph of <m>f(x)= \ln x</m>.</caption>
+          <image width="37%" source="TaalmanPage367a.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      In the next example,
+      we use curve-sketching techniques to draw the graph of a function involving logarithmic functions whose shape we do not yet know:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's use calculus to sketch an accurate graph of the function
+          <m>f(x) = \ln(x^5-32)</m> from <xref ref="ex_middledifflogderiv">Example</xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To determine the domain of <m>f(x)</m>,
+          we realize that we need to require <m>x^5-32>0</m>.
+          This means <m>x^5>32</m>, or <m>x>(32)^{1/5}=2</m>.
+          In interval notation, the domain of <m>f(x)</m> is <m>(2,\infty)</m>.
+        </p>
+        <p>
+          The <m>x</m>-intercepts of <m>f(x)</m> are <m>x</m> values where
+          <m>\ln(x^5-32)=0</m>, or when <m>x^5-32=1</m>.
+          This happens when <m>x=(33)^{1/5}\approx 2.0123</m>.
+        </p>
+        <p>
+          Since <m>\ln x</m> has a vertical asymptote as <m>x\to0^+</m>,
+          we see that <m>f(x) = \ln(x^5-32)</m> will have a vertical asymptote where <m>x^5-32\to 0^+</m>,
+          meaning as <m>x\to2^+</m> since <m>32 = 2^5</m>:
+          <me>
+            \ds\lim_{x\to2^+} \ln(x^5-32)=\ln(0^+)=-\infty
+          </me>
+        </p>
+        <p>
+          We check for a horizontal asymptote as <m>x\to\infty</m>:
+          <me>
+            \ds\lim_{x\to\infty} \ln(x^5-32)=\ln(\infty)=\infty
+          </me>
+          so <m>f(x)</m> has no right horizontal asymptote.
+          Additionally, <m>f(x)</m> has no left horizontal asymptote,
+          since the domain is <m>(2,\infty)</m>,
+          so <m>\ds\lim_{x\to-\infty} \ln(x^5-32)</m> does not exist.
+        </p>
+        <p>
+          We computed
+          <me>
+            f'(x)=\frac{5x^4}{x^5-32}
+          </me>
+          in <xref ref="ex_middledifflogderiv">Example</xref>,
+          and can use this to find the critical points of <m>f(x)</m>.
+          The roots of <m>f'(x)</m> are values where <m>5x^4=0</m>,
+          so <m>x=0</m>.
+          The values where <m>f'(x)</m> does not exist are values where <m>x^5-32=0</m>,
+          so <m>x=2</m>.
+          However, neither <m>x=0</m> nor <m>x=2</m> are in the domain of <m>f(x)</m>,
+          so <m>f</m> has no critical points.
+          Therefore, we test one value in the domain of <m>f(x)</m> to see if <m>f</m> is increasing or decreasing on its domain.
+          We see that <m>f'(3)=\frac{5(3)^4}{(3)^5-32}=\frac{405}{211}>0</m>,
+          so <m>f</m> is increasing from <m>(2,\infty)</m>.
+        </p>
+        <p>
+          Finally, we compute and simplify
+          <me>
+            f''(x)=\frac{20x^3(x^5-32)-5x^4(5x^4)}{(x^5-32)^2}=\frac{x^3(-5x^5-32)}{(x^5-32)^2}
+          </me>
+          to find inflection points and intervals of concavity.
+          The roots of <m>f''(x)</m> are values where <m>x^3(-5x^5-32)=0</m>,
+          so <m>x=0</m> or <m>-5x^5-32=0</m>,
+          so roots of <m>f''(x)</m> are <m>x=0</m> and <m>x=\left(\frac{32}{5}\right)^{1/5}\approx1.449</m>.
+          The values where <m>f''(x)</m> does not exists are values where <m>x^5-32=0</m>,
+          so <m>x=2</m>.
+          Again, none of these values is in the domain of <m>f(x)</m>,
+          so <m>f</m> has no critical points.
+          We test one value in the domain of <m>f(x)</m> to see if <m>f</m> is concave up or concave down on its domain.
+          We see that <m>f''(3)=\frac{3^3(-1247))}{44521}\lt 0</m>,
+          so <m>f</m> is concave down from <m>(2,\infty)</m>.
+        </p>
+        <p>
+          Putting this all together, we get a graph of <m>f(x)=\ln(x^5-32)</m>:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines=center,
+xmax = 10,
+ymax = 10,
+xmin = -1,
+ymin = -5,
+ylabel=\(y\),
+xlabel=\(x\),
+]
+\addplot [domain=-2:10,samples=250, ultra thick, blue] {ln(x^5-32)}
+node [pos=0.5, below right] {\(y=\ln(x^5-32)\)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </solution>
+    </example>
+    <exercise xml:id="ex_logcurvesketch">
+      <statement>
+        <p>
+          For the function <m>g(x) = x\log_2 x</m>,
+          determine its domain and first and second derivatives.
+          <em>We will sketch its graph together at the start of class.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Exponential Functions Grow Proportionally to Themselves</title>
+    <p>
+      Recall that we motivated the development of exponential functions by observing that they model percent change.
+      We have observed in several different ways that exponential functions grow according to their size,
+      doubling and halving over constant periods of time.
+      Now that we can compute derivatives of exponential functions,
+      we can state this same fact in another way:
+    </p>
+    <p>
+      Exponential functions grow proportionally to their size.
+      In symbols:
+      <me>
+        \frac{d}{dx}(f(x)) = k f(x)
+      </me>
+      if <m>f(x) = Ae^{kx}</m> is an exponential function.
+    </p>
+    <p>
+      Another way to say this is that all exponential functions have the property that their derivatives are constant multiples of the original function.
+      For example <m>\frac{d}{dx}(e^{2x}) = 2e^{2x}</m> is just 2 times the original function <m>e^{2x}</m>.
+      In fact, the converse
+      (opposite direction)
+      is also true,
+      although proving it is true is outside the scope of this course:
+      if a function's derivative is proportional to the function,
+      that function must be an exponential function.
+      Together, both of these observations give us the following two-sided statement,
+      which will prove useful in many application problems:
+    </p>
+    <theorem xml:id="thm_rateofchangeexpfunctions">
+      <title>Rates of Change and Exponential Functions</title>
+      <statement>
+        <p>
+          <m>f'(x) = kf(x)</m> for some constant <m>k</m> if and only if <m>f</m> is an exponential function of the form <m>f(x) = Ae^{kx}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Recall that one quantity <m>y</m> is <em>proportional</em>
+      to another quantity <m>x</m> if <m>y</m> is a constant multiple of <m>x</m>.
+      Therefore the preceding theorem gives us a nice characterization of exponential functions:
+    </p>
+    All exponential functions <m>f</m>, and only exponential functions, have the property that <m>f'</m> is proportional to <m>f</m>, meaning
+    <me>
+      f' = kf
+    </me>.
+    <p>
+      <em>How does this fit with what we already know?</em>
+      We know already that if a word problem states that the rate of change of a function is constant,
+      this tells us that the function is linear.
+      Similarly, by <xref ref="thm_rateofchangeexpfunctions">Theorem</xref>,
+      if a word problem states that the rate of change of a function is proportional to the function itself,
+      we immediately know that that function is exponential.
+      Then it is just a question of finding values <m>A</m> and <m>k</m> to determine the function
+      <m>f(x) = Ae^{kx}</m> that models the situation.
+    </p>
+    <p>
+      As we have seen,
+      exponential functions often arise when modeling populations.
+      For example,
+      a larger population can produce greater numbers of offspring than a smaller population and can therefore grow at a faster rate.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose a population of wombats on a small island is growing at a rate proportional to the number of wombats on the island.
+          If there were 12 wombats on the island in 1990 and 37 wombats on the island in 1998,
+          how many wombats were on the island in the year 2010?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We are given that the rate of change <m>W'(t)</m> of the population of wombats is proportional to the population <m>W(t)</m> of wombats at time <m>t</m>;
+          in other words,
+          <me>
+            W'(t) = kW(t)
+          </me>
+          for some real number <m>k</m>.
+          By <xref ref="thm_rateofchangeexpfunctions">Theorem</xref>,
+          this means that the population <m>W(t)</m> of wombats on the island must be an exponential function
+          <me>
+            W(t) = Ae^{kt}
+          </me>.
+          We now only need to find constants <m>A</m> and <m>k</m> that match the information given in the problem.
+        </p>
+        <p>
+          If we let <m>t=0</m> represent 1990
+          (so that <m>t=8</m> will represent 1998),
+          then from the information given in the problem, we have
+          <me>
+            W(0) = 12\text{ and }  W(8)=37
+          </me>.
+        </p>
+        <p>
+          We will use these two data points to find <m>A</m> and <m>k</m>.
+          Using the first data point, we have
+          <me>
+            W(0) = Ae^0 = A = 12
+          </me>
+          so <m>W(t) = 12e^{kt}</m> for some <m>k</m>.
+          Using the second data point, we can now solve for the value of <m>k</m>:
+          <me>
+            \begin{aligned}W(8) = 12e^{k(8)} \amp =37\\ e^{8k} \amp =\frac{37}{12}\\ \ln(e^{8k}) \amp =\ln\left(\frac{37}{12}\right)\\ 8k \amp = \ln\left(\frac{37}{12}\right)\\ k \amp = \frac{\ln\left(\frac{37}{12}\right)}{8}\approx 0.14 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>W(t) = 12e^{0.14 t}</m>.
+          Using this function,
+          we can now easily calculate the number of wombats that were on the island in the year 2010.
+          Since 2010 is 20 years after 1990, we need to find
+          <me>
+            W(20) = 12e^{0.14(20)}\approx 197.34
+          </me>.
+        </p>
+        <p>
+          In the year 2010, there were approximately 197 wombats on the island,
+          assuming of course that we cannot have "parts" of wombats.
+        </p>
+      </solution>
+    </example>
+    <p>
+      When modeling quantities that grow proportionally their size,
+      people often use a base of <m>e</m> and write their models as
+      <me>
+        Q(t) = Q_0 e^{kt}
+      </me>
+      where <m>Q_0 = Q(0)</m> is the <em>initial value</em> of the quantity,
+      and <m>k</m> is called the <em>continuous growth rate</em> of the quantity.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          The number of worms in a backyard garden increases every year by a
+          <em>percentage growth rate</em> of <m>7\%</m>.
+          What is the equivalent <em>continuous growth rate</em> of the worm population?
+          Begin by writing down a model of the form
+          <me>
+            W(t) = W_0(1+r)^t
+          </me>
+          and find the value of <m>k</m> such that
+          <me>
+            W(t) = W_0e^{kt}
+          </me>.
+          The value of <m>k</m> is the continuous growth rate.
+          Is this higher or lower than the percentage growth rate?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>A more realistic model for population growth</title>
+    <p>
+      If we assume that a population grows at a rate that is proportionate to the size of the population,
+      it follows that the population grows exponentially according to the model
+      <me>
+        P(t) = Ae^{kt}
+      </me>
+      where <m>A</m> is the initial population and <m>k</m> is the continuous growth rate of the population.
+      Since <m>k>0</m>,
+      we know that <m>e^{kt}</m> is an always increasing,
+      always concave up function that grows without bound.
+      While <m>P(t) = Ae^{kt}</m> may be a reasonable model for how a population grows when it is relatively small,
+      because the function grows without bound as time increases,
+      it can't be a realistic long-term representation of what happens in reality.
+      Indeed, whether it is the number of fish who can survive in a lake,
+      the number of cells in a petri dish,
+      or the number of human beings on earth,
+      the size of the surroundings and the limitations of resources will keep the population from being able to grow without bound.
+    </p>
+    <p>
+      In light of these observations,
+      a different model is needed for population,
+      one that grows exponentially at first,
+      but that levels off later.
+      Calculus can be used to develop such a model,
+      and the resulting function is usually called the
+      <em>logistic function</em>, which has form
+      <me>
+        P(t) = \frac{A}{1+Me^{-kt}}
+      </me>,
+      where <m>A,M</m>, and <m>k</m> are positive constants.
+    </p>
+    <p>
+      A logistic growth curve is also called a
+      <em>sigmoidal curve</em>.
+      They all have the same basic shape,
+      shown in <xref ref="fig_sigmoidalcurve">Figure</xref> below:
+    </p>
+    <figure xml:id="fig_sigmoidalcurve">
+      <caption>Graphs of logistic functions are <em>sigmoidal</em>. They increase at an increasing rate until their inflection point, and then increase at a decreasing rate.</caption>
+      <image width="46%" source="Larson-Log-growth_ch07_f0029-t2.png"/>
+    </figure>
+    <p>
+      Populations that are modeled by the logistic function initially have rapid growth,
+      followed by a declining rate of growth.
+      They approach a horizontal asymptote as <m>t\to\infty</m>,
+      meaning that the population does not grow past a certain threshold.
+      The value of the asymptote is often referred to as the
+      <em>carrying capacity</em> of the population.
+    </p>
+    <example xml:id="ex_echidna">
+      <statement>
+        <p>
+          A population of echidnas is modeled by
+          <me>
+            P(t) = \frac{1000}{1+9e^{-0.08t}}
+          </me>
+          where <m>t</m> is the time elapsed in years.
+          <ul>
+            <li>
+              <p>
+                What is the initial population?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the population after 40 years?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the population after a long time?
+              </p>
+            </li>
+            <li>
+              <p>
+                How long will it take the population to reach 90% of the carrying capacity?
+              </p>
+            </li>
+            <li>
+              <p>
+                How does the growth of the population change over time?
+                In particular, when does the rate of growth appear to slow down?
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's take each of these questions in order:
+          <ul>
+            <li>
+              <p>
+                The initial population is <m>P(0) = \frac{1000}{1+9e^0} = \frac{1000}{10}= 100</m> echidnas.
+              </p>
+            </li>
+            <li>
+              <p>
+                The population after 40 years is
+                <me>
+                  P(40) =   \frac{1000}{1+9e^{-0.08(40)}}=\frac{1000}{1+9e^{-3.2}}\approx 732\text{ echidnas. }
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculating the limit as <m>t\to\infty</m>,
+                we see that the carrying capacity is
+                <me>
+                  \lim_{t\to\infty}\frac{1000}{1+9e^{-0.08t}} = \frac{1000}{1+0} = 1000\text{ echidnas. }
+                </me>
+                We can confirm this by observing that <m>A=1000</m> is the value of the carrying capacity if we compare to the formula given for a general logistic function.
+              </p>
+            </li>
+            <li>
+              <p>
+                Let's see how long it will take the population to reach 90% of the carrying capacity,
+                meaning how long it will be until there are 900 echidnas.
+                The population reaches 900 when
+                <me>
+                  \frac{1000}{1+9e^{-0.08t}} =900
+                </me>
+                Solving this equation for <m>t</m>, we get
+                <me>
+                  \begin{aligned}1+9e^{-0.08t} \amp = \frac{10}{9}\\ 9e^{-0.08t} \amp = \frac{1}{9}\\ e^{-0.08t} \amp = \frac{1}{81}\\ \ln(e^{-0.08t}) \amp =\ln\frac{1}{81}\\ -0.08t \amp = \ln\frac{1}{81}\\ t \amp = -\frac{\ln\frac{1}{81}}{0.08}\approx 54.9 \end{aligned}
+                </me>
+                So the population reaches 900 in approximately 55 years.
+              </p>
+            </li>
+            <li>
+              <p>
+                The population seems to be growing quite rapidly,
+                and we wonder what will happen as it nears the carrying capacity.
+                To further explore how the population of echidnas grows,
+                let's compare the rates of change after 0, 40, and 80 years.
+                The derivative is easier to calculate if we first rewrite <m>P</m> as
+                <me>
+                  P(t) = 1000(1+9e^{-0.08t})^{-1}
+                </me>
+                Then, using the Chain Rule, we have
+                <me>
+                  P'(t) = 1000(-1)(9+e^{-0.08t})^{-2}\cdot\frac{d}{dt}(1+9e^{-0.08t})
+                </me>
+                Notice that the Chain Rule is again required in evaluating the derivative of <m>(1+9e^{-0.08t})</m>, giving
+                <me>
+                  \begin{aligned}P'(t) \amp = 1000(-1)(9+e^{-0.08t})^{-2}\cdot 9e^{-0.08t}(-0.08)\\ \amp = 720(1+9e^{-0.08t})^{-2}e^{-0.08t}\\ \amp = \frac{720e^{-0.08t}}{(1+9e^{-0.08t})^2} \end{aligned}
+                </me>
+                Then
+                <me>
+                  \begin{aligned}P'(0)\amp =\frac{720e^{0}}{(1+9e^{0})^2} = \frac{720}{100} = 7.2\\ P'(40) \amp = \frac{720e^{-3.2}}{(1+9e^{-3.2})^2}\approx 15.71\\ P'(80) \amp = \frac{720e^{-6.4}}{(1+9e^{-6.4})^2}\approx 1.16 \end{aligned}
+                </me>
+                The initial growth rate is 7.2 echidnas per year
+                (when the population is 100 echidnas).
+                After 40 years the population is much larger, 732 echidna,
+                and  the growth rate is 15.71 echidnas per year,
+                more than double the initial growth rate.
+                But after 80 years, the population is <m>P(80)\approx 985</m>,
+                very close to the carrying capacity,
+                so the growth rate is much smaller;
+                about 1.16 echidnas per year.
+                The function <m>P(t)</m> is graphed to the left below,
+                and its derivative <m>P'(t)</m> is graphed to the right.
+                We can see on the graph of <m>P(t)</m> that the population does indeed appear to be approximately 900 after 55 years,
+                and that as the population approaches 1000 echidnas, its growth slows.
+                From the graph of <m>P'(t)</m>,
+                we can see that the growth rate increases to a maximum around <m>t=27</m> years and then decreases to almost 0.
+                <figure>
+                  <caption>The graph of <m>P(t)</m>, the echidna population.</caption>
+                  \begin{subfigure}[b]{0.4\textwidth}  <image width="73%" source="EchidnaPopulation.png"/> \end{subfigure}  \begin{subfigure}[b]{0.4\textwidth}  <image width="73%" source="EchidnaDerivative.png"/> \caption{The graph of <m>P'(t)</m>, the growth rate of the echidna population.} \end{subfigure}
+                </figure>
+                The inflection point on the graph of <m>P(t)</m> occurs at <m>t\approx 27</m>,
+                the same <m>t</m>-value where the graph of <m>P'(t)</m> has its maximum,
+                and on the graph of <m>P(t)</m>,
+                this point appears to have a <m>y</m>-value of <m>P(27)\approx 500</m>,
+                which is half of the carrying capacity.
+                It would make sense that the population's growth starts to slow when the population reaches about half of the carrying capacity,
+                but is this true in general?
+              </p>
+            </li>
+          </ul>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Let's use our curve-sketching techniques to explore the shape of the logistic growth function and see which of the observations in <xref ref="ex_echidna">Example</xref> are always true.
+    </p>
+    <p>
+      First, observe that
+      <me>
+        P(t) = \frac{A}{1+Me^{-kt}}
+      </me>
+      is never equal to zero since its numerator <m>A</m> is a positive constant.
+      The denominator is also never equal to zero.
+      Indeed, if we try to solve
+      <me>
+        \begin{aligned}1+Me^{-kt} \amp = 0\\ Me^{-kt} \amp = -1\\ e^{-kt} \amp = -\frac{1}{M} \end{aligned}
+      </me>
+      we can see that this will have no solutions.
+      Because <m>M</m> is positive,
+      <m>-\frac{1}{M}</m> is negative,
+      and exponential functions can never be negative.
+    </p>
+    <p>
+      Thus the domain of <m>P(t)</m> is all real numbers and there are no <m>x</m>-intercepts.
+    </p>
+    <p>
+      The <m>y</m>-intercept of <m>P(t)</m> is
+      <me>
+        P(0) = \frac{A}{1+Me^{0}} = \frac{A}{1+M}
+      </me>
+    </p>
+    <p>
+      The graph in <xref ref="fig_sigmoidalcurve">Figure</xref>
+      suggests that <m>P(t)</m> has horizontal asymptotes.
+      We calculate the limits of <m>P(t)</m> as
+      <m>t\to\pm\infty</m> to confirm this and to find their values.
+    </p>
+    <p>
+      Note that since <m>k>0</m>,
+      it follows that <m>e^{-kt}\to 0</m> as <m>t\to\infty</m>:
+      <me>
+        \lim_{t\to \infty} \frac{A}{1+Me^{-kt}} = \frac{A}{1+0} = A
+      </me>.
+      Thus, we observe that <m>P(t)</m> tends to <m>A</m> as <m>t</m> increases without bound.
+      <m>A</m> is thus the carrying capacity.
+    </p>
+    <p>
+      On the other hand,
+      <m>\ds\lim_{t\to-\infty}e^{-kt} = e^{\infty} = \infty</m>, so that
+      <me>
+        \lim_{t\to -\infty} \frac{A}{1+Me^{-kt}} = \frac{A}{1+\infty} = 0
+      </me>.
+    </p>
+    <p>
+      In other words, if we were to go "backward" in time,
+      the population would eventually shrink to zero.
+      This may or may not be realistic,
+      depending on the precise context of the problem.
+    </p>
+    <p>
+      Now let's use the first and second derivatives to study the shape of <m>P(t)</m>.
+      First we rewrite
+      <me>
+        P(t) = A(1+Me^{-kt})^{-1}
+      </me>
+      and use the chain rule to calculate <m>P'(t)</m>:
+      <me>
+        \begin{aligned}P'(t) \amp = -A(1+Me^{-kt})^{-2}(-kMe^{-kt})\\ \amp = \frac{kAMe^{-kt}}{(1+Me^{-kt})^2} \end{aligned}
+      </me>
+    </p>
+    <p>
+      Note that since <m>k, A, M</m>,
+      and <m>e^{-kt}</m> are all positive,
+      the numerator of <m>P'(t)</m> is positive.
+      Similarly, <m>(1+Me^{-kt})^2</m> is always positive since the expression
+      <m>1+Me^{-kt}</m> is never zero and is being squared.
+    </p>
+    <p>
+      Thus we see that <m>P(t)</m> is always increasing.
+    </p>
+    <p>
+      Now we compute <m>P''(t)</m> and determine the inflection point where the growth of the logistic function slows down.
+      <em>Warning!</em> The following computation is awful and you can feel free to skip to the end.
+      It is more computationally intensive than you are responsible for being able to do.
+      I include it only so you see that there is no "magic" here, just
+      (seriously nasty)
+      algebra.
+    </p>
+    <p>
+      We start with
+      <me>
+        P'(t) = -A(1+Me^{-kt})^{-2}(-kMe^{-kt})
+      </me>
+    </p>
+    <p>
+      The product rule is the easiest way to calculate <m>P''(t)</m>
+      (believe it or not).
+      <me>
+        P''(t) = 2A(1+Me^{-kt})^{-3}(-kMe^{-kt})\cdot(-kMe^{-kt})-A(1+Me^{-kt})^{-2}(-kMe^{-kt})(-k)
+      </me>
+    </p>
+    <p>
+      Now we set this equal to 0 and simplify:
+      <me>
+        \begin{aligned}2A(1+Me^{-kt})^{-3}(-kMe^{-kt})\cdot(-kMe^{-kt}) \amp -A(1+Me^{-kt})^{-2}(-kMe^{-kt})(-k) =0\\ 2A(1+Me^{-kt})^{-3}(-kMe^{-kt})\cdot(-kMe^{-kt}) \amp = A(1+Me^{-kt})^{-2}(-kMe^{-kt})(-k)\\ 2(1+Me^{-kt})^{-1}(-kMe^{-kt})\cdot(-kMe^{-kt}) \amp = (-kMe^{-kt})(-k)\\ 2(1+Me^{-kt})^{-1}(Me^{-kt}) \amp = 1\\ 2(Me^{-kt}) \amp = 1+Me^{-kt}\\ 2Me^{-kt} -Me^{-kt} \amp = 1\\ Me^{-kt} \amp =1\\ e^{-kt} \amp = \frac{1}{M}\\ -kt \amp = \ln(1/M)\\ t \amp = \frac{\ln(1/M)}{-k} \end{aligned}
+      </me>
+    </p>
+    <p>
+      Thus the inflection point is when <m>t =  \frac{\ln(1/M)}{-k}</m>.
+      Plugging this in to <m>P(t)</m>:
+      <me>
+        \begin{aligned}P\left( \frac{\ln(1/M)}{-k}\right) \amp = \frac{A}{1+Me^{-k(\ln(1/M)/-k)}}\\ \amp = \frac{A}{1+Me^{\ln(1/M)}}\\ \amp =\frac{A}{1+M(1/M)}\\ \amp = \frac{A}{1+1}\\ \amp = \frac{A}{2} \end{aligned}
+      </me>
+    </p>
+    <p>
+      So after ALL of that, we see that yes indeed,
+      the population growth will peak at <m>\frac{A}{2}</m>,
+      meaning at half of the carrying capacity,
+      and will then will start to decrease.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use the fact
+          (justified above)
+          that the inflection point of a logistic function
+          <me>
+            P(t) = \frac{A}{1+Me^{-kt}}
+          </me>
+          is <m>\left(\frac{\ln(1/M)}{-k}, \frac{A}{2}\right)</m> to confirm that the growth of the echidna population in <xref ref="ex_echidna">Example</xref>
+          is the greatest after approximately 27 years,
+          when the population is 500 echidna.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    proportional, continuous growth rate; logistic function, sigmoidal curve, carrying capacity.
+    <p>
+      <em>Key ideas:</em> Exponential functions are precisely those functions that grow proportionally to their size.
+      Populations that are limited by a carrying capacity can be modeled using the logistic function,
+      <me>
+        P(t) = \frac{A}{1+Me^{-kt}}
+      </me>,
+      which grows quickly at first and then more slowly after the greatest growth rate at the point <m>\left(\frac{\ln(1/M)}{-k}, \frac{A}{2}\right)</m>.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Limits and the first and second derivatives of a function determine the overall shape of the graph of a function.
+      We can accurately graph a function by finding vertical and horizontal asymptotes,
+      intervals of increase/decrease and concavity,
+      and local extrema and inflection points.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 6.1}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

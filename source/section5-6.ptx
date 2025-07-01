@@ -1,0 +1,1095 @@
+<section>
+  <title>Introduction to Curve Sketch Analysis</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Define and characterize inflection points.
+        </p>
+      </li>
+      <li>
+        <p>
+          Identify which key features of a graph can be determined from first and second derivative information.
+        </p>
+      </li>
+      <li>
+        <p>
+          Translate first and second derivative information into the shape of a graph.
+        </p>
+      </li>
+      <li>
+        <p>
+          Sketch the graph of a function based on the graph of its derivative.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Inflection Points: Where Concavity Changes</title>
+    <p>
+      We begin by reviewing the type of information we can determine using the first and second derivatives,
+      and see two more characterizations of concavity.
+    </p>
+    <p>
+      Recall how the sign of the first derivative
+      (<xref ref="thm_firstderivativeinfo">Theorem</xref>)
+      and the definition of concavity
+      (<xref ref="def_concavity">Definition</xref>)
+      give us information about the shape of a function:
+    </p>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><em>Derivative</em></cell>
+        <cell><em>Sign</em></cell>
+        <cell><em>The function <m>f(x)</m></em></cell>
+      </row>
+      <row bottom="medium">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell  >First derivative <m>f'</m></cell>
+        <cell>is positive</cell>
+        <cell><m>f</m> is increasing</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>First derivative <m>f'</m></cell>
+        <cell>is negative</cell>
+        <cell><m>f</m> is decreasing</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>Second derivative <m>f''</m></cell>
+        <cell>is positive</cell>
+        <cell><m>f</m> is concave up</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>Second derivative <m>f''</m></cell>
+        <cell>is negative</cell>
+        <cell><m>f</m> is concave down</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+    <p>
+      From the First Derivative Test
+      (<xref ref="thm_firstderivativetest">Theorem</xref>),
+      a change in the sign of the first derivative at a critical point indicates a local extrema,
+      a.k.a. a local maximum or minimum (for a function <m>f(x)</m> that is continuous and differentiable near <m>x=c</m>):
+    </p>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><em>Left of <m>x=c</m></em></cell>
+        <cell><em>Right of <m>x=c</m></em></cell>
+        <cell><em>The function <m>f(x)</m> has </em></cell>
+      </row>
+      <row bottom="medium">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell  ><m>f'</m> positive</cell>
+        <cell><m>f'</m> negative</cell>
+        <cell>a local maximum at <m>x=c</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>f'</m> negative</cell>
+        <cell><m>f'</m> positive</cell>
+        <cell>a local minimum at <m>x=c</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>f'</m> positive</cell>
+        <cell><m>f'</m> positive</cell>
+        <cell>neither a min nor max at <m>x=c</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>f'</m> negative</cell>
+        <cell><m>f'</m> negative</cell>
+        <cell>neither a min nor max at <m>x=c</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+    <p>
+      There is also a special name for the points on the curve at which the second derivative changes sign:
+      <em>inflection points</em>
+    </p>
+    <definition>
+      <statement>
+        <p>
+          If <m>x=c</m> is a value in the domain of a continuous function <m>f(x)</m> at which <m>f(x)</m> changes concavity,
+          then we say that <m>(c,f(c))</m> is an
+          <em>inflection point</em>
+          or <em>point of inflection</em> of <m>f</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Just as we look for locations where <m>f</m> changes from increasing to decreasing at points where <m>f'(c)=0</m> or <m>f'(c)</m> is undefined,
+      so too we find where <m>f''(c)=0</m> or <m>f''(c)</m> is undefined to see if there are points of inflection at these locations.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, consider the function <m>f(x) = x^3</m>.
+          Calculating the first two derivatives,
+          <me>
+            f'(x) = 3x^2 \text{ and }   f''(x) = 6x
+          </me>.
+          <m>f''(x)=6x=0</m> only when <m>x=0</m> and is defined for all <m>x</m>-values,
+          hence <m>f''(x)</m> can only change sign at <m>x=0</m>.
+          Completing a sign analysis for <m>f''(x) = 6x</m>:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) node[right]{\(f''\)} ;
+\foreach \x in  {0}
+\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
+\foreach \x in  {0}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {1.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {-1.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          we see the sign of <m>f''</m> changes from negative to positive at <m>x=0</m>,
+          and therefore the concavity of <m>f</m> changes from down to up at <m>x=0</m>.
+          Hence <m>x=0</m> is an inflection point of <m>f(x)</m>. (It is also correct to say that <m>x=0</m> is a critical point for <m>f'(x)</m> since the derivative of <m>f'(x)</m> is equal to zero at <m>x=0</m>.)
+        </p>
+        <p>
+          We can see this on the graph of <m>f(x)=x^3</m> below,
+          where the function changes from concave down to concave up at the point <m>(0,0)</m>.
+        </p>
+        <figure>
+          <caption>The function <m>f(x)=x^3</m> has an inflection point at <m>x=0</m>.</caption>
+          <image width="56%" source="xcubed-inflectionpoint.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      Here is another interesting characterization of concavity:
+      when a function is concave up,
+      the tangent lines are below the curve,
+      while when a function is concave down,
+      the tangent lines are above the curve.
+      At an inflection point, the tangent line will pass through the curve,
+      and will be above on one side of the point of inflection and below on the other side of the point of inflection.
+      This sometimes helps people see inflection points more easily on the graph of a function.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, we can see on the graph of
+          <m>f(x)=x^3</m> below that at <m>x=0</m>,
+          the tangent line to the graph passes through the curve.
+          To the left of <m>x=0</m>, the tangent lines are above the curve,
+          while to the right of <m>x=0</m>,
+          the tangent lines are below the curve:
+        </p>
+        <figure>
+          <caption>Tangent lines to <m>f(x)=x^3</m> are above the curve for <m>x\lt 0</m>, below the curve for <m>x>0</m>, and pass through the curve at <m>x=0</m>.</caption>
+          <image width="46%" source="InflectionPointofxcubed.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      If <m>x=c</m> is an inflection point of <m>f</m> and <m>f''(c)=0</m>,
+      then the graph of <m>f</m> could look one of the following four ways near <m>x=c</m>,
+      depending on how <m>f</m> changes concavity and whether <m>f</m> is increasing or decreasing:
+    </p>
+    <figure xml:id="fig_TaalmanPage248b-1">
+      <caption><m>f(x)</m> is increasing.</caption>
+      \begin{subfigure}[H]{0.24\textwidth}
+      <image width="90%" source="TaalmanPage248b-1.png"/>
+      \end{subfigure}
+      \begin{subfigure}[H]{0.24\textwidth}
+      <image width="90%" source="TaalmanPage248b-2.png"/>
+      \caption{<m>f(x)</m> is increasing.} \end{subfigure}
+      \begin{subfigure}[H]{0.24\textwidth}
+      <image width="90%" source="TaalmanPage248b-3.png"/>
+      \caption{<m>f(x)</m> is decreasing.} \end{subfigure}
+      \begin{subfigure}[H]{0.24\textwidth}
+      <image width="90%" source="TaalmanPage248b-4.png"/>
+      \caption{<m>f(x)</m> is decreasing.} \end{subfigure}
+      \caption
+    </figure>
+    <p>
+      Here is one last interpretation of inflection points in terms of the shape of the graph of <m>f'(x)</m>.
+      We know that at an inflection point of a function <m>f</m>,
+      the function changes concavity and the second derivative <m>f''</m> changes sign.
+      What happens to the first derivative <m>f'</m>?
+      The answer lies in the fact that the second derivative <m>f''</m> is the derivative of the first derivative <m>f'</m>.
+      Thus if we know that if <m>f''</m> is positive,
+      then <m>f'</m> is increasing,
+      and if <m>f''</m> is negative then <m>f'</m> is decreasing.
+      (Recall <xref ref="def_concavity">Definition</xref>.)
+      Hence when the concavity of <m>f(x)</m> changes and <m>f''(x)</m> changes sign,
+      the first derivative <m>f'(x)</m> has either a local minimum or maximum.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Below is the graph of <m>f(x)=x^3</m> in blue,
+          <m>f'(x)=3x^2</m> in red, and <m>f''(x)=6x</m> in green.
+          We can see that when <m>f''(x) = 6x</m> changes sign from negative to positive,
+          not only does <m>f(x) = x^3</m> change concavity,
+          but also <m>f'(x) = 3x^2</m> has a local minimum.
+        </p>
+        <figure>
+          <caption>When <m>f''(x)</m> changes sign, <m>f'(x)</m> has a local minimum or maximum.</caption>
+          <image width="56%" source="xcubed-andtwoderivatives.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Suppose that <m>g</m> is a function whose
+          <em>second derivative</em>
+          <m>g''</m> is given by the graph below:
+        </p>
+        <p>
+          <image width="46%" source="ACFigure3-1-15.png"/>
+          <ol marker="labelalphitemsep10pt">
+            <li>
+              <p>
+                Find the <m>x</m>-coordinates of all inflection points of <m>g</m>.
+                <em>Remember, the graph is of <m>g''</m>, not <m>g</m>.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                On what intervals is <m>g</m> concave up and concave down?
+                <em>Remember, the graph is of <m>g''</m>, not <m>g</m>.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                What are the local minima and maxima of the
+                <em>derivative</em> <m>g'(x)</m>?
+                <em>Remember, the graph is of <m>g''</m>, not <m>g</m>.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose you are told that <m>g'(1)=0</m>.
+                Use the second derivative test to determine if there is a local minimum,
+                local maximum, or neither on the graph of <m>g</m> at <m>x=1</m>.
+                <em>Remember, the graph is of <m>g''</m>, not <m>g</m>.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_curvesketching">
+    <title>Curve Sketching with  First and Second Derivative Information</title>
+    <p>
+      In the examples that follow,
+      we use information from the first and second derivatives to sketch reasonably accurate graphs of functions.
+      For now, we will include the following important features of a graph,
+      though we will be adding to this list in the next two sections:
+      <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+        <li>
+          <p>
+            the domain.
+          </p>
+        </li>
+        <li>
+          <p>
+            the <m>y</m>-intercept.
+          </p>
+        </li>
+        <li>
+          <p>
+            any <m>x</m>-intercepts that we can find easily
+            (many times this is not possible without more advanced algebraic methods).
+          </p>
+        </li>
+        <li>
+          <p>
+            any local minima or maxima,
+            along with where the function is increasing and decreasing using the first derivative.
+          </p>
+        </li>
+        <li>
+          <p>
+            any inflection points and where the function is concave up and concave down using the second derivative.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      We then plot all of the intercepts,
+      local minima and maxima, and inflection points,
+      and "connect the dots" using the following four possible shapes:
+    </p>
+    <p>
+      <image width="93%" source="TaalmanPage250.png"/>
+    </p>
+    <example xml:id="introcurvesketch1">
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            f(x) = x^3-3x+2
+          </me>.
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                The domain of <m>f(x) = x^3-3x+2</m> is all real numbers,
+                since <m>f(x)</m> is a polynomial.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept of <m>f(x)</m> is the point where <m>x=0</m> and <m>y=f(0) = 0^3-3(0)+2 = 2</m>,
+                meaning the point <m>(0,2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x)</m> is cubic and does not factor easily,
+                so we will not find its <m>x</m>-intercepts or where the function is positive and negative.
+                (After finishing our sketch,
+                we will likely have a better idea of where the roots are.)
+              </p>
+            </li>
+            <li>
+              <p>
+                The first derivative of <m>f(x) = x^3-3x+2</m> is
+                <me>
+                  f'(x) = 3x^2-3
+                </me>.
+                This derivative is always defined and continuous,
+                so the critical points of <m>f</m> are just the places where <m>f'(x)=0</m>:
+                <me>
+                  \begin{aligned}3x^2-3 \amp =0\\ 3x^2 \amp =3\\ x^2 \amp =1\\ x \amp =\pm 1 \end{aligned}
+                </me>
+                These critical points divide the real-number line into three intervals and we test the sign of <m>f'</m> on each interval:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) node[right]{\(f'\)} ; \foreach \x in  {-1,1} \draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in  {-1,1} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-2,2} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Thus we see that <m>f</m> has a local maximum at <m>x=-1</m>,
+                where <m>f'</m> changes from positive to negative,
+                and a local minimum at <m>x=1</m>,
+                where <m>f'</m> changes from negative to positive.
+                <m>f</m> is increasing on <m>(-\infty,-1)\cup(1,\infty)</m> and decreasing on <m>(-1,1)</m>.
+                The local maximum at <m>x=-1</m> has <m>y</m>-value <m>y=f(-1) = (-1)^3-3(-1)+2 = 4</m>,
+                so the point where the maximum occurs is <m>(-1,4)</m>.
+                The local minimum at <m>x=1</m> has <m>y</m>-value <m>y=f(1) = (1)^3-3(1)+2 = 0</m>,
+                so the point where the minimum occurs is <m>(1,0)</m>.
+                Note that we have found one of the <m>x</m>-intercepts that we could not find directly via factoring!
+                This is a happy coincidence.
+              </p>
+            </li>
+            <li>
+              <p>
+                Moving on to the second derivative,
+                we have <m>f''(x) = 6x</m>.
+                This is zero when <m>x=0</m> and is never undefined.
+                Drawing a sign chart:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) node[right]{\(f''\)} ; \foreach \x in {0} \draw[shift={(\x,0)},color=black] (0pt,3pt) node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in {1} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in {-1} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Thus we see that <m>f</m> has an inflection point at <m>x=0</m>,
+                where <m>f''</m> changes from negative to positive.
+                <m>f</m> is concave down on
+                <m>(-\infty,0)</m> and concave up on <m>(0,\infty)</m>.
+                The inflection point at <m>x=0</m> has <m>y</m>-value <m>y=f(0) = (0)^3-3(0)+2 = 2</m>,
+                so the point where the graph changes concavity is <m>(0,2)</m>.
+                This also happens to be the <m>y</m>-intercept of the function
+                (though that is a coincidence).
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Having determined intercepts,
+          local minima and maxima, and inflection points,
+          we begin to sketch <m>f(x)</m> by plotting the points we have identified,
+          along with some suggestive bits of curves according to whether they are extrema or inflection points:
+        </p>
+        <figure>
+          <caption>Plotting the key points on the graph of <m>f(x) = x^3-3x+2</m>.</caption>
+          <image width="56%" source="CurveSketch1Points.png"/>
+        </figure>
+        <p>
+          We can now connect these points with a reasonably-shaped graph,
+          keeping track of which of the four shapes of graphs we should use between each of the points:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>(-\infty,-1)</m></cell>
+              <cell><m>(-1,0)</m></cell>
+              <cell><m>(0,1)</m></cell>
+              <cell><m>(1,\infty)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>f'</m> is\ldots</cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>f</m>  is\ldots</cell>
+              <cell>increasing</cell>
+              <cell>decreasing</cell>
+              <cell>decreasing</cell>
+              <cell>increasing</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>f''</m>  is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>f</m> is\ldots</cell>
+              <cell>concave down</cell>
+              <cell>concave down</cell>
+              <cell>concave up</cell>
+              <cell>concave up</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Thus we know that the function is increasing and concave down on
+          <m>(-\infty,1)</m> leading up to the local maximum at the point <m>(-1,4)</m>.
+          Next, the function is decreasing and concave down on the interval <m>(-1,0)</m> until the point <m>(0,2)</m>.
+          On the next interval <m>(0,1)</m>,
+          the function continues to decreasing but is concave up until the point <m>(1,0)</m>.
+          Then on the interval <m>(1,\infty)</m>,
+          the function is increasing and concave up:
+        </p>
+        <figure>
+          <caption>The completed graph of <m>f(x) = x^3-3x+2</m>.</caption>
+          <image width="56%" source="CurveSketch1Graph.png"/>
+        </figure>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        Recall that in Example <xref ref="introcurvesketch1" autoname="yes"/> we found an <m>x</m>-intercept by chance when finding the local minimum at <m>x=1</m>.
+        It looks from the graph that <m>x=1</m> is actually a double zero,
+        and that there is another <m>x</m>-intercept at <m>x=-2</m>.
+        We can confirm this by expanding the expression
+        <m>(x+2)(x-1)^2</m> that corresponds to this configuration of <m>x</m>-intercepts and seeing that it is equal to the function <m>f(x) = x^3-3x+2</m>:
+        <me>
+          \begin{aligned}(x+2)(x-1)^2 \amp = (x+2)(x^2-2x+1)\\ \amp = x(x^2-2x+1)+2(x^2-2x+1)\\ \amp = (x^3-2x^2+x)+(2x^2-4x+2)\\ \amp = x^3-3x+2 \end{aligned}
+        </me>
+      </p>
+      <p>
+        Amazing!
+        A task that we were initially unable to complete by hand (factoring
+        <m>f(x) = x^3-3x+2</m>) was made possible by graphing the function.
+        This is <em>not</em> a common occurrence,
+        because most functions do not have "nice" <m>x</m>-intercepts.
+        However, it <em>is</em> common to use the graph of a function to
+        <em>estimate</em> <m>x</m>-intercepts,
+        which can then be approximated to whatever degree of precision is desired via a numerical method,
+        such as the Bisection Method introduced in Expansion Project #3.
+      </p>
+    </remark>
+    <p>
+      The next two functions we will sketch by hand are
+      <m>g(x) = x^{1/3}</m> and <m>h(x) = x^{2/3}</m>.
+      It is actually great if you have no memory of what these functions look like since that will give you more practice in working from first and second derivative information.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider <m>g(x) = x^{1/3}</m>
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                <m>g(x) = x^{1/3} = \sqrt[3]{x}</m> is defined for all real numbers.
+                (Yes, we can take the cube root of a negative number.
+                For example <m>\sqrt[3]{-1} = -1</m>.)
+                Hence the domain of <m>g(x)</m> is <m>(-\infty,\infty)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept of <m>g(x)</m> is <m>y=g(0) = \sqrt[3]{0} = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept found in part (b) is also an <m>x</m>-intercept,
+                and is in fact the only <m>x</m>-intercept since
+                <me>
+                  \begin{aligned}\sqrt[3]{x} \amp = 0\\ x \amp = 0^3 = 0 \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                The first derivative is
+                <me>
+                  g'(x) = \frac{1}{3}x^{-2/3} = \frac{1}{3x^{2/3}} = \frac{1}{3\sqrt[3]{x^2}}
+                </me>.
+                We can see that <m>g'(x)</m> is undefined at <m>x=0</m>,
+                which is a critical point since it is in the domain of the function.
+                Creating a number line for <m>g'(x)</m> and plugging in points:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(g'\)} ; \foreach \x in  { 0} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {-1.5,1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                we see that <m>g(x)</m> is increasing on <m>(-\infty,0)</m> and on
+                <m>(0,\infty)</m> and that <m>x=0</m> is neither a local minimum nor maximum.
+              </p>
+            </li>
+            <li>
+              <p>
+                The second derivative is
+                <me>
+                  g''(x) = -\frac{2}{9}x^{-5/3} = -\frac{2}{9x^{5/3}} = -\frac{2}{9\sqrt[3]{x^5}}
+                </me>.
+                Again we see that <m>g''(x)</m> is undefined at <m>x=0</m>.
+                Creating a number line for <m>g''(x)</m>:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(g''\)} ; \foreach \x in  { 0} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {-1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                we see that <m>g(x)</m> is concave up on
+                <m>(-\infty,0)</m> and concave down on <m>(0,\infty)</m>,
+                thus <m>x=0</m> is an inflection point.
+                The <m>y</m>-coordinate of this point is <m>y=g(0)=0</m>.
+                The inflection point <m>(0,0)</m> is the same as the <m>x</m>- and <m>y</m>-intercepts found in parts (b) and (c).
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          The only point we have to plot is <m>(0,0)</m>,
+          which is an inflection point.
+          Summarizing the information from the first and second derivatives:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>(-\infty,0)</m></cell>
+              <cell><m>(0,\infty)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>g'</m> is\ldots</cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>g</m>  is\ldots</cell>
+              <cell>increasing</cell>
+              <cell>increasing</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>g''</m>  is\ldots</cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>g</m> is\ldots</cell>
+              <cell>concave up</cell>
+              <cell>concave down</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Thus we know that the function is increasing and concave up on
+          <m>(-\infty,0)</m> leading up to the point <m>(0,0)</m>.
+          Then it is still increasing but changes to concave down on <m>(0,\infty)</m>:
+        </p>
+        <figure>
+          <caption>The completed graph of <m>g(x) = x^{1/3}</m>.</caption>
+          <image width="56%" source="CurveSketch2Graph.png"/>
+        </figure>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        It looks like there is a vertical tangent line on the graph of
+        <m>g(x) = x^{1/3}</m> at the point <m>x=0</m>.
+        This is indeed the case if we look at the derivative
+        <m>g'(x) = \frac{1}{3\sqrt[3]{x^2}}</m> and observe that it has the form <m>\frac{1}{0}</m> as <m>x\to 0</m>,
+        and is positive for <m>x\to 0^+</m> and <m>x\to 0^-</m>.
+        This matches our calculation that <m>g'(x)</m> is undefined at <m>x=0</m>,
+        and we note that <m>g(x)</m> is differentiable on <m>(-\infty,0)\cup(0,\infty)</m>.
+      </p>
+    </remark>
+    <p>
+      Our last explicit function that we will graph in this section is <m>h(x) = x^{2/3}</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider <m>h(x) = x^{2/3}</m>
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                <m>h(x) = x^{2/3} = \sqrt[3]{x^2}</m> is defined for all real numbers.
+                Hence the domain of <m>h(x)</m> is <m>(-\infty,\infty)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept of <m>h(x)</m> is <m>y=h(0) = \sqrt[3]{0^2} = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept found in part (b) is also an <m>x</m>-intercept,
+                and is in fact the only <m>x</m>-intercept since
+                <me>
+                  \begin{aligned}\sqrt[3]{x^2} \amp = 0\\ x^2 \amp = 0^3 = 0\\ x \amp =\sqrt{0}=0 \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                The first derivative is
+                <me>
+                  h'(x) = \frac{2}{3}x^{-1/3} = \frac{2}{3x^{1/3}} = \frac{2}{3\sqrt[3]{x}}
+                </me>.
+                We can see that <m>h'(x)</m> is undefined at <m>x=0</m>,
+                which is a critical point since it is in the domain of the function.
+                Creating a number line for <m>h'(x)</m> and plugging in points:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(h'\)} ; \foreach \x in  { 0} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                we see that <m>h(x)</m> is decreasing on
+                <m>(-\infty,0)</m> and increasing on <m>(0,\infty)</m>,
+                so that <m>x=0</m> is a local minimum.
+                The <m>y</m>-value of the minimum point is <m>y=h(0) = \sqrt[3]{0^2} = 0</m>.
+                The minimum point   <m>(0,0)</m> is the same as the <m>x</m>- and <m>y</m>-intercepts found in parts (b) and (c).
+              </p>
+            </li>
+            <li>
+              <p>
+                The second derivative is
+                <me>
+                  h''(x) = -\frac{2}{9}x^{-4/3} = -\frac{2}{9x^{4/3}} = -\frac{2}{9\sqrt[3]{x^4}}
+                </me>.
+                Again we see that <m>h''(x)</m> is undefined at <m>x=0</m>.
+                Creating a number line for <m>h''(x)</m>:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(h''\)} ; \foreach \x in  { 0} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {-1.5,1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                we see that <m>h(x)</m> is concave down on both
+                <m>(-\infty,0)</m> and on <m>(0,\infty)</m>,
+                thus <m>x=0</m> is not an inflection point.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          The only point we have to plot is <m>(0,0)</m>, which is a local minimum.
+          Summarizing the information from the first and second derivatives:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>(-\infty,0)</m></cell>
+              <cell><m>(0,\infty)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>h'</m> is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>h</m>  is\ldots</cell>
+              <cell>decreasing</cell>
+              <cell>increasing</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>h''</m>  is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>h</m> is\ldots</cell>
+              <cell>concave down</cell>
+              <cell>concave down</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Thus we know that the function is decreasing and concave down on
+          <m>(-\infty,0)</m> leading up to the point <m>(0,0)</m>.
+          Then it is increasing but still concave down on <m>(0,\infty)</m>:
+        </p>
+        <figure>
+          <caption>The completed graph of <m>g(x) = x^{2/3}</m>.</caption>
+          <image width="56%" source="CurveSketch3Graph.png"/>
+        </figure>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        It looks like there is a cusp on the graph of
+        <m>h(x) = x^{2/3}</m> at the point <m>x=0</m>.
+        This is indeed the case if we look at the derivative
+        <m>h'(x) = \frac{2}{3\sqrt[3]{x}}</m> and observe that it has the form <m>\frac{1}{0}</m> as <m>x\to 0</m>,
+        and is positive for <m>x\to 0^+</m> and negative for <m>x\to 0^-</m>.
+        This matches our calculation that <m>h'(x)</m> is undefined at <m>x=0</m>,
+        and we note that <m>h(x)</m> is differentiable on <m>(-\infty,0)\cup(0,\infty)</m>.
+      </p>
+    </remark>
+  </subsection>
+  <subsection>
+    <title>Sketching from Only Derivative Information</title>
+    <p>
+      The first and second derivatives capture the shape of a function,
+      and so it is possible to sketch a graph of functions directly from their derivatives without knowing the formula for the function itself.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Below is the sign chart for the first and second derivatives of a mystery function <m>f(x)</m>.
+          Sketch a possible graph of the function,
+          assuming that it is both continuous and differentiable for all <m>x</m>,
+          and that each tick mark is where the first or second derivative is equal to 0.
+        </p>
+        <figure>
+          <image width="56%" source="Taalman3-3Ex48.png"/>
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          We can see that the first derivative changes sign at <m>x=-1</m> and <m>x=2</m>.
+          Since it changes from negative to positive at <m>x=-1</m>,
+          this is a local minimum.
+          Since it changes from positive to negative at <m>x=2</m>,
+          this is a local maximum.
+          We cannot determine the <m>y</m>-values of the function at these two points,
+          but we can infer from the "maximum/minimum" designations that the <m>y</m>-value at <m>x=2</m> is higher than the <m>y</m>-value at <m>x=-1</m>.
+        </p>
+        <p>
+          The second derivative changes sign at <m>x=0.5</m>,
+          making this an inflection point.
+          Again, we do not know the <m>y</m>-value of this point.
+          However, since it is NOT a minimum or maximum,
+          it must be between the <m>y</m>-values of the points at <m>x=-1</m> and <m>x=2</m>.
+          We could begin to sketch these points in approximate positions,
+          as shown below:
+        </p>
+        <figure>
+          <caption>The graph has a local maximum at <m>x=2</m>, a local minimum at <m>x=-1</m>, and an inflection point at <m>x=0.5</m>. The <m>y</m>-values of the points are arbitrary, except for their relative locations to each other.</caption>
+          <image width="75%" source="DerivativeSketchPoints.png"/>
+        </figure>
+        <p>
+          Collecting the first and second derivative information for the intervals between these points can be useful:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>(-\infty,-1)</m></cell>
+              <cell><m>(-1,0.5)</m></cell>
+              <cell><m>(0.5,2)</m></cell>
+              <cell><m>(2,\infty)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>f'</m> is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>f</m>  is\ldots</cell>
+              <cell>decreasing</cell>
+              <cell>increasing</cell>
+              <cell>increasing</cell>
+              <cell>decreasing</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>f''</m>  is\ldots</cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>f</m> is\ldots</cell>
+              <cell>concave up</cell>
+              <cell>concave up</cell>
+              <cell>concave down</cell>
+              <cell>concave down</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Here is a rough sketch of what this function could look like.
+          Note that we cannot determine precise <m>y</m>-values from the given information;
+          we could shift this graph up or down without changing the signs of the first or second derivatives:
+        </p>
+        <figure>
+          <caption>The graph is decreasing and concave up on <m>(-\infty,-1)</m>, increasing and concave up on <m>(-1,0.5)</m>, increasing and concave down on <m>(0.5,2)</m>, and decreasing and concave down on <m>(2,\infty)</m>.</caption>
+          <image width="75%" source="DerivativeSketchGraph.png"/>
+        </figure>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Below is the sign chart for the first and second derivatives of a mystery function <m>f(x)</m>.
+          Sketch a possible graph of the function,
+          assuming that it is both continuous and differentiable for all <m>x</m>,
+          and that each tick mark is where the first or second derivative is equal to 0.
+        </p>
+        <p>
+          <image width="56%" source="Taalman3-3Ex49.png"/>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Now that we have some practice graphing a function based only on the signs of the first and second derivatives,
+      let's revisit a task that you saw on Homework #7:
+      sketching the graph of a function given the graph of its derivative.
+    </p>
+    <example xml:id="ex_graphingfromsignchart">
+      <statement>
+        <p>
+          Let <m>g(x)</m> be a function whose derivative <m>g'(x)</m> is shown in <xref ref="fig_TaalmanPage240a" autoname="yes"/>:
+        </p>
+        <figure xml:id="fig_TaalmanPage240a">
+          <caption>The graph of the derivative <m>g'(x)</m>.</caption>
+          <image width="46%" source="TaalmanPage240a.png"/>
+        </figure>
+        <p>
+          Since the derivative <m>g'(x)</m> is positive for <m>x\lt -1</m>,
+          we know that the function <m>g(x)</m> must be increasing for <m>x\lt -1</m>.
+          Because the derivative <m>g'(x)</m> has a zero at <m>x=-1</m> and switches to negative,
+          we know that the function <m>g(x)</m> must have a local maximum at <m>x=-1</m> and decrease from <m>x=-1</m> to <m>x=2</m>.
+          The derivative <m>g'(x)</m> is positive for <m>x>2</m>,
+          so the function <m>g(x)</m> is increasing for <m>x>2</m>.
+          The open dots on the graph at <m>x=2</m> tell us that the derivative is undefined at <m>x=2</m>,
+          so <m>g(x)</m> is not differentiable at <m>x=2</m>,
+          but we do not know in what way <m>g(x)</m> fails to be differentiable.
+        </p>
+        <p>
+          Speaking of things we <em>do not know</em>,
+          we are missing the following information about the function <m>g(x)</m>:
+          <ul>
+            <li>
+              <p>
+                The precise <m>y</m>-values of any points on the graph.
+                In particular,
+                we cannot determine any <m>x</m>- or <m>y</m>-intercepts from the sign chart of <m>g'(x)</m>,
+                nor do we know the <m>y</m>-values of any local maximum or minimum points.
+              </p>
+            </li>
+            <li>
+              <p>
+                Whether the function <m>g(x)</m> is continuous at <m>x=2</m> or not.
+                Since the derivative <m>g'(x)</m> exists for all other <m>x</m>-values,
+                we know that the function <m>g(x)</m> must be differentiable,
+                hence continuous, at all <m>x</m>-values other than <m>x=2</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Based on the shape of <m>g'(x)</m>,
+          we can infer that <m>g</m> is a parabola for <m>x\lt 2</m> (since <m>g'(x)</m> is linear for <m>x\lt 2</m>) and that <m>g(x)</m> is a linear function for <m>x>2</m> (since <m>g'(x)</m> is constant for <m>x>2</m>).
+          Here is <em>one possible graph</em>
+          of the function <m>g</m>,
+          assuming that <m>g(x)</m> is continuous at <m>x=2</m> (so the graph must have a corner at that point):
+        </p>
+        <figure>
+          <caption>One possible graph of <m>g(x)</m> that assumes <m>g(x)</m> is continuous at <m>x=2</m>.</caption>
+          <image width="46%" source="TaalmanPage240b.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Draw another possible graph of <m>g(x)</m> that could have the derivative <m>g'(x)</m> as in <xref ref="fig_TaalmanPage240a" autoname="yes"/> but that is
+          <em>not continuous</em> at <m>x=2</m>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    Inflection points.
+    <p>
+      <em>Key ideas:</em> Inflection points are where the concavity of a graph changes.
+      They are also where the first derivative has a local maximum or minimum.
+      We can use first and second derivative information,
+      along with the four shapes of nonlinear functions,
+      to play "connect-the-dots" between intercepts,
+      local minima and maxima, and inflection points, on a graph.
+    </p>
+    <p>
+      <em>Other ideas reinforced/introduced:</em>
+      If we are not given an explicit function,
+      we cannot determine precise <m>y</m>-values for points on the graph of the function.
+      However, we can still sketch a remarkably accurate graph of a function based only on the first,
+      and maybe also second, derivatives.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 4.6}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

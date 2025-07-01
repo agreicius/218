@@ -1,0 +1,551 @@
+<section xml:id="sec_derivativesoftrigfunctions">
+  <title>Derivatives of Trigonometric Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Use associated slope functions to recognize the derivative of sine and the derivative of cosine.
+        </p>
+      </li>
+      <li>
+        <p>
+          Deduce the derivatives of the other four trigonometric functions (tangent, secant,
+          cosecant,
+          and cotangent) by rewriting them in terms of sine and cosine.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn how the derivative rules look when used in combination with the six trigonometric functions.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Derivatives of Sine and Cosine</title>
+    <p>
+      In this section,
+      we develop formulas for differentiating the trigonometric functions.
+      Because circular functions have periodic oscillating behavior,
+      and their slopes also have periodic oscillating behavior,
+      it would make sense if the derivatives of circular functions were also circular functions.
+    </p>
+    <p>
+      Click on the link to this
+      <url href="https://www.desmos.com/calculator/qzhjpz62u3">Desmos graph</url>
+      to explore the derivative of <m>f(x) = \sin x</m>, shown in blue.
+      The tangent line to <m>f(x)</m> at <m>x=a</m> is shown in red.
+      The orange point is <m>(a,f'(a))</m>,
+      meaning the point at <m>x=a</m> with <m>y</m>-value equal to the slope of the tangent line at <m>x=a</m>.
+      Recall from <xref ref="sec_associatedslopefunction">Section</xref>
+      that this collection of points <m>(a,f'(a))</m> is called the
+      <em>associated slope function</em> of <m>f(x)</m>,
+      and is equal to the derivative <m>f'(x)</m>.
+    </p>
+    <exercise xml:id="ex_derivofsine">
+      <statement>
+        <p>
+          Use the
+          <url href="https://www.desmos.com/calculator/qzhjpz62u3">Desmos graph</url>
+          from above to answer the following questions:
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Find three values of <m>x=a</m> where the derivative of <m>f(x) = \sin x</m> is equal to zero.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a value of <m>x=a</m> where the derivative of
+                <m>f(x)=\sin x</m> is as large as possible.
+                What is the largest value <m>f'(x)</m> can have?
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a value of <m>x=a</m> where the derivative of
+                <m>f(x)=\sin x</m> is as small as possible.
+                What is the smallest value <m>f'(x)</m> can have?
+              </p>
+            </li>
+            <li>
+              <p>
+                Click on the circle to the left of
+                <m>g(x) = \frac{d}{dx}f(x)</m> to display the entire associated slope function of <m>f(x)</m>.
+                Do you recognize this function?
+                <em>Hint: it is one of the other trigonometric functions.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We have already seen that the sine and cosine functions have many different relationships,
+      leading to numerous identities.
+      Now, we see that they are even further linked through calculus.
+      The theorem below shows that the derivative of each involves the other:
+    </p>
+    <theorem xml:id="thm_derivofsineandcosine">
+      <title>Derivatives of Sine and Cosine</title>
+      <statement>
+        <p>
+          For all real numbers <m>x</m>,
+          <me>
+            \frac{d}{dx} [\sin x] = \cos x\qquad\text{ and } \qquad \frac{d}{dx}[\cos x] = -\sin x
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      <xref ref="ex_derivofsine">Exercise</xref>
+      suggests why <m>\frac{d}{dx} [\sin x] = \cos x</m>.
+      In order to see why <m>\frac{d}{dx}[\cos x] = -\sin x</m>,
+      consider the graph in <xref ref="fig_Section10-2CosineTangentLines">Figure</xref>
+      where we can see tangent lines to <m>\cos x</m> at various points along with the points on the associated slope function that have <m>y</m>-value equal to the slope of the tangent line.
+      The tangent lines are colored to correspond to the points on the associated slope function,
+      so for example the purple tangent line at <m>x=-\pi</m> has slope 0 and the purple point at <m>x=-\pi</m> has <m>y</m>-value of 0;
+      the orange tangent line at
+      <m>x=\frac{3\pi}{2}</m> has slope 1 and the orange point at
+      <m>x=\frac{3\pi}{2}</m> has <m>y</m>-value of 1; etc<ellipsis/>
+    </p>
+    <figure xml:id="fig_Section10-2CosineTangentLines">
+      <caption>Tangent lines to <m>f(x) = \cos x</m> and the points on the associated slope function.</caption>
+      <image width="60%" source="Section10-2CosineTangentLines.png"/>
+    </figure>
+    <p>
+      Connecting the points from <xref ref="fig_Section10-2CosineTangentLines">Figure</xref>
+      in <xref ref="fig_Section10-2CosineAssocSlopeFunction">Figure</xref>,
+      we see that we get the graph of
+      <m>y=\sin x</m> reflected over the <m>x</m>-axis,
+      and so the associated slope function to
+      <m>y=\cos x</m> is the function <m>y=-\sin x</m>.
+    </p>
+    <figure xml:id="fig_Section10-2CosineAssocSlopeFunction">
+      <caption>The associated slope function of  <m>f(x) = \cos x</m> is <m>f'(x)=-\sin x</m>.</caption>
+      <image width="50%" source="Section10-2CosineAssocSlopeFunction.png"/>
+    </figure>
+    <remark>
+      <p>
+        Notice that we have not actually <em>proven</em>
+        the derivative rules for the sine and cosine functions.
+        Doing so uses the limit definition of the derivative along with two difficult limits that we cannot yet compute;
+        they require what's called the Squeeze Theorem.
+        If you are curious, you can find a rigorous proof
+        <url href="https://drive.google.com/file/d/1dE3ZOocjsLgVaRhWT-RxINVRmetexLwg/view?usp=sharing">here</url>
+        or
+        <url href="https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new/ab-2-7/a/proving-the-derivatives-of-sinx-and-cosx">here</url>.
+      </p>
+    </remark>
+    <p>
+      We can now use these two derivative rules to calculate derivatives of more complicated expressions involving trigonometric functions.
+      The first example uses some of our familiar derivative rules:
+      the sum and constant multiple rules:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>h(x) = 3\cos x-4\sin x</m>.
+        </p>
+      </statement>
+      <solution>
+        <me>
+          \begin{aligned}h'(x) \amp = \frac{d}{dx}[3\cos x-4\sin x]\\
+          \amp = 3\frac{d}{dx}[\cos x]-4\frac{d}{dx}[\sin x]\\
+          \amp = 3(-\sin x)-4(\cos x)\\
+          \amp = -3\sin x-4\cos x
+          \end{aligned}
+        </me>
+      </solution>
+    </example>
+    <p>
+      We can also find equations of tangent lines to functions involving trigonometric functions the same way that we are used to doing:
+      by taking the derivative and plugging in the <m>x</m>-value to find the slope of the line,
+      using the original function to find the <m>y</m>-value of the point,
+      and then using point-slope form to write the equation:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the equation of the tangent line to
+          <m>y=g(x) = x^2+2\cos x</m> at the point where <m>x=\frac{\pi}{2}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The derivative of <m>g(x) = x^2+2\cos x</m> is
+          <me>
+            \begin{aligned}g'(x) \amp = \frac{d}{dx}[x^2]+2\frac{d}{dx}[\cos x]\\ \amp =2x+2(-\sin x) \\ \amp = 2x-2\sin x \end{aligned}
+          </me>
+          and so the slope of the tangent line at <m>x=\frac{\pi}{2}</m> is
+          <me>
+            g'\left(\frac{\pi}{2}\right) = 2\left(\frac{\pi}{2}\right)-2\sin\left(\frac{\pi}{2}\right) = \pi-2(1) = \pi-2
+          </me>.
+        </p>
+        <p>
+          The <m>y</m>-value at the point where <m>x=\frac{\pi}{2}</m> is
+          <me>
+            y=g\left(\frac{\pi}{2}\right) = \left(\frac{\pi}{2}\right)^2+2\cos\left(\frac{\pi}{2}\right) = \frac{\pi^2}{4}+2(0) = \frac{\pi^2}{4}
+          </me>
+        </p>
+        <p>
+          Thus the equation of the tangent line has slope
+          <m>m = \pi-2</m> and passes through the point <m>\left(\frac{\pi}{2},\frac{\pi^2}{4}\right)</m>.
+          Plugging these into <m>y = m(x-x_1)+y_1</m>, we get the equation
+          <me>
+            y =(\pi-2)\left(x-\frac{\pi}{2}\right)+\frac{\pi^2}{4}
+          </me>.
+          This could probably be simplified, but it's not worth doing.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find the exact slope of the tangent line to
+          <m>y=f(x) = 2x+\dfrac{\sin x}{2}</m> at the point where <m>x=\frac{\pi}{6}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Remember that we still need to use the product, quotient,
+      and chain rules when taking derivatives of trigonometric functions whenever the function in question involves multiplying,
+      dividing, or composing functions
+      (respectively).
+    </p>
+    <example>
+      <statement>
+        <p>
+          Recall that the notation <m>\sin^2 x</m> means that the quantity <m>\sin x</m> is being squared:
+          <me>
+            \sin^2x = (\sin x)^2
+          </me>.
+        </p>
+        <p>
+          Thus the derivative of <m>h(x) = \sin^2 x</m> requires the use of the chain rule, and is
+          <me>
+            \begin{aligned}h'(x) \amp = \frac{d}{dx}\left[(\sin x)^2\right]\\ \amp = 2(\sin x)\frac{d}{dx}[\sin x]\\ \amp = 2(\sin x)(\cos x) \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(x) = \sin(4x)</m> has an "inside" function of <m>4x</m>,
+          and so we need to use the chain rule to take its derivative.
+          The derivative of <m>f(x) = \sin(4x)</m> is
+          <me>
+            f'(x) = \cos(4x)\cdot\frac{d}{dx}(4x) = \cos(4x)\cdot 4 = 4\cos(4x)
+          </me>.
+          Note that the "inside" function is still <m>4x</m>,
+          and if we want to find the second derivative,
+          we need to use the chain rule again.
+          The second derivative is
+          <me>
+            f''(x) = 4(-\sin(4x)\cdot4) = -16\sin(4x)
+          </me>.
+          Note again that the "inside" function has not changed.
+          We can keep going!
+          The third derivative is
+          <me>
+            f'''(x) = -16(\cos(4x)\cdot 4) = -64\cos(4x)
+          </me>
+          and the fourth derivative is
+          <me>
+            f^{(4)}(x) = -64(-\sin(4x)\cdot 4) = 256\sin(4x)
+          </me>.
+          <em>What would the fifth derivative be?
+          And the sixth?
+          Seventh?
+          Eighth?<fn>
+          Did you spot the pattern?
+          For each additional derivative,
+          we multiply by another 4 from the chain rule,
+          while the sines and cosines alternate and the sign changes with every other derivative.
+          </fn></em>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Here is another example of using the chain rule to take the derivative,
+      where subsequent derivatives are not as simple to take:
+    </p>
+    <example>
+      <statement>
+        <p>
+          The derivative of <m>f(x) = \cos(x^3)</m> is
+          <me>
+            \begin{aligned}f'(x) \amp = -\sin(x^3)\cdot\frac{d}{dx}[x^3] \\ \amp = -\sin(x^3)\cdot(3x^2) \\ \amp = -3x^2\sin(x^3). \end{aligned}
+          </me>
+        </p>
+        <p>
+          In order to find the second derivative,
+          we need the product rule since <m>-3x^2</m> and
+          <m>\sin(x^3)</m> are two functions that are being multiplied:
+          <me>
+            \begin{aligned}f''(x) \amp = -3x^2\frac{d}{dx}[\sin(x^3)]+\sin(x^3)\frac{d}{dx}[-3x^2]\\ \amp = -3x^2(-\cos(x^3)\cdot(3x^2))+\sin(x^3)(-6x) \\ \amp = 9x^4\cos(x^3)-6x\sin(x^3). \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find the derivatives of each of the functions below.
+          Be careful to use the correct derivative rules!
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>p(z) = z^4+4^z+4\cos (z^2)-\sin\left(\frac{\pi}{2}\right)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>r(t) = t\sin t+\dfrac{t^2}{\cos(t)+2}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      As always, please remember that one meaning of the derivative is the rate of change of a quantity modeled by a function.
+      If we are using a trigonometric function to model a periodic quantity,
+      then the derivative still describes the rate of change:
+    </p>
+    <example>
+      <statement>
+        <p>
+          The function <m>P(t) = 24+8\sin t</m> represents a population of a particular kind of animal that lives on a small island,
+          where <m>P</m> is measured in hundreds and <m>t</m> is measured in decades since January 1, 2010.
+          What is the instantaneous rate of change of <m>P</m> on January 1, 2030?
+          What are the units of this quantity?
+          Write a sentence in everyday language that explains how the population is behaving at this point in time.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Note that <m>t=2</m> corresponds to January 1, 2030,
+          because it is two decades after January 1, 2010.
+          <me>
+            P'(t) = 8\cos t
+          </me>
+          and so on January 1, 2030, the instantaneous rate of change of <m>P</m> is
+          <me>
+            P'(2) = 8\cos 2\approx -3.329
+          </me>.
+        </p>
+        <p>
+          The units for <m>P'(t)</m> are hundreds of animals per decade,
+          so we see that the population is decreasing at a rate of about 3.329 hundred animals per decade.
+          We can further interpret this to mean approximately 333 animals every ten years,
+          or about 33.3 animals per year, on January 1, 2030.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Derivatives of the Other Trigonometric Functions</title>
+    <p>
+      Recall that we can define the four other trigonometric functions in terms of the sine and cosine functions:
+      <me>
+        \tan \theta = \frac{\sin\theta}{\cos\theta} \qquad \cot\theta = \frac{\cos\theta}{\sin\theta}
+      </me>
+      <me>
+        \sec\theta = \frac{1}{\cos\theta}\qquad \csc\theta = \frac{1}{\sin \theta}
+      </me>
+    </p>
+    <p>
+      Because we know the derivatives of the sine and cosine function,
+      we can now develop rules for how to differentiate these other functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          we can use the quotient rule to take the derivative of the tangent function:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\tan x) \amp = \frac{d}{dx}\left(\frac{\sin x}{\cos x}\right) \amp  \\ \amp = \frac{\frac{d}{dx}(\sin x)\cdot(\cos x) - (\sin x)\cdot\frac{d}{dx}(\cos x)}{(\cos x)^2} \amp \leftarrow \text{ quotient rule } \\ \amp =\frac{(\cos x)(\cos x) - (\sin x)(-\sin x)}{\cos^2 x} \amp \leftarrow \text{ derivatives of } \sin x\text{ and } \cos x\\ \amp = \frac{\cos^2x+\sin^2x}{\cos^2 x} \amp  \leftarrow\text{ algebra } \\ \amp = \frac{1}{\cos^2x} \amp  \leftarrow\text{ Pythagorean Identity } \cos^2x+\sin^2x=1\\ \amp = \sec^2 x \amp  \leftarrow\text{ rewriting } \frac{1}{\cos x} = \sec x \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus we see that
+          <me>
+            \frac{d}{dx}(\tan x) = \sec^2 x
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Similarly, we can use the chain rule to take the derivative of the secant function:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\sec x) \amp = \frac{d}{dx}\left[\frac{1}{\cos x}\right] \amp  \leftarrow\text{ definition of } \sec x\\ \amp = \frac{d}{dx}\big[(\cos x)^{-1}\big] \amp  \leftarrow\text{ rewriting to use the chain rule } \\ \amp = -(\cos x)^{-2} \frac{d}{dx}[\cos x]\amp  \leftarrow\text{ chain rule } \\ \amp = -\frac{1}{\cos^2 x}(-\sin x) \amp \leftarrow\text{ algebra, derivative of } \sin x\\ \amp =\frac{\sin x}{\cos ^2x}\amp \leftarrow\text{ algebra } \\ \amp =\frac{1}{\cos x} \frac{\sin x}{\cos x}\amp  \leftarrow\text{ algebra } \\ \amp = \sec x\tan x \amp   \leftarrow\text{ rewriting in terms of tangent and secant } \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Note that in the last steps of both of the above calculations,
+      we rewrite the derivatives in terms of tangent and secant.
+      These are the typical forms of these derivatives as seen in any standard textbook,
+      but there is nothing technically wrong with leaving them in terms of the sine and cosine functions.
+    </p>
+    <p>
+      The following theorem summarizes the derivatives of tangent,
+      cotangent, secant, and cosecant.
+      Of course, you can use these derivatives without knowing how they are derived,
+      but it is useful to know where they come from in case you are stranded on a desert island without your notes and need to do calculus with trigonometry in order to tell time by tracking the movement of the stars (for example):
+    </p>
+    <theorem xml:id="thm_derivsofothertrigfunctions">
+      <title>Derivatives of Tangent, Cotangent, Secant, Cosecant</title>
+      <statement>
+        <p>
+          For all values of <m>x</m> at which the functions below are defined,
+          <me>
+            \frac{d}{dx}(\tan x) = \sec^2 x\qquad \frac{d}{dx}(\cot x) = -\csc^2 x
+          </me>
+          <me>
+            \frac{d}{dx}(\sec x) = \sec x\tan x\qquad \frac{d}{dx}(\csc x) = -\csc x\cot x
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Note that each derivative is defined only where the original function is defined.
+      For instance,
+      <m>\tan x</m> is undefined where <m>\cos x = 0</m>,
+      and likewise <m>\sec^2x</m> is undefined where <m>\cos x = 0</m>,
+      namely <m>x=\frac{\pi}{2}+k\pi</m>,
+      where <m>k</m> is any integer.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use the quotient rule to take the derivative of <m>\cot x</m> and simplify to see that
+          <me>
+            \frac{d}{dx}(\cot x) = -\csc^2 x
+          </me>.
+          What is the domain of the function <m>\cot x</m>?
+          Of <m>-\csc^2 x</m>?
+          Verify that the function <m>\cot x</m> is undefined for the same values as its derivative,
+          <m>-\csc^2x</m>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Using <xref ref="thm_derivofsineandcosine">Theorems</xref>
+      and <xref ref="thm_derivsofothertrigfunctions"></xref>,
+      we can now take derivatives of any function involving the six trigonometric functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of
+          <me>
+            f(x) = \frac{\tan x}{x^3-2}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>f(x) = \frac{\tan x}{x^3-2}</m> is a quotient of two functions.
+          By the quotient rule and the rule of differentiating tangent, we have
+          <me>
+            \begin{aligned}\frac{d}{dx}\left( \frac{\tan x}{x^3-2}\right) \amp = \frac{\frac{d}{dx}(\tan x)\cdot (x^3-2)-(\tan x)\cdot\frac{d}{dx}(x^3-2)}{(x^3-2)^2}\\ \amp = \frac{(\sec^2x)(x^3-2)-(\tan x)(3x^2)}{(x^3-2)^2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          There is no particular use in simplifying any further,
+          and so we will leave this derivative as it is.
+          Note in particular that there are no common factors in the numerator and no cancellation can occur between numerator and denominator.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>g(x) = \csc(2x)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This function is a composition of <m>g(u) = \csc(u)</m> with <m>u=2x</m>.
+          Recall that
+          <me>
+            g'(u) = -\csc u\cot u
+          </me>
+          and so by the chain rule,
+          <me>
+            \begin{aligned}g'(x) \amp = -\csc(2x)\cot(2x)\cdot\frac{d}{dx}(2x) \\ \amp = -\csc(2x)\cot(2x)\cdot 2  \\ \amp = -2\csc(2x)\cot(2x). \end{aligned}
+          </me>
+        </p>
+        <p>
+          Note that we have to include the <m>2x</m> in <em>both</em>
+          factors of the derivative <m>g'(u) = -\csc u\cot u</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate the derivative of <m>h(x) = \sec^2 e^x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's first rewrite the function to better see its structure:
+          <me>
+            h(x) = \sec^2 e^x = \left(\sec(e^x)\right)^2
+          </me>.
+        </p>
+        <p>
+          So we see that <m>h(x)</m> is a composition of three functions:
+          the outer-most function is squaring,
+          next is secant, and the inner-most function is <m>e^x</m>.
+          Thus we need to apply the chain rule twice:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\sec^2 e^x) \amp = \frac{d}{dx}\big[ \left(\sec(e^x)\right)^2\big] \amp  \leftarrow\text{ rewrite so compositions are clear } \\ \amp = 2(\sec(e^x))^{2-1}\cdot\frac{d}{dx}\left[\sec(e^x)\right] \amp  \leftarrow\text{ first application of the chain rule to } (\cdot)^2\\ \amp = 2(\sec e^x)\cdot\sec(e^x)\tan(e^x)\cdot\frac{d}{dx}\left[e^x\right] \amp  \leftarrow\text{ second application of the chain rule to } \sec(\cdot)\\ \amp = 2(\sec e^x)^2\tan e^x\cdot e^x\amp  \leftarrow\text{ derivative of } e^x\\ \amp = 2e^x\sec^2e^x\tan e^x \amp  \leftarrow\text{ rewriting without extra parentheses } \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Calculate the derivative of <m>f(x) = \sec\sqrt{2-\ln x}</m>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following formulas were introduced in this section:
+    </p>
+    Derivatives of the six trigonometric functions: sine, cosine, tangent, secant, cosecant, and cotangent.
+    <p>
+      <em>Key ideas:</em> The derivative of sine is cosine and the derivative of cosine is negative sine.
+      We have to make sure to keep using all of the same derivative rules.
+      The derivatives of the other trigonometric functions can be derived by rewriting them in terms of sine and cosine,
+      but you can also just look these up when you need them
+      (and hopefully remember them eventually).
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      The derivative is the slope of the tangent line to a function at each point in the domain of the function.
+      The domain of the derivative should match the domain of the original function
+      (as long as the original function is differentiable on its domain).
+      Derivatives also measure rates of change of quantities and units are still important.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 7.7}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

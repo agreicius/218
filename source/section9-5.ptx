@@ -1,0 +1,1287 @@
+<section>
+  <title>Curve Sketching Revisited</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Revisit curve sketching and the full list of features that can be determined analytically,
+          using algebra, limits, and derivatives.
+        </p>
+      </li>
+      <li>
+        <p>
+          Identify key information about four different functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Practice sketching the graph of a function from a full curve-sketch analysis.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Recap of Curve Sketch Analyses</title>
+    <p>
+      Congratulations!
+      You have learned all of the differential calculus content of a standard Calculus 1 course!
+      In order to bring together all of this knowledge,
+      we revisit the idea of sketching the graph of a function by hand,
+      with minimal
+      (if any)
+      help from computational devices.
+      We focus particularly on sketching functions that involve the transcendental functions covered this semester:
+      exponential, logarithmic, and trigonometric functions,
+      as well as a particularly interesting algebraic function.
+    </p>
+    <p>
+      Recall that every graph is made up of pieces that are either linear or one of the four following curves,
+      which we can use to "connect the dots" between critical points,
+      asymptotes, or other discontinuities.
+    </p>
+    <p>
+      <image width="93%" source="TaalmanPage250.png"/>
+    </p>
+    <p>
+      Below is the summary of the steps involved in a complete sketch of a function <m>f(x)</m>,
+      initially provided in <xref ref="sec_curvesketchingwithasymptotes">Section</xref>.
+      <ul>
+        <li>
+          <p>
+            Find the <em>domain</em> of <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the <em><m>\mathbf{y}</m>-intercept</em>,
+            meaning the point <m>(0,f(0))</m>,
+            if <m>f(0)</m> is defined.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine any <em><m>\mathbf{x}</m>-intercepts</em> that we can find easily
+            (via factoring;
+            many times this is not possible without more advanced methods).
+            If we are able to find the <m>x</m>-intercepts,
+            determine the <em>intervals on which <m>f</m> is positive or negative</em>.
+            Record this information on a sign chart for <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Check for any <em>even or odd symmetry</em>,
+            specifically whether <m>f(-x)=f(x)</m> (even) or <m>f(-x) = -f(x)</m>
+            (odd).
+          </p>
+        </li>
+        <li>
+          <p>
+            For any points where the function is discontinuous,
+            determine the behavior of the function,
+            meaning the limits as <m>x\to c</m> for any value <m>x=c</m> not in the domain of the function.
+            Make note of any <em>holes or vertical asymptotes</em>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the "end behavior" of the graph,
+            meaning the limits as <m>x\to\pm\infty</m>.
+            Make note of any <em>left and/or right horizontal asymptotes</em>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>f'</m> and determine the points where <m>f'</m> is zero or does not exist.
+            Each of these points that is in the domain of <m>f</m> is a <em>critical point</em>
+            of <m>f</m> and therefore a possible local extremum of <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the intervals on which <m>f'</m> is positive or negative.
+            These are the same as the intervals on which <m>f</m> is
+            <em>increasing or decreasing</em>, respectively.
+            Record this information on a sign chart for <m>f'</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine whether <m>f</m> has a <em>local minimum,
+            local maximum, or neither</em> at each critical point.
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>f''</m> and determine the points where <m>f''</m> is zero or does not exist.
+            Each of these points that is in the domain of <m>f</m> is a critical point of <m>f'</m> and therefore a possible
+            <em>inflection point</em> of <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the intervals on which <m>f''</m> is positive or negative.
+            These are the same as the intervals on which <m>f</m> is
+            <em>concave up or concave down</em>, respectively.
+            Record this information on a sign chart for <m>f''</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine whether or not each critical point of <m>f'</m> is an inflection point of <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Plot any intercepts and holes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw dashed vertical or horizontal lines for any vertical or horizontal asymptotes of <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            At each local extremum or inflection point <m>x=c</m>,
+            determine the value of <m>y=f(c)</m>.
+            Plot these points <m>(c,f(c))</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Between the features already plotted
+            (points and asymptotes),
+            use the sign charts for <m>f'</m> and <m>f''</m> to determine which of the four types of curve shapes the graph will have.
+          </p>
+        </li>
+        <li>
+          <p>
+            Graph the function by connecting the features with curves.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Make sure you know the precise definition of each of the terms in bold above and how to determine them from the formula for a function without relying on a graph or calculator
+          (besides help with basic arithmetic).
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Full Curve Sketching Examples</title>
+    <example xml:id="ex_curvesketch1">
+      <statement>
+        <p>
+          Below, we give a full curve sketch of <m>f(x) = \dfrac{\ln x}{x}</m>.
+        </p>
+        <p>
+          <em>Domain:</em> We must have <m>x\neq 0</m> from the denominator and <m>x>0</m> from the logarithm,
+          hence the domain is <m>(0,\infty)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{y}</m>-Intercept:</em>
+          Since <m>x=0</m> is not in the domain of <m>f</m>,
+          there is no <m>y</m>-intercept.
+        </p>
+        <p>
+          <em><m>\mathbf{x}</m>-Intercepts:</em>
+          <m>f(x) = 0</m> where <m>\ln x=0</m>, so where <m>x=e^0=1</m>.
+          Thus there is an <m>x</m>-intercept at the point <m>(1,0)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{f}</m> Positive and Negative:</em>
+          We test whether <m>f</m> is positive or negative on each interval of its domain between roots:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(0,1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f</m> is</cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Thus the graph of <m>f</m> is below the <m>x</m>-axis for
+          <m>0\lt x\lt 1</m> and above the <m>x</m>-axis for <m>x>1</m>.
+        </p>
+        <p>
+          <em>Even/odd Symmetry:</em>
+          <m>f(x) = \dfrac{\ln x}{x}</m> is neither even nor odd.
+          As we observed,
+          <m>f(x)</m> is defined for <m>x>0</m> and so we cannot even evaluate <m>f(-x)</m>,
+          since <m>-x\lt 0</m> is not in the domain of the function.
+        </p>
+        <p>
+          <em>Vertical Asymptotes:</em> <m>f</m> has a potential vertical asymptote at <m>x=0</m>.
+          Since <m>f</m> is only defined for <m>x>0</m>,
+          we take only the right limit at <m>0</m>:
+          <me>
+            \ds\lim_{x\to 0+}\dfrac{\ln x}{x} = \dfrac{-\infty}{0^+} = -\infty
+          </me>
+        </p>
+        <p>
+          Thus there is a vertical asymptote to the right of <m>x=0</m> that goes to <m>-\infty</m>.
+          Note that this matches the information from testing where <m>f</m> is positive and negative.
+        </p>
+        <p>
+          <em>Horizontal Asymptotes:</em>
+          Since <m>f</m> is defined only for <m>x>0</m>,
+          we need only check the behavior of <m>f(x)</m> as <m>x\to\infty</m>.
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\dfrac{\ln x}{x} \amp = \frac{\infty}{\infty}\amp \leftarrow \text{ indeterminate form }  \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty} \frac{1/x}{1}\amp  \leftarrow \text{ apply L'H\^opital's rule } \\ \amp = \lim_{x\to\infty}\frac{1}{x} = 0 \amp \leftarrow \text{ simplify and evaluate } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>f</m> has a right horizontal asymptote to <m>y=0</m>.
+          Since <m>f</m> is positive for <m>x>1</m>,
+          we know the function must approach <m>y=0</m> from above.
+        </p>
+        <p>
+          <em>Critical Points:</em> We calculate <m>f'(x)</m> using the quotient rule,
+          then simplify and determine where it is 0 and undefined.
+          <me>
+            f'(x) = \frac{x(1/x)-\ln x(1)}{x^2} = \frac{1-\ln x}{x^2}
+          </me>
+        </p>
+        <p>
+          <m>f'(x) = 0</m> when <m>1-\ln x=0</m>:
+          <me>
+            \begin{aligned}1-\ln x \amp =0\\ 1 \amp = \ln x\\ e \amp = x \end{aligned}
+          </me>
+          and <m>f'(x)</m> DNE when <m>x=0</m>,
+          which is not in the domain and so is not a critical point.
+          Thus the only critical point of <m>f(x)</m> is <m>x=e</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{f}</m> Increasing and Decreasing:</em>
+          We test whether <m>f</m> is increasing or decreasing on each interval of its domain between critical points by determining the sign of <m>f'(x)</m>:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(0,e)</m></cell>
+            <cell><m>(e,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f\,'</m> is</cell>
+            <cell><m>+</m></cell>
+            <cell><m>-</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f</m> is</cell>
+            <cell>increasing</cell>
+            <cell>decreasing</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          <em>Local Extrema:</em> Since <m>f</m> changes from increasing to decreasing,
+          there is a local maximum at the critical point <m>x=e</m>.
+          The <m>y</m>-value is <m>y = f(e) = \dfrac{\ln e}{e} = \dfrac{1}{e}</m> so the local maximum is at the point <m>(e,\frac{1}{e})\approx (2.718, 0.368)</m>.
+        </p>
+        <p>
+          <em>Concavity:</em> We calculate <m>f''(x)</m>,
+          again using the quotient rule,
+          then simplify and determine where it is 0 and undefined.
+          <me>
+            f''(x) = \frac{x^2(-1/x)-(1-\ln x)(2x)}{(x^2)^2} = \frac{-x-2x(1-\ln x)}{x^4} = \frac{x(-1-2+2\ln x)}{x^4}  = \frac{2\ln x-3}{x^3}
+          </me>
+        </p>
+        <p>
+          <m>f''(x) = 0</m> when <m>2\ln x-3=0</m>:
+          <me>
+            \begin{aligned}2\ln x-3 \amp = 0\\ 2\ln x \amp =3\\ \ln x \amp =\frac{3}{2}\\ x \amp = e^{3/2}\approx 4.481 \end{aligned}
+          </me>
+          and <m>f''(x)</m> DNE when <m>x=0</m>,
+          which is not in the domain.
+          Thus the only critical point of <m>f'(x)</m> is <m>x=e^{3/2}</m>.
+        </p>
+        <p>
+          We test whether <m>f</m> is concave up or concave down on each interval of its domain between critical points of <m>f'(x)</m> by determining the sign of <m>f''(x)</m>:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(0,e^{3/2})</m></cell>
+            <cell><m>(e^{3/2},\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f\,''</m> is</cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f</m> is</cell>
+            <cell>concave down</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Note that <m>f</m> is concave down on the interval <m>0\lt x\lt e^{3/2}</m>,
+          confirming that there is a local maximum at <m>x=e</m>,
+          which is on this interval.
+        </p>
+        <p>
+          <em>Inflection Points:</em> Since <m>f</m> changes concavity,
+          there is an inflection point at <m>x=e^{3/2}</m>.
+          The <m>y</m>-value is <m>f(e^{3/2}) = \dfrac{\ln(e^{3/2})}{e^{3/2}} = \dfrac{3/2}{e^{3/2}}\approx 0.335</m>,
+          hence the inflection point is <m>(e^{3/2},\frac{3}{2e^{3/2}})\approx (4.481, 0.335)</m>.
+        </p>
+        <p>
+          <em>Sketch:</em> Begin by plotting the root, local maximum,
+          and inflection point found above.
+          Then draw the vertical and horizontal asymptotes.
+          Lastly, draw curves connecting these features with the appropriate shape on each of the intervals:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(0,e)</m></cell>
+            <cell><m>(e,e^{3/2})</m></cell>
+            <cell><m>(e^{3/2},\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f</m> is</cell>
+            <cell>increasing and</cell>
+            <cell>decreasing and</cell>
+            <cell>decreasing and</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell>concave down</cell>
+            <cell>concave down</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch <em>by hand</em> the function
+          <m>f(x) = \dfrac{\ln x}{x}</m> using the detailed analysis from <xref ref="ex_curvesketch1">Example</xref>.
+          Then check your sketch by graphing <m>f(x) = \dfrac{\ln x}{x}</m> on Desmos.
+          Are there any features that are more obvious from the analysis than they appear on the computer-generated graph?
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_curvesketch2">
+      <statement>
+        <p>
+          We perform a full analysis of the function <m>g(x) = xe^{-x}</m>.
+        </p>
+        <p>
+          <em>Domain:</em> <m>g(x) = xe^{-x} = \dfrac{x}{e^x}</m> is defined for all values of <m>x</m> since <m>e^x> 0</m> for all values of <m>x</m>.
+          Thus the domain of <m>g(x)</m> is <m>(-\infty,\infty)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{y}</m>-Intercept:</em>
+          <m>g(0) = 0e^{0} = 0(1) = 0</m> and thus the <m>y</m>-intercept is <m>y=0</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{x}</m>-Intercepts:</em>
+          <m>g(x) = xe^{-x} = 0</m> when either <m>x=0</m> or <m>e^{-x} =0</m>.
+          Since <m>e^{-x}>0</m> for all <m>x</m>,
+          the only root is at <m>x=0</m>.
+          Hence the <m>x</m>- and <m>y</m>-intercept are at the same point <m>(0,0)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{g}</m> Positive and Negative:</em>
+          Testing the sign of <m>g</m> on either side of the <m>x</m>-intercept:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,0)</m></cell>
+            <cell><m>(0,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>g</m> is</cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Thus the graph of <m>g</m> is below the <m>x</m>-axis for <m>x\lt 0</m> and above the <m>x</m>-axis for <m>x>0</m>.
+        </p>
+        <p>
+          <em>Even/odd Symmetry:</em> <m>g(-x) = (-x)e^{-(-x)} = -xe^x</m>.
+          This is equal to neither <m>g(x) = xe^{-x}</m> nor <m>-g(x) = -xe^{-x}</m>,
+          and so <m>g(x)</m> is neither even nor odd.
+        </p>
+        <p>
+          <em>Vertical Asymptotes:</em> Since <m>g(x)</m> is continuous on its domain,
+          which is all real numbers,
+          there cannot be any vertical asymptotes,
+          a.k.a. infinite discontinuities.
+        </p>
+        <p>
+          <em>Horizontal Asymptotes:</em>
+          We test the behavior of <m>g(x)</m> as
+          <m>x\to\infty</m> and <m>x\to-\infty</m>.
+          <me>
+            \begin{aligned}\lim_{x\to\infty} xe^{-x} \amp = \infty\cdot 0 \amp  \leftarrow\text{ indeterminate limit } \\ \amp = \lim_{x\to\infty}\frac{x}{e^x} = \frac{\infty}{\infty} \amp \leftarrow\text{ algebra; indeterminate limit } \\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{1}{e^x} \amp  \leftarrow\text{ L'H\^opital's Rule } \\ \amp = \frac{1}{\infty} = 0 \amp  \leftarrow\text{ evaluate } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>g(x)</m> has a right horizontal asymptote at <m>y=0</m>.
+          Since <m>g</m> is positive for <m>x>0</m>,
+          we know the function must approach <m>y=0</m> from above.
+          <me>
+            \lim_{x\to-\infty} xe^{-x} = -\infty\cdot e^{-(-\infty)} = -\infty\cdot\infty = -\infty
+          </me>
+        </p>
+        <p>
+          Thus <m>g(x)</m> does not have a left horizontal asymptote.
+          Instead, the function becomes infinitely large and negative as <m>x\to-\infty</m>.
+          This fits with our sign analysis of <m>g</m>,
+          since <m>g</m> is negative for <m>x\lt 0</m>.
+        </p>
+        <p>
+          <em>Critical Points:</em> Taking the derivative via the product rule and then factoring:
+          <me>
+            g'(x) = (1)e^{-x}+x(-e^{-x}) = e^{-x}(1-x)
+          </me>
+        </p>
+        <p>
+          Hence we see that <m>g'(x)=0</m> when either <m>e^{-x}=0</m> or <m>1-x=0</m>,
+          and there are no <m>x</m>-values where <m>g'(x)</m> does not exist.
+          <m>e^{-x}>0</m> for all <m>x</m> so that equation has no solutions.
+          <m>1-x=0</m> when <m>x=1</m>,
+          thus the only critical point of <m>g</m> is <m>x=1</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{g}</m> Increasing and Decreasing:</em>
+          Testing the sign of <m>g'(x)</m> on each interval of its domain between critical points:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>g'</m> is</cell>
+            <cell><m>+</m></cell>
+            <cell><m>-</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>g</m> is</cell>
+            <cell>increasing</cell>
+            <cell>decreasing</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          <em>Local Extrema:</em> Since <m>g</m> changes from increasing to decreasing,
+          there is a local maximum at the critical point <m>x=1</m>.
+          The <m>y</m>-value is <m>g(1) = (1)e^{-1} = \dfrac{1}{e}</m> so the local maximum is at the point <m>\left(1,\frac{1}{3}\right)\approx (1,0.368)</m>.
+        </p>
+        <p>
+          <em>Concavity:</em> Calculating <m>g''(x)</m>,
+          again using the product rule and simplifying:
+          <me>
+            g''(x) = (-e^{-x})(1-x)+e^{-x}(-1) = e^{-x}(-1+x-1) = e^{-x}(x-2)
+          </me>
+        </p>
+        <p>
+          We can see that <m>g''(x)</m> is never undefined,
+          and is 0 when either <m>e^{-x}=0</m>
+          (which never happens)
+          or <m>x-2=0</m>, so when <m>x=2</m>.
+          Thus the only critical point of <m>g'(x)</m> is <m>x=2</m>.
+        </p>
+        <p>
+          Testing whether <m>g</m> is concave up or concave down on each interval of its domain between critical points of <m>g'(x)</m> by determining the sign of <m>g''(x)</m>:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,2)</m></cell>
+            <cell><m>(2,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>g''</m> is</cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>g</m> is</cell>
+            <cell>concave down</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Note that <m>g</m> is concave down on the interval <m>x\lt 2</m>,
+          confirming that there is a local maximum at <m>x=1</m>,
+          which is on this interval.
+        </p>
+        <p>
+          <em>Inflection Points:</em> Since <m>g</m> changes concavity,
+          there is an inflection point at <m>x=2</m>.
+          The <m>y</m>-value is <m>g(2) = 2e^{-2} = \dfrac{2}{e^2}</m>.
+          Thus the inflection point is <m>\left(2,\frac{2}{e^2}\right)\approx(2,0.271)</m>.
+        </p>
+        <p>
+          <em>Sketch:</em> Begin by plotting the root, local maximum,
+          and inflection point found above.
+          Then draw the right horizontal asymptote and behavior as <m>x\to-\infty</m>.
+          Lastly, draw curves connecting these features with the appropriate shape on each of the intervals:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,1)</m></cell>
+            <cell><m>(1,2)</m></cell>
+            <cell><m>(2,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>g</m> is</cell>
+            <cell>increasing and</cell>
+            <cell>decreasing and</cell>
+            <cell>decreasing and</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell>concave down</cell>
+            <cell>concave down</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch <em>by hand</em> the function
+          <m>g(x) = xe^{-x}</m> using the detailed analysis from <xref ref="ex_curvesketch2">Example</xref>.
+          Then check your sketch by graphing <m>g(x) = xe^{-x}</m> on Desmos.
+          Are there any features that are more obvious from the analysis than they appear on the computer-generated graph?
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_curvesketch3">
+      <statement>
+        <p>
+          Let's determine what the graph of <m>h(x) = \dfrac{\sqrt{x^2-1}}{x}</m> looks like.
+        </p>
+        <p>
+          <em>Domain:</em> <m>h(x) = \dfrac{\sqrt{x^2-1}}{x}</m> is undefined when <m>x=0</m> and when <m>x^2-1\lt 0</m>.
+          <m>x^2-1 = (x-1)(x+1) = 0</m> when <m>x=1</m> and <m>x=-1</m>,
+          and by testing points outside and between <m>x=\pm 1</m>,
+          we can tell that <m>x^2-1>0</m> when <m>x\lt -1</m> and <m>x>1</m>,
+          and that <m>x^2-1\lt 0</m> when <m>-1\lt x\lt 1</m>.
+          Thus <m>h(x)</m> is undefined on <m>(-1,1)</m>,
+          hence has domain <m>(-\infty,-1]\cup[1,\infty)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{y}</m>-Intercept:</em>
+          Since <m>x=0</m> is not in the domain of <m>h</m>,
+          there is no <m>y</m>-intercept.
+        </p>
+        <p>
+          <em><m>\mathbf{x}</m>-Intercepts:</em>
+          <m>h(x) = 0</m> where <m>\sqrt{x^2-1} = 0</m>:
+          <me>
+            \begin{aligned}\sqrt{x^2-1} \amp =0\\ x^2-1 \amp =0\\ x^2 \amp =0\\ x \amp =\pm1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Hence there are two <m>x</m>-intercepts at the points <m>(-1,0)</m> and <m>(1,0)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{h}</m> Positive and Negative:</em>
+          We test whether <m>h</m> is positive or negative on each interval of its domain.
+          Note that <m>h</m> is not defined between the two <m>x</m>-intercepts:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,-1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>h</m> is</cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Thus the graph of <m>h</m> is below the <m>x</m>-axis for <m>x\lt -1</m> and above the <m>x</m>-axis for <m>x>1</m>.
+        </p>
+        <p>
+          <em>Even/odd Symmetry:</em>
+          <m>h(-x) = \dfrac{\sqrt{(-x)^2-1}}{-x}=- \dfrac{\sqrt{x^2-1}}{x} = -h(x)</m> and so <m>h(x)</m> has odd symmetry.
+        </p>
+        <p>
+          <em>Vertical Asymptotes:</em> <m>h</m> could only have a vertical asymptote at <m>x=0</m>,
+          but this is not in the domain of <m>h</m>,
+          so there are no vertical asymptotes.
+          Note in particular that <m>h(-1) = 0</m> and <m>h(1) = 0</m> are defined,
+          so there are no vertical asymptotes at the edges of the domain.
+        </p>
+        <p>
+          <em>Horizontal Asymptotes:</em>
+          We test the behavior of <m>h(x)</m> as
+          <m>x\to\infty</m> and <m>x\to-\infty</m>.
+          <me>
+            \begin{aligned}\lim_{x\to\infty} \frac{\sqrt{x^2-1}}{x} \amp = \frac{\infty}{\infty}\amp \leftarrow\text{ indeterminate limit } \\ \amp \stackrel[L'H]{}= \lim_{x\to\infty} \frac{\frac{1}{2}(x^2-1)^{-1/2}(2x)}{1}\amp \leftarrow\text{ apply L'H\^opital's Rule } \\ \amp = \lim_{x\to\infty}\frac{x}{\sqrt{x^2-1}} = \frac{\infty}{\infty}\amp \leftarrow\text{ simplify and reevaluate; indeterminate limit } \\ \amp \stackrel[L'H]{}=\lim_{x\to\infty}\frac{1}{\frac{1}{2}(x^2-1)^{-1/2}(2x)}\amp \leftarrow\text{ apply L'H\^opital's Rule } \\ \amp = \lim_{x\to\infty}\frac{\sqrt{x^2-1}}{x} = \frac{\infty}{\infty}\amp \leftarrow\text{ simplify and reevaluate; indeterminate limit } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Notice that we are right back where we started.
+          Despite making no errors, L'H&#xf4;pital's Rule will not solve this limit for us.
+          Instead, we need the algebraic methods from Chapter 2:
+          divide both the numerator and denominator by <m>x</m>,
+          the highest power of <m>x</m> that appears in the denominator.
+          To simplify in the numerator,
+          we multiply by <m>\frac{1}{x} = \frac{1}{\sqrt{x^2}} = \sqrt{\frac{1}{x^2}}</m> so that we can combine the square roots:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{\sqrt{x^2-1}}{x}\cdot\frac{\sqrt{1/x^2}}{1/x} \amp =\lim_{x\to\infty} \frac{\sqrt{(x^2-1)(\frac{1}{x^2})}}{1}\\ \amp = \lim_{x\to\infty} \frac{\sqrt{1-\frac{1}{x^2}}}{1}\\ \amp = \frac{\sqrt{1-0}}{1} = \frac{1}{1} = 1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>h</m> has a right horizontal asymptote at <m>y=1</m>.
+        </p>
+        <p>
+          Similarly, L'H&#xf4;pital's Rule will not work with the limit as <m>x\to-\infty</m>.
+          We follow the same algebraic step of dividing through by <m>x</m>.
+          However, now since <m>x\lt 0</m> as <m>x\to-\infty</m>,
+          it is no longer true that <m>\sqrt{x^2} =x</m>.
+          Instead, <m>\sqrt{x^2} = -x</m>,
+          and so we multiply the numerator by <m>\frac{1}{x} = \frac{1}{-\sqrt{x^2}} = -\sqrt{\frac{1}{x^2}}</m>:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{\sqrt{x^2-1}}{x}\cdot\frac{-\sqrt{1/x^2}}{1/x} \amp = \lim_{x\to\infty} \frac{-\sqrt{1-\frac{1}{x^2}}}{1}\\ \amp = \frac{-\sqrt{1-0}}{1} = \frac{-1}{1} = -1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>h</m> has a left horizontal asymptote at <m>y=-1</m>.
+          We could have avoided this additional computation
+          (and the potential algebra error)
+          by using our observation that <m>h(x)</m> is odd,
+          so that if <m>\lim_{x\to\infty}h(x) = 1</m>,
+          then <m>\lim_{x\to-\infty}h(x) = -1</m>.
+          Note that this also fits with our sign analysis of <m>h</m>,
+          since <m>h</m> is negative for <m>x\lt -1</m>.
+        </p>
+        <p>
+          <em>Critical Points:</em> Taking the derivative via the quotient and chain rules and then simplifying:
+          <me>
+            \begin{aligned}h'(x) \amp = \frac{x\cdot\frac{1}{2}(x^2-1)^{-1/2}(2x)-\sqrt{x^2-1}(1)}{x^2}\\ \amp = \frac{(x^2-1)^{-1/2}(x^2-(x^2-1))}{x^2}\\ \amp = \frac{1}{x^2\sqrt{x^2-1}} \end{aligned}
+          </me>
+        </p>
+        <p>
+          We can see that <m>h'</m> is still undefined when
+          <m>x^2-1\lt 0</m>, so on <m>(-1,1)</m>,
+          but additionally, it is undefined at <m>x=\pm 1</m>.
+          Thus <m>h</m> has two critical points at <m>x=-1</m> and <m>x=1</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{h}</m> Increasing and Decreasing:</em>
+          Testing the sign of <m>h'(x)</m> on each interval of its domain:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,-1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>h'</m> is</cell>
+            <cell><m>+</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>h</m> is</cell>
+            <cell>increasing</cell>
+            <cell>increasing</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          <em>Local Extrema:</em> Since <m>h</m> increases to the left of the critical point <m>x=-1</m> and is undefined to the right,
+          <m>x=-1</m> is a local maximum.
+          The <m>y</m>-value is <m>g(-1) = \frac{\sqrt{(-1)^2-1}}{-1} = \frac{0}{1} = 0</m>.
+          Thus <m>(-1,0)</m> is a local maximum.
+        </p>
+        <p>
+          Similarly, since <m>h</m> is undefined to the left of <m>x=1</m> and increases to the right,
+          <m>x=1</m> is a local minimum.
+          The <m>y</m>-value is <m>g(1) = \frac{\sqrt{1^2-1}}{1} = \frac{0}{1} = 0</m>.
+          Thus <m>(1,0)</m> is a local minimum.
+        </p>
+        <p>
+          <em>Concavity:</em> Calculating <m>h''(x)</m> is best done using the chain rule,
+          first rewriting <m>h'(x) = (x^2\sqrt{x^2-1})^{-1}</m>,
+          along with the product rule.
+          Following this, we simplify as much as possible:
+          <me>
+            \begin{aligned}h''(x) \amp = -(x^2\sqrt{x^2-1})^{-2}\cdot\left((2x)\sqrt{x^2-1}+x^2\cdot\frac{1}{2}(x^2-1)^{-1/2}(2x)\right)\\ \amp =\frac{-x(x^2-1)^{-1/2}(2(x^2-1)+x^2)}{x^4(x^2-1)}\\ \amp =\frac{-(2x^2-2+x^2)}{x^3(x^2-1)^{1+1/2}}\\ \amp =\frac{2-3x^2}{x^3(x^2-1)^{3/2}} \end{aligned}
+          </me>
+        </p>
+        <p>
+          We can see again that <m>h''(x)</m> is undefined for <m>-1\leq x\leq1</m>.
+          Additionally, <m>h''(x) = 0</m> when <m>2-3x^2 = 0</m>:
+          <me>
+            \begin{aligned}2-3x^2 \amp = 0\\ 2 \amp = 3x^2\\ \frac{2}{3} \amp = x^2\\ \pm\sqrt{\frac{2}{3}} \amp = x \end{aligned}
+          </me>
+        </p>
+        <p>
+          However, <m>\pm\sqrt{\frac{2}{3}}\approx \pm 0.816</m> are not in the domain of <m>h</m>,
+          and so there are no critical points of <m>h'</m>.
+        </p>
+        <p>
+          Testing whether <m>h</m> is concave up or concave down on each interval of its domain by determining the sign of <m>h''(x)</m>:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,-1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>h''</m> is</cell>
+            <cell><m>+</m></cell>
+            <cell><m>-</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>h</m> is</cell>
+            <cell>concave up</cell>
+            <cell>concave down</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          <em>Inflection Points:</em> Since <m>h'(x)</m> has no critical points,
+          <m>h</m> has no inflection points.
+          In other words,
+          there are no points in the domain of <m>h</m> where <m>h</m> changes concavity.
+        </p>
+        <p>
+          <em>Sketch:</em> Begin by plotting the roots and sketch the horizontal asymptotes determined above.
+          There are no additional features,
+          and in particular no local minima or maxima where the graph can turn around.
+          Thus we draw curves from the roots to the horizontal asymptotes with the appropriate shape on each of the intervals,
+          remembering that <m>h(x)</m> is undefined for <m>-1\lt x\lt 1</m>:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,-1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>h</m> is</cell>
+            <cell>increasing and</cell>
+            <cell>increasing and</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell>concave up</cell>
+            <cell>concave down</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch <em>by hand</em> the function<m>h(x) = \dfrac{\sqrt{x^2-1}}{x}</m> using the detailed analysis from <xref ref="ex_curvesketch3">Example</xref>.
+          Then check your sketch by graphing <m>h(x) = \dfrac{\sqrt{x^2-1}}{x}</m> on Desmos.
+          Are there any features that are more obvious from the analysis than they appear on the computer-generated graph?
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_curvesketch4">
+      <statement>
+        <p>
+          Our last example will be a full analysis of the function <m>k(x) = \arcsin x^2</m>.
+        </p>
+        <p>
+          <em>Domain:</em> Recall that the domain of <m>\arcsin(\cdot)</m> is <m>[-1,1]</m>,
+          thus we must have <m>-1\leq x^2\leq 1</m>.
+          Since <m>0\lt x^2</m>, <m>x</m> must satisfy <m>x^2\leq1</m>.
+          This is equivalent to <m>x^2-1\leq0</m>,
+          and we determined in <xref ref="ex_curvesketch3">Example</xref>
+          that <m>x^2-1\lt 0</m> for <m>-1\lt x\lt 1</m>.
+          Thus we must have <m>-1\leq x\leq 1</m>,
+          so the domain of <m>k(x)</m> is <m>[-1,1]</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{y}</m>-Intercept:</em>
+          <m>k(0) = \arcsin (0^2) = \arcsin 0 = 0</m>.
+          Hence the <m>y</m>-intercept is <m>y=0</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{x}</m>-Intercepts:</em>
+          We have <m>k(x) = \arcsin(x^2) = 0</m> when
+          <m>x^2 = \sin(0) = 0</m>, thus when <m>x=0</m>.
+          Hence the <m>x</m>-intercept is the same as the <m>y</m>-intercept:
+          the point <m>(0,0)</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{k}</m> Positive and Negative:</em>
+          Testing the sign of <m>k</m> on either side of the <m>x</m>-intercept:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>[-1,0)</m></cell>
+            <cell><m>(0,1]</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>k</m> is</cell>
+            <cell><m>+</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Thus the graph of <m>k</m> is above the <m>x</m>-axis for
+          <m>-1\leq x\lt 0</m> and <m>0\lt x\leq 1</m>.
+        </p>
+        <p>
+          <em>Even/odd Symmetry:</em>
+          <m>k(-x) = \arcsin(-x)^2 = \arcsin x^2=k(x)</m> and so <m>k(x)</m> has even symmetry.
+        </p>
+        <p>
+          <em>Vertical Asymptotes:</em> Since <m>k(x)</m> is continuous on its domain <m>[-1,1]</m> there cannot be any vertical asymptotes.
+          Note in particular that <m>k(-1) = \arcsin((-1)^2) = \arcsin(1) = \frac{\pi}{2}</m> and <m>k(1) = \arcsin(1^2) = \arcsin(1) = \frac{\pi}{2}</m> are defined,
+          so there are no vertical asymptotes at the edge of the domain.
+        </p>
+        <p>
+          <em>Horizontal Asymptotes:</em>
+          Since the domain of <m>k(x)</m> is <m>[-1,1]</m>,
+          we cannot compute limits as
+          <m>x\to\infty</m> and <m>x\to-\infty</m>,
+          thus there are no horizontal asymptotes.
+        </p>
+        <p>
+          <em>Critical Points:</em> Taking the derivative via the chain rule and then factoring:
+          <me>
+            k'(x) = \frac{1}{\sqrt{1-(x^2)^2}}\cdot(2x) = \frac{2x}{\sqrt{1-x^4}}
+          </me>
+        </p>
+        <p>
+          We see that <m>k'(x) = 0</m> when <m>x=0</m> and that <m>k'(x)</m> DNE when <m>1-x^4 = 0</m>,
+          so when <m>x^4=1</m>, meaning <m>x=\pm1</m>.
+          These are all in the domain of <m>k</m>,
+          and so <m>k</m> has critical points at <m>x=-1,0</m>, and <m>1</m>.
+        </p>
+        <p>
+          <em><m>\mathbf{k}</m> Increasing and Decreasing:</em>
+          Testing the sign of <m>k'(x)</m> on each interval of its domain between critical points:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>[-1,0)</m></cell>
+            <cell><m>(0,1]</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>k'</m> is</cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>k</m> is</cell>
+            <cell>decreasing</cell>
+            <cell>increasing</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          <em>Local Extrema:</em> Since <m>k</m> is undefined to the left of <m>x=-1</m> and decreases to the right,
+          <m>x=-1</m> must be a local maximum.
+          Since <m>k</m> changes from decreasing to increasing at <m>x=0</m>,
+          there is a local minimum at <m>x=0</m>.
+          Lastly, since <m>k</m> is increasing to the left of <m>x=1</m> and undefined to the right,
+          <m>x=1</m> must be a local maximum.
+          Thus there are local maxima at the points
+          <m>\left(-1,\frac{\pi}{2}\right)</m> and <m>\left(1,\frac{\pi}{2}\right)</m>,
+          and a local minimum at the point <m>(0,0)</m>.
+        </p>
+        <p>
+          <em>Concavity:</em> Calculating <m>k''(x)</m> using the quotient and chain rules,
+          then simplifying:
+          <me>
+            \begin{aligned}k''(x) \amp = \frac{\sqrt{1-x^4}(2)-(2x)\cdot\frac{1}{2}(1-x^4)^{-1/2}(-4x^3)}{(\sqrt{1-x^4})^2}\\ \amp =\frac{(1-x^4)^{-1/2}(2(1-x^4)+4x^4)}{1-x^4}\\ \amp =\frac{2-2x^4+4x^4}{(1-x^4)^{1+1/2}}\\ \amp = \frac{2+2x^4}{(1-x^4)^{3/2}} \end{aligned}
+          </me>
+        </p>
+        <p>
+          We can see that <m>k''(x)</m> is undefined for <m>x=\pm 1</m> where <m>x^4=1</m>.
+          Additionally, <m>k''(x) = 0</m>,
+          when <m>2+2x^4 = 2(1+x^4) = 0</m>:
+          <me>
+            \begin{aligned}2(1+x^4) \amp =0\\ 1+x^4 \amp =0\\ x^4 \amp = -1 \end{aligned}
+          </me>
+          which has no solutions since <m>x^4\geq 0</m> for all <m>x</m>.
+          Since <m>x\pm 1</m> are not in the domain of <m>k'</m>,
+          there are no critical points of <m>k'</m>.
+        </p>
+        <p>
+          Testing whether <m>k</m> is concave up or concave down on its domain by determining the sign of <m>k''(x)</m>:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>[-1,1]</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>k''</m> is</cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>k</m> is</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          Note that <m>k</m> is concave up on its domain,
+          confirming that there is a local minimum at <m>x=0</m>.
+        </p>
+        <p>
+          <em>Inflection Points:</em> <m>k</m> does not change concavity,
+          so there are no inflection points.
+        </p>
+        <p>
+          <em>Sketch:</em> Begin by plotting the root and minimum at <m>(0,0)</m> and the local maxima
+          <m>\left(-1,\frac{\pi}{2}\right)</m> and <m>\left(1,\frac{\pi}{2}\right)</m>.
+          Recall that <m>k</m> is only defined on the domain of <m>[-1,1]</m> and there are no asymptotes to add to the graph.
+          Draw curves connecting the three points with the appropriate shape on each of the intervals:
+        </p>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>[-1,0)</m></cell>
+            <cell><m>(0,1]</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>k</m> is</cell>
+            <cell>decreasing and</cell>
+            <cell>increasing and</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell>concave up</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch <em>by hand</em> the function
+          <m>k(x) = \arcsin x^2</m> using the detailed analysis from <xref ref="ex_curvesketch4">Example</xref>.
+          Then check your sketch by graphing <m>k(x) = \arcsin x^2</m> on Desmos.
+          Are there any features that are more obvious from the analysis than they appear on the computer-generated graph?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <em>Key ideas:</em> We can determine a fairly accurate graph of functions by hand using limits and calculus,
+      and only using a calculator occasionally to approximate values via decimals.
+      This analysis can be even more precise than what we see by graphing the function with a computer as some features can be hard to see on a screen unless we know to look for them.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Knowing precise definitions and the methods learned throughout the course are crucial for completing a full curve sketch.
+      This section is a way for you to test your cumulative knowledge and pinpoint what ideas you need to review prior to the final exam.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 8.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

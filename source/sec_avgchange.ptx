@@ -1,0 +1,776 @@
+<section xml:id="sec_avgchange">
+  <title>Average Rate of Change</title>
+  <introduction>
+    <p>
+          <idx><h>Functions</h><h>Average Rate of Change</h></idx>
+    </p>
+  </introduction>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Learn the formula for average rate of change and be able to use it to calculate the average rate of change of a function on an interval.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visualize average rate of change on the graph of a function.
+        </p>
+      </li>
+      <li>
+        <p>
+          See how the idea of average rate of change can be useful in some applied contexts.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand the units for average rate of change in the context of a mathematical model.
+        </p>
+      </li>
+      <li>
+        <p>
+          Compare the average rate of change of a linear function and a quadratic function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Revisit the idea of concavity in terms of average rate of change.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Definition of Average Rate of Change of a Function</title>
+    <p>
+      In the previous section,
+      we looked at linear and quadratic functions in some depth.
+      We now know that each type of function has a predictable shape.
+      In particular, linear function have a constant slope,
+      while quadratic functions do not.
+      Another way to say this is that linear functions change at a constant rate.
+      In this section,
+      we learn one way to describe how functions change when they do not increase or decrease at a constant rate.
+    </p>
+    <example>
+      <statement>
+        <p>
+          <xref ref="tab_polevault" autoname="yes"/> below shows the height of the winning pole vault at the Olympics<fn>
+          <em>The World Almanac and Book of Facts, 2005</em>,p. 866 (New York).
+          As found in <em>Applied Calculus</em> by Hughes Hallet et al.
+          </fn> during the 1960s and more recently.
+          Find the rate of change of the winning height between 1960 and 1968, and between 2008 and 2016.
+          In which of these two periods did the height increase faster?
+        </p>
+        <table xml:id="tab_polevault">
+          <title>Winning height in men's Olympic pole vault (approximate)</title>
+          <tabular>
+            <row>
+              <cell>\toprule
+                Year</cell>
+              <cell>1960</cell>
+              <cell>1964</cell>
+              <cell>1968</cell>
+              <cell>\ldots</cell>
+              <cell>2008</cell>
+              <cell>2012</cell>
+              <cell>2016</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                Height (cm)</cell>
+              <cell>470</cell>
+              <cell>510</cell>
+              <cell>540</cell>
+              <cell>\ldots</cell>
+              <cell>596</cell>
+              <cell>597</cell>
+              <cell>603</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+      <solution>
+        <p>
+          To compare the 1960s and the more recent period,
+          we calculate the average change over each time period,
+          similar to how we calculate the slope of a line as <m>\frac{\text{ rise } }{\text{ run } }</m>:
+          <me>
+            \substack{\text{{Average rate of change of height}} \\ \text{{1960 to 1968}} }  = \frac{\text{ Change in height } }{\text{ Change in time } } = \frac{540-470}{1968-1960} = 8.75 \text{ cm/year }
+          </me>
+          <me>
+            \substack{\text{{Average rate of change of height}} \\ \text{{2008 to 2016}} }  = \frac{\text{ Change in height } }{\text{ Change in time } } = \frac{603-596}{2016-2008} = 0.88 \text{ cm/year }
+          </me>
+        </p>
+        <p>
+          Thus, on average,
+          the height was increasing more quickly during the 1960s.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The data in <xref ref="tab_polevault" autoname="yes"/> does not have a constant rate of change
+      (it is not linear).
+      However, we can compute an <em>average rate of change</em> over any interval.
+      The word average is used because the rate of change may vary within the interval.
+    </p>
+    <p>
+      In general, given a function that models a certain phenomenon,
+      it's natural to ask such questions as "how is the function changing on a given interval" or "on which interval is the function changing more rapidly?" The concept of
+      <em>average rate of change</em>
+      enables us to make these questions more mathematically precise.
+    </p>
+    <p>
+      We use the symbol <m>\Delta</m>
+      (the Greek letter capital delta)
+      to mean "change in," so <m>\Delta x</m> means "change in <m>x</m> and
+      <m>\Delta y</m> means "change in y." The average rate of change of a dependent quantity is then expressed as a fraction of the change in the dependent variable divided by the amount of change in the independent variable:
+    </p>
+    <definition xml:id="def_averagerateofchange">
+      <title>Average Rate of Change</title>
+      <statement>
+        <p>
+          If <m>y</m> is a function of <m>x</m>, so <m>y=f(x)</m>, then
+          <me>
+            \substack{\text{{\textbf{Average rate of change} of \(y\)}} \\\text{{between \(x=a\) and \(x=b\)}} }  = \frac{\Delta y}{\Delta x} = \frac{f(b)-f(a)}{b-a}
+          </me>.
+          The units of average rate of change of a function are units of <m>y</m> per units of <m>x</m>.
+        </p>
+        <p>
+          We will often abbreviate the average rate of change on the interval <m>[a,b]</m> as
+          <me>
+            AV_{[a,b]}
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The quantity <m>\frac{f(b)-f(a)}{b-a}</m> is called a
+      <em>difference quotient</em>
+      because it is the quotient of two differences.
+      This formula may look familiar to you;
+      it resembles the formula we use in <xref ref="sec_linearandquadraticfunctions" autoname="yes"/> to compute the slope of the line between two points.
+      As we will explore later,
+      the average rate of change of a function <m>f</m> on an interval <m>[a,b]</m> can be visualized as the slope of the line from <m>(a,f(a))</m> to <m>(b,f(b))</m>.
+    </p>
+    <example xml:id="ex_avgchange1">
+      <statement>
+        <p>
+          For example,
+          the function graphed below in <xref ref="fig_taalmanpage40a" autoname="yes"/> is increasing until <m>x=-2</m>,
+          decreasing from <m>x=-2</m> to <m>x=1</m>,
+          increasing again from <m>x=1</m> until <m>x=3</m>,
+          and then decreasing after <m>x=3</m>.
+        </p>
+        <figure xml:id="fig_taalmanpage40a">
+          <caption>A function that both increases and decreases.</caption>
+          <image width="46%" source="TaalmanPage40.png"/>
+        </figure>
+        <p>
+          The function is not linear and so has no "slope." In order to discuss how much it increases or decreases,
+          we can look at each interval separately.
+        </p>
+        <p>
+          On the interval <m>[-2,1]</m>,
+          we calculate the average rate of change of <m>y</m> between <m>x=-2</m> and <m>x=1</m>.
+          First, we observe that <m>f(-2)=4</m> and <m>f(1)=-2</m> in order to use these quantities in the formula for Average Rate of Change with <m>a=-2</m> and <m>b=1</m>:
+          <me>
+            AV_{[-2,1]} = \frac{f(1)-f(-2)}{1-(-2)} = \frac{-2-4}{1+2} = \frac{-6}{3} = -2
+          </me>
+          and so we see that, on average,
+          the function is changing by <m>-2</m> units of <m>y</m> per unit of <m>x</m> between <m>x=-2</m> and <m>x=1</m>.
+          We could also say that the function is decreasing by 2 units of <m>y</m> per unit of <m>x</m>,
+          which matches what we see in the picture.
+        </p>
+        <p>
+          Similarly, we calculate the average rate of change of <m>y</m> on the interval <m>[1,3]</m>.
+          Observe that <m>f(1)=-2</m> and <m>f(3)=0</m> will be used in the formula for Average Rate of Change,
+          using <m>a=1</m> and <m>b=3</m>:
+          <me>
+            AV_{[1,3]} = \frac{f(3)-f(1)}{3-1} = \frac{0-(-2)}{3-1} = \frac{2}{2} = 1
+          </me>
+          so, on average,
+          the function is increasing by 1 unit of <m>y</m> per unit of <m>x</m> between <m>x=1</m> and <m>x=3</m>.
+        </p>
+        <p>
+          We can also measure average rate of change over intervals where the function both increases and decreases.
+          For example,
+          on the interval <m>[-1,2]</m> the function first decreases and then increases.
+          Note that <m>f(-1) = 2</m> and <m>f(2) = -1</m>.
+          Computing the average rate of change from <m>x=-1</m> to <m>x=2</m>:
+          <me>
+            AV_{[-1,2]} = \frac{f(2)-f(-1)}{2-(-1)} = \frac{-1-2}{2+1} = \frac{-3}{3} = -1
+          </me>
+          so, on average, the function is decreasing by 1
+          (or changing by <m>-1</m>)
+          unit of <m>y</m> per unit of <m>x</m> between <m>x=-1</m> and <m>x=2</m>.
+        </p>
+        <p>
+          As another example,
+          the average rate of change on the interval <m>[0,2]</m> is
+          <me>
+            AV_{[0,2]} = \frac{f(2)-f(0)}{2-0} = \frac{-1-(-1)}{2} = \frac{0}{2} = 0
+          </me>
+          where we observe that since
+          <m>f(0) = -1</m> and <m>f(2) = -1</m>,
+          the function has not changed <em>on average</em>
+          from <m>x=0</m> to <m>x=2</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          What is another interval where the function pictured above in <xref ref="fig_taalmanpage40a" autoname="yes"/> has an average rate of change of 0?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Average Change of a Linear Function</title>
+    <p>
+      Let's examine the average change of linear functions using the function <m>f(x) = 7-3x</m>.
+      Before we begin and without doing any calculations,
+      think about what the average change of a line <em>should</em> be.
+    </p>
+    <p>
+      Now let's compute the average change of
+      <m>f(x) = 7-3x</m> on three different, random intervals:
+      <m>[-3,-1]</m>, <m>[2,5]</m>, and <m>[4,10]</m>.
+      Before reading the calculations below,
+      you should evaluate the values of <m>f</m> at each of the endpoints of the intervals (<m>f(-3), f(-1), f(2), f(4), f(5)</m>,
+      and <m>f(10)</m>) to make following it less confusing.
+      <me>
+        AV_{[-3,-1]}=\frac{f(-1)-f(-3)}{-1-(-3)} = \frac{10-16}{2} = \frac{-6}{2} = -3
+      </me>.
+      <me>
+        AV_{[2,5]} = \frac{f(5)-f(2)}{5-2} = \frac{-8-1}{3} = \frac{-9}{3} = -3
+      </me>
+      <me>
+        AV_{[4,10]}= \frac{f(10)-f(4)}{10-4} = \frac{-23-(-5)}{6} = \frac{-18}{6} = -3
+      </me>
+    </p>
+    <p>
+      We notice that we have gotten the same average change of <m>-3</m> for all three intervals.
+      We wonder if this is a coincidence.
+      In order to confirm that this is
+      <em>not</em> a coincidence,
+      we calculate the average change of
+      <m>f(x) = 7-3x</m> on any interval <m>[a,b]</m>:
+      <me>
+        \begin{aligned}AV_{[a,b]} \amp = \frac{f(b)-f(a)}{b-a}\\ \amp = \frac{(7-3(b))-(7-3(a))}{b-a}\\ \amp =\frac{7-3b-7+3a}{b-a}\\ \amp = \frac{-3b+3a}{b-a}\\ \amp = \frac{-3(b-a)}{b-a}\\ \amp =-3 \end{aligned}
+      </me>
+    </p>
+    <p>
+      So now we have confirmed that the average rate of change of <m>f(x) = 7-3x</m> on
+      <em>any</em> interval is <m>-3</m>,
+      which is the same as the slope <m>m=-3</m>.
+    </p>
+    <p>
+      There was nothing special about this function.
+      The average change of any linear function
+      <m>f(x) = mx+b</m> on any interval is the slope <m>m</m> of the function.
+      In fact, we may take this to be the definition of a linear function,
+      if we want:
+    </p>
+    <definition>
+      <title>Alternate Definition of a Linear Function</title>
+      <statement>
+        <p>
+          A function <m>f</m> is <em>linear</em>
+          provided that its average rate of change is constant on every choice of interval in its domain.
+        </p>
+      </statement>
+    </definition>
+    <exercise>
+      <statement>
+        <p>
+          Let <m>y=g(x)</m> be given by the data in the table
+        </p>
+        <p>
+          <image width="70%" source="APC1-4Soln1b.png"/>
+        </p>
+        <p>
+          Determine <m>AV_{[-5,-2]}, AV_{[-1,1]}</m>,
+          and <m>AV_{[0,4]}</m> for the function <m>g</m>.
+          Could <m>g</m> be a linear function?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Visualizing Average Rate of Change</title>
+    <p>
+      So far we have practiced using the formula for average rate of change from a graph,
+      function,
+      and table.
+      We also established that the average rate of change of a line is its slope.
+      In this section, we connect these two ideas:
+    </p>
+    \fbox{The average rate of change of a function <m>f</m> on an interval <m>[a,b]</m> can be visualized as the slope of the line between the points <m>(a,f(a))</m> and <m>(b,f(b))</m>. }
+    <example>
+      <title>Visualizing Average Rate of Change as Slope</title>
+      <statement>
+        <p>
+          Calculate the average rate of change of the function
+          <m>f(x) = x^2-x+1</m> (a) on the interval <m>[0,3]</m> and (b) on the interval <m>[-1,1]</m>.
+          Then (c) illustrate these average rates of change graphically.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol marker="labelalph">
+            <li>
+              <p>
+                To find the average change on <m>[0,3]</m>,
+                first we compute <m>f(0) = 0^2-0+1 = 1</m> and <m>f(3) = 3^2-3+1 = 7</m>.
+                Now using the formula, we have
+                <me>
+                  AV_{[0,3]} = \frac{f(3)-f(0)}{3-0} = \frac{7-1}{3-0} = \frac{6}{3} = 2
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                To find the average change on <m>[-1,1]</m>,
+                let's first compute that <m>f(-1) = (-1)^2-(-1)+1 = 3</m> and <m>f(1) = 1^2-1+1 = 1</m>.
+                Using the  formula again, we have
+                <me>
+                  AV_{[-1,1]} = \frac{f(1)-f(-1)}{1-(-1)} = \frac{1-3}{2} = \frac{-2}{2} = -1
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Graphically,
+                the two average rates we found can be represented as slopes of line segments,
+                as follows:
+                <figure xml:id="fig_taalmanpage46l">
+                  <caption>The slope between <m>(0,f(0))</m> and <m>(3,f(3))</m> is 2.</caption>
+                  \begin{subfigure}[H]{0.4\textwidth} <image width="70%" source="TaalmanPage46L.png"/> \end{subfigure} \hspace{.5in} \begin{subfigure}[H]{0.4\textwidth} <image width="70%" source="TaalmanPage46R.png"/> \caption{The slope between <m>(-1,f(-1))</m> and <m>(1,f(1))</m> is <m>-1</m>.} \end{subfigure} \caption{The average rate of change can be visualized as slope.}
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Copy the graph from Example <xref ref="ex_avgchange1" autoname="yes"/> on to your paper and visualize the average change on <m>[-2,1], [1,3], [-1,2]</m>,
+          and <m>[0,2]</m> as the slope of the line between the endpoints of each interval
+          (one line for each interval).
+          Make sure these appear to be reasonable based on the calculated average rates of change in Example <xref ref="ex_avgchange1" autoname="yes"/>.
+        </p>
+        <figure xml:id="fig_taalmanpage40again">
+          <caption>The graph from Example \xautoref{ex_avgchange1}.</caption>
+          <image width="46%" source="TaalmanPage40.png"/>
+        </figure>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Average Change in Context</title>
+    <p>
+      Let's now return to the question of describing the rate of change of a quantity in context,
+      paying special attention to the units and interpretation for these calculations.
+    </p>
+    <example xml:id="ex_avgchangefallingball">
+      <statement>
+        <p>
+          Let the height function for a ball tossed vertically be given by
+          <me>
+            s(t) = 64-16(t-1)^2
+          </me>,
+          where <m>t</m> is measured in seconds since the ball was thrown and <m>s</m> is measured in feet above the ground.
+        </p>
+        <p>
+          Plotting the function <m>s(t)</m> using Desmos in <xref ref="fig_APCEx1-3-1Graph" autoname="yes"/>,
+          it looks like the ball is thrown from a height of 48 feet,
+          reaches its maximum height of 64 feet after 1 second,
+          and hits the ground after 3 seconds:
+        </p>
+        <figure xml:id="fig_APCEx1-3-1Graph">
+          <caption>The function <m>s(t) = 64-16(t-1)^2</m> graphed with key points labeled.</caption>
+          <image width="46%" source="APCEx1-3-1Graph.png"/>
+        </figure>
+        <p>
+          The average rate of change of <m>s(t)</m> on the interval <m>[1.5,2.5]</m> is calculated below,
+          using the fact that <m>s(1.5) = 64-16(1.5-1)^2=60</m> and <m>s(2.5)=64-16(2.5-1)^2 = 28</m>:
+          <me>
+            AV_{[1.5,2.5]} = \frac{s(2.5)-s(1.5)}{2.5-1.5} = \frac{28-60}{1} = -32
+          </me>
+        </p>
+        <p>
+          According to Definition <xref ref="def_averagerateofchange" autoname="yes"/>,
+          the units for the average rate of change of <m>s(t)</m> should be "units of <m>s</m> per units of <m>t</m>." Since the units of <m>s</m> are feet and the units of <m>t</m> are seconds,
+          the units for <m>AV_{[1.5,2.5]} = -32</m> are "feet per second." In the context of the ball,
+          this means that from 1.5 seconds to 2.5 seconds after the ball is thrown,
+          it falls at an average speed of 32 feet per second toward the ground.
+        </p>
+        <p>
+          We can visualize the quantity <m>-32</m> as the slope of the line connecting the points <m>(1.5,60)</m> and
+          <m>(2.5,28)</m> on the graph of <m>s(t)</m>:
+        </p>
+        <p>
+          <image width="37%" source="APCFigure1-3-2.png"/>
+        </p>
+      </statement>
+    </example>
+    <p>
+      In the context of a function that measures height or position of a moving object at a given time,
+      such as in Example <xref ref="ex_avgchangefallingball" autoname="yes"/>,
+      the meaning of the average rate of change of the function on a given interval is the
+      <em>average velocity</em>
+      of the moving object because it is the ratio of
+      <m>\Delta s=</m> change in position to <m>\Delta t=</m> change in time:
+      <me>
+        AV_{[a,b]} = \frac{s(b)-s(a)}{b-a} =\frac{ \Delta s}{\Delta t} = \frac{\text{ change in position } }{\text{ change in time } } = \text{ average velocity }
+      </me>
+    </p>
+    <p>
+      For example,
+      in Exercise <xref ref="ex_avgchangefallingball" autoname="yes"/>,
+      the units on <m>AV_{[1.5,2.5]}=-32</m> are "feet per second" since the units on the numerator are "feet" and on the denominator "seconds." The fact that the average rate of change is negative in this example indicates that the ball is falling.
+      In every situation,
+      the units on the average rate of change help us interpret its meaning,
+      and those units are always "units of output per unit of input."
+    </p>
+    <p>
+      Here is another context in which we consider an average rate of change:
+    </p>
+    <example>
+      <statement>
+        <p>
+          According to the US census,
+          the populations of Kent and Ottawa Counties in Michigan from 1960 to 2010,
+          measured in <m>10</m>-year intervals are given in the following tables.
+        </p>
+        <p>
+          Kent County population data.
+          <me>
+            \begin{array}{cccccc} 1960  \amp 1970\amp   1980  \amp 1990\amp   2000  \amp 2010\\ \hline 363,187  \amp 411,044  \amp 444,506  \amp 500,631  \amp 574,336  \amp 602,622 \end{array}
+          </me>
+        </p>
+        <p>
+          Ottawa county population data.
+          <me>
+            \begin{array}{cccccc} 1960  \amp 1970  \amp 1980\amp 1990  \amp 2000  \amp 2010\\ \hline 98,719  \amp 128,181\amp   157,174  \amp 187,768  \amp 238,313\amp   263,801 \end{array}
+          </me>
+        </p>
+        <p>
+          Let <m>K(Y)</m> represent the population of Kent County in year <m>Y</m> and <m>W(Y)</m> the population of Ottawa County in year <m>Y</m>.
+          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                Compute <m>AV_{[1990,2010]}</m> for both <m>K</m> and <m>W</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                What are the units on each of the quantities you computed in part a?
+              </p>
+            </li>
+            <li>
+              <p>
+                Write a careful sentence that explains the meaning of the average rate of change of the Ottawa county population on the time interval <m>[1990,2010]</m>.
+                Your sentence should begin something like ``In an average year between 1990 and 2010,
+                the population of Ottawa County was ..."
+              </p>
+            </li>
+            <li>
+              <p>
+                Which county had a greater average rate of change during the time interval <m>[2000,2010]</m>?
+                Were there any intervals in which one of the counties had a negative average rate of change?
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the given data,
+                what do you predict will be the population of Ottawa County in 2018?
+                Why?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If you have time, attempt the questions yourself,
+          then read the solutions below.
+          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                For <m>K</m>,
+                we have <m>AV_{[1990,2010]}=\frac{K(2010)-K(1990)}{2010-1990}=\frac{602,622-500,631}{20}=5,099.55</m>.
+                For <m>W</m>,
+                we have <m>AV_{[1990,2010]}=\frac{W(2010)-W(1990)}{2010-1990}=\frac{263,801-187,768}{20}=3,801.65</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Population is measured in people,
+                time here is measured in years.
+                So, the units are people per year.
+              </p>
+            </li>
+            <li>
+              <p>
+                In an average year between 1990 and 2010,
+                the population of Ottawa County was increasing by about <m>3,802</m> people per year.
+              </p>
+            </li>
+            <li>
+              <p>
+                Between 2000 and 2010, the Kent County population increased by about <m>2,829</m> people per year,
+                and the Ottawa County population increased by about <m>2,549</m> people per year.
+                So, Kent county had a greater average rate of change.
+                Since the populations always increase from one decade to the next,
+                neither county has an interval with a negative average rate of change.
+              </p>
+            </li>
+            <li>
+              <p>
+                The average rate of change between <m>2000</m> and <m>2010</m> in Ottawa county is <m>2,549</m> people per year;
+                if we assume this holds over the next <m>8</m> years,
+                then in <m>2018</m> the total population will be:
+                <m>263,801</m> people <m>+8</m> years
+                <m>\times \ 2,549</m> people per year <m>=284,193</m> people.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <p>
+      The average rate of change of a function on an interval gives us an excellent way to describe how the function behaves,
+      on average.
+      For instance, if we compute
+      <me>
+        AV_{[1970,2000]}
+      </me>
+      for Kent County, we find that
+      <me>
+        AV_{[1970,2000]}=\frac{574,336-411,044}{30} = 5443.07
+      </me>,
+      which tells us that in an average year from 1970 to 2000,
+      the population of Kent County increased by about 5443 people.
+      Said differently,
+      we could also say that from 1970 to 2000, Kent County was growing at an average rate of 5443 people per year.
+      These ideas also afford the opportunity to make comparisons over time.
+      Since
+      <me>
+        AV_{[1990,2000]} = \frac{574366-500,631}{10} = 7370.5
+      </me>,
+      we can not only say that Kent County's population increased by about 7370 in an average year between 1990 and 2000,
+      but also that the population was growing faster from 1990 to 2000 than it did from 1970 to 2000.
+    </p>
+    <p>
+      Finally, we can even use the average rate of change of a function to predict future behavior.
+      Since the population was changing on average by 7370.5 people per year from 1990 to 2000,
+      we can estimate that the population in 2002 is
+      <me>
+        K(2002)\approx K(2000)+2\cdot 7370.5 = 574,336+14,741 = 589,077
+      </me>.
+    </p>
+    <p>
+      This of course assumes that the average increase in population during the next two years remains the same as it has been in the past 10 years.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Concavity and Average Change of a Quadratic Function</title>
+    <p>
+      In contrast to linear functions,
+      quadratic functions do not have a constant rate of change.
+      Instead, their rates of change follow a different pattern.
+      We'll begin to see this pattern by looking at the graphs of functions whose rates of change are increasing throughout an interval or decreasing throughout an interval.
+    </p>
+    <p>
+      <xref ref="fig_TaalmanPage250Increasing" autoname="yes"/> below shows graphs that are concave up:
+      they are bending upward because the rate of change of the function is increasing.
+    </p>
+    <figure xml:id="fig_TaalmanPage250ICU">
+      <caption>An increasing, concave up function.</caption>
+      \begin{subfigure}[H]{0.2\textwidth}
+      <image width="70%" source="TaalmanPage250ICU.png"/>
+      \end{subfigure}
+      \hspace{.5in}
+      \begin{subfigure}[H]{0.2\textwidth}
+      <image width="70%" source="TaalmanPage250DCU.png"/>
+      \caption{A decreasing, concave up function.} \end{subfigure}
+      \caption{Graphs that are concave up. Their rates of change are increasing.}
+    </figure>
+    <p>
+      On the other hand,
+      <xref ref="fig_TaalmanPage250Decreasing" autoname="yes"/> below shows graphs that are concave down:
+      they are bending downward because the rate of change of the function is decreasing.
+    </p>
+    <figure xml:id="fig_TaalmanPage250ICUX">
+      <caption>An increasing, concave down function.</caption>
+      \begin{subfigure}[H]{0.2\textwidth}
+      <image width="70%" source="TaalmanPage250ICD.png"/>
+      \end{subfigure}
+      \hspace{.5in}
+      \begin{subfigure}[H]{0.2\textwidth}
+      <image width="70%" source="TaalmanPage250DCD.png"/>
+      \caption{A decreasing, concave down function.} \end{subfigure}
+      \caption{Graphs that are concave down. Their rates of change are decreasing.}
+    </figure>
+    <p>
+      We know that quadratic functions are always either concave up or concave down,
+      so we can expect their rates of change to increase
+      (if the quadratic function in concave up)
+      or for them to decrease
+      (if the quadratic function is concave down).
+      Note that a line is neither concave up nor concave down,
+      and its rate of change is constant.
+    </p>
+    <p>
+      Here is an example in the context of a falling object to help us look even further into what pattern rates of change of quadratic functions follow:
+    </p>
+    <example xml:id="ex_APC1-5-3">
+      <statement>
+        <p>
+          Suppose a water balloon is tossed vertically from a fifth story window.
+          Its height, <m>h</m>, in meters,
+          at time <m>t</m>, in seconds,
+          is modeled by the function
+          <me>
+            h(t) = -5t^2+20t+25
+          </me>.
+        </p>
+        <p>
+          Below is a table for values of average rates of change for <m>h</m> on select intervals.
+          Can you spot a pattern?
+        </p>
+        <table xml:id="tab_APC1-5-9">
+          <title>Average rates of change for <m>h</m> on several unit-length intervals</title>
+          <tabular>
+            <row>
+              <cell><m>[a,b]</m></cell>
+              <cell><m>AV_{[a,b]}</m></cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>[0,1]</m></cell>
+              <cell><m>15</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>[1,2]</m></cell>
+              <cell><m>5</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>[2,3]</m></cell>
+              <cell><m>-5</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>[3,4]</m></cell>
+              <cell><m>-15</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>[4,5]</m></cell>
+              <cell><m>-25</m> m/s</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          In <xref ref="tab_APC1-5-9">Table</xref>
+          we see an interesting pattern in the average velocities of the ball:
+          they decrease by exactly 10 m/s on each subsequent unit-length interval.
+          Indeed, if we remove the endpoint of each interval and focus on the starting value of each interval,
+          viewing the resulting average rate of change <m>r</m> as a function of the starting value,
+          we may consider the related table,
+          <xref ref="tab_APC1-5-10">Table</xref> seen below:
+        </p>
+        <table xml:id="tab_APC1-5-10">
+          <title>Data from <xref ref="tab_APC1-5-9">Table</xref>,  recast with average velocity <m>r(a)</m> as a function of the starting point <m>a</m> of the interval</title>
+          <tabular>
+            <row>
+              <cell><m>a</m></cell>
+              <cell><m>r(a)</m></cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>0</m></cell>
+              <cell><m>r(0)=15</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>r(1)=5</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>r(2)=-5</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>r(3)=-15</m> m/s</cell>
+            </row>
+            <row>
+              <cell><m>4</m></cell>
+              <cell><m>r(4)=-25</m> m/s</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We observe that the average rate of change of <m>h</m> is decreasing by 10 m/s for each second that passes.
+          It is itself changing in a way that seems to be represented by a linear function.
+          Thus it appears that the average rate of change <m>r</m> is a linear function of <m>a</m>.
+          Moreover, we can also visualize the <em>concave down</em>
+          quadratic function <m>h</m> and its
+          <em>decreasing</em> average rates of change.
+          The picture below graphs these average rates of change as slope on each interval,
+          and we can see that the slopes of the lines on each interval are getting more and more negative
+          (from <m>m=15</m> to <m>m=5</m>, then <m>m=-5</m>, etc.).
+        </p>
+        <p>
+          <image width="56%" source="APCFigure1-5-11.png"/>
+        </p>
+      </statement>
+    </example>
+    <p>
+      While it takes key ideas from calculus to formalize this observation,
+      for now we will simply note that for a quadratic function,
+      there seems to be a related linear function that tells us something about how the quadratic function changes.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Summarize the difference between average rates of change for linear and quadratic functions.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms, symbols,
+      and formulas were introduced in this section:
+    </p>
+    <m>\Delta</m> meaning "change in," average rate of change of a function on an interval, difference quotient, average velocity.
+    <p>
+      <em>Key ideas:</em> The average rate of change of a function on an intervals describes how much,
+      on average,
+      that function is increasing or decreasing on the interval.
+      Linear functions have constant average rate of change.
+      Quadratic functions do not have a constant average rate of change.
+      Average rate of change can be visualized as slope between points on the graph.
+      The units for average rate of change are units of output per unit of input.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Functions that are concave up have increasing rates of change while functions that are concave down have decreasing rates of change.
+      Quadratic functions have rates of change that appear to be changing linearly.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 1.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

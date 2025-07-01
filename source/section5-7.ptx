@@ -1,0 +1,1719 @@
+<section>
+  <title>Curve Sketch Analysis of Rational Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Follow the Curve Sketching Summary to construct an accurate,
+          labeled graph of a polynomial or rational function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recall the definitions of even and odd symmetry of a function and the visual properties of even and odd functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recall how to determine vertical asymptotes,
+          holes, and horizontal asymptotes via limit calculations.
+        </p>
+      </li>
+      <li>
+        <p>
+          Reflect on the information collected in the various steps of the method and whether they support or contradict each other.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Curve Sketching Summary</title>
+    <introduction>
+      <p>
+        In this section,
+        we focus on sketching accurate graphs of rational functions by hand
+        (as much as possible),
+        using information calculated from the first and second derivatives.
+        We must also be concerned with identifying any points where the function is undefined and determining the behavior of the function at those points via limits
+        (either finding a hole or a vertical asymptote).
+        Additionally,
+        the end-behavior of rational functions may be infinite,
+        or the function may have a horizontal asymptote.
+        Below is a summary of all of the information we will collect and use in our graphs:
+        <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+          <li>
+            <p>
+              the domain.
+            </p>
+          </li>
+          <li>
+            <p>
+              the <m>y</m>-intercept.
+            </p>
+          </li>
+          <li>
+            <p>
+              any <m>x</m>-intercepts that we can find easily
+              (many times this is not possible without more advanced algebraic methods).
+              Potentially a sign analysis for the function itself that shows where it is above and below the <m>x</m>-axis,
+              but this requires complete knowledge of all <m>x</m>-intercepts.
+            </p>
+          </li>
+          <li>
+            <p>
+              any even or odd symmetry.
+            </p>
+          </li>
+          <li>
+            <p>
+              the behavior of the function at any non-domain points,
+              meaning the limits as <m>x\to c</m> for any value <m>x=c</m> not in the domain of the function.
+              We make special note of any holes or vertical asymptotes.
+            </p>
+          </li>
+          <li>
+            <p>
+              the "end behavior" of the graph,
+              meaning the limits as <m>x\to\pm\infty</m>.
+              We make special note of any horizontal asymptotes.
+            </p>
+          </li>
+          <li>
+            <p>
+              any local minima or maxima,
+              along with where the function is increasing and decreasing using the first derivative.
+            </p>
+          </li>
+          <li>
+            <p>
+              any inflection points and where the function is concave up and concave down using the second derivative.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        To begin graphing the function,
+        we first plot all of the intercepts,
+        holes, local minima and maxima, and inflection points.
+        We draw dashed vertical lines for any vertical asymptotes,
+        and dashed horizontal lines for any horizontal asymptotes.
+        Then we "connect the dots" using the following four possible shapes of nonlinear functions:
+      </p>
+      <p>
+        <image width="93%" source="TaalmanPage250.png"/>
+      </p>
+      <exercise>
+        <statement>
+          <p>
+            Before reading the examples in the rest of the section,
+            write down the steps above
+            (or at least a brief summary of them)
+            so you can more easily follow the calculations without having to scroll back up to this list.
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>A Brief Review of Symmetry</title>
+      <p>
+        It has been several chapters since we thought about even and odd symmetry,
+        so here is a quick reminder.
+        For a more thorough review,
+        you could reread <xref ref="sec_symmetry" autoname="yes"/>.
+      </p>
+      <p>
+        Remember that a function <m>f(x)</m> is called
+        <em>even</em> if <m>f(-x)=f(x)</m>.
+        This means that it has reflectional symmetry across the <m>y</m>-axis.
+        A function <m>f(x)</m> is called
+        <em>odd</em> if <m>f(-x)=-x</m>.
+        An odd function has <m>180^\circ</m> rotational symmetry about the origin,
+        or equivalently is the same if reflected over both the <m>x</m>- and <m>y</m>-axes.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For example, the function <m>f(x) = x^2</m> is even since
+            <me>
+              f(-x) = (-x)^2 = x^2 = f(x)
+            </me>.
+            The function <m>g(x) = x^3</m> is odd since
+            <me>
+              g(-x) = (-x)^3 = -x^3  = -g(x)
+            </me>.
+            The graphs of <m>f(x)</m> and <m>g(x)</m> both have the expected symmetry:
+          </p>
+          <figure xml:id="fig_TaalmanPage66a-again">
+            <caption><m>f(x)=x^2</m> is preserved under reflection across the <m>y</m>-axis..</caption>
+            \begin{subfigure}[H]{0.4\textwidth}
+            <image width="80%" source="TaalmanPage66a.png"/>
+            \end{subfigure}
+            \hspace{.2in}
+            \begin{subfigure}[H]{0.4\textwidth}
+            <image width="80%" source="TaalmanPage66b.png"/>
+            \caption{<m>g(x)=x^3</m> is preserved under <m>180^\circ</m> rotation about the origin.} \end{subfigure}
+            \caption{Even (a) and odd (b) symmetry.}
+          </figure>
+        </statement>
+      </example>
+      <p>
+        While not essential for sketching the graph of a function,
+        recognizing any symmetry present can help you catch errors and can be used as a short-cut while carrying out these lengthy computations.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Examples of Sketching Polynomial Functions</title>
+    <p>
+      Each of the following examples is quite long,
+      though each individual step is manageable enough.
+      When carrying out your own "curve sketch," make sure to organize your work and keep careful track of whether you are using information from the original function,
+      the first derivative, or the second derivative.
+      It is often useful to keep a list of "key points" discovered
+      (intercepts, local max/mins, inflection points).
+      Alternately,
+      you can begin your graph early and add each point as it is discovered.
+    </p>
+    <example xml:id="ex_quinticsketch">
+      <statement>
+      <p>
+        Consider the function
+        <me>
+          g(x) = x^5-15x^3
+        </me>.
+        <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+          <li>
+            <p>
+              The domain of any polynomial function is all real numbers.
+            </p>
+          </li>
+          <li>
+            <p>
+              The <m>y</m>-intercept of <m>g(x)</m> is <m>y=g(0) = 0^5-15(0)^3 = 0</m>,
+              meaning the point <m>(0,0)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>g(x)</m> factors by hand with a little persistence and a difference of "squares" involving the observation that <m>(\sqrt{15})^2 = 15</m>:
+              <me>
+                g(x) = x^5-15x^3 = x^3(x^2-15) = x^3(x-\sqrt{15})(x+\sqrt{15})
+              </me>
+              and we see that there are <m>x</m>-intercepts at <m>x=0</m> and <m>x=\pm\sqrt{15}\approx \pm 3.87</m>.
+              Notice that <m>x=0</m> was also the <m>y</m>-intercept.
+              We can additionally draw a number line for where the function <m>g</m> is positive and negative,
+              which will be useful when we go to draw the function:
+              <image>
+                 <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-5,0) -- (5,0) node[right]{\(g\)} ; \foreach \x in  {-3.87, 0,3.87} \draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in  {-3.87, 0,3.87} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-2, 4.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-4.5, 2} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+              </image>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>g(x)</m> is odd since
+              <me>
+                g(-x) = (-x)^5-15(-x)^3 = -x^5+15x^3 = -(x^5-15x^3) = -g(x)
+              </me>.
+              This confirms the accuracy of the previous sign analysis for <m>g(x)</m>:
+              if <m>g(x)</m> is positive at a certain <m>x</m>-value <m>x=a</m>,
+              it will be negative at the value <m>x=-a</m>, and vice versa.
+              For instance,
+              <m>g(-1)</m> is positive while <m>g(1)</m> is negative.
+              Additionally,
+              if we had not found both <m>x</m>-intercepts <m>x=\pm \sqrt{15}</m>,
+              this would have told us that we were missing one.
+              (Finding only <m>x=+\sqrt{15}</m> is a fairly common error.)
+            </p>
+          </li>
+          <li>
+            <p>
+              There are no non-domain points of <m>g(x)</m> since <m>g(x) = x^5-15x^3</m> is a polynomial.
+              In particular,
+              there are no holes or vertical asymptotes in the graph of <m>g(x)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Recall that for limits of the form <m>\infty-\infty</m>,
+              we can determine the precise behavior by force-factoring the highest power of <m>x</m>.
+              Thus
+              <me>
+                \lim_{x\to\infty} (x^5-15x^3) = \lim_{x\to\infty} x^5\left(1-\frac{15}{x^2}\right) = (\infty)^5(1-0) = \infty
+              </me>
+              and
+              <me>
+                \lim_{x\to-\infty} (x^5-15x^3) = \lim_{x\to-\infty} x^5\left(1-\frac{15}{x^2}\right) = (-\infty)^5(1-0) =  -\infty
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Computing the first derivative,
+              and factoring as much as possible,
+              <me>
+                g'(x) = 5x^4-45x^2 = 5x^2(x^2-9) = 5x^2(x-3)(x+3)
+              </me>.
+              So <m>g(x)</m> has critical points at
+              <m>x=-3, 0, 3</m> where <m>g'(x)=0</m>.
+              Polynomials are differentiable everywhere and so we will never have critical points for them where <m>g'(x)</m> is undefined.
+              The sign analysis for the first derivative is
+              <image>
+                 <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-4.5,0) -- (4.5,0) node[right]{\(g'\)} ; \foreach \x in  {-3, 0,3} \draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in  {-3, 0,3} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-4, 4} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-1.5, 1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+              </image>
+              <m>g</m> is increasing on <m>(-\infty,-3)\cup(3,\infty)</m> and decreasing on <m>(-3,0)\cup(0,3)</m>.
+              Thus we see that <m>g</m> has a local maximum at <m>x=-3</m>,
+              a local minimum at <m>x=3</m>,
+              and neither a min nor a max at <m>x=0</m>.
+              The <m>y</m>-value for the local maximum at <m>x=-3</m> is <m>g(-3) = (-3)^5-15(-3)^3 = 162</m>.
+              So there is a local maximum at the point <m>(-3,162)</m>.
+              <exercise>
+                <statement>
+                  <p>
+                    Before reading any further,
+                    use the odd symmetry of <m>g(x)</m> to determine the <m>y</m>-value of the local minimum at <m>x=3</m>.
+                  </p>
+                </statement>
+              </exercise>
+              The <m>y</m>-value for the local minimum at <m>x=3</m> is <m>g(3) = (3)^5-15(3)^3 = -162</m>.
+              So there is a local minimum at the point <m>(3,-162)</m>.
+              (Again, confirmed via odd symmetry.)
+              We can also confirm from the sign analysis for <m>g(x)</m> that the <m>y</m>-value at <m>x=-3</m> should be positive while the <m>y</m>-value at <m>x=3</m> should be negative.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculating the second derivative and factoring,
+              <me>
+                g''(x) = 20x^3-90x = 10x(2x^2-9)
+              </me>
+              We can see that <m>g''(x)</m> is equal to zero when <m>x=0</m> or when
+              <m>2x^2-9=0</m>, so when <m>x^2=9/2</m>,
+              meaning <m>x=\pm\sqrt{9/2} = \pm 3/\sqrt{2}\approx\pm 2.12</m>.
+              The sign analysis for the second derivative is
+              <image>
+                 <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-4.5,0) -- (4.5,0) node[right]{\(g''\)} ; \foreach \x in  {-2.12, 0,2.12} \draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in  {-2.12, 0,2.12} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-1, 3.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-3.5, 1} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+              </image>
+              <m>g</m> is concave down on
+              <m>(-\infty,-3/\sqrt{2})\cup(0,3/\sqrt{2})</m> and concave up on <m>(-3/\sqrt{2},0)\cup(3/\sqrt{2},\infty)</m>.
+              Thus we see that <m>g</m> has  inflection points at <m>x=\pm3/\sqrt{2}</m> and <m>x=0</m>.
+              The <m>y</m>-value of the inflection point at <m>x=0</m> is <m>y=g(0)=0</m>,
+              the same as the <m>y</m>- and <m>x</m>-intercept found earlier.
+              We can find the <m>y</m>-values of the inflection points at <m>x=-3/\sqrt{2}</m> and
+              <m>x=3/\sqrt{2}</m> with one calculation thanks to the odd symmetry of <m>g(x)</m>:
+              <me>
+                g(3/\sqrt{2}) = (3/\sqrt{2})^5-15(3/\sqrt{2})^3\approx -100.232
+              </me>
+              and so
+              <me>
+                g(-3/\sqrt{2}) = -g(3/\sqrt{2}) = -(-100.232) = 100.232
+              </me>.
+              Thus we have inflection points at <m>(0,0)</m> and at approximately
+              <m>(-2.12, 100.232)</m> and <m>(2.12,-100.232)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        On your own paper,
+        begin to sketch <m>g(x)</m> by plotting the key points identified above,
+        namely the <m>x</m>- and <m>y</m>-intercepts,
+        local maximum and minimum, and inflection points:
+        <ul>
+          <li>
+            <p>
+              <em>Intercepts</em> <m>(-\sqrt{15},0)\approx (-3.87,0), (0,0), (\sqrt{15},0)\approx (3.87,0)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Local extrema</em> Maximum at
+              <m>(-3,162)</m> and minimum at <m>(3,-162)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Inflection points</em> <m>(-2.12, 100.232), (0,0), (2.12,-100.232)</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Now connect the dots with appropriate arcs according to the sign information in the first and second derivative sign analyses.
+        It can help to collect all of the information about the derivatives in one place,
+        such as the tables in the previous section.
+        Below we demonstrate another way to organize this information and you may use whatever method works best for you.
+        The arc shapes on each subinterval between key points are recorded on the combined number-line that follows.
+        Notice that on this number line,
+        the tick-marks represent the locations of all key points on the graph of <m>g</m>,
+        meaning that they are a composite of the tick-marks from the sign charts for <m>g,
+        g'</m> and <m>g''</m>:
+      </p>
+      <p>
+        <image width="65%" source="TaalmanPage254a.png"/>
+      </p>
+      <p>
+        Recall as well that
+        <me>
+          \lim_{x\to-\infty} g(x) = -\infty\text{ and }  \lim_{x\to\infty} g(x) = \infty
+        </me>,
+        which matches the odd symmetry and also the information from the first derivative that <m>g(x)</m> is increasing on
+        <m>(-\infty,-3)</m> and on <m>(3,\infty)</m>.
+        Putting all of this information together onto a graph with appropriately labeled axes,
+        we sketch
+      </p>
+      <p>
+        <image width="65%" source="TaalmanPage254b.png"/>
+      </p>
+      </statement>
+    </example>
+    <p>
+      The main goal for any of these sketches is to get a good overall sense of the shape of the graph.
+      Some things to note about the "accuracy" of the graph in the previous example:
+      <ul>
+        <li>
+          <p>
+            The scales of the two axes are different from each other and are appropriate for highlighting the overall shape of the graph.
+            This is preferable to having a graph with comparable scales but indistinguishable features.
+          </p>
+        </li>
+        <li>
+          <p>
+            Points are in correct relative position to each other,
+            with minima/maxima clearly below/above surrounding points.
+          </p>
+        </li>
+        <li>
+          <p>
+            Increasing/decreasing behavior and concavity clearly change at each labeled point as appropriate,
+            and at no other points.
+            In particular,
+            no part of the graph appears to be a straight line,
+            nor does any part of the graph appear to be vertical or entirely horizontal.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example>
+      <statement>
+      <p>
+        Consider the function
+        <me>
+          f(x) = x^4+4x^3-16x
+        </me>
+        <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+          <li>
+            <p>
+              The domain of any polynomial function is all real numbers.
+            </p>
+          </li>
+          <li>
+            <p>
+              The <m>y</m>-intercept of <m>f(x)</m> is <m>y = f(0) = 0^4+4(0)^3-16(0) = 0</m>,
+              meaning the point <m>(0,0)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We can begin to factor <m>f(x)</m>:
+              <me>
+                f(x) = x^4+4x^3-16x = x(x^3+4x^2-16)
+              </me>.
+              but cannot factor further.
+              This tells us that there is an <m>x</m>-intercept at <m>x=0</m>,
+              which is also the <m>y</m>-intercepts at the point <m>(0,0)</m>.
+              There are potentially up to three other <m>x</m>-intercepts that we  cannot find algebraically.
+            </p>
+          </li>
+          <li>
+            <p>
+              We check to see whether <m>f(x)</m> is even or odd by simplifying <m>f(-x)</m> and seeing if this is equal to either <m>f(x)</m> or <m>-f(x)</m>.
+              <me>
+                f(-x) = (-x)^4+4(-x)^3-16(-x) = x^4-4x^3+16x
+              </me>.
+              We can see that <m>f(-x)\neq f(x)</m>,
+              so <m>f(x)</m> is not even and does not have reflectional symmetry across the <m>y</m>-axis.
+              <m>f(-x)\neq -f(x)</m> as well since <m>-f(x) = -x^4-4x^3+16x</m>,
+              so <m>f(x)</m> is also not odd and does not have
+              <m>180^\circ</m> rotational symmetry about the origin.
+              <m>f(x)</m> is neither even nor odd and there are no helpful symmetries that we can use to save us time in sketching the graph.
+            </p>
+          </li>
+          <li>
+            <p>
+              There are no non-domain points of <m>f(x)</m> since <m>f(x) = x^4+4x^3-16x</m> is a polynomial.
+              In particular,
+              there are no holes or vertical asymptotes in the graph of <m>f(x)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The end-behavior of <m>f(x)</m> is found by computing the limits at <m>\pm\infty</m>,
+              which both result in a limit form of
+              <m>\infty-\infty</m>, and so we force-factor.
+              Thus
+              <me>
+                \lim_{x\to\infty} (x^4+4x^3-16x) = \lim_{x\to\infty} x^4\left(1+\frac{4}{x}-\frac{16}{x^3}\right) = (\infty)^4(1+0-0) = \infty
+              </me>
+              and
+              <me>
+                \lim_{x\to-\infty} (x^4+4x^3-16x) = \lim_{x\to-\infty} x^4\left(1+\frac{4}{x}-\frac{16}{x^3}\right) = (-\infty)^4(1+0-0) = \infty
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Next, we find the local extrema of <m>f(x)</m> by first computing its critical points.
+              The derivative of <m>f</m> is
+              <me>
+                f'(x) = 4x^3+12x^2-16
+              </me>,
+              which is a polynomial and thus always defined;
+              we need only find its zeros.
+              We can pull out a common factor of <m>4</m>:
+              <me>
+                f'(x) = 4x^3+12x^2-16 = 4(x^3+3x^2-4)
+              </me>
+              but that is all we can manage without some additional advanced factoring techniques.<fn>
+              There are some advanced factoring techniques that can do this by hand that are explained in Expansion Project #6.
+              </fn> The polynomial
+              <m>x^3+3x^2-4</m> has no convenient groupings or common factors,
+              so we use
+              <url href="https://www.wolframalpha.com/">https://www.wolframalpha.com/</url>
+              to factor it for us as
+              <me>
+                f(x) = 4(x-1)(x+2)^2
+              </me>.
+              Therefore the only critical points of <m>f</m> are <m>x=1</m> and <m>x=-2</m>.
+              The sign analysis of <m>f'</m> tells us that <m>x=-2</m> is neither a local minimum nor local maximum,
+              and that <m>x=1</m> is a local minimum,
+              since <m>f(x)</m> is decreasing on
+              <m>(-\infty,-2)\cup(-2,1)</m> and increasing on <m>(1,\infty)</m>:
+              <figure>
+                <caption><m>f(x)</m> is decreasing on <m>(-\infty,-2)\cup(-2,1)</m> and increasing on <m>(1,\infty)</m>. There is a local minimum at <m>x=1</m>.</caption>
+                <image width="46%" source="TaalmanPage318b-1.png"/>
+              </figure>
+              The <m>y</m>-value for the local minimum at <m>x=1</m> is <m>y=f(1) = 1^4+4(1)^3-16(1) = -11</m>,
+              so the minimum point is <m>(1,-11)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The second derivative is finally possible to factor using the methods available to us:
+              <me>
+                f''(x) = 12x^2+24x = 12x(x+2)
+              </me>.
+              Creating a sign analysis for <m>f''(x)</m> using intervals between <m>x=-2</m> and <m>x=0</m> where <m>f''(x) = 0</m>,
+              we can see that <m>f(x)</m> is concave up on <m>(-\infty,-2)</m> and
+              <m>(0\infty)</m> and concave down on <m>(-2,0)</m>.
+              This means that <m>x=-2</m> and <m>x=0</m> are inflection points:
+              <figure>
+                <caption><m>f(x)</m> is concave up on <m>(-\infty,-2)</m> and <m>(0,\infty)</m> and concave down on <m>(-2,0)</m>. There are inflection points at <m>x=-2</m> and <m>x=0</m>.</caption>
+                <image width="46%" source="TaalmanPage318b-2.png"/>
+              </figure>
+              The <m>y</m>-value for the inflection point at <m>x=-2</m> is <m>y=f(-2) = (-2)^4+4(-2)^3-16(-2) = 16</m>,
+              so the inflection point is at the coordinates <m>(-2,16)</m>.
+              The <m>y</m>-value for the inflection point at <m>x=0</m> is <m>y=f(0)=0</m>,
+              so the other inflection point of <m>(0,0)</m> is also the <m>x</m>- and <m>y</m>-intercept.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        On your own paper,
+        begin to sketch <m>f(x)</m> by plotting the key points identified above,
+        namely the <m>x</m>- and <m>y</m>-intercepts,
+        local maximum and minimum, and inflection points:
+        <ul>
+          <li>
+            <p>
+              <em>Intercepts</em> <m>(0,0)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Local extrema</em> Minimum at <m>(1,-11)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Inflection points</em> <m>(-2,16)</m> and <m>(0,0)</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Next, determine which of the four shapes the graph has between each of these points based on whether the graph is increasing/decreasing and concave up/down.
+        This information is summarized in the table below:
+      </p>
+      <table>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Interval</cell>
+            <cell><m>(-\infty,-2)</m></cell>
+            <cell><m>(-2,0)</m></cell>
+            <cell><m>(0,1)</m></cell>
+            <cell><m>(1,\infty)</m></cell>
+          </row>
+          <row bottom="medium">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell  ><m>f'</m> is\ldots</cell>
+            <cell><m>-</m></cell>
+            <cell><m>-</m></cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row>
+            <cell><m>f</m>  is\ldots</cell>
+            <cell>decreasing</cell>
+            <cell>decreasing</cell>
+            <cell>decreasing</cell>
+            <cell>increasing</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f''</m>  is\ldots</cell>
+            <cell><m>+</m></cell>
+            <cell><m>-</m></cell>
+            <cell><m>+</m></cell>
+            <cell><m>+</m></cell>
+          </row>
+          <row>
+            <cell><m>f</m> is\ldots</cell>
+            <cell>concave up</cell>
+            <cell>concave down</cell>
+            <cell>concave up</cell>
+            <cell>concave up</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+      <exercise>
+        <statement>
+          <p>
+            Before reading any further,
+            attempt to sketch <m>f(x)</m> by plotting the key points listed above and connecting them with appropriately shaped arcs.
+          </p>
+        </statement>
+      </exercise>
+      <p>
+        Lastly, we connect the key points using appropriately shaped arcs,
+        making sure to accurately represent precisely where the function changes concavity or switches between increasing and decreasing.
+        Note in particular that the graph should appear to have a horizontal tangent line at the inflection point <m>(-2,16)</m>,
+        since the first derivative was indeed equal to zero at <m>x=-2</m>:
+      </p>
+      <figure>
+        <image width="75%" source="TaalmanSec4-3Ex3.png"/>
+      </figure>
+      <p>
+        We can confirm that there is no even or odd symmetry to the graph,
+        and the end-behavior is correct.
+        The points are all labeled,
+        and the scale of both axes is appropriate for making the overall shape of the graph visible.
+      </p>
+      <p>
+        We can see that there is indeed another <m>x</m>-intercept that we have not found.
+        It does not appear to be passing through an integer <m>x</m>-value,
+        so attempting to factor <m>f(x)</m> further to find its exact value does not look like a good use of our time.
+      </p>
+      </statement>
+    </example>
+    <p>
+      In our last example,
+      we sketch the graph of a function whose first derivative is known but without knowing the precise formula for the original function.
+      Because of this,
+      we will not be able to plot any of the key points with explicit <m>y</m>-values,
+      though we can still put them in the correct relative positions to each other based on the roles they play in the shape of the graph.
+      We also cannot complete steps (a)-(e) of the curve sketching summary that require knowledge of the function <m>f(x)</m>,
+      and skip to completing parts (f) and (g):
+    </p>
+    <example xml:id="ex_unknownquintic">
+      <statement>
+        <p>
+          Let <m>f(x)</m> be a function whose first derivative is
+          <me>
+            f'(x) = 3x^4-9x^2
+          </me>.
+        </p>
+        <p>
+          With only this information,
+          we can construct both first and second derivative sign charts for <m>f</m>,
+          discuss where <m>f</m> is increasing and decreasing and concave up and concave down,
+          identify all local extrema and inflection points,
+          and sketch a possible graph of <m>f</m>.
+          Note that since <m>f'(x)</m> exists for all <m>x</m>,
+          we know that <m>f(x)</m> is differentiable,
+          thus continuous, for all <m>x</m>.
+          <ol marker="labeltextbfalphitemsep5pttopsep5ptstart7">
+            <li>
+              <p>
+                Since we know <m>f'(x) = 3x^4-9x^2</m>,
+                we can find the critical points of <m>f(x)</m> by solving <m>3x^4-9x^2 = 0</m>.
+                Factoring, we observe that
+                <me>
+                  0 = 3x^2(x^2-3) = 3x^2(x+\sqrt{3})(x-\sqrt{3})
+                </me>,
+                so that <m>x=0</m> and <m>x= \pm\sqrt{3}\approx\pm1.73</m> are the three critical points of <m>f(x)</m>.
+                The sign analysis for the first derivative is
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3.5,0) -- (3.5,0) node[right]{\(f'\)} ; \foreach \x in  {-1.73, 0,1.73} \draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in  {-1.73, 0,1.73} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-2.5, 2.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-0.75, 0.75} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                We see that <m>f</m> is increasing on
+                <m>(-\infty,-\sqrt{3})\cup(\sqrt{3},\infty)</m> and <m>f</m> is decreasing on <m>(-\sqrt{3},0)\cup(0,\sqrt{3})</m>.
+                <m>f</m> has a local maximum at
+                <m>x=-\sqrt{3}</m> and a local minimum at <m>x=\sqrt{3}</m>,
+                and neither a minimum nor a maximum at <m>x=0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Next, we investigate concavity and inflection points.
+                Differentiating, <m>f'(x) = 3x^4-9x^2</m>, we see that
+                <me>
+                  f''(x) = 12x^3-18x
+                </me>.
+                Since we are interested in knowing the intervals on which <m>f''</m> is positive and negative,
+                we find where <m>f''(x) = 0</m>:
+                <me>
+                  0 = 12x^3-18x = 12x\left(x^2-\frac{3}{2}\right) = 12x\left(x+\sqrt{\frac{3}{2}}\right)\left(x-\sqrt{\frac{3}{2}}\right)
+                </me>.
+                This equation has solutions <m>x=0</m> and <m>x= \pm\sqrt{\frac{3}{2}}\approx1.22</m>.
+                Building a sign chart for <m>f''</m>, we see
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3.5,0) -- (3.5,0) node[right]{\(f''\)} ; \foreach \x in  {-1.22, 0,1.22} \draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt); \foreach \x in  {-1.22, 0,1.22} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-0.75, 2.25} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-2.25, 0.75} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Therefore <m>f</m> is concave down on
+                <m>\left(-\infty,-\sqrt{\frac{3}{2}}\right)\cup\left(0,\sqrt{\frac{3}{2}}\right)</m> and concave up on <m>\left(-\sqrt{\frac{3}{2}},0\right)\cup\left(\sqrt{\frac{3}{2}},\infty\right)</m>.
+                There are inflection points at <m>x=0, \pm\sqrt{\frac{3}{2}}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Putting all of this information together,
+          we get a fairly accurate possible graph of <m>f(x)</m>,
+          despite not knowing any of the actual <m>y</m>-values of <m>f(x)</m>.
+          <ul>
+            <li>
+              <p>
+                There is a local maximum at <m>x=-\sqrt{3}</m>,
+                labeled with the letter <m>A</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is an inflection point at <m>x=-\sqrt{3/2}</m>,
+                labeled with the letter <m>B</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is an inflection point at <m>x=0</m>,
+                labeled with the letter <m>C</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is an inflection point at <m>x=\sqrt{3/2}</m>,
+                labeled with the letter <m>D</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is a local minimum at <m>x=\sqrt{3}</m>,
+                labeled with the letter <m>E</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <figure>
+          <caption>An approximate graph of <m>f(x)</m>, without any precise <m>y</m>-values but correct relative positions.</caption>
+          <image width="65%" source="ACFigure3-1-13.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Determine a potential formula for <m>f(x)</m> from Example <xref ref="ex_unknownquintic" autoname="yes"/>, based only on the knowledge that
+          <me>
+            f'(x) = 3x^4-9x^2
+          </me>.
+        </p>
+        <p>
+          There are many different possible formulas.
+          Double-check that your function <m>f(x)</m> really does have the correct first derivative,
+          then use it to complete steps (a)-(f) of the curve sketch summary that we skipped in Example <xref ref="ex_unknownquintic" autoname="yes"/>.
+          Lastly, find the precise <m>y</m>-values using your formula for <m>f(x)</m> and sketch the graph of <m>f(x)</m> using those <m>y</m>-values.
+          If you have done everything correctly,
+          it should have the same overall shape as the graph at the end of Example <xref ref="ex_unknownquintic" autoname="yes"/>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Some  general observations about graphs of polynomials</title>
+    <p>
+      We discussed in <xref ref="sec_polyandratfuncs" autoname="yes"/> that the degree of a polynomial determines an upper bound for the number of its <m>x</m>-intercepts and also of its turning points,
+      a.k.a. local maxima and minima;
+      revisit Theorem <xref ref="thm_graphsofpolynomials1" autoname="yes"/> if you do not remember.
+      It turns out that the <m>x</m>-intercepts of the polynomial can give us a lower bound for the number of turning points.
+    </p>
+    <p>
+      By the Mean Value Theorem
+      (<xref ref="thm_meanvaluetheorem">Theorem</xref>),
+      between every two <m>x</m>-intercepts of a polynomial <m>f(x)</m> must lie at least one zero of its derivative (where <m>f'(c)=0</m>).
+      In fact, we can guarantee even more: Between each adjacent pair of <m>x</m>-intercepts of <m>f(x)</m> there must be some zero of <m>f'(x)</m> at which the graph of <m>f(x)</m> actually turns around and has a local maximum or minimum value.
+      This observation is summarized in the following useful theorem:
+    </p>
+    <theorem xml:id="thm_turningpointsofpolys">
+      <title>Turning Points Between Zeros of Polynomials</title>
+      <statement>
+        <p>
+          If <m>f</m> is a polynomial function of degree <m>n</m> with <m>k</m> real zeros,
+          then <m>f</m> has at least <m>k-1</m> turning points,
+          with at least one turning point between each zero.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      As a corollary
+      (in other words, an immediate consequence)
+      to this theorem,
+      notice that if a polynomial of degree <m>n</m> splits into <m>n</m> distinct linear factors,
+      then it will have the maximum number <m>n</m> of <m>x</m>-intercepts and also the maximum number <m>n-1</m> of turning points,
+      one between and/or at each <m>x</m>-intercept.
+      If the polynomial splits into <m>k</m> linear factors,
+      some of which are repeated,
+      then it will have exactly <m>k-1</m> turning points,
+      one between each <m>x</m>-intercept.
+    </p>
+    <p>
+      You do not need to memorize these results,
+      but they are useful in checking that your sign analyses for your first derivatives are correct.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Reviewing Asymptotes and Limit Calculations</title>
+    <p>
+      Hopefully you remember how to find holes,
+      vertical asymptotes, and horizontal asymptotes.
+      If not, revisit the appropriate section below based on the information you have forgotten:
+      <ul>
+        <li>
+          <p>
+            Vertical and horizontal asymptotes are defined in <xref ref="sec_VAsandHAs" autoname="yes"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculating limits of the form
+            <m>\frac{1}{0}</m> is discussed in <xref ref="sec_oneoverzerolimits" autoname="yes"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculating limits of the form
+            <m>\frac{0}{0}</m> is discussed in <xref ref="sec_zerooverzerolimits" autoname="yes"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Distinguishing between holes and vertical asymptotes is discussed in <xref ref="sec_holeorVA" autoname="yes"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determining end-behavior of rational functions is discussed in <xref ref="sec_endbehaviorofrationalfunctions" autoname="yes"/>.
+            In particular,
+            this section covers how to evaluate <m>\frac{\infty}{\infty}</m> limits.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <subsection xml:id="sec_curvesketchingwithasymptotes">
+    <title>Examples of Sketching Rational Functions</title>
+    <example xml:id="ex_rationalsketch1">
+      <statement>
+        <p>
+          For the first example, we sketch the graph of the function
+          <me>
+            f(x) = \dfrac{x}{1+x^2}
+          </me>
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                <m>f(x) = \frac{x}{1+x^2}</m>  is defined for all real numbers since <m>1+x^2</m> is never equal to zero.
+                Indeed, if we try to solve for values of <m>x</m> that make the denominator zero:
+                <me>
+                  \begin{aligned}1+x^2 \amp = 0\\ x^2 \amp = -1 \end{aligned}
+                </me>
+                we can see that there are no such <m>x</m>-values since the square of any number must be 0 or positive.
+                Alternately, if we tried to take the square root of both sides,
+                we would be taking the square root of a negative number,
+                which is not possible
+                (in this class).
+                Thus the domain of <m>f(x)</m> is
+                <me>
+                  (-\infty,\infty)
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept of <m>f(x) = \frac{x}{1+x^2}</m> is <m>y=f(0) = \frac{0}{1+0^2} = \frac{0}{1} = 0</m>,
+                so at the point <m>(0,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x)</m> is equal to zero when its numerator is equal to zero,
+                so when <m>x=0</m>.
+                Thus we see that the only <m>x</m>-intercept of <m>f(x)</m> is the same point <m>(0,0)</m> that we found as the <m>y</m>-intercept.
+                Since we have been able to find all of the <m>x</m>-intercepts and points where <m>f(x)</m> is undefined,
+                we can create a sign analysis for <m>f(x)</m>:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(f\)} ; \foreach \x in { 0} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in {0} \draw[shift={(\x,3pt)}] node[above] {\(^0\)}; \foreach \x in {1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in {-1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+              </p>
+            </li>
+            <li>
+              <p>
+                We check whether <m>f(-x) = f(x)</m> or <m>f(-x)=-f(x)</m>,
+                or neither:
+                <me>
+                  f(-x) = \frac{-x}{1+(-x)^2} = \frac{-x}{1+x^2} = -\,\frac{x}{x^2+1} = -f(x)
+                </me>.
+                Hence <m>f(x)</m> is odd and so has
+                <m>180^\circ</m> rotational symmetry about the origin.
+              </p>
+            </li>
+            <li>
+              <p>
+                Because <m>f(x)</m> is rational, thus algebraic,
+                and is defined for all real numbers,
+                it is also continuous for all real numbers,
+                and thus cannot have any vertical asymptotes or holes.
+              </p>
+            </li>
+            <li>
+              <p>
+                The limits as <m>x\to\pm \infty</m> of <m>f(x)</m> are both indeterminate of the form
+                <m>\frac{\infty}{\infty}</m> and so require algebraic methods to evaluate.
+                Dividing through by <m>x^2</m>:
+                <me>
+                  \begin{aligned}\lim_{x\to\infty}\frac{x}{1+x^2} \cdot\frac{\frac{1}{x^2}}{\frac{1}{x^2}}\amp =\lim_{x\to\infty}\frac{\frac{1}{x}}{\frac{1}{x^2}+1}\\ \amp = \frac{0}{0+1}=0 \end{aligned}
+                </me>
+                Similarly,
+                <me>
+                  \begin{aligned}\lim_{x\to-\infty}\frac{x}{1+x^2} \amp =\lim_{x\to-\infty}\frac{\frac{1}{x}}{\frac{1}{x^2}+1}\\ \amp = \frac{0}{0+1}=0 \end{aligned}
+                </me>
+                Thus <m>f(x)</m> has right and left horizontal asymptotes at <m>y=0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Moving on to the first derivative:
+                <me>
+                  \begin{aligned}f'(x) \amp = \frac{(1+x^2)(1)-(x)(2x)}{(1+x^2)^2}\\ \amp = \frac{1-x^2}{(1+x^2)^2} \end{aligned}
+                </me>
+                <m>f'(x) = 0</m> when <m>1-x^2 = (1-x)(1+x) = 0</m>.
+                <m>f'(x)</m> is never undefined as we have already noted that <m>1+x^2</m> is never zero.
+                Thus <m>f</m> has critical points at <m>x=\pm1</m>.
+                The sign analysis for <m>f'</m> is
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(f'\)} ; \foreach \x in  { -1,1} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {-1,1} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-1,1} \draw[shift={(\x,3pt)}] node[above] {\(^0\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-2,2} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Thus <m>f</m> is decreasing on <m>(-\infty,-1)</m> and
+                <m>(1,\infty)</m> and increasing on <m>(-1,1)</m>.
+                There is a local minimum at <m>x=-1</m> where <m>y=f(-1) = \frac{-1}{1+(-1)^2} = -\frac{1}{2}</m>.
+                There is a local maximum at <m>x=1</m> where <m>y=f(1) = \frac{1}{1+(1)^2} = \frac{1}{2}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We calculate the second derivative,
+                being careful to factor as much as possible:
+                <me>
+                  \begin{aligned}f''(x) \amp = \frac{(1+x^2)^2(-2x) - (1-x^2)(2(1+x^2)(2x))}{((1+x^2)^2)^2}\\ \amp = \frac{(1+x^2)(2x)\big[(1+x^2)(-1)-(1-x^2)(2)\big]}{(1+x^2)^4}\\ \amp = \frac{2x(-1-x^2-2+2x^2)}{(1+x^2)^3}\\ \amp = \frac{2x(x^2-3)}{(1+x^2)^3} \end{aligned}
+                </me>
+                <m>f''(x)=0</m> when <m>2x(x^2-3)=0</m>,
+                so when <m>x=0</m> or <m>x^2-3=0</m>.
+                Solving this last equation,
+                <m>x^2=3</m>, meaning <m>x=\pm\sqrt{3}\approx 1.732</m>.
+                <m>f''(x)</m> is never undefined as we have already noted that <m>1+x^2</m> is never zero.
+                Thus <m>f'</m> has critical points at <m>x=0,\pm\sqrt{3}</m>,
+                that may or may not be inflection points.
+                The sign chart for <m>f''</m> is
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(f''\)} ; \foreach \x in  { -1.7,0,1.7} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {0} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \draw[shift={(-1.7,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(-\sqrt{3}\)}; \draw[shift={(1.7,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\sqrt{3}\)}; \foreach \x in  {-1.7,0,1.7} \draw[shift={(\x,3pt)}] node[above] {\(^0\)}; \foreach \x in  {-0.75, 2.25} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-2.25,0.75} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Hence <m>f</m> is concave down on
+                <m>(-\infty,-\sqrt{3})</m> and <m>(0,\sqrt{3})</m> and is concave up on
+                <m>(-\sqrt{3},0)</m> and <m>(\sqrt{3},\infty)</m>.
+                <m>f</m> has inflection points at <m>x=0</m> where <m>y=f(0)=0</m>,
+                at <m>x=-\sqrt{3}</m> where <m>y=f(-\sqrt{3}) = \frac{-\sqrt{3}}{1+(-\sqrt{3})^2} = -\frac{\sqrt{3}}{4}\approx -0.433</m>,
+                and at <m>x=\sqrt{3}</m> where <m>y=f(\sqrt{3}) = \frac{\sqrt{3}}{1+(\sqrt{3})^2} = \frac{\sqrt{3}}{4}\approx 0.433</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          We first plot all of the key points and features found:
+          <ul>
+            <li>
+              <p>
+                <em>Intercepts</em> <m>(0,0)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Asymptotes and/or Holes</em>
+                Horizontal asymptote at <m>y=0</m> to the right and left.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Local extrema</em> Maximum at <m>(1,1/2)</m> and minimum at <m>(-1,-1/2)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Inflection points</em> <m>(-\sqrt{3},-\sqrt{3}/4)\approx (-1.732,-0.433), (0,0), (\sqrt{3},\sqrt{3}/4)\approx (1.732,0.433)</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Next, we determine which of the four shapes the graph has between each of these points based on whether the graph is increasing/decreasing and concave up/down.
+          This information is summarized in the table below:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>(-\infty,-\sqrt{3})</m></cell>
+              <cell><m>(-\sqrt{3},-1)</m></cell>
+              <cell><m>(-1,0)</m></cell>
+              <cell><m>(0,1)</m></cell>
+              <cell><m>(1,\sqrt{3})</m></cell>
+              <cell><m>(\sqrt{3},\infty)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>f'</m> is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>f</m>  is\ldots</cell>
+              <cell>dec</cell>
+              <cell>dec</cell>
+              <cell>inc</cell>
+              <cell>inc</cell>
+              <cell>dec</cell>
+              <cell>dec</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>f''</m>  is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>f</m> is\ldots</cell>
+              <cell>ccd</cell>
+              <cell>ccu</cell>
+              <cell>ccu</cell>
+              <cell>ccd</cell>
+              <cell>ccd</cell>
+              <cell>ccu</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Completing the graph:
+        </p>
+        <p>
+          <image width="75%" source="4-7Example1Graph.png"/>
+        </p>
+        <p>
+          We note that this does appear to have the odd symmetry we found
+          (and could have used to find some of the <m>y</m>-values).
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the second derivative test to confirm that
+          <m>f(x) = \frac{x}{1+x^2}</m> from Example <xref ref="ex_rationalsketch1" autoname="yes"/> has a local minimum at <m>x=-1</m> and a local maximum at <m>x=1</m>.
+          <em>Remember:
+          there are often multiple ways to determine the same answer,
+          and all of the different methods should agree with each other.</em>
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_rationalsketch2">
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            g(x) = \frac{x^2}{x^2-2x+1}
+          </me>
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                Factoring the denominator of <m>g(x)</m>:
+                <me>
+                  g(x) = \frac{x^2}{x^2-2x+1}. = \frac{x^2}{(x-1)(x-1)} = \frac{x^2}{(x-1)^2}
+                </me>,
+                <m>g(x)</m> is undefined when its denominator is equal to zero,
+                so we see that <m>g(x)</m> is undefined at <m>x=1</m>.
+                Thus <m>g(x)</m> has domain <m>(-\infty,1)\cup(1,\infty)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>g(x)</m> has <m>y</m>-intercepts <m>y=g(0) = \frac{0^2}{0^2-2(0)+1} = \frac{0}{1} = 0</m>,
+                so at the point <m>(0,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>x</m>-intercept of <m>g(x)</m> is where its numerator,
+                <m>x^2</m>,
+                is equal to zero, so when <m>x=0</m>.
+                Thus the only <m>x</m>-intercept is the point <m>(0,0)</m> that is also the <m>y</m>-intercept.
+                Since we can rewrite <m>g(x) = \dfrac{x^2}{(x-1)^2}</m>,
+                we can tell without a sign analysis that <m>g(x)</m> will always be above the <m>x</m>-axis when it is not equal to zero.
+                This is because both the numerator and denominator are squared,
+                hence cannot be negative.
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplifying <m>g(-x)</m>:
+                <me>
+                  \begin{aligned}g(-x) \amp = \frac{(-x)^2}{(-x)^2-2(-x)+1}\\ \amp = \frac{x^2}{x^2+2x+1} \end{aligned}
+                </me>
+                we see that <m>g(x)</m> is neither even nor odd since
+                <m>g(-x)\neq g(x)</m> and <m>g(-x)\neq -g(x)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>g(x)</m> is undefined at <m>x=1</m> where the denominator is equal to 0, so we suspect that it has a vertical asymptote there.
+                Calculating the limit as <m>x\to 1</m> explicitly:
+                <me>
+                  \lim_{x\to 1}g(x) = \lim_{x\to 1}\frac{x^2}{(x-1)^2} = \frac{1}{0^+} = \infty
+                </me>
+                where we know that the denominator must be positive without taking right and left limits separately because <m>(x-1)^2>0</m> for all <m>x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We calculate <m>\lim_{x\to\pm\infty}</m> by force-factoring <m>x^2</m> from the denominator,
+                since both limits have the indeterminate form <m>\frac{\infty}{\infty}</m>:
+                <me>
+                  \begin{aligned}\lim_{x\to\infty}\frac{x^2}{x^2-2x+1} \amp = \lim_{x\to\infty}\frac{x^2}{x^2\left(1-\frac{2}{x}+\frac{1}{x^2}\right)}\\ \amp =\lim_{x\to\infty}\frac{1}{1-\frac{2}{x}+\frac{1}{x^2}} \\ \amp = \frac{1}{1-0-0}= 1 \end{aligned}
+                </me>
+                and similarly,
+                <me>
+                  \begin{aligned}\lim_{x\to-\infty}\frac{x^2}{x^2-2x+1} \amp = \lim_{x\to-\infty}\frac{x^2}{x^2\left(1-\frac{2}{x}+\frac{1}{x^2}\right)}\\ \amp =\lim_{x\to-\infty}\frac{1}{1-\frac{2}{x}+\frac{1}{x^2}} \\ \amp = \frac{1}{1-0-0}= 1 \end{aligned}
+                </me>
+                Thus <m>g(x)</m> has a horizontal asymptote at <m>y=1</m> to the right and left.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now let's examine the first derivative.
+                We use the quotient rule:
+                <me>
+                  \begin{aligned}g'(x) \amp = \frac{(x^2-2x+1)(2x)-(x^2)(2x-2)}{(x^2-2x+1)^2} \\ \amp = \frac{-2x^2+2x}{((x-1)^2)^2} \\ \amp = \frac{-2x(x-1)}{(x-1)^4} \\ \amp = \frac{-2x}{(x-1)^3} \end{aligned}
+                </me>
+                <m>g'(x)</m> is zero when its numerator is zero, meaning when <m>x=0</m>.
+                It is undefined when its denominator is zero, so when <m>x=1</m>.
+                Only <m>x=0</m> is a critical point,
+                but <m>g'(x)</m> may change sign at either <m>x=0</m> or <m>x=1</m> and so we put both on the number line for <m>g'(x)</m>:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(g'\)} ; \foreach \x in  { 0,1} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {0,1} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {0} \draw[shift={(\x,3pt)}] node[above] {\(^0\)}; \foreach \x in  {1} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {0.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-2,2} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                So <m>g(x)</m> is decreasing on <m>(-\infty,0)</m> and
+                <m>(1,\infty)</m> and increasing on <m>(0,1)</m>.
+                Note that this confirms that both sides of the vertical asymptote at <m>x=1</m> approach <m>+\infty</m>.
+                <m>g(x)</m> has local minimum at the critical point <m>x=0</m> where <m>y=0</m>,
+                so at the <m>x</m>- and <m>y</m>-intercept that we found earlier.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now let's move on to the second derivative,
+                remembering to factor as much as possible at every step:
+                <me>
+                  \begin{aligned}g''(x) \amp = \frac{(x-1)^3(-2)-(-2x)(3(x-1)^2)}{((x-1)^3)^2}\\ \amp = \frac{(-2)(x-1)^2\big[(x-1)-(x)(3)\big]}{(x-1)^6}\\ \amp = \frac{-2(x-1-3x)}{(x-1)^4}\\ \amp =\frac{-2(-2x-1)}{(x-1)^4}\\ \amp =\frac{2(2x+1)}{(x-1)^4} \end{aligned}
+                </me>
+                <m>g''(x)</m> is equal to zero when <m>2(2x+1)=0</m> so when
+                <m>x=-\frac{1}{2}</m> and is undefined when <m>x=1</m>,
+                as expected.
+                The critical point for <m>g'(x)</m> is <m>x=-\frac{1}{2}</m> and NOT <m>x=1</m>,
+                since <m>g'(x)</m> was also undefined when <m>x=1</m>.
+                The sign analysis for <m>g''(x)</m> is:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-3,0) -- (3,0) node[right] {\(g''\)} ; \foreach \x in  { -1,2} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {-0.5,1} \draw[shift={(2*\x,0)},color=black] (0pt,0pt) -- (0pt,-1.5pt) node[below] {\(\x\)}; \foreach \x in  {-1} \draw[shift={(\x,3pt)}] node[above] {\(^0\)}; \foreach \x in  {2} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {0.5, 2.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Thus <m>g(x)</m> is concave down on <m>\left(-\infty,-\frac{1}{2}\right)</m> and is concave up on
+                <m>\left(-\frac{1}{2},1\right)</m> and on <m>(1,\infty)</m>.
+                There is an inflection point at
+                <m>x=-\frac{1}{2}</m> where <m>y=f\left(-\frac{1}{2}\right) = \frac{\left(-\frac{1}{2}\right)^2}{(1+\frac{1}{2})^2} = \frac{1/4}{9/4} = \frac{1}{9}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          We first plot all of the key points and features found:
+          <ul>
+            <li>
+              <p>
+                <em>Intercepts</em> <m>(0,0)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Asymptotes and/or Holes</em>
+                Vertical asymptote to <m>\infty</m> at <m>x=1</m>.
+                Horizontal asymptote at <m>y=1</m> to the right and left.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Local extrema</em> Minimum at <m>(0,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Inflection points</em> <m>(-1/2, 1/9)\approx (-0.5,0.1111)</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Next, we determine which of the four shapes the graph has between each of these points based on whether the graph is increasing/decreasing and concave up/down.
+          This information is summarized in the table below:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>(-\infty,-1/2)</m></cell>
+              <cell><m>(-1/2,0)</m></cell>
+              <cell><m>(0,1)</m></cell>
+              <cell><m>(1,\infty)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>g'</m> is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>g</m>  is\ldots</cell>
+              <cell>dec</cell>
+              <cell>dec</cell>
+              <cell>inc</cell>
+              <cell>dec</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>g''</m>  is\ldots</cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>g</m> is\ldots</cell>
+              <cell>ccd</cell>
+              <cell>ccu</cell>
+              <cell>ccu</cell>
+              <cell>ccu</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Completing the graph:
+        </p>
+        <p>
+          <image width="93%" source="4-7Example2Graph.png"/>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          <em>Conjecture:</em> In both Example <xref ref="ex_rationalsketch1" autoname="yes"/> and Example <xref ref="ex_rationalsketch2" autoname="yes"/>,
+          the rational functions had the same horizontal asymptotes to the right and left.
+          Do you think it is always the case that a rational function with a horizontal asymptote will have the same value for both
+          <m>x\to\infty</m> and <m>x\to-\infty</m>?
+          Why or why not?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The last function we sketch will be significantly complicated in order to illustrate some of the other types of behaviors you are likely to see when sketching rational functions.
+      If you are already feeling fatigued,
+      it's probably a good idea to take a break before returning to read this last example.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            h(x) = \frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)}
+          </me>
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                <m>h(x)</m> is undefined when its denominator is equal to zero,
+                thus when
+                <me>
+                  (x-1)(x+1)(x-2) = 0 \Longleftrightarrow x=-1, 1, 2
+                </me>
+                The domain of <m>h(x)</m> is
+                <me>
+                  (-\infty,-1)\cup(-1,1)\cup(1,2)\cup (2,\infty)
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>y</m>-intercept of <m>h(x)</m> is at
+                <me>
+                  y = h(0) = \frac{2(-1)^2(2)}{(-1)(1)(-2)} = \frac{4}{2} = 2
+                </me>,
+                meaning at the point <m>(0,2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <m>x</m>-intercepts of <m>h(x)</m> are when the numerator is equal to zero,
+                but we must be careful to also stay in the domain of the function.
+                <me>
+                  2(x-1)^2(x+2)=0 \Longleftrightarrow x=-2,1
+                </me>
+                but <m>h(1)</m> is undefined.
+                Thus the only <m>x</m>-intercept of <m>h(x)</m> is at the point <m>(-2,0)</m>.
+                A  sign analysis of <m>h(x)</m> tells us where the graph of <m>h(x)</m> is above or below the <m>x</m>-axis.
+                We must check the sign of <m>h(x)</m> on each subinterval between the <m>x</m>-intercept and non-domain points:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.75,0) -- (2.75,0) node[right] {\(h''\)} ; \foreach \x in  {-2, -1, 1, 2} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {-2, -1, 1, 2} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-2, 1} \draw[shift={(\x,3pt)}] node[above] {\(^0\)}; \foreach \x in  {-1, 2} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {-2.5, 0, 2.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-1.5, 1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+              </p>
+            </li>
+            <li>
+              <p>
+                Comparing <m>h(-x)</m> to <m>h(x)</m> and <m>-h(x)</m> is quite challenging with <m>h(x)</m> factored as it is.
+                The best way to determine whether <m>h(x)</m> is even or odd is to first expand <m>h(x)</m>:
+                <me>
+                  \begin{aligned}h(x) \amp = \frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)}\\ \amp = \frac{2 x^3 - 6 x + 4}{x^3 - 2 x^2 - x + 2} \end{aligned}
+                </me>
+                and then simplify <m>h(-x)</m> to compare it to <m>h(x)</m> and <m>-h(x)</m>:
+                <me>
+                  \begin{aligned}h(-x) \amp = \frac{2(-x)^3-6(-x)+4}{(-x)^3-2(-x)^2-(-x)+2}\\ \amp = \frac{-2x^3+6x+4}{-x^3-2x^2+x+2} \end{aligned}
+                </me>
+                We can see that <m>h(-x)</m> is not equal to <m>h(x)</m> as it is written,
+                and also checking that it still is not equal after factoring and cancelling a <m>-1</m> from both the numerator and denominator:
+                <me>
+                  h(-x) = \frac{-(2x^3-6x-4)}{-(x^3+2x^2-x-2)} = \frac{2x^3-6x-4}{x^3+2x^2-x-2}
+                </me>.
+                Thus <m>h(x)</m> is not even.
+                <m>h(-x)</m> is also not equal to <m>-h(x)</m>,
+                which we could write in any of the following forms:
+                <me>
+                  \begin{aligned}-h(x) \amp = -\,\frac{2 x^3 - 6 x + 4}{x^3 - 2 x^2 - x + 2} \\ \amp  = \frac{-2x^3+6x-4}{x^3 - 2 x^2 - x + 2}\\ \amp = \frac{2 x^3 - 6 x + 4}{-x^3+2x^2+x-2} \end{aligned}
+                </me>
+                Thus <m>h(x)</m> is also not odd.
+              </p>
+            </li>
+            <li>
+              <p>
+                Since <m>h(x)</m> is undefined at <m>x=-1, 1</m>, and <m>2</m>,
+                we must evaluate the limits at all three of these <m>x</m>-values.
+                At <m>x=-1</m>:
+                <me>
+                  \lim_{x\to -1}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(-2)^2(1)}{(-2)(0)(-3)} = \frac{8}{0} = \pm\infty
+                </me>
+                and so there is a vertical asymptote at <m>x=-1</m>.
+                In order to determine the precise behavior,
+                we take the limits from the left and right.
+                Note that the factor <m>x+1</m> in the denominator is negative as
+                <m>x\to -1^-</m> and is positive as <m>x\to -1^+</m>:
+                <me>
+                  \lim_{x\to -1^-}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(-2)^2(1)}{(-2)(0^-)(-3)} = \frac{8}{0^-} = -\infty
+                </me>
+                and
+                <me>
+                  \lim_{x\to -1^+}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(-2)^2(1)}{(-2)(0^+)(-3)} = \frac{8}{0^+} = \infty
+                </me>
+                At <m>x=1</m>:
+                <me>
+                  \lim_{x\to 1}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(0)^2(3)}{(0)(2)(-1)} = \frac{0}{0}
+                </me>,
+                which is indeterminate.
+                After canceling one of the factors of <m>x-1</m> from both the numerator and denominator:
+                <me>
+                  \begin{aligned}\lim_{x\to 1}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} \amp = \lim_{x\to 1}\frac{2(x-1)(x+2)}{(x+1)(x-2)}\\ \amp =\frac{2(0)(3)}{(2)(-1)} = \frac{0}{-2}=0 \end{aligned}
+                </me>
+                so we see that <m>h(x)</m> has a hole at the point <m>(1,0)</m>.
+                At <m>x=2</m>:
+                <me>
+                  \lim_{x\to 2}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(1)^2(4)}{(3)(3)(0)} = \frac{8}{0} = \pm\infty
+                </me>
+                and so there is a vertical asymptote at <m>x=2</m>.
+                In order to determine the precise behavior,
+                we take the limits from the left and right.
+                Note that the factor <m>x-2</m> in the denominator is negative as
+                <m>x\to 2^-</m> and is positive as <m>x\to 2^+</m>:
+                <me>
+                  \lim_{x\to 2^-}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(1)^2(4)}{(3)(3)(0^-)} = \frac{8}{0^-} = -\infty
+                </me>
+                and
+                <me>
+                  \lim_{x\to 2^+}\frac{2(x-1)^2(x+2)}{(x-1)(x+1)(x-2)} = \frac{2(1)^2(4)}{(3)(3)(0^+)} = \frac{8}{0^+} = \infty
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                The expanded form of <m>h(x)</m> that we found earlier is simpler to use when finding the limits as <m>x\to\pm\infty</m>.
+                Both limits have the indeterminate form
+                <m>\frac{\infty}{\infty}</m> and so we calculate the limits dividing through by <m>x^3</m>:
+                <me>
+                  \lim_{x\to\infty}\frac{2 x^3 - 6 x + 4}{x^3 - 2 x^2 - x + 2} \cdot\frac{\frac{1}{x^3}}{\frac{1}{x^3}}= \lim_{x\to\infty}\frac{2-\frac{6}{x^2}+\frac{4}{x^3}}{1-\frac{2}{x}-\frac{1}{x^2}+\frac{2}{x^3}} = \frac{2}{1} = 2
+                </me>
+                and similarly
+                <me>
+                  \lim_{x\to-\infty}\frac{2 x^3 - 6 x + 4}{x^3 - 2 x^2 - x + 2}\cdot\frac{\frac{1}{x^3}} = \lim_{x\to-\infty}\frac{2-\frac{6}{x^2}+\frac{4}{x^3}}{1-\frac{2}{x}-\frac{1}{x^2}+\frac{2}{x^3}} = \frac{2}{1} = 2
+                </me>
+                Thus <m>h(x)</m> has a horizontal asymptote of <m>y=2</m> to the right and left.
+              </p>
+            </li>
+            <li>
+              <p>
+                Since we already found the hole at <m>x=1</m>,
+                let's work with the simplified function that results from canceling one factor of <m>x-1</m> from the numerator and denominator:
+                <me>
+                  h(x) = \frac{2(x-1)(x+2)}{(x+1)(x-2)} = \frac{2x^2+2x-4}{x^2-x-2}
+                </me>
+                Taking the first derivative using the quotient rule,
+                simplifying, and factoring, we have:
+                <me>
+                  \begin{aligned}h'(x) \amp = \frac{(x^2-x-2)(4x+2)-(2x^2+2x-4)(2x-1)}{(x^2-x-2)^2}\\ \amp = \frac{(4x^3-2x^2-4x^2-2x-8x-4)-(4x^3-2x^2+4x^2-2x-8x+4)}{((x+1)(x-2))^2}\\ \amp = \frac{(4x^3-2x^2-10x-4)-(4x^3+2x^2-10x+4)}{(x+1)^2(x-2)^2}\\ \amp = \frac{-4x^2-8}{(x+1)^2(x-2)^2}\\ \amp = \frac{-4(x^2+2)}{(x+1)^2(x-2)^2} \end{aligned}
+                </me>
+                When looking for critical points,
+                we set both the numerator equal to zero (to determine where <m>h'(x)=0</m>) and the denominator equal to zero (to determine where <m>h'(x)</m> is undefined).
+                Setting the numerator equal to zero:
+                <me>
+                  -4(x^2+2) = 0\Longleftrightarrow  x^2+2 = 0 \Longleftrightarrow  x^2 = -2
+                </me>
+                From this, we can see that
+                <m>h'(x)\neq 0</m> for any <m>x</m>-values.
+                Setting the denominator equal to zero:
+                <me>
+                  (x+1)^2(x-2)^2=0 \Longleftrightarrow  x = -1,2
+                </me>
+                and so <m>h'(x)</m> is undefined when <m>x = -1,2</m>.
+                However, these are not critical points because they are not in the domain of <m>h(x)</m>.
+                Thus <m>h(x)</m> has no critical points.
+                In the sign analysis for <m>h'(x)</m>,
+                we must remember that <m>h(x)</m> is undefined at <m>x=-1,1</m>,
+                and <m>2</m>,
+                and so could change sign at any of those <m>x</m>-values,
+                despite the lack of critical points:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.75,0) -- (3,0) node[right] {\(h'\)} ; \foreach \x in  { -1, 1, 2} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {-1, 1, 2} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {-1, 1, 2} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {-2, 0, 1.5, 2.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                We can see that since <m>h'(x)</m> is always negative,
+                hence <m>h(x)</m> is always decreasing.
+                There are no local minima or maxima.
+              </p>
+            </li>
+            <li>
+              <p>
+                Before we move on to the second derivative,
+                notice that calculating derivatives of rational functions is a significant challenge,
+                especially since we would like to be able to factor the result.
+                Lacking more advanced algebraic techniques for factoring,
+                a key skill to develop is to take derivatives in such a way that the result is left as factored as possible.
+                In particular,
+                we do not want to expand the denominator of <m>h'(x)</m> before taking its derivative.
+                In fact, we will leave it fully factored and instead opt to use the product rule when taking the derivative of the denominator:
+                <me>
+                  \begin{aligned}h''(x) \amp = \frac{(x+1)^2(x-2)^2\cdot (-8x)-(-4(x^2+2)\cdot \frac{d}{dx}\left[(x+1)^2(x-2)^2\right]}{\left((x+1)^2(x-2)^2\right)^2}\\ \amp = \frac{-8x(x+1)^2(x-2)^2+4(x^2+2)\cdot \frac{d}{dx}\left[(x+1)^2(x-2)^2\right]}{(x+1)^4(x-2)^4} \end{aligned}
+                </me>
+                Taking the derivative of the denominator and simplifying separately will make this computation much less painful:
+                <me>
+                  \begin{aligned}\frac{d}{dx}\left[(x+1)^2(x-2)^2\right] \amp = 2(x+1)(x-2)^2+2(x+1)^2(x-1)\\ \amp = 2(x+1)(x-2)\big((x-2)+(x+1)\big)\\ \amp = 2(x+1)(x-2)(2x-1) \end{aligned}
+                </me>
+                Returning to calculating <m>h''(x)</m> and factoring as much as possible:
+                <me>
+                  \begin{aligned}f''(x) \amp =\frac{-8x(x+1)^2(x-2)^2+4(x^2+2)\cdot (2(x+1)(x-2)(2x-1))}{(x+1)^4(x-2)^4}\\ \amp = \frac{-8x(x+1)^2(x-2)^2+8(x^2+2)(x+1)(x-2)(2x-1)}{(x+1)^4(x-2)^4}\\ \amp =\frac{8(x+1)(x-2)\big(-x(x+1)(x-2)+(x^2+2)(2x-1)\big)}{(x+1)^4(x-2)^4}\\ \amp =\frac{8(-x(x+1)(x-2)+(x^2+2)(2x-1))}{(x+1)^3(x-2)^3}\\ \amp = \frac{8(x^3+6x-2)}{(x+1)^3(x-2)^3} \end{aligned}
+                </me>
+                This is as far as we can proceed with algebra.
+                We are familiar enough with cubic polynomials to know that the factor of
+                <m>x^3-6x-2</m> in the numerator must have at least one zero.
+                Using
+                <url href="https://www.wolframalpha.com/">https://www.wolframalpha.com/</url>
+                to solve the equation
+                <me>
+                  x^3+6x-2 = 0
+                </me>,
+                we are told that <m>x=\sqrt[3]{2}(\sqrt[3]{2}-1)\approx 0.32748</m>.
+                Thus we see that <m>h''(x)=0</m> for <m>x\approx 0.32748</m>.
+                Setting the denominator equal to zero,
+                we see that <m>h''(x)</m> is undefined for <m>x=-1,2</m>,
+                as we expect.
+                Recall that <m>x=1</m> is also not in the domain of the original form of <m>h(x)</m>,
+                so <m>h''(x)</m> is also undefined for <m>x=1</m>.
+                Creating a sign analysis for <m>h''(x)</m>:
+                <image>
+                   <latex-image> <![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.75,0) -- (3,0) node[right] {\(h''\)} ; \foreach \x in  { -1,0.3, 1, 2} \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt); \foreach \x in  {-1, 0.3, 1,2} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)}; \foreach \x in  {0.3} \draw[shift={(\x,3pt)}] node[above] {\(^{\approx0}\)}; \foreach \x in  {-1, 1, 2} \draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)}; \foreach \x in  {-0.2, 2.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(+\)}; \foreach \x in  {-2, 0.6, 1.5} \draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]> </latex-image>
+                </image>
+                Hence we see that <m>h(x)</m> is concave down on
+                <m>(-\infty,-1)</m> and <m>(0.32748,2)</m>,
+                and is concave up on <m>(-1,0.32748)</m> and <m>(2,\infty)</m>.
+                Thus <m>h(x)</m> has an inflection point at <m>x\approx 0.32748</m> where
+                <me>
+                  y\approx h(0.32748) = \frac{2(0.32748-1)(0.32748+2)}{(0.32748+1)(0.32748-2)} \approx 1.41001
+                </me>.
+                There cannot be inflection points at <m>x=-1</m> and <m>x=2</m> because they are not in the domain of the function.
+                Note that <m>h''(0.32748)\approx 9.58\times 10^{-9}</m> is not zero,
+                so the inflection point is not at <m>x=0.32748</m>.
+                However, it is very close.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          We first plot all of the key points and features found:
+          <ul>
+            <li>
+              <p>
+                <em>Intercepts</em> <m>y</m>-intercept <m>(0,2)</m> and <m>x</m>-intercept <m>(-2,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Asymptotes and/or Holes</em>
+                Vertical asymptotes at <m>x=-1</m> and <m>x=2</m>.
+                A hole at <m>(1,0)</m>.
+                Horizontal asymptote at <m>y=2</m> to the right and left.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Local extrema</em> There are none.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Inflection points</em> Approximately <m>(0.32748, 1.41001)</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          <image width="56%" source="4-7Example3KeyPoints.png"/>
+        </p>
+        <p>
+          We can see that there are no key points to the right of the vertical asymptote at <m>x=2</m>,
+          which may make it harder for us to "connect the dots" without any dots.
+          There is nothing stopping us from plotting an extra point
+          (or several).
+          For instance, we can easily find
+          <me>
+            h(3) = \frac{2(2)^2(5)}{(2)(4)(1)} = 5
+          </me>
+          and add the point <m>(3,5)</m> to our plot:
+        </p>
+        <p>
+          <image width="56%" source="4-7Example3KeyPoints2.png"/>
+        </p>
+        <p>
+          Recall that <m>h(x)</m> is decreasing everywhere on its domain.
+          Recalling the concavity,
+          we summarize the shape of <m>h(x)</m> from left to right on the graph between all of the key features:
+          <ul>
+            <li>
+              <p>
+                <m>h(x)</m> is decreasing and concave down on <m>(-\infty,-1)</m>,
+                which fits between the horizontal asymptote to the left and the vertical asymptote at <m>x=-1</m>,
+                passing through the <m>x</m>-axis at the point <m>(-2,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x)</m> is decreasing and concave up from the vertical asymptote at <m>x=-1</m> through the <m>y</m>-intercept at <m>(0,2)</m>,
+                up until the inflection point at approximately <m>(0.32748, 1.41001)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x)</m> is decreasing and concave down from the inflection point at
+                <m>(0.32748, 1.41001)</m> through the hole at <m>(1,0)</m> and leading up to the vertical asymptote at <m>x=2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x)</m> is decreasing and concave up from the vertical asymptote at <m>x=2</m> to the far right edge of the graph,
+                which fits with the horizontal asymptote to the right of the graph at <m>y=2</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          In particular,
+          note that the precise behavior of the vertical asymptotes we calculated matches the first-derivative information that the graph must be decreasing for all <m>x</m>-values.
+        </p>
+        <p>
+          The remainder of the graph of <m>h(x)</m> is filled in as shown below:
+        </p>
+        <p>
+          <image width="93%" source="4-7Example3Graph.png"/>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following method was introduced in this section:
+    </p>
+    Curve Sketching Summary
+    <p>
+      <em>Key ideas:</em> In order to graph a rational function by hand,
+      we determine the domain,
+      intercepts, symmetry, vertical asymptotes and holes, end-behavior,
+      and first- and second-derivative information for the function.
+      We plot key points (intercepts,
+      asymptotes, holes, local extrema, inflection points),
+      summarize the behavior of the graph between each feature (increasing/decreasing,
+      concave up/down),
+      and then connect the points using the four possible shapes of nonlinear functions.
+    </p>
+    <p>
+      <em>Other ideas reinforced/introduced:</em>
+      A polynomial function must have a local minimum or maximum between each of its <m>x</m>-intercepts.
+      Using only information about the first and second derivative of a function,
+      we can still get a remarkably accurate graph without knowing any precise <m>y</m>-values.
+      Rational functions have vertical asymptotes and/or holes at points where they are undefined,
+      depending on how the function cancels while taking the limit.
+      Rational functions may also have horizontal asymptotes.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 4.7}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+    <p>
+      \part{Spring Semester}
+    </p>
+  </subsection>
+</section>

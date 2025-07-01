@@ -1,0 +1,712 @@
+<section>
+  <title>Derivatives of exponential functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          See how the natural base of <m>e</m> arises from the need to compute derivatives of exponential functions via the limit definition of the derivative.
+        </p>
+      </li>
+      <li>
+        <p>
+          Rewrite any exponential function with a base of <m>e</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Take the derivative of exponential functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize how to use previous derivative rules,
+          especially the chain rule, when taking derivatives of exponential functions.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Defining <m>e</m> via Derivatives of Exponential Functions</title>
+    <p>
+      We have already made some observations about the derivatives of exponential functions
+      <m>f(x) = b^x</m> without ever having calculated them:
+      <ul>
+        <li>
+          <p>
+            When <m>b>1</m>, because <m>b^x</m> models percent growth,
+            <m>b^x</m> is always increasing,
+            thus its derivative is always positive.
+          </p>
+        </li>
+        <li>
+          <p>
+            When <m>0\lt b\lt 1</m>, because <m>b^x</m> models percent decay,
+            <m>b^x</m> is always decreasing,
+            thus its derivative is always negative.
+          </p>
+        </li>
+        <li>
+          <p>
+            Because it models percent change,<fn>
+            The change in <m>b^x</m> depends on its size,
+            so an increasing exponential function will increase faster as <m>b^x</m> grows,
+            and a decreasing exponential function will decrease more slowly as <m>b^x</m> decays,
+            both of which translate to a concave up shape.
+            </fn> <m>b^x</m> is always concave up,
+            regardless of whether it models exponential growth or decay,
+            thus its second derivative is always positive.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      <em>But how do we actually find a formula for the derivative of <m>f(x)=b^x</m>?</em>
+      The power rule tells us that the derivative of <m>x^k</m> is <m>kx^{k-1}</m>,
+      but this rule only works for power functions,
+      where the <em>base</em> is the variable <m>x</m> and the
+      <em>exponent</em> is a constant <m>k</m>.
+      <em>It does not tell us how to differentiate an exponential function like <m>2^x</m> or <m>(1.07)^{3t}</m>,
+      where the variable is in the exponent!!!</em>
+    </p>
+    <p>
+      To determine the derivative of an exponential function <m>f(x) = b^x</m>,
+      we must return to the limit definition of the derivative:
+      <me>
+        f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+      </me>
+    </p>
+    <p>
+      Let's apply this definition to the function <m>f(x) = b^x</m>.
+      Note that since the original limit has the form <m>\frac{0}{0}</m>,
+      we anticipate needing to use some algebraic manipulation to evaluate the limit.
+      <md>
+        <mrow>\frac{d}{dx}(b^x) \amp = \lim_{h\to 0}\frac{b^{x+h} - b^x}{h}\amp \leftarrow\amp  \text{ apply the definition } f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}</mrow>
+        <mrow>\amp = \lim_{h\to 0}\frac{b^{x}b^h - b^x}{h}\amp \leftarrow\amp  \text{ split up the exponent }</mrow>
+        <mrow>\amp = \lim_{h\to 0}\frac{b^{x}(b^h - 1)}{h}\amp \leftarrow\amp  \text{ factor out } b^x</mrow>
+        <mrow>\amp = \left(\lim_{h\to 0}\ b^x\cdot \frac{b^h - 1}{h}\right)</mrow>
+      </md>
+    </p>
+    <p>
+      Although we have simplified as much as possible,
+      this is a limit that we do not yet know how to calculate.
+      The expression
+      <me>
+        \frac{b^h - 1}{h}
+      </me>
+      will still evaluate to <m>\frac{0}{0}</m> as <m>h\to 0</m> and so is still indeterminate.
+      Let's numerically estimate
+      (using a table)
+      a few values of this expression as <m>h\to0</m> to see if we can anticipate what it will be equal to:
+    </p>
+    <example xml:id="ex_estimatingexplimits">
+      <title>Estimating  $\ds\lim_{h\to 0}\frac{b^h-1}{h}$  Numerically</title>
+      <statement>
+        <p>
+          First, let <m>b=2</m>:
+        </p>
+        <table xml:id="tab_limitof2h">
+          <title>Estimating <m>\ds\lim_{h\to 0}\dfrac{2^h-1}{h}</m> numerically</title>
+          <tabular>
+            <row>
+              <cell><m>h</m></cell>
+              <cell>-1</cell>
+              <cell>-0.5</cell>
+              <cell>-0.1</cell>
+              <cell>-0.01</cell>
+              <cell>-0.001</cell>
+              <cell>0</cell>
+              <cell>0.001</cell>
+              <cell>0.01</cell>
+              <cell>0.1</cell>
+              <cell>0.5</cell>
+              <cell>1</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\dfrac{2^h-1}{h}</m></cell>
+              <cell><m>0.5</m></cell>
+              <cell><m>0.5858</m></cell>
+              <cell><m>0.6697</m></cell>
+              <cell><m>0.6906</m></cell>
+              <cell><m>0.6929</m></cell>
+              <cell>?</cell>
+              <cell><m>0.6934</m></cell>
+              <cell><m>0.6956</m></cell>
+              <cell><m>0.7177</m></cell>
+              <cell><m>0.8284</m></cell>
+              <cell><m>1</m></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          For <m>b=2</m>,
+          it looks like this limit approaches a value close to <m>0.693</m>.
+        </p>
+        <p>
+          Now, let <m>b=3</m>.
+        </p>
+        <table xml:id="tab_limitof3h">
+          <title>Estimating <m>\ds\lim_{h\to 0}\dfrac{3^h-1}{h}</m> numerically</title>
+          <tabular>
+            <row>
+              <cell><m>h</m></cell>
+              <cell>-1</cell>
+              <cell>-0.5</cell>
+              <cell>-0.1</cell>
+              <cell>-0.01</cell>
+              <cell>-0.001</cell>
+              <cell>0</cell>
+              <cell>0.001</cell>
+              <cell>0.01</cell>
+              <cell>0.1</cell>
+              <cell>0.5</cell>
+              <cell>1</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\dfrac{3^h-1}{h}</m></cell>
+              <cell><m>0.6667</m></cell>
+              <cell><m>0.8453</m></cell>
+              <cell><m>1.0404</m></cell>
+              <cell><m>1.0926</m></cell>
+              <cell><m>1.0980</m></cell>
+              <cell>?</cell>
+              <cell><m>1.0992</m></cell>
+              <cell><m>1.1047</m></cell>
+              <cell><m>1.1612</m></cell>
+              <cell><m>1.4641</m></cell>
+              <cell><m>2</m></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          For <m>b=3</m>,
+          it looks like this limit approaches a value close to <m>1.099</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      <em>What is the significance of these limits?</em>
+      Interpreting them visually will give us some clue as to how to proceed.
+      Note that, because <m>b^0 = 1</m>, the quantity
+      <me>
+        f'(0) =  \left(\lim_{h\to 0}\ b^0\cdot \frac{b^h - 1}{h}\right) =  \left(\lim_{h\to 0} \frac{b^h - 1}{h}\right)
+      </me>
+      represents the slope <m>f'(0)</m> of the tangent line to
+      <m>f(x) = b^x</m> at the point <m>(0,1)</m>.
+      We can see these tangent lines visualized for <m>b=2</m> and <m>b=3</m> in the pictures below:
+    </p>
+    <figure xml:id="fig_BACPage42a">
+      <caption>The tangent line of <m>f(x) = 2^x</m> at <m>x=0</m> has slope approximately <m>0.7</m>.</caption>
+      \begin{subfigure}[b]{0.4\textwidth}
+      <image width="73%" source="BACPage42a.png"/>
+      \end{subfigure}
+      \begin{subfigure}[b]{0.4\textwidth}
+      <image width="73%" source="BACPage42b.png"/>
+      \caption{The tangent line of <m>f(x) = 3^x</m> at <m>x=0</m> has slope approximately <m>1.1</m>.} \end{subfigure}
+      \caption{Slopes of tangent lines to <m>2^x</m> and <m>3^x</m> at <m>x=0</m>. One is slightly less than 1 while the other is slightly greater than 1.}
+    </figure>
+    <p>
+      Wouldn't it be fabulous if the entire expression
+      <me>
+        \frac{b^h-1}{h}
+      </me>
+      would just go away?? The amazing thing in this case is that yes, it can.
+      There is a special number, called <m>e</m>,
+      defined specifically so that the slope of the tangent line to
+      <m>f(x) = e^x</m> at the point <m>(0,1)</m> is exactly 1:
+    </p>
+    <figure xml:id="fig_BACPage42c">
+      <caption>The tangent line of <m>f(x) = e^x</m> at <m>x=0</m> has slope exactly 1.</caption>
+      <image width="37%" source="BACPage42c.png"/>
+    </figure>
+    <p>
+      In terms of the limit we have been trying to evaluate,
+      we have defined this special number <m>e</m> precisely so that the limit is equal to 1:
+    </p>
+    <definition xml:id="def_limitdefe">
+      <title>A Characterization of the Number $e$</title>
+      <statement>
+        <p>
+          The number <m>e</m> satisfies the following limit statement:
+          <me>
+            \lim_{h\to 0}\frac{e^h-1}{h} = 1
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Therefore, when <m>b=e</m>,
+      the limit as <m>h\to 0</m> of
+      <m>\frac{b^h-1}{h}</m> in our derivative calculation becomes 1 and "disappears," hence the derivative of the exponential function <m>f(x) = e^x</m> is:
+      <md>
+        <mrow>\frac{d}{dx}(e^x) \amp = \lim_{h\to 0}\frac{e^{x+h} - e^x}{h}\amp \amp</mrow>
+        <mrow>\amp \vdots\amp \amp</mrow>
+        <mrow>\amp = e^x\left(\lim_{h\to 0}\frac{e^h - 1}{h}\right)</mrow>
+        <mrow>\amp = e^x(1) \amp \leftarrow\amp \text{ since } \ds\lim_{h\to 0}\frac{e^h-1}{h} = 1</mrow>
+        <mrow>\amp =e^x</mrow>
+      </md>
+    </p>
+    <p>
+      We have just shown that the function
+      <m>f(x) = e^x</m> is its own derivative!
+      As illustrated in <xref ref="fig_TaalmanPage363">Figure</xref> below,
+      <m>y=e^x</m> is its own associated slope function,
+      meaning that <m>y=e^x</m> grows in such a way that its height is exactly how fast its height is increasing.
+    </p>
+    <figure xml:id="fig_TaalmanPage363">
+      <caption>Since <m>\frac{d}{dx}(e^x) = e^x</m>, the slope of <m>e^x</m> is equal to the height of <m>e^x</m> at each point.</caption>
+      <image width="92.5%" source="TaalmanPage363.png"/>
+    </figure>
+    <p>
+      Other exponential functions of the form <m>b^x</m> have graphs similar to the graph of <m>e^x</m>,
+      but only <m>e^x</m> is scaled in exactly the right way to be its own derivative.
+      The exponential function <m>e^x</m> is called the
+      <em>natural exponential function</em>.
+    </p>
+    <p>
+      From the point of view of derivatives,
+      the base <m>e</m> is <em>extremely</em> special.
+      The number <m>e</m> (named in homage to the great Swiss mathematician Leonard Euler (1707-1783)) is complicated to define.
+      Like <m>\pi</m>,
+      <m>e</m> is an irrational number that cannot be represented exactly by a ratio of integers and whose decimal expansion never repeats.
+      Because of our numerical estimates in <xref ref="tab_limitof2h">Table</xref>
+      and <xref ref="tab_limitof3h">Table</xref>,
+      we know that <m>e</m> must be between <m>2</m> and <m>3</m> in order for the slope of the tangent line to <m>e^x</m> at <m>x=0</m> to be 1.
+      Here is another definition for the number <m>e</m>,
+      but showing that it is equivalent to <xref ref="def_limitdefe">Definition</xref>
+      requires advanced mathematics that is beyond the scope of this course.
+    </p>
+    <definition>
+      <title>The natural base $e$</title>
+      <statement>
+        <p>
+          The number <m>e</m> is the infinite sum
+          <me>
+            e = 1+\frac{1}{1!}+\frac{2}{2!}+\frac{3}{3!}+\ldots
+          </me>
+        </p>
+        <p>
+          From this, <m>e\approx 2.718\ldots</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      However, we can use Desmos to estimate <m>e</m> for ourselves.
+      The following exercise will lead you through how to do this.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Click on this link \url{https://www.desmos.com/calculator/2bduq41gux} to open a Desmos graph that will help you estimate the value of <m>e</m>.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                The slider for <m>b</m> is set to <m>b=2.5</m>.
+                What is the value of <m>m</m>,
+                the slope of the tangent line to <m>f(x) = b^x</m> at <m>x=0</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Third decimal place of <m>e</m>:</em>
+                Move the slider for <m>b</m> to <m>2.716</m> in order to get <m>m</m> as close to 1 as possible without having <m>m>1</m>.
+                Manually increase the digit "6" by deleting it and typing in a higher and higher number.
+                What value can the third decimal place of <m>b</m> be without having <m>m>1</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Fourth decimal place of <m>e</m>:</em>
+                Type in a fourth decimal place for <m>b</m> and again experiment increasing and decreasing it until you find what value makes <m>m</m> just below <m>1</m>.
+                What value can the fourth decimal place of <m>b</m> be without having <m>m>1</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Repeat the above steps until you have 5 or 6 decimal places.
+                This value of <m>b</m> is an estimate for <m>e</m>,
+                and you could theoretically keep going forever
+                (though Desmos will run out of precision).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Derivatives of Other Exponential Functions</title>
+    <p>
+      In order to take derivatives of an arbitrary exponential function <m>f(x) = Ab^x</m>,
+      we will need to know that every exponential function can be written so that its base is the number <m>e</m>.
+      In order to do this, we note that
+      <me>
+        b^x = e^{(\log_e b) x}
+      </me>
+      because of the cancellation properties of logarithms (part (f) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>).
+      Using a base of <m>e</m> in a logarithm is so common that there is a special name and notation for such logarithmic functions:
+      the base-<m>e</m> logarithmic function is the
+      <em>natural logarithmic function</em>
+      \fbox{<m>\log_e x = \ln x</m>.}
+    </p>
+    <theorem>
+      <title>Natural Exponential Functions</title>
+      <statement>
+        <p>
+          Every exponential function
+          <m>f(x) = Ab^x</m> can be written in the form
+          <me>
+            f(x) = Ae^{kx}
+          </me>
+          for <m>k=\log_e b =\ln b</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Similar to when we rewrote functions in terms of a base of <m>2</m> while exploring doubling time and half-life,
+      when <m>b>1</m>, the value of <m>k</m> is positive,
+      and when <m>0\lt b\lt 1</m>, the value of <m>k</m> is negative:
+    </p>
+    <figure>
+      <caption>Every exponential function <m>f(x) = b^x</m>  can be rewritten in the form <m>f(x) = e^{kx}</m>, with the sign of <m>k</m> depending on whether <m>b>1</m> or <m>0\lt b\lt 1</m>.</caption>
+      <image width="93%" source="TaalmanPage344.png"/>
+    </figure>
+    <p>
+      With the chain rule,
+      we can use the derivative of <m>e^x</m> to find the derivatives of general exponential functions.
+    </p>
+    <p>
+      The previous discussion showed us that <m>\frac{d}{dx}(e^x) = e^x</m>.
+      To find the derivative of <m>b^x</m>,
+      we rewrite <m>b^x</m> as <m>(e^{\ln b})^x</m> and then apply the chain rule:
+      <md>
+        <mrow>\frac{d}{dx}(b^x) \amp = \frac{d}{dx}((e^{\ln b})^x) \amp \leftarrow \amp  \ b = e^{\ln b},\text{ remember that } \ln b = \log_e b</mrow>
+        <mrow>\amp = \frac{d}{dx}(e^{(\ln b)x}) \amp \leftarrow\amp  \text{ algebra of exponents }</mrow>
+        <mrow>\amp = e^{(\ln b) x}\cdot\frac{d}{dx}((\ln b)x) \amp \leftarrow\amp  \text{ chain rule and derivative of } e^x</mrow>
+        <mrow>\amp = (e^{\ln b})^x(\ln b) \amp  \leftarrow \amp  \text{ algebra and derivative of linear function }</mrow>
+        <mrow>\amp = (\ln b) b^x.\amp  \leftarrow \amp  \text{ algebra }</mrow>
+      </md>
+    </p>
+    <p>
+      We have now discovered the derivatives of the natural exponential function <m>e^x</m> along with any base-<m>b</m> exponential function <m>b^x</m>:
+    </p>
+    <theorem xml:id="thm_derivativesofexponentialfunctions">
+      <title>Derivatives of Exponential Functions</title>
+      <statement>
+        <p>
+          For any constant <m>b>0</m> with <m>b\neq 1</m>,
+          and all real numbers <m>x</m>,
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\dfrac{d}{dx}(e^x) = e^x</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dfrac{d}{dx}(b^x) = (\ln b)b^x</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          How does this compare to the estimates of the limits
+          <me>
+            \lim_{h\to 0}\frac{b^h-1}{h}
+          </me>
+          we found in <xref ref="ex_estimatingexplimits">Example</xref>?
+        </p>
+        <p>
+          When <m>b=2</m>, the derivative of
+          <m>f(x) = 2^x</m> at <m>x=0</m> is <m>f'(0) = (\ln 2)2^0 = \ln 2\approx 0.693147\ldots</m>,
+          which is close to the <m>0.693</m> we guessed earlier.
+        </p>
+        <p>
+          When <m>b=3</m>, the derivative of
+          <m>f(x) = 3^x</m> at <m>x=0</m> is <m>f'(0) = (\ln 3)3^0 = \ln 3\approx 1.0986123\ldots</m>,
+          which is close to the <m>1.099</m> we guessed earlier.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now we can take derivatives of any exponential function
+      <m>f(x) = Ab^x</m> by applying <xref ref="thm_derivativesofexponentialfunctions">Theorem</xref>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          <em>True or False?</em> <m>\frac{d}{dx}(e^x) = xe^{x-1}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          For example, we can quickly calculate
+          <me>
+            \frac{d}{dx}(5(2^x)) = 5\cdot \frac{d}{dx}(2^x) = 5(\ln 2)2^x
+          </me>,
+          first by applying the constant-multiple rule,
+          then applying part (b) of <xref ref="thm_derivativesofexponentialfunctions">Theorem</xref> using a base of <m>b=2</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can still use all of our old derivative rules,
+      including the product, quotient, and chain rules.
+      The chain rule looks very different than we are used to,
+      and so we state it below with this new possible "outside" function of <m>b^x</m>:
+    </p>
+    <theorem>
+      <title>The chain rule for exponential functions</title>
+      <statement>
+        <me>
+          \frac{d}{dx}\left(e^{g(x)}\right) = g'(x)e^{g(x)}
+        </me>
+        <me>
+          \frac{d}{dx}\left(b^{g(x)}\right) = (\ln b)g'(x)b^{g(x)}
+        </me>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The "outside" function is <m>f(u) = e^u</m>,
+        and the "inside" function is <m>u=g(x)</m>,
+        so that <m>e^{g(x)} = f(g(x))</m>.
+        The chain rule tells us that
+        <me>
+          \frac{d}{dx}(f(g(x))) = f'(g(x))g'(x)
+        </me>
+        and in this case we have
+        <me>
+          f'(u) = e^u
+        </me>.
+        Combining these,
+        <me>
+          \begin{aligned}\frac{d}{dx}\left(e^{g(x)}\right) \amp = \frac{d}{dx}\left(f(g(x))\right)\\ \amp =f'(g(x))g'(x)\\ \amp = e^{g(x)} g'(x) \amp \amp  \text{ since } f'(u) = e^u \end{aligned}
+        </me>
+      </p>
+      <p>
+        Similarly, if <m>f(x) = b^x</m>,
+        then <m>f'(x) = (\ln b)b^x</m> and so
+        <me>
+          \begin{aligned}\frac{d}{dx}\left(b^{g(x)}\right) \amp = \frac{d}{dx}\left(f(g(x))\right)\\ \amp =f'(g(x))g'(x)\\ \amp = (\ln b)b^{g(x)} g'(x) \amp \amp  \text{ since } f'(u) = (\ln b)b^u \end{aligned}
+        </me>
+      </p>
+    </proof>
+    <example>
+      <statement>
+        <p>
+          A special case of the chain rule is when we have a function of the form <m>f(x) = e^{kx}</m>.
+          Then if <m>g(x) = kx</m> is the "inside" function in the exponent,
+          <m>g'(x) = k</m> and so
+          <me>
+            \frac{d}{dx}\left(e^{kx}\right)  = ke^{kx}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          For another example, we have
+          <me>
+            \begin{aligned}\frac{d}{dx}(e^{x^2+1}) \amp = e^{x^2+1}\cdot \frac{d}{dx}(x^2+1)\\ \amp = e^{x^2+1}(2x)\\ \amp = 2xe^{x^2+1} \end{aligned}
+          </me>
+        </p>
+        <p>
+          It's not required,
+          but it is customary to rewrite products with the exponential function to the far right.
+          This makes them less ambiguous if our handwriting gets sloppy and we can't tell whether the thing we are multiplying by is in the exponent or not.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Remember that when the base <m>b</m> is not <m>e</m>,
+          the derivative has an additional <m>\ln b</m>:
+          <me>
+            \begin{aligned}\frac{d}{dx}(3^{x^2+1}) \amp = (\ln 3)3^{x^2+1}\cdot \frac{d}{dx}(x^2+1)\\ \amp = (\ln 3)3^{x^2+1}(2x)\\ \amp = (\ln 3)(2x)3^{x^2+1} \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of the function
+          <me>
+            f(x) = \frac{5^{3x}}{1+x}
+          </me>
+        </p>
+        <p>
+          Starting with the quotient rule, we have
+          <md>
+            <mrow>\frac{d}{dx}\left(\frac{5^{3x}}{1+x}\right) \amp = \frac{(1+x)\cdot \frac{d}{dx}(5^{3x})-5^{3x}\cdot\frac{d}{dx}(1+x)}{(1+x)^2} \amp \leftarrow\amp \text{ quotient rule }</mrow>
+            <mrow>\amp = \frac{(1+x)\cdot(\ln 5)5^{3x}(3)-5^{3x}\cdot(1)}{(1+x)^2} \amp  \leftarrow \amp  \text{ chain, exponential rules }</mrow>
+            <mrow>\amp = \frac{(3(\ln 5)(1+x)-1)5^{3x}}{(1+x)^2} \amp \leftarrow\amp  \text{ simplify a bit by factoring \(5^{3x}\)}</mrow>
+          </md>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of
+          <me>
+            g(x) = \sqrt{x}e^{x^2}
+          </me>
+        </p>
+        <p>
+          Using the product and chain rules, we have
+          <me>
+            \begin{aligned}\frac{d}{dx}(\sqrt{x}) \amp =  \sqrt{x}\cdot \frac{d}{dx}(e^{x^2})+e^{x^2}\cdot\frac{d}{dx}(\sqrt{x})\\ \amp =\sqrt{x}\cdot e^{x^2}(2x)+e^{x^2}\cdot \frac{1}{2}x^{-1/2}\\ \amp = 2x^{3/2}e^{x^2}+\frac{e^{x^2}}{2\sqrt{x}}\\ \amp = \left(2x^{3/2}+\frac{1}{2\sqrt{x}}\right)e^{x^2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Factoring the <m>e^{x^2}</m> in the last step isn't necessary,
+          but it will make any subsequent calculations
+          (taking another derivative, finding critical points)
+          much easier.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of
+          <me>
+            h(x) = 3\sqrt{e^x}-x^2
+          </me>
+        </p>
+        <p>
+          There are two possible ways to approach this problem.
+          The first is to recognize that the exponential function is on the
+          <em>inside</em> of a composition,
+          since <m>e^x</m> appears inside the square root.
+          Thus we have
+          <md>
+            <mrow>\frac{d}{dx}(3\sqrt{e^x}-x^2) \amp = \frac{d}{dx}(3(e^x)^{1/2}-x^2) \amp \leftarrow\amp \text{ rewrite so differentiation will be easier }</mrow>
+            <mrow>\amp = 3\left(\frac{1}{2}\right)(e^x)^{-1/2}(e^x)-2x \amp \leftarrow \amp \text{ don't forget the chain rule! }</mrow>
+            <mrow>\amp = \frac{3}{2}e^x(e^x)^{-1/2}-2x \amp \leftarrow\amp \text{ some algebra }</mrow>
+          </md>
+        </p>
+        <p>
+          We could simplify the answer further,
+          but there's no need to do that right now.
+          Here is another, arguably better way to approach this computation:
+          we could have saved ourselves some differentiation work by doing some algebra first,
+          as is often the case.
+          In particular,
+          we can combine the exponent of the exponential function with the square root:
+          <md>
+            <mrow>\frac{d}{dx}(3\sqrt{e^x}-x^2) \amp = \frac{d}{dx}(3(e^x)^{1/2}-x^2) \amp \leftarrow \amp  \text{ rewrite so differentiation will be easier }</mrow>
+            <mrow>\amp =\frac{d}{dx}(3e^{x/2}-x^2) \amp \leftarrow\amp \text{ combine exponents of \(e\) }</mrow>
+            <mrow>\amp = 3\left(\frac{1}{2}\right)e^{x/2}-2x\amp \leftarrow\amp \text{ differentiation is easier now }</mrow>
+          </md>
+        </p>
+        <p>
+          The answer is equivalent to the answer we got in the first calculation.
+          (Do some algebra to see why.)
+          Notice that the differentiation steps used in the second calculation were <em>easier</em>
+          than the differentiation steps used in the first calculation.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In a later section,
+          we'll learn that another model for how a population grows over time can be given by a function of the form
+          <me>
+            P(t) = \frac{A}{1+Me^{-kt}}
+          </me>
+          where <m>A</m>, <m>M</m>, and <m>k</m> are positive constants.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                What is the derivative of <m>e^{-kt}</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the derivative of <m>1+Me^{-kt}</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the derivative of <m>A</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the derivative of <m>P(t) = \frac{A}{1+Me^{-kt}}</m>.
+                <em>You can either use the Quotient Rule or you can rewrite <m>P(t)</m> and use the Chain Rule.
+                It's your choice.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    The natural base <m>e</m>, the natural exponential function <m>e^x</m>, the natural logarithmic function <m>\ln x = \log_e x</m>
+    <p>
+      <em>Key ideas:</em> <m>e</m> is a special number defined so that the slope of the tangent line to
+      <m>f(x) = e^x</m> at <m>x=0</m> is 1 and the change of
+      <m>f(x) = e^x</m> is exactly equal to <m>e^x</m>,
+      meaning <m>\frac{d}{dx}(e^x) = e^x</m>.
+      Every exponential function can be rewritten in terms of the base of <m>e</m>,
+      and from this we see <m>\frac{d}{dx}(b^x) = (\ln b)b^x</m>.
+      The chain rule looks strange when combined with exponential functions and is worth paying special attention to.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Factoring exponential functions out of a derivative can be a useful simplification.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.6}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

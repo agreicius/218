@@ -1,0 +1,627 @@
+<section>
+  <title>A Complete List of Indeterminate Limit Forms</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Understand why limits of the form <m>0^0, 1^\infty</m>,
+          and <m>\infty^0</m> are indeterminate.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn how to use logarithms to evaluate limits of the form
+          <m>0^0, 1^\infty</m>, and <m>\infty^0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Review the indeterminate limit forms and the methods we have learned to address each form.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>A Few New Indeterminate Forms</title>
+    <p>
+      Recall that if a limit is <em>indeterminate</em>,
+      then we cannot initially say whether or not it exists<ndash/>or if it exists,
+      what real number it is equal to.
+      Many indeterminate limits can be resolved with algebra such as cancellation or factoring.
+      Certain other indeterminate limits can be resolved by applying L'H&#xf4;pital's rule,
+      or some combination of algebra and L'H&#xf4;pital's rule.
+    </p>
+    <p>
+      The following theorem identifies the seven indeterminate limit forms that are commonly encountered.
+      We have already explored the first four forms
+      (and will summarize methods for analyzing them in the last part of this section).
+      The last three forms will be explored in depth in this section:
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Each of the following is an <em>indeterminate form,</em>
+          meaning that a limit in one of these forms may or may not exist,
+          depending on the details of the situation:
+          <me>
+            \frac{0}{0}\qquad \frac{\infty}{\infty}\qquad 0\cdot\infty\qquad \infty-\infty\qquad 0^0\qquad 1^\infty \qquad \infty^0
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Why are limits of the form <m>0^0, 1^\infty</m>,
+      and <m>\infty^0</m> indeterminate?
+      There is an inherent "conflict" in each of these forms that prevents us from knowing intuitively what the limit is equal to.
+    </p>
+    <example>
+      <statement>
+        <p>
+          If a limit has the form <m>0^0</m>,
+          then the base is a number approaching 0 and the exponent is a number approaching 0;
+          neither are exactly equal to 0.
+          Let's explore the value of such a limit intuitively and see where the conflict arrises.
+        </p>
+        <p>
+          On the one hand,
+          any number raised to the 0 power should be equal to 1.
+          So you could argue that such a limit form should be equal to 1.
+        </p>
+        <p>
+          On the other hand,
+          a base of 0 raised to any power should be equal to 0.
+          So you could also argue that such a limit form should be equal to 0.
+        </p>
+        <p>
+          Further still,
+          if we consider the exponent to be a slightly negative number and the base to be a very small positive number,
+          we seem to get either a finite number or a number that may eventually go to infinity.
+          For example,
+          if the exponent is <m>-0.1</m> and the base starts at <m>0.00001</m> and gets closer to 0:
+        </p>
+        <tabular>
+          <row>
+            <cell><m>0.00001^{-0.1}</m></cell>
+            <cell><m>0.000001^{-0.1}</m></cell>
+            <cell><m>0.0000001^{-0.1}</m></cell>
+            <cell><m>0.00000001^{-0.1}</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>\approx3.162</m></cell>
+            <cell><m>\approx3.981</m></cell>
+            <cell><m>\approx5.012</m></cell>
+            <cell><m>\approx6.310</m></cell>
+          </row>
+        </tabular>
+        <p>
+          All this is to demonstrate that a limit of the form <m>0^0</m> could be equal to <em>anything</em>
+          and that <em>none of the intuitive arguments above are precise enough for us to know!</em>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The limit form <m>1^\infty</m> is similarly indeterminate when we remember that the base could be a number slightly less than or slightly greater than 1, while the exponent is a number that gets very large.
+        </p>
+        <p>
+          For example,
+          <m>1.1^{1,000,000}\approx 4.84\times10^{41392}</m> is VERY large,
+          while <m>0.9^{1,000,000}\approx 3.23\times10^{-45758}</m> is VERY small.
+        </p>
+        <p>
+          Which of these is correct?
+          Neither, really.
+          We have no way of knowing the value of such a limit without more detailed analysis.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Similar to the previous two examples,
+          give intuitive explanations for the "conflict" in the indeterminate form <m>\infty^0</m>.
+          In other words,
+          explain how this limit form could potentially be equal to a finite number and how it could potentially be equal to an infinite number.
+          <em>Note that there is no "right" answer to what this limit form could be equal to besides the observation that no intuition will tell us definitively what such a form is equal to.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      In contrast to the above examples,
+      note that the following limit forms are NOT indeterminate:
+      <me>
+        0^\infty\qquad 0^1\qquad \infty^\infty\qquad \infty^1
+      </me>
+    </p>
+    <p>
+      The first two (<m>0^\infty</m> and <m>0^1</m>) must both be equal to 0
+      (can you see why?)
+      while the second two (<m>\infty^\infty</m> and
+      <m>\infty^1</m>) must both be infinite
+      (again, can you see why?
+      Assume that by "<m>\infty</m>" we mean here a very large positive number).
+    </p>
+  </subsection>
+  <subsection>
+    <title>Indeterminate Limits of the Form <m>0^0, 1^\infty</m>, and <m>\infty^0</m></title>
+    <p>
+      Let's examine a few explicit limits to see if we can gain any further insight into the forms
+      <m>0^0, 1^\infty</m>, and <m>\infty^0</m>.
+    </p>
+    <example xml:id="ex_infindetexample1">
+      <statement>
+        <p>
+          Consider the limit
+          <me>
+            \lim_{x\to\infty}\left(\frac{x}{x-1}\right)^{x^2}
+          </me>.
+          First note that the base <m>\frac{x}{x-1}</m> approaches 1 as <m>x\to\infty</m>,
+          while the exponent <m>x^2</m> approaches <m>\infty</m> as <m>x\to\infty</m>.
+          Thus the limit has the form <m>1^\infty</m>.
+        </p>
+        <p>
+          Looking at a table of values:
+        </p>
+        <tabular>
+          <row>
+            <cell><m>x</m></cell>
+            <cell>5</cell>
+            <cell>10</cell>
+            <cell>100</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>\left(\frac{x}{x-1}\right)^{x^2}</m></cell>
+            <cell><m>264.70</m></cell>
+            <cell><m>37648.6</m></cell>
+            <cell><m>4.45\times10^{43}</m></cell>
+          </row>
+        </tabular>
+        <p>
+          This limit seems to be approaching <m>\infty</m>.
+          How can we confirm this?
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_infindetexample2">
+      <statement>
+        <p>
+          Consider the limit
+          <me>
+            \lim_{x\to 1^+} x^{1/(x^2-1)}
+          </me>.
+          The base approaches <m>1</m> while the exponent
+          <m>\frac{1}{x^2-1}</m> approaches <m>\frac{1}{0^+} = \infty</m>,
+          so the limit has the form <m>1^\infty</m>.
+        </p>
+        <p>
+          Again looking at a table of values:
+        </p>
+        <tabular>
+          <row>
+            <cell><m>x</m></cell>
+            <cell>2</cell>
+            <cell>1.1</cell>
+            <cell>1.01</cell>
+            <cell>1.001</cell>
+            <cell>1.0001</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>x^{1/(x^2-1)}</m></cell>
+            <cell><m>1.25992</m></cell>
+            <cell><m>1.57437</m></cell>
+            <cell><m>1.64057</m></cell>
+            <cell><m>1.64790</m></cell>
+            <cell><m>1.64864</m></cell>
+          </row>
+        </tabular>
+        <p>
+          It seems like this limit is approaching something around <m>1.65</m>,
+          but what is the exact value, and how can we be sure?
+        </p>
+      </statement>
+    </example>
+    <p>
+      In each of these limits there is a race between how fast the base approaches 1 and how fast the exponent approaches <m>\infty</m>,
+      an in some sense the winner of that race determines the limit.
+      But how can we determine who wins this race?
+    </p>
+    <p>
+      One difficulty with limits of the indeterminate forms <m>0^0, 1^\infty</m>,
+      and <m>\infty^0</m> is that such limits involve a variable in <em>both</em>
+      the base <em>and</em> the exponent.
+      Fortunately,
+      logarithms have the power to change exponentiation into multiplication,
+      in the sense that <m>\ln(a^b) = b\ln a</m>.
+      The key to using logarithms to calculate limits is the following theorem:
+    </p>
+    <theorem>
+      <title>Relating the Limit of a Function to the Limit of its Logarithm</title>
+      <statement>
+        <p>
+          For a function <m>f(x)</m> such that
+          <me>
+            \lim_{x\to c}\ln(f(x)) = L
+          </me>,
+          then
+          <me>
+            \lim_{x\to c}f(x) = e^L
+          </me>.
+          In particular,
+          <ul>
+            <li>
+              <p>
+                If <m>L=\infty</m>,
+                then <m>\ds\lim_{x\to c}f(x) = \ds\lim_{u\to\infty} e^u = \infty</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>L=-\infty</m>,
+                then <m>\ds\lim_{x\to c}f(x) = \ds\lim_{u\to-\infty} e^u = 0</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This theorem is true because of the composition rule for limits of continuous functions from <xref ref="thm_limitrules">Theorem</xref>.
+      To use this theorem to calculate a limit of the form
+      <me>
+        \lim_{x\to c}u(x)^{v(x)}
+      </me>,
+      we consider instead the <em>different</em> limit
+      <me>
+        \ln\left(\lim_{x\to c}u(x)^{v(x)}\right) = \lim_{x\to c}\ln(u(x)^{v(x)}) = \lim_{x\to c} v(x)\ln(u(x))
+      </me>.
+      <xref ref="thm_limitrules">Theorem</xref>
+      is what allows us to reverse the order of the limit and the natural logarithm.
+    </p>
+    <p>
+      Notice that the logarithm allows us to consider the limit of a product rather than a limit involving an exponent;
+      our previous methods will be much more effective with this new limit.
+      Once we find the value <m>L</m> of this different limit,
+      the theorem tells us that the answer to our original limit must be <m>e^L</m>.
+      In other words,
+      we take the natural logarithm to evaluate the limit,
+      so we must undo this by raising <m>e</m> to the limit:
+      <me>
+        \begin{aligned}\ln(\text{ limit } ) \amp = L\\ \text{ limit }  \amp = e^L \end{aligned}
+      </me>
+    </p>
+    <p>
+      Of course, if instead of a finite number for <m>L</m> we get <m>L=\pm\infty</m>,
+      then our original limit must be equal to <m>\lim_{u\to\pm\infty}e^{u}</m>,
+      which is either <m>0</m> or <m>\infty</m>.
+    </p>
+    <p>
+      Let's look at some explicit examples applying this method.
+    </p>
+    <example xml:id="ex_einfinitelimit">
+      <statement>
+        <p>
+          The limit
+          <me>
+            \lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x
+          </me>
+          has the form <m>1^\infty</m>.
+          After taking <m>\ln</m> we have the
+          <em>different limit</em>
+          <me>
+            \lim_{x\to\infty} \ln\left(1+\frac{1}{x}\right)^x = \lim_{x\to\infty}x\cdot\ln\left(1+\frac{1}{x}\right)
+          </me>
+        </p>
+        <p>
+          Since <m>x\to\infty</m> and <m>\ln(1) =0</m>,
+          this limit has the form <m>\infty\cdot 0</m>.
+          It is still indeterminate, but is a different type of indeterminate limit.
+          We can solve it by moving the <m>x</m> to the denominator and applying L'H&#xf4;pital's rule:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}x\cdot\ln\left(1+\frac{1}{x}\right) \amp = \lim_{x\to\infty}\frac{\ln\left(1+\frac{1}{x}\right)}{x^{-1}} \amp  \leftarrow \text{ algebra: } x = \frac{1}{x^{-1}}\\ \amp =\lim_{x\to\infty}\frac{\ln\left(1+\frac{1}{x}\right)}{\frac{1}{x}} \amp \leftarrow \text{ now of the form }  \frac{0}{0}\\ \amp \stackrel[L'H]{}=\lim_{x\to\infty}\frac{\frac{1}{1+\frac{1}{x}}\cdot -\frac{1}{x^2}}{-\frac{1}{x^2}} \amp \leftarrow\text{ applying L'H\^opital's rule } \\ \amp =\lim_{x\to\infty}\frac{1}{1+\frac{1}{x}}\amp \leftarrow\text{ simplifying by cancelling } -\frac{1}{x^2}\\ \amp = \frac{1}{1+0} = 1 \amp \leftarrow\text{ evaluating the limit } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Remember that this is equal to the natural logarithm of our original limit:
+          <me>
+            \ln\left(\lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x\right) = 1
+          </me>
+        </p>
+        <p>
+          Thus our original limit is equal to <m>e^1 = e</m>:
+          <me>
+            \lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x = e
+          </me>
+        </p>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        The limit in <xref ref="ex_einfinitelimit">Example</xref>
+        is sometimes given as the definition of the number <m>e</m> and can be shown to be equivalent to our previous characterization of <m>e</m> in <xref ref="def_limitdefe">Definition</xref>:
+        <me>
+          \lim_{h\to 0}\frac{e^h-1}{h} = 1
+        </me>.
+      </p>
+    </remark>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain why the answer in <xref ref="ex_einfinitelimit">Example</xref>
+          was <m>e</m> and not <m>1</m>.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Returning to
+          <me>
+            \lim_{x\to\infty}\left(\frac{x}{x-1}\right)^{x^2}
+          </me>
+          from <xref ref="ex_infindetexample1">Example</xref>
+          and taking the natural logarithm, we have
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\ln\left(\frac{x}{x-1}\right)^{x^2} \amp = \lim_{x\to\infty}x^2\ln\left(\frac{x}{x-1}\right)\amp \leftarrow\text{ form } \infty\cdot 0\\ \amp =\lim_{x\to\infty}\frac{\ln\left(\frac{x}{x-1}\right)}{\frac{1}{x^2}} \amp \leftarrow\text{ form }  \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{\frac{1}{x/(x-1)}\cdot\frac{(x-1)(1)-(x)(1)}{(x-1)^2}}{-\frac{2}{x^3}}\amp \leftarrow\text{ L'H\^opital's. Note chain, quotient rules. } \\ \amp = \lim_{x\to\infty}\frac{\frac{x-1}{x}\cdot\frac{-1}{(x-1)^2}}{-\frac{2}{x^3}}\amp \leftarrow\text{ simplifying } \\ \amp = \lim_{x\to\infty}\frac{-1}{x(x-1)}\cdot\frac{x^3}{-2}\amp \leftarrow\text{ more simplifying } \\ \amp = \lim_{x\to\infty} \frac{x^3}{2x(x-1)} \amp \leftarrow\text{ even more simplifying } \\ \amp = \infty \amp \leftarrow\text{ higher degree in the numerator } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Recalling that we had to take the natural logarithm and must now undo this:
+          <me>
+            \lim_{x\to\infty}\left(\frac{x}{x-1}\right)^{x^2} = e^\infty = \infty
+          </me>.
+          This confirms what we expected based on the table of values in <xref ref="ex_infindetexample1">Example</xref>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The above calculations are not exactly easy or pleasant,
+      but they mainly involve some careful and stubborn algebraic manipulation,
+      along with an application of L'H&#xf4;pital's rule.
+      This is fairly typical of these types of limit.
+      Here are a few general principles to keep in mind:
+      <ul>
+        <li>
+          <p>
+            At each step in a limit calculation,
+            the problem should be viewed through the lens of a fresh problem.
+          </p>
+        </li>
+        <li>
+          <p>
+            Limits of the form <m>0\cdot\infty</m> should be converted to a form so that L'H&#xf4;pital's rule can be used.
+          </p>
+        </li>
+        <li>
+          <p>
+            An expression that can be simplified should be simplified before attempting to evaluate the limit again.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Looking at the limit
+          <me>
+            \lim_{x\to 1^+} x^{1/(x^2-1)}
+          </me>
+          from <xref ref="ex_infindetexample2">Example</xref>,
+          we again begin by taking the natural logarithm and moving the exponent down:
+          <me>
+            \begin{aligned}\lim_{x\to 1^+} \ln\left(x^{1/(x^2-1)}\right) \amp = \lim_{x\to1^+} \frac{1}{x^2-1}\cdot\ln(x)\amp \leftarrow\text{ form } \infty\cdot 0\\ \amp =\lim_{x\to1^+}\frac{\ln(x)}{x^2-1} \amp \leftarrow\text{ form } \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to1+}\frac{1/x}{2x}\amp \leftarrow\text{ L'H\^opital's } \\ \amp =\lim_{x\to1^+}\frac{1}{2x^2}\amp \leftarrow\text{ simplifying } \\ \amp = \frac{1}{2}\amp \leftarrow\text{ evaluating } \end{aligned}
+          </me>
+        </p>
+        <p>
+          We've seen that <m>\ln(\text{ original limit } ) = \frac{1}{2}</m> and thus the original limit is <m>e^{1/2} = \sqrt{e}</m>.
+          Hence
+          <me>
+            \lim_{x\to 1^+} x^{1/(x^2-1)} = \sqrt{e}
+          </me>
+          and now we've discovered that the value the table in <xref ref="ex_infindetexample2">Example</xref>
+          was approaching <m>\sqrt{e}\approx 1.6487</m>!
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Follow the steps below in order to evaluate
+          <me>
+            \lim_{x\to 0^+} \left(\frac{1}{x}\right)^{x}
+          </me>
+          <ul>
+            <li>
+              <p>
+                Take <m>\ln</m> of the limit and bring down the exponent.
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert the limit to the form
+                <m>\frac{\infty}{\infty}</m> and apply L'H&#xf4;pital's rule.
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplify completely and evaluate the limit.
+              </p>
+            </li>
+            <li>
+              <p>
+                Return to the original limit by raising <m>e</m> to what you got in the previous step.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Here are a few more examples of evaluating limits using this method.
+      The first and last steps are always the same
+      (begin by taking the natural logarithm,
+      end by raising <m>e</m> to the result of the calculation).
+      However, the intermediate steps vary depending on the function involved.
+      <em>Pay close attention to the form of the limit after each step.</em>
+    </p>
+    <example>
+      <statement>
+        <p>
+          The limit
+          <me>
+            \lim_{x\to\infty}x^{1/x}
+          </me>
+          has the indeterminate form
+          <m>\infty^0</m> since <m>x\to\infty</m> and
+          <m>\frac{1}{x}\to 0</m> as <m>x</m> approaches <m>\infty</m>.
+          Taking <m>\ln</m>:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\ln\left(x^{1/x}\right) \amp = \lim_{x\to\infty}\frac{1}{x}\ln x \amp \leftarrow\text{ form }  0\cdot\infty\\ \amp = \lim_{x\to\infty} \frac{\ln x}{x} \amp \leftarrow\text{ form } \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{1/x}{1} \amp \leftarrow\text{ L'H\^opital's } \\ \amp = \lim_{x\to\infty} \frac{1}{x} \amp \leftarrow\text{ simplify } \\ \amp =0 \amp \leftarrow\text{ evaluate } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Returning to the original limit, we have
+          <me>
+            \lim_{x\to\infty}x^{1/x} = e^0 = 1
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The limit
+          <me>
+            \lim_{x\to 0^+}(\sin x)^x
+          </me>
+          has the form <m>0^0</m> since as
+          <m>x\to 0^+</m> we have <m>\sin x\to 0</m> and <m>x\to 0</m>.
+          Taking <m>\ln</m>:
+          <me>
+            \begin{aligned}\lim_{x\to 0^+}\ln\left((\sin x)^x\right) \amp = \lim_{x\to 0^+} x\ln(\sin x) \amp \leftarrow \sin x\to 0^+\text{ so } \ln(\sin x)\to -\infty\text{ ; form }  0\cdot\infty\\ \amp = \lim_{x\to 0^+}\frac{\ln(\sin x)}{1/x} \amp \leftarrow\text{ form } \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to 0^+} \frac{(\cos x)/(\sin x)}{-1/x^2} \amp \leftarrow\text{ L'H\^opital's } \\ \amp = \lim_{x\to0^+}\frac{-x^2\cos x}{\sin x}\amp \leftarrow\text{ simplify; form } \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to 0^+}\frac{-2x\cos x+x^2\sin x}{\cos x}\amp \leftarrow\text{ L'H\^opital's again; product rule } \\ \amp = \frac{0+0}{1} = 0\amp \leftarrow\text{ evaluate } \end{aligned}
+          </me>
+        </p>
+        <p>
+          Returning to the original limit, we have
+          <me>
+            \lim_{x\to 0^+}(\sin x)^x = e^0 = 1
+          </me>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary of Methods for Indeterminate Limits</title>
+    <p>
+      Below is a summary of methods to use for evaluating each type of indeterminate limit.
+      However, before applying any of these methods,
+      remember to try the easiest computations first as your limit may or may not be indeterminate:
+      <ul>
+        <li>
+          <p>
+            Attempt to evaluate the limit as written.
+          </p>
+        </li>
+        <li>
+          <p>
+            Try any obvious algebraic simplifications and reevaluate the limit.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Unless you get one of the limit forms below,
+      the limit is <em>not</em> indeterminate and can be evaluated without any further computation.<fn>
+      The exception to this is limits of the form <m>\frac{1}{0}</m>.
+      These are <em>not</em> indeterminate; they are infinite.
+      However, they may need to be split into left and right limits to evaluate completely.
+      See <xref ref="sec_infinitelimits">Section</xref> for a detailed discussion.
+      </fn>
+    </p>
+    <p>
+      <em>Form <m>\mathbf{\frac{0}{0}}</m>:</em>
+      Either attempt to factor and cancel or else apply L'H&#xf4;pital's rule.
+      Simplify and reevaluate.
+    </p>
+    <p>
+      <em>Form <m>\mathbf{\frac{\infty}{\infty}}</m>:</em>
+      If this is the limit at infinity of a rational function,
+      apply the methods from <xref ref="sec_endbehaviorofrationalfunctions">Section</xref>,
+      or use a variation of these methods as in <xref ref="sec_examplesoflimitsoflogandexpfunctions">Section</xref>
+      if the expression involves exponential functions.
+      Otherwise apply L'H&#xf4;pital's rule.
+      Simplify and reevaluate.
+    </p>
+    <p>
+      <em>Form <m>\mathbf{0\cdot\infty}</m>:</em>
+      Rewrite in either the form <m>\frac{0}{0}</m> or
+      <m>\frac{\infty}{\infty}</m> by moving one of the factors to the denominator with an exponent of <m>-1</m>.
+      Then apply L'H&#xf4;pital's rule, simplify, and reevaluate.
+    </p>
+    <p>
+      <em>Form <m>\mathbf{\infty-\infty}</m>:</em>
+      If this is the limit at infinity of a polynomial,
+      apply <xref ref="thm_endbehaviorofpolynomials">Theorem</xref>.
+      Otherwise, either factor or combine denominators into a single fraction if one or both terms is a fraction
+      (or can be written as a fraction,
+      such as with some of the trigonometric functions).
+      Then reevaluate.
+    </p>
+    <p>
+      <em>Forms <m>\mathbf{0^0, 1^\infty}</m>,
+      and <m>\mathbf{\infty^0}</m>:</em>
+      Take the natural logarithm of the limit and bring down the exponent.
+      The new limit will be of the form <m>0\cdot\infty</m>,
+      so follow the method outlined above for that form.
+      At the end of the computation,
+      remember to return to the original limit by raising <m>e</m> to what you have computed as <m>\ln(\text{ original limit } )</m>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following indeterminate limit forms were introduced in this section:
+    </p>
+    <m>0^0, 1^\infty</m>, and <m>\infty^0</m>
+    <p>
+      <em>Key ideas:</em> Use a logarithm to evaluate limits of the form
+      <m>0^0, 1^\infty</m>, and <m>\infty^0</m>,
+      remembering to raise <m>e</m> to the value you get in order to return to the original limit.
+      Apply L'H&#xf4;pital's rule carefully,
+      checking for limits forms at each step of your computations and simplifying algebraically whenever possible.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Limits of the form <m>0\cdot\infty</m> can be rewritten in either the form <m>\frac{0}{0}</m> or
+      <m>\frac{\infty}{\infty}</m> in order to apply L'H&#xf4;pital's rule.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 8.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

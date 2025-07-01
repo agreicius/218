@@ -1,0 +1,958 @@
+<section xml:id="sec_polyandratfuncs">
+  <title>Polynomial and Rational Functions</title>
+  <introduction>
+    <p>
+          <idx><h>Functions</h><h>Polynomial Functions</h></idx>
+          <idx><h>Functions</h><h>Quadratic Functions</h></idx>
+    </p>
+  </introduction>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Learn the definition of polynomial and rational functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand how zeros of polynomial functions correspond to linear factors.
+        </p>
+      </li>
+      <li>
+        <p>
+          Review the rules for fractions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Discover how to find the domain of a rational functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Take a first look at the graphical properties of rational functions at points where they are undefined.
+        </p>
+      </li>
+    </ul>
+    <p>
+      So far we have looked at linear and quadratic functions.
+      Now we will expand to larger categories of functions,
+      called <em>polynomial</em> and <em>rational</em> functions.
+      These functions are much more complicated,
+      both in appearance and in their properties.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Definition of Polynomial Functions</title>
+    <example>
+      <statement>
+        <p>
+          Here are some examples of polynomials:
+          <me>
+            f(x) = 1-5x
+          </me>
+          <me>
+            f(x) = x^3
+          </me>
+          <me>
+            f(x) = 3
+          </me>
+          <me>
+            f(x) = x^4+1
+          </me>
+        </p>
+        <me>
+          f(x) = x^7+x^6+x^5+x^4+x^3+x^2+x+1
+        </me>
+        <me>
+          f(x) = x^5 -2x^3+2x^2-8x+10
+        </me>
+        <me>
+          f(x) = -x^3-x-1
+        </me>
+        <me>
+          f(x) = 4.23x^{517}-0.5x^{24}+x^{6}-\pi
+        </me>
+      </statement>
+    </example>
+    <p>
+      Some things that we notice:
+      there can be many terms added together in a polynomial,
+      rather than just one, two, or three,
+      but there cannot be an unlimited number of terms added together.
+      Each term is either constant or a number times a power of <m>x</m>.
+      The power of <m>x</m> is always a positive whole number,
+      though the numbers in front of the <m>x</m>'s may be decimals.
+      Here is another way of saying this exact same thing using more formal mathematical language:
+    </p>
+    A <em>polynomial function</em> is a finite sum of terms of the form <m>ax^i</m> where <m>a</m> is some real number and <m>i</m> is any nonnegative integer (meaning <m>i=0, 1, 2, 3, \ldots</m>).
+    <p>
+      The following definition provides a general notation for writing down an arbitrary polynomial,
+      in much the same way that <m>f(x)=mx+b</m> is an arbitrary linear function and
+      <m>f(x)=ax^2+bx+c</m> is an arbitrary quadratic function
+      (those are also both polynomials).
+      Since we may have many many terms,
+      we use indices for the parameters <m>a_0, a_1, a_2</m>,
+      etc. in front of the powers of <m>x</m>,
+      and it's convenient to have the index match the power:
+    </p>
+    <definition xml:id="def_polynomialfunction">
+      <title>Polynomial Functions</title>
+      <statement>
+        <p>
+          A <em>polynomial function</em> is a function that can be written in the form
+          <me>
+            f(x) = a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}+\ldots+a_2x^2+a_1x+a_0
+          </me>
+          for some integer <m>n\geq 0</m> and some real numbers
+          <m>a_0, a_1, \ldots a_n</m> with <m>a_n\neq 0</m>.
+          The integer <m>n</m> is called the
+          <em>degree</em> of the polynomial,
+          and is the largest power of <m>x</m> that appears in the polynomial.
+        </p>
+      </statement>
+    </definition>
+    <remark>
+      <p>
+        As a matter of convention,
+        we also say that the constant zero function
+        <m>f(x) = 0</m> is a polynomial function
+        (and that its degree is undefined).
+      </p>
+    </remark>
+    <p>
+      The parameters <m>a_n, a_{n-1}, a_{n-2}, \ldots a_1, a_0</m> are called the
+      <em>coefficients</em> of the polynomial.
+      The subscripts <m>n,
+      n-1, n-2, \ldots 2, 1, 0</m> on the coefficients are called <em>indices</em>
+      (a single one is called an <em>index</em>) and are a way of labeling lots of different parameters without running out of letters.
+      Note that the coefficient belonging to the term containing the power <m>x^i</m> is conveniently named <m>a_i</m>.
+      For example,
+      the coefficient of the term <m>x^2</m> is called <m>a_2</m>.
+      Each of the coefficients represents a single real number.
+      There are no restrictions on what the coefficients could be equal to,
+      but if we want the highest power of <m>x</m> in the polynomial to be <m>n</m>
+      (so that the degree is <m>n</m>),
+      then we need that coefficient,
+      labeled <m>a_n</m> to not be zero.
+      The coefficient <m>a_n</m> belonging to the highest power of <m>x</m> is called the
+      <em>leading coefficient</em>,
+      and the term <m>a_nx^n</m> containing the highest power of <m>x</m> with
+      <m>a_n\neq 0</m> is called the <em>leading term</em>.
+      The coefficient <m>a_0</m> is called the <em>constant term.</em>
+    </p>
+    <example>
+      <statement>
+        <p>
+          For the polynomial <m>f(x) = x(3x+1)(x-2)^2</m>,
+          determine the leading coefficient, leading term, degree,
+          constant term, and coefficients <m>a_1</m> and <m>a_3</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can expand <m>f(x)</m> as
+          <me>
+            \begin{aligned}f(x) \amp = x(3x+1)(x-2)^2\\ \amp = (3x^2+x)(x^2-4x+4)\\ \amp = 3 x^4 - 11 x^3 + 8 x^2 + 4 x \end{aligned}
+          </me>
+        </p>
+        <p>
+          From this, we can see that the leading coefficient is 3, the leading term is <m>3x^4</m>,
+          the degree is 4, the constant term is 0, the coefficient of <m>x=x^1</m> is <m>a_1</m> and so is equal to 4, and the coefficient of <m>x^3</m> is <m>a_3</m> and so is equal to <m>-11</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          For the polynomial <m>g(x) = x^5(1-2x)(1-x^3)</m>,
+          determine the leading coefficient, leading term, degree,
+          constant term, and coefficients <m>a_1</m> and <m>a_5</m>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We have special names for some polynomials according to their degrees.
+      For example,
+      polynomials of degree 0 are called <em>constant</em>,
+      of degree 1 are called <em>linear</em>,
+      of degree 2 are called <em>quadratic</em>,
+      of degree 3 are called <em>cubic</em>,
+      of degree 4 are called <em>quartic</em>,
+      and of degree 5 are called <em>quintic</em> polynomials.
+      (Note: We require non-zero leading coefficients for quadratics and higher degrees,
+      but not for linear functions;
+      in other words,
+      we will consider constant functions to be linear as we did in <xref ref="sec_linearandquadraticfunctions" autoname="yes"/>.)
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Structure of Polynomial Functions: Factors and Zeros</title>
+    <p>
+      Higher degrees often result in more <m>x</m>-intercepts,
+      a.k.a. zeros,
+      and more local minima and maxima in the graph of a polynomial.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Examine the cubic, quartic,
+          and quintic polynomials in <xref ref="fig_polynomials">Figure</xref> below.
+        </p>
+        <figure xml:id="fig_polynomials">
+          <caption>A cubic (left), quartic (middle), and quintic (right) polynomial and their graphs.</caption>
+          <image width="92.5%" source="TaalmanPage313.pdf"/>
+        </figure>
+        <p>
+          The cubic polynomial <m>f(x) = x^3+x^2-2x</m> on the left has three <m>x</m>-intercepts at <m>x=-2</m>,
+          <m>x=0</m> and <m>x=1</m>.
+          Note that we can see this from the factored form of
+          <m>f(x) = x(x-1)(x+2)</m> by setting each factor equal to zero and solving for <m>x</m>:
+          <me>
+            x=0\text{ and }  x-1=0\text{ and }  x+2=0
+          </me>.
+        </p>
+        <p>
+          The quartic polynomial <m>g(x) = x^4+x^3-2x^2</m> in the middle also has three <m>x</m>-intercepts <m>x=-2</m>,
+          <m>x=0</m> and <m>x=1</m>.
+          When factored, <m>g(x) = x^2(x-1)(x+2)</m>,
+          and we can see that the <m>x</m>-intercept <m>x=0</m> comes from setting the factor <m>x^2</m> equal to 0, while <m>x=1</m> and <m>x=-2</m> come from <m>x-1=0</m> and <m>x+2=0</m>,
+          respectively.
+        </p>
+        <p>
+          The quintic polynomial <m>h(x) = x^5-x^4-4x^3+4x^2</m> on the right has four zeros:
+          <m>x=-2, 0, 1</m>, and <m>2</m>.
+          When factored,
+          <m>h(x) = x^2(x-1)(x+2)(x-2)</m> and we can see that each factor corresponds to an <m>x</m>-intercept again.
+        </p>
+        <p>
+          Note that <m>f(x)</m> has one local minimum and one local maximum.
+          <m>g(x)</m> has two local minima and one local maxima,
+          and that the local minimum at
+          <m>x\approx-1.5</m> is also a global minimum.
+          <m>h(x)</m> has two local maxima and two local minima.
+        </p>
+      </statement>
+    </example>
+    <p>
+      You may be wondering if there is a pattern or rule in the number of <m>x</m>-intercepts and local minima/maxima that a polynomial function has.
+      It turns out that, yes, there is,
+      but it is more complicated than our observations of linear and quadratic functions.
+      There is a very powerful theorem
+      (called <em>The Fundamental Theorem of Algebra</em>)
+      that says that every polynomial function can be factored into linear factors and/or
+      <em>irreducible</em> quadratic factors.
+      Each of the linear factors corresponds to an <m>x</m>-intercept.
+    </p>
+    <p>
+      A quadratic expression is <em>irreducible</em>
+      if it cannot be factored with real-number coefficients;
+      that is <m>ax^2+bx+c</m> is irreducible if it cannot be written in the form
+      <m>a(x-r_1)(x-r_2)</m> for some real numbers <m>r_1</m> and <m>r_2</m>.
+      Since each factor would correspond to an <m>x</m>-intercept:
+      <me>
+        x-r_1=0\text{ when }  x=r_1\text{ is an \(x\)-intercept }
+      </me>
+      <me>
+        x-r_2=0\text{ when }  x=r_2\text{ is an \(x\)-intercept }
+      </me>
+      a quadratic expression is irreducible if the equation <m>ax^2+bx+c=0</m> has no solution.
+      We already know that the equation
+      <m>ax^2+bx+c=0</m> has no solution if the discriminant <m>b^2-4ac</m> is negative,
+      so we know that a quadratic expression
+      <m>ax^2+bx+c</m> is irreducible if and only if its discriminant <m>b^2-4ac</m> is negative
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the quadratic expression <m>x^2+1</m> is irreducible.
+          We can rewrite
+          <me>
+            x^2+1 =1\cdot x^2+0\cdot x+1
+          </me>
+          in order to see that <m>a=1, b=0, c=1</m> and then compute the discriminant:
+          <me>
+            b^2-4ac = 0^2-4(1)(1)  = -4
+          </me>
+        </p>
+        <p>
+          Since the discriminant <m>-4</m> is negative,
+          the quadratic expression <m>x^2+1</m> is irreducible.
+          It does not factor and we can see graphically that it does not have any zeros:
+        </p>
+        <figure xml:id="fig_xsquaredplus1">
+          <caption>The graph of <m>f(x) = x^2+1</m> has no <m>x</m>-intercepts.</caption>
+          <image width="46%" source="xsquaredplus1.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Show that <m>x^2+5</m> and <m>x^2+x+7</m> are irreducible,
+          first by computing their discriminants,
+          then by graphing and observing that they are never equal to zero.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      \fbox{ Note that every linear factor <m>(x-r)</m> of a polynomial corresponds to an <m>x</m>-intercept <m>x=r</m> of that polynomial,
+      since if a polynomial <m>f(x)</m> can be factored as
+      <m>(x-r)g(x)</m> for some other polynomial <m>g(x)</m> (meaning,
+      if <m>(x-r)</m> is a factor of <m>f(x)</m>), then
+      <me>
+        f(r)=(r-r)g(r) = 0
+      </me>
+      and thus <m>x=r</m> is an <m>x</m>-intercept of <m>f(x)</m>.
+      The converse is also true:
+      if <m>x=r</m> is an <m>x</m>-intercept of <m>f(x)</m>,
+      then <m>f(x)</m> has linear factor <m>x-r</m>:
+      <me>
+        f(x) = (x-r)g(x)
+      </me>
+      for some other polynomial <m>g(x)</m>. }}
+    </p>
+    <example>
+      <statement>
+        <p>
+          The polynomials in <xref ref="fig_polynomials">Figure</xref>
+          on the previous page have already been factored for us.
+          We can see that the cubic polynomial
+          <m>f(x) = x^3+x^2-2x = x(x-1)(x+2)</m> has three <m>x</m>-intercepts.
+          The <m>x</m>-intercept at <m>x=-2</m> corresponds to the linear factor <m>x+2</m>.
+          The <m>x</m>-intercept at <m>x=1</m> corresponds to the linear factor <m>x-1</m>.
+          The <m>x</m>-intercept at <m>x=0</m> corresponds to the linear factor <m>x=x-0</m>.
+        </p>
+        <p>
+          Note that <m>g(x)</m> also has three <m>x</m>-intercept,
+          despite being a fourth-degree polynomial.
+          This is because there are two linear factors with the same <m>x</m>-intercept of <m>x=0</m> since the factorization of <m>g(x)</m> includes <m>x^2 = x\cdot x</m>.
+        </p>
+        <p>
+          The quintic (degree-five) polynomial <m>h(x)</m> has four <m>x</m>-intercepts,
+          again with a double-<m>x</m>-intercept at <m>x=0</m> corresponding to the linear factor <m>x^2</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      When a linear factor <m>x-r</m> occurs more than once in the factorization of a polynomial <m>f</m>,
+      we say that <m>f</m> has a <em>repeated zero</em> at <m>x=r</m>.
+      We say that repeated zeros are <em>double zeros</em>
+      if the factorization includes <m>(x-r)^2</m>,
+      <em>triple zeros</em> if the factorization includes <m>(x-r)^3</m>,
+      and so on,
+      according to the number of times the factor <m>x-r</m> is repeated.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>f(x) = (x+1)(x-2)^2(x-6)</m> has a double zero at <m>x=2</m> and the polynomial
+          <m>g(x) = (x+1)^3(x-2)^4</m> has a triple zero at <m>x=-1</m> and a quadruple zero at <m>x=2</m>.
+          Notice in the graphs of these functions that there is some interesting behavior at the repeated zero:
+        </p>
+        <p>
+          <image width="73%" source="TaalmanPage316.pdf"/>
+        </p>
+        <p>
+          In the first figure,
+          the graph of <m>f</m> does not go straight through the <m>x</m>-axis at the double zero <m>x=2</m>;
+          instead, it bounces off, much like a concave-down parabola.
+          In the second graph,
+          the triple zero at <m>x=-1</m> behaves like the graph of <m>y=x^3</m> near its <m>x</m>-intercept and the quadruple zero behaves like the graph of <m>y=x^4</m> next its <m>x</m>-intercept.
+          This phenomenon happens in general:
+          a zero repeated <m>m</m>-times as a linear factor is graphically similar to the graph of <m>y=x^m</m> near its <m>x</m>-intercept.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next theorem describes some key graphical properties of polynomial functions.
+      The second part of <xref ref="thm_graphsofpolynomials1">Theorem</xref>
+      is related to the Fundamental Theorem of Algebra,
+      and the proof of this deep theorem is far,
+      far beyond the score of this course.
+      We will prove the third part after we learn more about derivatives.
+    </p>
+    <theorem xml:id="thm_graphsofpolynomials1">
+      <title>Graphical Properties of Polynomial Functions</title>
+      <statement>
+        <p>
+          If <m>f</m> is a polynomial function of degree <m>n</m>,
+          then the graph of <m>f</m>
+          <ol marker="labelalph">
+            <li>
+              <p>
+                has domain <m>\mathbb{R}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                has at most <m>n</m> real roots.
+              </p>
+            </li>
+            <li>
+              <p>
+                has at most <m>n-1</m> local minima/maxima;
+                which we will call <em>turning points</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Give formulas and graphs for three cubic polynomials:
+          one with three distinct real zeros,
+          one with two distinct real zeros,
+          and one with only one real, non-repeated, zero.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To construct a cubic polynomial with three distinct real zeros we simply multiply together three distinct linear factors,
+          as shown in the picture below at the left.
+          To obtain exactly two distinct zeros we can make one of our factors repeated,
+          as in the middle picture.
+          Finally, to have only one zero that is not repeated,
+          we can multiply a linear factor and an irreducible quadratic factor,
+          since irreducible quadratic factors do not have any real zeros;
+          see the right-most picture.
+          Note that the left and middle pictures both have two turning points,
+          while the third picture has none.
+        </p>
+        <figure xml:id="fig_cubics">
+          <caption>Three cubic polynomials with one, two, and three distinct zeros, from right to left, respectively.</caption>
+          <image width="73%" source="TaalmanPage317.pdf"/>
+        </figure>
+      </solution>
+    </example>
+    <p>
+      However, just because a polynomial <em>has</em>
+      a factorization doesn't mean that we have an easy way to actually factor that polynomial!
+      In general, factoring a polynomial is extremely hard, and is often impossible;
+      there is no mathematical formula for finding the zeros of polynomials of degree 5 and higher.<fn>
+      It's not that nobody has found such a formula yet.
+      It has actually been proven as mathematical fact that it is
+      <em>impossible</em> to find such a formula.
+      How would you even prove that something is impossible?
+      Mathematics can!
+      </fn> The only "manageable" formulas for factoring higher-degree polynomials are generalizations of the "difference of squares" formula from <xref ref="sec_linearandquadraticfunctions" autoname="yes"/>:
+    </p>
+    <theorem>
+      <title>Formulas for Factoring Differences of Powers</title>
+      <statement>
+        <p>
+          For all real numbers <m>a</m> and <m>b</m>,
+          and any positive integer <m>n</m>,
+          <me>
+            \begin{aligned}a^2-b^2 \amp = (a-b)(a+b)\\ a^3-b^3 \amp = (a-b)(a^2+ab+b^2)\\ a^5-b^5 \amp = (a-b)(a^4+a^3b+a^2b^2+ab^3+b^4)\\ a^n-b^n \amp = (a-b)(a^{n-1}+a^{n-2}b+a^{n-3}b^2+a^{n-4}b^3+\ldots+a^2b^{n-3}+ab^{n-2}+b^{n-1}) \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <example xml:id="ex_6degreepoly">
+      <statement>
+        <p>
+          The sixth-degree polynomial <m>x^6-64</m> can first factor as a difference of squares:
+          <me>
+            x^6-64 = ((x^3)^2-8^2)  = (x^3-8)(x^3+8)
+          </me>
+          and then we can factor the cubic polynomial <m>x^3-8</m> using the above formula for the difference of cubes:
+          <me>
+            x^3-8 =  x^3-2^3  = (x-2)(x^2+2x+4)
+          </me>
+        </p>
+        <p>
+          The factorization
+          <me>
+            x^6-64 = (x-2)(x^2+2x+4)(x^3+8)
+          </me>
+          is the best that we can do with our current methods,
+          though the cubic factor <m>x^3+8</m> does have a zero and can be reduced
+          (we just don't know how).
+        </p>
+        <p>
+          Note that we also could have used the formula for 6-degree differences first and gotten
+          <me>
+            x^6-64 = x^6-2^6 = (x-2)(x^5+2x^4+4x^3+8x^2+16x+32)
+          </me>
+          but then we do not know how to factor the resulting degree-five polynomial.
+          As we already mentioned,
+          factoring is a seriously non-trivial mathematical endeavor.<fn>
+          This could be another Expansion Project,
+          if you are very interested in knowing how to do it.
+          Just ask.
+          </fn>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In Example <xref ref="ex_6degreepoly" autoname="yes"/>, we factored
+          <me>
+            x^6-64 = (x-2)(x^2+2x+4)(x^3+8)
+          </me>
+          as much as we are able.
+          Verify that <m>x^2+2x+4</m> is irreducible
+          (use the discriminant)
+          and does not factor further.
+          Then graph <m>x^3+8</m> and estimate the location of its zero <m>x=r</m>.
+          This tells us that <m>x^6-64</m> has another linear factor of <m>x-r</m> that we could not find directly via factoring.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Rules for Fractions</title>
+    <p>
+      In the next subsection, we will define
+      <em>rational</em> functions.
+      Because the word "rational" means that we will be working with fractions,
+      before we talk about rational functions,
+      we must recall some rules for adding,
+      multiplying, and dividing fractions.
+    </p>
+    <theorem xml:id="thm_fractionrules1">
+      <title>Algebraic Rules for Fractions</title>
+      <statement>
+        <p>
+          Let <m>a, b, c</m>, and <m>d</m> be any real numbers.
+          Then (assuming that no denominator in any expression is zero)
+          <ol marker="labeltextbfalphitemsep10pt">
+            <li>
+              <p>
+                <em>Adding Fractions:</em> <m>\dfrac{a}{b}+\dfrac{c}{d} = \dfrac{ad+bc}{bd}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Multiplying Fractions:</em>
+                <m>\left(\dfrac{a}{b}\right)\left(\dfrac{c}{d}\right) = \dfrac{ac}{bd}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Dividing Fractions:</em> <m>\dfrac{(a/b)}{(c/d)} = \left(\dfrac{a}{b}\right)\left(\dfrac{d}{c}\right) = \dfrac{ad}{bc}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      You can also add fractions by forming the lowest common denominator.
+    </p>
+    <example>
+      <statement>
+        <p>
+          We can calcuate <m>\dfrac{1}{6}+\dfrac{2}{3}</m> using the formula above:
+          <me>
+            \frac{1}{6}+\frac{2}{3} = \frac{(1)(3)+(6)(2)}{(6)(3)} = \frac{3+12}{18} = \frac{15}{18} = \frac{5}{6}
+          </me>
+          but it is easier to convert to a common denominator of 6 instead:
+          <me>
+            \frac{1}{6}+\frac{2}{3} = \frac{1}{6}+\frac{4}{6} = \frac{5}{6}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The following are some more useful rules that are consequences of <xref ref="thm_fractionrules1">Theorem</xref>,
+      meaning that you can manage just using the rules in <xref ref="thm_fractionrules1">Theorem</xref>,
+      but these are convenient to remember as well.
+    </p>
+    <theorem xml:id="thm_fractionrules2">
+      <title>More Algebraic Rules for Fractions</title>
+      <statement>
+        <p>
+          Let <m>a, b, c</m>, and <m>d</m> be any real numbers.
+          Then (assuming that no denominator in any expression is zero)
+          <ol marker="labeltextbfalphitemsep10pt">
+            <li>
+              <p>
+                <em>Subtracting Fractions:</em>
+                <m>\dfrac{a}{b}-\dfrac{c}{d} = \dfrac{ad-bc}{bd}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Multiplying a Fraction by a Number:</em>
+                <m>c\left(\dfrac{a}{b}\right) = \dfrac{ac}{b}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Dividing a Fraction by a Number:</em>
+                <m>\dfrac{(a/b)}{c} = \dfrac{a}{bc}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Dividing a Number by a Fraction:</em>
+                <m>\dfrac{a}{(b/c)} = \dfrac{ac}{b}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <exercise>
+      <statement>
+        <p>
+          Which of the rules for fractions in Theorem <xref ref="thm_fractionrules1" autoname="yes"/> and Theorem <xref ref="thm_fractionrules2" autoname="yes"/> are familiar to you?
+          Which are new to you?
+          Pick one rule that is new to you and give an example using it with numbers.
+          Check your work by plugging both sides into a calculator.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Definition of Rational Functions</title>
+    <p>
+      A rational number is a number that can be written as a quotient (a.k.a. fraction) of the simplest possible numbers you can imagine, namely,
+      integers.
+      For example, <m>\frac{1}{3}</m> and <m>-\frac{10}{7}</m>.
+      Similarly, a rational <em>function</em>
+      is a quotient of simpler functions, namely, polynomials.
+    </p>
+    <definition xml:id="def_rationalfunctions">
+      <title>Rational Functions are Quotients of Polynomials</title>
+      <statement>
+        <p>
+          A <em>rational function</em> is a function that can be written as the quotient of two polynomial functions
+          <me>
+            f(x) = \frac{p(x)}{q(x)} = \frac{a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0}{b_mx^m+b_{m-1}x^{m-1}+\ldots+b_1x+b_0}
+          </me>
+          for any <m>x</m> such that <m>q(x)\neq 0</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Just like our previous definitions for functions,
+      the key realization is that a rational function <em>can</em>
+      be written in such a form.
+      It does not have to begin that way.
+    </p>
+    <example>
+      <statement>
+        <p>
+          We rewrite the function <m>f(x) = x-1+\frac{1}{2x+1}</m> as a rational function by finding a common denominator,
+          adding fractions, then simplifying:
+          <me>
+            \begin{aligned}x-1+\frac{1}{2x+1}  \amp = (x-1)\cdot\frac{2x+1}{2x+1}+\frac{1}{2x+1}\\ \amp \\ \amp = \frac{(x-1)(2x+1)}{2x+1}+\frac{1}{2x+1}\\ \amp \\ \amp = \frac{(x-1)(2x+1)+1}{2x+1}\\ \amp \\ \amp = \frac{(2x^2-x-2x-1)+1}{2x+1}\\ \amp \\ \amp =\frac{2x^2-3x}{2x+1} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus we see that <m>f(x)</m> is rational because it can be written as a fraction of the polynomial <m>2x^2-3x</m> divided by the polynomial <m>2x+1</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the rules for fractions in Theorem <xref ref="thm_fractionrules1" autoname="yes"/> and Theorem <xref ref="thm_fractionrules2" autoname="yes"/> to write the following function in the form of a rational function, that is,
+          in the form <m>\frac{p(x)}{q(x)}</m> where <m>p(x)</m> and <m>q(x)</m> are polynomial functions.
+          <me>
+            f(x) = \frac{\frac{3}{x+2}-\frac{1}{x}}{x-1}
+          </me>
+        </p>
+        <p>
+          Begin by subtracting the fractions in the numerator,
+          then divide by the denominator using Theorem <xref ref="thm_fractionrules2" autoname="yes"/> part (c).
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Domain and Zeros of Rational Functions</title>
+    <p>
+      Remember that we cannot divide by 0.
+      Using this idea,
+      we can see from Definition <xref ref="def_rationalfunctions" autoname="yes"/> that the
+      <em>domain of a rational function</em>
+      is all <m>x</m>-values that are <em>not</em>
+      zeros of the denominator of that function.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's find the domains of <m>f(x) = \frac{1}{x}</m>,
+          <m>g(x) = \frac{1}{x-1}</m>, and <m>h(x) = \frac{1}{(x-1)(x+2)}</m>.
+        </p>
+        <p>
+          The domain of <m>f(x) = \frac{1}{x}</m> is <m>x\neq 0</m>.
+          We can write this using interval notation as <m>(-\infty,0)\cup(0,\infty)</m>.
+        </p>
+        <p>
+          The domain of <m>g(x) = \frac{1}{x-1}</m> is <m>x\neq 1</m>.
+          We can write this using interval notation as <m>(-\infty,1)\cup(1,\infty)</m>.
+        </p>
+        <p>
+          The domain of <m>h(x) = \frac{1}{(x-1)(x+2)}</m> is <m>x\neq 1, -2</m>.
+          We can write this using interval notation as <m>(-\infty,-2)\cup(-2,1)\cup(1,\infty)</m>.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_domainofrational">
+      <statement>
+        <p>
+          Find the domain of <m>f(x) = \dfrac{x+5}{x^3+x^2-2x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We know that the domain of a rational function is all <m>x</m>-values that are <em>not</em>
+          zeros of the denominator.
+          Thus we set the denominator
+          <m>x^3+x^2-2x</m> equal to 0 and solve for <m>x</m>,
+          which will give us the <m>x</m>-values to exclude from the domain.
+        </p>
+        <p>
+          Factoring, we have
+          <me>
+            \begin{aligned}x^3+x^2-2x \amp = x(x^2+x-2)\\ \amp = x(x+2)(x-1) \amp =0 \end{aligned}
+          </me>
+          when
+          <me>
+            x=0 x+2=0  x-1=0
+          </me>
+          and so when <m>x=0, -2, 1</m>.
+        </p>
+        <p>
+          Thus the domain is <m>x\neq -2, 0, 1</m> since those are the <m>x</m>-values where the denominator is equal to 0.
+          Using interval notation we can write the domain as
+          <me>
+            (-\infty,-2)\cup(-2,0)\cup(0,1)\cup(1,\infty)
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      What do the graphs of rational functions look like?
+      They can be very interesting,
+      especially because as we get close to <m>x</m>-values that are not in the domain of the function,
+      we are getting close to a point where we are dividing by 0.
+      However, graphs of rational functions are highly dependent on small changes in their numerators and denominators.
+      Pay careful attention to the details in the next example,
+      especially the number of times that each linear factor is repeated in the numerator and/or denominator:
+    </p>
+    <example xml:id="ex_rationalfunctions">
+      <statement>
+        <p>
+          What is the domain of the three following rational functions?
+          What do the graphs look like near the <m>x</m>-values that are not in the domain?
+        </p>
+        <p>
+          <image width="92.5%" source="TaalmanPage326.pdf"/>
+        </p>
+        <p>
+          The domain of all three functions is
+          <m>\{x\in\mathbb{R}\mid x\neq 1, 3\} = (-\infty,1)\cup(1,3)\cup(3,\infty)</m> since in all three functions,
+          <m>x=1</m> and <m>x=3</m> are the zeros of the denominator.
+          However, we can see that the functions have very different properties at <m>x=1</m> and <m>x=3</m>.
+          <m>f(x)</m> and <m>g(x)</m> have a
+          <em>vertical asymptote</em>
+          at <m>x=1</m> and a <em>hole</em> at <m>x=3</m>.
+          On the other hand,
+          <m>h(x)</m> has vertical asymptotes at both <m>x=1</m> and <m>x=3</m>.
+          We will look at some of the reasons for these here,
+          but we will have to leave the details to explore later when we develop our language of <em>limits</em>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The reason why <m>f(x)</m> and <m>g(x)</m> above have a hole at <m>x=3</m> instead of a vertical asymptote is related to the following theorem:
+    </p>
+    <theorem>
+      <title>Cancellation when Variables are Involved</title>
+      <statement>
+        <p>
+          Given any real expression <m>A</m> that depends on a variable <m>x</m>,
+          <me>
+            \frac{A}{A}= \begin{cases}1, \amp  \text{ for values of } x\text{ that make } A\neq 0\\ \text{ undefined } ,\amp \text{ for values of } x\text{ that make } A=0 \end{cases}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          For example,
+          if you can cancel a common factor <m>x-c</m> from the numerator and denominator of a fraction,
+          the cancelled expression will equal the original expression for all values of <m>x</m>
+          <em>except</em> <m>x=c</m>.
+          One illustration of this theorem is the cancellation
+          <me>
+            \frac{(x-3)}{(x-3)(x-1)} = \begin{cases}\frac{1}{x-1},\amp  \text{ if } x\neq 3\\ \text{ undefined } , \amp  \text{ if } x=3 \end{cases}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          In <xref ref="ex_rationalfunctions">Example</xref>,
+          the function <m>f(x) = \frac{x-3}{(x-3)(x-1)}</m> has a hole at <m>x=3</m> instead of a zero or vertical asymptote because algebraically,
+          we can cancel the common <m>x-3</m>:
+          <me>
+            f(x) = \frac{(x-3)}{(x-3)(x-1)} = \begin{cases}\frac{1}{x-1},\amp  \text{ if } x\neq 3\\ \text{ undefined } , \amp  \text{ if } x=3 \end{cases}
+          </me>
+        </p>
+        <p>
+          Thus the graph of <m>f(x)</m> in <xref ref="ex_rationalfunctions">Example</xref>
+          looks identical to the graph of <m>y=\frac{1}{x-1}</m> <em>except</em>
+          at the point <m>x=3</m> where <m>f(x)</m> is undefined.
+          We represent this undefined point on the graph with a hole.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The next theorem tells us when a quotient
+      <m>\frac{A}{B}</m> can be equal to zero.
+      This theorem will help us solve equations that can be written as quotients.
+    </p>
+    <theorem xml:id="thm_zeroquotient">
+      <title>When Is a Quotient Equal to Zero?</title>
+      <statement>
+        <p>
+          If <m>A</m> and <m>B</m> are any real expressions,
+          then <m>\dfrac{A}{B}=0</m> if and only if <m>A=0</m> and <m>B\neq 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>g(x)</m> in <xref ref="ex_rationalfunctions">Example</xref> does <em>not</em>
+          have a zero at <m>x=3</m>,
+          even though its numerator <m>x-3</m> is equal to zero when <m>x=3</m>,
+          even after canceling:
+          <me>
+            g(x) = \frac{(x-3)^2}{(x-3)(x-1)} = \begin{cases}\frac{x-3}{x-1},\amp  \text{ if } x\neq 3\\ \text{ undefined } , \amp  \text{ if } x=3 \end{cases}
+          </me>
+        </p>
+        <p>
+          Because the original denominator of the function is zero when <m>x=3</m>,
+          the function is forever undefined at <m>x=3</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      \fbox{Note in particular that <m>B=0</m> does <em>not</em>
+      imply that <m>\dfrac{A}{B}=0</m>.
+    </p>
+    <p>
+      In fact, if <m>B=0</m>, then <m>\dfrac{A}{B}</m> is undefined.
+      That is why we require not only that <m>A=0</m> but also that <m>B\neq 0</m>.
+    </p>
+    <p>
+      Note also that <xref ref="thm_zeroquotient">Theorem</xref>
+      is valid only for equations that are set to zero. }}
+    </p>
+    <example xml:id="ex_rationalzero">
+      <statement>
+        <p>
+          Find the zeros of the function <m>f(x) = \dfrac{x+5}{x^3+x^2-2x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          As we saw in Example <xref ref="ex_domainofrational" autoname="yes"/>,
+          the domain of the function
+          <m>f(x) = \dfrac{x+5}{x^3+x^2-2x}</m> is found by setting the denominator equal to zero.
+          According to Theorem <xref ref="thm_zeroquotient" autoname="yes"/>,
+          we find the zeros by setting the numerator equal to zero,
+          and also checking that the denominator is not equal to zero.
+        </p>
+        <p>
+          The numerator is <m>x+5</m> and
+          <me>
+            x+5=0\text{ when }  x=-5
+          </me>.
+        </p>
+        <p>
+          We already found in Example <xref ref="ex_domainofrational" autoname="yes"/> that the denominator is equal to zero for <m>x=-2,0,1</m>,
+          and so is not equal to zero when <m>x=-5</m>.
+        </p>
+        <p>
+          Thus the only zero of <m>f(x) = \dfrac{x+5}{x^3+x^2-2x}</m> is at <m>x=-5</m>.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="ex_rationalzeroandhole">
+      <statement>
+        <p>
+          Find the domain of the function <m>g(x) = \dfrac{x^2-1}{x+1}</m>.
+          What are the zeros, if any, of <m>f(x)</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The domain of <m>g(x) = \dfrac{x^2-1}{x+1}</m> is where the denominator <m>x+1\neq 0</m>,
+          so <m>x\neq -1</m>.
+        </p>
+        <p>
+          The zeros of <m>g(x)  = \dfrac{x^2-1}{x+1}</m> are where the numerator <m>x^2-1=0</m> <em>and</em>
+          the denominator <m>x+1\neq 0</m>.
+          Using the difference of squares,
+          <me>
+            x^2-1 =  (x-1)(x+1) = 0\text{ when }  x=\pm1
+          </me>
+        </p>
+        <p>
+          But we already know that the denominator is 0 when <m>x=-1</m>,
+          so the only zero of the function <m>g(x)</m> is
+          <me>
+            x=1
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Graph the functions <m>f(x) = \frac{x+5}{x^3+x^2-2x}</m> and <m>g(x) = \frac{x^2-1}{x+1}</m> using Desmos.
+          Verify the zeros found in Example <xref ref="ex_rationalzero" autoname="yes"/> and Example <xref ref="ex_rationalzeroandhole" autoname="yes"/> are correct.
+          Do the functions have vertical asymptotes or holes at their non-domain points?
+          <em>Note that Desmos will not automatically display an empty circle if there is a hole on a graph.
+          However, if you try to evaluate the function at the point,
+          it will tell you it is undefined.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    polynomial function, degree, coefficient, leading coefficient, leading term, constant term; cubic, quartic, quintic polynomial; irreducible quadratic, repeated zero, double zero, triple zero; turning point; vertical asymptote, hole.
+    <p>
+      <em>Key ideas:</em> Linear factors of a polynomial function correspond to zeros,
+      and a polynomial function of degree <m>n</m> can have at most <m>n</m> zeros.
+      Rational functions are undefined where their denominators are equal to zero.
+      They have zeros where their numerators are equal to zero,
+      provided that the denominator is not also equal to zero.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Polynomial functions of degree <m>n</m> can have at most <m>n-1</m> turning points.
+      Rational functions can have either vertical asymptotes or holes at points where they are undefined.
+      Factoring is <em>really hard</em>
+      and often impossible for higher-degree polynomials.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 1.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

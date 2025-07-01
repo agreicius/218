@@ -1,0 +1,841 @@
+<section>
+  <title>Limits of exponential and logarithmic functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Understand limits of exponential growth vs. decay functions via reflections,
+          and limits of logarithmic functions via properties of inverse functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculate limits of exponential and logarithmic functions at the edges of their domains,
+          and visualize these limits as vertical and/or horizontal asymptotes on graphs.
+        </p>
+      </li>
+      <li>
+        <p>
+          Apply these new limits to old techniques for evaluating indeterminate limits forms.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Exponential and Logarithmic Functions are Continuous on their Domains</title>
+    <p>
+      Similar to the algebraic functions we worked with in the fall,
+      exponential and logarithmic functions are continuous on their domains.
+      Note in particular that their graphs do not have any jumps or holes on their domains.
+    </p>
+    <theorem>
+      <title>Continuity of Exponential and Logarithmic Functions</title>
+      <statement>
+        <p>
+          All exponential and logarithmic functions are continuous on their domains.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Remember that, practically speaking,
+      if a function <m>f(x)</m> is continuous at <m>x=a</m> it means that we can evaluate the limit by evaluation <m>\ds\lim_{x\to a}f(x) = f(a)</m>,
+      provided that <m>f(a)</m> is defined.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Calculate each of the limits below by evaluation and simplifying,
+          or explain why the expression is undefined.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 3} (3(25)^{-x/2}+1)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to -4} \left(\frac{2}{3}\right)^x</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 2}\ \log_2(x^2-1)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 0}\ \log_2(x^2-1)</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Limits at Infinity of Exponential Functions</title>
+    <p>
+      We have already established that any exponential function of the form
+      <m>f(t) = ab^t</m> where <m>a</m> and <m>b</m> are positive real numbers with <m>b\neq 1</m> is always concave up and is either always increasing or always decreasing.
+      We next introduce precise language to describe the behavior of an exponential function's value as <m>t</m> gets bigger and bigger.
+      To start, let's consider the two basic exponential functions <m>p(t) = 2^t</m> and
+      <m>q(t) = \left(\frac{1}{2}\right)^t</m> and their respective values at <m>t=10, t=20</m>,
+      and <m>t=30</m>, as displayed below:
+    </p>
+    <p>
+      <image width="93%" source="APC3-2-1Tables.png"/>
+    </p>
+    <p>
+      For the increasing function <m>p(t) = 2^t</m>,
+      we see that the output of the function gets very large very quickly.
+      In addition,
+      there is no upper bound to how large the function can be.
+      Indeed, we can make the value of <m>p(t)</m> as large as we'd like by taking <m>t</m> sufficiently big.
+      We thus say that as <m>t</m> increases,
+      <m>p(t)</m> <em>increases without bound</em> and write
+      <me>
+        \lim_{t\to\infty}2^t = \infty
+      </me>
+    </p>
+    <p>
+      For the decreasing function <m>q(t) = \left(\frac{1}{2}\right)^t</m>,
+      we see that the output <m>q(t)</m> is always positive but getting closer and closer to 0.
+      Indeed, because we can make <m>2^t</m> as large as we like,
+      it follows that we can make its reciprocal
+      <m>\frac{1}{2^t} = \left(\frac{1}{2}\right)^t</m> as small as we'd like.
+      We thus say that as <m>t</m> increases,
+      <m>q(t)</m> <em>approaches 0</em>.
+      We write
+      <me>
+        \lim_{t\to\infty}\left(\frac{1}{2}\right)^t = 0
+      </me>.
+    </p>
+    <p>
+      We've seen several times how the value of <m>b</m> affects the steepness of the graph of <m>f(t) = ab^t</m>,
+      as well as how all graphs with <m>b>1</m> have the similar increasing behavior,
+      and all graphs with <m>0\lt b\lt 1</m> have similar decreasing behavior.
+      For instance, by taking <m>t</m> sufficiently large,
+      we can make <m>(1.01)^t</m> as large as we want;
+      it just takes much larger values of <m>t</m> to make
+      <m>(1.01)^t</m> big in comparison to <m>2^t</m>.
+      In the same way, we can make
+      <m>(0.99)^t</m> as close to <m>0</m> as we wish by taking <m>t</m> sufficiently big,
+      even though it takes longer for
+      <m>(0.99)^t</m> to get close to <m>0</m> in comparison to <m>\left(\frac{1}{2}\right)^t</m>.
+      For an arbitrary choice of <m>b</m>, we can say the following:
+    </p>
+    <theorem xml:id="thm_expatinfinity">
+      <title>Limits at Infinity of $b^t$</title>
+      <statement>
+        <p>
+          Let <m>f(t) = b^t</m> with <m>b>0</m> and <m>b\neq 1</m>.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                If <m>0\lt b\lt 1</m>, then <m>\ds\lim_{t\to\infty}b^t = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>b>1</m>, then <m>\ds\lim_{t\to\infty}b^t = \infty</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      In addition,
+      we make a key observation about the use of exponents.
+      For the function <m>q(t) = \left(\frac{1}{2}\right)^t</m>,
+      there are three equivalent ways we may write the function:
+      <me>
+        \left(\frac{1}{2}\right)^t = \frac{1}{2^t} = 2^{-t}
+      </me>.
+      Now we can see that <m>q(t) = 2^{-t} = q(-t)</m>.
+      Recall that the graph of a function <m>y=h(-t)</m> is the reflection of the graph of <m>y=h(t)</m> across the <m>y</m>-axis.
+      Therefore, we can say that the graphs of <m>p(t) = 2^t</m> and
+      <m>q(t) = \left(\frac{1}{2}\right)^t = 2^{-t}</m> are reflections of one another in the <m>y</m>-axis since <m>p(-t) = 2^{-t} = q(t)</m>.
+      We see this fact verified in the picture below:
+    </p>
+    <figure xml:id="fig_APCFigure3-2-5">
+      <caption>The graph of <m>q(t) = 2^{-t}</m> is the graph of <m>p(t) = 2^t</m> reflected across the <m>y</m>-axis, and vice versa.</caption>
+      <image width="37%" source="APCFigure3-2-5.png"/>
+    </figure>
+    <p>
+      Similar observations hold for the relationship between the graphs of <m>b^t</m> and
+      <m>\frac{1}{b^t} = b^{-t}</m> for any <m>b\neq 1</m>.
+      This allows us to analyze the limits at <m>-\infty</m> of functions <m>f(t) = b^t</m> quickly,
+      using what we already know.
+      For example, if <m>b>1</m>,
+      we know that <m>0\lt \frac{1}{b}\lt 1</m> and hence
+      <me>
+        \lim_{t\to\infty}\left(\frac{1}{b}\right)^t = \lim_{t\to\infty} b^{-t} = 0
+      </me>
+    </p>
+    <p>
+      Reflecting this across the <m>y</m>-axis, we see then that
+      <me>
+        \lim_{t\to-\infty} b^t = 0
+      </me>
+    </p>
+    <p>
+      A similar statement holds for <m>0\lt b\lt 1</m>,
+      with the infinite limit of the exponential growth at infinity reflecting over the <m>y</m>-axis to the infinite limit of exponential decay at negative infinity
+      (see the graphs in <xref ref="fig_APCFigure3-2-5">Figure</xref> to visualize this).
+      Summarizing these observations:
+    </p>
+    <theorem xml:id="thm_expatnegativeinfinity">
+      <title>Limits at Negative Infinity of $b^t$</title>
+      <statement>
+        <p>
+          Let <m>f(t) = b^t</m> with <m>b>0</m> and <m>b\neq 1</m>.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                If <m>0\lt b\lt 1</m>, then <m>\ds\lim_{t\to-\infty}b^t = \infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>b>1</m>, then <m>\ds\lim_{t\to-\infty}b^t = 0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <remark>
+      <p>
+        It is very important and so we reiterate it again:
+        values of <m>b^t</m> are always positive,
+        even for negative values of the exponent <m>t</m>.
+      </p>
+    </remark>
+    <p>
+      <xref ref="thm_expatinfinity">Theorems</xref>
+      and <xref ref="thm_expatnegativeinfinity"></xref>
+      are easier to remember in pictures than in symbols.
+      Pay special attention to the values of <m>b</m> that apply to each picture.
+      What the above theorems say is that the "ends" of the graphs of exponential functions behave like this:
+    </p>
+    <figure xml:id="fig_TaalmanPage355a-1">
+      <caption>For <m>b>1</m>, <m>\lim_{x\to\infty}b^x=\infty</m> and <m>\lim_{x\to-\infty}b^x=0</m>.</caption>
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="70%" source="TaalmanPage355a-1.png"/>
+      \end{subfigure}
+      \hspace{.5in}
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="70%" source="TaalmanPage355a-2.png"/>
+      \caption{For <m>0\lt b\lt 1</m>, <m>\lim_{x\to\infty}b^x=0</m> and <m>\lim_{x\to-\infty}b^x=\infty</m>.} \end{subfigure}
+      \caption{Limits of <m>b^x</m> at <m>\infty</m> and <m>-\infty</m> are best remembered visually.}
+    </figure>
+    <p>
+      Another way to write these <xref ref="thm_expatinfinity">Theorems</xref>
+      and <xref ref="thm_expatnegativeinfinity"></xref>
+      is in terms of base-2 exponential functions <m>f(t) = 2^{kt}</m>.
+      If we insist that <m>k>0</m> is a
+      <em>positive</em> number,
+      then we have observed that <m>b^t = 2^{kt}</m> when <m>b>1</m>,
+      and that <m>b^t = 2^{-kt}</m> when <m>0\lt b\lt 1</m>.
+      Rewriting <xref ref="thm_expatinfinity">Theorems</xref>
+      and <xref ref="thm_expatnegativeinfinity"></xref>:
+    </p>
+    <theorem>
+      <title>Limits of Base-2 Exponential Functions at Infinity and Negative Infinity</title>
+      <statement>
+        <p>
+          If <m>k</m> is a positive real number, then
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{t\to\infty}2^{kt} = \infty</m> and <m>\ds\lim_{t\to-\infty} 2^{kt} = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{t\to\infty}2^{-kt} = 0</m> and <m>\ds\lim_{t\to-\infty} 2^{-kt} = \infty</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The following example is intended to remind us how finite limits at <m>\infty</m> and <m>-\infty</m> can be interpreted visually as horizontal asymptotes:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function <m>f(x)=\frac{3}{2+2^{-4x}}</m>.
+          What are the horizontal asymptotes of <m>f(x)</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To find horizontal asymptotes,
+          we must compute the limit of <m>f(x)</m> as
+          <m>x\to \infty</m> as well as <m>x\to-\infty</m>.
+        </p>
+        <p>
+          As <m>x\to \infty</m>, note that
+          <me>
+            \lim_{x\to \infty} 2^{-4x} = 0
+          </me>
+          so that
+          <me>
+            \lim_{x\to\infty}f(x)=\lim_{x\to\infty}\frac{3}{2+2^{-4x}}=\frac{3}{2+0}=\frac{3}{2}
+          </me>
+        </p>
+        <p>
+          As <m>x\to- \infty</m>, note that
+          <me>
+            \lim_{x\to -\infty} 2^{-4x} = \infty
+          </me>
+          so that
+          <me>
+            \lim_{x\to-\infty}f(x)=\lim_{x\to-\infty}\frac{3}{2+2^{-4x}}=\frac{3}{2+\infty}=\frac{3}{\infty}=0
+          </me>.
+        </p>
+        <p>
+          The graph of <m>f(x)=\frac{3}{2+2^{-4x}}</m> therefore has
+          <em>two different horizontal asymptotes</em> to the right and left.
+          To the right there is an asymptote at <m>y=\frac{3}{2}</m>,
+          and to the left there is an asymptote at <m>y=0</m>.
+          We can check this by looking at the graph:
+        </p>
+        <figure>
+          <caption><m>f(x)=\frac{3}{2+2^{-4x}}</m> has two different horizontal asymptotes to the right and left.</caption>
+          <image width="37%" source="TaalmanPage359.png"/>
+        </figure>
+        <p>
+          Notice that the graph does indeed have a horizontal asymptotes to the right at
+          <m>y=\frac{3}{2}</m> and to the left at <m>y=0</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Recall the can of soda from <xref ref="ex_tempmodeling">Exercise</xref>:
+        </p>
+        <p>
+          A can of soda
+          (at room temperature)
+          is placed in a refrigerator at time <m>t=0</m>
+          (in minutes)
+          and its temperature, <m>F(t)</m>,
+          in degrees Fahrenheit, is computed at regular intervals.
+          Based on the data,
+          a model is formulated for the object's temperature, given by
+          <me>
+            F(t)=42+30(0.95)^t
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Calculate <m>\ds\lim_{t\to\infty}F(t)</m>.
+                What does this tell you in the context of the can of soda?
+                Does this make sense?
+                <em>Look back at your answers for <xref ref="ex_tempmodeling">Exercise</xref>
+                and find the temperature of the refrigerator.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>\ds\lim_{t\to-\infty}F(t)</m>.
+                Is this realistic in the context of the can of soda?
+                Why or why not?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Limits of Logarithmic Functions</title>
+    <p>
+      We know that we can calculate limits of logarithmic functions at domain points simply by evaluation.
+      What about non-domain points?
+      Logarithmic functions have domain <m>(0,\infty)</m>,
+      so we need to examine their limits as <m>x\to0^+</m> and as <m>x\to\infty</m>.
+    </p>
+    <p>
+      Consider <m>b=2</m>.
+      Because the graph of <m>f(x) = 2^x</m> increases more and more rapidly as <m>x</m> increases,
+      the graph of <m>\log_2{x}</m> increases more slowly as <m>x</m> increases.
+      Even though the logarithmic function grows very slowly,
+      it grows without bound because we can make
+      <m>\log_2 x</m> as large as we want by making <m>x</m> sufficiently large.
+      For instance,
+      if we want <m>x</m> such that <m>\log_2(x) = 100</m>,
+      we choose <m>x=2^{100}</m>, since <m>\log_2(2^{100}) = 100</m>.
+    </p>
+    <tabular>
+      <row>
+        <cell><m>x</m></cell>
+        <cell><m>2^{10}</m></cell>
+        <cell><m>2^{100}</m></cell>
+        <cell><m>2^{1,000}</m></cell>
+        <cell><m>2^{10,000}</m></cell>
+        <cell><m>2^{100,000}</m></cell>
+        <cell><m>2^{1,000,000}</m></cell>
+        <cell><m>\to\infty</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>\log_2(x)</m></cell>
+        <cell>10</cell>
+        <cell>100</cell>
+        <cell>1,000</cell>
+        <cell>10,000</cell>
+        <cell>100,000</cell>
+        <cell>1,000,000</cell>
+        <cell><m>\to\infty</m></cell>
+      </row>
+    </tabular>
+    <p>
+      Using this table, we can see that as <m>x\to\infty</m>,
+      <m>\log_2(x)\to\infty</m>.
+      Using limit notation, this means that
+      <me>
+        \displaystyle\lim_{x\to\infty}\log_2(x)=\infty
+      </me>
+    </p>
+    <p>
+      On the other hand, we saw that <m>\ds\lim_{x\to-\infty}2^x = 0</m>,
+      meaning that when the input of
+      <m>f(x) = 2^x</m> becomes large and negative,
+      the output becomes closer and closer to 0.
+      Recall that since <m>2^x</m> is always positive,
+      the output is approaching 0 and is positive,
+      which we can write as <m>\ds\lim_{x\to\infty} 2^x = 0^+</m>.
+    </p>
+    <p>
+      Using our understanding of inverse functions as swapping input and output,
+      this tells us that as the inputs of
+      <m>f^{-1}(x) = \log_2 x</m> approach 0 and are positive,
+      the values of the output will become large and negative.
+      Written as a limit:
+      <me>
+        \lim_{x\to 0^+}\log_2 x = -\infty
+      </me>
+    </p>
+    <p>
+      In words, this tells us that we can make the values of
+      <m>\log_2 x</m> as large and <em>negative</em>
+      as we want by making <m>x</m> sufficiently small,
+      meaning sufficiently close to 0.
+      For instance,
+      if we want <m>x</m> such that <m>\log_2(x) = -100</m>,
+      we choose <m>x = 2^{-100}</m>,
+      since <m>\log_2(2^{-100}) = -100</m>.
+      If we want <m>x</m> such that <m>\log_2(x) = -1,000</m>,
+      we choose <m>x=2^{-1000}</m>,
+      since <m>\log_2(2^{-1000}) = -1000</m>.
+      (Recall that <m>2^{-100} = \frac{1}{2^{100}}</m> is positive and very,
+      very close to zero.
+      <m>2^{-1000}</m> is even close to 0.)
+      Thus as the inputs of <m>x</m> approach <m>0</m> and are positive,
+      the values of <m>2^x</m> become infinitely large and negative,
+      as illustrated in <xref ref="tab_zerolimitoflog2">Table</xref>:
+    </p>
+    <table xml:id="tab_zerolimitoflog2">
+      <title><m>\lim_{x\to0^+}2^x = -\infty</m></title>
+      <tabular>
+        <row>
+          <cell><m>x</m></cell>
+          <cell><m>2^{-10}</m></cell>
+          <cell><m>2^{-100}</m></cell>
+          <cell><m>2^{-1,000}</m></cell>
+          <cell><m>2^{-10,000}</m></cell>
+          <cell><m>2^{-100,000}</m></cell>
+          <cell><m>2^{-1,000,000}</m></cell>
+          <cell><m>\to0^+</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>\log_2(x)</m></cell>
+          <cell><m>-10</m></cell>
+          <cell><m>-100</m></cell>
+          <cell><m>-1,000</m></cell>
+          <cell><m>-10,000</m></cell>
+          <cell><m>-100,000</m></cell>
+          <cell><m>-1,000,000</m></cell>
+          <cell><m>\to-\infty</m></cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      There is of course nothing special about the base <m>2</m>,
+      and the above observations apply to logarithms of any base <m>b</m> with <m>b>1</m>.
+      When <m>0\lt b\lt 1</m>, we have a different behavior,
+      similar to the different behavior for exponential functions of base <m>0\lt b\lt 1</m>:
+      <me>
+        \lim_{x\to\infty} \left(\frac{1}{2}\right)^x = 0^+ \qquad\text{ and so } \qquad \lim_{x\to0^+}\log_{1/2}x = \infty
+      </me>
+      and
+      <me>
+        \lim_{x\to-\infty} \left(\frac{1}{2}\right)^x =\infty\qquad\text{ and so } \qquad \lim_{x\to\infty}\log_{1/2}x = -\infty
+      </me>
+    </p>
+    <p>
+      Similarly to before, these limits are best remembered via pictures:
+    </p>
+    <figure xml:id="fig_TaalmanPage355b-1">
+      <caption>For <m>b>1</m>, <m>\lim_{x\to\infty}\log_bx=\infty</m> and <m>\lim_{x\to0^+}b^x=-\infty</m>.</caption>
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="70%" source="TaalmanPage355b-1.png"/>
+      \end{subfigure}
+      \hspace{.5in}
+      \begin{subfigure}[H]{0.4\textwidth}
+      <image width="70%" source="TaalmanPage355b-2.png"/>
+      \caption{For <m>0\lt b\lt 1</m>, <m>\lim_{x\to\infty}\log_bx=-\infty</m> and <m>\lim_{x\to0^+}b^x=\infty</m>.} \end{subfigure}
+      \caption{Limits of <m>\log_bx</m> at <m>\infty</m> and <m>0^+</m> are best remembered visually.}
+    </figure>
+    <p>
+      Finally, we summarize these observations in the following theorem:
+    </p>
+    <theorem xml:id="thm_limlog">
+      <title>Limits of Logarithmic functions at Infinity and Zero</title>
+      <statement>
+        <p>
+          Let <m>b>0</m>.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                If <m>b>1</m>,
+                then <m>\displaystyle\lim_{x\to\infty}\log_bx=\infty</m> and <m>\displaystyle\lim_{x\to0^+}\log_bx=-\infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>0\lt b\lt 1</m>, then
+                <m>\displaystyle\lim_{x\to\infty}\log_bx=-\infty</m> and <m>\displaystyle\lim_{x\to0^+}\log_bx=\infty</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      \fbox{ Something rather unexpected occurs for logarithms:
+      they have vertical asymptotes!
+      Previously, we have only encountered vertical asymptotes arising as the result of division by a quantity approaching zero.
+      Add this fact to your collection of knowledge relating to vertical asymptotes:
+      logarithmic functions have vertical asymptotes when their <em>arguments</em>,
+      meaning the value the logarithm takes as input,
+      approach 0 from the right. }
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function <m>h(x) = \log_2(x^2-1)</m>.
+          This can be viewed as a composition <m>f\circ g</m> where
+          <m>f(x) = \log_2 x</m> and <m>g(x) = x^2-1</m>.
+        </p>
+        <p>
+          The <em>argument</em> of the logarithm in
+          <m>h(x) = \log_2(x^2-1)</m> is the expression <m>x^2-1</m>,
+          and the values of this argument determine whether <m>h(x)</m> has a vertical asymptote
+        </p>
+        <p>
+          We have established that <m>f(x) = \log_2x</m> has a vertical asymptote at <m>x=0</m> for <m>x>0</m>.
+        </p>
+        <p>
+          <m>g(x) = x^2-1=0</m> for <m>x=\pm 1</m> and we can check via a sign chart that <m>x^2-1>0</m> for <m>x\lt -1</m> and for <m>x>1</m>.
+        </p>
+        <p>
+          Thus the composite function
+          <m>h(x) = f(g(x) = \log_2(x^2-1)</m> will have vertical asymptotes at <m>x=-1</m> and <m>x=1</m>,
+          but only on the sides where <m>x^2-1>0</m>,
+          meaning from the left of <m>x=-1</m> and the right of <m>x=1</m>.
+        </p>
+        <p>
+          We see this illustrated in the graph below:
+        </p>
+        <figure>
+          <caption><m>h(x) = \log_2(x^2-1)</m> has vertical asymptotes as <m>x\to -1^-</m> and <m>x\to 1^+</m>.</caption>
+          <image width="56%" source="LogVAs.png"/>
+        </figure>
+        <p>
+          Note that the function <m>h(x) = \log_2(x^2-1)</m> has domain <m>(-\infty,-1)\cup(1,\infty)</m>,
+          since this is where its argument <m>x^2-1</m> is positive,
+          and that the vertical asymptotes occur at the edges of this domain.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          For what <m>x</m>-value does
+          <m>f(x) = \log_2(5-x)</m> have a vertical asymptote?
+          Is it to the right or left?
+          <em>Use what you know about the shape of <m>\log_2x</m>,
+          along with appropriate transformations of functions.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_examplesoflimitsoflogandexpfunctions">
+    <title>Calculating limits involving exponential and logarithmic functions</title>
+    <p>
+      The ideas covered so far in this section allow you to calculate many limits that involve exponential and logarithmic functions.
+      We can use algebraic methods and logical reasoning from last semester in order to determine the behavior of these limits.
+      It's important to note that limits involving exponential and logarithmic functions can still be indeterminate,
+      but many of the same methods and ideas can be applied with small modifications.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate <m>\displaystyle\lim_{x\to0}\frac{3^{2x}+3^x-2}{3^x-1}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, we try to evaluate the limit.
+          If we find that the limit is indeterminate,
+          then we will use our limit-evaluating skills to rewrite the limit until it can be evaluated.
+        </p>
+        <p>
+          As <m>x\to0</m>,
+          both the numerator and the denominator approach zero,
+          so this limit is of the form
+          <m>\frac{0}{0}</m>, which is indeterminate.
+          So, we need to rewrite the limit, likely using algebra.
+        </p>
+        <p>
+          Notice that we can factor the numerator in the following way:
+          call <m>z=3^x</m>.
+          Then, <m>3^{2x}+3^x-2=(3^{x})^2+3^x-2=z^2+z-2</m>,
+          which can be factored as <m>(z+2)(z-1)</m>.
+          We then replace <m>z</m> with <m>3^x</m> to obtain a factored numerator:
+          <m>3^{2x}+3^x-2=(3^x-1)(3^x+2)</m>.
+        </p>
+        <p>
+          Returning to the limit, we use the factored form of the numerator:
+          <me>
+            \displaystyle\lim_{x\to0}\frac{3^{2x}+3^x-2}{3^x-1}=\displaystyle\lim_{x\to0}\frac{(3^x-1)(3^x+2)}{3^x-1}
+          </me>.
+          How does this help us?
+          Well, we now see that both the denominator and numerator have a factor of <m>3^x-1</m>.
+          Using the cancelation property for limits,
+          we can cancel these factors, and then finish the limit via evaluation:
+          <me>
+            \displaystyle\lim_{x\to0}\frac{(3^x-1)(3^x+2)}{3^x-1}=\displaystyle\lim_{x\to0}(3^x+2)=3^0+2=3
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="ex_dividebyhighestbase">
+      <statement>
+        <p>
+          Calculate <m>\displaystyle\lim_{x\to\infty}\frac{3^{x}-2^x}{1+4^x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By <xref ref="thm_expatinfinity">Theorem</xref>,
+          we know that as <m>x\to\infty</m>, <m>2^x</m>,
+          <m>3^x</m>, and <m>4^x</m> all approach <m>\infty</m>.
+          Therefore, the limit in question is an indeterminate form,
+          with <m>\infty-\infty</m> in the numerator and another <m>\infty</m> in the denominator.
+          An analog of the method of dividing by the highest power works in this case.
+          Because <m>4^x</m> grows faster than either <m>3^x</m> or <m>2^x</m> as <m>x\to\infty</m>,
+          <m>4^x</m> is the dominant term,
+          hence we divide through by it:
+          <me>
+            \displaystyle\lim_{x\to\infty}\frac{3^{x}-2^x}{1+4^x}=\displaystyle\lim_{x\to\infty}\frac{3^{x}-2^x}{1+4^x}\cdot \frac{(1/4)^x}{(1/4)^x}=\displaystyle\lim_{x\to\infty}\frac{(3/4)^{x}-(2/4)^x}{(1/4)^x+1}=\frac{0-0}{0+1}=0/1=0
+          </me>.
+        </p>
+        <p>
+          Notice that by dividing by the exponential function with the largest base,
+          all of the bases are now between <m>0</m> and <m>1</m>,
+          so their limits approach 0.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Calculate the limit at <m>-\infty</m> of the expression in <xref ref="ex_dividebyhighestbase">Example</xref>:
+          <me>
+            \displaystyle\lim_{x\to-\infty}\frac{3^{x}-2^x}{1+4^x}
+          </me>.
+          <em>Hint: This one is easier.
+          Use <xref ref="thm_expatnegativeinfinity">Theorem</xref>.</em>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Calculate <m>\displaystyle\lim_{x\to0^+}\frac{x^2}{\log_3x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          From <xref ref="thm_limlog">Theorem</xref>,
+          we know that as <m>x\to0^+</m>,
+          the quantity <m>\log_3x</m> in the denominator approaches <m>-\infty</m>.
+          At the same time, the numerator <m>x^2</m> approaches <m>0</m>,
+          therefore the limit in question is of the form <m>\frac{0}{-\infty}</m>.
+        </p>
+        <p>
+          This limit is <em>not indeterminate</em>;
+          limits of this form are always equal to zero!
+          As the numerator approaches zero,
+          the quotient gets smaller.
+          Similarly, as the magnitude of the denominator gets larger,
+          the quotient gets smaller, Both the numerator and the denominator contribute to the quotient approaching 0.
+          Therefore,
+          <me>
+            \displaystyle\lim_{x\to0^+}\frac{x^2}{\log_3x}=0
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate <m>\displaystyle\lim_{x\to\infty}[\log_2(x+1)-\log_2(x^2+1)]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This limit is of the indeterminate form <m>\infty-\infty</m>,
+          since as <m>x\to\infty</m>,
+          both <m>\log_2(x+1)</m> and
+          <m>\log_2(x^2+1)</m> approach <m>\infty</m>.
+          Luckily, using the algebraic rules of logarithms,
+          we can rewrite the limit in an alternative form with a fraction,
+          as follows:
+          <me>
+            \displaystyle\lim_{x\to\infty}[\log_2(x+1)-\log_2(x^2+1)]=\displaystyle\lim_{x\to\infty}\log_2\left(\frac{x+1}{x^2+1}\right)
+          </me>
+        </p>
+        <p>
+          As <m>x\to\infty</m>, the rational function
+          <m>\dfrac{x+1}{x^2+1}</m> approaches <m>0</m> and is positive,
+          which in turn means that the quantity
+          <m>\log_2\left(\frac{x+1}{x^2+1}\right)</m> approaches <m>-\infty</m>.
+          Therefore,
+          <me>
+            \displaystyle\lim_{x\to\infty}[\log_2(x+1)-\log_2(x^2+1)]=-\infty
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Fill in the following table of values for the function <m>f(x)=\dfrac{3^x-1}{x}</m>.
+        </p>
+        <table>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>-1</cell>
+              <cell>-0.5</cell>
+              <cell>-0.1</cell>
+              <cell>-0.01</cell>
+              <cell>-0.001</cell>
+              <cell>0</cell>
+              <cell>0.001</cell>
+              <cell>0.01</cell>
+              <cell>0.1</cell>
+              <cell>0.5</cell>
+              <cell>1</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\dfrac{3^x-1}{x}</m></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell>?</cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Use this table to estimate <m>\ds\lim_{h\to 0}\frac{3^h-1}{h}</m>.
+          Do you recognize what this particular limit represents?
+          <em>Hint: You're learning about derivatives next<ellipsis/></em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    argument (of a logarithmic function)
+    <p>
+      <em>Key ideas:</em> Exponential and logarithmic functions are continuous on their domains,
+      and we can remember their limits at the edges of their domains via a few illustrative graphs.
+      Expressions involving exponential functions can have different right and left horizontal asymptotes.
+      Logarithmic functions have vertical asymptotes.
+      The algebraic methods learned in the fall for evaluating indeterminate limit forms can be modified to calculate indeterminate limits of expressions involving exponential and logarithmic functions.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Exponential functions <m>b^x</m> are defined for all real numbers and are always positive.
+      Logarithms are undefined for non-positive values of their argument.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

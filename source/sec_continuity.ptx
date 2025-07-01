@@ -1,0 +1,1049 @@
+<section xml:id="sec_continuity">
+  <title>Continuity</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          What does it mean for a function to be continuous at a point,
+          both visually and algebraically?
+        </p>
+      </li>
+      <li>
+        <p>
+          What does it mean for a function to be continuous on an interval?
+          On its domain?
+        </p>
+      </li>
+      <li>
+        <p>
+          What does it mean for a function to be left or right continuous at a point?
+        </p>
+      </li>
+      <li>
+        <p>
+          Be able to classify different types of discontinuity, visually and via limits.
+        </p>
+      </li>
+      <li>
+        <p>
+          See how continuous functions can be built from simpler functions so that "most" limits can be evaluated simply by plugging in.
+        </p>
+      </li>
+      <li>
+        <p>
+          Think about what limits we still cannot evaluate.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Definition of Continuity</title>
+    <introduction>
+      <p>
+        What do you think of when you hear the word "continuous?" A quick Google search will tell you that <em>continuous</em>
+        is an adjective that means
+      </p>
+      <em>forming an unbroken whole; without interruption.</em>
+      <p>
+        In this section,
+        we define what it means for a function to be continuous,
+        or to "have continuity."
+      </p>
+      <example xml:id="ex_continuity">
+        <statement>
+          <p>
+            Consider the graph of the function
+            <m>f(x) = \frac{1}{2}x+3</m> below and the limit <m>\ds\lim_{x\to 2} f(x)</m>.
+          </p>
+          <figure xml:id="fig_taalmanpage125a">
+            <caption>The graph of <m>f(x) =  \frac{1}{2}x+3</m>. What is <m>\ds\lim_{x\to 2} f(x)</m>?</caption>
+            <image width="37%" source="altTaalmanPage125a.png"/>
+          </figure>
+          <p>
+            The limit asks us to consider what value the function
+            <m>f(x)= \frac{1}{2}x+3</m> approaches as <m>x</m> approaches 2.
+            We can see in the picture that the <m>y</m>-values of the function approach 4, and that this is also what we get when we evaluate the function at 2 since <m>f(2) = \frac{1}{2}(2)+3 = 1+3 = 4</m>.
+            For this limit and this function, it is the case that
+            <me>
+              \lim_{x\to 2}f(x) = f(2)=4
+            </me>
+            so that taking the limit is the same as evaluating the function.
+            There is a particular name for this situation where the value of the limit is the same as the function's value:
+            such a function is called <em>continuous</em>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        Visually, a function is <em>continuous</em>
+        if its graph has no breaks, jumps, or holes.
+        Loosely speaking,
+        you can sketch the graph of a continuous function "without picking up your pencil."
+      </p>
+      <example xml:id="ex_noncontinuity">
+        <title>Non-examples</title>
+        <statement>
+          <p>
+            The three graphs in <xref ref="fig_TaalmanPage125b-d" autoname="yes"/> are not continuous at <m>x=1</m>.
+          </p>
+          <figure xml:id="fig_TaalmanPage125b">
+            <caption><m>y=g(x)</m> is not continuous at <m>x=1</m>.</caption>
+            \begin{subfigure}[H]{0.3\textwidth}
+            <image width="28%" source="TaalmanPage125b.png"/>
+            \end{subfigure}
+            \hspace{.2in}
+            \begin{subfigure}[H]{0.3\textwidth}
+            <image width="28%" source="TaalmanPage125c.png"/>
+            \caption{<m>y=h(x)</m> is not continuous at <m>x=1</m>.} \end{subfigure}
+            \hspace{.2in}
+            \begin{subfigure}[H]{0.3\textwidth}
+            <image width="80%" source="TaalmanPage125d.png"/>
+            \caption{<m>y=k(x)</m> is not continuous at <m>x=1</m>.} \end{subfigure}
+            \caption
+          </figure>
+          <p>
+            Visually, we notice the "gaps" in all three graphs at <m>x=1</m>.
+            The left-most function <m>g(x)</m> in <xref ref="fig_TaalmanPage125b" autoname="yes"/> has a "jump" at <m>x=1</m>.
+            The left limit approaches 1 while the right limit approaches 2.
+            The middle function <m>h(x)</m> in <xref ref="fig_TaalmanPage125c" autoname="yes"/> and the right function <m>k(x)</m> in <xref ref="fig_TaalmanPage125d" autoname="yes"/> have "holes" at <m>x=1</m>.
+            All three graphs have "interruptions" at <m>x=1</m>,
+            and so all three are not continuous at <m>x=1</m>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        The algebraic notation of limits makes the idea of continuity more precise.
+        A function is continuous at a point <m>x=c</m> if its limit as <m>x\to c</m> is equal to a real number that is the same as the value of the function at <m>x=c</m>.
+      </p>
+      <definition xml:id="def_continuous">
+        <title>Continuity of a Function</title>
+        <statement>
+          <p>
+            A function <m>f</m> is <em>continuous at <m>x=c</m></em> if
+            <me>
+              \ds\lim_{x\to c}f(x) = f(c)
+            </me>
+          </p>
+        </statement>
+      </definition>
+      <p>
+        \fbox{The following three things need to be true about <m>f(x)</m> in order for it to be continuous at <m>x=c</m>
+        <ul>
+          <li>
+            <p>
+              The function must be defined at <m>x=c</m>.
+              In other words, <m>x=c</m> must be in the domain of <m>f</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The limit of <m>f(x)</m> must exist at <m>x=c</m>.
+              In other words,
+              <m>\ds\lim_{x\to c}f(x)</m> must be equal to a number.
+            </p>
+          </li>
+          <li>
+            <p>
+              The limit of <m>f(x)</m> at <m>x=c</m> must be equal to the value of the function at <m>x=c</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <example>
+        <statement>
+          <p>
+            In <xref ref="ex_continuity">Example</xref>,
+            <m>f(x) = \frac{1}{2}x+3</m> is continuous at <m>x=2</m> because <m>\ds\lim_{x\to 2} f(x) = 4</m> and <m>f(2)=4</m>,
+            and these two things are equal.
+            Note that <m>f(x)</m> is continuous at every point pictured since at every point,
+            the limit will equal the value of the function.
+          </p>
+          <figure xml:id="fig_taalmanpage125a-again">
+            <caption>The graph of <m>f(x) =  \frac{1}{2}x+3</m> is continuous at all points pictured.</caption>
+            <image width="37%" source="altTaalmanPage125a.png"/>
+          </figure>
+        </statement>
+      </example>
+      <example>
+        <statement>
+          <p>
+            By contrast, <m>g(x)</m>, <m>h(x)</m>,
+            and <m>k(x)</m> in Example <xref ref="ex_noncontinuity" autoname="yes"/> are not continuous at <m>x=1</m> because the limits at <m>x=1</m> are not equal to the values of the functions at <m>x=1</m>.
+          </p>
+          <figure xml:id="fig_TaalmanPage125bagain">
+            <caption><m>\ds\lim_{x\to 1}g(x)</m> DNE while
+            <m>g(1)=2</m>.</caption>
+            \begin{subfigure}[H]{0.3\textwidth}
+            <image width="28%" source="TaalmanPage125b.png"/>
+            \end{subfigure}
+            \hspace{.2in}
+            \begin{subfigure}[H]{0.3\textwidth}
+            <image width="28%" source="TaalmanPage125c.png"/>
+            \caption{<m>\ds\lim_{x\to 1}h(x)=1</m>  while <m>h(1)=2</m>.} \end{subfigure}
+            \hspace{.2in}
+            \begin{subfigure}[H]{0.3\textwidth}
+            <image width="80%" source="TaalmanPage125d.png"/>
+            \caption{<m>\ds\lim_{x\to 1}k(x)=1</m>  while <m>k(1)</m> is undefined.} \end{subfigure}
+            \caption
+          </figure>
+          <p>
+            For <m>g(x)</m>,
+            the limit does not exist and so cannot equal <m>g(1)=2</m>.
+            For <m>h(x)</m>, the limit at <m>x=1</m> is <m>1\neq h(1)=2</m>.
+            For <m>k(x)</m>, the limit exists and is
+            <m>\ds\lim_{x\to 1}k(x)=1</m> while <m>k(1)</m> is undefined,
+            so cannot equal the limit.
+          </p>
+          <p>
+            However, <m>g(x)</m>, <m>h(x)</m>,
+            and <m>k(x)</m> are continuous at every other <m>x</m>-value pictured.
+            It is only at <m>x=1</m> that these functions are not continuous.
+          </p>
+        </statement>
+      </example>
+      <p>
+        The functions that we will work with are almost always continuous,
+        meaning that they are continuous at almost all points except for a few isolated points where they are discontinuous.
+        Thus it makes sense for us to define what it means for a function to be continuous on an interval of points,
+        rather than just point-by-point.
+      </p>
+      <definition>
+        <title>Continuity of a Function on an Interval</title>
+        <statement>
+          <p>
+            A function <m>f</m> is <em>continuous on an interval</em>
+            <m>(a,b)</m> if it is continuous for every point <m>x=c</m> with <m>a\lt c\lt b</m>.
+          </p>
+          <p>
+            We say that a function is <em>continuous on its domain</em>
+            if it is continuous on every interval on which it is defined.
+          </p>
+        </statement>
+      </definition>
+      <example>
+        <statement>
+          <p>
+            For instance,
+            the function <m>h(x)</m> from <xref ref="fig_TaalmanPage125cagain" autoname="yes"/> is continuous on the interval <m>(1,4)</m> because it is continuous at all points <m>x=c</m> with <m>1\lt c\lt 4</m>.
+            (Note the strict inequalities.)
+            However, it is <em>not</em> continuous on <m>(0,4)</m> because it is not continuous at the point <m>x=1</m> contained within the interval <m>(0,4)</m>.
+          </p>
+          <figure xml:id="fig_TaalmanPage125cagain-again">
+            <caption><m>h(x)</m> is continuous on <m>(1,4)</m> but not on <m>(0,4)</m>.</caption>
+            <image width="28%" source="TaalmanPage125c.png"/>
+          </figure>
+        </statement>
+      </example>
+    </introduction>
+    <subsubsection>
+      <title>Left and Right Continuity</title>
+      <example xml:id="ex_rightcontinuityintro">
+        <statement>
+          <p>
+            Note that in <xref ref="ex_noncontinuity">Example</xref>,
+            the <em>right</em> limit of <m>g(x)</m> at <m>x=1</m> is equal to the value of the function:
+          </p>
+          <figure xml:id="fig_TaalmanPage125cagain-againX">
+            <caption>The right limit <m>\ds\lim_{x\to 1^+}g(x) = 2</m> is the same as <m>g(1) = 2</m>.</caption>
+            <image width="28%" source="TaalmanPage125b.png"/>
+          </figure>
+          <p>
+            The <em>left</em> limit of <m>g(x)</m>, on the other hand,
+            goes to 1, which is not the same as the value of the function at <m>x=1</m>:
+            <m>\ds\lim_{x\to 1^-} g(x) = 1\neq 2 = g(1)</m>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        Example <xref ref="ex_rightcontinuityintro" autoname="yes"/> above illustrates the need for yet another version of continuity that applies to only the left or right limit,
+        instead of the two-sided limit.
+      </p>
+      <definition>
+        <title>Left and Right Continuity at a Point</title>
+        <statement>
+          <p>
+            A function <m>f</m> is <em>continuous from the left at <m>x=c</m></em>, a.k.a.
+            <em>left-continuous</em>, if
+            <me>
+              \lim_{x\to c^-}f(x) = f(c)
+            </me>
+          </p>
+          <p>
+            A function <m>f</m> is <em> continuous from the right at <m>x=c</m></em>,
+            a.k.a <em>right-continuous</em>, if
+            <me>
+              \lim_{x\to c^+}f(x) = f(c)
+            </me>
+          </p>
+        </statement>
+      </definition>
+      <p>
+        So the function <m>g(x)</m> in Example <xref ref="ex_rightcontinuityintro" autoname="yes"/> above is continuous from the right at <m>x=1</m> but is not continuous from the left at <m>x=1</m>.
+      </p>
+      <p>
+        We can use interval notation to express whether a function is right or left continuous at the edges of an interval.
+      </p>
+      <example>
+        <statement>
+          <p>
+            The graphs that follow provide examples of continuity on the four possible types of bounded intervals.
+          </p>
+          <figure xml:id="fig_taalmanpage126">
+            <caption>Continuity on four different types of bounded intervals.</caption>
+            <image width="92.5%" source="TaalmanPage126.png"/>
+          </figure>
+          <p>
+            For example,
+            a function <m>f</m> is continuous on <m>[1,3)</m> if it is continuous at every point in the interior <m>(1,3)</m> and continuous from the right at the left endpoint <m>x=1</m>,
+            as shown in the second from left picture above.
+            This is because the left endpoint is closed on the graph so that the left limit
+            <m>\ds\lim_{x\to 1^+}f(x)</m> at the left endpoint equals the value of the function <m>f(1)</m>.
+          </p>
+          <p>
+            By contrast,
+            the right-most picture above is continuous on <m>[1,3]</m> since both endpoints are closed,
+            so the right limit at <m>x=1</m> matches <m>f(1)</m>,
+            while the left limit at <m>x=3</m> matches <m>f(3)</m>.
+            This function is right-continuous at <m>x=1</m> and left-continuous at <m>x=3</m>.
+          </p>
+        </statement>
+      </example>
+      <example xml:id="ex_jumpdisc">
+        <statement>
+          <p>
+            Describe the continuity of the piecewise-defined function
+            <me>
+              g(x) = \begin{cases}4-x^2, \amp  \text{ if } x\leq 1\\ x-1, \amp  \text{ if } x>1 \end{cases}
+            </me>
+            at the value <m>x=1</m> by using the graph in <xref ref="fig_taalmanpage131b" autoname="yes"/> below to determine the left, right,
+            and two-sided limits at <m>x=1</m>.
+            Then describe the intervals on which <m>g(x)</m> is continuous.
+          </p>
+          <figure xml:id="fig_taalmanpage131b">
+            <caption>Where is the function <m>g(x)</m> continuous?</caption>
+            <image width="37%" source="TaalmanPage131b.png"/>
+          </figure>
+        </statement>
+        <solution>
+          <p>
+            We can see that
+            <me>
+              \ds\lim_{x\to 1^-} g(x) = 3,  \ds\lim_{x\to 1^+}g(x) = 0, \text{ and }  g(1)=3
+            </me>.
+          </p>
+          <p>
+            <m>g(x)</m> is continuous from the left at <m>x=1</m> because
+            <me>
+              \ds\lim_{x\to 1^-} g(x) = 3=g(1)
+            </me>
+          </p>
+          <p>
+            <m>g(x)</m> is not continuous from the right at <m>x=1</m> because
+            <me>
+              \ds\lim_{x\to 1^-} g(x) = 0\neq g(1)=3
+            </me>.
+          </p>
+          <p>
+            The two-sided limit <m>\ds\lim_{x\to 1}g(x)</m> does not exist,
+            and so <m>g(x)</m> is not (both-sided) continuous at <m>x=1</m>.
+          </p>
+          <p>
+            <m>g(x)</m> is continuous at every other point,
+            and so overall is continuous on the intervals
+            <me>
+              (-\infty, 1]\text{ and }  (1,\infty)
+            </me>.
+            Remember that the closed endpoint on the interval
+            <m>(-\infty,1]</m> means that the function is continuous from the left at <m>x=1</m>.
+            The open endpoint on the interval
+            <m>(1,\infty)</m> means that the function is not continuous from the right at <m>x=1</m>.
+          </p>
+        </solution>
+      </example>
+      <exercise xml:id="ex_notdisc">
+        <statement>
+          <p>
+            Follow the same process as in Example <xref ref="ex_jumpdisc" autoname="yes"/> to describe the continuity of the piecewise-defined function
+            <me>
+              f(x) = \begin{cases}x+1, \amp  \text{ if } x\lt  1\\ 3-x^2, \amp  \text{ if } x\geq1 \end{cases}
+            </me>
+            at the value <m>x=1</m>.
+            Use the graph in <xref ref="fig_taalmanpage131a" autoname="yes"/> below to determine the left, right,
+            and two-sided limits at <m>x=1</m>,
+            and compare them to the value <m>f(1)</m>.
+            Then describe the intervals on which <m>f(x)</m> is continuous.
+          </p>
+          <figure xml:id="fig_taalmanpage131a">
+            <caption>Where is the function <m>f(x)</m> continuous?</caption>
+            <image width="37%" source="TaalmanPage131a.png"/>
+          </figure>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Types of Discontinuities</title>
+    <p>
+      When a function is not continuous at a point <m>x=c</m>,
+      we say that it is <em>discontinuous</em> at <m>x=c</m>.
+      In terms of limits this means that
+    </p>
+    the limit <m>\ds\lim_{x\to c}f(x)</m> is not equal to the value <m>f(c)</m>.
+    <p>
+      The three types of discontinuities that a function can have are illustrated as follows:
+    </p>
+    <figure xml:id="fig_taalmanpage126b">
+      <caption>The three types of discontinuities.</caption>
+      <image width="92.5%" source="TaalmanPage126b.png"/>
+    </figure>
+    <p>
+      In the left-most picture,
+      we see that the function is discontinuous at <m>x=2</m> because <m>\ds\lim_{x\to 2}f(x) = 1</m> while <m>f(2)=2</m>.
+      This is called a <em>removable discontinuity</em>.
+      Intuitively,
+      we say that a discontinuity is removable if we could get rid of the discontinuity just by changing one value of the function.
+      This type of discontinuity is also called a <em>hole</em>.
+    </p>
+    <p>
+      In the middle picture,
+      we can see that the function is discontinuous at <m>x=2</m> because the left and right limits are different,
+      so <m>\ds\lim_{x\to 2}f(x)</m> does not exist.
+      When the left and right limits both exist but are not equal,
+      this is called a <em>jump discontinuity</em>.
+      Here, <m>\ds\lim_{x\to 2^-} f(x) = 1</m> and
+      <m>\ds\lim_{x\to 2^+}f(x) = 2</m> both exist, but are not equal.
+      At a jump discontinuity, the function jumps from one value to another.
+    </p>
+    <p>
+      In the right-most picture,
+      we see that the function is discontinuous at <m>x=2</m> because <m>f(2)</m> is undefined and the limit is not finite,
+      and so does not exist.
+      Anytime a left or right limit is infinite,
+      we call this an <em>infinite discontinuity</em>.
+      Infinite discontinuities are also called
+      <em>vertical asymptotes</em>.
+    </p>
+    <p>
+      To summarize,
+      these types of discontinuities can be described precisely in terms of limits as follows:
+    </p>
+    <definition>
+      <title>Removable, Jump, and Infinite Discontinuities</title>
+      <statement>
+        <p>
+          Suppose <m>f</m> is discontinuous at <m>x=c</m>.
+          We say that <m>x=c</m> is a
+          <ol marker="labelalph">
+            <li>
+              <p>
+                <em>removable discontinuity</em> or <em>hole</em>
+                if <m>\ds\lim_{x\to c}f(x)</m> exists but is not equal to <m>f(c)</m>,
+                including the case where <m>f(c)</m> is undefined.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>jump discontinuity</em> if <m>\ds\lim_{x\to c^-}f(x)</m> and
+                <m>\ds\lim_{x\to c^+} f(x)</m> both exist and are finite but are not equal.
+                It does not matter whether <m>f(c)</m> is defined.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>infinite discontinuity</em>
+                or <em>vertical asymptote</em>
+                if one or both of <m>\ds\lim_{x\to c^-} f(x)</m> and <m>\ds\lim_{x\to c^+} f(x)</m> is infinite.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          What type of discontinuity does the function
+          <me>
+            g(x) = \begin{cases}4-x^2, \amp  \text{ if } x\leq 1\\ x-1, \amp  \text{ if } x>1 \end{cases}
+          </me>
+          from <xref ref="ex_jumpdisc">Example</xref> have at <m>x=1</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Without looking at the picture,
+          notice that as <m>x\to 1^-</m>,
+          the piece of the function given by <m>4-x^2</m> approaches <m>3</m> algebraically:
+          <me>
+            \text{ as } x\to 1^-, 4-x^2\to 4-(1)^2 = 3
+          </me>.
+        </p>
+        <p>
+          Similarly, as <m>x\to 1^+</m>,
+          the piece of the function given by <m>x-1</m> approaches <m>0</m> algebraically:
+          <me>
+            \text{ as } x\to 1^+, x-1\to 1-1 = 0
+          </me>.
+        </p>
+        <p>
+          Thus we can see algebraically that the function has a jump at <m>x=1</m>.
+          We can confirm this by looking at the graph of <m>g(x)</m>:
+        </p>
+        <figure xml:id="fig_taalmanpage131b-again">
+          <caption>The function <m>g(x)</m> has a jump discontinuity at <m>x=1</m>.</caption>
+          <image width="37%" source="TaalmanPage131b.png"/>
+        </figure>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Is the function
+          <me>
+            f(x) = \begin{cases}x+1, \amp  \text{ if } x\lt  1\\ 3-x^2, \amp  \text{ if } x\geq1 \end{cases}
+          </me>
+          from <xref ref="ex_notdisc">Exercise</xref> discontinuous at <m>x=1</m>?
+          If so, what type of discontinuity is it?
+          Use the picture provided in <xref ref="fig_taalmanpage131a" autoname="yes"/> and then explain how you could see this algebraically from the formula for the function if you did not have a picture.
+        </p>
+        <p>
+          Now consider the function
+          <me>
+            h(x) = \begin{cases}x+1, \amp  \text{ if } x\lt  1\\ 3-x^2, \amp  \text{ if } x>1 \end{cases}
+          </me>
+        </p>
+        <p>
+          How is <m>h(x)</m> different from <m>f(x)</m>?
+          Is <m>h(x)</m> discontinuous at <m>x=1</m>?
+          If so, what type of discontinuity is it?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Rules for Calculating Limits</title>
+    <introduction>
+      <p>
+        Now we know that limits of continuous function are easy to evaluate:
+        we simply plug in the <m>x</m>-value of the limit to the formula,
+        the same way we would if we just wanted to know the value of the function.
+        In this section,
+        we build up a list of functions that we know to be continuous.
+        We begin with the simplest functions:
+        constant and linear functions:
+      </p>
+      <theorem xml:id="thm_contlinearfunctions">
+        <title>Continuity of Linear Functions</title>
+        <statement>
+          <p>
+            Constant and linear functions are continuous for all <m>x</m>-values:
+            <ul>
+              <li>
+                <p>
+                  For any real numbers <m>k</m> and <m>c</m>,
+                  <me>
+                    \lim_{x\to c}k = k
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any real numbers <m>c, m</m>, and <m>b</m>,
+                  <me>
+                    \lim_{x\to c}(mx+b) = mc+b
+                  </me>
+                </p>
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        Now we know that for any constant or any linear function,
+        evaluating a limit is no different than evaluating the function.
+      </p>
+      <theorem xml:id="thm_contpowerfunctions">
+        <title>Continuity of Power Functions</title>
+        <statement>
+          <p>
+            Power functions are continuous on their domains:
+            <ul>
+              <li>
+                <p>
+                  For any real number <m>A</m> and rational number <m>k</m>,
+                  then for any values <m>x=c</m> for which <m>x^k</m> is defined,
+                  <me>
+                    \lim_{x\to c} Ax^k = Ac^k
+                  </me>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        They key difference in Theorem <xref ref="thm_contpowerfunctions" autoname="yes"/> is that power functions are sometimes undefined,
+        and so cannot be continuous where they are not defined,
+        meaning outside of their domain.
+      </p>
+      <p>
+        These are powerful theorems,
+        because it tells us that we can calculate limits of certain simple functions at domain points just by evaluating the functions at those points.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For example,
+            <m>f(x) = \frac{1}{x} = x^{-1}</m> is a power function,
+            so by Theorem <xref ref="thm_contpowerfunctions" autoname="yes"/>,
+            it is continuous on its domain,
+            which is <m>(-\infty,0)\cup(0\infty)</m>.
+            This means that at any point <m>c\neq 0</m> we can calculate
+            <m>\ds\lim_{x\to c}\frac{1}{x}</m> by simply calculating the value <m>f(c) = \frac{1}{c}</m>.
+          </p>
+          <p>
+            For instance,
+            <me>
+              \lim_{x\to 5}\frac{1}{x} = \frac{1}{5}
+            </me>
+            and
+            <me>
+              \lim_{x\to -17}\frac{1}{x} = \frac{1}{-17}
+            </me>
+          </p>
+          <p>
+            However, we <em>cannot</em> yet compute <m>\ds\lim_{x\to 0}\frac{1}{x}</m>.
+            We will examine this limit in depth in a later section.
+          </p>
+        </statement>
+      </example>
+      <example>
+        <statement>
+          <p>
+            The function <m>f(x) = 2</m> is constant.
+            Hence using Theorem <xref ref="thm_contlinearfunctions" autoname="yes"/>, we know that
+            <me>
+              \lim_{x\to 3} 2 = 2
+            </me>.
+          </p>
+          <p>
+            The function <m>g(x) = x</m> is linear,
+            so again using Theorem <xref ref="thm_contlinearfunctions" autoname="yes"/>, we know that
+            <me>
+              \lim_{x\to 5} x = 5
+            </me>
+          </p>
+          <p>
+            The function <m>h(x) = \sqrt{x} = x^{1/2}</m> is a power function,
+            so using Theorem <xref ref="thm_contpowerfunctions" autoname="yes"/>, we know that
+            <me>
+              \lim_{x\to 16} \sqrt{x} = \lim_{x\to 16} x^{1/2} = (16)^{1/2} = \sqrt{16} = 4
+            </me>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        In Theorem <xref ref="thm_contpowerfunctions" autoname="yes"/>, the limit may sometimes be only one-sided.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For example,
+            <m>f(x) = \sqrt{x} = x^{1/2}</m> is defined at <m>x=0</m> and for <m>x>0</m>,
+            meaning to the right of <m>x=0</m>.
+            However it is not defined for <m>x\lt 0</m>,
+            meaning to the left of <m>x=0</m>.
+            Therefore the corresponding limit statement is one-sided:
+            <me>
+              \ds\lim_{x\to 0^+} \sqrt{x} = 0 \text{ but }  \ds\lim_{x\to 0^-}\sqrt{x} \text{ DNE, } \text{ hence }  \lim_{x\to 0}\sqrt{x}\text{ DNE. }
+            </me>
+          </p>
+        </statement>
+      </example>
+      <exercise>
+        <statement>
+          <p>
+            On what interval is <m>f(x) = \sqrt{x}</m> continuous?
+            <em>Hint: remember that <m>\sqrt{x}</m> is a power function and <xref ref="thm_contpowerfunctions">Theorem</xref>
+            says that power functions are continuous on their domains.</em>
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>Limits of Combinations of Functions</title>
+      <p>
+        What about more complicated functions?
+        Can we put together two continuous functions and still have a continuous function?
+      </p>
+      <example>
+        <statement>
+          <p>
+            For example,
+            we already know from the continuity of power functions that
+            <me>
+              \lim_{x\to 2}x^2 = 2^2 = 4\text{ and } \lim_{x\to 2}x^3 = 2^3 = 8
+            </me>.
+          </p>
+          <p>
+            Can we use these results to say something about
+            <me>
+              \lim_{x\to 2} (x^2+x^3)?
+            </me>
+          </p>
+        </statement>
+      </example>
+      <p>
+        The key theorem that follows in Theorem <xref ref="thm_limitrules" autoname="yes"/> will help us answer this question;
+        it says that limits can be evaluated within all of the arithmetic operations between function and even sometimes within a composition of functions.
+      </p>
+      <theorem xml:id="thm_limitrules">
+        <title>Rules for Calculating Limits of Combinations</title>
+        <statement>
+          <p>
+            If <m>\ds\lim_{x\to c} f(x)</m> and
+            <m>\ds\lim_{x\to c} g(x)</m> exist and are finite,
+            then the following rules hold for their combinations:
+          </p>
+          <tabular>
+            <row>
+              <cell><em>Constant Multiple Rule:</em></cell>
+              <cell><m>\ds\lim_{x\to c}k f(x) = k\lim_{x\to c} f(x)</m> for any real number <m>k</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><em>Sum Rule:</em></cell>
+              <cell><m>\ds\lim_{x\to c} (f(x)+g(x)) = \ds\lim_{x\to c}f(x) +\ds\lim_{x\to c}g(x)</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><em>Difference Rule:</em></cell>
+              <cell><m>\ds\lim_{x\to c}(f(x)-g(x)) = \ds\lim_{x\to c}f(x)-\ds\lim_{x\to c}g(x)</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><em>Product Rule:</em></cell>
+              <cell><m>\ds\lim_{x\to c}(f(x)\cdot g(x)) = \left(\ds\lim_{x\to c}f(x)\right)\cdot\left(\ds\lim_{x\to c}g(x)\right)</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><em>Quotient Rule:</em></cell>
+              <cell><m>\ds\lim_{x\to c}\dfrac{f(x)}{g(x)} = \dfrac{\ds\lim_{x\to c}f(x)}{\ds\lim_{x\to c}g(x)}</m>, if <m>\ds\lim_{x\to c}g(x)\neq 0</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><em>Composition Rule:</em></cell>
+              <cell><m>\ds\lim_{x\to c}f(g(x)) = f\left(\ds\lim_{x\to c}g(x)\right)</m>, if <m>f</m> is continuous at <m>\ds\lim_{x\to c}g(x)</m>.</cell>
+            </row>
+          </tabular>
+        </statement>
+      </theorem>
+      <p>
+        This theorem is a powerful tool for calculating limits,
+        since it tells us how to find limits of compound functions in terms of the limits of their components.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For example, we can now calculate the limit of the <em>sum</em>
+            <m>x^2+x^3</m> as <m>x\to 2</m> by taking the sum of the limits of <m>x^2</m> and <m>x^3</m> as <m>x\to 2</m>:
+            <me>
+              \lim_{x\to 2}(x^2+x^3) = \lim_{x\to 2}x^2+\lim_{x\to 2}x^3 = 2^2+2^3 = 4+8=12
+            </me>
+          </p>
+        </statement>
+      </example>
+      <example>
+        <statement>
+          <p>
+            We can calculate <m>\ds\lim_{x\to 4}\sqrt{x-1}</m> using the
+            <em>Composition Rule</em>.
+            For <m>f(x) = \sqrt{x}</m> and <m>g(x) = x-1</m>, we have
+            <me>
+              f(g(x)) = \sqrt{x-1}
+            </me>.
+            Since <m>\ds\lim_{x\to 4}x-1 = 3</m> is in the domain of <m>f(x) = \sqrt{x}</m>,
+            we know that <m>f(x)</m> is continuous at <m>x=3</m> and so
+            <me>
+              \lim_{x\to 4}\sqrt{x-1} = \sqrt{\lim_{x\to 4}(x-1)} = \sqrt{4-1} = \sqrt{3}
+            </me>
+          </p>
+        </statement>
+      </example>
+      <exercise>
+        <statement>
+          <p>
+            Calculate the limits below using the continuity of linear and power functions and the limit rules in <xref ref="thm_limitrules">Theorem</xref>.
+            Cite each part of <xref ref="thm_limitrules">Theorem</xref> that you apply.
+            <ol marker="labelalphtopsep5ptitemsep10pt">
+              <li>
+                <p>
+                  <m>\ds\lim_{x\to 3}(3x^2-2x+1)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\ds\lim_{x\to 1}(3x-1)^{12}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <p>
+        An immediate consequence of <xref ref="thm_limitrules">Theorem</xref>
+        is that constant multiples, sums,
+        differences, and products, quotients,
+        and compositions of continuous functions are continuous:
+      </p>
+      <theorem>
+        <title>Combinations of Continuous Functions are Continuous</title>
+        <statement>
+          <p>
+            Suppose that <m>f</m> and <m>g</m> are continuous at <m>x=c</m> and <m>k</m> is any constant.
+            <ul>
+              <li>
+                <p>
+                  The functions
+                  <me>
+                    kf, f+g, f-g,\text{ and }  fg
+                  </me>
+                  are also continuous at <m>x=c</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>g(c)\neq 0</m> then <m>\dfrac{f}{g}</m> is continuous at <m>x=c</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>f</m> is also continuous at <m>g(c)</m>,
+                  then <m>f\circ g</m> is continuous at <m>x=c</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </theorem>
+      <example>
+        <statement>
+          <p>
+            For example, since <m>f(x)=x^2</m> and
+            <m>g(x) = x^3</m> are continuous at <m>x=2</m>,
+            we know that <m>(f+g)(x) = f(x)+g(x) = x^2+x^3</m> must also be continuous at <m>x=2</m>.
+            This makes sense given <xref ref="thm_limitrules">Theorem</xref> since
+            <me>
+              \lim_{x\to 2} (f+g)(x) = \lim_{x\to 2} (x^2+x^3) = \lim_{x\to 2} x^2+\lim_{x\to 2} x^3 = 2^2+2^3 = 4+8=12=(f+g)(2)
+            </me>.
+            The key equality here is at either end:
+            <m>\ds\lim_{x\to 2} (f+g)(x) = (f+g)(2)</m>.
+            Remember, this is the definition of continuous from <xref ref="def_continuous">Definition</xref>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        What is the point of these rules and theorems?
+        We now know that we can start with linear and power functions,
+        and build up to any <em>algebraic</em><fn>
+        Recall that a function is <em>algebraic</em>
+        if it can be expressed with the use of only arithmetic operations (<m>+,-, \times, \div</m>) and rational powers.
+        </fn> function via sums,
+        differences, multiplication, division, or composition,
+        and that the resulting function will be continuous as long as it is defined.
+        In other words,
+        as long as we stay within the domain of an algebraic function,
+        we know that in order to evaluate the limit, we just plug it in.
+      </p>
+      <theorem xml:id="thm_contofalgebraicfunctions">
+        <title>Continuity of Algebraic Functions</title>
+        <statement>
+          <p>
+            All algebraic functions are continuous on their domains.
+          </p>
+          <p>
+            In particular,
+            if <m>x=c</m> is in the domain of an algebraic function <m>f</m>,
+            then we can calculate <m>\ds\lim_{x\to c}f(x)</m> by evaluating <m>f(c)</m>.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        With this theorem,
+        we can evaluate any limit at a value where the expression is defined.
+        Here are a few more examples:
+      </p>
+      <example>
+        <statement>
+          <p>
+            We can evaluate all of the following limits by simply plugging in:
+            <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+              <li>
+                <p>
+                  The expression <m>5\sqrt{x}+3</m> is defined at <m>x=4</m>, so
+                  <me>
+                    \lim_{x\to 4}(5\sqrt{x}+3) = 5\sqrt{4}+3 = 5(2)+3 = 13
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The expression <m>3x^4-7x</m> is defined at <m>x=1</m>, so
+                  <me>
+                    \lim_{x\to 1} (3x^4-7x) = 3(1)^4-7(1) = -4
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The expression <m>\dfrac{1+x}{3-x}</m> is defined at <m>x=2</m>, so
+                  <me>
+                    \lim_{x\to 2}\frac{1+x}{3-x} = \frac{1+2}{3-2} = 3
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </example>
+      <p>
+        <em>Caution!</em> We have to be careful at the edge of a function's domain.
+        The limits can only be one-sided.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For example,
+            <me>
+              \lim_{x\to 2^+}\sqrt{x-2} = 0
+            </me>
+            since if <m>x\to 2^+</m>,
+            this means <m>x>2</m> and so <m>x</m> is in the domain of <m>\sqrt{x-2}</m>.
+          </p>
+          <p>
+            On the other hand,
+            <me>
+              \lim_{x\to 2^-}\sqrt{x-2} \text{ DNE }
+            </me>
+            since if <m>x\to 2^-</m>,
+            this means <m>x\lt 2</m> and so <m>x</m> is not in the domain of <m>\sqrt{x-2}</m>.
+            We cannot take the limit on this side because the function is undefined,
+            and so there is no sequence of <m>y</m>-values to analyze.
+          </p>
+          <p>
+            Overall,
+            <me>
+              \lim_{x\to 2}\sqrt{x-2} \text{ DNE }
+            </me>
+            because the left and right limits do not both exist.
+            Only the right limit exists and the function is continuous on
+            <me>
+              [2,\infty)
+            </me>,
+            the same as its domain.
+          </p>
+        </statement>
+      </example>
+      <exercise>
+        <statement>
+          <p>
+            Calculate each of the following limits:
+            <ol marker="labelalphitemsep10pttopsep5pt">
+              <li>
+                <p>
+                  <m>\ds\lim_{x\to 0}\frac{2-x}{4-x^2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\ds\lim_{x\to -3}\frac{2x^2+x-3}{x-1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\ds\lim_{x\to 1}\frac{1}{\sqrt{x^3+3}}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <p>
+        Note that Theorem <xref ref="thm_contofalgebraicfunctions" autoname="yes"/> does not tell us how to calculate limits at non-domain points.
+        For example,
+        we still do not know how to calculate <m>\ds\lim_{x\to 2}\frac{1}{x-2}</m>
+        (though maybe you have a guess).
+      </p>
+      <example>
+        <statement>
+          <p>
+            We do not know how to calculate
+            <me>
+              \lim_{x\to -2} \frac{2-x}{4-x^2}\text{ or }  \lim_{x\to 2} \frac{2-x}{4-x^2}
+            </me>
+            since those <m>x</m>-values are not in the domain of <m>\frac{2-x}{4-x^2}</m>.
+          </p>
+          <p>
+            Nor do we know how to calculate
+            <me>
+              \lim_{x\to 1}\frac{2x^2+x-3}{x-1}
+            </me>
+          </p>
+          <p>
+            Lastly, since <m>x^3+3\leq 0</m> for <m>x\leq -\sqrt[3]{3}</m>,
+            the expression <m>\frac{1}{\sqrt{x^3+3}}</m> is undefined,
+            so we do not know how to calculate
+            <me>
+              \lim_{x\to -\sqrt[3]{3}^+} \frac{1}{\sqrt{x^3+3}}
+            </me>.
+            Note that for <m>x\lt  -\sqrt[3]{3}</m>,
+            the expression <m>\frac{1}{\sqrt{x^3+3}}</m> is undefined so any limit will simply fail to exist.
+          </p>
+        </statement>
+      </example>
+      <p>
+        <em>Key Take-away:</em> The only limits we have to "worry" about are at non-domain points of algebraic functions,
+        and also the points of piecewise-defined functions where algebraic functions have been glued together and may or may not have jumps.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    continuous and continuity of functions at a point and on an interval; continuous from the right and continuous from the left; discontinuous and discontinuity; removable discontinuity a.k.a. hole; jump discontinuity; infinite discontinuity a.k.a vertical asymptote
+    <p>
+      <em>Key ideas:</em> A function is continuous if the value of a limit is the same as the value of the function.
+      This means the graph has no breaks.
+      At a point of discontinuity,
+      you can either have a hole, jump, or vertical asymptote.
+      Algebraic functions are continuous on their domains.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      We need other methods to evaluate limits at non-domain points.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 2.2}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

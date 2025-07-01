@@ -1,0 +1,1106 @@
+<section>
+  <title>Modeling with Exponential and Logarithmic Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Review the idea of percent growth.
+        </p>
+      </li>
+      <li>
+        <p>
+          Define doubling time and half-life,
+          and find the amount of time it takes for an exponential function to double or halve.
+        </p>
+      </li>
+      <li>
+        <p>
+          Convert between percent growth/decay and doubling time/half-life.
+        </p>
+      </li>
+      <li>
+        <p>
+          Model temperatures using transformations of exponential functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Model earthquakes and sounds using logarithms.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Percentage Growth</title>
+    <p>
+      In this section,
+      we explore in more depth several concrete applications where exponential functions are used to model real-world phenomena.
+      The first of these was introduced in <xref ref="sec_expfunctions">Section</xref>.
+      If a quantity changes by a fixed percentage over repeated periods of the same duration,
+      then that quantity will be an exponential function of time.
+    </p>
+    <example xml:id="ex_potato">
+      <statement>
+        <p>
+          For example,
+          what if you start with 8 pounds of potatoes on day zero and then increase the number of pounds by 50 percent each subsequent day?
+          Starting with 8 pounds, on day one you add 4 more pounds,
+          for a total of 12 pounds.
+          On day two you add 6 more pounds, for a total of 18 pounds.
+          On day three you add 9 pounds,
+          for a total of 27 pounds, and so on, as shown below
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage376b.png"/>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          As another example,
+          consider a savings account with an initial balance of $1000.00 that earns 3% interest each month.
+          Let <m>B(t)</m> represent the balance of the savings account <m>t</m> months after the initial deposit.
+          After one month, the amount in the savings account will be
+          <me>
+            B(1) = 1000+0.03(1000) = \dollar1030.00
+          </me>.
+        </p>
+        <p>
+          Since <m>1000+0.03 = 1.03(1000)</m>,
+          we could also write this equation as:
+          <me>
+            B(1) = 1000(1.03) = \dollar1030.00
+          </me>.
+        </p>
+        <p>
+          To find the balance after two months,
+          we need to multiply <m>B(1)</m> by <m>1.03</m>
+          (since the balance should grow by 3 percent more).
+          The balance of the savings account after two months will be <m>B(1)(1.03) = (1000(1.03))(1.03) = 1000(1.03)^2</m>:
+          <me>
+            B(2) = 100(1.03)^2 = \dollar1060.90
+          </me>.
+        </p>
+        <p>
+          Similarly, after three months the savings account balance will be
+          <me>
+            B(3) = 1000(1.03)^3 = \dollar1092.73
+          </me>.
+        </p>
+        <p>
+          Each month the balance in the savings account will be <m>1.03</m> times the amount in the savings account the previous month.
+          The savings account balance <m>B(t)</m> after <m>t</m> months is the function <m>B(t) = 1000(1.03)(1.03)\dots(1.03)(1.03)</m>,
+          with <m>t</m> copies of <m>1.03</m>.
+          This is an exponential function:
+          <me>
+            B(t) = 1000(1.03)^t
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      In general, if a quantity <m>Q(t)</m> increases by a fixed percentage <m>r</m> each period of a given duration,
+      where <m>t</m> is measured in terms of that period and <m>r</m> is written in decimal form,
+      then <m>Q(t)</m> is an exponential function with base <m>1+r</m> and exponent <m>t</m> and with coefficient given by the initial amount <m>Q_0</m> of the quantity.
+    </p>
+    <theorem>
+      <title>Percentage Growth Formula</title>
+      <statement>
+        <p>
+          If <m>Q(t)</m> with an initial quantity of
+          <m>Q(0)=Q_0</m> grows at a fixed decimal percentage <m>r</m> over every period <m>t</m>,
+          then <m>Q(t)</m> is modeled by the exponential function
+          <me>
+            Q(t) = Q_0(1+r)^t
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The decimal percentage <m>r</m> is what we have called the <em>growth rate</em>
+      and the base <m>b=1+r</m> is what we have called the <em>growth factor</em>.
+    </p>
+    <p>
+      This formula works for any real value of <m>t</m>,
+      not just for integer values.
+      For example, in the context of the savings balance problem,
+      this formula says that you will have
+      <m>B(3.5) = 1000(1.03)^{3.5}\approx \dollar1109.00</m> in your savings account after three-and-a-half months.
+      However, in real life your savings account balance might grow only at the beginning of each month,
+      and thus <m>B(3.5)</m> in real life would be the same as <m>B(3)</m>.
+      <em>The percentage growth formula is a continuous model for what in real life might be a discrete phenomenon.</em>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Find a formula <m>Q(t)</m> for the number of potatoes after day <m>t</m> as described in <xref ref="ex_potato">Example</xref>.
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_Taalman5-4-1">
+      <statement>
+        <p>
+          A termite colony is slowly dying off.
+          Three weeks ago, there were 2500 termites in the colony;
+          now there are only 1250.
+          Assuming that the population of termites is decreasing by a fixed percentage each week,
+          let's determine when there will be only 300 termites in the colony.
+        </p>
+        <p>
+          Let <m>P(t)</m> be the population of termites after <m>t</m> weeks,
+          where <m>t=0</m> represents three weeks ago.
+          Then <m>P_0=P(0)=2500</m>, and <m>P(3)=1250</m>.
+          Since the population of termites decreases by a fixed percentage each week,
+          <m>P(t)</m> is an exponential function and we can write
+          <me>
+            P(t)=2500 b^t
+          </me>
+        </p>
+        <p>
+          <m>P(0)=2500</m> already told us the coefficient,
+          so we use the other value <m>P(3)=1250</m> to solve for <m>b</m>.
+          <me>
+            \begin{aligned}P(3)=\amp 1250 \\ 2500b^3=\amp 1250\\ b^3=\amp \frac{1}{2}\\ b=\amp \left(\frac{1}{2}\right)^{1/3} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>b=(1/2)^{1/3}\approx 0.7937</m> and we model the population via
+          <me>
+            P(t) = 25000(0.7937)^t
+          </me>
+        </p>
+        <p>
+          Now, we can solve for the time <m>t</m> at which there are only 300 termites left in the colony by solving the equation <m>P(t)=300</m>:
+          <me>
+            \begin{aligned}P(t)=\amp 300 \\ 2500(0.7937)^t=\amp 300\\ (0.7937)^t=\amp \frac{300}{2500}\\ (0.7937)^t=\amp 0.12\\ \log_{10}((0.7937)^t)=\amp \log_{10}\left(0.12\right)\\ t\log_{10}(0.7937)=\amp \log_{10}\left(0.12\right)\\ t=\amp \frac{\log_{10}\left(0.12\right)}{\log_{10}(0.7937)} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Note that in the 5th line, we applied <m>\log_{10}</m> to both sides.
+          The choice of base was arbitrary;
+          we just needed a logarithm to be able to move the <m>t</m> out of the exponent.
+          By using the Change of Base formula,
+          we could convert this fraction to any other base logarithm we wish.
+        </p>
+        <p>
+          Overall, we found that <m>t=\frac{\log_{10}\left(0.12\right)}{\log_{10}(0.7937)}\approx9.17665</m>.
+          This means that there will be 300 termites in the colony just after nine weeks from <m>t=0</m>,
+          and therefore just after 6 weeks from the time that was considered to be
+          <q>now</q>
+          in the problem.
+        </p>
+        <p>
+          <em>Note that we never determined by what percent the colony was decreasing.
+          <m>b=0.7937</m> was the growth factor, not the growth rate.
+          Using the relationship <m>b=1+r</m>,
+          we can determine that <m>r=0.7937-1=-0.2063</m>,
+          meaning that the population of termites must be decreasing by about 20.6% a week.</em>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sec_doublingtime">
+    <title>Doubling Time and Half-Life</title>
+    <p>
+      All exponential functions increase or decrease by a fixed percentage over each unit of the independent variable.
+      But there is no reason to consider the percent increase or decrease over only one unit.
+      Instead, let's consider the question of how long it takes for a function to increase or decrease by a fixed percentage and how long that will take.
+    </p>
+    <p>
+      For instance,
+      we could ask how long it would take a quantity to double,
+      meaning to increase by 100%.
+    </p>
+    <example xml:id="ex_introdoubling">
+      <statement>
+        <p>
+          Suppose we have a population of 100 cells in a petri dish that increase by 16% every hour.
+          How long will it take the population to double?
+          The size of the population can be modeled by the equation
+          <me>
+            P(t) = 100(1.16)^t
+          </me>
+          and we wish to know when there are 200 cells.
+          Thus we can find the amount of time <m>t</m> by solving via logarithms:
+          <me>
+            \begin{aligned}100(1.16)^t \amp = 200\\ (1.16)^t \amp = \frac{200}{100} = 2\\ \log_{10}(1.16)^t \amp = \log_{10}(2)\\ t\log_{10}(1.16) \amp = \log_{10}2\\ t \amp = \frac{\log_{10}2}{\log_{10}(1.16)}\approx 4.67 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus it takes about 4.67 hours for the population of cells to double,
+          mean to increase by 100%.
+        </p>
+        <p>
+          How long will it take the same cells to double again,
+          meaning to increase from 200 to 400?
+          Starting with 200 cells, we have
+          <me>
+            \begin{aligned}200(1.16)^t \amp = 400\\ (1.16)^t \amp = \frac{400}{200} = 2\\ \log_{10}(1.16)^t \amp = \log_{10}(2)\\ t\log_{10}(1.16) \amp = \log_{10}2\\ t \amp = \frac{\log_{10}2}{\log_{10}(1.16)}\approx 4.67 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus it will take an additional 4.67 hours for the cells to increase from 200 to 400.
+        </p>
+        <p>
+          How long will it take the same cells to double again,
+          meaning to increase from 400 to 800?
+          Starting with 400 cells, we have
+          <me>
+            \begin{aligned}400(1.16)^t \amp = 800\\ (1.16)^t \amp = \frac{800}{400} = 2\\ \log_{10}(1.16)^t \amp = \log_{10}(2)\\ t\log_{10}(1.16) \amp = \log_{10}2\\ t \amp = \frac{\log_{10}2}{\log_{10}(1.16)}\approx 4.67 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus it will take an additional 4.67 hours for the cells to increase from 400 to 800.
+        </p>
+        <p>
+          Note that all of the calculations above become the same after dividing by the number of cells we started with.
+          In general, if we start with an initial population of <m>P_0</m> cells that grow 16% each hour,
+          we can determine how long it will take for the population will double,
+          meaning when we will have <m>2P_0</m> cells:
+          <me>
+            \begin{aligned}P_0(1.16)^t \amp = 2P_0\\ (1.16)^t \amp = \frac{2P_0}{P_0} = 2\\ \log_{10}(1.16)^t \amp = \log_{10}(2)\\ t\log_{10}(1.16) \amp = \log_{10}2\\ t \amp = \frac{\log_{10}2}{\log_{10}(1.16)}\approx 4.67 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus it will take an additional 4.67 hours for the cells to increase from any initial population <m>P_0</m> to <m>2P_0</m>,
+          meaning it will take the cells about 4.67 hours to double no matter how many cells we start with.
+        </p>
+      </statement>
+    </example>
+    <p>
+      What we saw in <xref ref="ex_introdoubling">Example</xref>
+      is that it takes a fixed length of time for an exponential function to double.
+      This length of time is what is called the
+      <em>doubling time</em> of the function.
+      We can confirm this by observing that all exponential functions can be rewritten in the form
+      <me>
+        f(t) = A2^{kt}
+      </me>
+      where <m>k</m> is some nonzero number.
+      Then, when the exponent <m>kt</m> increases by 1, the function <m>f(t)</m> is multiplied by 2, meaning it doubles.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(t) = 3^t</m> can be rewritten as
+          <me>
+            f(t) = 3^t = 2^{(\log_2 3) t}\approx 2^{1.585 t}
+          </me>
+          since
+          <me>
+            2^{(\log_2 3) t} = (2^{\log_2 3})^t = (3)^t
+          </me>
+          by the cancellation properties of logarithms.
+        </p>
+        <p>
+          Similarly, the function <m>g(t) = \left(\frac{1}{3}\right)^t</m> can be rewritten as
+          <me>
+            g(t) = \left(\frac{1}{3}\right)^t= 2^{(\log_2 (1/3)) t}\approx 2^{-1.585 t}
+          </me>,
+          using the same property that <m>2^{(\log_2 (1/3)) t} = (2^{\log_2 (1/3)})^t = (1/3)^t</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Notice in the above example that <m>k</m> can be either positive or negative.
+      We can always convert from base <m>b</m> to base <m>2</m> via
+      <me>
+        b^t = 2^{(\log_2 b)t}
+      </me>
+      and so we have
+      <me>
+        k = \log_2 b
+      </me>.
+      If we graph <m>y=\log_2x</m>,
+      we can see that for <m>b>1</m>, <m>k = \log_2 b>0</m>.
+      Thus when an exponential function models exponential growth,
+      <m>k</m> is positive.
+      For <m>0\lt b\lt 1</m>, <m>k = \log_2 b\lt 0</m>.
+      Thus when an exponential function models exponential decay,
+      <m>k</m> is negative.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Both the graphs of <m>2^t</m> and <m>3^t</m> have the same basic shape,
+          but <m>3^t</m> grows faster, as we can see below:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines=center,
+xmax = 3,
+ymax = 17,
+ylabel=\(y\),
+xlabel=\(x\),
+]
+\addplot [domain=-3:3,samples=250, ultra thick, blue] {2^x}
+node [pos=0.5, below right] {\(y=2^x\)};
+\addplot [domain=-3:3,samples=250, ultra thick, red ] {3^x}
+node [pos=0.6, above left] {\(y=3^x\)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          The graphs of <m>2^t</m> and
+          <m>\left(\frac{1}{3}\right)^t</m> do not have as similar a shape.
+          In particular,
+          <m>\left(\frac{1}{3}\right)^t</m> models exponential decay rather than exponential growth:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines=center,
+xmax = 3,
+ymax = 17,
+ylabel=\(y\),
+xlabel=\(x\),
+]
+\addplot [domain=-3:3,samples=250, ultra thick, blue] {2^x}
+node [pos=0.5, below right] {\(y=2^x\)};
+\addplot [domain=-3:3,samples=250, ultra thick, red ] {0.3333333^x}
+node [pos=0.6, above right] {\(y=\left(\frac{1}{3}\right)^x\)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          As a result,
+          the coefficient <m>k = \log_2 (1/3)\approx -1.585</m> is negative,
+          which flips the graph of <m>2^{kt}</m> across the vertical axis as needed.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Global human population growth amounts to around 83 million annually,
+          or 1.1% per year.
+          In how many years will the population be double what it is now?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      For an exponential function that models decay,
+      it does not make sense to talk about doubling time since the values of the function are decreasing;
+      we would have to move "backward" in time for the values of the function to double.
+      Instead, exponential decay uses the idea of <em>half-life</em>,
+      meaning the amount of time for the values of the function to decrease by 50%.
+    </p>
+    <example xml:id="ex_introhalflife">
+      <statement>
+        <p>
+          Radiocarbon dating
+          (also referred to as carbon dating or carbon-14 dating)
+          is a method for determining the age of an object containing organic material by using the properties of radiocarbon,
+          a radioactive isotope of carbon.
+          The method was developed in the late 1940s at the University of Chicago by Willard Libby.<fn>
+          Source:
+          <url href="https://en.wikipedia.org/wiki/Radiocarbon_dating">https://en.wikipedia.org/wiki/Radiocarbon_dating</url>.
+          </fn>
+        </p>
+        <p>
+          Carbon-14 decays very slowly:
+          about 0.0121% per year.
+          What is the half-life of carbon-14, meaning:
+          how long will it take for an amount of carbon-14 to decay to half of its current mass?
+        </p>
+        <p>
+          Suppose that <m>C_0</m> is the initial amount of carbon-14.
+          The amount of carbon-14 after <m>t</m> years is then
+          <me>
+            C(t) = C_0(1-0.000121)^t = C_0(0.9999879)^t
+          </me>.
+          We wish to find the amount of time it takes for the carbon-14 to reach a mass of <m>\frac{C_0}{2}</m>,
+          and so we set <m>C(t) = \frac{C_0}{2}</m> and solve for <m>t</m>:
+          <me>
+            \begin{aligned}C_0(0.9999879)^t \amp = \frac{C_0}{2}\\ (0.9999879)^t \amp = \frac{C_0}{2C_0} = \frac{1}{2}\\ \log_{10}(0.9999879)^t \amp = \log_{10}\left( \frac{1}{2}\right)\\ t\log_{10}(0.9999879) \amp = \log_{10}\left( \frac{1}{2}\right)\\ t \amp =\frac{ \log_{10}\left( 1/2\right)}{\log_{10}(0.9999879)}\approx 57284.5 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus it takes about 57284.5 years for the amount of carbon-14 to reduce by half,
+          meaning that it has a half-life of 57284.5.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          What is the quarter-life of carbon-14,
+          meaning how long will it take for an amount of carbon-14 to become <m>1/4</m> of its original amount?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      What we saw in <xref ref="ex_introhalflife">Example</xref>
+      is that it takes a fixed length of time for an exponential function to halve,
+      meaning decrease by 50%. This length of time is what is called the
+      <em>half-life</em> of the function.
+    </p>
+    <p>
+      We can use measures of doubling time and half-life to determine models for processes modeled by exponential functions,
+      and use those models to predict the behavior of those processes.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose a population of bacteria is growing in a petri dish in such a way that the number of bacteria doubles every 3 hours.
+          If there are initially 1000 bacteria in the petri dish,
+          how long will it take for there to be 1 million bacteria?
+        </p>
+        <p>
+          Let <m>B(t)</m> be the number of bacteria in the dish after <m>t</m> hours.
+          Since <m>B(t)</m> has a constant doubling time,
+          we will model it with an exponential function of the form
+          <m>B(t) = B_02^{kt}</m> for some values <m>B_0</m> and <m>k</m>.
+          Moreover, we know that <m>B(0) = 1000</m>,
+          therefore <m>B(t) = 1000(2)^{kt}</m>.
+          Since the bacteria population doubles every three hours,
+          <m>B(3) = 2B(0) = 2(1000) = 2000</m>.
+          We can use this fact to solve for <m>k</m>:
+          <me>
+            \begin{aligned}B(3) \amp = 2000\\ 1000(2)^{3k} \amp = 2000\\ 2^{3k} \amp = 2\\ 3k \amp = 1\\ k \amp = \frac{1}{3} \end{aligned}
+          </me>
+        </p>
+        <p>
+          This fits the information we are given:
+          if <m>t</m> is measured in hours,
+          it takes 3 hours for the exponent
+          <m>\frac{1}{3}t</m> to increase one hour.
+        </p>
+        <p>
+          Now we know the number of bacteria in the petri dish after <m>t</m> hours is given by
+          <me>
+            B(t) = 1000(2)^{t/3}
+          </me>
+          and we can find out when there will be 1 million bacteria by solving the equation <m>B(t)= 1,000,000</m> for <m>t</m>:
+          <me>
+            \begin{aligned}B(t) \amp = 1,000,000\\ 1000(2)^{t/3} \amp = 1,000,000\\ 2^{t/3} \amp = 1000\\ \frac{t}{3} \amp = \log_2(1000)\\ t \amp = 3\log_2(1000)\approx 29.9 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Therefore it will be approximately 29.9 hours before there are 1 million bacteria in the petri dish.
+        </p>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        This kind of calculation is extremely useful if you are working with cells trying to plan how long you need to wait for your sample to reach a particular size before running an assay that requires a certain number of cells,
+        or if you want to split your sample for use in multiple experiments.
+        In fact, the author has helped her biologist husband with such calculations in the past.
+        His coworkers were impressed.
+      </p>
+    </remark>
+    <p>
+      It is possible to determine the doubling time/half-life of a quantity if given the percent growth rate,
+      and vice versa.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Radioactive substances have constant half-lives.
+          This means that the quantity of a radioactive substance always takes the same amount of time to decrease by half,
+          no matter how much or how little of the substance that you start with.
+          For example - suppose that the half-life of the fictional substance unobtainium is 29 years.
+          A sample of rock is found with 80 grams of unobtainium.
+          Let's compute the percentage by which the amount of unobtainium in the rock decreases each year.
+        </p>
+        <p>
+          Let <m>S(t)</m> represent the number of grams of unobtainium that are left after <m>t</m> years.
+          Since <m>S(t)</m> has a constant half-life,
+          we will model <m>S(t)</m> with an exponential function.
+          We also know that the initial value is <m>S_0=S(0)=80</m> grams.
+          Therefore, <m>S(t)=80(b^{t})</m> for some <m>b</m>.
+        </p>
+        <p>
+          We start by using the given half-life to solve for the value of the growth factor <m>b</m>.
+          Since unobtainium has a half-life,
+          and we start with 80 grams of it,
+          we know that <m>S(29)=\frac{S_0}{2}=40</m> grams.
+          We use this fact to solve for <m>b</m>:
+          <me>
+            \begin{aligned}S(29)=\amp 40 \\ 80(b^{29})=\amp 40\\ b^{29}=\amp \frac{1}{2}\\ b \amp = \left(\frac{1}{2}\right)^{1/29}\\ b \amp = 2^{-1/29} \end{aligned}
+          </me>
+        </p>
+        <p>
+          This means that the number of grams of unobtainium in the rock after <m>t</m> years is given by the exponential function <m>S(t)=80(2^{-1/29})^t) = 80(2^{-t/29})</m>.
+        </p>
+        <p>
+          To find the percent decrease, we find the growth rate
+          <me>
+            r = b-1 = 2^{-1/29}-1\approx -0.02362
+          </me>.
+        </p>
+        <p>
+          Therefore, the amount of unobtainium in the rock decreases by approximately 2.362% each year.
+        </p>
+        <p>
+          To double check the answer we just found,
+          we can verify that decreasing the original amount of 80 grams by 2.362% per year for 29 years will bring us down to half the initial amount, 40 grams.
+          Indeed, we have
+          <me>
+            S(29)=80(1-0.02362)^{29}\approx 39.9979
+          </me>.
+        </p>
+        <p>
+          The only reason we don't get exactly 40 grams is because we did some rounding when computing the decimal value of <m>r=2^{-1/29}-1</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          The number of worms in a backyard garden increases every year by a percentage growth rate of 7%. Follow the steps below to find the doubling time of the worm population.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Find a formula <m>W(t)</m> for the worm population using the percent growth formula:
+                <m>W(t) = W_0(1+r)^t</m>.
+                <em>You do not know the value of <m>W_0</m>,
+                the initial quantity of worms.
+                Leave it as an unknown constant in your formula.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Solve the equation
+                <me>
+                  W(t) = 2W_0
+                </me>
+                for <m>t</m>, using the formula for
+                <m>W(t) = W_0(1+r)^t</m> that you found in part (a).
+                This is the doubling time since we are finding how long it take for the worm population to double from the initial quantity <m>W_0</m> to <m>2W_0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Check your answer:</em> Suppose you start with
+                <m>W_0 = 100</m> worms at time <m>t=0</m>.
+                You should have approximately 200 worms after the amount of time you found in part (b),
+                using your model from part (a).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Modeling Temperature Data</title>
+    <p>
+      If a quantity changes so that its growth or decay occurs at a constant percentage rate with respect to time,
+      the function is exponential.
+      Likewise, if a quantity doubles or halves over a constant time period,
+      the function is exponential.
+    </p>
+    <p>
+      A related situation arises when an object's temperature changes in response to its surroundings.
+      For instance,
+      if we have a cup of coffee at an initial temperature of 186 degrees Fahrenheit and the cup is placed in a room where the surrounding temperature is 71 degrees Fahrenheit,
+      our intuition and experience tell us that over time the coffee will cool and eventually tend to the 71 degree Fahrenheit temperature of the surroundings.
+      From an experiment with an actual temperature probe,
+      we have the data in in the following table,
+      that is plotted in the adjacent figure.
+    </p>
+    <table xml:id="tab_temp">
+      <title>Data for cooling coffee, measured in degrees Fahrenheit at time <m>t</m> mintues</title>
+      <tabular>
+        <row>
+          <cell>\toprule
+            <m>t</m></cell>
+          <cell>0</cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>8</cell>
+          <cell>13</cell>
+          <cell>18</cell>
+          <cell>23</cell>
+          <cell>28</cell>
+          <cell>33</cell>
+          <cell>38</cell>
+          <cell>43</cell>
+          <cell>48</cell>
+        </row>
+        <row>
+          <cell>\midrule
+            <m>F(t)</m></cell>
+          <cell>186</cell>
+          <cell>179</cell>
+          <cell>175</cell>
+          <cell>171</cell>
+          <cell>156</cell>
+          <cell>144</cell>
+          <cell>135</cell>
+          <cell>127</cell>
+          <cell>120</cell>
+          <cell>116</cell>
+          <cell>111</cell>
+          <cell>107</cell>
+          <cell>104</cell>
+        </row>
+        <row>
+          <cell>\bottomrule</cell>
+        </row>
+      </tabular>
+    </table>
+    <figure>
+      <caption>A plot of the data from <xref ref="tab_temp">Table</xref></caption>
+      <image width="50%" source="ACFigure3-2-2.png"/>
+    </figure>
+    <p>
+      In one sense, the data looks exponential:
+      the points appear to lie on a curve that is always decreasing and decreasing at an increasing rate.
+      However, we know that the function can't have the form
+      <m>f(t)=ab^t</m>,because such a function's range is the set of all positive real numbers,
+      and it's impossible for the coffee's temperature to fall below room temperature (71 degrees).
+      It is natural to wonder if a function of the form <m>g(t)=ab^t+c</m> will work.
+    </p>
+    <p>
+      The function <m>g(t)=ab^t+c</m> is a vertical translation of the function <m>f(t)=ab^t</m>.
+      We now have extensive understanding of the behavior of <m>f(t)</m>,
+      and how that behavior depends on <m>a</m> and <m>b</m>.
+      Since a vertical translation by <m>c</m> does not change the shape of any graph,
+      we expect that <m>g</m> will exhibit very similar behavior to <m>f</m>, Indeed,
+      we can compare the two functions' graphs,
+      as shown in the following figures.
+    </p>
+    <figure>
+      <caption>Plot of <m>f(t)=ab^t</m></caption>
+      \begin{subfigure}[b]{0.4\textwidth}
+      <image width="73%" source="ACFigure3-2-6.png"/>
+      \end{subfigure}
+      \begin{subfigure}[b]{0.4\textwidth}
+      <image width="73%" source="ACFigure3-2-7.png"/>
+      \caption{Plot of <m>g(t)=ab^t+c</m>} \end{subfigure}
+    </figure>
+    <p>
+      Newton's Law of Cooling states that the rate that an object warms or cools occurs in direct proportion to the difference between its own temperature and the temperature of its surroundings.
+      If we return to the coffee temperature data in <xref ref="tab_temp">Table</xref>
+      and recall that the room temperature in that experiment was <m>71</m> degrees Fahrenheit,
+      we can see how to use a transformed exponential function to model the data.
+      In <xref ref="tab_tempshifted">Table</xref>,
+      we add a row of information to the table where we compute <m>F(t)-71</m> to subtract the room temperature from each reading.
+    </p>
+    <table xml:id="tab_tempshifted">
+      <title>Data for cooling coffee, measured in degrees Fahrenheit at time <m>t</m> mintues</title>
+      <tabular>
+        <row>
+          <cell>\toprule
+            <m>t</m></cell>
+          <cell>0</cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>8</cell>
+          <cell>13</cell>
+          <cell>18</cell>
+          <cell>23</cell>
+          <cell>28</cell>
+          <cell>33</cell>
+          <cell>38</cell>
+          <cell>43</cell>
+          <cell>48</cell>
+        </row>
+        <row>
+          <cell>\midrule
+            <m>F(t)</m></cell>
+          <cell>186</cell>
+          <cell>179</cell>
+          <cell>175</cell>
+          <cell>171</cell>
+          <cell>156</cell>
+          <cell>144</cell>
+          <cell>135</cell>
+          <cell>127</cell>
+          <cell>120</cell>
+          <cell>116</cell>
+          <cell>111</cell>
+          <cell>107</cell>
+          <cell>104</cell>
+        </row>
+        <row>
+          <cell>\midrule
+            <m>f(t)=F(t)-71</m></cell>
+          <cell>115</cell>
+          <cell>108</cell>
+          <cell>104</cell>
+          <cell>100</cell>
+          <cell>85</cell>
+          <cell>73</cell>
+          <cell>64</cell>
+          <cell>56</cell>
+          <cell>49</cell>
+          <cell>45</cell>
+          <cell>40</cell>
+          <cell>36</cell>
+          <cell>33</cell>
+        </row>
+        <row>
+          <cell>\bottomrule</cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      The data in the bottom row of <xref ref="tab_tempshifted">Table</xref> appears exponential,
+      and if we test the data by computing the quotients of output values that correspond to equally-spaced input,
+      we see a nearly constant ratio.
+      In particular,
+      <me>
+        \frac{73}{85}\approx0.86, \ \ \frac{64}{73}\approx0.88, \ \ \frac{56}{64}\approx0.88, \ \ \frac{49}{56}\approx0.88, \ \ \frac{45}{49}\approx0.92,  \textrm{ and } \frac{40}{55}\approx0.89
+      </me>.
+    </p>
+    <p>
+      Of course, there is some measurement error in the data
+      (plus it is only recorded to accuracy of whole degrees),
+      so these computations provide convincing evidence that the underlying function is exponential.
+      In addition,
+      we expect that if the data continued in the bottom row of <xref ref="tab_tempshifted">Table</xref>,
+      the values would approach <m>0</m> because <m>F(t)</m> will approach 71.
+    </p>
+    <figure xml:id="fig_temp">
+      <caption>Plot of <m>f(t)=103.503(0.974)^t</m></caption>
+      \begin{subfigure}[b]{0.4\textwidth}
+      <image width="73%" source="ACFigure3-2-9.png"/>
+      \end{subfigure}
+      \begin{subfigure}[b]{0.4\textwidth}
+      <image width="73%" source="ACFigure3-2-10.png"/>
+      \caption{Plot of <m>F(t)=103.503(0.974)^t+71</m>} \end{subfigure}
+    </figure>
+    <p>
+      If we choose two of the data points,
+      say <m>(18,64)</m> and <m>(23, 56)</m>,
+      and assume that <m>f(t)=ab^t</m>,
+      we can determine the values of <m>a</m> and <m>b</m>.
+      Doing so, it turns out that
+      <m>a\approx103,503</m> and <m>b\approx0.974</m>,
+      so that <m>f(t)=103.503(0.974)^t</m>.
+      Since <m>f(t)=F(t)-71</m>,
+      we can see that <m>F(t)=f(t)+71=103.503(0.974)^t+71</m>.
+      Plotting <m>f</m> against the shifted data and <m>F</m> along with the original data in <xref ref="fig_temp">Figure</xref>
+      and <xref ref="fig_tempshifted">Figure</xref>,
+      we see that the curves go exactly through the points where <m>t=18</m> and <m>t=23</m> as expected,
+      but also that the function provides a reasonable model for the observed behavior at any time <m>t</m>.
+      If our data was even more accurate,
+      we would expect that the curve's fit would be even better.
+    </p>
+    <p>
+      Our preceding work with the coffee data can be done similarly with data for any cooling or warming object whose temperature initially differs from its surroundings.
+      Indeed, it is possible to show that Newton's Law of Cooling implies that the object's temperature is given by a function of the form <m>F(t)=ab^t+c</m>.
+    </p>
+    <exercise xml:id="ex_tempmodeling">
+      <statement>
+        <p>
+          A can of soda
+          (at room temperature)
+          is placed in a refrigerator at time <m>t=0</m>
+          (in minutes)
+          and its temperature, <m>F(t)</m>,
+          in degrees Fahrenheit, is computed at regular intervals.
+          Based on the data,
+          a model is formulated for the object's temperature, given by
+          <me>
+            F(t)=42+30(0.95)^t
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Consider the simpler (parent) function <m>p(t)=(0.95)^t</m>.
+                How do you expect the graph of this function to appear?
+                How will it behave as time increases?
+                Without using graphing technology,
+                sketch a rough graph of <m>p</m>,
+                and write a sentence of explanation.
+              </p>
+            </li>
+            <li>
+              <p>
+                For the slightly more complicated function <m>r(t)=30(0.95)^t</m>,
+                how do you expect this function to look in comparison to <m>p</m>?What is the long-range behavior of this function as <m>t</m> increases?
+                Without using graphing technology,
+                sketch a rough graph of <m>r</m> and write a sentence of explanation.
+              </p>
+            </li>
+            <li>
+              <p>
+                Finally, how do you expect the graph of <m>F(t)=42+30(0.95)^t</m> to appear?
+                Why?
+                First sketch a rough graph without graphing technology,
+                and then use technology to check your thinking.
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the temperature of the refrigerator?
+                What is the room temperature of the surroundings outside the refrigerator?
+                Why?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Measuring Earthquakes and Sound</title>
+    <p>
+      Logarithmic functions are also used to model real-world phenomena.
+      One of the most commonly used such models is the Richter magnitude scale
+      (often shortened to Richter scale),
+      used to rate the magnitude of an earthquake,
+      that is the amount of energy released during an earthquake.Another model is the unit of measurement called a decibel,
+      which is used to measure sound.<fn>
+      Sources:
+      <url href="https://www.sms-tsunami-warning.com/pages/richter-scale">https://www.sms-tsunami-warning.com/pages/richter-scale</url>
+      and
+      <url href="http://content.nroc.org/DevelopmentalMath/COURSE_TEXT2_RESOURCE/U18_L4_T2_text_container.html">http://content.nroc.org/DevelopmentalMath/COURSE_TEXT2_RESOURCE/U18_L4_T2_text_container.html</url>.
+      Additional examples from
+      <url href="https://www.youtube.com/watch?v=l9J4YG5WsIU">https://www.youtube.com/watch?v=l9J4YG5WsIU</url>.
+      </fn>
+    </p>
+    <p>
+      Let's look at the <em>Richter scale</em>,
+      a logarithmic function that is used to measure the magnitude of earthquakes.
+      The magnitude of an earthquake is related to how much energy is released by the quake.
+      Instruments called seismographs detect movement in the earth.
+      If the smallest movement that can be detected shows on a seismograph as a wave with amplitude <m>A_0</m>,
+      and we let <m>A</m> be the measure of the amplitude of an earthquake wave, then
+      <me>
+        R=\log_{10}\left(\frac{A}{A_0}\right)
+      </me>
+      is the Richter scale measure of the magnitude of the earthquake.
+      Note that this formula makes use of the relative size of the amplitude <m>A</m> of the earthquake being measured to the amplitude of the smallest detectable wave,
+      called a <em>standard wave</em>.
+    </p>
+    <p>
+      Using the logarithm rules,
+      we can rewrite the formula for the Richter scale as
+      <me>
+        R = \log_{10}A-\log_{10}A_0
+      </me>.
+    </p>
+    <p>
+      Since <m>A_0</m> is some fixed number
+      (depending on the seismograph being used),
+      <m>\log_{10}A_0</m> is also a fixed number.
+      Thus the increase in the Richter scale depends only on the term
+      <m>\log_{10}A</m> and we see that the Richter scale is a base-10 logarithmic scale,
+      meaning that each order of magnitude is 10 times more intensive than the last one.
+      In other words,
+      a two is 10 times more intense than a one and a three is 100 times greater.
+      In the case of the Richter scale,
+      the increase is in wave amplitude.
+      That is, the wave amplitude in a level 6 earthquake is 10 times greater than in a level 5 earthquake,
+      and the amplitude increases 100 times between a level 7 earthquake and a level 9 earthquake.
+    </p>
+    <example>
+      <statement>
+        <p>
+          An earthquake is measured with a wave amplitude 392 times as great as <m>A_0</m>.
+          What is the magnitude of this earthquake using the Richter scale,
+          to the nearest tenth?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since <m>A</m> is 392 times as large as <m>A_0</m>, <m>A = 392A_0</m>.
+          Substituting this expression in for <m>A</m>:
+          <me>
+            R=\log_{10}\left(\frac{392A_0}{A_0}\right) = \log_{10}(392)\approx 2.6
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      A difference of 1 point on the Richter scale equates to a 10-fold difference in the amplitude of the earthquake
+      (which is related to the wave strength).
+      This means that an earthquake that measures 3.6 on the Richter scale has 10 times the amplitude of one that measures 2.6.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's look back at the previous example.
+          In that example,
+          the wave amplitude of the earthquake was 392 times normal.
+          What if it were 10 times that, or 3,920 times normal?
+          To find the measurement of that size earthquake on the Richter scale, you find
+          <me>
+            R = \log_{10}\left(\frac{ 3920A_0}{A_0}\right) = \log_{10}(3920)\approx 3.6
+          </me>.
+        </p>
+        <p>
+          Thus one point on the Richter scale corresponds to a much,
+          much more intense earthquake!
+        </p>
+      </statement>
+    </example>
+    <p>
+      The Richter scale is particularly useful in allowing us to measure the magnitude of earthquakes relative to each other.
+    </p>
+    <example>
+      <statement>
+        <p>
+          An earthquake on July 30, 2018 in California measured 3.7 on the Richter scale.
+          If an earthquake is 16,550 times more powerful than the California earthquake,
+          what would be its magnitude on the Richter scale?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Suppose that the California earthquake had maximum wave amplitude of <m>C</m>.
+          Then the Richter scale magnitude of the California earthquake tells us that
+          <me>
+            \begin{aligned}3.7 \amp = \log_{10}\left(\frac{C}{A_0}\right)\\ \amp = \log_{10}C - \log_{10}A_0 \end{aligned}
+          </me>
+        </p>
+        <p>
+          The magnitude <m>A</m> of the earthquake we wish to measure is 16,550 times more powerful,
+          meaning that
+          <me>
+            A = 16550C
+          </me>.
+          Substituting this into the Richter scale measurement for <m>A</m>,
+          we are able to expand via the logarithm rules:
+          <me>
+            \begin{aligned}R \amp = \log_{10}\left(\frac{A}{A_0}\right) \\ \amp =\log_{10}\left(\frac{16550C}{A_0}\right)\\ \amp = \log_{10}(16550)+\log_{10}C-\log_{10}A_0 \end{aligned}
+          </me>
+        </p>
+        <p>
+          However we already know that
+          <m>\log_{10}C-\log_{10}A_0=3.7</m>, so in measuring <m>R</m>,
+          we need only add <m>\log_{10}(16550)</m> to the previous measurement of 3.7:
+          <me>
+            R = \log_{10}(16550)+3.7\approx 4.2+3.7 = 7.9
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In general, in order to determine the Richter scale magnitude of an earthquake that is <m>m</m> times more powerful than an earthquake with Richter scale measurement <m>R_0</m>,
+      we must simply add <m>\log_{10}m</m>:
+      <me>
+        R = \log_{10}m+R_0
+      </me>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          On March 22, 2011, an earthquake in Japan measured a 9.1 on the Richter scale.
+          What is the Richter scale magnitude of an earthquake that is 100,000 times <em>weaker</em>
+          than the Japan earthquake?
+          <em>This means that <m>A=J/100000</m>,
+          where <m>A</m> is the maximum wave amplitude of the earthquake we wish to measure and <m>J</m> is the maximum wave amplitude of the earthquake in Japan.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The formula for <em>decibels</em>
+      looks very similar to the Richter scale:
+      <me>
+        d=10\log_{10}\left(\frac{P}{P_0}\right)
+      </me>
+      where <m>P</m> is the power or intensity of the sound and <m>P_0</m> is the weakest sound that the human ear can hear.
+    </p>
+    <example>
+      <statement>
+        <p>
+          One hot water pump has a noise rating of 50 decibels.
+          One dishwasher, however, has a noise rating of 62 decibels.
+          The dishwasher noise is how many times more intense than the hot water pump noise?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          You can't easily compare the two noises using the formula,
+          but you can compare them to <m>P_0</m>.
+          Start by finding the intensity of noise for the hot water pump.
+          Use <m>H</m> for the intensity of the hot water pump's noise.
+          Then
+          <me>
+            \begin{aligned}50 \amp =10\log_{10}\left(\frac{H}{P_0}\right)\\ 5 \amp = \log_{10}\left(\frac{H}{P_0}\right) \end{aligned}
+          </me>
+        </p>
+        <p>
+          And rewriting in terms of exponents:
+          <me>
+            \begin{aligned}10^5 \amp = \frac{H}{P_0}\\ 10^5P_0 \amp = H \end{aligned}
+          </me>
+        </p>
+        <p>
+          We repeat the same process to find the intensity <m>D</m> of the noise for the dishwasher:
+          <me>
+            \begin{aligned}62 \amp = 10\log_{10}\left(\frac{D}{P_0}\right)\\ 6.2 \amp = \log_{10}\left(\frac{D}{P_0}\right)\\ 10^{6.2} \amp = \frac{D}{P_0}\\ 10^{6.2}P_0 \amp = D \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now to compare <m>D</m> to <m>H</m>, we can divide:
+          <me>
+            \begin{aligned}\frac{D}{H} \amp = \frac{10^{6.2}P_0}{10^5P_0}\\ \amp = 10^{1.2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus we see that the dishwasher's noise is
+          <m>10^{1.2}\approx 15.85</m> times as intense as the hot water pump.
+        </p>
+      </solution>
+    </example>
+    <p>
+      With decibels,
+      every increase of 10 means the sound is 10 times more intense.
+      An increase of 20 would be 10 times more intense for the first 10,
+      and another 10 times more intense for the second 1 <ndash/>so a sound that is 75 decibels is 100 times more intense than a sound that is 55 decibels!
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>D_1</m> and <m>D_2</m> represent the decibel ratings of sound intensity <m>P_1</m> and <m>P_2</m>,
+          respectively.
+          Using logarithm rules,
+          we can find a simplified formula for the difference between the two ratings <m>D_1</m> and <m>D_2</m> as follows:
+          <me>
+            \begin{aligned}D_1-D_2 \amp = 10\log_{10}\left(\frac{P_1}{P_0}\right)-10\log_{10}\left(\frac{P_2}{P_0}\right)\\ \amp = 10(\log_{10}P_1 - \log_{10}P_0) - 10(\log_{10}P_2-\log_{10}P_0)\\ \amp = 10(\log_{10}P_1 - \log_{10}P_2)\\ \amp = 10\log_{10}\left(\frac{P_1}{P_2}\right) \end{aligned}
+          </me>
+        </p>
+        <p>
+          If a sound's intensity triples,
+          how many decibels louder does the sound become?
+          In other words, what is <m>D_1-D_2</m> if <m>P_1=3P_2</m>?
+          Using the above formula,
+          <me>
+            \begin{aligned}D_1-D_2  \amp = 10\log_{10}\left(\frac{P_1}{P_2}\right)\\ \amp = 10\log_{10}\left(\frac{3P_2}{P_2}\right)\\ \amp = 10\log_{10}(3)\\ \amp \approx 4.77 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus the sound becomes about 4.77 decibels louder.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    doubling time, half-life; Richter scale, decibel.
+    <p>
+      <em>Key ideas:</em> Exponential functions model percent growth,
+      and thus have constant doubling time
+      (in the case of exponential growth)
+      or half-life
+      (in the case of exponential decay).
+      Transformations of exponential functions can be used to model the temperature of an object being heated or cooled.
+      Logarithms are used to measure magnitudes of earthquakes and intensities of sound.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em> Logarithm rules,
+      and the relationship between exponential and logarithmic functions.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

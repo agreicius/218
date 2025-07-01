@@ -1,0 +1,830 @@
+<section>
+  <title>Derivatives of Logarithmic Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          See how to use inverse properties and derivatives of exponential function to compute derivatives of logarithmic functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Take the derivative of logarithmic functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize how to use previous derivative rules,
+          especially the chain rule, when taking derivatives of logarithmic functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use the logarithm rules to make taking derivatives easier and also extend our derivative rules to functions with variables in both the base and exponent.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Computing Derivatives of Logarithmic Functions</title>
+    <introduction>
+      <p>
+        Since logarithms are defined as the inverse of exponential functions,
+        we can use our knowledge of the derivatives of exponential functions to determine derivatives of logarithms,
+        rather than having to start with the limit definition of the derivative.
+        Here is how we can do this:
+      </p>
+      <p>
+        Since <m>y=\log_b x</m> and <m>b^y=x</m> are inverses,
+        we know that
+        <me>
+          b^{\log_bx}=x
+        </me>.
+        This is also part (f) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>.
+        We can take the derivative of both sides of this equation:
+        <me>
+          \frac{d}{dx}\left(b^{\log_bx} \right)=\frac{d}{dx}( x)
+        </me>
+      </p>
+      <p>
+        The derivative of the right side is <m>1</m> since <m>\frac{d}{dx}(x) = 1</m>.
+        On the left side, we know that the derivative of the composition
+        <m>b^{g(x)}</m> will be <m>(\ln b) b^{g(x)} g'(x)</m>,
+        by the chain rule.
+        If we let <m>g(x) = \log_bx</m>,
+        then <m>g'(x) = \frac{d}{dx}(\log_bx)</m> is precisely the derivative that we are trying to find:
+        <me>
+          (\ln b)b^{\log_b x}\cdot \frac{d}{dx}(\log_bx) = 1
+        </me>
+      </p>
+      <p>
+        Now, we can solve for <m>\frac{d}{dx}(\log_bx)</m>:
+        <me>
+          \frac{d}{dx}(\log_bx) = \frac{1}{(\ln b)b^{\log_b x}}
+        </me>
+      </p>
+      <p>
+        We are technically done,
+        but because we know <m>b^{\log_b x} = x</m>,
+        we can simplify further to:
+        <me>
+          \frac{d}{dx}(\log_bx) = \frac{1}{(\ln b)x}
+        </me>
+      </p>
+      <p>
+        Thus we have discovered that the derivative of <m>\log_b x</m> is the fraction
+        <m>\frac{1}{(\ln b)x}</m>: Notice that when <m>b=e</m>,
+        <m>\log_bx=\log_ex = \ln x</m>, and <m>\ln(e)=1</m>.
+        This means that
+        <me>
+          \frac{d}{dx}\left(\ln x \right)=\frac{1}{x}
+        </me>
+      </p>
+      <remark>
+        <p>
+          Up to this point,
+          derivatives have been the same basic type as the original function from which they come.
+          For example,
+          derivatives of power functions are power functions,
+          derivatives of polynomials are polynomials,
+          and derivatives of exponential functions are exponential functions.
+          Now something surprising happens:
+          derivatives of logarithmic functions are not logarithmic!
+          Even more surprisingly, logarithmic functions are transcendental,
+          but their derivatives are algebraic.
+        </p>
+      </remark>
+      <p>
+        Here are these derivative formulas summarized in a theorem:
+      </p>
+      <theorem xml:id="thm_logder">
+        <title>Derivatives of Logarithmic Functions</title>
+        <statement>
+          <p>
+            For any constant <m>b>0</m> with <m>b\neq1</m>,
+            and for all positive values of <m>x</m>,
+            <ol marker="labelalphitemsep10pttopsep5pt">
+              <li>
+                <p>
+                  <m>\frac{d}{dx}\left(\log_b(x) \right)=\frac{1}{\ln(b)x}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\frac{d}{dx}\left(\ln (x) \right)=\frac{1}{x}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </theorem>
+      <example>
+        <statement>
+          <p>
+            Here are a few basic examples of derivatives of logarithms:
+            <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+              <li>
+                <p>
+                  The derivative of <m>f(x) = \log_5 x</m> is
+                  <me>
+                    f'(x) = \frac{1}{(\ln 5)x}
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The derivative of <m>g(x) = 8\ln x</m> is
+                  <me>
+                    g'(x) = 8\cdot\frac{1}{x} = \frac{8}{x}
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The derivative of <m>h(x) = x^2 \ln x</m> is
+                  <me>
+                    \begin{aligned}h'(x) \amp = 2x\ln x+x^2\cdot\frac{1}{x} \\ \amp = 2x\ln x+x. \end{aligned}
+                  </me>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </example>
+      <exercise>
+        <statement>
+          <p>
+            If <m>f(x) = \frac{\ln x}{x}</m>, compute <m>f'(x)</m>.
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>A Detail About Domains and Absolute Value:</title>
+      <p>
+        Because <m>\ln x</m> has domain <m>(0,\infty)</m>,
+        when we say that <m>\frac{d}{dx}(\ln x) = \frac{1}{x}</m>,
+        we are also restricting <m>\frac{1}{x}</m> to the domain <m>(0,\infty)</m>;
+        we cannot have a derivative where the original function is undefined!
+        However, it would be a pity to let half of the derivative go to waste.
+        Let's see how to use the entire domain
+        <m>(-\infty,0)\cup (0,\infty)</m> of <m>\frac{1}{x}</m>.
+      </p>
+      <p>
+        Consider the function <m>f(x) = \ln|x|</m>.
+        We know from our previous study that
+        <me>
+          |x| = \begin{cases}x, \amp  \text{ when } x\geq 0\\ -x, \amp  \text{ when } x\lt 0 \end{cases}
+        </me>
+      </p>
+      <p>
+        In plain language,
+        <m>|x|</m> "makes <m>x</m> positive", so for <m>x\lt 0</m>,
+        <m>\ln|x|</m> is now defined.
+        For example, when <m>x=-1</m>,
+        we have that <m>|-1| = -(-1) = 1</m> and so now,
+        <m>f(-1) =\ln|-1| = \ln(1) = 0</m> is indeed defined.
+      </p>
+      <p>
+        However, when <m>x=0</m>,
+        <m>|0|=0</m> and so <m>f(0) = \ln |0| = \ln(0)</m> is still undefined.
+        Thus the domain of <m>f(x) = \ln|x|</m> is <m>(-\infty,0)\cup(0,\infty)</m> and we can write
+        <me>
+          f(x) = \ln|x| = \begin{cases}\ln(x), \amp  \text{ when } x> 0\\ \ln(-x), \amp  \text{ when } x\lt 0 \end{cases}
+        </me>
+      </p>
+      <p>
+        Now consider the derivative of <m>f(x) = \ln|x|</m>.
+        When <m>x>0</m>,
+        we can simplify <m>|x|=x</m> so that <m>f(x) = \ln|x|=\ln x</m> and so
+        <me>
+          f'(x) = \frac{d}{dx}(\ln x) = \frac{1}{x}
+        </me>.
+        On the other hand, when <m>x\lt 0</m>,
+        we can simplify <m>f(x) =\ln( -x)</m>.
+        Now the function <m>y = -x</m> is inside the logarithm,
+        so using the chain rule, we have
+        <me>
+          f'(x) = \frac{d}{dx}(\ln(-x)) = \frac{1}{-x}\cdot \frac{d}{dx}(-x) = -\frac{1}{x}\cdot (-1) = \frac{1}{x}
+        </me>
+      </p>
+      <p>
+        Notice that we got <m>f'(x) = \frac{1}{x}</m> for both <m>x>0</m> and <m>x\lt 0</m>.
+        Thus we have discovered that
+        <me>
+          \frac{d}{dx}(\ln|x|) = \frac{1}{x}
+        </me>.
+        The benefit to this is that now both the original function and its derivative have the full domain <m>(-\infty,0)\cup(0,\infty)</m>.
+      </p>
+      <p>
+        The two graphs that follow illustrate that the associated slope function for <m>\ln|x|</m> is the function <m>\frac{1}{x}</m>.
+        For negative values of <m>x</m>,
+        as we move from left to right,
+        the slopes of <m>\ln|x|</m> are negative with larger and larger magnitude while the heights of <m>\frac{1}{x}</m> behave the same way.
+        For positive values of <m>x</m>,
+        as we move from left to right,
+        the slopes of <m>\ln x</m> are positive but getting smaller while the heights of <m>\frac{1}{x}</m> do the same.
+      </p>
+      <figure>
+        <caption>The slopes of <m>f(x)=\ln|x|</m> are the heights of <m>f'(x) = \frac{1}{x}</m>.</caption>
+        <image width="93%" source="TaalmanPage366ab.png"/>
+      </figure>
+      <p>
+        We put this observation in a theorem as it will be useful in the next section:
+      </p>
+      <theorem>
+        <title>Derivatives of Logarithms of Absolute Values</title>
+        <statement>
+          <p>
+            For all values of <m>x</m> with <m>x\neq 0</m>,
+            <me>
+              \frac{d}{dx}(\ln|x|) = \frac{1}{x}
+            </me>
+          </p>
+        </statement>
+      </theorem>
+      <exercise>
+        <statement>
+          <p>
+            <em>True or False:</em> Determine whether each of the statements that follow is true or false.
+            If a statement is true, explain why.
+            If a statement is false, give a correct alternative.
+            <ol marker="labelalphitemsep5pt">
+              <li>
+                <p>
+                  <em>True or False:</em> <m>\dfrac{d}{dx}\left(\dfrac{1}{x}\right) = \ln x</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <em>True or False:</em> <m>\dfrac{d}{dx}(\ln|x|) = \dfrac{1}{|x|}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <em>True or False:</em> <m>\dfrac{d^2}{dx^2}(\ln x) = \dfrac{1}{(\ln x)^2}</m>
+                  <em>Remember that the notation
+                  <m>\frac{d^2}{dx^2}</m> means to take the second derivative.</em>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>The Chain Rule with Logarithmic Functions</title>
+    <p>
+      By combining our new differentiation rules for logarithmic functions with the chain rule,
+      we obtain the following rules for derivatives of logarithmic compositions:
+      <me>
+        \begin{aligned}\frac{d}{dx}\left(\log_b(g(x))\right) \amp =\frac{1}{(\ln b)g(x)}\cdot g'(x)\\ \amp =\frac{g'(x)}{(\ln b)g(x)} \end{aligned}
+      </me>
+      and
+      <me>
+        \begin{aligned}\frac{d}{dx}\left(\ln g(x)\right )\amp =\frac{1}{g(x)}\cdot g'(x)\\ \amp =\frac{g'(x)}{g(x)}. \end{aligned}
+      </me>
+    </p>
+    <p>
+      Because the chain rule looks sufficiently different for logarithmic functions,
+      we state it below with this new possible "outside" function of <m>\log_b x</m>:
+    </p>
+    <theorem>
+      <title>The chain rule for logarithmic functions</title>
+      <statement>
+        <me>
+          \frac{d}{dx}\left(\log_b(g(x))\right)  =\frac{g'(x)}{(\ln b)g(x)}
+        </me>
+        <me>
+          \frac{d}{dx}\left(\ln g(x)\right)=\frac{g'(x)}{g(x)}
+        </me>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          For example,
+          <me>
+            \frac{d}{dx}\left(\log_5(x^2+1)\right)=\frac{1}{(\ln 5)(x^2+1)}\cdot (2x)=\frac{2x}{(\ln 5)(x^2+1)}
+          </me>
+          and
+          <me>
+            \frac{d}{dx}\left(\ln (x^2+1)\right)=\frac{1}{(x^2+1)}\cdot (2x)=\frac{2x}{x^2+1}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Compute the derivative of <m>g(x) = \log_3(4x)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Compute the derivative of <m>f(x)=\ln(kx)</m>,
+          where <m>k</m> is a constant.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We could use log rules to rewrite <m>f(x)=\ln(kx)=\ln k+\ln x</m>,
+          and see that
+          <me>
+            f'(x)=0+\frac{1}{x}=\frac{1}{x}
+          </me>
+        </p>
+        <p>
+          If we use the chain rule, we get the same result:
+          <me>
+            \frac{d}{dx}\left(\ln (kx)\right)=\frac{1}{kx}\cdot k=\frac{k}{kx}=\frac{1}{x}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example xml:id="ex_middledifflogderiv">
+      <statement>
+        <p>
+          Find the derivative of <m>f(x) = \ln(x^5-32)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the chain rule, we have
+          <me>
+            \frac{d}{dx}( \ln(x^5-32))=\frac{1}{x^5-32}\cdot(5x^4)=\frac{5x^4}{x^5-32}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>f(x)=e^{x^2}\ln x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the product and chain rules, we have
+          <me>
+            \begin{aligned}\frac{d}{dx}\left(e^{x^2}\ln x\right)\amp =\frac{d}{dx}\left(e^{x^2}\right)\cdot\ln x+e^{x^2}\frac{d}{dx}(\ln x)\\ \amp =2xe^{x^2}\ln x+e^{x^2}\ \frac{1}{x}\\ \amp =e^{x^2}\left(2x\ln x+\frac{1}{x}\right) \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>f(x)=\dfrac{7e^{3x}-x^22^x}{\log_5x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We begin by applying the quotient rule:
+          <me>
+            f'(x)= \frac{\frac{d}{dx}(7e^{3x}-x^22^x)\cdot \log_5x-(7e^{3x}-x^22^x)\cdot \frac{d}{dx}(\log_5x)}{(\log_5x)^2}
+          </me>
+        </p>
+        <p>
+          Let's first calculate the necessary derivatives in the numerator separately.
+          Begin with finding the derivative of <m>7e^{3x}-x^22^x</m>.
+          In the first term, the derivative of
+          <m>7e^{3x}-x^2 2^x</m> requires the chain rule:
+          <me>
+            \frac{d}{dx}(7e^{3x}) = 7e^{3x}\cdot 3 = 21e^{3x}
+          </me>
+          and the derivative of the second term <m>x^2 2^x</m> requires the product rule:
+          <me>
+            \begin{aligned}\frac{d}{dx}(x^2 2^x) \amp = 2x2^x+x^2(\ln2)2^x\\ \amp = 2^x(2x+(\ln 2)x^2) \end{aligned}
+          </me>
+        </p>
+        <p>
+          Lastly, the derivative of <m>\log_5 x</m> from the far right of the numerator is:
+          <me>
+            \frac{d}{dx}(\log_5 x) = \frac{1}{(\ln 5)x}
+          </me>.
+          Putting this all together, we have:
+          <md>
+            <mrow>f'(x)\amp = \frac{\frac{d}{dx}(7e^{3x}-x^22^x)\log_5x-(7e^{3x}-x^22^x)\frac{d}{dx}(\log_5x)}{(\log_5x)^2}\amp \leftarrow\amp  \text{ quotient rule }</mrow>
+            <mrow>\amp = \frac{[21e^{3x}-(2^x(2x+(\ln 2)x^2))]\log_5x-(7e^{3x}-x^22^x)\frac{1}{(\ln5)x}}{(\log_5x)^2}\amp \leftarrow\amp  \text{ finishing the derivatives }</mrow>
+          </md>
+        </p>
+        <p>
+          We will not attempt to simplify this expression.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>f(x)=\ln\left(\left(\frac{x^2-1}{1-2x}\right)^2\right)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          There are a number of ways we could find <m>f'(x)</m>.
+          One way is to jump right in and start differentiating.
+          We would need two chain rules,
+          followed by the quotient rule.
+        </p>
+        <p>
+          However, we can also use log rules to do a bit of algebra first,
+          which will make our differentiation easier.
+          First, bring the exponent of 2 down using part (c) of <xref ref="thm_logproperties">Theorem</xref>:
+          <me>
+            \frac{d}{dx}\left(\ln\left(\left(\frac{x^2-1}{1-2x}\right)^2\right)\right)= \frac{d}{dx}\left(2\ln\left(\frac{x^2-1}{1-2x}\right)\right)
+          </me>
+        </p>
+        <p>
+          Then, use part (b) of <xref ref="thm_logproperties">Theorem</xref>
+          to rewrite the fraction inside of the logarithm as subtraction outside of the logarithm:
+          <me>
+            \frac{d}{dx}\left(2\ln\left(\frac{x^2-1}{1-2x}\right)\right)= \frac{d}{dx}\left(2[\ln(x^2-1)-\ln(1-2x)]\right)
+          </me>
+        </p>
+        <p>
+          Now, we can calculate the derivative using only one chain rule for each term:
+          <me>
+            \frac{d}{dx}\left(2[\ln(x^2-1)-\ln(1-2x)]\right) = 2\left[\frac{2x}{x^2-1}-\frac{-2}{1-2x}\right]
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      This last example suggests a very useful method for finding derivatives of complicated functions:
+      use the logarithm rules to break up a function algebraically in order to avoid using multiple derivative rules.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          For the function <m>k(x) = \ln(\sqrt{x^2+5})</m>, find functions
+          <m>f,
+          g</m>, and <m>h</m> such that <m>k=f\circ g\circ h</m>.
+          There may be more than one possible answer.
+          Then use the chain rule to calculate <m>k'(x)</m>.
+          <em>You may wish to use logarithm rules to make this easier.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Logarithmic differentiation</title>
+    <p>
+      The calculation of derivatives of complicated functions involving products,
+      quotients,
+      or powers can often be simplified by taking logarithms.
+      We saw a few examples of this in the last section.
+      In this section, we will codify a new method of taking derivatives,
+      called <em>logarithmic differentiation</em>,
+      that takes advantage of the properties of logarithmic functions,
+      and will also see how it can be used to take derivatives of yet another category of functions.
+    </p>
+    <p>
+      We can use logarithm rules to make taking derivatives easier,
+      even if there are no logarithms involved in a problem.
+      We cannot simply introduce a logarithm;
+      that would change the function we are trying to differentiate.
+      However, we can take the logarithm of
+      <em>both sides of the equation</em>:
+    </p>
+    <example>
+      <statement>
+        <p>
+          In order to take the derivative of
+          <me>
+            y = \frac{x^{3/4}\sqrt{x^2+1}}{(3x+2)^5}
+          </me>
+          we would need to first apply the quotient rule,
+          then use the product rule for the derivative of the numerator,
+          which involves using the chain rule for the derivative of <m>\sqrt{x^2+1}</m>.
+          We would also need the chain rule for the derivative of the denominator.
+          Instead, we take the natural logarithm of both sides and simplify using algebra:
+          <me>
+            \begin{aligned}\ln y \amp = \ln\left(\frac{x^{3/4}\sqrt{x^2+1}}{(3x+2)^5}\right)\\ \amp = \ln(x^{3/4}\sqrt{x^2+1})-\ln((3x+2)^5)\\ \amp  = \ln(x^{3/4})+\ln(\sqrt{x^2+1})-5\ln(3x+2)\\ \amp = \frac{3}{4} \ln x+\frac{1}{2}\ln (x^2+1) - 5\ln(3x+2) \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now we move on to taking derivatives.
+          Pay very close attention to the left-hand side of this equation!
+          Since <m>y</m> is a function of <m>x</m>,
+          we must use the chain rule/implicit differentiation to take its derivative.
+          However, the right-hand side of the equation is now much simpler to differentiate as there are no quotients or products.
+          <me>
+            \begin{aligned}\frac{d}{dx}(\ln y) \amp = \frac{d}{dx}\left(\frac{3}{4} x+\frac{1}{2}\ln (x^2+1) - 5\ln(3x+2)\right)\\ \frac{1}{y}\frac{dy}{dx} \amp = \frac{3}{4}\cdot\frac{1}{x}+\frac{1}{2}\frac{2x}{x^2+1}-5\cdot\frac{3}{3x+2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          We can now solve for <m>dy/dx</m> by multiplying both sides of the equation by <m>y</m>:
+          <me>
+            \frac{dy}{dx} = y\left(\frac{3}{4x}+\frac{x}{x^2+1}-\frac{15}{3x+2}\right)
+          </me>
+        </p>
+        <p>
+          Because we started with an explicit expression for <m>y</m>,
+          we would like to end with an explicit derivative <m>\frac{dy}{dx}</m>,
+          meaning one that involves only the independent variable <m>x</m>.
+          So we substitute <m>y</m> from the beginning of the problem:
+          <me>
+            \frac{dy}{dx} =  \frac{x^{3/4}\sqrt{x^2+1}}{(3x+2)^5}\left(\frac{3}{4x}+\frac{x}{x^2+1}-\frac{15}{3x+2}\right)
+          </me>
+        </p>
+        <p>
+          This expression is not pretty,
+          but it gives us a formula for the derivative <m>y'=\frac{dy}{dx}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      \fbox{Here is a summary of the steps taken in this method,
+      called <em>logarithmic differentiation</em>
+      <ul>
+        <li>
+          <p>
+            Take the natural logarithm of both sides of an equation <m>y=f(x)</m> to get <m>\ln y = \ln f(x)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the logarithm rules to simplify <m>\ln f(x)</m> as much as possible,
+            bringing exponents down and splitting up products and quotients into addition and subtraction.
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiate implicitly with respect to <m>x</m>.
+            The derivative of <m>\ln y</m> is <m>\frac{1}{y}\frac{dy}{dx}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Solve the resulting equation for
+            <m>\frac{dy}{dx}</m> by multiplying both sides by <m>y</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Replace <m>y</m> by the original expression for <m>f(x)</m> in order to write your answer in terms of only the variable <m>x</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <remark>
+      <p>
+        If <m>f(x)\lt 0</m> for some values of <m>x</m>,
+        then <m>\ln (f(x))</m> is not defined,
+        but we can write <m>|y| = |f(x)|</m> and use the derivative rule
+        <me>
+          \frac{d}{dx}\ln|x| =  \frac{1}{x}
+        </me>.
+        We can also distribute absolute values over products, quotients,
+        and powers, so the computations are exactly the same:
+        <me>
+          |ab| = |a||b|,  \left|\frac{a}{b}\right| = \frac{|a|}{|b|}, |a^b| = |a|^b
+        </me>
+      </p>
+    </remark>
+    <example>
+      <statement>
+        <p>
+          Use logarithmic differentiation to calculate the derivative of the function
+          <me>
+            f(x)=\frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, let's take the natural log of both sides, and use algebra:
+          <me>
+            \begin{aligned}\ln(f(x)) \amp =\ln\left( \frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}\right)\\ \amp =\ln(\sqrt{x}(x^2-1)^5)-\ln((x+2)(x-4)^3)\\ \amp =\ln(\sqrt{x})+\ln((x^2-1)^5)-\ln((x+2))-\ln((x-4)^3)\\ \amp =\frac{1}{2}\ln(x)+5\ln(x^2-1)-\ln(x+2)-3\ln(x-4) \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now, lets take the derivative of both sides:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\ln(f(x))) \amp =\frac{d}{dx}\left(\ln\left( \frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}\right)\right)\\ \frac{f'(x)}{f(x)} \amp =\frac{1}{2x}+\frac{10x}{x^2-1}-\frac{1}{x+2}-\frac{3}{x-4}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          So, multiplying both sides by <m>f(x)</m>, we obtain:
+          <me>
+            \begin{aligned}f'(x)\amp =f(x)\left(\frac{1}{2x}+\frac{10x}{x^2-1}-\frac{1}{x+2}-\frac{3}{x-4}\right)\\ \amp =\left(\frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}\right)\left(\frac{1}{2x}+\frac{10x}{x^2-1}-\frac{1}{x+2}-\frac{3}{x-4}\right) \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            f(x) = 12x\sqrt[3]{1-x}\sqrt{x+1}
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                What derivative rules would you need to use to take the derivative of <m>f(x)</m> as it is written now?
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the logarithm rules to rewrite
+                <m>\ln(12x\sqrt[3]{1-x}\sqrt{x+1})</m> so that it doesn't involve any products or exponents.
+              </p>
+            </li>
+            <li>
+              <p>
+                Write
+                <me>
+                  y = 12x\sqrt[3]{1-x}\sqrt{x+1}
+                </me>
+                and apply <m>\ln(\cdot)</m> to both sides.
+                Using the expanded form of
+                <m>\ln(12x\sqrt[3]{1-x}\sqrt{x+1})</m> you found in part (b),
+                take the derivative of both sides.
+                <em>Remember to use the chain rule/implicit differentiation on the left!</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Solve for <m>y' = \frac{dy}{dx}</m> and use the original function to replace <m>y</m> on the right-hand side.
+                Congratulations!
+                You've found the derivative
+                <m>y'=f'(x)</m> without needing to apply all of the derivative rules you identified in part (a).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Functions with Variables in the Base and Exponent</title>
+    <p>
+      Consider the function
+      <me>
+        f(x) = x^x
+      </me>
+    </p>
+    <p>
+      None of the derivative rules we know apply to this function!
+      The power rule <m>\frac{d}{dx}(x^n) = nx^{n-1}</m> applies only to functions where the exponent is a number.
+      The rule <m>\frac{d}{dx}(b^x) = (\ln b)b^x</m> applies only to functions where the base is a number.
+      In general, we do not yet have a way to take derivatives of functions where the variable appears in both the base and the exponent.
+    </p>
+    <p>
+      Logarithmic differentiation provides a method for taking derivatives of such functions.
+      The key step in this method is to use the logarithm rule for moving the exponent in front of the logarithm,
+      so that there is no longer an exponent with a variable:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use logarithmic differentiation to calculate the derivative of the function
+          <me>
+            f(x)=x^x
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, let's take the natural log of both sides, and use algebra:
+          <me>
+            \begin{aligned}\ln(f(x)) \amp =\ln\left( x^x\right)\\ \amp =x\ln x. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now, lets take the derivative of both sides:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\ln(f(x))) \amp =\frac{d}{dx}\left(x\ln x\right)\\ \frac{f'(x)}{f(x)} \amp  = x(1/x)+\ln x \end{aligned}
+          </me>
+        </p>
+        <p>
+          So, multiplying both sides by <m>f(x)</m>, we obtain:
+          <me>
+            \begin{aligned}f'(x)\amp  =f(x)( x(1/x)+\ln x)\\ \amp  =x^x( 1+\ln x)\\ \amp = x^x+x^x\ln x. \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Graph <m>f(x) = x^x</m> on Desmos.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Based on the Desmos graph, what is the domain of <m>f(x) = x^x</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                We calculated that <m>f'(x) = x^x(\ln x+1)</m>.
+                What does this tell you about where
+                <m>f(x) = x^x</m> is differentiable and/or continuous?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Use logarithmic differentiation to find <m>\frac{d}{dx}((x^2-3)^x)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We want to find the <m>\frac{dy}{dx}</m> for <m>y=(x^2-3)^x</m>.
+          Lets start by taking the natural log of both sides:
+          <me>
+            \begin{aligned}\ln(y) \amp =\ln\left((x^2-3)^x\right)\\ \amp =x\ln(x^2-3). \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now, lets take the derivative of both sides:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\ln(y) )\amp =\frac{d}{dx}\left(x\ln(x^2-3)\right)\\ \frac{1}{y} \left(\frac{dy}{dx}\right)\amp  = x\left(\frac{2x}{x^2-3}\right)+\ln(x^2-3) \end{aligned}
+          </me>
+        </p>
+        <p>
+          So, multiplying both sides by <m>y</m>, we obtain:
+          <me>
+            \begin{aligned}\frac{dy}{dx}\amp  =y\left( x\left(\frac{2x}{x^2-3}\right)+\ln(x^2-3)\right)\\ \amp  =(x^2-3)^x\left( x\left(\frac{2x}{x^2-3}\right)+\ln(x^2-3)\right) \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Use logarithmic differentiation to calculate the derivative of the function
+          <me>
+            f(x) = x^{\sqrt{x}}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, let's take the natural log of both sides, and use algebra:
+          <me>
+            \begin{aligned}\ln(f(x)) \amp =\ln\left( x^{\sqrt{x}}\right)\\ \amp =\sqrt{x}\ln x. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now, lets take the derivative of both sides:
+          <me>
+            \begin{aligned}\frac{d}{dx}(\ln(f(x))) \amp =\frac{d}{dx}\left(\sqrt{x}\ln x\right)\\ \frac{f'(x)}{f(x)} \amp  = \sqrt{x}(1/x)+\frac{1}{2}x^{-1/2}\ln x \end{aligned}
+          </me>
+        </p>
+        <p>
+          So, multiplying both sides by <m>f(x)</m>, we obtain:
+          <me>
+            \begin{aligned}f'(x)\amp  =f(x)( \sqrt{x}(1/x)+\frac{1}{2}x^{-1/2}\ln x)\\ \amp  =x^{\sqrt{x}}\left( \frac{1}{\sqrt{x}}+\frac{\ln x}{2\sqrt{x}}\right)\\ \amp =\frac{x^{\sqrt{x}}(2+\ln x)}{2\sqrt{x}}. \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following methods were introduced in this section:
+    </p>
+    Logarithmic differentiation.
+    <p>
+      <em>Key ideas:</em> Derivatives of logarithms are algebraic functions:
+      <m>\frac{d}{dx}(\ln x) = \frac{1}{x}</m> and <m>\frac{d}{dx}(\log_b x) = \frac{1}{(\ln b)x}</m>.
+      The chain rule looks strange when combined with logarithmic functions and is worth paying special attention to.
+      Applying a logarithm to
+      (both sides of)
+      a function can allow us to break apart the function and avoid using complicated derivative rules.
+      In order to take the derivative of a function with variables in both the base and the exponent,
+      we <em>must</em> use logarithmic differentiation.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      We can use an absolute value within a logarithm to extend the domain of the function.
+      In the case of <m>\ln|x|</m>,
+      this does not change the derivative:
+      <me>
+        \frac{d}{dx}(\ln |x|) = \frac{1}{x}
+      </me>
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      The logarithm rules are extremely useful.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.7}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

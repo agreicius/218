@@ -1,0 +1,864 @@
+<section>
+  <title>Applied Optimization</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Learn the definition and behavior of surge functions,
+          used to model drug concentrations.
+        </p>
+      </li>
+      <li>
+        <p>
+          Revisit the concepts of cost, revenue,
+          and profit, adding on the ideas of supply and demand.
+        </p>
+      </li>
+      <li>
+        <p>
+          Formally define marginal quantities
+          (marginal cost, revenue, and profit)
+          in terms of derivatives.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use derivatives to maximize profit and revenue.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Applications: Drug Concentrations, Maximizing Profit</title>
+    <p>
+      In this section we will study two particular applications of optimization:
+      modeling drug concentrations in a patient's blood stream and optimizing profit, cost,
+      and revenue.
+      Throughout, we will see how derivatives help us analyze the behavior of real-world phenomena that can have a major impact on people's lives.
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Surge Function and Drug Concentration</title>
+    <p>
+      First, a motivational example with some data:
+    </p>
+    <example xml:id="ex_nicotine">
+      <title>Nicotine in the Blood</title>
+      <statement>
+        <p>
+          When a person smokes a cigarette,
+          the nicotine from the cigarette enters the body through the lungs,
+          is absorbed into the blood, and spreads throughout the body.
+          Most cigarettes contain between <m>0.5</m> and <m>2.0</m> mg of nicotine;
+          approximately 20%
+          (between <m>0.1</m> and <m>0.4</m> mg)
+          is actually inhaled and absorbed into the person's bloodstream.
+          As the nicotine leaves the blood,
+          the smoker feels the need for another cigarette.
+          The half-life of nicotine in the bloodstream is about 2 hours.
+          The lethal dose is considered to be about <m>60</m> mg.
+        </p>
+        <p>
+          The nicotine level in the blood rises as a person smokes,
+          and tapers off when smoking ceases.
+          <xref ref="tab_nic">Table</xref> shows blood nicotine concentration
+          (in ng/ml)
+          during and after the use of cigarettes. (smoking occurred during the first ten minutes and the experimental data shown represent average values for ten people.)
+        </p>
+        <table xml:id="tab_nic">
+          <title>Blood nicotine concentrations during and after the use of cigarettes</title>
+          <tabular>
+            <row>
+              <cell>\toprule
+                t \textrm{ (mintues) }</cell>
+              <cell>0</cell>
+              <cell>5</cell>
+              <cell>10</cell>
+              <cell>15</cell>
+              <cell>20</cell>
+              <cell>25</cell>
+              <cell>30</cell>
+              <cell>35</cell>
+              <cell>60</cell>
+              <cell>75</cell>
+              <cell>90</cell>
+              <cell>105</cell>
+              <cell>120</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                C \textrm{ (ng/ml) }</cell>
+              <cell>4</cell>
+              <cell>12</cell>
+              <cell>17</cell>
+              <cell>14</cell>
+              <cell>13</cell>
+              <cell>12</cell>
+              <cell>11</cell>
+              <cell>9</cell>
+              <cell>8</cell>
+              <cell>7.5</cell>
+              <cell>7</cell>
+              <cell>6.5</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          The points in <xref ref="tab_nic">Table</xref>
+          are plotted in <xref ref="fig_nic">Figure</xref>.
+        </p>
+        <figure xml:id="fig_nic">
+          <caption>Blood nicotine concentrations during and after the use of cigarettes</caption>
+          <image width="50%" source="Section-8-3-nic.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      Functions with the behavior exhibited in <xref ref="ex_nicotine">Example</xref>
+      are called <em>surge functions</em>.
+      They have equations of the form <m>y=ate^{-bt}</m>,
+      where <m>a</m> and <m>b</m> are positive constants.
+    </p>
+    <figure xml:id="fig_surge">
+      <caption>One member of the family of functions <m>y=ate^{-bt}</m>, with <m>a=1</m> and <m>b=1</m></caption>
+      <image width="50%" source="Section-8-3-surge.png"/>
+    </figure>
+    <p>
+      Let's examine the family of functions <m>y=ate^{-bt}</m>.
+    </p>
+    <p>
+      What effect do the positive parameters <m>a</m> and <m>b</m> have on the shape of the graph of <m>y=ate^{-bt}</m>?
+      Let's start by looking at the graph in <xref ref="fig_surge">Figure</xref>
+      with <m>a=1</m> and <m>b=1</m>.
+      We consider the effect of <m>b</m> on the graph of <m>y=ate^{-bt}</m> first.
+      Graphs of <m>y=te^{-bt}</m> for different <m>b</m> values are show in <xref ref="fig_diffbsurge">Figure</xref>.
+      The general shape of the graph does not change as <m>b</m> changes,
+      but as <m>b</m> decreases,
+      the curve rises for a longer period of time to a higher value.
+    </p>
+    <figure xml:id="fig_diffbsurge">
+      <caption>Graph of <m>y=te^{-bt}</m>, with <m>b</m> varying</caption>
+      <image width="50%" source="Section-8-3-diffbsurge.png"/>
+    </figure>
+    <p>
+      We see in <xref ref="fig_surgemax">Figure</xref> that,
+      when <m>b=1</m>, the maximum occurs at about <m>t=1</m>.
+      When <m>b=2</m>, the maximum occurs at about <m>t=1/2</m>,
+      and when <m>b=3</m>, it occurs at about <m>t=1/3</m>.
+    </p>
+    <figure xml:id="fig_surgemax">
+      <caption>How does the maximum depend on <m>b</m>?</caption>
+      <image width="50%" source="Section-8-3-surgemax.png"/>
+    </figure>
+    <p>
+      The next example shows that the maximum of the function
+      <m>y=te^{-bt}</m> occurs at <m>t=1/b</m>.
+    </p>
+    <example xml:id="ex_surgefunctionformulas">
+      <title>Formulas for the Maximum of a Surge Function</title>
+      <statement>
+        <p>
+          For <m>b>0</m>, show that the maximum value of
+          <m>y=te^{-bt}</m> occurs at <m>t=1/b</m> and increases as <m>b</m> decreases.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The maximum must occur at a critical point where <m>dy/dt=0</m>.
+          Differentiating gives
+          <me>
+            \frac{dy}{dt} = 1\cdot e^{-bt}+t(-be^{-bt}) = e^{-bt}-bte^{-bt} = e^{-bt}(1-bt)
+          </me>.
+          Since <m>e^{-bt}</m> is always positive, <m>dy/dt=0</m> only where
+          <me>
+            \begin{aligned}1-bt \amp = 0\\ t=\frac{1}{b}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          By the Single Critical Point Theorem
+          (<xref ref="thm_SCPT">Theorem</xref>),
+          we only need to check that
+          <m>t=\frac{1}{b}</m> is a local maximum in order to know that it is a global maximum,
+          since it is the only critical point on the interval <m>(-\infty,\infty)</m>.
+          To do this, we observe that the sign of
+          <m>dy/dt = e^{-bt}(1-bt)</m> depends only on the sign of <m>1-bt</m>,
+          since <m>e^{-bt}</m> is positive for all values of <m>t</m>.
+          When <m>t\lt 1/b</m>,
+          <me>
+            \begin{aligned}t \amp \lt 1/b\\ bt \amp \lt  1\\ 0 \amp \lt 1-bt. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Similarly, when <m>t>1/b</m>,
+          <me>
+            \begin{aligned}t \amp >1/b\\ bt \amp > 1\\ 0 \amp >1-bt. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Hence <m>dy/dt = e^{-bt}(1-bt)</m> is positive for
+          <m>t\lt 1/b</m> and negative for <m>t>1/b</m>,
+          thus <m>t=1/b</m> is the location of a local maximum,
+          and by the Single Critical Point Theorem, also a global maximum.
+        </p>
+        <p>
+          The maximum <m>y</m>-value is found from substituting <m>t=1/b</m> into <m>y=te^{-bt}</m>:
+          <me>
+            y=\frac{1}{b}e^{-b(1/b)} = \frac{e^{-1}}{b}
+          </me>.
+          We can see that for <m>b>0</m>, as <m>b</m> increases,
+          the denominator of <m>\frac{e^{-1}}{b}</m> will increase,
+          making the value of <m>y</m> decrease overall.
+          Thus the maximum value of <m>y</m> decreases as <m>b</m> increases.
+          Similarly, when <m>b</m> decreases,
+          the maximum value of <m>y</m> increases.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The surge function <m>y=ate^{-bt}</m>,
+      for positive constants <m>a</m> and <m>b</m>,
+      increases rapidly and then decreases toward zero with a maximum at <m>t=1/b</m>,
+      as we can see in <xref ref="fig_drugconcentration">Figure</xref>.
+    </p>
+    <figure xml:id="fig_drugconcentration">
+      <caption>Curve showing drug concentration as a function of time</caption>
+      <image width="50%" source="Section-8-3-drugconcentration.png"/>
+    </figure>
+    <exercise xml:id="ex_drugconcentrationpractice">
+      <statement>
+        <p>
+          If time, <m>t</m>, is in hours,
+          and concentration, <m>C</m> is in ng/ml,
+          the drug concentration curve for a drug is given by
+          <me>
+            C(t)=12.4te^{-0.2t}
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Use Desmos to graph <m>C(t)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                How many hours does it take for the drug to reach its peak concentration?
+                What is the concentration at that time?
+                <em>First, use the formulas developed in <xref ref="ex_surgefunctionformulas">Example</xref>.
+                Then, use Desmos to confirm your answers.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      As with nicotine,
+      the graph of concentration against time is called the
+      <em>drug concentration curve.</em>
+      If <m>t</m> is the time since the drug was administered,
+      the concentration <m>C</m> can be modeled by the surge function <m>C=ate^{-bt}</m>,
+      where <m>a</m> and <m>b</m> are positive constants,
+      as in <xref ref="fig_drugconcentration">Figure</xref> above.
+    </p>
+    <p>
+      What factors affect drug absorption?
+      Drug interaction and the age of the patient can affect the drug concentration curve.
+      Food intake can also affect the rate of absorption of a drug.
+      Perhaps most surprisingly,
+      drug concentration curves can vary markedly between different commercial versions of the same drug.
+    </p>
+    <example>
+      <title>The Effect of Drug Interaction</title>
+      <statement>
+        <p>
+          <xref ref="fig_paracetamolnormal">Figure</xref>
+          shows the drug concentration curves for paracetamol (acetaminophen) alone and for paracetamol taken in conjunction with propantheline.
+          <xref ref="fig_paracetamolslow">Figure</xref>
+          shows drug concentration curves for patients known to be slow absorbers of the drug,
+          for paracetamol alone and for paracetamol in conjunction with metoclopramide.
+          Discuss the effects of the additional drugs on peak concentration and the time to reach peak concentration.
+        </p>
+        <figure xml:id="fig_paracetamolnormal">
+          <caption>Drug concentration curves for paracetamol, normal patients</caption>
+          \begin{subfigure}[b]{0.4\textwidth}
+          <image width="73%" source="Section-8-3-paracetamol-normal.png"/>
+          \end{subfigure}
+          \begin{subfigure}[b]{0.4\textwidth}
+          <image width="73%" source="Section-8-3-paracetamol-slow.png"/>
+          \caption{Drug concentration curves for paracetamol, patients with slow absorption} \end{subfigure}
+          \caption{Paracetamol absorption with and without either propantheline or metoclopramide.}
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          <xref ref="fig_paracetamolnormal">Figure</xref>
+          shows it takes about 1.5 hours for the paracetamol to reach its peak concentration,
+          and that the maximum concentration reached is about 23 <m>\mu</m>g of paracetamol per ml of blood.
+          However, if propantheline is administered with paracetamol,
+          it takes much longer to reach the peak concentration
+          (about three hours, or approximately double the time)
+          and the peak concentration is much lower,
+          at about 16 <m>\mu</m>g/ml.
+        </p>
+        <p>
+          Comparing the curves for paracetamol alone,
+          <xref ref="fig_paracetamolnormal">Figures</xref>
+          and <xref ref="fig_paracetamolslow"></xref>
+          shows that the time to reach peak concentration is the same (about 1.5 hours),
+          but the maximum concentration is lower for the patients with slower absorption.
+          When metoclopramide is given with paracetamol in <xref ref="fig_paracetamolslow">Figure</xref>,
+          the peak concentration is reached faster and higher.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The <em>minimum effective concentration</em>
+      of a drug is the blood concentration necessary to achieve a pharmacological response.
+      The time at which this concentration is reached is referred to as <em>onset</em>;
+      <em>termination</em> occurs when the drug concentration falls below this level.
+      See <xref ref="fig_effecctive">Figure</xref>.
+    </p>
+    <figure xml:id="fig_effecctive">
+      <caption>When is the drug effective?</caption>
+      <image width="50%" source="Section-8-3-effective.png"/>
+    </figure>
+    <example>
+      <statement>
+        <p>
+          Depo-Provera was approved for use in the US in 1992 as a contraceptive.
+          The picture in <xref ref="fig_Hughes-HallettPage226b">Figure</xref>
+          shows the drug concentration curve for a dose of 150 mg given intramuscularly.
+          The minimum effective concentration is about 4 ng/ml.
+          How often should the drug be administered?
+        </p>
+        <figure xml:id="fig_Hughes-HallettPage226b">
+          <caption>Drug concentration curve for Depo-Provera.</caption>
+          <image width="50%" source="Hughes-HallettPage226b.png"/>
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          The minimum effective concentration on the drug concentration curve is plotted as a dotted horizontal line at 4 ng/ml in <xref ref="fig_Hughes-HallettPage226c">Figure</xref> below.
+        </p>
+        <figure xml:id="fig_Hughes-HallettPage226c">
+          <caption>The minimum effective concentration is 4 ng/ml.</caption>
+          <image width="50%" source="Hughes-HallettPage226c.png"/>
+        </figure>
+        <p>
+          We see that the drug becomes effective almost immediately and ceases to be effective after about four months.
+          Doses should be given about every four months.
+        </p>
+        <p>
+          Although the dosage interval is four months,
+          notice that it takes ten months after injections are discontinued for Depo-Provera to be entirely eliminated from the body.
+          Fertility during that period is unpredictable.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Let's return to the drug concentration curve from <xref ref="ex_drugconcentrationpractice">Exercise</xref>,
+          which you already graphed.
+          Time, <m>t</m>,
+          is in hours, and the concentration, <m>C</m> in ng/ml,
+          is the drug concentration curve for a drug, given by
+          <me>
+            C(t)=12.4te^{-0.2t}
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                If the minimum effective concentration is 10 ng/ml,
+                use your graph to estimate the time period during which the drug is effective.
+                <em>It may be helpful to graph the line <m>y=10</m> along with <m>C(t)</m>.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Complications can arise whenever the concentration of the drug is above 4 ng/ml.
+                How long must a patient wait before being safe from complications?
+                <em>It may be helpful to graph the line <m>y=4</m> along with <m>C(t)</m>.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Defining Marginal Cost and Revenue</title>
+    <p>
+      In this section,
+      we look at some of the functions of interest to decision-makers in a firm or industry.
+      Recall the definitions of cost, revenue,
+      and profit originally given in <xref ref="sec_costrevenueprofit-take1">Section</xref>:
+    </p>
+    <definition>
+      <title>Cost, Revenue, and Profit Functions</title>
+      <statement>
+        <p>
+          The <em>cost function</em>,
+          <m>C(q)</m> gives the total cost of producing a quantity <m>q</m> of some good.
+        </p>
+        <p>
+          The <em>revenue function</em>, <m>R(q)</m>,
+          gives the total revenue received by a firm from selling a quantity,
+          <m>q</m> of some good.
+        </p>
+        <p>
+          If the good sells for a <em>price</em> of <m>p</m> per unit,
+          and the quantity sold is <m>q</m>, then
+          <me>
+            \text{ Revenue }  = \text{ Price } \cdot\text{ Quantity } , \text{ so }  R=pq
+          </me>
+        </p>
+        <p>
+          The <em>profit function</em>,
+          written as <m>\pi</m> to distinguish it from the price,
+          <m>p</m>, is the difference
+          <me>
+            \text{ Profit }  = \text{ Revenue } -\text{ Cost }  \text{ so }  \pi=R-C
+          </me>
+        </p>
+        <p>
+          The <em>break-even</em> point for a company is the point where the profit is zero and revenue equals cost.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The quantity <m>q</m>,
+      of an item that is manufactured and sold depends on its price,
+      <m>p</m>.
+      As the price increases,
+      manufacturers are usually willing to supply more of the product,
+      whereas the quantity demanded by consumers falls.
+    </p>
+    <definition>
+      <title>Supply and Demand</title>
+      <statement>
+        <p>
+          The <em>supply curve</em>, for a given item,
+          relates the quantity, <m>q</m>,
+          of the item that manufacturers are willing to make to make per unit time to the price,
+          <m>p</m>,
+          for which the item can be sold.
+        </p>
+        <p>
+          The <em>demand curve</em> relates the quantity, <m>q</m>,
+          of an item demanded by consumers per unit time to the price,
+          <m>p</m>,
+          of the item
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Economists often think of the quantities supplied and demanded as functions of price.
+      However, for historical reasons, the economists put price
+      (the independent variable)
+      on the vertical axis and quantity
+      (the dependent variable)
+      on the horizontal axis.
+      (The reason for this state of affairs is that economists originally took price to be the dependent variable and put it on the vertical axis.
+      Later, when the point of view changed, the axes did not.)
+      Thus, typical supply and demand curves look like those shown below.
+    </p>
+    <p>
+      <image width="93%" source="Hughes-HallettPage35.png"/>
+    </p>
+    <example>
+      <statement>
+        <p>
+          What is the economic meaning of the prices <m>p_0</m> and <m>p_1</m> and the quantity <m>q_1</m> graphed above?
+        </p>
+        <p>
+          The vertical axis corresponds to a quantity of zero.
+          Since the price <m>p_0</m> is the vertical intercept on the supply curve,
+          <m>p_0</m> is the price at which the quantity supplied is zero.
+          In other words, for prices below <m>p_0</m>,
+          the suppliers will not produce anything.
+          The price <m>p_1</m> is the vertical intercept on the demand curve,
+          so it corresponds to the price at which the quantity demanded is zero.
+          In other words, for prices above <m>p_1</m>,
+          consumers buy none of the product.
+        </p>
+        <p>
+          The horizontal axis corresponds to a price of zero,
+          so the quantity <m>q_1</m> on the demand curve is the quantity demanded if the price were zero <mdash/> the quantity that could be given away for free.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          The demand curve for a quantity <m>q</m> of a product is
+          <m>q=5500-100p</m> where <m>p</m> is the price in dollars.
+          What do the 5500 and 100 in this equation mean in terms of demand?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Many economics decisions are based on analysis of the costs and revenues "at the margin," meaning the additional cost or revenue generated by producing and selling one additional item.
+      For example,
+      the additional cost "at the margin" of producing <m>q</m> items is
+      <me>
+        C(q+1)-C(q) = \frac{C(q+1)-C(q)}{(q+1)-q}
+      </me>.
+      We recognize this as the average rate of change of <m>C</m> on the interval <m>[q,q+1]</m>.
+      If the graph of the cost function is not curving too fast near the point,
+      the slope of the secant line is close to the slope of the tangent line.
+      Therefore, the average rate of change is close to the instantaneous rate of change.
+      Since these rates of change are not very different,
+      many economists choose to define marginal cost, <m>MC</m>,
+      and marginal revenue, <m>MR</m>,
+      as the instantaneous rate of change of cost or revenue with respect to quantity:
+    </p>
+    <definition>
+      <title>Marginal Cost and Revenue</title>
+      <statement>
+        <p>
+          The <em>marginal cost</em>,
+          <me>
+            MC=C'(q)
+          </me>
+          is the instantaneous rate of change of the cost of producing a quantity <m>q</m> of some good.
+        </p>
+        <p>
+          The <em>marginal revenue</em>,
+          <me>
+            MR=R'(q)
+          </me>
+          is the instantaneous rate of change of the revenue from producing a quantity <m>q</m> of some good.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          If the revenue and cost functions,
+          <m>R</m> and <m>C</m>, are given by the graphs below,
+          sketch graphs of the marginal revenue and marginal cost functions,
+          <m>MR</m> and <m>MC</m>.
+        </p>
+        <p>
+          <image width="75%" source="Hughes-HallettPage123c.png"/>
+        </p>
+        <p>
+          The revenue graph is a line through the origin, with equation
+          <me>
+            R=pq
+          </me>
+          where <m>p</m> represents the constant price,
+          so the slope is <m>p</m> and
+          <me>
+            MR = R'(q) = p
+          </me>
+        </p>
+        <p>
+          The total cost is increasing,
+          so the marginal cost is always positive.
+          For small <m>q</m> values,
+          the graph of the cost function is concave down,
+          so the marginal cost is decreasing.
+          For larger <m>q</m>, say <m>q>100</m>,
+          the graph of the cost function is concave up and the marginal cost is increasing.
+          Thus, the marginal cost has a minimum at about <m>q=100</m>.
+        </p>
+        <p>
+          <image width="75%" source="Hughes-HallettPage124.png"/>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Maximizing Profit and Revenue</title>
+    <p>
+      A fundamental issue for a producer of goods is how to maximize profit.
+      For a quantity, <m>q</m>,
+      the profit <m>\pi(q)</m> is the difference between the revenue,
+      <m>R(q)</m>,
+      and the cost, <m>C(q)</m>, of supplying that quantity.
+      Thus <m>\pi(q) = R(q)-C(q)</m>.
+    </p>
+    <p>
+      Now we look at how to maximize total profit,
+      given functions for revenue and cost.
+      The next example suggests a criterion for identifying the optimal production level.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Estimate the maximum profit if the revenue and cost curves are given by the curves <m>R</m> and <m>C</m>,
+          respectively, below:
+        </p>
+        <p>
+          <image width="37%" source="Hughes-HallettPage194.png"/>
+        </p>
+        <p>
+          Since profit is revenue minus cost,
+          the profit is represented by the vertical distance between the cost and revenue curves,
+          marked by the vertical arrows.
+          When revenue is below cost, the company is taking a loss;
+          when revenue is above cost, the company is making a profit.
+          The maximum profit must occur between about <m>q=70</m> and <m>q=200</m>,
+          which is the interval in which the company is making a profit.
+          Profit is maximized when the vertical distance between the curves is largest
+          (and revenue is above cost).
+          This occurs at approximately <m>q=140</m>.
+        </p>
+        <p>
+          The profit accrued at <m>q=140</m> is the vertical distance between the curves,
+          so the maximum profit is approximately <m>\dollar80,000-\dollar60,000 = \dollar20,000</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      We now analyze the marginal costs and marginal revenues near the optimal point.
+      Zooming in on the picture above around <m>q=140</m> results in the picture below.
+    </p>
+    <p>
+      <image width="37%" source="Hughes-HallettPage195.png"/>
+    </p>
+    <p>
+      At a production level <m>q_1</m> to the left of 140,
+      marginal cost is less than marginal revenue,
+      as indicated by the slopes on the two curves.
+      The company would make more money by producing more units,
+      so production should be increased
+      (toward a production level of 140).
+      At any production level <m>q_2</m> to the right of 140,
+      marginal cost is greater than marginal revenue.
+      The company would lose money by producing more units and would make more money by producing fewer units.
+      Production should be adjusted down toward 140.
+    </p>
+    <p>
+      What about the marginal revenue and marginal cost at <m>q=140</m>?
+      Since <m>MC\lt MR</m> to the left of 140,
+      and <m>MC>MR</m> to the right of 140,
+      we expect <m>MC=MR</m> at 140. (Note that we are assuming that cost, revenue,
+      marginal cost,
+      and marginal revenue are all continuous,
+      so we can use the Intermediate Value Theorem!).
+      In this example,
+      profit is maximized at the point where the slopes of the cost and revenue graphs are equal.
+    </p>
+    <p>
+      We can get the same result analytically.
+      Global maxima and minima of a function can only occur at critical points of the function or at the endpoints of the interval.
+      To find a critical points of profit <m>\pi(q)</m>,
+      look for zeros of the derivative:
+      <me>
+        \pi'(q) = R'(q)-C'(q) = 0
+      </me>.
+    </p>
+    <p>
+      So
+      <me>
+        R'(q) = C'(q)
+      </me>,
+      that is, the slopes of the graphs of <m>R(q)</m> and <m>C(q)</m> are equal at <m>q</m>.
+      In economic language,
+    </p>
+    <p>
+      \fbox{The maximum
+      (or minimum)
+      profit can occur where
+      <me>
+        \text{ Marginal profit }  = 0
+      </me>
+      that is, where
+      <me>
+        \text{ Marginal revenue }  = \text{ Marginal cost }
+      </me>
+    </p>
+    <p>
+      Of course, maximum or minimum profit does not <em>have</em>
+      to occur when <m>MR=MC</m>;
+      either one could occur at an endpoint.
+      The Example below shows how to visualize maxima and minima of the profit on a graph of marginal revenue and marginal cost.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The total revenue and total cost curves for a product are given below:
+        </p>
+        <p>
+          <image width="41%" source="Hughes-HallettPage196a.png"/>
+        </p>
+        <p>
+          The graphs of marginal cost and revenue are below.
+          Note that <m>R(q)</m> is a straight line,
+          hence <m>MR</m> is a horizontal line,
+          and that <m>C(q)</m> is always increasing,
+          so <m>MC</m> is always positive.
+        </p>
+        <p>
+          <image width="37%" source="Hughes-HallettPage196b.png"/>
+        </p>
+        <p>
+          Where is profit maximized?
+          We know that the maximum profit can occur when Marginal revenue = Marginal cost,
+          that is where the curves above cross at <m>q_1</m> and <m>q_2</m>.
+          Do these points give the maximum profit?
+        </p>
+        <p>
+          We first consider <m>q_1</m>.
+          To the left of <m>q_1</m>, we have <m>MR\lt MC</m>,
+          so <m>\pi' = MR-MC</m> is negative and the profit function is decreasing there.
+          To the right of <m>q_1</m>, we have <m>MR>MC</m>,
+          so <m>\pi'</m> is positive and the profit function is increasing.
+          This behavior, decreasing and then increasing,
+          means that the profit function has a local minimum at <m>q_1</m>.
+          This is certainly not the production level we want.
+        </p>
+        <p>
+          What happens at <m>q_2</m>?
+          To the left of <m>q_2</m>, we have <m>MR>MC</m>,
+          so <m>\pi'</m> is positive and the profit function is increasing.
+          To the right of <m>q_2</m>, we have <m>MR\lt MC</m>,
+          so <m>\pi'</m> is negative and the profit function is decreasing.
+          This behavior, increasing and then decreasing,
+          means that the profit function has a local maximum at <m>q_2</m>.
+          The global maximum profit occurs either at the production level <m>q_2</m> or at an endpoint
+          (the largest and smallest possible production levels).
+          Since the profit is negative at the endpoints
+          (because <m>R\lt C</m> at the endpoints),
+          the global maximum occurs at <m>q_2</m>.
+          A graph of <m>\pi(q)</m> is below:
+        </p>
+        <p>
+          <image width="41%" source="Hughes-HallettPage196c.png"/>
+        </p>
+        <p>
+          Note that since <m>R(0)=0</m> and <m>C(0)</m> represents the fixed costs of production,
+          we have <m>\pi(0) = R(0)-C(0) = -C(0)</m>.
+          Therefore the vertical intercept of the profit function is a negative number,
+          equal in magnitude to the size of the fixed cost.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use derivatives to find the quantity which maximizes profit if the total revenue and total cost
+          (in dollars)
+          are given by
+          <me>
+            R(q) = 5q-0.003q^2
+          </me>
+          <me>
+            C(q) = 300+1.1q
+          </me>,
+          where <m>q</m> is quantity and <m>0\leq q\leq 1000</m> units.
+          What production level gives the minimum profit?
+          <em>Make sure to check the endpoints as well as the critical points!</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      For some companies, costs do not depend on the number of items sold.
+      For example,
+      a city bus company with a fixed schedule has the same costs no matter how many people ride the buses.
+      In such a situation, profit is maximized by maximizing revenue.
+    </p>
+    <example>
+      <statement>
+        <p>
+          At a price of $80 for a half-day trip,
+          a white-water rafting company attracts 300 customers.
+          Every $5 decrease in price attracts an additional 30 customers.
+          How can we find the price that will maximize the revenue?
+        </p>
+        <p>
+          In order to find revenue <m>R=pq</m>,
+          we must first find the demand equation,
+          meaning the equation relating price to demand.
+          If price, <m>p</m>, is 80, the number of trips sold, <m>q</m>, is 300.
+          If <m>p</m> is 75, then <m>q</m> is 330, and so on.
+          Because demand changes by a constant (30 people) for every $5 drop in price,
+          <m>q</m> is a linear function of <m>p</m>.
+          Then
+          <me>
+            \text{ Slope }  = \frac{300-330}{80-75} = -\frac{30}{5} = -6\text{ people/dollar }
+          </me>,
+          so the demand equation is <m>q=-6p+b</m>.
+          Since <m>p=80</m> when <m>q=300</m>,
+          we have (using the point-slope equation)
+          <me>
+            q = -6(p-80)+300
+          </me>
+          <me>
+            q= -6p+780
+          </me>
+        </p>
+        <p>
+          The demand equation is <m>q=-6p+780</m>.
+        </p>
+        <p>
+          Since revenue <m>R=pq</m>, revenue as a function of price is
+          <me>
+            R(p) = p(-6p+780) = -6p^2+780p
+          </me>
+        </p>
+        <p>
+          To find the maximum of the revenue function, we differentiate:
+          <me>
+            \begin{aligned}R'(p) \amp = -12p+780 = 0\\ p \amp = \frac{780}{12} = 65. \end{aligned}
+          </me>
+        </p>
+        <p>
+          There is a single critical point on the domain <m>p\geq 0</m> of <m>R(p)</m>,
+          so as long as we verify that the critical point is a local maximum,
+          it must be the global maximum by the Single Critical Point Theorem.
+          Using the second derivative test, we calculate
+          <me>
+            R''(p) = -12
+          </me>
+          and so in particular,
+          <me>
+            R''(65) = -12
+          </me>.
+        </p>
+        <p>
+          This tells us that <m>R(p)</m> is concave down at the critical point of <m>p=65</m>,
+          and so <m>p=65</m> is the location of a local maximum.
+        </p>
+        <p>
+          Thus the maximum revenue is achieved when the price is $65.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    surge function, drug concentration curve, minimum effective concentration, onset, termination; supply curve, demand curve, marginal cost, marginal revenue.
+    <p>
+      <em>Key ideas:</em> Surge functions
+      <m>y=ate^{-bt}</m> have the same basic shape,
+      and the location of the maximum value is determined by the parameter <m>b</m>.
+      Adding supply and demand to the ideas of cost, revenue,
+      and profit,
+      we can model revenue and profit relative to either the quantity of an item or the price of an item.
+      Marginal is another word for "derivative of," and refers to the instantaneous change of either the cost,
+      revenue, or profit function.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      The Single Critical Point Theorem is useful for finding global minima and maxima in the case where a real-world problem has only a single critical point.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 6.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

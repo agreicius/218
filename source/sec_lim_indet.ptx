@@ -1,0 +1,1045 @@
+<section xml:id="sec_lim_indet">
+  <title>Calculating Limits Algebraically: Factoring</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Learn algebraic methods that are effective at modifying indeterminate limits of the forms
+          <m>\infty-\infty</m> and <m>\frac{\infty}{\infty}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Identify which method to use based on the indeterminate form and what kind of limit is being taken
+          (finite or at infinity).
+        </p>
+      </li>
+      <li>
+        <p>
+          Begin to develop some intuition for when limits should be finite or infinite,
+          based on the relative sizes of the parts of the function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize limit forms that are NOT indeterminate and can be evaluated immediately by logical reasoning.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="subsec_endbehaviorpowerfuncs">
+    <title>Limits at Infinity of Power Functions</title>
+    <p>
+      In the last section,
+      we saw a method for evaluating one form of indeterminate limit:
+      limits of the form <m>\frac{0}{0}</m>.
+      In this section,
+      we begin to see how to calculate limits of the other indeterminate forms that algebraic functions can have:
+      limits of the form <m>\infty-\infty</m>,
+      <m>\frac{\infty}{\infty}</m>, and <m>0\cdot\infty</m>.
+    </p>
+    <p>
+      We begin by examining limits at infinity of power functions with integer exponents.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Recall from the graphs of <m>f(x) = x^2</m> and
+          <m>f(x) = x^3</m> in <xref ref="fig_taalmanpage52a" autoname="yes"/> that
+          <me>
+            \lim_{x\to\infty}x^2 = \infty\text{ and }  \lim_{x\to\infty}x^3 = \infty
+          </me>
+          while
+          <me>
+            \lim_{x\to-\infty}x^2 = \infty\text{ and }  \lim_{x\to-\infty}x^3 = -\infty
+          </me>
+        </p>
+        <p>
+          This becomes clear if we think of
+          <m>x\to\infty</m> as meaning that <m>x</m> is a larger and larger positive number,
+          so that both <m>x^2</m> and <m>x^3</m> also become larger and larger,
+          and are positive.
+          Meanwhile, we can understand
+          <m>x\to-\infty</m> as meaning that <m>x</m> is a larger and larger
+          <em>negative</em> number,
+          so that <m>x^2</m> is a larger and larger
+          <em>positive</em> number,
+          while <m>x^3</m> is a larger and larger
+          <em>negative</em> number.
+        </p>
+        <figure xml:id="fig_taalmanpage52a">
+          <caption>The graphs of <m>f(x) = x^2</m> (left) and <m>f(x) = x^3</m> (right).</caption>
+          <image width="65%" source="TaalmanPage52a.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      This logic holds in general for any positive integer power of <m>x</m>:
+    </p>
+    <theorem xml:id="thm_pospowerfuncsatinfinity">
+      <title>Limits of Positive Integer Power Functions at Infinity</title>
+      <statement>
+        <p>
+          For any positive integer <m>k</m>,
+          <ul>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to \infty}x^k = \infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                |f <m>k</m> is an even integer,
+                then <m>\ds\lim_{x\to-\infty}x^k = \infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>k</m> is an odd integer,
+                then <m>\ds\lim_{x\to-\infty} x^k = -\infty</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Recall that the above Theorem <xref ref="thm_pospowerfuncsatinfinity" autoname="yes"/> is
+      <em>not</em> true for <em>negative</em>
+      integer powers of <m>x</m>.
+      For example, we have seen that
+      <me>
+        \lim_{x\to\pm\infty}\frac{1}{x^2} = 0\text{ and } \lim_{x\to\pm\infty}\frac{1}{x^3} = 0
+      </me>
+      since when we divide 1 by a larger and larger number,
+      either positive or negative,
+      the resulting fraction will become smaller and smaller,
+      and so approach 0.
+    </p>
+    <p>
+      This logic holds in general for any negative integer power of <m>x</m>:
+    </p>
+    <theorem xml:id="thm_negpowerfuncsatinfinity">
+      <title>Limits of Negative Integer Power Functions at Infinity</title>
+      <statement>
+        <p>
+          For any negative integer <m>k</m>,
+          <ul>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to \infty}x^k = 0</m>. \item<m>\ds\lim_{x\to-\infty}x^k = 0</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Rather than memorizing these limits,
+      it is better to remember the behavior on the right and left sides of the graphs of power functions as
+      <m>x\to\infty</m> and <m>x\to-\infty</m>.
+      Several pictures of the case where <m>x\to\infty</m> are:
+    </p>
+    <figure>
+      <image width="92.5%" source="TaalmanPage150.png"/>
+    </figure>
+    <p>
+      We can use the results of Theorem <xref ref="thm_pospowerfuncsatinfinity" autoname="yes"/> and Theorem <xref ref="thm_negpowerfuncsatinfinity" autoname="yes"/> along with the limit rules in <xref ref="thm_limitrules">Theorem</xref>
+      to compute limits at infinity for sums of such terms.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          given that <m>\ds\lim_{x\to\infty}x^{-2} =0</m> and
+          <m>\ds\lim_{x\to \infty}x^{-3}=0</m>, we can conclude that
+          <me>
+            \lim_{x\to\infty}(x^{-2}+x^{-3}) =0+0 = 0
+          </me>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="subsec_endbehaviorofpolys">
+    <title>Limits at Infinity of Polynomial Functions</title>
+    <p>
+      Let's now consider limits at <m>\infty</m> and <m>-\infty</m> for general polynomials:
+    </p>
+    <example>
+      <statement>
+        <p>
+          We know that <m>\ds\lim_{x\to \infty}x^2 = \infty</m> and <m>\ds\lim_{x\to \infty}x^3 = \infty</m>,
+          but what about
+          <me>
+            \lim_{x\to \infty}x^2-x^3?
+          </me>
+        </p>
+        <p>
+          We would like to be able to split up this limit:
+          <me>
+            \lim_{x\to \infty}x^2-x^3 = \left(\lim_{x\to\infty} x^2\right) - \left(\lim_{x\to\infty} x^3\right) = \infty-\infty
+          </me>.
+          However, this is not possible because neither of the limits involved in the expression exist;
+          remember that the limit rules in <xref ref="thm_limitrules">Theorem</xref>
+          that allow us to distribute limits over sums rely on the (finite) existence of the limits involved.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The limit <m>\ds\lim_{x\to \infty}x^2-x^3</m> is an example of a limit that has the indeterminate <em>limit form</em>
+      <m>\mathbf{\infty-\infty}</m>.
+      Similar to how we cannot cancel <m>\frac{0}{0}</m> and get <m>1</m>,
+      <m>\infty</m> is not a number and we cannot simply cancel <m>\infty-\infty</m> and get 0.
+      Recall that we call such limits "indeterminate" because they may be finite
+      (either zero or nonzero)
+      or infinite, as we shall see shortly.
+    </p>
+    <example>
+      <statement>
+        <p>
+          We could factor the expression <m>x^2-x^3</m> by dividing out <m>x^2</m> from both terms:
+          <me>
+            x^2-x^3 = x^2(1-x)
+          </me>
+        </p>
+        <p>
+          Now when we take the limit, we have
+          <me>
+            \lim_{x\to\infty} x^2-x^3 = \lim_{x\to\infty} x^2(1-x) = (\infty)(-\infty) = -\infty
+          </me>
+          since the product of two very large numbers will be very large,
+          and if one number is positive while the other is negative,
+          the product will be negative.
+          This also makes sense if we consider the fact that <m>x^3</m> will get larger faster than <m>x^2</m>,
+          so that the expression <m>x^2-x^3</m> will become be overwhelmed by the <m>x^3</m> term for large values of <m>x</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          On the other hand,
+          <me>
+            \lim_{x\to-\infty} x^2-x^3 =  \left(\lim_{x\to-\infty} x^2\right) - \left(\lim_{x\to-\infty} x^3\right) = \infty-(-\infty) = \infty+\infty
+          </me>,
+          which is NOT indeterminate,
+          since we can understand the last expression as adding two large,
+          positive numbers,
+          which results in an even larger positive number, hence:
+          <me>
+            \lim_{x\to-\infty} x^2-x^3 = \infty+\infty = \infty
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's see one more example of evaluating a polynomial at <m>\infty</m> and <m>-\infty</m> before trying to generalize a rule to use for all limits at infinity of polynomial functions:
+    </p>
+    <example xml:id="ex_quarticinfinitelimit">
+      <statement>
+        <p>
+          The polynomial <m>f(x) = x^4-x^3-11x^2+9x+18</m> cannot be factored by dividing through by any common terms.
+          However, we can "force" it to factor by dividing a factor of <m>x^4</m> from every term,
+          which leaves negative powers of <m>x</m> in all but the leading term:
+          <me>
+            \begin{aligned}f(x) \amp  = x^4-x^3-11x^2+9x+18 \\ \amp = x^4\left(1-x^{-1}-11x^{-2}+9x^{-3}+18x^{-4}\right) \\ \amp = x^4\left(1-\frac{1}{x}-\frac{11}{x^2}+\frac{9}{x^3}+\frac{18}{x^4}\right). \end{aligned}
+          </me>
+        </p>
+        <p>
+          Having done this, we can now evaluate the limits at infinity,
+          recalling that the limits of the terms with negative powers of <m>x</m> will now go to 0:
+          <me>
+            \begin{aligned}\lim_{x\to \infty}f(x) \amp = \lim_{x\to \infty}x^4\left(1-\frac{1}{x}-\frac{11}{x^2}+\frac{9}{x^3}+\frac{18}{x^4}\right)\\ \amp =\infty(1-0-0+0+0) \\ \amp =\infty \end{aligned}
+          </me>
+          and
+          <me>
+            \begin{aligned}\lim_{x\to -\infty}f(x) \amp = \lim_{x\to -\infty}x^4\left(1-\frac{1}{x}-\frac{11}{x^2}+\frac{9}{x^3}+\frac{18}{x^4}\right)\\ \amp =\infty(1-0-0+0+0) \\ \amp =\infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          Notice that the only term which ended up being relevant in the limit calculation was the leading term.
+          Again, this makes sense since the leading term has the highest power,
+          which will overwhelm the smaller terms for very large values of <m>x</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      All of these examples suggest the following method,
+      which tells us that in order to evaluate limits at infinity of polynomial functions,
+      we must "force-factor" the highest power of <m>x</m>:
+    </p>
+    <p>
+      \fbox{<em>Evaluating <m>\infty-\infty</m> limits via force-factoring:</em>
+      If <m>f</m> is a polynomial function of degree <m>n</m>,
+      follow the steps below in order to compute the limits
+      <m>\ds\lim_{x\to\pm\infty} f(x)</m> of the form <m>\infty-\infty</m>:
+      <ul>
+        <li>
+          <p>
+            <em>Force-factor</em> <m>f(x)</m> by factoring out <m>x^n</m>,
+            the highest power of <m>x</m>.
+            The "forced" common factor of <m>x^n</m> is pulled out,
+            and multiplied by the result of dividing all terms of the polynomial by <m>x^n</m>.
+            If <m>f(x) = a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0</m>,
+            then we can rewrite the divided terms either with negative powers of <m>x</m> or as fractions with powers of <m>x</m> in the denominator:
+            <me>
+              \begin{aligned}f(x) \amp = a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0\\ \amp = x^n\left(a_n+a_{n-1}x^{-1}+\ldots+a_0x^{-n}\right) \amp = x^n\left(a_n+a_{n-1}\frac{1}{x}+\ldots+a_0\frac{1}{x^n}\right) \end{aligned}
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Note that all terms in <m>\left(a_n+a_{n-1}\frac{1}{x}+\ldots+a_0\frac{1}{x^n}\right)</m> except for the first <m>a_n</m> now have powers of <m>x</m> in the denominator.
+            These are negative powers of <m>x</m>,
+            and so will have a limit of <m>0</m> by <xref ref="thm_negpowerfuncsatinfinity">Theorem</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Reevaluate the limit <m>\ds\lim_{x\to\pm\infty} f(x) = \ds\lim_{x\to\pm\infty}x^n\left(a_n+a_{n-1}\frac{1}{x}+\ldots+a_0\frac{1}{x^n}\right)</m>.
+            Only the power <m>x^n</m> and the leading coefficient <m>a_n</m> of <m>f(x)</m> will be nonzero,
+            resulting in a limit that is no longer indeterminate:
+            <me>
+              \begin{aligned}\lim_{x\to\pm\infty} (a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0) \amp = \lim_{x\to\pm\infty} x^n\left(a_n+a_{n-1}\frac{1}{x}+\ldots+a_0\frac{1}{x^n}\right) \\ \amp = \left(\lim_{x\to\pm\infty} x^n\right)(a_n+0+\ldots 0)\\ \amp = \left(\lim_{x\to\pm\infty} x^n\right)\cdot a_n \end{aligned}
+            </me>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use the method of force-factoring as described above to compute
+          <me>
+            \lim_{x\to\infty}(-3x^5+4x+11)
+          </me>
+          and
+          <me>
+            \lim_{x\to-\infty}(-3x^5+4x+11)
+          </me>.
+          Does your answer match your intuition about which term will become larger fastest as <m>x\to\pm\infty</m>?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_endbehaviorofrationalfunctions">
+    <title>Limits at Infinity of Rational Functions</title>
+    <p>
+      Now, we broaden our examination of limits at infinity to include rational functions.
+      We have already seen that power functions with negative integer exponents have limits that approach 0 at infinity:
+      <me>
+        \lim_{x\to\pm\infty}x^{-k} = \lim_{x\to\pm\infty}\frac{1}{x^k} = 0
+      </me>
+      since the denominator approaching
+      <m>\pm\infty</m> will cause the entire fraction to approach 0.
+      This same logic can be generalized to any fraction with a finite,
+      nonzero numerator and infinite denominator:
+    </p>
+    <theorem xml:id="thm_HAthm">
+      <title>Limits Whose Denominators Become Infinite Approach Zero</title>
+      <statement>
+        <p>
+          The statements below also apply to limits as
+          <m>x\to-\infty</m> and as <m>x\to c</m>:
+          <ol marker="labelalph">
+            <li>
+              <p>
+                If <m>\ds\lim_{x\to\infty}\frac{f(x)}{g(x)}</m> is of the form <m>\frac{1}{\infty}</m>,
+                then <m>\ds\lim_{x\to \infty}\frac{f(x)}{g(x)} = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>\ds\lim_{x\to \infty}\frac{f(x)}{g(x)}</m> is of the form <m>\frac{1}{-\infty}</m>,
+                then <m>\ds\lim_{x\to c\infty}\frac{f(x)}{g(x)} = 0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Consider <m>\ds\lim_{x\to\infty}\frac{1}{x+1}</m>.
+          As <m>x\to\infty</m>, we know that
+          <m>x+1\to\infty</m> and so by <xref ref="thm_HAthm">Theorem</xref>,
+          <m>\frac{1}{x+1}\to 0</m>.
+          We can write this as a one-line computation that shows our thought process:
+          <me>
+            \lim_{x\to\infty}\frac{1}{x+1} = \frac{1}{\infty} = 0
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now suppose instead that the numerator of a rational function is not finite,
+      but is also infinite.
+      For example,
+      <me>
+        \lim_{x\to\infty}\frac{x}{2x-1} = \frac{\infty}{\infty}
+      </me>
+    </p>
+    <p>
+      Such limits have the form <m>\frac{\infty}{\infty}</m> and are another type of indeterminate limit that may be either finite or infinite.
+      Let's begin exploring the value of such limits via tables of values:
+    </p>
+    <example xml:id="ex_basicHAexample">
+      <statement>
+        <p>
+          The limit
+          <me>
+            \lim_{x\to\infty}\frac{x}{2x-1} = \frac{\infty}{\infty}
+          </me>
+          is indeterminate.
+          Use a table of values to estimate <m>\ds\lim_{x\to\infty}\frac{x}{2x-1}</m>.
+        </p>
+        <p>
+          To see what happens to <m>\frac{x}{2x-1}</m> as <m>x\to\infty</m>,
+          we choose a sequence of values for <m>x</m> that get larger and larger,
+          and record the corresponding (rounded) values of <m>\frac{x}{2x-1}</m>:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>25</cell>
+              <cell>50</cell>
+              <cell>100</cell>
+              <cell>1000</cell>
+              <cell>10,000</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{x}{2x-1}</m></cell>
+              <cell><m>0.51020408</m></cell>
+              <cell><m>0.50505051</m></cell>
+              <cell><m>0.50251256</m></cell>
+              <cell><m>0.50025013</m></cell>
+              <cell><m>0.500025</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          As <m>x</m> grows larger,
+          the quantity <m>\frac{x}{2x-1}</m> appears to approach <m>0.5 = \frac{1}{2}</m>,
+          so assuming that the pattern in the table continues for even larger values of <m>x</m>,
+          we can conjecture that
+          <me>
+            \lim_{x\to\infty}\frac{x}{2x-1} = \frac{1}{2}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      How can we approach such a limit algebraically,
+      rather than using a table?
+      One method is to divide both the numerator and denominator by powers of <m>x</m> so that the limit is no longer indeterminate.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Rewrite the indeterminate limit
+          <me>
+            \lim_{x\to\infty}\frac{x}{2x-1} = \frac{\infty}{\infty}
+          </me>
+          from <xref ref="ex_basicHAexample">Example</xref>
+          algebraically by dividing the numerator and denominator by <m>x</m> or,
+          equivalently,
+          multiplying the numerator and denominator by <m>1/x</m>,
+          then simplifying:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{x}{2x-1}\amp = \lim_{x\to\infty}\frac{x}{2x-1}\cdot\frac{1/x}{1/x} \\ \amp =  \lim_{x\to\infty}\frac{1}{\frac{2x}{x}-\frac{1}{x}}\\ \amp =  \lim_{x\to\infty}\frac{1}{2-\frac{1}{x}} = \frac{1}{2-0} =\frac{1}{2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          This algebraic manipulation removes the indeterminate nature of the limit and we are able to finish the evaluation.
+        </p>
+        <p>
+          Note that this algebraically-acquired answer of
+          <m>\frac{1}{2}</m> matches the answer we conjectured via the table of values in <xref ref="ex_basicHAexample">Example</xref>.
+        </p>
+        <p>
+          Visually, this limit describes a right horizontal asymptote at <m>y=\frac{1}{2}</m>,
+          as shown in <xref ref="fig_basicHAexample">Figure</xref> below:
+        </p>
+        <figure xml:id="fig_basicHAexample">
+          <caption><m>\lim_{x\to\infty}\frac{x}{2x-1}=\frac{1}{2}</m> describes a right horizontal asymptote at <m>y=\frac{1}{2}</m>.</caption>
+          <image width="65%" source="basicHAexample.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      Let's examine some more limits of the form
+      <m>\frac{\infty}{\infty}</m> arising from rational functions.
+    </p>
+    <example xml:id="ex_5-2Example2">
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            g(x) = \frac{7x^2+14x+7}{x^2-2x+1}
+          </me>
+        </p>
+        <p>
+          We can begin to evaluate <m>\ds\lim_{x\to\infty} g(x)</m> and
+          <m>\ds\lim_{x\to-\infty}g(x)</m> by evaluating the limits of the numerators and denominators separately,
+          force-factoring when necessary.
+          For the limit as <m>x\to\infty</m>:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}7x^2+14x+7 \amp = \infty+\infty+7 = \infty\\ \text{ and }  \amp \\ \lim_{x\to\infty} x^2-2x+1 \amp = \infty-\infty+1\\ \amp  \text{ indeterminate, so force-factor } \\ \amp =  \lim_{x\to\infty} x^2(1-\frac{2}{x}+\frac{1}{x^2})\\ \amp = \infty\cdot(1-0+0) = \infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          This tells us that
+          <me>
+            \lim_{x\to\infty}g(x) = \frac{\infty}{\infty}
+          </me>,
+          and so is indeterminate.
+        </p>
+        <p>
+          For the limit as <m>x\to-\infty</m>:
+          <me>
+            \begin{aligned}\lim_{x\to-\infty}7x^2+14x+7 \amp = \infty-\infty+7 \\ \amp  \text{ indeterminate, so force-factor } \\ \amp = \lim_{x\to-\infty} x^2(7+\frac{14}{x}+\frac{7}{x^2})\\ \amp = \infty\cdot(7+0+0) = \infty\\ \text{ and }  \amp \\ \lim_{x\to-\infty} x^2-2x+1 \amp = \infty+\infty+1 = \infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          This tells us that
+          <me>
+            \lim_{x\to-\infty}g(x) = \frac{\infty}{\infty}
+          </me>
+          and so is also indeterminate.
+        </p>
+        <p>
+          Let's first explore these limits numerically via a table to see what we should expect:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>25</cell>
+              <cell>50</cell>
+              <cell>100</cell>
+              <cell>1000</cell>
+              <cell>10,000</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>g(x)\approx</m></cell>
+              <cell><m>8.2153</m></cell>
+              <cell><m>7.5831</m></cell>
+              <cell><m>7.2857</m></cell>
+              <cell><m>7.0281</m></cell>
+              <cell><m>7.0028</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We start to suspect that <m>\ds \lim_{x\to\infty}g(x) = 7</m>.
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>-25</m></cell>
+              <cell><m>-50</m></cell>
+              <cell><m>-100</m></cell>
+              <cell><m>-1000</m></cell>
+              <cell><m>-10,000</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>g(x)\approx</m></cell>
+              <cell><m>5.9645</m></cell>
+              <cell><m>6.4617</m></cell>
+              <cell><m>6.7255</m></cell>
+              <cell><m>6.9721</m></cell>
+              <cell><m>6.9972</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We likewise start to suspect that <m>\ds \lim_{x\to-\infty}g(x) = 7</m>.
+        </p>
+        <p>
+          But how can we be sure about the value of either of these limits?
+          We saw in the previous example that we may be able to use algebra to convert such limits from an indeterminate form to a non-indeterminate form.
+          Here are two different algebraic methods for doing so
+        </p>
+        <p>
+          <em><em>Method 1:</em></em> Divide the numerator and denominator by <m>x^2</m>.
+          This is equivalent to multiplying the numerator and denominator by <m>1/x^2</m>:
+          <me>
+            \begin{aligned}\lim_{x\to\pm\infty}\frac{7x^2+14x+7}{x^2-2x+1} \amp = \lim_{x\to\pm\infty}\frac{7x^2+14x+7}{x^2-2x+1}\cdot\frac{1/x^2}{1/x^2}\\ \amp = \lim_{x\to \pm\infty}\frac{7+\frac{14}{x}+\frac{7}{x^2}}{1-\frac{2}{x}+\frac{1}{x^2}}\\ \amp = \frac{7+0+0}{1-0+0}\\ \amp = \frac{7}{1}\\ \amp =7 \end{aligned}
+          </me>
+        </p>
+        <p>
+          <em><em>Method 2:</em></em> Force-factor <m>x^2</m> from both the numerator and denominator.
+          The result is the same as in the previous method,
+          since after factoring <m>x^2</m> from both the numerator and denominator,
+          the <m>x^2</m>'s will cancel:
+          <me>
+            \begin{aligned}\lim_{x\to\pm\infty}\frac{7x^2+14x+7}{x^2-2x+1} \amp = \lim_{x\to \pm\infty}\frac{x^2\left(7+\frac{14}{x}+\frac{7}{x^2}\right)}{x^2\left(1-\frac{2}{x}+\frac{1}{x^2}\right)}\\ \amp = \lim_{x\to \pm\infty}\frac{7+\frac{14}{x}+\frac{7}{x^2}}{1-\frac{2}{x}+\frac{1}{x^2}}\\ \amp = \frac{7+0+0}{1-0+0}\\ \amp = \frac{7}{1}\\ \amp =7 \end{aligned}
+          </me>
+        </p>
+        <p>
+          It is no coincidence that both of these methods result in the same answer:
+          <m>g(x)</m> has both right and left horizontal asymptotes at <m>y=7</m>,
+          as we suspected from the numerical tables,
+          and as shown below in <xref ref="fig_5-2Example2">Figure</xref>.
+          Besides, mathematics should be consistent!
+          Either of these methods provides a valid algebraic way of evaluating this limit,
+          and you may choose to use whichever method you prefer.
+        </p>
+        <figure xml:id="fig_5-2Example2">
+          <caption><m>\lim_{x\to\pm\infty} \frac{7x^2+14x+7}{x^2-2x+1}=7</m> describes a right and left horizontal asymptotes at <m>y=7</m>.</caption>
+          <image width="65%" source="5-2Example2.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          How are the two methods presented in Example <xref ref="ex_5-2Example2" autoname="yes"/> similar?
+          How are they different?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      So far we have seen one rational function with right and left horizontal asymptotes at
+      <m>y=\frac{1}{2}</m> and another rational function with right and left horizontal asymptotes at <m>y=7</m>.
+      <em>We may ask:
+      do all rational functions have horizontal asymptotes?</em>
+      Here is an example to answer this question:
+    </p>
+    <example xml:id="ex_5-2Example3">
+      <statement>
+        <p>
+          Let's use limits to determine any horizontal asymptotes of
+          <me>
+            h(x) = \frac{x^3-4x}{x^2-1}
+          </me>
+        </p>
+        <p>
+          First, note that
+          <me>
+            \lim_{x\to\infty} h(x) = \lim_{x\to\infty}\frac{x^3-4x}{x^2-1} = \frac{\infty}{\infty}
+          </me>
+          and
+          <me>
+            \lim_{x\to-\infty} h(x) = \lim_{x\to-\infty}\frac{x^3-4x}{x^2-1} = \frac{-\infty}{\infty}
+          </me>
+          are both indeterminate.
+          Here are the same two methods as in <xref ref="ex_5-2Example2">Example</xref>.
+          We only really need one but give both so that you can see more examples of using each.
+        </p>
+        <p>
+          <em><em>Method 1:</em></em> Divide the numerator and denominator by <m>x^2</m>,
+          <em>the highest power of <m>x</m> that appears in the denominator</em>.
+          This is equivalent to multiplying the numerator and denominator by <m>1/x^2</m>:
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{x^3-4x}{x^2-1} \amp = \lim_{x\to\infty}\frac{x^3-4x}{x^2-1}\cdot\frac{1/x^2}{1/x^2}\\ \amp = \lim_{x\to \infty}\frac{x-\frac{4}{x}}{1-\frac{1}{x^2}}\\ \amp = \frac{\infty-0}{1-0}\\ \amp = \frac{\infty}{1}\\ \amp =\infty \end{aligned}
+          </me>
+          and similarly
+          <me>
+            \begin{aligned}\lim_{x\to-\infty}\frac{x^3-4x}{x^2-1} \amp = \lim_{x\to-\infty}\frac{x^3-4x}{x^2-1}\cdot\frac{1/x^2}{1/x^2}\\ \amp = \lim_{x\to -\infty}\frac{x-\frac{4}{x}}{1-\frac{1}{x^2}}\\ \amp = \frac{-\infty-0}{1-0}\\ \amp = \frac{-\infty}{1}\\ \amp =-\infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          <em><em>Method 2:</em></em> Factor <m>x^3</m> from the numerator and factor <m>x^2</m> from the denominator.
+          Notice in this case that not all of the <m>x</m>'s cancel.
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{x^3-4x}{x^2-1} \amp = \lim_{x\to\infty}\frac{x^3(1-\frac{4}{x^2})}{x^2(1-\frac{1}{x^2})}\\ \amp = \lim_{x\to \infty}\frac{x(1-\frac{4}{x^2})}{1-\frac{1}{x^2}}\\ \amp = \frac{\infty\cdot (1-0)}{1-0}\\ \amp = \frac{\infty}{1}\\ \amp =\infty \end{aligned}
+          </me>
+          and similarly
+          <me>
+            \begin{aligned}\lim_{x\to-\infty}\frac{x^3-4x}{x^2-1} \amp = \lim_{x\to-\infty}\frac{x^3(1-\frac{4}{x^2})}{x^2(1-\frac{1}{x^2})}\\ \amp = \lim_{x\to -\infty}\frac{x(1-\frac{4}{x^2})}{1-\frac{1}{x^2}}\\ \amp = \frac{-\infty\cdot (1-0)}{1-0}\\ \amp = \frac{-\infty}{1}\\ \amp =-\infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          From both methods,
+          we see that <m>h(x)</m> does NOT have any horizontal asymptotes,
+          since the limits as <m>x\to\infty</m> and <m>x\to-\infty</m> are not finite.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Answer the question asked prior to <xref ref="ex_5-2Example3">Example</xref>: Do all rational functions have horizontal asymptotes?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      \fbox{ <em>A technical note:</em>
+      In Method 1, it is easier to divide through by the highest power of <m>x</m> that appears in the
+      <em>denominator</em>, rather than overall.
+      This will prevent you from arriving at a limit of the form <m>\frac{1}{0}</m>,
+      which are are difficult to compute:
+      we must determine the sign of the form
+      <m>\frac{1}{0}</m> to see if the limit approaches <m>\infty</m> or <m>-\infty</m>.
+      This detail is for convenience,
+      rather than any mathematical rule.
+      Dividing by the highest power of <m>x</m> that appears overall is not wrong,
+      but it can sometimes result in a harder-than-necessary computation. }
+    </p>
+    <p>
+      Looking back at the results of Examples <xref ref="ex_5-2Example2" autoname="yes"/> and <xref ref="ex_5-2Example3" autoname="yes"/>,
+      we realize that we should not be surprised by the results.
+      In Example <xref ref="ex_5-2Example2" autoname="yes"/>,
+      the numerator and denominator have the same degree,
+      so it makes sense that they will grow at about the same rate and the resulting limit will be finite.
+      In Example <xref ref="ex_5-2Example3" autoname="yes"/>,
+      the numerator has a higher degree,
+      so it makes sense that it will grow faster and the resulting limit will be infinite.
+    </p>
+    <p>
+      Here is one last example for you to demonstrate these two methods for evaluating limits of the form <m>\frac{\infty}{\infty}</m>.
+      In this example,
+      note that the degree of the denominator is larger than the degree of the numerator.
+      How can this observation help you to predict the value of the limit ahead of time?
+    </p>
+    <example xml:id="ex_5-2Example4">
+      <statement>
+        <p>
+          Use limits to determine the horizontal asymptotes of
+          <me>
+            k(x) = \frac{x^2-1}{x^3-4x}
+          </me>
+        </p>
+        <p>
+          Again, note that
+          <me>
+            \lim_{x\to\infty}k(x) = \lim_{x\to\infty} \frac{x^2-1}{x^3-4x} = \frac{\infty}{\infty}
+          </me>
+          and
+          <me>
+            \lim_{x\to-\infty}k(x) = \lim_{x\to-\infty} \frac{x^2-1}{x^3-4x} = \frac{\infty}{-\infty}
+          </me>
+          are both indeterminate.
+          Once again, we work through both methods to provide you with more examples.
+          This time, try to decide which method you prefer while reading,
+          and plan to use that method in problems like this from now on.
+        </p>
+        <p>
+          <em><em>Method 1:</em></em> Divide the numerator and denominator by <m>x^3</m>,
+          <em>the highest power of <m>x</m> that appears in the denominator</em>.
+          This is equivalent to multiplying the numerator and denominator by <m>1/x^3</m>:
+          <me>
+            \begin{aligned}\lim_{x\to\pm\infty}\frac{x^2-1}{x^3-4x} \amp = \lim_{x\to\pm\infty}\frac{x^2-1}{x^3-4x}\cdot\frac{1/x^3}{1/x^3}\\ \amp = \lim_{x\to \pm\infty}\frac{\frac{1}{x}-\frac{1}{x^3}}{1-\frac{4}{x^2}}\\ \amp = \frac{0-0}{1-0}\\ \amp =\frac{0}{1}\\ \amp =0 \end{aligned}
+          </me>
+        </p>
+        <p>
+          <em><em>Method 2:</em></em> Factor <m>x^2</m> from the numerator and factor <m>x^3</m> from the denominator.
+          Notice in this case that not all of the <m>x</m>'s cancel.
+          <me>
+            \begin{aligned}\lim_{x\to\pm\infty}\frac{x^2-1}{x^3-4x} \amp = \lim_{x\to\pm\infty}\frac{x^2(1-\frac{1}{x^2})}{x^3(1-\frac{4}{x^2})}\\ \amp = \lim_{x\to \pm\infty}\frac{1-\frac{1}{x^2}}{x(1-\frac{4}{x^2})}\\ \amp = \frac{1-0}{\pm\infty(1-0)}\\ \amp = \frac{1}{\pm\infty}\\ \amp =0 \end{aligned}
+          </me>
+        </p>
+        <p>
+          From both methods,
+          we can see that there is a right and left horizontal asymptote of <m>y=0</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Which method of computing <m>\dfrac{\infty}{\infty}</m> limits of rational functions do you prefer?
+          Why?
+          Summarize the steps in that method.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Other Limit Forms</title>
+    <introduction>
+      <p>
+        The previous subsections have focused on indeterminate limits of the form
+        <m>\infty-\infty</m> and <m>\frac{\infty}{\infty}</m>.
+        For both forms,
+        we have seen various algebraic methods that involve factoring for changing the form of the limit to one that is no longer indeterminate.
+        When approaching an indeterminate limit,
+        it's always a good idea to experiment with various algebraic manipulations and then reevaluate the limit to see if it is no longer indeterminate,
+        or indeterminate of a type that you know how to deal with.
+        Be warned that it takes a good deal of practice to be able to "see" ahead of time which manipulations will be effective.
+        You may need to experiment and should approach limit calculations with patience and perseverance.
+      </p>
+      <example xml:id="ex_fractionVA">
+        <statement>
+          <p>
+            For example, consider the limit
+            <me>
+              \lim_{x\to 0}\frac{1}{x^2}-\frac{1}{x^4}
+            </me>.
+            Even though this limit is not being taken at infinity,
+            it results in a limit of the form <m>\infty-\infty</m>:
+            <me>
+              \lim_{x\to 0}\frac{1}{x^2}-\frac{1}{x^4} = \frac{1}{0^+}-\frac{1}{0^+} = \infty-\infty
+            </me>
+          </p>
+          <p>
+            We try to resolve this by using algebra via finding a common denominator:
+            <me>
+              \lim_{x\to 0}\left(\frac{1}{x^2}-\frac{1}{x^4}\right) = \lim_{x\to 0}\left(\frac{x^2}{x^4}-\frac{1}{x^4}\right) =\lim_{x\to 0}\frac{x^2-1}{x^4}  = \frac{0-1}{0^+} = \frac{-1}{0^+} = -\infty
+            </me>
+          </p>
+          <p>
+            Thus we see that this limit describes a vertical asymptote that becomes infinitely negative to both the right and left of <m>x=0</m>,
+            as illustrated in <xref ref="fig_fractionVA">Figure</xref>.
+          </p>
+          <p>
+            <em>Alternate solution:</em> Could we instead have approached this calculation in the same way as suggested for <m>\infty-\infty</m> limits:
+            factor out the largest power of <m>x</m>?
+            In this case the "largest" power is <m>x^{-2}</m>:
+            <me>
+              \frac{1}{x^2}-\frac{1}{x^4} = x^{-2}-x^{-4} = x^{-2}(1-x^{-2}) = \frac{1}{x^2}\left(1-\frac{1}{x^2}\right)
+            </me>
+          </p>
+          <p>
+            Having done this, we can reevaluate the limit:
+            <me>
+              \lim_{x\to 0}\frac{1}{x^2}-\frac{1}{x^4} = \lim_{x\to 0} \frac{1}{x^2}\left(1-\frac{1}{x^2}\right) = (\infty)(1-\infty) = (\infty)(-\infty) = -\infty
+            </me>
+          </p>
+          <p>
+            It worked!!!
+          </p>
+          <figure xml:id="fig_fractionVA">
+            <caption><m>\lim_{x\to 0}\frac{1}{x^2}-\frac{1}{x^4}=-\infty</m> describes a vertical asymptote at <m>x=0</m> that approaches <m>-\infty</m> from the right and left.</caption>
+            <image width="65%" source="fractionVA.png"/>
+          </figure>
+        </statement>
+      </example>
+      <p>
+        One last type of indeterminate limit that we have not yet addressed is the form <m>0\cdot\infty</m>.
+        For algebraic functions,
+        these can usually be resolved by simplifying the given expression:
+      </p>
+      <example>
+        <statement>
+          <p>
+            The limit
+            <me>
+              \lim_{x\to\infty}\left(\frac{1}{x}\cdot(x^2-1)\right) = 0\cdot \infty
+            </me>
+            is initially indeterminate,
+            but simplifies easily by distributing and then is no longer indeterminate:
+            <me>
+              \lim_{x\to\infty}\left(\frac{1}{x}\cdot(x^2-1)\right) = \lim_{x\to\infty}\left(x-\frac{1}{x}\right) = \infty-0 = \infty
+            </me>
+          </p>
+          <p>
+            This limit tells us that there is no right horizontal asymptote for
+            <m>f(x) = \frac{1}{x}\cdot(x^2-1)</m> since the values of the function do not become finite as <m>x</m> grows without bound.
+          </p>
+        </statement>
+      </example>
+    </introduction>
+    <subsubsection>
+      <title>Non-indeterminate Limit Forms</title>
+      <p>
+        Though we have been focused lately on difficult "indeterminate" limits,
+        remember that many limits are not indeterminate and can be evaluated immediately,
+        using a bit of intuition about the size of the quantities involved in the limit.
+      </p>
+      <p>
+        If we can determine immediately whether a limit exists or not,
+        then it is not an indeterminate limit.
+        We have seen many non-indeterminate forms for limits already and summarize some of the most common the occur for algebraic functions in the theorem below.
+        We will see more next semester when we explore transcendental functions.
+      </p>
+      <remark>
+        <p>
+          You should NOT memorize these limit forms or their values.
+          Each of the limit forms in the theorem can be easily determined by investigation or intuition.
+          In each case, there is no "fight" for the value of the limit;
+          it is clear what limits of each form much approach.
+        </p>
+      </remark>
+      <theorem xml:id="thm_nonindeterminateforms">
+        <title>Non-Indeterminate Forms for Algebraic Functions</title>
+        <statement>
+          <p>
+            In the forms below,
+            the number 1 can be understood to be any nonzero finite number.
+            <ol marker="labelalph">
+              <li>
+                <p>
+                  A limit in any of these forms must be equal to 0:
+                  <me>
+                    \frac{1}{\infty}\qquad \frac{0}{\infty} \qquad \frac{0}{1}
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  A limit in any of these forms must be <m>\infty</m> or <m>-\infty</m>,
+                  depending on the sign of all of the expressions:
+                  <me>
+                    \frac{1}{0}\qquad \frac{\infty}{0}\qquad \frac{\infty}{1} \qquad \infty+\infty\qquad -\infty-\infty\qquad \infty\cdot\infty
+                  </me>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </theorem>
+      <example>
+        <statement>
+          <p>
+            For example, in a limit of the form <m>\frac{0}{\infty}</m>,
+            the numerator approaches zero,
+            making the quotient smaller and smaller;
+            at the same time, the denominator grows without bound,
+            which also makes the quotient smaller and smaller.
+            Thus for the form <m>\frac{0}{\infty}</m>,
+            the behavior of both the numerator and the denominator causes the limit to approach 0.
+          </p>
+        </statement>
+      </example>
+      <exercise>
+        <statement>
+          <p>
+            Determine which of the given forms are indeterminate.
+            For each form that is NOT indeterminate,
+            describe the behavior of a limit of that form.
+            <ol marker="labelalphitemsep10pttopsep10pt">
+              <li>
+                <p>
+                  <m>\infty+\infty</m>, <nbsp/><nbsp/> <m>\infty-\infty</m>,<nbsp/><nbsp/>
+                  <m>\infty+1</m>,<nbsp/><nbsp/> <m>0+\infty</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\infty\cdot(-\infty)</m>, <m>0\cdot\infty</m>,
+                  <m>5\cdot\infty</m>,<nbsp/><nbsp/> <m>5\cdot 0</m>, <m>0\cdot 0</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dfrac{0}{0}</m>,<nbsp/><nbsp/> <m>\dfrac{0}{\infty}</m>,
+                  <m>\dfrac{\infty}{0}</m>, <m>\dfrac{1}{0}</m>, <m>\dfrac{0}{1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dfrac{\infty}{1}</m>,
+                  <m>\dfrac{1}{\infty}</m>, <m>\dfrac{\infty}{\infty}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following results were introduced in this section:
+    </p>
+    Limits at infinity of positive integer power function, of negative integer power functions, of polynomial functions, of rational functions.
+    <p>
+      <em>Key ideas:</em> We can use algebra to change indeterminate limits of the forms
+      <m>\frac{\infty}{\infty}</m>, <m>\infty-\infty</m>,
+      and <m>0\cdot\infty</m> into non-indeterminate limit forms.
+      There are often several methods that will work equally well,
+      especially for limits of the form <m>\frac{\infty}{\infty}</m>,
+      such as dividing through by the highest power of <m>x</m> in the denominator or force-factoring the numerator and denominator.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Evaluating limits requires patience.
+      Indeterminate limits must be evaluated,
+      manipulated, evaluated again,
+      and then sometimes manipulated and evaluated some more until they are no longer indeterminate.
+      DNE is never a sufficient answer to any limit problem without detailed explanation of why the limit does not exist!!!
+    </p>
+    <p>
+      Yes, there is a short-cut to finding horizontal asymptotes of rational functions.
+      No, I will not tell you what it is
+      (until next semester)
+      and no, you can't use it if you know it.
+      We'll do these types of limits via the algebraic methods presented for now.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 2.6}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,920 @@
+<section xml:id="sec_identitiespart1">
+  <title>Properties of Trigonometric Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Connect the shapes of the graphs of trigonometric functions with their unit-circle definition.
+        </p>
+      </li>
+      <li>
+        <p>
+          Solve equations involving trigonometric functions,
+          using intuition from both the unit-circle and their graphs.
+        </p>
+      </li>
+      <li>
+        <p>
+          Derive properties and identities of trigonometric functions from their unit-circle definitions.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Trigonometric Functions as Graphs</title>
+    <p>
+      We have seen how tracking the height of a point that is traversing a circle generates a periodic function,
+      such as <xref ref="fig_APCFigure2-1-10">Figure</xref>.
+      We also identified a collection of 16 special points on the unit circle,
+      as seen in <xref ref="fig_unitcircle">Figure</xref> below,
+      for which we know the exact values of the coordinates,
+      and thereby the exact values of sine and cosine.
+    </p>
+    <figure xml:id="fig_unitcircle">
+      <caption>The unit circle with 16 labeled points</caption>
+      <image width="70%" source="APC-unitcircle.png"/>
+    </figure>
+    <exercise>
+      <statement>
+        <p>
+          If we consider the unit circle in <xref ref="fig_unitcircle">Figure</xref>,
+          start at <m>t=0</m>,
+          and traverse the circle counterclockwise,
+          we may view the height, <m>h</m>,
+          of the traversing point as a function of the angle, <m>t</m>,
+          in radians.
+          From there, we can plot the resulting ordered pairs <m>(t,h)</m> and connect them to generate the circular function <m>h=f(t)</m> pictured in <xref ref="fig_sinapc">Figure</xref>.
+        </p>
+        <figure xml:id="fig_sinapc">
+          <caption>Plot of the function <m>f(t)=\sin(t)</m>.</caption>
+          <image width="50%" source="APC-figure2-3-2.png"/>
+        </figure>
+        <p>
+          Recall, the height of a point <m>t</m> radians along the unit circle is given by <m>\sin(t)</m>,
+          which in this exercise is being called either <m>h</m> or <m>f(t)</m>.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                What is the exact value of
+                <m>f\left(\frac{\pi}{4}\right) = \sin\left(\frac{\pi}{4}\right)</m>? of <m>f\left(\frac{\pi}{3}\right) = \sin\left(\frac{\pi}{3}\right)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                Complete the following table with the exact values of
+                <m>h=\sin t</m> that correspond to the stated inputs.
+                <image width="46%" source="APCPreview2-3-1Table.png"/>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the exact value of
+                <m>f\left(\frac{11\pi}{4}\right) = \sin\left(\frac{11\pi}{4}\right)</m>? of <m>f\left(\frac{14\pi}{3}\right) = \sin\left(\frac{14\pi}{3}\right)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give four different values of <m>t</m> for which <m>f(t) = \sin t = -\frac{\sqrt{3}}{2}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The above exercise illustrates how the values of the function
+      <m>f(t) = \sin t</m> translate from the unit circle to the graph of the function where the values are plotted on the vertical axis and the angles along the horizontal axis.
+      The same can be done for the other five trigonometric functions.
+    </p>
+    <p>
+      The graphs of the six trigonometric functions are shown next.
+      Each of the graphs in the second column is the <em>reciprocal</em>
+      of the graph immediately to the left of it.
+      Remember that you can use the graph of a function <m>f</m> to sketch the graph of its reciprocal,
+      <m>\frac{1}{f}</m>.
+      In particular,
+      the zeros of <m>f</m> will be the vertical asymptotes of <m>\frac{1}{f}</m>,
+      large heights on the graph <m>f</m> will become small heights on the graph <m>\frac{1}{f}</m>,
+      and vice versa.
+    </p>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines = middle,
+axis on top,
+minor tick num=3,
+ticklabel style={fill=white,font=\scriptsize, inner sep=1pt},
+xmin=-550, xmax=550,
+xtick={-540,-360,-180, 0, 180, 360, 540},
+xticklabels={\(-3\pi\) \(,-2\pi\), \(-\pi\), 0, \(\pi\), \(2\pi
+<me>
+,3\pi$},
+ymin=-1.9, ymax=1.9,
+ytick={-2,-1,...,2},
+domain=-550:550,
+samples=181,
+no marks]
+\addplot +[blue,thick] {sin(x)};
+\end{axis}
+\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}
+\begin{axis}[
+axis lines = middle,
+axis on top,
+minor tick num=3,
+ticklabel style={fill=white,font=\scriptsize, inner sep=1pt},
+xmin=-550, xmax=550,
+xtick={-540,-360,-180, 0, 180, 360, 540},
+xticklabels={$-3\pi$ $,-2\pi$, $-\pi$, 0, $\pi$, $2\pi
+</me>
+,3\pi\)},
+ymin=-1.9, ymax=1.9,
+ytick={-2,-1,...,2},
+domain=-550:550,
+samples=181,
+no marks
+]
+\addplot[dashed, red] coordinates{(-540,-4) (-540,4)};
+\addplot [domain=-540:-360, blue,thick] {cosec(x)};
+\addplot[dashed, red] coordinates{(-360,-4) (-360,4)};
+\addplot [domain=-360:-180, blue,thick] {cosec(x)};
+\addplot[dashed, red] coordinates{(-180,-4) (-180,4)};
+\addplot [domain=-180:0, blue,thick] {cosec(x)};
+\addplot[dashed, red] coordinates{(0,-4) (0,4)};
+\addplot [domain=0:180, blue,thick] {cosec(x)};
+\addplot[dashed, red] coordinates{(180,-4) (180,4)};
+\addplot [domain=180:360, blue,thick] {cosec(x)};
+\addplot[dashed, red] coordinates{(360,-4) (360,4)};
+\addplot [domain=360:540, blue,thick] {cosec(x)};
+\addplot[dashed, red] coordinates{(540,-4) (540,4)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <p>
+      <m>y=\sin t</m> &amp; <m>y=\csc t = \frac{1}{\sin t}</m>
+    </p>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines = middle,
+axis on top,
+minor tick num=3,
+ticklabel style={fill=white,font=\scriptsize, inner sep=1pt},
+xmin=-550, xmax=550,
+xtick={-540,-360,-180, 0, 180, 360, 540},
+xticklabels={\(-3\pi\) \(,-2\pi\), \(-\pi\), 0, \(\pi\), \(2\pi
+<me>
+,3\pi$},
+ymin=-1.9, ymax=1.9,
+ytick={-2,-1,...,2},
+domain=-550:550,
+samples=181,
+no marks]
+\addplot +[blue,thick] {cos(x)};
+\end{axis}
+\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}
+\begin{axis}[
+axis lines = middle,
+axis on top,
+minor tick num=3,
+ticklabel style={fill=white,font=\scriptsize, inner sep=1pt},
+xmin=-550, xmax=550,
+xtick={-540,-360,-180, 0, 180, 360, 540},
+xticklabels={$-3\pi$ $,-2\pi$, $-\pi$, 0, $\pi$, $2\pi
+</me>
+,3\pi\)},
+ymin=-1.9, ymax=1.9,
+ytick={-2,-1,...,2},
+domain=-550:550,
+samples=181,
+no marks
+]
+\addplot [domain=-550:-460, blue,thick] {sec(x+2*pi)};
+\addplot[dashed, red] coordinates{(-450,-4) (-450,4)};
+\addplot [domain=-450:-270, blue,thick] {sec(x)};
+\addplot[dashed, red] coordinates{(-270,-4) (-270,4)};
+\addplot [domain=-270:-90, blue,thick] {sec(x)};
+\addplot[dashed, red] coordinates{(-90,-4) (-90,4)};
+\addplot [domain=-90:90, blue,thick] {sec(x)};
+\addplot[dashed, red] coordinates{(0,-4) (0,4)};
+\addplot [domain=90:270, blue,thick] {sec(x)};
+\addplot[dashed, red] coordinates{(90,-4) (90,4)};
+\addplot [domain=270:450, blue,thick] {sec(x)};
+\addplot[dashed, red] coordinates{(270,-4) (270,4)};
+\addplot [domain=450:550, blue,thick] {sec(x)};
+\addplot[dashed, red] coordinates{(450,-4) (450,4)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <p>
+      <m>y=\cos t</m> &amp; <m>y=\sec t = \frac{1}{\cos t}</m>
+    </p>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines = middle,
+axis on top,
+minor tick num=3,
+ticklabel style={fill=white,font=\scriptsize, inner sep=1pt},
+xmin=-550, xmax=550,
+xtick={-540,-360,-180, 0, 180, 360, 540},
+xticklabels={\(-3\pi\) \(,-2\pi\), \(-\pi\), 0, \(\pi\), \(2\pi
+<me>
+,3\pi$},
+ymin=-4, ymax=4,
+ytick={-4,-3,...,4},
+domain=-550:550,
+samples=181,
+no marks]
+\addplot [domain=-549:-460, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(-450,-4) (-450,4)};
+\addplot [domain=-450:-270, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(-270,-4) (-270,4)};
+\addplot [domain=-270:-90, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(-90,-4) (-90,4)};
+\addplot [domain=-90:90, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(0,-4) (0,4)};
+\addplot [domain=90:270, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(90,-4) (90,4)};
+\addplot [domain=270:450, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(270,-4) (270,4)};
+\addplot [domain=450:550, blue,thick] {tan(x)};
+\addplot[dashed, red] coordinates{(450,-4) (450,4)};
+\end{axis}
+\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}
+\begin{axis}[
+axis lines = middle,
+axis on top,
+minor tick num=3,
+ticklabel style={fill=white,font=\scriptsize, inner sep=1pt},
+xmin=-550, xmax=550,
+xtick={-540,-360,-180, 0, 180, 360, 540},
+xticklabels={$-3\pi$ $,-2\pi$, $-\pi$, 0, $\pi$, $2\pi
+</me>
+,3\pi\)},
+ymin=-1.9, ymax=1.9,
+ytick={-2,-1,...,2},
+domain=-550:550,
+samples=181,
+no marks
+]
+\addplot[dashed, red] coordinates{(-540,-4) (-540,4)};
+\addplot [domain=-540:-360, blue,thick] {cot(x)};
+\addplot[dashed, red] coordinates{(-360,-4) (-360,4)};
+\addplot [domain=-360:-180, blue,thick] {cot(x)};
+\addplot[dashed, red] coordinates{(-180,-4) (-180,4)};
+\addplot [domain=-180:0, blue,thick] {cot(x)};
+\addplot[dashed, red] coordinates{(0,-4) (0,4)};
+\addplot [domain=0:180, blue,thick] {cot(x)};
+\addplot[dashed, red] coordinates{(180,-4) (180,4)};
+\addplot [domain=180:360, blue,thick] {cot(x)};
+\addplot[dashed, red] coordinates{(360,-4) (360,4)};
+\addplot [domain=360:540, blue,thick] {cot(x)};
+\addplot[dashed, red] coordinates{(540,-4) (540,4)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <p>
+      <m>y=\tan t</m> &amp; <m>y=\cot t = \frac{\cos t}{\sin t}</m>
+    </p>
+    <p>
+      We summarize some properties of the six trigonometric functions that can be seen in the graphs above:
+    </p>
+    <theorem>
+      <title>Domain, Range, and Period of the Six Trigonometric Functions</title>
+      <statement>
+        <p>
+          The six trigonometric functions <m>\sin t, \cos t, \tan t, \csc t, \sec t</m>,
+          and <m>\cot t</m> have the following domain, range, and period:
+          <ul>
+            <li>
+              <p>
+                The domain of both <m>\sin t</m> and <m>\cos t</m> is the set of all real numbers and their range is <m>[-1,1]</m>.
+                They are periodic with period <m>2\pi</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>\tan t</m> is the set of all real numbers <m>t</m> <em>except</em>
+                for odd multiples of <m>\pi/2</m>:
+                <m>t\neq \ldots -\frac{3\pi}{2}, -\frac{\pi}{2}, \frac{\pi}{2}, \frac{3\pi}{2},\ldots</m> and its range is <m>(-\infty,\infty)</m>.
+                It is periodic with period <m>\pi</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>\csc t</m> is the set of all real numbers <m>t</m> <em>except</em>
+                for multiples of <m>\pi</m>:
+                <m>t\neq \ldots -2\pi, -\pi, 0, \pi, 2\pi,\ldots</m> and its range is <m>(-\infty,-1)\cup(1,\infty)</m>.
+                It is periodic with period <m>2\pi</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>\sec t</m> is the set of all real numbers <m>t</m> <em>except</em>
+                for odd multiples of <m>\pi/2</m>:
+                <m>t\neq \ldots -\frac{3\pi}{2}, -\frac{\pi}{2}, \frac{\pi}{2}, \frac{3\pi}{2},\ldots</m> and its range is <m>(-\infty,-1)\cup(1,\infty)</m>.
+                It is periodic with period <m>2\pi</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>\cot t</m> is the set of all real numbers <m>t</m> <em>except</em>
+                for multiples of <m>\pi</m>:
+                <m>t\neq \ldots -2\pi, -\pi, 0, \pi, 2\pi,\ldots</m> and its range is <m>(-\infty,-1)\cup(1,\infty)</m>.
+                It is periodic with period <m>\pi</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      <em>The above properties should not be memorized</em>,
+      but rather should be understood from the definitions.
+      We have already explored how <m>\sin t</m> and <m>\cos t</m> are defined for all values of <m>t</m>,
+      take on values between <m>-1</m> and <m>1</m> inclusive,
+      and are periodic with period <m>2\pi</m>.
+      These all come from their definition as the vertical/horizontal value of a point moving around the unit circle.
+    </p>
+    <p>
+      The function <m>\tan t</m> is undefined at all values of <m>t</m> where <m>\cos t=0</m>,
+      since we define <m>\tan t = \frac{\sin t}{\cos t}</m>.
+      These are the angles corresponding to the vertical axis of the unit circle,
+      so the odd multiples of <m>\pi/2</m>, which can be written
+      <me>
+        t = \frac{(2k+1)\pi}{2}\text{ where } k\text{ is a positive or negative whole number. }
+      </me>
+    </p>
+    <p>
+      At those points, <m>\tan t</m> has vertical asymptotes since
+      <m>\sin t = \pm1</m> where <m>\cos t = 0</m>,
+      thus <m>\ds\lim_{t\to (2k+1)\pi/2}\tan t</m> has the form <m>\frac{1}{0}</m>.
+      In particular, when <m>t\to\pi/2</m>,
+      <m>\sin t\to 1</m> and <m>\cos t\to 0</m> from both above
+      (when <m>t\to 0^-</m>)
+      and below (when <m>t\to 0^+</m>),
+      so we see that the asymptotes go to both <m>\infty</m> and <m>-\infty</m>,
+      so <m>\tan t</m> has range <m>(-\infty,\infty)</m>.
+      We cannot yet prove rigorously that <m>\tan t</m> has period <m>\pi</m>,
+      rather than <m>2\pi</m>, but it is clear to see from the graph,
+      and is due to the fact that the sign of
+      <m>\frac{\sin t}{\cos t}</m> is positive for <m>t</m> in the first quadrant,
+      negative for <m>t</m> in the second quadrant,
+      then positive again for <m>t</m> in the third quadrant,
+      and negative for <m>t</m> in the fourth quadrant.
+      (The period of <m>\tan t</m> will be the last thing we examine in this section.)
+    </p>
+    <p>
+      Let's take a closer look at the graph of <m>\csc t = \frac{1}{\sin t}</m>.
+      It is undefined at all values of <m>t</m> where <m>\sin t=0</m>.
+      These are the angles corresponding to the horizontal axis of the unit circle,
+      which are the multiples of <m>\pi</m>, and can be written
+      <me>
+        t = k\pi\text{ where } k\text{ is a positive or negative whole number. }
+      </me>
+    </p>
+    <p>
+      At those points, <m>\csc t</m> has vertical asymptotes since
+      <m>\ds\lim_{t\to k\pi}\csc t</m> has the form <m>\frac{1}{0}</m>,
+      and we can see that for each such <m>t</m>,
+      <m>\sin t</m> approaches <m>0^+</m> on one side and <m>0^-</m> on the other.
+      The range of <m>\csc t</m> is <em>not</em>
+      all real numbers, however,
+      since the values of <m>\csc t</m> cannot be between <m>-1</m> and <m>1</m>.
+      This is because <m>\sin t\leq1</m> and <m>\sin t\geq-1</m>,
+      so either <m>\csc t = \frac{1}{\sin t}\geq1</m> or <m>\csc t = \frac{1}{\sin t}\leq-1</m>.
+      The period of <m>\csc t</m> is <m>2\pi</m> because the period of <m>\sin t</m> is <m>2\pi</m>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          For what values of <m>t</m> does <m>\sec t</m> have vertical asymptotes?
+          How can you see this on the graph of <m>\cos t</m>?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Solving Equations Involving Trigonometric Functions</title>
+    <p>
+      Now that we know what the trigonometric functions look like,
+      have a table of values that we could memorize
+      (or look up),
+      and have constant access to a calculator for all of the other values,
+      it might be tempting to forget all about the unit circle definitions of sine and cosine.
+      However, the unit circle provides a crucial perspective that allows us to solve equations involving trigonometric functions,
+      and also derive further useful properties of trigonometric functions.
+    </p>
+    <p>
+      In the next example,
+      we demonstrate how to use the unit circle to solve fairly basic equations involving sine and cosine.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find all of the solutions of the equation <m>\sin\theta=\cos\theta</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If <m>\sin\theta=\cos\theta</m>,
+          then <m>\theta</m> is an angle whose terminal edge intersects the unit circle at a point <m>(x,y)</m> with <m>x=y</m>,
+          since the coordinates <m>(x,y)</m> on the unit circle correspond to the points <m>(\cos\theta,\sin\theta)</m>.
+          The only such points on the unit circle are
+          <m>\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)</m> and <m>\left(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}\right)</m>,
+          as shown in <xref ref="fig_TaalmanPage411">Figure</xref> below.
+        </p>
+        <figure xml:id="fig_TaalmanPage411">
+          <caption>The line <m>y=x</m> intersects the unit circle at the points  <m>\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)</m> and <m>\left(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}\right)</m>.</caption>
+          <image width="37%" source="TaalmanPage411.png"/>
+        </figure>
+        <p>
+          The angles that end at these points are all of the form
+          <m>\theta=\frac{\pi}{4}+\pi k</m> for some integer <m>k</m>.
+          Thus, the solution set for the equation is <m>\left\{\dots,-\frac{3\pi}{4},\frac{\pi}{4},\frac{5\pi}{4},\frac{9\pi}{4},\dots\right\}</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Below is another application of our understanding of the unit-circle origins of sine and cosine.
+      We can often find the value of one function if we are given the value of another function,
+      without having to know the precise angle involved.
+    </p>
+    <example xml:id="ex_Taalman6-1-4">
+      <statement>
+        <p>
+          Given that <m>\cos\theta=-\frac{1}{3}</m> and <m>\theta</m> is an angle that terminates in the third quadrant,
+          find <m>\tan\theta</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since <m>\cos\theta=-\frac{1}{3}</m>,
+          the angle <m>\theta</m> must intersect the unit circle at a point whose <m>x</m>-coordinate is <m>-\frac{1}{3}</m>,
+          as shown next.
+          Only one of these points is in the third quadrant,
+          and it is of the form <m>\left(-\frac{1}{3},y\right)</m> where <m>y</m> is some negative number.
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage410c.png"/>
+        </p>
+        <p>
+          To find the tangent of <m>\theta</m>,
+          we need to know the <m>y</m>-coordinate of the point we have identified in the third quadrant.
+          Because the radius of the circle is 1 and is the hypotenuse of a right triangle with base <m>x=\frac{1}{3}</m> and height <m>y</m>,
+          by the Pythagorean Theorem, it follows that
+          <me>
+            \begin{aligned}y^2+\left(-\frac{1}{3}\right)^2 \amp =1 \\ y^2+\frac{1}{9}\amp =1\\ y \amp =\pm\sqrt{1-\frac{1}{9}}\\ \amp =\pm\sqrt{\frac{8}{9}}\\ \amp =\pm\frac{2\sqrt{2}}{3}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Since <m>\theta</m> terminates in the third quadrant,
+          the <m>y</m>-coordinate corresponding to <m>\theta</m> is the negative choice:
+          <me>
+            y= -\frac{2\sqrt{2}}{3}
+          </me>
+        </p>
+        <p>
+          As a reality check,
+          <m>-\frac{2\sqrt{2}}{3}\approx -0.9428</m> is a reasonable answer,
+          since the point in question has a <m>y</m> coordinate very close to <m>-1</m>.
+        </p>
+        <p>
+          We can now say that
+          <me>
+            \tan\theta=\frac{y}{x}=\frac{-\frac{2\sqrt{2}}{3}}{-\frac{1}{3}}=\frac{2\sqrt{2}}{1}=2\sqrt{2}
+          </me>
+        </p>
+        <p>
+          It is interesting to note that we never actually had to determine the angle measure of <m>\theta</m>,
+          we only needed to know the <m>(x,y)</m> coordinates of the corresponding point on the unit circle.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Suppose as in <xref ref="ex_Taalman6-1-4">Example</xref>
+          you know that <m>\cos\theta = -\frac{1}{3}</m>,
+          but you are not told that <m>\theta</m> is an angle that terminates in the third quadrant.
+          What other value could <m>\tan\theta</m> have?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>A Practical Example of Using Trigonometric Functions</title>
+    <p>
+      There are also many practical uses for trigonometric functions and reasons to want to solve problems like in the last section.
+      The origins of trigonometry can be traced to the civilizations of ancient Egypt, Mesopotamia and the Indus Valley (India),
+      more than 4000 years ago.<fn>
+      <url href="https://www.newworldencyclopedia.org/entry/trigonometry">https://www.newworldencyclopedia.org/entry/trigonometry</url>
+      </fn> Here is a modern application of some of these very old ideas.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose you are 500 feet from the base of an office building,
+          and suppose that the angle of elevation of your line of sight (i.e., the angle between the horizontal ground and your diagonal line of sight) to the top of the building is 36 degrees.
+          How tall is the building?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Suppose <m>h</m> is the height of the building.
+          You are standing 500 feet away from the building as shown in the following diagram:
+        </p>
+        <p>
+          <image width="65%" source="TaalmanPage412a.png"/>
+        </p>
+        <p>
+          We know the length of the side of the triangle adjacent to the 36 degree angle,
+          and we would like to find the length of the side that is opposite that angle, The tangent function relates those two sides,
+          specifically,
+          <m>\tan(36^{\circ})</m> is the ratio of the height of the building to the distance you are from the building:
+          <me>
+            \tan(36^{\circ})=\frac{\textrm{opp} }{\textrm{adj} }=\frac{h}{500} \ \implies \ h=500\tan(36^{\circ}) \ \implies \ h\approx 363.27 \ \textrm{ feet.}
+          </me>
+        </p>
+        <p>
+          In the last step,
+          we use a calculator to approximate <m>\tan(36^{\circ})\approx0.7265</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Some other disciplines that make regular use of trigonometric functions are architecture and carpentry,
+      astronomy,
+      navigation,
+      climate science and meteorology,
+      and image and sound processing.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          What are a few situations in your own life where you either observe periodic behavior that could be modeled with a circular function,
+          or where you need to make use of relationships between angles and side lengths of triangles?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>A Few Trigonometric Identities</title>
+    <p>
+      Another reason to remember the unit-circle definitions of sine and cosine is in establishing the many identities that these and the other trigonometric functions satisfy.
+      An <em>identity</em> is an equation that is always true.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, the equation <m>x^2=4</m> is <em>not</em>
+          an identity because it is true only for the values <m>x=2</m> and <m>x=-2</m>.
+        </p>
+        <p>
+          By contrast,
+          the equation <m>3^{2x}=9^x</m> is true for <em>all</em>
+          values of <m>x</m> and thus is an identity.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Because trigonometric functions are closely related to each other,
+      there are a LOT of trigonometric identities that describe relationships between two seemingly different trigonometric expressions that are in fact equal for all relevant values of <m>x</m>.
+      These identities will be the key to rewriting and simplifying trigonometric expressions,
+      much like the logarithms rules of previous chapters.<fn>
+      Please try not to forget them as they will be on the final exam.
+      </fn>
+    </p>
+    <p>
+      For instance,
+      the sine and cosine of an angle <m>\theta</m> are the <m>y</m>-coordinate and <m>x</m>-coordinates,
+      respectively,
+      of the point where the terminal edge of <m>\theta</m> meets the unit circle.
+      Since the unit circle has equation <m>x^2+y^2 = 1</m>,
+      the quantities <m>x=\cos \theta</m> and
+      <m>y=\sin \theta</m> are related by the trigonometric identity
+      <me>
+        (\cos \theta)^2+(\sin \theta)^2 = 1
+      </me>.
+    </p>
+    <p>
+      This equation is known as a <em>Pythagorean Identity</em>, since,
+      for acute angles,
+      it follows from the Pythagorean Theorem as follows: If <m>\theta</m> is an angle in a right triangle with hypotenuse <m>1</m>,
+      then <m>\sin \theta = \frac{\text{ opp } }{1}</m> is the length of the side opposite <m>\theta</m> and
+      <m>\cos\theta = \frac{\text{ adj } }{1}</m> is the length of the side adjacent to <m>\theta</m>.
+      By the Pythagorean Theorem,
+      the sum of the squares of those lengths must be equal to the square of the hypotenuse,
+      again giving us the identity just listed.
+      The following Figure illustrates these two ways of obtaining that identity:
+    </p>
+    <figure xml:id="fig_TaalmanPage417">
+      <caption>Two different ways to derive the Pythagorean Identity, either via the unit-circle definition or the right-triangle definition.</caption>
+      <image width="92.5%" source="TaalmanPage417.png"/>
+    </figure>
+    <p>
+      For notational convenience, people often use the abbreviation
+      <me>
+        \sin^2\theta\text{ or }  \cos^2\theta
+      </me>
+      to represent <m>(\sin \theta)^2</m> or <m>(\cos\theta)^2</m>,
+      respectively.
+      We will use exponents similarly for the other trigonometric functions and for higher integer powers.
+    </p>
+    <p>
+      Thus the Pythagorean Identity is typically written
+      <me>
+        \cos^2 \theta+\sin^2 \theta = 1
+      </me>.
+    </p>
+    <remark>
+      <p>
+        The notation <m>\sin^2\theta\text{ or } \cos^2\theta</m> <em>should not </em>
+        be taken to mean <m>\sin(\sin(\theta))</m> or <m>\cos(\cos(\theta))</m>.
+        This is confusing and I apologize on behalf of the mathematical community.
+      </p>
+    </remark>
+    <p>
+      From the preceding discussion,
+      we get the following three trigonometric identities:
+    </p>
+    <theorem xml:id="thm_pythagidentity">
+      <title>Pythagorean Identities</title>
+      <statement>
+        <p>
+          For every angle <m>\theta</m> for which the expressions that follow are defined,
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>\sin^2\theta+\cos^2\theta = 1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\tan^2\theta+1 = \sec^2\theta</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>1+\cot^2\theta = \csc^2\theta</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We have already proved (a).
+        To prove (b),
+        we simply divide both sides of (a) by <m>\cos^2\theta</m> and then simplify:
+        <me>
+          \begin{aligned}\sin^2\theta +\cos^2\theta \amp = 1\\ \frac{\sin^2\theta +\cos^2\theta}{\cos^2\theta} \amp = \frac{1}{\cos^2\theta}\\ \frac{\sin^2\theta}{\cos^2\theta} +\frac{\cos^2\theta}{\cos^2\theta} \amp = \frac{1^2}{\cos^2\theta}\\ \left(\frac{\sin\theta}{\cos\theta}\right)^2+1 \amp = \left(\frac{1}{\cos\theta}\right)^2\\ \tan^2\theta +1 \amp =\sec^2\theta \end{aligned}
+        </me>
+      </p>
+    </proof>
+    <exercise>
+      <statement>
+        <p>
+          Use the Pythagorean Identity (part (a) of <xref ref="thm_pythagidentity">Theorem</xref>) to prove the identity in part (c).
+          <em>Hint: Divide by a suitable trigonometric expression.</em>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      As another example,
+      from the unit circle we can determine that each of the six trigonometric function is either an even function or an odd function.
+      Recall that a function <m>f(x)</m> is <em>even</em>
+      if <m>f(-x) = f(x)</m> for all <m>x</m> in its domain and
+      <em>odd</em> if <m>f(-x) = -f(x)</m>.
+      Graphs of odd functions have
+      <m>180^\circ</m> rotational symmetry about the origin,
+      while graphs of even functions have reflectional symmetry across the <m>y</m>-axis.
+      The following theorem tells us that sine and tangent are odd functions while the cosine function is even.
+    </p>
+    <theorem xml:id="thm_evenoddidentity">
+      <title>Even and Odd Identities</title>
+      <statement>
+        <p>
+          For every angle <m>\theta</m>,
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\sin(-\theta) = -\sin\theta</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\cos(-\theta) = \cos\theta</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\tan(-\theta) = -\tan\theta</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can easily see from the graphs of <m>\sin t, \cos t</m>,
+      and <m>\tan t</m> that sine and tangent have odd (rotational) symmetry while the cosine has even (reflection) symmetry,
+      as shown in the next three pictures.
+    </p>
+    <p>
+      We prove these symmetries by using the unit-circle definitions of these functions.
+    </p>
+    <proof>
+      <p>
+        We'll prove part (a) and leave you to think about how to prove parts (b) and (c).
+        Given any angle <m>\theta</m> in standard position,
+        the angle <m>-\theta</m> opens up by the same angle measure,
+        but in the opposite direction,
+        as shown in <xref ref="fig_TaalmanPage418a">Figure</xref> below.
+      </p>
+      <figure xml:id="fig_TaalmanPage418a">
+        <caption>The <m>y</m>-coordinate corresponding to the terminal edge of <m>-\theta</m> is the negative of the <m>y</m>-coordinate corresponding to the terminal edge of <m>\theta</m>.</caption>
+        <image width="37%" source="TaalmanPage418a.png"/>
+      </figure>
+      <p>
+        This means that if <m>(x,y)</m> is the point on the unit circle corresponding to <m>\theta</m>,
+        then the point <m>(x,-y)</m> is the point on the unit circle corresponding to <m>-\theta</m>.
+      </p>
+      <p>
+        Since <m>\sin\theta</m> is the <m>y</m>-coordinate of the point at which the terminal edge of <m>\theta</m> meets the unit circle,
+        and <m>\sin(-\theta)</m> is the corresponding <m>y</m>-coordinate for <m>-\theta</m>,
+        we have shown that <m>\sin(-\theta) = -\sin\theta</m>.
+      </p>
+      <p>
+        In other words,
+        we can tell from the picture above that the <m>y</m>-coordinate of one point is the negative of the <m>y</m>-coordinate of the other point because of the symmetry of the circle.
+      </p>
+      <p>
+        This identity means that <m>y=\sin\theta</m> is an odd function,
+        which is seen in the <m>180^\circ</m> rotational symmetry about the origin of the graph of <m>y=\sin t</m>.
+      </p>
+    </proof>
+    <exercise>
+      <statement>
+        <p>
+          Use the same picture of the unit circle in the proof of <xref ref="thm_evenoddidentity">Theorem</xref> part (a) to prove part (b):
+          <m>\cos(-\theta) = \cos(\theta)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Determine algebraically whether the function
+          <me>
+            f(t) = \frac{\sin t}{1+\cos t}
+          </me>
+          is even, odd, or neither.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>f(t)</m> is even only if
+          <m>f(-t) = f(t)</m> and is odd only if <m>f(-t) = -f(t)</m>.
+          If neither of these identities are true,
+          then the function is neither even nor odd.
+        </p>
+        <p>
+          Let's see what we can say about <m>f(-t) = \frac{\sin(-t)}{1+\cos(-t)}</m>.
+          We know that <m>\sin(-t) = -\sin t</m> and that
+          <m>\cos(-t) = \cos t</m> are identities, so this tells us that
+          <me>
+            f(-t) = \frac{\sin(-t)}{1+\cos(-t)} = \frac{-\sin t}{1+\cos t} = -\left(\frac{\sin t}{1+\cos t} \right)= -f(t)
+          </me>.
+          Since we have <m>f(-t) = -f(t)</m>,
+          we can see that <m>f(t)</m> is an odd function.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We will prove part (c) in class:
+      that <m>\tan t</m> is an odd function.
+    </p>
+    <p>
+      We can quickly obtain one more identity by further examining the unit-circle definition of the trigonometric functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, for every angle <m>\theta</m> we clearly have
+          <me>
+            \sin (\theta+2\pi) = \sin\theta
+          </me>,
+          since <m>\theta+2\pi</m> and <m>\theta</m> have the same terminal edge and thus intersect the unit circle at the same point.
+          This is the same as observing that the function
+          <m>\sin \theta</m> has period <m>2\pi</m>.
+          Likewise, we have
+          <me>
+            \cos(\theta+2\pi) = \cos\theta
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Lest we forget the graphs with which we started this section,
+      let's return to them and use them to justify a few more identities.
+      If we juxtapose the sine and cosine functions' graphs on the same coordinate axes,
+      as seen in <xref ref="fig_APCFigure2-3-12">Figure</xref> below,
+      we see that the curves can be viewed as horizontal translations of one another.
+    </p>
+    <figure xml:id="fig_APCFigure2-3-12">
+      <caption>The graph of <m>f(t) = \sin t</m> is the graph of <m>g(t) = \cos t</m> shifted to the right <m>\pi/2</m> units.</caption>
+      <image width="65%" source="APCFigure2-3-12.png"/>
+    </figure>
+    <p>
+      In particular,
+      since the sine graph can be viewed as the cosine graph shifted <m>\frac{\pi}{2}</m> units to the right,
+      it follows that for any value of <m>t</m>,
+      <me>
+        \sin t = \cos (t-\frac{\pi}{2})
+      </me>.
+    </p>
+    <p>
+      Similarly, since the cosine graph can be viewed as the sine graph shifted left <m>\frac{\pi}{2}</m> units,
+      <me>
+        \cos t = \sin (t+\frac{\pi}{2})
+      </me>.
+    </p>
+    <p>
+      We can also see that if we shift the graph of sine <m>\pi</m> units to the right or left,
+      the result is the reflection of the graph of sine across the horizontal axis.
+      See <xref ref="fig_SineShiftByPi">Figure</xref> below.
+    </p>
+    <figure xml:id="fig_SineShiftByPi">
+      <caption>The graph of <m>y=\sin(t\pm \pi)</m> is the graph of <m>y=\sin t</m> reflected over the <m>x</m>-axis.</caption>
+      <image width="46%" source="SineShiftByPi.png"/>
+    </figure>
+    <p>
+      The same is true for the graph of <m>\cos t</m>.
+      This tells us that
+      <me>
+        \sin (t+\pi) = \sin(t-\pi) = -\sin t
+      </me>
+      and
+      <me>
+        \cos(t+\pi) = \cos(t-\pi) = -\cos t
+      </me>.
+    </p>
+    <p>
+      These identities allow us to observe, finally,
+      why it is that <m>\tan t</m> has period <m>\pi</m>.
+      For all <m>t</m>,
+      <me>
+        \tan(t+\pi) = \frac{\sin(t+\pi)}{\cos(t+\pi)} = \frac{-\sin t}{-\cos t} = \frac{\sin t}{\cos t} = \tan t
+      </me>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Skim through this last section and write down all of the trigonometric identities listed.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    Identity, Pythagorean Identities, even and odd identities
+    <p>
+      <em>Key ideas:</em> The shapes of the graphs of the six trigonometric functions follow from their definitions.
+      It is not worth memorizing the numerous properties of these functions,
+      but rather understanding where they come from and re-deriving them from a small collection of basic principles when necessary.
+      The unit-circle definition is particularly useful to keep in mind for solving equations involving trigonometric functions,
+      and in remembering identities involving the trigonometric functions.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      There are many relationships between the various trigonometric functions that allow us to simplify expressions in order to more easily solve problems.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 7.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

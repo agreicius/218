@@ -1,0 +1,827 @@
+<section>
+  <title>Differentiability and Local Linearity</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Categorize the types of graphical features that cause a continuous function to fail to have a derivative at a point,
+          meaning to fail to be differentiable.
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculate derivatives using the <m>h\to 0</m> definition at non-differentiable points to see ways in which the limit can fail to exist.
+        </p>
+      </li>
+      <li>
+        <p>
+          Key theorem: If <m>f</m> is not continuous at <m>x=a</m> then <m>f</m> is not differentiable at <m>x=a</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          At points where a function is differentiable,
+          it can be approximated "locally" by its tangent line.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>When is a Function Differentiable?</title>
+    <p>
+      We now know that the instantaneous rate of change of a function <m>f(x)</m> at <m>x=a</m>,
+      or equivalently the slope of the tangent line to the graph of <m>y=f(x)</m> at <m>x=a</m>,
+      is given by the value <m>f\,'(a)</m>.
+      The process of "taking the derivative" generates a new function,
+      <m>f\,'(x)</m>, derived from the original function <m>f(x)</m>.
+      In this section,
+      we look at the domain of the function <m>f\,'(x)</m> and what can cause it to be undefined.
+      The key observation is that the derivative arises from a limit,
+      and it is possible for a limit to fail to exist for several different reasons.
+    </p>
+    <example xml:id="ex_parabolasaresmooth">
+      <statement>
+        <p>
+          The derivative of the function <m>f(x) = 4x-x^2</m> is
+          <me>
+            f\,'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}\frac{(4(x+h)-(x+h)^2)-(4x-x^2)}{h}
+          </me>.
+          The numerator simplifies as follows:
+          <me>
+            \begin{aligned}(4(x+h)-(x+h)^2)-(4x-x^2) \amp = 4x+4h-a^2-2hx-h^2-4x+x^2\\ \amp = 4h-2hx-h^2 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Then returning to the limit,
+          we can factor an <m>h</m> in the numerator and cancel,
+          before evaluating the limit:
+          <me>
+            \lim_{h\to 0}\frac{4h-2hx-h^2}{h} = \lim_{h\to 0}\frac{h(4-2x-h)}{h} = \lim_{h\to 0} (4-2x-h) = 4-2x-0 = 4-2x
+          </me>
+        </p>
+        <p>
+          Thus we have <m>f\,'(x) = 4-2x</m>.
+          As a function,
+          <m>f\,'(x)</m> is defined for all values of <m>x</m>.
+          Below, we see the graph of <m>f(x)</m> on the left,
+          with several tangent lines, and the graph of <m>f\,'(x)</m> on the right,
+          with several values corresponding to the marked tangent lines.
+          We see that where <m>f(x)</m> is increasing,
+          <m>f\,'(x)</m> is positive.
+          Where <m>f(x)</m> is decreasing,
+          <m>f\,'(x)</m> is negative.
+          We also notice that the graph of <m>f(x)</m> has a tangent line at every point,
+          so the graph of <m>f\,'(x)</m> has a value at every point,
+          meaning that it is defined for all <m>x</m>-values.
+          Indeed, the function <m>f\,'(x) = 4-2x</m> is defined for all real numbers <m>x</m>.
+        </p>
+        <p>
+          <image width="75%" source="ACFigure1-4-1.png"/>
+        </p>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        Remember that when taking the derivative,
+        it is always the variable <m>h</m> that approaches 0, not <m>x</m>.
+      </p>
+    </remark>
+    <p>
+      The function <m>f(x)</m> in <xref ref="ex_parabolasaresmooth">Example</xref> is a polynomial,
+      one of the most well-behaved functions we have looked at so far,
+      and so we expect its derivative to be similarly well-behaved.
+      Let's look at a more complicated function and see what happens with its derivative.
+    </p>
+    <example xml:id="ex_derivativeofabsolutevalue">
+      <statement>
+        <p>
+          The function <m>f(x)=|x|</m> is actually a piecewise-defined function
+          <me>
+            f(x) = \begin{cases}x,\amp  x\geq 0\\ -x, \amp  x \lt 0 \end{cases}
+          </me>
+        </p>
+        <p>
+          Away from the break point at <m>x=0</m>, <m>f(x)</m> is linear.
+          For <m>x\lt 0</m>, <m>f(x) = -x</m>,
+          which has derivative <m>f\,'(x) = -1</m>.
+          For <m>x>0</m>, <m>f(x) = x</m>,
+          which has derivative <m>f\,'(x) = 1</m>.
+        </p>
+        <p>
+          Let's look specifically at the break point <m>x=0</m> and calculate <m>f\,'(0)</m>.
+          <me>
+            f\,'(0) = \lim_{h\to 0}\frac{f(0+h)-f(0)}{h} = \lim_{h\to 0} \frac{|0+h|-0}{h} = \lim_{h\to 0} \frac{|h|}{h}
+          </me>
+        </p>
+        <p>
+          In order to simplify further,
+          we have to know what to do with <m>|h|</m>.
+          When <m>h>0</m>, <m>|h|=h</m>,
+          and when <m>h\lt 0</m>, <m>|h| = -h</m>.
+          This means that we need to split up the limit into right and left limits in order to finish the calculation,
+          since we get a different formula for <m>|h|</m> depending on whether <m>h\to 0^-</m> or <m>h\to 0^+</m>:
+          <me>
+            \begin{aligned}\lim_{h\to 0^-} \frac{|h|}{h} \amp = \lim_{h\to 0^-} \frac{-h}{h} = \lim_{h\to 0^-} -1 = -1\\ \lim_{h\to 0^+} \frac{|h|}{h} \amp = \lim_{h\to 0^+} \frac{h}{h} = \lim_{h\to 0^+} 1 = 1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Since the right and left limits as <m>h\to 0^{\pm}</m> are not equal,
+          we conclude that the two-sided limit as <m>h\to 0</m> does not exist:
+          <me>
+            f\,'(0) = \lim_{h\to 0} \frac{|h|}{h}  \text{ DNE }
+          </me>
+        </p>
+        <p>
+          This means that the derivative <m>f\,'(x)</m> is
+          <em>undefined</em> at <m>x=0</m>.
+          Summarizing all of the above, we have
+          <me>
+            f\,'(x) = \begin{cases}1,\amp  x>0\\ \text{ DNE } , \amp  x=0\\ -1, \amp  x\lt 0 \end{cases}
+          </me>
+        </p>
+        <p>
+          As a function, <m>f\,'(x)</m> has domain <m>x\neq 0</m>,
+          or <m>(-\infty,0)\cup(0,\infty)</m>.
+          It's interesting to note that this is <em>different</em>
+          than the domain of the original function <m>f(x)= |x|</m>,
+          which is <m>\mathbb{R} = (-\infty,\infty)</m>.
+        </p>
+        <p>
+          Below, we see the graph of
+          <m>f(x) = |x|</m> with slopes marked for <m>h\lt 0</m> (left) and <m>h>0</m> (middle),
+          along with the graph of <m>f\,'(x)</m>
+          (right).
+          Note that where <m>f(x)</m> is increasing,
+          <m>f\,'(x)</m> is positive,
+          and where <m>f(x)</m> is decreasing,
+          <m>f\,'(x)</m> is negative.
+          At <m>x=0</m>,
+          the graph of <m>f(x)</m> has a "corner" where there is no clearly defined tangent line,
+          while the graph of <m>f\,'(x)</m> has a jump and is undefined at <m>x=0</m>.
+        </p>
+        <p>
+          <image width="92.5%" source="TaalmanPage179.png"/>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          We saw in Example <xref ref="ex_derivativeofabsolutevalue" autoname="yes"/> that the derivative of <m>f(x) = |x|</m> is
+          <me>
+            f\,'(x) = \begin{cases}1,\amp  x>0\\ \text{ DNE } , \amp  x=0\\ -1, \amp  x\lt 0 \end{cases}
+          </me>
+        </p>
+        <p>
+          What is the equation of the tangent line to <m>f(x) = |x|</m> at <m>x=2</m>?
+          At <m>x=-2</m>?
+          At <m>x=0</m>?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We have seen in the two examples above that,
+      given a function <m>f(x)</m> and a value <m>x=a</m>,
+      the derivative <m>f\,'(a)</m> may or may not exist,
+      meaning there may or may not be a well-defined tangent line to the graph at <m>(a,f(a))</m>.
+      When <m>f\,'(a)</m> exists,
+      there is a well-defined tangent line with a finite slope and we say that <m>f</m> is <em>differentiable</em>
+      at <m>x=a</m> (literally "able to be differentiated," meaning "able to take the derivative"):
+    </p>
+    <definition>
+      <title>Differentiability</title>
+      <statement>
+        <p>
+          A function <m>f</m> is <em>differentiable at <m>x=a</m></em> if
+          <me>
+            \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+          </me>
+          exists
+          (and is finite).
+        </p>
+        <p>
+          We say that a function is <em>differentiable on an interval <m>(a,b)</m></em>
+          if it is differentiable at every point in the interior of <m>(a,b)</m>.
+          Either endpoint of the interval may be infinite.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          Here are pictures of three functions that are <em>not</em>
+          differentiable at <m>x=2</m>.
+        </p>
+        <figure xml:id="fig_taalmanpage180">
+          <caption>Three functions that are <em>not</em> differentiable at <m>x=2</m>.</caption>
+          <image width="92.5%" source="TaalmanPage180.png"/>
+        </figure>
+        <p>
+          In the left graph,
+          the derivative at <m>x=2</m> does not exist since the limits as
+          <m>h\to 0^{\pm}</m> around <m>x=2</m> will be different.
+          From the picture,
+          it looks like the left limit may be <m>2</m> while the right limit is <m>-2</m>,
+          by examining the slope of each of the lines.
+        </p>
+        <p>
+          In the middle graph,
+          the derivative at <m>x=2</m> also does not exist since the limits as
+          <m>h\to 0^{\pm}</m> around <m>x=2</m> will be different.
+          It's not clear from the picture whether they are finite or infinite,
+          but we can expect the limit as
+          <m>h\to 0^-</m> to be negative and the limit as <m>h\to 0^+</m> to be positive.
+          This is because the function to the left of <m>x=2</m> is decreasing and the function to the right of <m>x=2</m> is increasing.
+          Also, since the function gets steeper as <m>x\to 2^-</m> and <m>x\to 2^+</m>,
+          the slopes cannot simply both approach 0.
+        </p>
+        <p>
+          In the right graph,
+          the derivative at <m>x=2</m> is infinite because the tangent line is vertical.
+          However, infinite values of a function do not exist since <m>\infty</m> is not a number.
+          What kind of graphical feature does the derivative of the right-most function have at <m>x=2</m>?
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Explore the tangent lines to the functions pictured in <xref ref="fig_taalmanpage180" autoname="yes"/> using this Desmos graph:
+        </p>
+        <url href="https://www.desmos.com/calculator/yuxyhqektr">https://www.desmos.com/calculator/yuxyhqektr</url>
+        <ol marker="labelalphitemsep10pttopsep5pt">
+          <li>
+            <p>
+              The function on Desmos is originally set to <m>f(x) = 3-|x-2|</m>,
+              pictured at the far left in <xref ref="fig_taalmanpage180" autoname="yes"/>.
+              The slider for <m>a</m> is set at <m>a=-2</m>.
+              Move the slider right and left to change the point of tangency.
+              Notice that when <m>a\lt 0</m>,
+              the slope <m>m=f'(a)</m> of the tangent line is <m>m=-1</m>,
+              when <m>a>0</m>,
+              the slope <m>m=f'(a)</m> of the tangent line is <m>m=1</m>,
+              and that when <m>a=0</m>, the slope <m>m=f'(a)</m> is undefined.
+            </p>
+          </li>
+          <li>
+            <p>
+              Change the function <m>f(x)</m> on Desmos to
+              <m>f(x) = 0.5+2(x-2)^{2/3}</m> in order to explore the middle graph in <xref ref="fig_taalmanpage180" autoname="yes"/>.
+              Observe that when <m>a=1.9</m>,
+              the slope of the tangent line is <m>m=f'(1.9)\approx -2.87</m>.
+              If you type in <m>a=1.99, 1.999</m>, etc.
+              What do you get?When <m>a=2.1</m>,
+              the slope of the tangent line is <m>m=f'(2.1)\approx 2.87</m>.
+              If you type in <m>a=2.01, 2.001</m>, what do you get?
+              Note in particular that at <m>a=2</m>,
+              the slope <m>m=f'(2)</m> of the tangent line is undefined.
+            </p>
+          </li>
+          <li>
+            <p>
+              Change the function <m>f(x)</m> on Desmos to
+              <m>f(x) = 1.5+1.3(x-2)^{1/3}</m> in order to explore the right-most graph in <xref ref="fig_taalmanpage180" autoname="yes"/>.
+              Observe that when <m>a=1.999</m>,
+              the slope of the tangent line is
+              <m>m=f'(1.999)\approx 201.14</m>, when when <m>a=2.001</m>,
+              the slope of the tangent line is <m>m=f'(2.0001)\approx 201.14</m>.
+              However, as <m>a\to 2</m>
+              (try adding more 9's or 0's),
+              the slope becomes larger and larger,
+              and at <m>a=2</m>, the slope <m>m=f'(2)</m> is undefined.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </exercise>
+    <p>
+      If a point-derivative <m>f\,'(a)</m> is
+      (either positive or negative)
+      infinite, then we say that <m>f</m> has a
+      <em>vertical tangent line</em> at <m>x=a</m>.
+      In this case,
+      a line exists that is tangent to the graph of the function,
+      but since that line is vertical,
+      its slope is undefined and the function fails to be differentiable at that point.
+    </p>
+    <p>
+      The precise mathematical distinction between a corner and a cusp is not clear and is different depending on which sources you consult and who you talk to.
+      Let's say that a <em>cusp</em> is a point where the two pieces of the curve appear asymptotic to each other,
+      while a <em>corner</em> has a nonzero angle between the two pieces of the curve.
+      I have seen the two terms used interchangeably and
+      <em>you will not be tested on the difference between them.</em>
+    </p>
+    <p>
+      Let's see some explicit calculations of derivatives where vertical tangent lines and cusps are involved:
+    </p>
+    <example xml:id="ex_cuberootofx">
+      <statement>
+        <p>
+          The function <m>f(x) = \sqrt[3]{x} = x^{1/3}</m> is defined for all values of <m>x</m>.
+          Its graph is pictured in <xref ref="fig_cuberootofx" autoname="yes"/> below.
+        </p>
+        <figure xml:id="fig_cuberootofx">
+          <caption>The graph of <m>f(x) = \sqrt[3]{x}</m> has a vertical tangent line at <m>x=0</m>.</caption>
+          <image width="56%" source="cuberootofx.png"/>
+        </figure>
+        <p>
+          At <m>x=0</m>, it looks like there is a vertical tangent line.
+          Let's confirm this by computing <m>f\,'(0)</m>.
+          <me>
+            \begin{aligned}f\,'(0) \amp = \lim_{h\to 0}\frac{f(0+h)-f(0)}{h}\\ \amp = \lim_{h\to 0}\frac{(0+h)^{1/3}-0^{1/3}}{h}\\ \amp = \lim_{h\to 0}\frac{h^{1/3}}{h}\\ \amp = \lim_{h\to 0}\frac{1}{h^{2/3}}\\ \amp =\frac{1}{0^+}\\ \amp =\infty \end{aligned}
+          </me>
+        </p>
+        <p>
+          We know that the limit at the end will be infinite because it has the form <m>\frac{1}{0}</m>,
+          and that it will be positive because
+          <m>h^{2/3} = \sqrt[3]{h^2}</m> will be positive for <m>h\to 0^{\pm}</m>.
+        </p>
+        <p>
+          Thus we have confirmed that
+          <m>f(x) = x^{1/3}</m> has a vertical tangent line at <m>x=0</m>,
+          and so is not differentiable at <m>x=0</m>.
+          We will see in later sections that <m>f\,'(x) = \frac{1}{3}x^{-2/3} = \dfrac{1}{3x^{2/3}}</m>,
+          which is undefined when <m>x=0</m>, matching our answer here.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch a rough graph of the derivative of <m>f(x) = x^{1/3}</m>,
+          using the graph of <m>f(x)</m> and the calculation of <m>f\,'(0)</m> in the last example.
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_cuberootofxsquared">
+      <statement>
+        <p>
+          The function <m>g(x) = \sqrt[3]{x^2}=x^{2/3}</m> is likewise defined for all values of <m>x</m>.
+          Its graph is pictured in <xref ref="fig_cuberootofxsquared" autoname="yes"/> below.
+        </p>
+        <figure xml:id="fig_cuberootofxsquared">
+          <caption>The graph of <m>g(x) = \sqrt[3]{x^2}</m> has a cusp at <m>x=0</m>.</caption>
+          <image width="56%" source="cuberootofxsquared.png"/>
+        </figure>
+        <p>
+          At <m>x=0</m>, it looks like there is a cusp.
+          Let's examine the precise way in which <m>g\,'(0)</m> fails to exist:
+          <me>
+            \begin{aligned}g'(0) \amp = \lim_{h\to 0}\frac{f(0+h)-f(0)}{h}\\ \amp = \lim_{h\to 0}\frac{h^{2/3}}{h}\\ \amp = \lim_{h\to 0}\frac{1}{h^{1/3}}\\ \amp = \frac{1}{0}\\ \amp = \pm\infty \text{ so does not exist. } \end{aligned}
+          </me>
+        </p>
+        <p>
+          We know that this last limit will be infinite because it has the form <m>\frac{1}{0}</m>.
+          It will be positive for <m>h\to 0^+</m> and negative for <m>h\to 0^-</m>,
+          since <m>h^{1/3} = \sqrt[3]{h}</m> will be positive for <m>h>0</m> and negative for <m>h\lt 0</m>.
+          Thus the limit from the left is <m>-\infty</m> while the limit from the right is <m>\infty</m>,
+          hence the two-sided limit does not exist.
+        </p>
+        <p>
+          Thus we have confirmed that
+          <m>g(x) = x^{2/3}</m> is not differentiable at <m>x=0</m> since the secant lines from the right and left at <m>0</m> approach different infinitites.
+          We will see in later sections that
+          <me>
+            g\,'(x) = \frac{2}{3}x^{-1/3} = \dfrac{2}{3x^{1/3}}
+          </me>,
+          which is undefined when <m>x=0</m>, matching our answer here.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch a rough graph of the derivative of <m>g(x) = x^{2/3}</m>,
+          using the graph of <m>g(x)</m> and the calculation of <m>g'(0)</m> in the last example.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Differentiable vs. Continuous</title>
+    <p>
+      The examples we have seen so far have all been of functions that were continuous for all values of <m>x</m> but were not differentiable at a single point.
+      Another way that a function <m>f</m> can fail to be differentiable at a point <m>x=a</m> is if <m>f</m> fails to be continuous at <m>x=a</m>.
+    </p>
+    <p>
+      If a function is not continuous,
+      then it has absolutely no chance of being differentiable.
+      Think about the different ways that a function can be discontinuous:
+      a jump, removable discontinuity (hole), or infinite discontinuity
+      (vertical asymptote).
+    </p>
+    <p>
+      At a vertical asymptote or at some holes,
+      the function is undefined at <m>x=a</m>.
+      If the function is undefined at <m>x=a</m>,
+      it cannot have a tangent line at <m>x=a</m>.
+      To see this, think of the definition of <m>f\,'(a)</m>:
+      <me>
+        f\,'(a) = \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+      </me>
+    </p>
+    <p>
+      In order to even begin to calculate this limit,
+      we have to be able to use the value <m>f(a)</m> in the numerator.
+      If <m>f</m> is undefined at <m>x=a</m>,
+      then <m>f(a)</m> does not exist,
+      and we can't even write down this definition!
+    </p>
+    <p>
+      Even if a function is defined at <m>x=a</m>,
+      if it is not continuous, it is still not differentiable.
+      Use this Desmos graph:
+    </p>
+    <url href="https://www.desmos.com/calculator/m1wecjgsgq">https://www.desmos.com/calculator/m1wecjgsgq</url>
+    <p>
+      to explore what happens to the secant lines around a jump.
+      A similar thing happens at a hole where the value of the function is different than the limit of the function.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Click on the Desmos graph
+        </p>
+        <url href="https://www.desmos.com/calculator/m1wecjgsgq">https://www.desmos.com/calculator/m1wecjgsgq</url>
+        <p>
+          Set <m>a=1</m> and experiment with sliding <m>h\to 0^-</m> and <m>h\to 0^+</m>.
+          In your own words,
+          describe what happens to the slopes of the secant lines as you try to find <m>f\,'(1)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Summarizing all of these observations:
+      although not every continuous function is differentiable,
+      every differentiable function is continuous.
+    </p>
+    <theorem xml:id="thm_diffimpliescont">
+      <title>Differentiability Implies Continuity</title>
+      <statement>
+        <p>
+          If <m>f</m> is differentiable at <m>x=a</m>,
+          then <m>f</m> is continuous at <m>x=a</m>.
+        </p>
+        <p>
+          Equivalently, if <m>f</m> is <em>not</em>
+          continuous at <m>x=a</m>,
+          then <m>f</m> is <em>not</em> differentiable at <m>x=a</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      \fbox{ The equivalent statement in the theorem above is what's called the <em>contrapositive</em>
+      of the original statement.
+      In general, the contrapositive of the implication "If P, then Q" is "If not Q, then not P." If an implication is true,
+      then its contrapositive is also true. }
+    </p>
+    <exercise xml:id="ex_contrapositives">
+      <statement>
+        <p>
+          Write down your own (true) implication (a statement of the form "If P, then Q.").
+          Then write down the contrapositive
+          (the statement "If not Q, then not P.).
+          Make sure your contrapositive is also true.
+        </p>
+        <p>
+          My example is: "If I spill my coffee,
+          then I am sad." This has contrapositive "If I am not sad,
+          then I did not spill my coffee."
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      It's important to notice in Exercise <xref ref="ex_contrapositives" autoname="yes"/> that I can be sad in other ways than spilling my coffee,
+      but since spilling my coffee always makes me sad,
+      if I'm not sad, at least I know I didn't spill my coffee.
+      Likewise, there are other ways than being discontinuous for a function to
+      <em>not</em> be differentiable
+      (the cusps, corners, and vertical tangent lines that we already saw),
+      but since being discontinuous always makes a function not differentiable,
+      if our function is differentiable,
+      we know it has to be continuous.
+    </p>
+    <p>
+      Taking this analogy even further,
+      just because I didn't spill my coffee this morning doesn't mean I won't spill it another morning.
+      For a function,
+      it can be differentiable at some points and not differentiable at other points.
+    </p>
+    <p>
+      <em>To summarize:</em>
+      <ul>
+        <li>
+          <p>
+            Being differentiable is harder than being continuous.
+          </p>
+        </li>
+        <li>
+          <p>
+            Differentiability and continuity are properties that are defined at each point for a function.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example>
+      <statement>
+        <p>
+          At what points is the function <m>f(x)</m> graphed below discontinuous?
+          At what points does <m>f(x)</m> fail to be differentiable?
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage193a.png"/>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The graph has a jump at <m>x=-1</m>,
+          thus is discontinuous at <m>x=-1</m>.
+          It is continuous for all other <m>x</m>-values.
+        </p>
+        <p>
+          The graph has a vertical tangent line at <m>x=1</m>,
+          thus is not differentiable at <m>x=1</m>.
+          It also cannot be differentiable at <m>x=-1</m>,
+          because it was not continuous there,
+          so the graph is not differentiable at <m>x=-1,1</m>.
+          It is differentiable for all other <m>x</m>-values.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          At what points is the function <m>g(x)</m> graphed below discontinuous?
+          At what points does <m>g(x)</m> fail to be differentiable?
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage193b.png"/>
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_piecewisedifferentiable">
+      <statement>
+        <p>
+          Is it possible for the function
+          <me>
+            f(x) = \begin{cases}3x+c, \amp  \text{ if } x\lt 1\\ 6-x, \amp  \text{ if } x\geq 1 \end{cases}
+          </me>
+          to be differentiable at <m>x=1</m> for an appropriate choice of <m>c</m>?
+          Why or why not?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In order for the function to be differentiable at <m>x=1</m>,
+          it must first be continuous at <m>x=1</m>.
+          Thus we find the limits to the right and left of <m>x=1</m>:
+          <me>
+            \lim_{x\to 1^-}f(x) = \lim_{x\to 1^-}(3x+c) = 3(1)+c = 3+c
+          </me>
+          <me>
+            \lim_{x\to 1^+}f(x) = \lim_{x\to 1^+}(6-x) =6-1 = 5
+          </me>
+        </p>
+        <p>
+          We know that to be continuous at <m>x=1</m> we cannot have a jump, and need
+          <me>
+            3+c = 5\Longrightarrow c = 2
+          </me>
+        </p>
+        <p>
+          We discovered that for <m>c=2</m>,
+          the function is continuous.
+          We can ask if it is differentiable.
+          The slope of the function for <m>x\lt 1</m> is <m>m=3</m>,
+          while the slope of the function for <m>x>1</m> is <m>m=-1</m>.
+          So even if the function <em>is</em> continuous,
+          the derivatives to the left and right at 1 will change suddenly from <m>m=3</m> to <m>m=-1</m>.
+          That is a corner, hence the function is <em>not</em>
+          differentiable at <m>x=1</m>.
+        </p>
+        <p>
+          If you are still not convinced,
+          here is a graph of <m>f(x)</m> using <m>c=2</m>, and its derivative:
+        </p>
+        <figure xml:id="ex_piecewiseandderivative">
+          <caption>The function <m>f(x)</m> with <m>c=2</m> (in blue) and its derivative <m>f'(x)</m> (in red).</caption>
+          <image width="46%" source="piecewiseandderivative.png"/>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Local Linearizations and Approximating Functions</title>
+    <p>
+      Let's use this notion of differentiability to take another look at tangent lines.
+      The tangent line to <m>f</m> at a point <m>x=a</m> is defined in terms of the derivative <m>f\,'(a)</m>:
+    </p>
+    <definition xml:id="def_tangentline">
+      <title>Equation of the Tangent Line to a Function at a Point</title>
+      <statement>
+        <p>
+          The <em>tangent line</em> to the graph of a function <m>f</m> at a point <m>x=a</m> is defined to be the line passing through
+          <m>(a,f(a))</m> with slope <m>f\,'(a)</m>,
+          provided that the derivative <m>f\,'(a)</m> exists.
+          This line has equation
+          <me>
+            y=f\,'(a)(x-a)+f(a)
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The equation in <xref ref="def_tangentline" autoname="yes"/> comes from the point-slope equation of a line
+      <me>
+        y=m(x-x_0)+y_0
+      </me>
+      where we use the slope <m>m=f'(a)</m> and the point
+      <m>(x_0,y_0) = (a,f(a))</m> so that <m>x_0=a</m> and <m>y_0 = f(a)</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          we have seen that the derivative of <m>f(x)=x^2</m> is
+          <m>f'(x) = 2x</m>, and so <m>f\,'(3)=6</m>.
+          This means that the tangent line to the graph of
+          <m>f(x)=x^2</m> at <m>x=3</m> has slope
+          <m>f\,'(3)=6</m> and passes through the point where <m>x=3</m> and <m>y=f(3) = 3^2 = 9</m>.
+          This line has equation <m>y=6(x-3)+9</m>,
+          which we can simplify to slope-intercept form as <m>y=6x-9</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      When it exists,
+      the tangent line to a function <m>f</m> at a point <m>x=a</m> is the unique line that "agrees with" both the height of the function and the slope of the function at <m>x=a</m>.
+      This means that near <m>x=a</m> the graph of a function is very close to the graph of its tangent line;
+      the graph is "locally linear," meaning linear near the point.
+      Therefore we can use the tangent line as a rough approximation to the function <m>f</m> itself near <m>x=a</m>.
+      When we use the tangent line to approximate the function near a point,
+      we call it the <em>local linearization of <m>f</m> around <m>x=a</m></em> and we write
+      <me>
+        f(x)\approx L(x) = f\,'(a)(x-a)+f(a)
+      </me>
+    </p>
+    <p>
+      Why do we not just use the name "tangent line?" The perspective here is that we are "linearizing", meaning making linear,
+      the function <m>f(x)</m> by approximating it by its tangent line.
+      The word "local" here is used to mean nearby,
+      or in a neighborhood of, the point <m>x=a</m>.
+    </p>
+    <p>
+      The definition of the tangent line does not tell us how good an approximation one can make by using the tangent line.
+      What constitutes "near" and what constitutes "good" will be determined by the context of the problem at hand.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, since the tangent line to
+          <m>f(x) = x^2</m> at <m>x=3</m> is the line <m>y=6x-9</m>,
+          the linear equation <m>L(x)=6x-9</m> can be used as a rough approximation to the graph of the function <m>f(x) = x^2</m>,
+          at least for values of <m>x</m> close to 3.
+          This approximation will be better the closer we are to <m>x=3</m>.
+          As the following figure shows,
+          the two graphs have nearly the same height at the point <m>x=3.5</m> and are still relatively close even at <m>x=4</m>.
+        </p>
+        <p>
+          <image width="46%" source="TaalmanPage181.png"/>
+        </p>
+        <p>
+          Comparing values,
+          <m>L(3.5) = 6(3.5)-9 = 12</m> while <m>f(3.5) = 12.25</m>,
+          so <m>L(3.5)\approx f(3.5)</m>.
+          The further we get from <m>x=3</m>,
+          the farther <m>L(x)</m> and <m>f(x)</m> are from each other,
+          and the worse the approximation <m>f(x)\approx L(x)</m> will be.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The linearization can be used to estimate values of a quantity for which we have information about its present value and current rate of change.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose the cost of manufacturing <m>q=180</m> pairs of shoes is
+          <m>C(q) = \dollar3,600</m> and the change in cost to produce one more shoe is estimated to be $15 when the company is already producing 180 shoes.
+          We can use this information to estimate the cost to produce more or less shoes.
+        </p>
+        <p>
+          For example, we can reasonably expect it to cost
+          <m>3600+15 = \dollar3615</m> to produce 181 shoes,
+          and even that it will cost approximately
+          <m>3600+15(2) = \dollar3530</m> to produce 182 shoes.
+          We could even expect it to cost
+          <m>3600-15 = \dollar3585</m> to produce 179 shoes.
+          In terms of the function <m>C(q)</m>, we are saying
+          <me>
+            C(179) \approx 3585
+          </me>
+          <me>
+            C(181)\approx 3615
+          </me>
+          and
+          <me>
+            C(182)\approx 3630
+          </me>.
+        </p>
+        <p>
+          Can we reasonably expect it to cost
+          <m>3600+15(50) = \dollar4350</m> to produce <m>180+50 = 230</m> shoes?
+          Maybe or maybe not.
+          This depends on whether the cost function is linear,
+          which maybe it is and maybe it isn't: we don't know.
+        </p>
+        <p>
+          In the language of local linearizations,
+          we can approximate the cost function <m>C(q)</m> with its linearization
+          <me>
+            C(q)\approx 15(q-180)+3600
+          </me>
+          for values of <m>q</m> near 180,
+          but not necessarily for values relatively far from 180, such as 230.
+        </p>
+      </statement>
+    </example>
+    <p>
+      By contrast,
+      note that if a function is not differentiable at a point,
+      it does not have a tangent line.
+      Visually, no matter how much we zoom in around the point,
+      it will never look like a line that we could describe using an equation of the form <m>y=mx+b</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The function
+          <me>
+            f(x) = \begin{cases}3x+2, \amp  \text{ if } x\lt 1\\ 6-x, \amp  \text{ if } x\geq 1 \end{cases}
+          </me>
+          from Example <xref ref="ex_piecewisedifferentiable" autoname="yes"/> is not differentiable at <m>x=1</m>.
+          Click on the Desmos graph
+        </p>
+        <url href="https://www.desmos.com/calculator/uc4pmfdj0c">https://www.desmos.com/calculator/uc4pmfdj0c</url>
+        <p>
+          and zoom in around the point <m>(1,5)</m> where there is a corner.
+          No matter how close you get,
+          you will still see the corner,
+          so near the point <m>(1,5)</m>,
+          there is no linear function <m>y=mx+b</m> that looks the same as the function.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use Desmos to graph <m>f(x) = x^{1/3}</m> and zoom in around the point <m>(0,0)</m>.
+          The graph does begin to look like a line,
+          but there still no linear equation <m>y=mx+b</m> that looks like the graph near <m>(0,0)</m>.
+          Why?
+          What would <m>m</m> have to be?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The concept of local linearity is particularly helpful when working with functions in the sciences.
+      Many complicated problems are made simpler by estimating functions using their tangent lines.
+      The most famous example of this is
+      <me>
+        \sin x\approx x \text{ for values of \(x\) near }  x=0
+      </me>,
+      which is used to estimate the value of small vibrations in particles in physics models.
+      We will derive this approximation next semester.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    Differentiable and differentiability (the property of being differentiable), vertical tangent line, cusp, corner; local linearization of a function around a point
+    <p>
+      <em>Key ideas:</em> Differentiable means the derivative exists,
+      or in other words that the tangent line exists, at a point.
+      A function is differentiable except where it is not continuous,
+      or at cusps,
+      corners, or vertical tangent lines.
+      When the derivative exists,
+      it can be used to estimate values of a function nearby via the tangent line,
+      called the local linearization of the function at the point.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Derivatives of piecewise-defined functions are tricky because we have to check continuity at break-points before knowing whether there is a derivative at that point.
+      It's not clear at the moment exactly how to take derivatives at the break-point if the function is continuous,
+      except if there is an obvious corner that causes the derivative to be undefined.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 3.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

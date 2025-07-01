@@ -1,0 +1,823 @@
+<section xml:id="sec_lim_rules">
+  <title>Calculating Limits Algebraically: <m>\frac{0}{0}</m> Limits and Cancellation</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Use algebra and the Cancellation Theorem to evaluate limits of the form <m>\frac{0}{0}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          See how instantaneous velocity is an example of a limit of the form <m>\frac{0}{0}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand that indeterminate limits can be either finite or infinite,
+          and require further evaluation to determine their precise behavior.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visualize limits as either holes
+          (removable discontinuities)
+          or vertical asymptotes
+          (infinite discontinuities)
+          based on the value of the limit.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize algebraically where a rational function has an <m>x</m>-intercept vs. a hole vs. a vertical asymptote.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="sec_zerooverzerolimits">
+    <title>The Cancellation Theorem</title>
+    <p>
+      In the last section,
+      we saw that some limits at points outside the domain of a function become infinite when they have the form <m>\frac{1}{0}</m>.
+      However, we also saw that some functions can have limits <em>of the form</em>
+      <m>\mathbf{\frac{0}{0}}</m> at points that are not in their domains.
+      In this section, we learn one way to calculate such limits:
+      algebraic manipulation and cancellation.
+      As we shall see,
+      such limits are sometimes infinite and are sometimes finite.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, consider the limit
+          <me>
+            \lim_{x\to 1}\dfrac{x^2-1}{x-1}
+          </me>.
+          At <m>x=1</m>, the numerator is
+          <m>(1)^2-1 = 0</m> and the denominator is <m>(1)-1=0</m>,
+          and therefore the limit evaluates to
+          <m>\frac{0}{0}</m> if we try to plug in <m>x=1</m>:.
+          <me>
+            \lim_{x\to 1}\dfrac{x^2-1}{x-1} = \frac{(1)^2-1}{(1)-1}=\frac{0}{0}
+          </me>
+        </p>
+        <p>
+          As a function, <m>\frac{0}{0}</m> is undefined.
+          But remember that for limits,
+          we wish to know the behavior near such points,
+          so are not satisfied until we know precisely what happens.
+        </p>
+        <p>
+          Fortunately for us in this example,
+          we can determine the limit by factoring the numerator and cancelling a common factor of <m>x-1</m> in the numerator and denominator:
+          <me>
+            \frac{x^2-1}{x-1} =\frac{(x-1)(x+1)}{x-1} = \begin{cases}x+1,\amp \text{ if } x\neq 1\\ \text{ undefined }  \amp  \text{ if } x=1 \end{cases}
+          </me>
+        </p>
+        <p>
+          Remember that limits describe the behavior of a function <em>near</em>
+          the <m>x</m>-value of the limit.
+          So if we look <em>near</em> <m>x=1</m>,
+          we can cancel the <m>x-1</m> and evaluate the limit of the continuous function <m>x+1</m>:
+          <me>
+            \lim_{x\to 1}\frac{x^2-1}{x-1} = \lim_{x\to 1}\frac{(x-1)(x+1)}{x-1} = \lim_{x\to 1}(x+1) =1+1 = 2
+          </me>.
+        </p>
+        <p>
+          The cancellation of the common factor <m>x-1</m> is valid
+          <em>within the limit computation</em>
+          because <m>\frac{(x-1)(x+1)}{x-1}</m> and <m>x+1</m> are equal to each other anytime <m>x\neq 1</m>,
+          and when we take the limit,
+          we are not concerned with what happens <em>at</em>
+          the point <m>x=1</m>, only nearby.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In general, by definition,
+      limits as <m>x\to c</m> never have anything to do with what happens at <m>x=c</m>,
+      only near <m>x=c</m>, which proves the following theorem:
+    </p>
+    <theorem xml:id="thm_cancellationforlimits">
+      <title>The Cancellation Theorem for Limits</title>
+      <statement>
+        <p>
+          If <m>\ds\lim_{x\to c}g(x)</m> exists,
+          and <m>f</m> is a function that is equal to <m>g</m> for all <m>x</m> sufficiently close to <m>c</m> except possibly at <m>c</m> itself,
+          then <m>\ds\lim_{x\to c}f(x) = \ds\lim_{x\to c}g(x)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      \fbox{What this theorem is saying is that we can simplify via cancellation within a limit,
+      and we can use the value of the limit of the simplified function for the value of the original function.
+    </p>
+    <p>
+      Said slightly differently,
+      if we have a function <m>f(x)</m> that is discontinuous at <m>x=c</m>,
+      but we can algebraically simplify <m>f(x)</m> into a function <m>g(x)</m> that
+      <em>is continuous</em> at <m>x=c</m>
+      (or at least that has a limit at <m>x=c</m> that we know),
+      then we can use the value of the limit of <m>g(x)</m> instead. }}
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's evaluate <m>\ds\lim_{x\to 1}\dfrac{2x^2+x-3}{x-1}</m>.
+          At first, we get
+          <me>
+            \lim_{x\to 1}\frac{2x^2+x-3}{x-1} = \frac{2(1)^2+1-3}{1-1} = \frac{0}{0}
+          </me>,
+          which is not helpful.
+          However, we can factor the numerator and cancel:
+          <me>
+            \frac{2x^2+x-3}{x-1} = \frac{(2x+3)(x-1)}{x-1} = \begin{cases}2x+3,\amp \text{ if } x\neq1\\ \text{ undefined } ,\amp \text{ if } x=1. \end{cases}
+          </me>
+        </p>
+        <p>
+          By <xref ref="thm_cancellationforlimits">Theorem</xref>, we have
+          <me>
+            \lim_{x\to 1}\frac{2x^2+x-3}{x-1} = \lim_{x\to 1}(2x+3) = 2(1)+3 = 5
+          </me>
+          by the continuity of <m>2x+3</m> at <m>x=1</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Recall <m>h(x) = \dfrac{x-3}{x^3 - 3 x^2 - 4 x + 12}</m> from Example <xref ref="ex_twoVAsoneHole" autoname="yes"/>.
+          There, we factored
+          <me>
+            h(x) =  \frac{x-3}{ (x-3)(x-2)(x+2) }
+          </me>
+          and noted that
+          <me>
+            \lim_{x\to 3} h(x) = \frac{0}{0}
+          </me>
+        </p>
+        <p>
+          Now, we see that we can simply cancel the common factor of <m>x-3</m> and evaluate:
+          <me>
+            \lim_{x\to 3} \frac{x-3}{ (x-3)(x-2)(x+2) }  = \lim_{x\to 3} \frac{1}{(x-2)(x+2)} = \frac{1}{(3-2)(3+2)} = \frac{1}{5}
+          </me>.
+          Thus our guess from the table in Example <xref ref="ex_twoVAsoneHole" autoname="yes"/> that the limit approaches <m>\frac{1}{5} = 0.2</m> was correct!
+          There is NOT a vertical asymptote at <m>x=3</m>.
+          Instead, there is a hole, a.k.a. removable discontinuity,
+          because the original expression is undefined but the limit approaches a finite number.
+        </p>
+      </statement>
+    </example>
+    <exercise xml:id="ex_oneholeoneva">
+      <statement>
+        <p>
+          Use cancellation to evaluate
+          <me>
+            \lim_{x\to 2}\frac{2-x}{4-x^2}
+          </me>.
+          Does cancellation also help to evaluate
+          <me>
+            \lim_{x\to -2}\frac{2-x}{4-x^2}?
+          </me>
+        </p>
+        <p>
+          Why or why not?
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>Instantaneous Velocity as a Limit of Average Velocity</title>
+      <statement>
+        <p>
+          Recall that in Example <xref ref="ex_fallingball" autoname="yes"/> we approximated the instantaneous velocity of a ball with position
+          <me>
+            s(t) = 64-16(t-1)^2
+          </me>
+          at the time <m>t=1</m> using smaller and smaller intervals that approached <m>t=1</m> from the left:
+          <me>
+            [0.5,1],  [0.9,1],  [0.99,1],  \ldots
+          </me>
+          and from the right:
+          <me>
+            [1,1.5], [1,1.1],   [1,1.01],  \ldots
+          </me>
+        </p>
+        <p>
+          We can use the notation <m>[1,1+h]</m> to represent each interval if we agree to reverse the order of the interval for negative values of <m>h</m>.
+          For example, when <m>h=-0.5</m>, the interval is
+          <me>
+            [1,1+(-0.5)] = [1,0.5] = [0.5,1]
+          </me>
+          and when <m>h=-0.1</m>, the interval is
+          <me>
+            [1,1+(-0.1)] = [1,0.9] = [0.9,1]
+          </me>.
+          So when we consider intervals to the left of <m>t=1</m>,
+          we are taking the limit as <m>h\to 0^-</m>.
+          When we consider intervals to the right of <m>t=1</m>,
+          we are taking limits as <m>h\to 0^+</m>.
+          This idea leads to limit calculations that we will study in great depth at the beginning of Chapter 3.
+          For the moment,
+          note that we can find a general formula for the average velocity of <m>s(t)</m> on intervals <m>[1,1+h]</m>:
+          <me>
+            \begin{aligned}AV_{[1,1+h]} \amp = \frac{s(1+h)-s(1)}{(1+h)-1}\\ \amp = \frac{(64-16(1+h-1)^2) - (64-16(1-1)^2)}{(1+h)-1}\\ \amp = \frac{64-16h^2 - 64}{h}\\ \amp = \frac{-16h^2}{h} \end{aligned}
+          </me>
+        </p>
+        <p>
+          If we take <m>h\to 0</m>,
+          meaning we let the interval shrink down to the point <m>t=1</m>,
+          we get a limit of the form <m>\frac{0}{0}</m>,
+          but as we've seen, we can cancel in order to evaluate the limit:
+          <me>
+            \lim_{h\to 0}AV_{[1,1+h]} = \lim_{h\to 0} \frac{-16h^2}{h} = \lim_{h\to 0}{-16h} = 0
+          </me>.
+        </p>
+        <p>
+          Thus the limit of the average velocities
+          (the instantaneous velocity)
+          at <m>t=1</m> appears to indeed be 0, meaning that the ball is momentarily motionless in the air at <m>t=1</m> before beginning its descent back to the ground.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Determine a simplified expression for
+          <m>AV_{[3,3+h]}</m> for the function <m>f(x) = x^2</m>,
+          and then take the limit as <m>h\to 0</m> to find a formula for the instantaneous rate of change of <m>f(x) = x^2</m> at <m>x=3</m>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Indeterminate Limit Forms</title>
+    <p>
+      You have now been introduced to two different limit forms:
+      <m>\frac{1}{0}</m> and <m>\frac{0}{0}</m>.
+      Limits of the form <m>\frac{1}{0}</m> are always infinite,
+      though we don't always know whether they are positive or negative infinity
+      (or one of each from the right and left).
+      Limits of the form <m>\frac{0}{0}</m> are what is called "indeterminate." If a limit is <em>indeterminate</em>,
+      then we cannot initially say whether or not it exists <mdash/> or if it exists,
+      what real number it is equal to.
+      Many indeterminate limits can be resolved with algebra such as cancellation or factoring.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the four limits that follow are all initially of the indeterminate form <m>\frac{0}{0}</m>.
+          After some algebra, we see that three limits exist
+          (and describe holes)
+          and one limit becomes infinite
+          (and describes a vertical asymptote).
+          The three that exist are each equal to different real numbers.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Consider <m>f(x) = \frac{x^2-2x+1}{x-1}</m> at <m>x=1</m>.
+                Initially,
+                <me>
+                  \ds\lim_{x\to 1}\frac{x^2-2x+1}{x-1} = \frac{1-2+1}{1-1} = \frac{0}{0}
+                </me>
+                However, we can factor the numerator:
+                <m>x^2-2x+1 = (x-1)(x-1) = (x-1)^2</m> and then evaluate the limit by cancelling:
+                <me>
+                  \lim_{x\to 1}\frac{(x-1)^2}{x-1}  = \lim_{x\to 1}\frac{x-1}{1} = \frac{0}{1} = 0
+                </me>
+                The function <m>f(x)</m> has a hole at the point <m>(1,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now consider <m>g(x) = \frac{x-1}{(x-1)^3}</m> at <m>x=1</m>.
+                Again, technically originally the limit has the form <m>\frac{0}{0}</m>:
+                <me>
+                  \lim_{x\to 1}\frac{x-1}{(x-1)^3} = \frac{0}{0}
+                </me>
+                but we can cancel one of the factors of <m>x-1</m> and re-evaluate to get an infinite limit:
+                <me>
+                  \lim_{x\to 1}\frac{x-1}{(x-1)^3} = \lim_{x\to 1}\frac{1}{(x-1)^2} = \frac{1}{0^+} = \infty
+                </me>
+                The function <m>g(x)</m> has a vertical asymptote at <m>x=1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now consider <m>h(x) = \frac{x-1}{x-1}</m>.
+                <m>h(x)</m> is undefined at <m>x=1</m> and the limit as <m>x\to 1</m> has the form <m>\frac{0}{0}</m>.
+                However, when we simplify:
+                <me>
+                  \lim_{x\to 1}\frac{x-1}{x-1} = \lim_{x\to 1}1 = 1
+                </me>
+                Thus <m>h(x)</m> is the constant function <m>y=1</m>,
+                except for the hole at the point <m>(1,1)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Lastly, consider the function <m>k(x) = \frac{x-1}{3x-3}</m>,
+                which is also undefined at <m>x=1</m>.
+                We can factor a 3 from the denominator and then cancel:
+                <me>
+                  \lim_{x\to 1}\frac{x-1}{3x-3}= \lim_{x\to 1}\frac{x-1}{3(x-1)} = \lim_{x\to 1}\frac{1}{3} = \frac{1}{3}
+                </me>
+                So <m>k(x)</m> is equal to the constant function <m>y=\frac{1}{3}</m>,
+                except for the hole at the point <m>\left(1,\frac{1}{3}\right)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      <m>\frac{0}{0}</m> is just one of several different indeterminate limit forms that we will encounter this semester.
+      We summarize the indeterminate limit forms that arise from algebraic function below.
+    </p>
+    <theorem>
+      <title>Indeterminate Forms for Algebraic Functions</title>
+      <statement>
+        <p>
+          Each of the following is an <em>indeterminate form,</em>
+          meaning that a limit in one of these forms may or may not exist,
+          depending on the situation:
+          <me>
+            \frac{0}{0}\qquad \frac{\infty}{\infty}\qquad 0\cdot\infty\qquad \infty-\infty
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We will study the indeterminate forms <m>\frac{\infty}{\infty}, 0\cdot\infty</m>,
+      and <m>\infty-\infty</m> in the next section,
+      and will see more indeterminate limit forms next semester when we explore transcendental functions.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Your friends Jamaal and Taylin are disagreeing about what it means for a limit form to be indeterminate.
+          Jamaal says that such a limit "does not exist" while Taylin says that the limit could be either infinite or finite.
+          Who is correct?
+          Explain to the person who is wrong why the other person is correct,
+          using the example given in this subsection as support for your explanation.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_holeorVA">
+    <title>Hole or Vertical Asymptote?</title>
+    <p>
+      Recall that limits of the form
+      <m>\frac{0}{0}</m> can be finite or infinite.
+      These limits are indeterminate because we do not know whether they exist
+      (and are finite)
+      or not.
+      We have seen that some can be evaluated by algebra.
+      On the other hand,
+      limits of the form <m>\frac{1}{0}</m> are always infinite,
+      but we don't know whether they are positive or negative.
+      Some of these limits must be broken into separate right and left limits in order to determine their signs.
+      In this section,
+      we will focus on identifying which limit form we are dealing with,
+      and how to best proceed once we have identified the form.
+      Then, once we have finished evaluating the limit,
+      we will interpret graphically whether it describes a hole or vertical asymptote.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider
+          <me>
+            f(x) = \frac{(x-1)^2}{x-1}
+          </me>
+        </p>
+        <p>
+          This function is undefined at <m>x=1</m>,
+          with both the numerator and denominator being equal to 0, so the limit at <m>x=1</m> has the form <m>\frac{0}{0}</m>.
+          For now, whenever we encounter this limit form,
+          we attempt to apply the Cancellation Theorem.
+          We can cancel and compute
+          <me>
+            \lim_{x\to 1} \frac{(x-1)^2}{x-1} = \lim_{x\to 1} x-1 = 1-1 = 0
+          </me>.
+        </p>
+        <p>
+          Thus <m>f(x)</m> has a hole at <m>(1,0)</m>,
+          rather than a vertical asymptote, as the limit is finite.
+        </p>
+        <p>
+          Here is a graph of <m>f(x) = \frac{(x-1)^2}{x-1}</m>,
+          demonstrating the hole visually that we found via limits:
+        </p>
+        <figure xml:id="fig_taalmanpage330b-1hole">
+          <caption>The graph of <m>f(x) = \frac{(x-1)^2}{x-1}</m> has a hole at the point <m>(1,0)</m>.</caption>
+          <image width="46%" source="TaalmanPage330b-1.png"/>
+        </figure>
+        <p>
+          Note that the function <m>f(x) =  \frac{(x-1)^2}{x-1}</m> is equal to the function <m>y=x-1</m>,
+          except at the point <m>x=1</m> where <m>f(x)</m> is undefined.
+          We can write
+          <me>
+            f(x) = \begin{cases}x-1, \amp  x\neq 1\\ \text{ undefined } , \amp  x=1 \end{cases}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Now consider
+          <me>
+            g(x) = \frac{x-1}{(x-1)^2}
+          </me>
+        </p>
+        <p>
+          If we try to evaluate <m>\ds\lim_{x\to 1}g(x)</m> without canceling, we get
+          <me>
+            \lim_{x\to 1}\frac{x-1}{(x-1)^2} = \frac{0}{0}
+          </me>
+        </p>
+        <p>
+          Cancelling one of the factors of <m>x-1</m>,
+          we can see that <m>g(x) = \frac{x-1}{(x-1)^2} = \frac{1}{x-1}</m> everywhere they are defined,
+          meaning for <m>x\neq 1</m>.
+          Now when we compute the limit as <m>x\to 1</m>,
+          we see that we have the form <m>\frac{1}{0}</m>,
+          so this limit is infinite:
+          <me>
+            \lim_{x\to 1}g(x) = \lim_{x\to 1}\frac{1}{x-1} = \frac{1}{0}
+          </me>
+        </p>
+        <p>
+          Since <m>x-1</m> changes sign at <m>x=1</m>,
+          we compute the left and right limits separately and find that
+          <me>
+            \lim_{x\to 1^-}g(x) = \lim_{x\to 1^-}\frac{1}{x-1} = \frac{1}{0^-} = -\infty
+          </me>
+          and
+          <me>
+            \lim_{x\to 1^+}g(x) = \lim_{x\to 1^-}\frac{1}{x-1} =\frac{1}{0^+} =  -\infty
+          </me>
+        </p>
+        <p>
+          Thus <m>g(x)</m> has a vertical asymptote at <m>x=1</m>,
+          despite originally having the form <m>\frac{0}{0}</m>,
+          since we could cancel and arrive at the form <m>\frac{1}{0}</m> instead.
+        </p>
+        <p>
+          Here is a graph of <m>g(x) = \frac{x-1}{(x-1)^2}</m>,
+          demonstrating the vertical asymptote visually that we found via limits:
+        </p>
+        <figure xml:id="fig_taalmanpage330b-3VA">
+          <caption>The graph of <m>g(x) = \frac{x-1}{(x-1)^2}</m> has a vertical asymptote at <m>x=1</m>.</caption>
+          <image width="46%" source="TaalmanPage330b-3.png"/>
+        </figure>
+        <p>
+          Note that in this example, we originally had the form <m>\frac{0}{0}</m>,
+          but then the limit became of the form <m>\frac{1}{0}</m> after cancelling,
+          so we ended up with an infinite limit.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_HoleVAex1">
+      <statement>
+        <p>
+          For the function <m>f(x) = \frac{x-3}{(x-3)(x-1)}</m>,
+          what form are the limits <m>\ds\lim_{x\to 3}f(x)</m> and <m>\ds\lim_{x\to 1}f(x)</m> originally?
+          Does the form change after canceling?
+          How does each limit evaluate in the end,
+          and what visual feature of the graph does it describe?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\ds\lim_{x\to 3} f(x) = \frac{0}{0}</m> before cancelling.
+          However, after cancelling, we have
+          <me>
+            \lim_{x\to 3}\frac{x-3}{(x-3)(x-1)} = \lim_{x\to 3}\frac{1}{x-1} = \frac{1}{3-1} = \frac{1}{2}
+          </me>.
+          This is neither form <m>\frac{0}{0}</m> nor is it <m>\frac{1}{0}</m>.
+          It's a finite value.
+          This means that the function has a hole when <m>x=3</m> and that the <m>y</m>-value of the hole is <m>y=\frac{1}{2}</m>,
+          meaning that there is a hole in the graph at the point <m>\left(3,\frac{1}{2}\right)</m>.
+        </p>
+        <p>
+          <m>\ds\lim_{x\to 1} f(x) = \frac{-2}{(-2)(0)}</m> has the form <m>\frac{1}{0}</m>.
+          After cancelling, it still has this form, but is simpler:
+          <me>
+            \lim_{x\to 1}\frac{x-3}{(x-3)(x-1)} = \lim_{x\to 1}\frac{1}{x-1}  = \frac{1}{0}
+          </me>.
+          Let's work with the simplified expression <m>\frac{1}{x-1}</m>.
+          A quick sign analysis tells us that <m>x-1</m> is positive to the right of <m>x=1</m> and negative to the left of <m>x=1</m>, so that
+          <me>
+            \lim_{x\to 1^-}f(x) = \lim_{x\to 1^-}\frac{1}{x-1} = \frac{1}{0^-} = -\infty
+          </me>
+          and
+          <me>
+            \lim_{x\to 1^+}f(x) = \lim_{x\to 1^+}\frac{1}{x-1} = \frac{1}{0^+} = \infty
+          </me>
+        </p>
+        <p>
+          This tells us that the function has a vertical asymptote at <m>x=1</m> and that the left side approaches <m>-\infty</m> while the right side approaches <m>\infty</m>.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="ex_HoleVAex2">
+      <statement>
+        <p>
+          For the function <m>g(x) = \frac{(x-3)^2}{(x-3)(x-1)}</m>,
+          what form are the limits <m>\ds\lim_{x\to 3}g(x)</m> and <m>\ds\lim_{x\to 1}g(x)</m> originally?
+          Does the form change after cancelling?
+          How does each limit evaluate in the end,
+          and what visual feature of the graph does it describe?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\ds\lim_{x\to 3} g(x) = \frac{0}{0}</m> before cancelling.
+          However, after cancelling, we have
+          <me>
+            \lim_{x\to 3} \frac{(x-3)^2}{(x-3)(x-1)} = \lim_{x\to 3}\frac{x-3}{x-1} = \frac{0}{3-1} = \frac{0}{2} = 0
+          </me>.
+        </p>
+        <p>
+          This is neither form <m>\frac{0}{0}</m> nor is it <m>\frac{1}{0}</m>.
+          It's a finite value.
+          This means that the function has a hole when <m>x=3</m> and that the <m>y</m>-value of the hole is <m>y=0</m>,
+          meaning that there is a hole in the graph at the point <m>\left(3,0\right)</m>.
+        </p>
+        <p>
+          <m>\ds\lim_{x\to 1}g(x) = \frac{(-2)^2}{(-2)(0)}</m> has the form <m>\frac{1}{0}</m>.
+          After cancelling, it still has this form, but is simpler:
+          <me>
+            \lim_{x\to 1} \frac{(x-3)^2}{(x-3)(x-1)} = \lim_{x\to 1}\frac{x-3}{x-1} = \frac{-2}{0}
+          </me>.
+          Let's work with the simplified expression <m>\frac{x-3}{x-1}</m>.
+          We know that <m>x-1</m> is positive to the right of <m>x=1</m> and negative to the left of <m>x=1</m>, so that
+          <me>
+            \lim_{x\to 1^-}g(x) = \lim_{x\to 1^-}\frac{x-3}{x-1} = \frac{-2}{0^-} = \infty
+          </me>
+          and
+          <me>
+            \lim_{x\to 1^+}g(x) = \lim_{x\to 1^+}\frac{x-3}{x-1} = \frac{-2}{0^+} = -\infty
+          </me>
+        </p>
+        <p>
+          This tells us that the function has a vertical asymptote at <m>x=1</m> and that the left side approaches <m>\infty</m> while the right side approaches <m>-\infty</m>.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="ex_HoleVAex3">
+      <statement>
+        <p>
+          For the function <m>h(x) = \frac{(x-3)^2}{(x-3)^3(x-1)}</m>,
+          what form are the limits <m>\ds\lim_{x\to 3}g(x)</m> and <m>\ds\lim_{x\to 1}g(x)</m> originally?
+          Does the form change after cancelling?
+          How does each limit evaluate in the end,
+          and what visual feature of the graph does it describe?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\ds\lim_{x\to 3} h(x) = \frac{0}{0}</m> before cancelling.
+          However, after cancelling, we have
+          <me>
+            \lim_{x\to 3}  \frac{(x-3)^2}{(x-3)^3(x-1)} = \lim_{x\to 3}\frac{1}{(x-3)(x-1)} = \frac{1}{(3-3)(3-1)} = \frac{1}{(0)(2)}
+          </me>.
+          This has the form <m>\frac{1}{0}</m>, so is infinite.
+          Splitting up into right and left limits, we have
+          <me>
+            \lim_{x\to 3^-}h(x) = \lim_{x\to 3^-}\frac{1}{(x-3)(x-1)} = \frac{1}{(0^-)(2)} = -\infty
+          </me>
+          and
+          <me>
+            \lim_{x\to 3^+}h(x) = \lim_{x\to 3^+}\frac{1}{(x-3)(x-1)} = \frac{1}{(0^+)(2)} = \infty
+          </me>
+        </p>
+        <p>
+          This tells us that the function has a vertical asymptote at <m>x=3</m> and that the left side approaches <m>-\infty</m> while the right side approaches <m>\infty</m>.
+        </p>
+        <p>
+          <m>\ds\lim_{x\to 1}h(x) = \frac{(-2)^2}{(-2)^3(0)}</m> has the form <m>\frac{1}{0}</m>.
+          After cancelling, it still has this form, but is simpler:
+          <me>
+            \lim_{x\to 1} \frac{(x-3)^2}{(x-3)^3(x-1)} = \lim_{x\to 1}\frac{1}{(x-3)(x-1)}  = \frac{1}{(-2)(0)}
+          </me>.
+          Let's work with the simplified expression <m>\frac{1}{(x-3)(x-1)}</m>.
+          We know that <m>x-1</m> is positive to the right of <m>x=1</m> and negative to the left of <m>x=1</m>, so that
+          <me>
+            \lim_{x\to 1^-}h(x) = \lim_{x\to 1^-}\frac{1}{(x-3)(x-1)} = \frac{1}{(-2)(0^-)} = \infty
+          </me>
+          and
+          <me>
+            \lim_{x\to 1^+}h(x) = \lim_{x\to 1^+}\frac{1}{(x-3)(x-1)} = \frac{1}{(-2)(0^+)} = -\infty
+          </me>
+        </p>
+        <p>
+          This tells us that the function has a vertical asymptote at <m>x=1</m> and that the left side approaches <m>\infty</m> while the right side approaches <m>-\infty</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Below are the graphs of <m>f(x) = \frac{x-3}{(x-3)(x-1)}</m>,
+          <m>g(x) = \frac{(x-3)^2}{(x-3)(x-1)}</m>,
+          and <m>h(x) = \frac{(x-3)^2}{(x-3)^3(x-1)}</m> from Examples <xref ref="ex_HoleVAex1" autoname="yes"/>-<xref ref="ex_HoleVAex3" autoname="yes"/>.
+          We now have the mathematical tools to be able to explain why,
+          precisely,
+          the different functions have either holes or vertical asymptotes at <m>x=3</m> and <m>x=1</m>,
+          depending on the factors of <m>x-3</m> and <m>x-1</m> in the numerator and denominator,
+          and whether they remain after canceling.
+        </p>
+        <figure xml:id="fig_TaalmanPage326a">
+          <caption><m>f(x) = \frac{x-3}{(x-3)(x-1)}</m> has a vertical asymptote at <m>x=1</m> and a hole at <m>x=3</m>.</caption>
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="90%" source="TaalmanPage326a.png"/>
+          \end{subfigure}
+          \hspace{.2in}
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="90%" source="TaalmanPage326b.png"/>
+          \caption{<m>g(x) = \frac{(x-3)^2}{(x-3)(x-1)}</m> has a vertical asymptote at <m>x=1</m> and a hole at <m>x=3</m>.} \end{subfigure}
+          \hspace{.2in}
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="90%" source="TaalmanPage326c.png"/>
+          \caption{<m>h(x) = \frac{(x-3)^2}{(x-3)^3(x-1)}</m> has vertical asymptotes at <m>x=1</m> and at <m>x=3</m>.} \end{subfigure}
+          \caption
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Assume that <m>m</m> and <m>n</m> are positive integers.
+          Based on Examples <xref ref="ex_HoleVAex1" autoname="yes"/>-<xref ref="ex_HoleVAex3" autoname="yes"/>,
+          what needs to be true about the powers <m>m</m> and <m>n</m> of <m>x-3</m> in
+          <me>
+            f(x) = \frac{(x-3)^m}{(x-3)^n(x-1)}
+          </me>
+          in order for <m>f(x)</m> to have (a) a hole at <m>x=3</m> or (b) a vertical asymptote at <m>x=3</m>.
+          What would need to be true in order for <m>f(x)</m> to have an <m>x</m>-intercept at <m>x=3</m>?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We are now able to put all of this information about limits together to be able to determine
+      <ul>
+        <li>
+          <p>
+            Where a rational function is equal to zero,
+            meaning that it has an <m>x</m>-intercept.
+            This is where the numerator is zero and the denominator is nonzero
+            (because we need the function to be defined).
+          </p>
+        </li>
+        <li>
+          <p>
+            Where a rational function has a hole,
+            meaning that it is undefined but the limit results in a finite value.
+            For this, we need common linear factors in the numerator and the denominator,
+            and after cancelation, the factor no longer appears in the denominator.
+          </p>
+        </li>
+        <li>
+          <p>
+            Where a rational function has a vertical asymptote,
+            meaning that it is undefined and the limit results in an infinite value.
+            For this, we need linear factors in the denominator that are still present after cancelation.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the <m>x</m>-intercepts, holes,
+          and vertical asymptotes of the function
+          <me>
+            f(x) = \frac{2x^3-8x}{x^3+2x^2-x-2}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, we factor the numerator and denominator of <m>f(x)</m>:
+          <me>
+            2x^3-8x = 2x(x^2-4) = 2x(x-2)(x+2)
+          </me>
+          and
+          <me>
+            \begin{aligned}x^3+2x^2-x-2 \amp = x^2(x+2)-(x+2) \\ \amp = (x+2)(x^2-1) \\ \amp = (x+2)(x-1)(x+1) \end{aligned}
+          </me>
+          so that
+          <me>
+            f(x) = \frac{2x(x-2)(x+2)}{(x+2)(x-1)(x+1)}
+          </me>
+        </p>
+        <p>
+          <m>f(x)=0</m> when the numerator is equal to 0, provided that <m>f(x)</m> is defined,
+          meaning that the denominator is not equal to 0.
+          So <m>f(x)=0</m> for <m>x=0</m> and <m>x=2</m>,
+          but not <m>x=-2</m> since <m>f(-2)</m> is undefined.
+          Thus we have <m>x</m>-intercepts for <m>x=0, 2</m>.
+        </p>
+        <p>
+          <m>f(x)</m> is undefined when the denominator is equal to 0, so when <m>x=-1, 1</m>,
+          and <m>2</m>.
+          Since the <m>x+2</m> factors will cancel,
+          we know that we will have a hole at <m>x=-2</m>.
+          Indeed:
+          <me>
+            \begin{aligned}\lim_{x\to -2}f(x) \amp = \lim_{x\to -2}\frac{2x(x-2)(x+2)}{(x+2)(x-1)(x+1)}\\ \amp = \lim_{x\to -2}\frac{2x(x-2)}{(x-1)(x+1)}\\ \amp =\frac{2(-2)(-4)}{(-3)(-1)}\\ \amp = \frac{16}{3} \end{aligned}
+          </me>
+          and so the precise location of the hole is <m>(-2,16/3)</m>.
+        </p>
+        <p>
+          When <m>x=\pm1</m>, we have no cancellation,
+          and so both limits have the form <m>\frac{1}{0}</m> and are infinite,
+          thus we have vertical asymptotes at <m>x=\pm 1</m>.
+          We compute right and left limits separately for <m>x=-1</m> and <m>x=1</m>,
+          using the simplified form of <m>f(x)</m> and analyzing whether the factors that are <m>0</m> are slightly positive and negative to the left/right.
+        </p>
+        <p>
+          At <m>x=-1</m>, the factor <m>x+1</m> is slightly negative as
+          <m>x\to -1^-</m> and slightly positive as <m>x\to -1^+</m>:
+          <me>
+            \lim_{x\to -1^-} f(x) = \lim_{x\to -1^-} \frac{2x(x-2)}{(x-1)(x+1)} = \frac{(-2)(-3)}{(-2)(0^-)} = +\infty
+          </me>
+          <me>
+            \lim_{x\to -1^+} f(x) = \lim_{x\to -1^+} \frac{2x(x-2)}{(x-1)(x+1)} = \frac{(-2)(-3)}{(-2)(0^+)} = -\infty
+          </me>
+        </p>
+        <p>
+          At <m>x=1</m>, the factor <m>x-1</m> is slightly negative as
+          <m>x\to 1^-</m> and slightly positive as <m>x\to 1^+</m>:
+          <me>
+            \lim_{x\to 1^-} f(x) = \lim_{x\to 1^-} \frac{2x(x-2)}{(x-1)(x+1)} = \frac{(2)(-1)}{(0^-)(2)} = +\infty
+          </me>
+          <me>
+            \lim_{x\to 1^+} f(x) = \lim_{x\to 1^+} \frac{2x(x-2)}{(x-1)(x+1)} = \frac{(2)(-1)}{(0^+)(2)} = -\infty
+          </me>
+        </p>
+        <p>
+          Thus we have
+          <me>
+            \lim_{x\to-1^-}f(x) = \infty\text{ and }  \lim_{x\to-1^+}f(x) = -\infty
+          </me>
+          and
+          <me>
+            \lim_{x\to1^-}f(x) = \infty\text{ and }  \lim_{x\to1^+}f(x) = -\infty
+          </me>
+        </p>
+        <p>
+          To summarize, there are <m>x</m>-intercepts at <m>x=0, 2</m>,
+          a hole at <m>x=-2</m>, and vertical asymptotes at <m>x=-1, 1</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Where are the <m>x</m>-intercepts, holes,
+          and vertical asymptotes of the function
+          <me>
+            g(x) = \frac{x^2-1}{x^3-2x^2-5x+6}
+          </me>,
+          given that <m>x^3-2x^2-5x+6=(x-1)(x+2)(x-3)</m>?
+          No need to compute precise limits.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    limits of the form <m>\frac{0}{0}</m>, the Cancellation Theorem for limits, indeterminate limit forms
+    <p>
+      <em>Key ideas:</em> Limits of the form
+      <m>\frac{0}{0}</m> are indeterminate and may be either infinite
+      (in which case there is a vertical asymptote)
+      or finite
+      (in which case there is a hole).
+      One way to evaluate limits of the form <m>\frac{0}{0}</m> is by cancellation.
+      After cancelling, we may be able to evaluate the limit
+      (either as a number or as an infinite limit of the form <m>\frac{1}{0}</m>).
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Instantaneous velocity is a limit of average velocities,
+      and always has the form <m>\frac{0}{0}</m> before simplifying.
+      We can tell quickly from factored formulas for rational functions where they have <m>x</m>-intercepts,
+      holes, or vertical asymptotes.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 2.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

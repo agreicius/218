@@ -1,0 +1,655 @@
+<section>
+  <title>The Chain Rule</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Recognize the structure of a composition of functions to determine the "inner" and "outer" function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand the chain rule as the product of rates of change.
+        </p>
+      </li>
+      <li>
+        <p>
+          Apply the chain rule to take the derivative of a composition of functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Combine multiple derivative rules and recognize in which order to apply them.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>A Review of Function Composition</title>
+    <p>
+      With the rules we have developed so far,
+      we can differentiate any constant multiple,
+      sum, difference, product, or quotient of functions<fn>
+      Another way to say this is, "any arithmetic combination of functions."
+      </fn> whose components have known derivatives.
+      There is one last common way to combine functions algebraically,
+      and that is by <em>composing</em> them.
+    </p>
+    <p>
+      For instance, let's consider the function
+      <me>
+        h(x) = \sqrt{x^2+1}
+      </me>
+      and observe that any input <m>x</m> passes through a
+      <em>chain</em> of functions.
+      In the process that defines the function <m>h(x)</m>,
+      <m>x</m> is squared and increased by 1, and then the square root of the result is taken.
+      Using an arrow diagram,
+      <me>
+        x \rightarrow  x^2+1 \rightarrow  \sqrt{x^2+1}
+      </me>.
+      In terms of the elementary functions
+      <m>f(x)   = \sqrt{x}</m> and <m>g(x) = x^2+1</m>,
+      we observe that <m>x</m> is the input for the function <m>g</m> and the output of <m>g</m> is used as the input for <m>f</m>.
+      We write
+      <me>
+        h(x) = f(g(x)) =\sqrt{x^2+1}
+      </me>
+      and say that <m>h</m> is the <em>composition</em>
+      of <m>f</m> and <m>g</m>.
+      We will refer to <m>g</m>,
+      the function that is first applied to <m>x</m>,
+      as the <em>inner</em> function, while <m>f</m>,
+      the function that is applied to the result,
+      is the <em>outer</em> function.
+    </p>
+    <p>
+      Given a composite function
+      <m>h(x) = f(g(x))</m> that is built from differentiable functions <m>f</m> and <m>g</m>,
+      how do we compute <m>h'(x)</m> in terms of <m>f, g, f'</m>,
+      and <m>g'</m>?
+      In the same way that the rate of change of a product of two functions,
+      <m>p(x) = f(x)g(x)</m>,
+      depends on the behavior of both <m>f</m> and <m>g</m> and their derivatives,
+      it makes sense intuitively that the rate of change of a composite function
+      <m>h(x) = f(g(x))</m> will also depend on some combination of <m>f</m> and <m>g</m> and their derivatives.
+      The rule that describes how to compute <m>h'</m> in terms of <m>f</m> and <m>g</m> and their derivatives is called the <em>chain rule.</em>
+    </p>
+    <exercise xml:id="ex_prechainrule">
+      <statement>
+        <p>
+          Let <m>f(x) = -4x+7</m> and <m>g(x) = 3x-5</m>.
+          Simplify a formula for <m>h(x) = f(g(x))</m> and compute <m>h'(x)</m> using the derivatives rules you already know.
+          Can you see how <m>h'</m> is related to <m>f</m> and <m>g</m> and their derivatives?
+          Read on to find out<ellipsis/>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Real-World Motivation for the Chain Rule</title>
+    <p>
+      Let's consider an example involving rates of change.
+      Suppose you are making some extra money selling pumpkins this fall.
+      On a busy Saturday, you can sell 30 pumpkins in an hour.
+      Suppose you get the pumpkins bulk and mark them up,
+      so you make $10 for each pumpkin you sell.
+      How much money do you make per hour on a busy Saturday?
+    </p>
+    <p>
+      We arrive at the answer by using a product:
+      <me>
+        300\ \frac{\text{ dollars } }{\text{ hour } }=\left(10\ \frac{\text{ dollars } }{\text{ pumpkin } }\right)\cdot\left(30\ \frac{\text{ pumpkins } }{\text{ hour } }\right)
+      </me>
+    </p>
+    <p>
+      Let's now relate this to derivatives and composition of functions.
+      Let <m>p(t)</m> be the number of pumpkins sold <m>t</m> hours after you start selling,
+      and let <m>m(p)</m> be the amount of money you make selling <m>p</m> pumpkins.
+      Then the composition <m>m(p(t))</m> is the amount of money you've made <m>t</m> hours after you start selling.
+      We are interested in the rate of change of profit per hour,
+      which is the derivative <m>\frac{dm}{dt}</m>.
+      The fact that you make a profit of
+      <m>\frac{dm}{dp} = 10</m> dollars per pumpkin and the fact that you sell
+      <m>\frac{dp}{dt} = 30</m> pumpkins per hour are also statements about derivatives.
+      Pay careful attention to the units of all of these derivatives,
+      along with which variable is used for the derivative!
+      Repeating our previous calculation,
+      we can relate the derivatives of the composition <m>m(p(t))</m> to the derivatives of <m>m(p)</m> and <m>p(t)</m>:
+      <me>
+        \frac{dm}{dt} = \left(\frac{dm}{dp}\right)\cdot \left(\frac{dp}{dt}\right)
+      </me>
+    </p>
+    <p>
+      If we take a closer look at the Leibniz notation,
+      we'll get a better idea of what's going on.
+      <m>\frac{dm}{dt}=\frac{d}{dt}\left(m(p(t))\right)</m> means that we are viewing <m>m</m> as a function of <m>t</m>,
+      so the input is time <m>t</m> in hours and the output is the change in money in dollars per hour.<fn>
+      The pumpkins are being ignored.
+      Note that in the Leibniz notation for the chain rule,
+      the <m>dp</m>'s look like they cancel with each other.
+      </fn> <m>\frac{dp}{dt}=p'(t)</m> means that we are viewing <m>p</m> as a function of <m>t</m>,
+      so the input is time <m>t</m> in hours and the output the change in pumpkins per hour.
+    </p>
+    <p>
+      However, <m>\frac{dm}{dp}</m> means that we are viewing <m>m</m> as a function of <m>p</m>,
+      so the input is pumpkins <m>p</m> while the output is the change in money per pumpkin.
+      In other words,
+      we are taking pumpkins <m>p(t)</m> and getting out the change in money <m>m'</m>.
+      In prime notation,
+      <me>
+        \frac{dm}{dp} = m'(p) = m'(p(t))
+      </me>
+    </p>
+    <p>
+      So the computation that we did in computing <m>300\text{ dollars/hour }  = (10\text{ dollars/pumpkin } )\times (30\text{ pumpkins/hour } )</m> was actually
+      <me>
+        \big[m(p(t))\big]' = m'(p(t))\cdot p'(t)
+      </me>
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Formula for the Chain Rule</title>
+    <theorem>
+      <title>The Chain Rule</title>
+      <statement>
+        <p>
+          Suppose that <m>f(u(x))</m> is a composition of functions.
+          Then for all values of <m>x</m> at which <m>u</m> is differentiable at <m>x</m> and <m>f</m> is differentiable at <m>u(x)</m>,
+          the derivative of <m>f</m> with respect to <m>x</m> is equal to the product of the derivative of <m>f</m> with respect to <m>u</m> and the derivative of <m>u</m> with respect to <m>x</m>.
+          In Leibniz notation, we write this as
+          <me>
+            \frac{df}{dx}=\frac{df}{du}\cdot\frac{du}{dx}
+          </me>
+        </p>
+        <p>
+          In
+          <q>prime</q>
+          notation, we write it as
+          <me>
+            (f\circ u)'(x)=f'(u(x))\cdot u'(x)
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Consider the function <m>f(x) = (x^4+5x)^3</m>.
+          The "inner" function is <m>u(x) = x^4+5x</m> while the "outer" function is <m>f(u) = u^3</m>.
+          Taking the derivative of each:
+          <me>
+            \frac{du}{dx} = u'(x) = 4x^3+5
+          </me>
+          and
+          <me>
+            \frac{df}{du} = f'(u) =  3u^2
+          </me>.
+        </p>
+        <p>
+          We will need to use <m>f'(u(x))</m> in the chain rule,
+          not just <m>f'(u)</m>.
+          Substituting <m>u=x^4+5x</m> into <m>f'(u)</m> results in
+          <me>
+            f'(u(x)) = 3(x^4+5x)^2
+          </me>.
+        </p>
+        <p>
+          Putting all of this together in the whole chain rule,
+          the derivative of <m>f(x)</m> is
+          <me>
+            <md>
+              \frac{df}{dx} \amp = \frac{df}{du}\cdot\frac{du}{dx} \amp  \leftarrow \text{ Chain Rule } \\ \amp = (3u^2)\cdot (4x^3+5) \amp  \leftarrow \frac{df}{du} = 3u^2\text{ and } \frac{du}{dx} = 4x^3+5\\ \amp = 3(x^4+5x)^2 \cdot (4x^3+5) \amp  \leftarrow \text{ Substitute } u=x^4+5x
+            </md>
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's return to the first example at the start of the section and find the derivative using the chain rule.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The function <m>h(x) =\sqrt{x^2+1} = (x^2+1)^{1/2}</m> is a composition of the outer function
+          <m>f(u)=\sqrt{u}=u^{1/2}</m> with the inner function <m>u(x)=x^2+1</m>.
+          The chain rule says that we should take the derivative of the outside function <m>f</m> with respect to <m>u</m> and then multiply the result by the derivative of the inside function:
+          <me>
+            h'(x) =\frac{df}{du}\cdot\frac{du}{dx}= f'(u(x))\cdot u'(x)
+          </me>
+        </p>
+        <p>
+          First let's calculate the derivatives of <m>f</m> and <m>u</m>,
+          then put them into the formula.
+          <me>
+            \frac{df}{du}=f'(u) = \frac{1}{2}u^{-1/2}
+          </me>
+          and
+          <me>
+            \frac{du}{dx} = u'(x)  = 2x
+          </me>.
+          We don't want our derivative in terms of <m>u</m>'s, however,
+          so we will substitute the function <m>u=x^2+1</m> into our final answer:
+          <me>
+            <md>
+              h'(x)\amp =f'(u(x))\cdot u'(x)\amp  \leftarrow \text{ Chain Rule } \\ \amp =\frac{1}{2}(u)^{-1/2}\cdot(2x)\amp  \leftarrow f'(u) = \frac{1}{2}u^{-1/2}\text{ and } u'(x)  = 2x\\ \amp =\frac{1}{2}(x^2+1)^{-1/2}(2x). \amp  \leftarrow \text{ Substitute } u=x^2+1
+            </md>
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      \fbox{ If you have never learned the chain rule before,
+      you should not expect to have a good understanding of it until you have seen many,
+      many examples.
+      Watch the videos included with the R&amp;R on Canvas to get a sense for how the Chain Rule works "in action." }
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Consider the function <m>h(x) = (x^3)^7</m>.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Identify the inside function <m>u(x)</m> and the outside function <m>f(u)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>u'(x)</m> and <m>f'(u)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the chain rule <m>h'(x) = f'(u(x))\ u'(x)</m> to calculate the derivative of <m>h</m>.
+                <em>Don't leave <m>u</m>'s in your answer!</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Check your work by simplifying <m>h(x)</m> and using the power rule to take the derivative.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      <em>If that last exercise made no sense or you got it wrong,
+      watch some videos of examples and try it again! </em>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>h(x) = f(g(x))</m> and <m>k(x) = g(f(x))</m>.
+          Evaluate (a) <m>h'(1)</m> and (b) <m>k'(1)</m> given that
+          <me>
+            f(1) = 1, f'(0) = 0,  f'(1) = 3, g(1)=0,  g'(1) = 1
+          </me>.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                The chain rule tells us that <m>h'(x) = f'(g(x))\cdot g'(x)</m>, so
+                <me>
+                  \begin{aligned}h'(1) \amp =  f'(g(1))\cdot g'(1)\\ \amp = f'(0)\cdot g'(1)\\ \amp = 0\cdot 1\\ \amp =0. \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                The chain rule tells us that <m>k'(x) = g'(f(x))\cdot f'(x)</m>, so
+                <me>
+                  \begin{aligned}k'(1) \amp = g'(f(1))\cdot f'(1)\\ \amp = g'(1)\cdot f'(1)\\ \amp = 1\cdot 3\\ \amp = 3. \end{aligned}
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>More Examples Using the Chain Rule</title>
+    <p>
+      Because using the chain rule takes practice,
+      here are many more examples.
+      If you have time, try to compute the derivatives yourself first,
+      before checking your work against the solution.
+      Or come back later and use these for practice after class.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Take the derivative of <m>y=(4x^2+3x)^9</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The inside function is <m>u(x) = 4x^2+3x</m> while the outside function is <m>f(u) = u^9</m>.
+          <m>u'(x) = 8x+3</m> and <m>f'(u) = 9u^8</m>,
+          so that <m>f'(u(x)) = f'(4x^2+3x) = 9(4x^2+3x)^8</m>.
+          Then
+          <me>
+            \begin{aligned}y' \amp = f'(u(x)) u'(x)\\ \amp =9(u(x))^8 (8x+3)\\ \amp = 9(4x^2+3x)^8(8x+3) \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Take the derivative of <m>y=\dfrac{1}{(4x^2+3x)^9}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First we notice that we can rewrite
+          <me>
+            y=\dfrac{1}{(4x^2+3x)^9} = (4x^2+3x)^{-9}
+          </me>
+          so that we DO NOT have to use the quotient rule.
+          Yay!
+        </p>
+        <p>
+          The inside function is <m>u(x) = 4x^2+3x</m> while the outside function is <m>f(u) = u^{-9}</m>.
+          <m>u'(x) = 8x+3</m> and <m>f'(u) = -9u^{-10}</m>,
+          so that <m>f'(u(x)) = f'(4x^2+3x) = -9(4x^2+3x)^{-10}</m>.
+          Then
+          <me>
+            \begin{aligned}y' \amp = f'(u(x)) u'(x)\\ \amp =-9(u(x))^{-10} (8x+3)\\ \amp = -9(4x^2+3x)^{-10}(8x+3)\\ \amp = \frac{-9(8x+3)}{(4x^2+3x)^{10}} \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          The derivative of <m>y=(3x^2+2)^2</m> is NOT equal to <m>2(9x)</m>.
+          NOR is it equal to <m>2(3x^2+2)</m>.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Simplify <m>y=(3x^2+2)^2</m> and find <m>y'</m> without using the chain rule.
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplify <m>2(9x)</m> and <m>2(3x^2+2)</m> to make sure NEITHER is equal to <m>y'</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                Take the derivative of <m>y=(3x^2+2)^2</m> using the chain rule <em>correctly</em>
+                and verify that it is equal to the <m>y'</m> that you found in part (a).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          The derivative of
+          <me>
+            y = (x^3+4x^2+5)^7
+          </me>
+          is
+          <me>
+            y' = 7(x^3+4x^2+5)^6\ (3x^2+8x)
+          </me>
+          where the outside function is <m>f(u) = u^7</m> with derivative
+          <m>f'(u) = 7u^6</m> and the inside function is
+          <m>u(x) = x^3+4x^2+5</m> with derivative <m>u'(x) = 3x^2+8x</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The derivative of
+          <me>
+            y=\sqrt[3]{5-2x}
+          </me>
+          is
+          <me>
+            y' = \frac{1}{3}(5-2x)^{-2/3}(-2) = \frac{-2}{(5-2x)^{2/3}}
+          </me>.
+          where the outside function is <m>f(u) = \sqrt[3]{u} = u^{1/3}</m> with derivative
+          <m>f'(u) = \frac{1}{3}u^{-2/3}</m> and the inside function is
+          <m>u(x) = 5-2x</m> with derivative <m>u'(x) = -2</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The derivative of
+          <me>
+            y=4(2x+1)^3+5x
+          </me>
+          is
+          <me>
+            y' = 4(3)(2x+1)^2\cdot(2)+5 = 24(2x+1)^2+5
+          </me>
+        </p>
+        <p>
+          We use the chain rule in the first term,
+          where the outside function is <m>f(u) = 4u^3</m> with derivative
+          <m>f'(u) = 4(3u^2)</m> and the inside function is
+          <m>u(x) = 2x+1</m> with derivative <m>u'(x) = 2</m>.
+          The second term is <m>5x</m> and has derivative <m>5</m>,
+          which we calculate separately using the sum rule.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The derivative of
+          <me>
+            y = \frac{3}{\sqrt{x^2-1}} = 3(x^2-1)^{-1/2}
+          </me>
+          is
+          <me>
+            y' = 3\left(-\frac{1}{2}\right)(x^2-1)^{-3/2}\ (2x) = \frac{-3}{(x^2-1)^{3/2}}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find the derivative of <m>y=(2x-1)^3</m> using the chain rule.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Combining Derivative Rules</title>
+    <p>
+      Take a moment to refresh your memory of the previous derivative rules in <xref ref="thm_derivativesmultiplessums">Theorem</xref>,
+      <xref ref="thm_productrule">Theorem</xref>,
+      and <xref ref="thm_quotientrule">Theorem</xref>.
+      We will be using them along with the chain rule in a moment.
+    </p>
+    <example>
+      <title>Chaining the chain rule</title>
+      <statement>
+        <p>
+          Let's find the derivative of <m>y=\sqrt{1+(2x-1)^3}</m>.
+          The outer-most function is
+          <m>f(u) = \sqrt{u}</m> where <m>u(x) = 1+(2x-1)^3</m>.
+          However, this has <em>its own</em>
+          inside function of <m>2x-1</m>,
+          whose derivative is <m>2</m>,
+          so we will need to use the chain rule while taking the derivative of <m>u</m>.
+          You found in the previous exercise that the derivative of
+          <m>(2x-1)^3</m> is <m>3(2x-1)^2\cdot (2) = 6(2x-1)^2</m>.
+          Putting these together and simplifying, we have
+          <me>
+            <md>
+              y'\amp  = \frac{1}{2}\left(1+(2x-1)^3\right)^{-1/2}\cdot 3(2x-1)^2\cdot (2) \\ \amp = \frac{(3)(2)(2x-1)^2}{2\left(1+(2x-1)^3\right)^{1/2}}\\ \amp =\frac{3(2x-1)^2}{\sqrt{1+(2x-1)^3}}
+            </md>
+          </me>
+        </p>
+        <p>
+          Note that some 2's cancel.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the chain rule to find the derivative of <m>h(x)=\left(\dfrac{x}{1-3x^2}\right)^4</m>.
+          Start by identifying the inside function and taking its derivative.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of
+          <me>
+            h(x) = (x^2-1)^5(3x-1)^2
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>h(x)</m> at its outermost layer is a product of <m>(x^2-1)^5</m> and <m>(3x-1)^2</m>.
+          We begin by applying the product rule,
+          using Leibniz notation to denote derivatives that we have not yet computed:
+          <me>
+            h'(x) = \frac{d}{dx}\Big[(x^2-1)^5\Big]\cdot (3x-1)^2 + (x^2-1)^5\cdot \frac{d}{dx}\Big[(3x-1)^2\Big]
+          </me>
+        </p>
+        <p>
+          We must use the chain rule to find the derivatives
+          <m>\frac{d}{dx}\left[(x^2-1)^5\right]</m> and <m>\frac{d}{dx}\left[(3x-1)^2\right]</m>:
+          <me>
+            \frac{d}{dx}\left[(x^2-1)^5\right] = 5(x^2-1)^4(2x)
+          </me>
+          <me>
+            \frac{d}{dx}\left[(3x-1)^2\right] = 2(3x-1)^1(3)
+          </me>
+        </p>
+        <p>
+          Putting these into the product rule that we already started, we have
+          <me>
+            \begin{aligned}h'(x) \amp = \frac{d}{dx}\Big[(x^2-1)^5\Big]\cdot (3x-1)^2 + (x^2-1)^5\cdot \frac{d}{dx}\Big[(3x-1)^2\Big]\\ \amp =\left(5(x^2-1)^4(2x)\right)\cdot (3x-1)^2+(x^2-1)^5\cdot \left(2(3x-1)^1(3)\right) \end{aligned}
+          </me>
+        </p>
+        <p>
+          This expression can be simplified <em>substantially</em>.
+          To do so, first notice that there are common factors of <m>2</m>,
+          <m>(x^2-1)^4</m>,
+          and <m>(3x-1)</m> in both terms that can be pulled out:
+          <me>
+            \begin{aligned}h'(x) \amp =\left(5(x^2-1)^4(2x)\right)\cdot (3x-1)^2+(x^2-1)^5\cdot \left(2(3x-1)^1(3)\right)\\ \amp = 2(x^2-1)^4(3x-1)\left[5(x)(3x-1)+(x^2-1)(3)\right] \end{aligned}
+          </me>
+        </p>
+        <p>
+          Lastly, we can simplify the remaining expression inside the brackets,
+          leaving the rest factored:
+          <me>
+            \begin{aligned}h'(x) \amp = 2(x^2-1)^4(3x-1)\left[5(x)(3x-1)+(x^2-1)(3)\right]\\ \amp = 2(x^2-1)^4(3x-1)[15x^2-5x+3x^2-3]\\ \amp = 2(x^2-1)^4(3x-1)(18x^2-5x-3) \end{aligned}
+          </me>
+        </p>
+        <p>
+          While simplifying to this final form is not essential (WeBWorK will not require you to simplify),
+          it will be necessary for actually being able to use the derivative in the context of an application.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          For each function below, what differentiation rules must you use?
+          Which rule must be applied while using another rule?
+          In other words, in what order must the rules be applied?
+          <ol marker="labelalphtopsep5ptitemsep5pt">
+            <li>
+              <p>
+                <m>f(x)=\left(\sqrt[3]{x}-\frac{1}{x}\right)^{-2}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>g(x)=\frac{\sqrt{x^2-1}}{1-\frac{1}{x}}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>A Proof of the Quotient Rule</title>
+    <p>
+      If you are like me (Dr.
+      Goldstein) and always manage to make some kind of error while using the Quotient Rule,
+      you may be interested in the proof below.
+      It essentially amounts to showing you how to use the Chain Rule and the Product Rule instead of the Quotient Rule.
+      It's not "easier" or "better," but it's another way of doing the same computation.
+      You may safely ignore it if that does not sound appealing to you.
+    </p>
+    <p>
+      Suppose we wish to take the derivative of
+      <me>
+        h(x) = \frac{f(x)}{g(x)}
+      </me>
+      but would rather not use the Quotient Rule.
+      Instead, we can rewrite <m>h(x)</m> using a negative exponent with <m>g(x)</m>:
+      <me>
+        h(x) = f(x)\cdot (g(x))^{-1}
+      </me>
+    </p>
+    <p>
+      This is now a product of <m>f(x)</m> and <m>(g(x))^{-1}</m>,
+      where we would need to use the chain rule to take the derivative of <m>(g(x))^{-1}</m>.
+      Carrying out these rules
+      (in the proper order),
+      we have
+      <me>
+        \begin{aligned}h'(x) \amp = f'(x)\cdot (g(x))^{-1} + f(x)\cdot \left(-(g(x))^{-2}\cdot g'(x)\right)\\ \amp = \frac{f'(x)}{g(x)}-\frac{f(x)g'(x)}{g(x)^2} \end{aligned}
+      </me>
+    </p>
+    <p>
+      In the second line,
+      we have simplified by writing anything with a negative exponent in the denominator.
+      Rewriting this as a single fraction via a common denominator of <m>g(x)^2</m>,
+      we arrive at the Quotient Rule:
+      <me>
+        \begin{aligned}h'(x) \amp =\frac{f'(x)\cdot g(x)}{g(x)\cdot g(x)}-\frac{f(x)g'(x)}{(g(x))^2}\\ \amp = \frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2} \end{aligned}
+      </me>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following formulas were introduced in this section:
+    </p>
+    The Chain Rule.
+    <p>
+      <em>Key ideas:</em> The Chain Rule is used to take the derivative of a composition of functions.
+      The Chain Rule consists of taking the derivative of an "outer" function,
+      then multiplying by the derivative of the "inner" function.
+      Watching many examples of the Chain Rule is typically necessary in order to be able to carry out the procedure yourself.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      We will soon need to use all of the derivative rules in combination with each other,
+      along with simplifying our answers,
+      so you should start practicing.
+      The Product and Chain Rules can be used in place of the Quotient Rule.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 3.6}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

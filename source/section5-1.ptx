@@ -1,0 +1,803 @@
+<section>
+  <title>Implicit Differentiation</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Determine whether a point is on the curve defined by an equation.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand what it means for a variable to be an implicit function of another variable,
+          and how this affects the derivative of that variable.
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculate a formula for the derivative of an implicitly defined function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visualize tangent lines to implicitly defined curves,
+          including horizontal and vertical tangent lines.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Curves Described by Equations</title>
+    <p>
+      In all of our studies with derivatives so far,
+      we have worked with functions where the value of the dependent variable
+      (often <m>y</m>)
+      is given explicitly in terms of the value of the independent variable
+      (often <m>x</m>).
+      But there are many interesting curves that are defined by equations involving variables that are impossible to solve for one in terms of the other.
+      In this section,
+      you will see several examples of such curves and learn how to use calculus to study such curves in the absence of an explicit formula.
+    </p>
+    <example xml:id="ex_lemniscate">
+      <title>A Lemniscate</title>
+      <statement>
+        <p>
+          The curve pictured below, called a <em>lemniscate</em>,
+          is the collection of points that satisfy the equation <m>x^3-y^3 = 6xy</m>:
+        </p>
+        <figure xml:id="fig_ACFigure2-7-1b">
+          <caption>The lemniscate defined by the equation <m>x^3-y^3=6xy</m>.</caption>
+          <image width="37%" source="ACFigure2-7-1b.png"/>
+        </figure>
+        <p>
+          What does it mean for a point to "satisfy the equation?" It means that when we plug in the values of the variables given by the point,
+          we get a true statement from the equation.
+        </p>
+        <p>
+          For instance, if <m>x=0</m> and <m>y=0</m>,
+          then the left side of the equation <m>x^3-y^3 = 6xy</m> is
+          <me>
+            x^3-y^3 = 0^3-0^3 = 0
+          </me>
+          and the right side of the equation is
+          <me>
+            6xy = 6(0)(0) = 0
+          </me>
+        </p>
+        <p>
+          Since both sides of the equation evaluate to the same number,
+          they are equal to each other for the given values of <m>x</m> and <m>y</m>,
+          making the equation "true." Hence the point
+          <m>(x,y)=(0,0)</m> "satisfies the equation"
+          <m>x^3-y^3 = 6xy</m> and is included on the curve.
+        </p>
+        <p>
+          Similarly, if <m>x=-3</m> and <m>y=3</m>,
+          then the left side of the equation <m>x^3-y^3 = 6xy</m> is
+          <me>
+            x^3-y^3 = (-3)^3-(3)^3 = -27-27=-54
+          </me>
+          and the right side of the equation is
+          <me>
+            6xy = 6(-3)(3) = -54
+          </me>
+          so the point <m>(-3,3)</m> also satisfied the equation and is on the curve.
+        </p>
+        <p>
+          Take a moment to find the points <m>(0,0)</m> and <m>(-3,3)</m> on the curve in <xref ref="fig_ACFigure2-7-1b" autoname="yes"/>.
+        </p>
+        <p>
+          We can see that the lemniscate does not pass the vertical line test <mdash/> for example,
+          the line <m>x=-2</m> passes through the curve at three different <m>y</m>-values.
+          Because the vertical line test fails,
+          we know that the curve cannot be the graph of a function <m>y=f(x)</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>A Circle</title>
+      <statement>
+        <p>
+          Perhaps the simplest and most natural of all such curves are circles.
+          Because of the circle's symmetry,
+          for each <m>x</m> value strictly between the endpoints of the horizontal diameter,
+          there are two corresponding <m>y</m>-values.
+          For instance,
+          in <xref ref="fig_ACFig2-7-1a">Figure</xref> below,
+          we have labeled <m>A=(-3,\sqrt{7})</m> and <m>B=(-3,-\sqrt{7})</m>,
+          and these points demonstrate that the circle fails the vertical line test.
+          Hence it is impossible to represent the circle through a single function of the form <m>y=f(x)</m>.
+        </p>
+        <p>
+          But portions of the circle can be represented explicitly as a function of <m>x</m>,
+          such as the highlighted arc that is magnified to the right of <xref ref="fig_ACFig2-7-1a">Figure</xref> below:
+        </p>
+        <figure xml:id="fig_ACFig2-7-1a">
+          <caption>At left, the circle given by <m>x^2+y^2=16</m>. At right, the portion of the circle <m>x^2+y^2=16</m> that has been highlighted in the box at left.</caption>
+          <image width="65%" source="ACFigure2-7-1a.png"/>
+        </figure>
+        <p>
+          Moreover, we ought to be able to find a tangent line to the curve at every point since the graph appears to be smooth
+          (without any breaks, cusps, corners, or vertical parts).
+          Thus it makes sense to wonder if we can compute
+          <m>\dfrac{dy}{dx}</m> at any point on the circle,
+          even though we cannot write <m>y</m> explicitly as a function of <m>x</m>.
+          We say that the equation <m>x^2+y^2=16</m> defines <m>y</m> <em>implicitly</em>
+          as a function of <m>x</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise xml:id="exercise_quadrifolium">
+      <statement>
+        <p>
+          The curve below is called a <em>quadrifolium</em>
+          and is defined by the equation
+          <me>
+            (x^2+y^2)^3 = 4x^2y^2
+          </me>
+        </p>
+        <p>
+          <image width="46%" source="quadrifolium.png"/>
+        </p>
+        <p>
+          Plug the points <m>(0,0)</m> and
+          <m>\left(\dfrac{1}{\sqrt{2}},\dfrac{-1}{\sqrt{2}}\right)</m> into both sides of the equation <m>(x^2+y^2)^3 = 4x^2y^2</m>.
+          Simplify each side and observe that the values are equal,
+          so that the points "satisfy the equation"
+          <m>(x^2+y^2)^3 = 4x^2y^2</m>, and so lie on the curve.
+          Based on the picture,
+          do you think there are tangent lines at these points?
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>Describing a Circle with Functions</title>
+      <statement>
+        <p>
+          For a circle,
+          the graph of the equation could be broken into pieces where each piece can be defined by an explicit function of <m>x</m>.
+          Below we see the circle <m>x^2+y^2=1</m> broken into the top and bottom half.
+        </p>
+        <p>
+          <image width="93%" source="TaalmanPage211.png"/>
+        </p>
+        <p>
+          These halves correspond to the two expressions,
+          <m>\sqrt{1-x^2}</m> and <m>-\sqrt{1-x^2}</m>,
+          that we get when we solve the equation for <m>y</m>:
+          <me>
+            \begin{aligned}x^2+y^2 \amp = 1\\ y^2 \amp = 1-x^2\\ y \amp = \pm\sqrt{1-x^2} \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      For the lemniscate in Example <xref ref="ex_lemniscate" autoname="yes"/> or the quadrifolium in Exercise <xref ref="exercise_quadrifolium" autoname="yes"/>,
+      we would need many more pieces and it is algebraically <em>extremely</em>
+      difficult to solve either of those equations for <m>y</m>.
+    </p>
+    <p>
+      \fbox{ <em>Motivating Question:</em>
+      How can we find an equation for
+      <m>\frac{dy}{dx}</m> without an explicit formula for <m>y</m> in terms of <m>x</m>? }
+    </p>
+  </subsection>
+  <subsection>
+    <title>Finding Derivatives of Implicit Functions</title>
+    <p>
+      The following three examples remind us of some ways we can compute derivatives of functions in settings where the function's formula is not known.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>f</m> be a differentiable function of <m>x</m>
+          (whose formula is not known)
+          and recall that <m>\frac{df}{dx}</m> and <m>f'(x)</m> mean the same thing:
+          the derivative of <m>f</m>.
+          Then
+          <me>
+            \frac{d}{dx}[x^2+f(x)] = 2x+\frac{df}{dx}
+          </me>
+          where we have used the sum rule to take the derivative of each term separately.
+        </p>
+        <p>
+          Likewise, if we are told that <m>y</m> is a function of <m>x</m> and wish to take the derivative of <m>x^2+y</m>,
+          we can write:
+          <me>
+            \frac{d}{dx}[x^2+y] = x^2+\frac{dy}{dx}
+          </me>
+          where <m>\frac{dy}{dx}</m> means "take the derivative of <m>y</m> using <m>x</m> as the variable."
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          If <m>f</m> is a differentiable function,
+          find an expression in terms of
+          <m>x,
+          f</m>, and <m>\frac{df}{dx}</m> for
+          <me>
+            \frac{d}{dx}[x^2f(x)]
+          </me>.
+          Similarly, if <m>y</m> is a function of <m>x</m>,
+          find the derivative of <m>x^2y</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The derivative of <m>x^2f(x)</m> requires us to use the product rule,
+          because we are multiplying <m>x^2</m> and <m>f(x)</m>:
+          <me>
+            \frac{d}{dx}[x^2f(x)] = (2x)\cdot f(x)+(x^2)\cdot \frac{df}{dx} = 2xf(x)+x^2\frac{df}{dx}
+          </me>
+        </p>
+        <p>
+          Similarly, if <m>y</m> is a function of <m>x</m>,
+          then <m>x^2y</m> is also a product of <m>x^2</m> and <m>y</m>,
+          so we use the product rule to take the derivative:
+          <me>
+            \frac{d}{dx}[x^2y] = 2xy+x^2\frac{dy}{dx}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example xml:id="ex_implicitchain">
+      <statement>
+        <p>
+          If <m>f(x)</m> is a differentiable function with derivative <m>\frac{df}{dx}</m>, then
+          <me>
+            \frac{d}{dx}[(f(x))^2] = 2f(x)\, f'(x)
+          </me>
+          by the chain rule.
+          Likewise,
+          <me>
+            \frac{d}{dx}[(f(x))^3] = 3(f(x))^2\, f'(x)
+          </me>
+        </p>
+        <p>
+          If we use the variable <m>y</m> in place of <m>f(x)</m>,
+          and specify that <m>y</m> is a function of <m>x</m>,
+          then we must still use the chain rule in order to compute the following derivatives:
+          <me>
+            \frac{d}{dx}[y^2] = 2y\,\frac{dy}{dx}
+          </me>
+          and
+          <me>
+            \frac{d}{dx}[y^3] = 3y^2\,\frac{dy}{dx}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The key idea being used is that we can treat the variable <m>y</m> as a function of <m>x</m> while taking the derivative.
+      In other words, we treat <m>y</m> as an
+      <em>implicit function</em> of <m>x</m>.
+      In so doing, we can "compute" the derivative of <m>y</m> as
+      <m>\frac{dy}{dx}</m> without having a formula for <m>y</m>,
+      and we can also "compute" the derivative of equations involving the variables <m>x</m> and <m>y</m> without needing to solve for <m>y</m> explicitly.
+      This process is what is called <em>implicit differentiation</em>
+      and is demonstrated fully in the next example.
+    </p>
+    <example>
+      <title>The Circle</title>
+      <statement>
+        <p>
+          Let's consider again the example of the circle given by <m>x^2+y^2 = 16</m>.
+          How can we find a formula for the derivative <m>\frac{dy}{dx}</m>?
+        </p>
+        <p>
+          By viewing <m>y</m> as an implicit function of <m>x</m>,
+          we think of <m>y</m> as some function whose formula <m>f(x)</m> is unknown,
+          but which we can differentiate.
+          Just as <m>y</m> represents an unknown formula,
+          we can treat its derivative
+          <m>\frac{dy}{dx}</m> as an unknown formula;
+          we use it purely as a symbol.
+        </p>
+        <p>
+          Viewing <m>y</m> as an unknown differentiable function of <m>x</m>,
+          we take the derivative of both sides of the equation with respect to <m>x</m>:
+          <me>
+            \frac{d}{dx}[x^2+y^2] = \frac{d}{dx}[16]
+          </me>
+        </p>
+        <p>
+          On the right,
+          the derivative of the constant <m>16</m> is <m>0</m>,
+          and on the left we can apply the sum rule, so it follows that
+          <me>
+            \frac{d}{dx}[x^2]+\frac{d}{dx}[y^2] =0
+          </me>.
+        </p>
+        <p>
+          Pay attention to the different roles being played by <m>x</m> and <m>y</m>.
+          Because <m>x</m> is the independent variable,
+          <m>\frac{d}{dx}[x^2]=2x</m> as usual.
+          But <m>y</m> is the dependent variable,
+          meaning <m>y</m> is an implicit function of <m>x</m>.
+          Recall <xref ref="ex_implicitchain">Example</xref>,
+          where we computed <m>\frac{d}{dx}[(f(x))^2] = 2f(x)\, f'(x)</m>.
+          Computing <m>\frac{d}{dx}[y^2]</m> is exactly the same,
+          and requires the chain rule,
+          by which we find that <m>\frac{d}{dx}[y^2] = 2y\,\frac{dy}{dx}</m>.
+        </p>
+        <p>
+          The derivative of the equation <m>x^2+y^2=16</m> is then
+          <me>
+            2x+2y\,\frac{dy}{dx} = 0
+          </me>
+          once we put together the left and right sides computed above.
+        </p>
+        <p>
+          Now, we can solve this equation for
+          <m>\frac{dy}{dx}</m> by subtracting <m>2x</m> from both sides and dividing by <m>2y</m>,
+          then canceling the 2.
+          Some people refer to this as "isolating <m>\frac{dy}{dx}</m>."
+          <me>
+            \begin{aligned}2x+2y\,\frac{dy}{dx} \amp = 0\\ 2y\frac{dy}{dx}  \amp = -2x\\ \frac{dy}{dx} \amp =\frac{-2x}{2y}\\ \frac{dy}{dx} \amp = -\frac{x}{y} \end{aligned}
+          </me>
+        </p>
+        <p>
+          And voila!
+          We have managed to compute the derivative
+          <m>\frac{dy}{dx}</m> without ever knowing an explicit formula for <m>y</m> as a function of <m>x</m>.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_cubicimplicitdiff-deriv">
+      <statement>
+        <p>
+          For the curve given implicitly by <m>x^3+y^3-2xy = 2</m>,
+          find the derivative <m>\frac{dy}{dx}</m> if we view <m>y</m> as an implicit function of <m>x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We begin by differentiating the curve's equation implicitly,
+          meaning by treating <m>y</m> as an implicit function of <m>x</m>.
+          Taking the derivative of each side with respect to <m>x</m>,
+          <me>
+            \frac{d}{dx}[x^3+y^2-2xy] = \frac{d}{dx}[2]
+          </me>,
+          by the sum rule and the fact that the derivative of a constant is zero, we have
+          <me>
+            \frac{d}{dx}[x^3]+\frac{d}{dx}[y^2]-\frac{d}{dx}[2xy] = 0
+          </me>.
+        </p>
+        <p>
+          We have three derivatives to compute.
+          <m>\frac{d}{dx}[x^3]</m> uses the power rule applied to the variable <m>x</m>.
+          <m>\frac{d}{dx}[y^2]</m> requires the chain rule since <m>y</m> is an implicit function of <m>x</m>.
+          And <m>\frac{d}{dx}[2xy]</m> requires the product rule since <m>y</m> is a function of <m>x</m> and we are multiplying <m>2x</m> by <m>y</m>.
+          Applying these rules, we now find that
+          <me>
+            3x^2+2y\frac{dy}{dx}-\left(2x\frac{dy}{dx}+2y\right) = 0
+          </me>.
+        </p>
+        <p>
+          Now we want to solve this equation for <m>\frac{dy}{dx}</m>.
+          To do so, we first collect all of the terms involving
+          <m>\frac{dy}{dx}</m> on one side of the equation,
+          factor <m>\frac{dy}{dx}</m>, then divide to isolate <m>\frac{dy}{dx}</m>:
+          <me>
+            \begin{aligned}3x^2+2y\frac{dy}{dx}-\left(2x\frac{dy}{dx}+2y\right) \amp = 0\\ 3x^2+2y\frac{dy}{dx}-2x\frac{dy}{dx}-2y \amp = 0\\ 2y\frac{dy}{dx}-2x\frac{dy}{dx} \amp = 2y-3x^2\\ \frac{dy}{dx}(2y-2x) \amp = 2y-3x^2\\ \frac{dy}{dx} \amp = \frac{2y-3x^2}{2y-2x}. \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      \fbox{<em>Summary:</em> The process for computing
+      <m>\frac{dy}{dx}</m> via implicit differentiation is as follows.
+    </p>
+    <ul>
+      <li>
+        <p>
+          Take the derivative of the equation by applying <m>\frac{d}{dx}</m> to both sides.
+        </p>
+      </li>
+      <li>
+        <p>
+          Split the derivative up over each term and apply the appropriate derivative rules.
+        </p>
+      </li>
+      <li>
+        <p>
+          Remember that <m>y</m> is an <em>implicit function</em>
+          of <m>x</m> and use the chain rule whenever taking the derivative of <m>y</m>.
+          Use the notation <m>\frac{dy}{dx}</m> to represent the derivative of <m>y</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Once you are finished taking the derivative of the equation,
+          solve for <m>\frac{dy}{dx}</m> by isolating it.
+          Usually this consists of:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Moving all terms containing
+              <m>\frac{dy}{dx}</m> to one side of the equation and all terms without
+              <m>\frac{dy}{dx}</m> to the other side of the equation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Factor out <m>\frac{dy}{dx}</m> from all terms on one side of the equation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Divide to finish isolating <m>\frac{dy}{dx}</m>.
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      <em>Note:</em> When you are done solving for <m>\frac{dy}{dx}</m>,
+      it will usually be equal to an expression involving both variables <m>x</m> and <m>y</m>. }}
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Suppose that each of the equations below defines <m>y</m> as an implicit function of <m>x</m>.
+          Use implicit differentiation to find <m>\frac{dy}{dx}</m>.
+          <ol marker="labelalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                <m>3x^4+2y^4+x+y=0</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>x^2y+xy^2 = 1</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      \fbox{ <em>Notation Detail:</em>
+      There is a big difference between writing
+      <m>\frac{d}{dx}</m> and <m>\frac{dy}{dx}</m>.
+      The first means "take the derivative using <m>x</m> as the variable" while the second means "the derivative of <m>y</m> using <m>x</m> as the variable." Remember that <m>\frac{d}{dx}</m> is called a
+      <em>mathematical operator</em>.
+      It is not a derivative until it is applied to a function.
+      <m>\frac{dy}{dx}</m> is the derivative that results from applying
+      <m>\frac{d}{dx}</m> to the function <m>y</m>. }
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          <me>
+            \frac{d}{dx}[x^2+y^2]
+          </me>
+          gives an instruction to take the derivative with respect to <m>x</m> of the quantity <m>x^2+y^2</m>,
+          presumably where <m>y</m> is a function of <m>x</m>.
+          On the other hand,
+          <me>
+            \frac{dy}{dx}(x^2+y^2)
+          </me>
+          means the product of the derivative of <m>y</m> with respect to <m>x</m> with the quantity <m>x^2+y^2</m>.
+          Understanding this notational subtlety is essential to completing these problems without getting lost in a random mess of symbols.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Tangent Lines to Implicitly Defined Curves</title>
+    <p>
+      Now that we have a formula for <m>\frac{dy}{dx}</m>,
+      meaning the derivative of <m>y</m> with respect to the variable <m>x</m>,
+      we can find equations for tangent lines.
+      Remember that the value of the derivative at a point is the slope of the tangent line.
+      We simply plug in the <m>x</m>- and <m>y</m>-coordinate of the point to the expression for <m>\frac{dy}{dx}</m>,
+      as demonstrated in the next example.
+      We use the notation
+      <me>
+        \frac{dy}{dx}\Big|_{(x,y)=(a,b)}
+      </me>
+      to denote the <em>evaluation of
+      <m>\frac{dy}{dx}</m> at the point <m>(a,b)</m></em>.
+      This is analogous to writing
+      <m>f'(a) = \frac{df}{dx}\Big|_{x=a}</m> when <m>f'(x)</m> is the derivative of an explicit function.
+    </p>
+    <example xml:id="ex_cubicimplicitdiff">
+      <statement>
+        <p>
+          For the curve given implicitly by <m>x^3+y^3-2xy = 2</m>,
+          shown in <xref ref="fig_ACFigure2-7-4" autoname="yes"/> below,
+          find the slope of the tangent line at <m>(-1,1)</m>,
+          and then the equation of the tangent line.
+        </p>
+        <figure xml:id="fig_ACFigure2-7-4">
+          <caption>The curve defined by the equation <m>x^3+y^3-2xy = 2</m> and its tangent line at the point <m>(-1,1)</m>.</caption>
+          <image width="46%" source="ACFigure2-7-4.png"/>
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          We found the derivative of this implicit equation in Example <xref ref="ex_cubicimplicitdiff-deriv" autoname="yes"/>:
+          <me>
+            \frac{dy}{dx} = \frac{2y-3x^2}{2y-2x}
+          </me>
+        </p>
+        <p>
+          Note that the expression for
+          <m>\frac{dy}{dx}</m> depends on both <m>x</m> and <m>y</m>.
+          To find the slope of the tangent line at <m>(-1,1)</m>,
+          we substitute the coordinates into the formula for <m>\frac{dy}{dx}</m>,
+          using the notation
+          <me>
+            \frac{dy}{dx}\Big|_{(x,y)=(-1,1)} = \frac{2(1)-3(-1)^2}{2(1)-2(-1)} = -\frac{1}{4}
+          </me>.
+          This value matches the picture above,
+          as the line appears to have a small, negative slope.
+        </p>
+        <p>
+          The tangent line is at the point <m>(-1,1)</m> and has slope <m>m=-\frac{1}{4}</m>,
+          so has equation
+          <me>
+            y = -\frac{1}{4}(x+1)+1
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the equation <m>y^3+xy+2=0</m> that defines <m>y</m> as an implicit function of <m>x</m>.
+          <ol marker="labeltextbfalphitemsep5pt">
+            <li>
+              <p>
+                Find the points on the curve with <m>x</m>-coordinate of <m>-5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Then find the slope of the tangent line to
+                <m>y^3+xy+2=0</m> at the point <m>(-5,2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Lastly, give the equation of the tangent line and graph it on the curve.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          {<em>a.</em>} If we let <m>x=-5</m> in
+          <m>y^3+xy+2=0</m>, We get the cubic equation
+          <me>
+            y^3-5y+2=0
+          </me>.
+        </p>
+        <p>
+          It just so happens that <m>y^3-5y+2</m> factors as <m>(y-2)(y^2+2y-1)</m>.
+          This is not a factorization that we can do by hand,
+          but you can verify that it is true by simplifying the factored form.
+        </p>
+        <p>
+          If <m>(y-2)(y^2+2y-1)=0</m> we must have either <m>y-2=0</m> or <m>y^2+2y-1=0</m>.
+          The first has solution <m>y=2</m> and the second has solutions <m>y=-1+\sqrt{2}</m> and
+          <m>y=-1-\sqrt{2}</m>, by the quadratic formula.
+        </p>
+        <p>
+          Thus <m>(-5,2)</m>, <m>(-5,-1+\sqrt{2})</m>,
+          and <m>(-5,-1-\sqrt{2})</m> are points on the graph of <m>y^3+xy+2=0</m>.
+          Note that this alone shows that <m>y</m> could not possibly be written as an explicit function of <m>x</m>,
+          since the curve does not satisfy the vertical line test.
+        </p>
+        <figure xml:id="fig_TaalmanPage215a">
+          <caption><m>y^3+xy+2=0</m> and the three points with <m>x</m>-coordinate <m>x=-5</m>.</caption>
+          <image width="46%" source="TaalmanPage215a.png"/>
+        </figure>
+        <p>
+          {<em>b.</em>} Next, we find the slope of the tangent line to
+          <m>y^3+xy+2=0</m> at the point <m>(-5,2)</m>.
+          We must first calculate <m>\frac{dy}{dx}</m>.
+          Using implicit differentiation and the chain rule,
+          with the product rule for the middle term, we have
+          <me>
+            \begin{aligned}y^3+xy+2 \amp = 0\\ \frac{d}{dx}[y^3+xy+2] \amp = \frac{d}{dx}[0]\\ \frac{d}{dx}[y^3]+\frac{d}{dx}[xy]+\frac{d}{dx}[2] \amp = 0\\ 3y^2\frac{dy}{dx}+\left((1)(y)+(x)\left(\frac{dy}{dx}\right)\right)+0 \amp = 0\\ 3y^2\frac{dy}{dx}+y+x\,\frac{dy}{dx} \amp = 0\\ 3y^2\frac{dy}{dx}+x\,\frac{dy}{dx} \amp = -y\\ \frac{dy}{dx}(3y^2+x) \amp = -y\\ \frac{dy}{dx} \amp = \frac{-y}{3y^2+x} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Therefore the slope of the tangent line at the point <m>(a,b) = (-5,2)</m> is
+          <me>
+            \frac{dy}{dx}\Big|_{(-5,2)} = \frac{-2}{3(2)^2+(-5)} = \frac{-2}{12-5} = -\frac{2}{7}
+          </me>
+        </p>
+        <p>
+          {<em>c.</em>} The equation of the tangent line at the point <m>(-5,2)</m> with slope <m>-\frac{2}{7}</m> is
+          <me>
+            y = -\frac{2}{7}(x+5)+2
+          </me>.
+        </p>
+        <p>
+          This line is illustrated below.
+          Note that the three different points labeled with <m>x</m>-coordinate of <m>-5</m> will all have different slopes that depend on both the <m>x</m> and the <m>y</m>-value of the point,
+          and there are three different tangent lines "at <m>x=-5</m>," one for each different <m>y</m>-value on the curve.
+        </p>
+        <figure xml:id="fig_TaalmanPage215b">
+          <caption>The tangent line to <m>y^3+xy+2=0</m> at the point <m>(-5,2)</m>.</caption>
+          <image width="46%" source="TaalmanPage215b.png"/>
+        </figure>
+      </solution>
+    </example>
+    <exercise xml:id="ex_quinticimplicitdiff">
+      <statement>
+        <p>
+          Consider the curve defined by the equation <m>x=y^5-5y^3+4y</m>,
+          whose graph is pictured below
+        </p>
+        <p>
+          <image width="46%" source="ACFigure2-7-5.png"/>
+          <ol marker="labelalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                Use the picture to explain why it is <em>not</em>
+                possible to express <m>y</m> as an explicit function <m>y=f(x)</m> of <m>x</m>.
+                <em>Hint: think about vertical lines.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use implicit differentiation to find a formula for <m>\frac{dy}{dx}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use your result from part (b) to find the equation of the line tangent to the graph of
+                <m>x=y^5-5y^3+4y</m> at the point <m>(0,1)</m>.
+                Make sure that the slope you have is reasonable based on the picture.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Vertical and Horizontal Tangent Lines</title>
+    <p>
+      On an explicitly defined function,
+      we say that the derivative is undefined at points where the tangent line is vertical,
+      since we do not have an explicit value of the derivative at those points.
+      However, on an implicitly defined curve,
+      we wish to also consider vertical tangent lines since we are not restricting ourselves to explicit functions.
+      While the slope of a horizontal tangent line must be zero,
+      the slope of a vertical tangent line is infinite.
+    </p>
+    <p>
+      In many of the examples we have considered,
+      the formula for <m>\frac{dy}{dx}</m> is expressed as a fraction of expressions involving <m>x</m> and <m>y</m>:
+      <me>
+        \frac{dy}{dx} = \frac{p(x,y)}{q(x,y)}
+      </me>.
+      The tangent line is horizontal precisely when
+      <m>p(x,y)=0</m> and <m>q(x,y)\neq 0</m>,
+      making the slope of the tangent line zero.
+      Similarly, the tangent line is vertical whenever
+      <m>q(x,y)=0</m> and <m>p(x,y)\neq 0</m>,
+      making the slope infinite.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the curve defined by the equation
+          <me>
+            y(y^2-1)(y-2) = x(x-1)(x-2)
+          </me>,
+          whose graph is pictured below.
+        </p>
+        <figure>
+          <caption>The curve defined by <m>y(y^2-1)(y-2) = x(x-1)(x-2)</m>.</caption>
+          <image width="46%" source="ACFigure2-7-6.png"/>
+        </figure>
+        <p>
+          Implicit differentiation can show that
+          <me>
+            \frac{dy}{dx} = \frac{(x-1)(x-2)+x(x-2)+x(x-1)}{(y^2-1)(y-2)+2y^2(y-2)+y(y^2-1)}
+          </me>.
+          We won't take the time to do that calculation.
+          It's very long and tedious.
+          I calculated it using a Computer Algebra System called Mathematica.
+        </p>
+        <p>
+          If we simplify the numerator of <m>\frac{dy}{dx}</m>, we get
+          <me>
+            \begin{aligned}(x-1)(x-2)+x(x-2)+x(x-1) \amp = (x^2-3x+2)+(x^2-2x)+(x^2-x) \\ \amp = 3x^2-6x+2. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Setting this equal to zero and solving for <m>x</m> using the quadratic formula:
+          <me>
+            3x^2-6x+2 = 0  \text{ when }  x=1-\frac{1}{\sqrt{3}} \text{ and }  x=1+\frac{1}{\sqrt{3}}
+          </me>
+        </p>
+        <p>
+          This tells us that the curve has a horizontal tangent line when <m>x=1\pm\frac{1}{\sqrt{3}}</m>
+          (provided that the denominator of <m>\frac{dy}{dx}</m> is nonzero).
+          This looks reasonable based on the graph,
+          since we can see that there should be horizontal tangent lines at the four points on the curve where
+          <m>x = 1-\frac{1}{\sqrt{3}}\approx 0.42265</m> and at the four points on the curve where <m>x = 1+\frac{1}{\sqrt{3}}\approx1.5774</m>.
+        </p>
+        <p>
+          The tangent line will be vertical when the denominator is equal to zero
+          (provided that the numerator is nonzero).
+          Simplifying the denominator, we get
+          <me>
+            \begin{aligned}(y^2-1)(y-2)+2y^2(y-2)+y(y^2-1) \amp = (y^3-2y^2-y+2)+2y^3-4y^2+y^3-y\\ \amp = 4 y^3 - 6 y^2 - 2 y + 2 \end{aligned}
+          </me>
+        </p>
+        <p>
+          We cannot easily factor <m>4 y^3 - 6 y^2 - 2 y + 2</m> in order to determine where it is equal to zero.
+          I typed "Solve <m>4 y^3 - 6 y^2 - 2 y + 2=0</m>" into the website
+          <url href="https://www.wolframalpha.com/">https://www.wolframalpha.com/</url>
+          and got the answers
+          <me>
+            y=\frac{1}{2},  \frac{1-\sqrt{5}}{2}\approx -0.61803, \text{ and }  \frac{1+\sqrt{5}}{2}\approx1.6180
+          </me>
+        </p>
+        <p>
+          Comparing these numbers to what's shown on the graph,
+          we can see that there should be vertical tangent lines at three points at the three different <m>y</m>-values.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use implicit differentiation to find
+          <m>\frac{dy}{dx}</m> and determine the equation of the tangent line to the lemniscate
+          <me>
+            x^3-y^3=6xy
+          </me>
+          at the point <m>(-3,3)</m>.
+          Then verify that <m>\frac{dy}{dx}</m> is undefined at the point <m>(0,0)</m>.
+          What appears to be happening to the tangent line at <m>(0,0)</m>?
+        </p>
+        <p>
+          <image width="37%" source="ACFigure2-7-1b.png"/>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    implicit function, implicit differentiation, evaluation of <m>\frac{dy}{dx}</m> at the point <m>(a,b)</m>:
+    <me>
+      \frac{dy}{dx}\Big|_{(x,y)=(a,b)}
+    </me>
+    <p>
+      <em>Key ideas:</em> Curves can be defined by equations that are not explicit functions,
+      and we can use implicit differentiation to compute derivatives in order to find slopes of tangent lines to the curves.
+      The chain rule is used to take derivatives of variables implicitly defined as a function.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Equations of lines can be found using a point and a slope.
+      The slope of a tangent line is the derivative evaluated at the point of tangency.
+      Tangent lines are horizontal when their slopes are zero.
+      Tangent lines are vertical when their slopes are infinite.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 4.1}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

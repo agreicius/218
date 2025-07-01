@@ -1,0 +1,436 @@
+<section xml:id="sec_triglimits">
+  <title>Limits of Trigonometric and Inverse Trigonometric Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Establish the continuity of the trigonometric and inverse trigonometric functions on their domains.
+        </p>
+      </li>
+      <li>
+        <p>
+          Investigate the limits at infinity of the trigonometric functions,
+          and the locations of vertical asymptotes of tangent,
+          secant, cosecant, and cotangent.
+        </p>
+      </li>
+      <li>
+        <p>
+          The inverse function arctangent has horizontal asymptotes.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Continuity of Trigonometric Functions</title>
+    <p>
+      As usual, our first steps in learning to calculate limits of a new type of function is to determine when a function is continuous,
+      so that taking a limit is the same as evaluating the function.
+      Fortunately,
+      as with all the previous types of functions we have studied,
+      limits of trigonometric and inverse trigonometric functions are equal to their values everywhere that they happen to be defined:
+    </p>
+    <theorem xml:id="thm_contoftrigfuncs">
+      <title>Continuity of Trigonometric and Inverse Trigonometric Functions</title>
+      <statement>
+        <p>
+          All six trigonometric functions (sine,
+          cosine, tangent, cosecant,
+          secant, and cotangent) are continuous on their domains.
+          Additionally,
+          the three inverse trigonometric functions (arcsine,
+          arccosine, and arctangent) are continuous on their domains.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This continuity property means that we can calculate limits of trigonometric and inverse trigonometric functions by evaluation as long as we are approaching domain values.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, <m>\cos x</m> is defined at <m>x=\pi</m>,
+          and this theorem says that the limit
+          <m>\ds\lim_{x\to\pi}\cos x</m> is equal to the value <m>\cos(\pi) = -1</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          For another example,
+          <me>
+            \lim_{x\to 1}\tan^{-1}x = \tan^{-1} 1  = \frac{\pi}{4}
+          </me>
+          since.
+        </p>
+        <p>
+          As another example,
+          <me>
+            \lim_{x\to 1^-} \sin^{-1}x = \sin^{-1} 1 = \frac{\pi}{2}
+          </me>
+          since <m>\frac{\pi}{2}</m> is the unique angle in <m>\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</m> whose sine is 1.
+        </p>
+        <p>
+          You can also verify these answers with the graphs of the inverse tangent and inverse sine functions as seen in <xref ref="fig_Section10-1Pic1-2">Figure</xref>.
+        </p>
+        <figure xml:id="fig_Section10-1-Pic2">
+          <caption><m>\ds\lim_{x\to 1}\tan^{-1}x = \frac{\pi}{4}</m></caption>
+          \begin{subfigure}[h]{0.4\textwidth}
+          <image width="73%" source="Section10-1-Pic2.png"/>
+          \end{subfigure}
+          \begin{subfigure}[h]{0.4\textwidth}
+          <image width="73%" source="Section10-1-Pic1.png"/>
+          \caption{<m>\ds\lim_{x\to 1^-}\sin^{-1}x = \frac{\pi}{2}</m>} \end{subfigure}
+          \caption{Inverse trigonometric functions are continuous on their domains. }
+        </figure>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          <xref ref="thm_contoftrigfuncs">Theorem</xref>
+          does not tell us how to calculate <m>\ds\lim_{x\to \pi/2}\sec x</m>, however,
+          because <m>\pi/2</m> is not in the domain of <m>\sec x</m> since
+          <m>\sec x = \frac{1}{\cos x}</m> and <m>\cos(\pi/2) = 0</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use
+          <url href="https://www.desmos.com/calculator">Desmos</url>
+          to graph <m>y=\sec x</m> and use the graph to determine
+          <me>
+            \ds\lim_{x\to \pi/2}\sec x
+          </me>.
+          Be as specific as possible,
+          including giving the values of the right and left limits at
+          <m>\frac{\pi}{2}</m> if they are different.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Of course, we can still use the limit rules about combinations of continuous functions
+      (<xref ref="thm_limitrules">Theorem</xref>)
+      in order to calculate more complicated limits involving trigonometric and inverse trigonometric functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate
+          <me>
+            \lim_{x\to 0}\sqrt{\sin \left(x+\frac{\pi}{2}\right)}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>f(x) = \sqrt{\sin \left(x+\frac{\pi}{2}\right)}</m> is a combination of functions that are continuous on their domains,
+          and thus is continuous on its domain.
+          Since <m>x=0</m> is in the domain of <m>f</m>,
+          we can solve this limit by simple evaluation:
+          <me>
+            \begin{aligned}\lim_{x\to 0}\sqrt{\sin \left(x+\frac{\pi}{2}\right)}  \amp = \sqrt{\sin \left(0+\frac{\pi}{2}\right)} \\ \amp =\sqrt{\sin \left(\frac{\pi}{2}\right)} \\ \amp =\sqrt{1} =  1. \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Calculate
+          <me>
+            \lim_{x\to -1^+}\frac{\sin^{-1}x}{\tan^{-1}x}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Both <m>\sin^{-1}x</m> and
+          <m>\tan^{-1}x</m> are defined to the right of and at the point <m>x=-1</m>,
+          so we can solve this limit by evaluation.
+          We have <m>\sin^{-1}(-1)  = -\frac{\pi}{2}</m>,
+          since <m>-\frac{\pi}{2}</m> is the unique angle in
+          <m>\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</m> whose sine is <m>-1</m>.
+          We also have <m>\tan^{-1}(-1)  = -\frac{\pi}{4}</m>,
+          since <m>-\frac{\pi}{4}</m> is the unique angle in
+          <m>\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m> whose tangent is <m>-1</m>.
+          Therefore
+          <me>
+            \lim_{x\to -1^+} \frac{\sin^{-1}x}{\tan^{-1}x} = \frac{-\pi/2}{-\pi/4} = 2
+          </me>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Infinite Limits and Limits at Infinity of Trigonometric Functions</title>
+    <p>
+      Recall the graphs of the six trigonometric functions:
+    </p>
+    <p>
+      In terms of limits, these graphs suggest the following theorem:
+    </p>
+    <theorem>
+      <title>Asymptotes and Long-Term Behavior of Trigonometric Functions</title>
+      <statement>
+        <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+          <li>
+            <p>
+              All six trigonometric functions exhibit periodic behavior as <m>x\to\pm\infty</m>,
+              and thus their limits as <m>x\to\pm\infty</m> do not exist.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\tan x</m> and <m>\sec x</m> have vertical asymptotes at <m>x=\frac{\pi}{2}+k\pi</m>,
+              where <m>k</m> is any integer.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\csc x</m> and <m>\cot x</m> have vertical asymptotes at <m>x=k\pi</m>,
+              where <m>k</m> is any integer.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+    <exercise>
+      <statement>
+        <p>
+          Give five explicit values of <m>x</m> for which <m>\tan x</m> and <m>\sec x</m> both have vertical asymptotes.
+          Give five explicit values of <m>x</m> for which <m>\csc x</m> and <m>\cot x</m> both have vertical asymptotes.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Here, we will calculate
+          <me>
+            \lim_{x\to -\pi}\csc x
+          </me>
+          without relying on the graph of the function in order to verify that the limit has the behavior suggested by the graph.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since <m>\csc x = \frac{1}{\sin x}</m> and <m>\sin(-\pi)=0</m>,
+          <m>\ds\lim_{x\to -\pi}\csc x</m> is of the form
+          <m>\frac{1}{0}</m> and therefore the function
+          <m>y=\csc x</m> will have a vertical asymptote at <m>x=-\pi</m>.
+          However, we don't yet know if the function approaches <m>-\infty</m> or <m>\infty</m> from the left and the righta.
+        </p>
+        <p>
+          From the left, as <m>x\to-\pi^-</m>,
+          we are considering angles slightly less than <m>-\pi</m>;
+          these angles terminate in the second quadrant just above the negative horizontal-axis
+          (for instance, <m>-\pi-0.1</m>).
+          For such angles, the sine function is positive,
+          and therefore as <m>x\to-\pi^-</m>,
+          we have <m>\sin x\to 0^+</m> and thus
+          <me>
+            \lim_{x\to -\pi^-}\csc x =\frac{1}{0^+} =  \infty
+          </me>.
+          Similarly, from the right,
+          as <m>x\to -\pi^+</m>, we have <m>\sin x\to 0^-</m>
+          (these angles terminate in the third quadrant just below the negative horizontal-axis)
+          and thus
+          <me>
+            \lim_{x\to -\pi^+}\csc x =\frac{1}{0^-} =  -\infty
+          </me>.
+          This means that <m>\lim_{x\to -\pi}\csc x</m> does not exist,
+          and we have verified that <m>\csc x</m> has a vertical asymptote at <m>x=-\pi</m> which approaches <m>\infty</m> to the left and <m>-\infty</m> to the right.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Explain in your own words why <m>\tan x, \sec x, \csc x</m>,
+          and <m>\cot x</m> have vertical asymptotes where they do.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Note that the graphs of sine and cosine <em>oscillate</em>
+      between the values <m>-1</m> and <m>1</m>,
+      meaning that they repeat all of the values between <m>-1</m> and <m>1</m> over and over again.
+      Additionally,
+      the values of these two functions are never smaller than <m>-1</m> and never greater than <m>1</m>,
+      meaning they are <em>bounded</em>
+      between <m>-1</m> and <m>1</m>.
+      Both of these behaviors lead to functions with different behavior from anything we have seen before,
+      as illustrated in the next example.
+    </p>
+    <example xml:id="ex_boundedvsinfinitelimits">
+      <statement>
+        <p>
+          Let's investigate the following two limits:
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to\infty}x\sin x</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to\infty}\frac{\sin x}{x}</m>
+              </p>
+            </li>
+          </ol>
+          <ol marker="labeltextbfalphitemsep5pttopsep15pt">
+            <li>
+              <p>
+                As <m>x\to\infty</m>,
+                <m>\sin x</m> oscillates between <m>-1</m> and <m>1</m>.
+                Your first thought might be that since <m>x</m> is approaching <m>\infty</m>,
+                the function <m>x\sin x</m> will also approach infinity.
+                However, because <m>\sin x</m> oscillates between negative and positive numbers,
+                so will the function <m>x\sin x</m>.
+                Note that as <m>x</m> increases in magnitude, so does <m>x\sin x</m>.
+                Therefore as <m>x\to \infty</m>,
+                the quantity <m>x\sin x</m> oscillates without converging to any real number,
+                and therefore <m>\ds\lim_{x\to\infty}x \sin x</m> does not exist.
+                The right side of the graph of
+                <m>y=x\sin x</m> is shown in the graph below:
+                <image width="37%" source="TaalmanPage430a.png"/> Since simply saying that "<m>\ds\lim_{x\to\infty}x \sin x</m> does not exist" is not at all satisfying or complete,
+                how should we give an answer for this limit that accurately captures the behavior of the function?
+                One way to express this is that <m>x\sin x</m> "oscillates with increasing magnitude and without bound" as <m>x\to\infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Again, as <m>x\to \infty</m>,
+                <m>\sin x</m> oscillates between <m>-1</m> and <m>1</m>.
+                Therefore the numerator <m>\sin x</m> stays bounded
+                (meaning it never becomes infinitely large)
+                while the denominator <m>x</m> becomes infinitely large.
+                A bounded quantity divided by an infinite quantity that increases without bound is zero;
+                in other words, loosely speaking,
+                <me>
+                  \frac{\text{ bounded } }{\infty}\to 0
+                </me>.
+                Therefore <m>\ds\lim_{x\to\infty}\frac{\sin x}{x} = 0</m>.
+                The right side of the graph of
+                <m>y=\frac{\sin x}{x}</m> is shown in the graph below:
+                <image width="37%" source="TaalmanPage430b.png"/> Note that
+                <m>\frac{\sin x}{x}</m> does indeed have a horizontal asymptote of <m>y=0</m> as <m>x\to \infty</m>,
+                even though the graph continues to cross the line <m>y=0</m>
+                (and will do so forever,
+                whenever <m>x=k\pi</m> for all integers <m>k>0</m>).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Limits at Infinity of Inverse Trigonometric Functions</title>
+    <p>
+      None of arcsine,
+      arccosine, and arctangent have vertical asymptotes.
+      Additionally,
+      since arcsine and arccosine have domains <m>[-1,1]</m>,
+      neither has a limit as <m>x\to\pm\infty</m>.
+      However, arctangent has domain
+      <m>(-\infty,\infty)</m> so we can explore the behavior of this function as <m>x\to\pm\infty</m>.
+    </p>
+    <p>
+      The graph of arctangent is the reflection over the line <m>y=x</m> of the graph of the part of tangent restricted to the domain of <m>\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m>.
+      Because of this,
+      the vertical asymptotes of the graph of tangent become horizontal asymptotes on the graph of arctangent.
+      See <xref ref="fig_tan-arctan-asymptotes">Figure</xref>.
+    </p>
+    <figure xml:id="fig_tangentVAs">
+      <caption><m>y=\tan x</m> has vertical asymptotes as <m>x\to-\frac{\pi}{2}^+</m> and <m>x\to\frac{\pi}{2}^-</m></caption>
+      \begin{subfigure}[h]{0.3\textwidth}
+      <image width="73%" source="TaalmanPage438b.png"/>
+      \end{subfigure}
+      \begin{subfigure}[h]{0.3\textwidth}
+      <image width="73%" source="TaalmanPage439b.png"/>
+      \caption{<m>y=\tan^{-1} x</m> has horizontal asymptotes as <m>x\to-\infty</m> and <m>x\to\infty</m>} \end{subfigure}
+      \caption{Vertical asymptotes of tangent give rise to horizontal asymptotes of arctangent. }
+    </figure>
+    <p>
+      From this we have the following theorem:
+    </p>
+    <theorem>
+      <title>Limits of Inverse Tangent</title>
+      <statement>
+        <me>
+          \lim_{x\to\infty}\tan^{-1}x  = \frac{\pi}{2}\qquad\text{ and } \qquad\lim_{x\to-\infty}\tan^{-1}x = -\frac{\pi}{2}
+        </me>
+      </statement>
+    </theorem>
+    <p>
+      We can use these limits in combination with those of other functions,
+      such as the natural logarithm:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate
+          <me>
+            \lim_{x\to\infty}\frac{\ln x}{\tan^{-1}x}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          As <m>x\to\infty</m>,
+          <m>\ln x\to\infty</m> and <m>\tan^{-1}x\to\frac{\pi}{2}</m>.
+          Therefore the limit in question has the form <m>\frac{\infty}{\pi/2}</m>,
+          which is infinite.
+          Thus
+          <me>
+            \lim_{x\to \infty}\frac{\ln x}{\tan^{-1}x} = \infty
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Calculate
+          <me>
+            \lim_{x\to\infty}\frac{e^x}{\tan^{-1}x}\qquad\text{ and } \qquad\lim_{x\to-\infty}\frac{e^x}{\tan^{-1}x}
+          </me>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    Oscillate, bounded
+    <p>
+      <em>Key ideas:</em> The trigonometric and inverse trigonometric functions are continuous on their domains.
+      Tangent, secant, cosecant,
+      and cotangent have vertical asymptotes where their denominators are equal to zero.
+      All six trigonometric functions do not have limits at infinity,
+      though sine and cosine are bounded between <m>-1</m> and <m>1</m>.
+      Arctangent has horizontal asymptotes to <m>y=\pi/2</m> to the right and <m>-\pi/2</m> to the left.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      In order to calculate limits involving trigonometric functions and inverse trigonometric,
+      start as usual by evaluating.
+      If the expression is undefined,
+      determine the value of the limit based on the limit form.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 7.6}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

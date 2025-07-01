@@ -1,0 +1,862 @@
+<section xml:id="sec_expfunctions">
+  <title>Exponential Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Discover how exponential functions can describe percent growth or decay.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn the definition of exponential functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find the formula for an exponential function given two points on the graph of the function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand how the values of the coefficient and base of an exponential function affect the shape of the graph.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Motivating Exponential Functions</title>
+    <p>
+      We saw in <xref ref="sec_avgchange">Section</xref>
+      that linear functions have constant average rate of change while quadratic functions have a linear average rate of change
+      (over intervals of a set length).
+      After learning about derivatives,
+      we know that all polynomials will have rates of change that are polynomial,
+      of one lower degree.
+      In this section,
+      we will define and start to explore exponential functions,
+      which have a fundamentally different pattern to their rates of change.
+      It is this pattern that makes them exceptionally useful for modeling many real-world phenomena.
+    </p>
+    <example>
+      <title>Modeling Percent Change</title>
+      <statement>
+        <p>
+          Let's suppose that a credit card company is offering a 10% annual interest rate on a one-time loan.
+          If you take out a loan for $100 and don't make any payments,
+          after one year you still owe the original $100, plus 10% of $100,
+          so your balance after a year is:
+          <me>
+            100\xrightarrow{\text{ year 1 } }100+0.1(100) = 100+(1+0.01) = 100(1.1)
+          </me>.
+          If we instead borrowed $100,000,
+          after 1 year we again owe the original $100,000,
+          but now we also owe 10% of $100,000,
+          and thus the balance after a year is:
+          <me>
+            100000\xrightarrow{\text{ year 1 } }100000+0.1(100000) = 100000(1.1)
+          </me>.
+          If we were to borrow $P, we reason the same way that after a year the balance on the loan is
+          <me>
+            P+0.1P = P(1.1)
+          </me>
+        </p>
+        <p>
+          If we go another year without paying anything toward the loan,
+          we repeat our calculations for a second year.
+          If we started by borrowing $100,
+          after the second year we would owe
+          <me>
+            100\xrightarrow{\text{ year 1 } }100(1.1)\xrightarrow{\text{ year 2 } }(100(1.1))(1.1) = 100(1.1)^2
+          </me>.
+        </p>
+        <p>
+          If we started by borrowing $100,000,
+          after the second year we would owe
+          <me>
+            100,000\xrightarrow{\text{ year 1 } }100000(1.1)\xrightarrow{\text{ year 2 } }(100000(1.1))(1.1) = 100000(1.1)^2
+          </me>.
+        </p>
+        <p>
+          Using the same reasoning,
+          if we borrow <m>P</m> dollars without paying anything back,
+          in 2 years our loan will grow to
+          <me>
+            P\xrightarrow{\text{ year 1 } }P(1.1)\xrightarrow{\text{ year 2 } }(P(1.1))(1.1) = P(1.1)^2
+          </me>.
+        </p>
+        <p>
+          What will happen after 3 years?
+          Adding 10% to the loan balance of <m>P(1.1)^2</m> after two years,
+          the original loan <m>P</m> will have grown to
+          <me>
+            P(1.1)^3
+          </me>.
+        </p>
+        <p>
+          After 4 years, the loan balance will be
+          <me>
+            P(1.1)^4
+          </me>
+          and after 5 years, the loan balance will be
+          <me>
+            P(1.1)^5
+          </me>.
+        </p>
+        <p>
+          Here we see a new kind of pattern developing:
+          annual growth of 10% is leading to
+          <em>powers</em> of the base <m>1.1</m>,
+          where the power to which we raise <m>1.1</m> corresponds to the number of years the loan has grown.
+          Note that the change occurs in the
+          <em>exponent</em> of the formula:
+          <me>
+            P(1.1)^t
+          </me>
+          where <m>t</m> is the number of years since we took out the loan.
+          Each additional year results in an additional multiplication by <m>1.1</m>,
+          so for each year that passes,
+          the power of the base <m>1.1</m> will increase by <m>1</m>.
+          This phenomenon is called <em>exponential growth</em>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Defining Exponential Functions</title>
+    <p>
+      The pattern described by the example above is new to us.
+      We have yet to see a function where the variable is in the exponent.
+      Such a function does not fit into our previous classification of algebraic functions,
+      and so it is the first of the <em>transcendental functions</em>
+      that we will study this semester.
+    </p>
+    <p>
+      Functions that are not algebraic are called
+      <em>transcendental functions</em>.
+      This semester,
+      we will investigate four basic types of transcendental functions:
+      exponential, logarithmic,
+      trigonometric, and inverse trigonometric functions.
+      Exponential functions look similar to power functions,
+      but with the roles of constant and variable reversed in the base and exponent.
+    </p>
+    <definition>
+      <title>Exponential Functions</title>
+      <statement>
+        <p>
+          An <em>exponential function</em>
+          is a function that can be written in the form
+          <me>
+            f(x) = Ab^x
+          </me>
+          for some real numbers <m>A</m> and <m>b</m> such that <m>A\neq 0, b>0</m>,
+          and <m>b\neq 1</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Before moving on to exploring the properties of exponential functions,
+      let's recall the rules of exponents so that we can work algebraically with these expressions.
+      Recall from <xref ref="thm_rulesforexponents">Theorem</xref>:
+    </p>
+    <p>
+      \fbox{For any numbers <m>b, c, n</m>,
+      and <m>m</m> for which the expressions that follow are defined,
+      <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+        <li>
+          <p>
+            <m>b^{n+m} = b^nb^m</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(bc)^n = b^nc^n</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b^{nm} = (b^n)^m = (b^m)^n</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b^{-m} = \dfrac{1}{b^m}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b^{n-m} = \dfrac{b^n}{b^m}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left(\dfrac{b}{c}\right)^n = \dfrac{b^n}{c^n}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b^{1/n} = \sqrt[n]{b}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b^{n/m} = (b^n)^{1/m} = \sqrt[m]{b^n}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b^{n/m} = (b^{1/m})^n = (\sqrt[m]{b})^n</m>
+          </p>
+        </li>
+      </ol>
+    </p>
+    <exercise>
+      <title>Rewriting Exponential Functions</title>
+      <statement>
+        <p>
+          Use the exponent rules above to rewrite the functions below in the form <m>f(x) = Ab^x</m>.
+          Explicitly identify the values of the coefficient <m>A</m> and the base <m>b</m>.
+          In this way,
+          we see that all of these functions are also exponential functions.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>f(x) = 3(2)^{4x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x) = \dfrac{4}{5(3)^x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x) = 6^{x/5}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x) = \sqrt[3]{\dfrac{8^x}{27}}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x) = 2^{x-1}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Growth of Exponential Functions</title>
+    <p>
+      Let's look at another practical application of exponential functions in order to better understand their properties:
+    </p>
+    <example xml:id="ex_APCPrev3-1-1">
+      <statement>
+        <p>
+          Suppose that at age 25 you receive a signing bonus of $20,000 at your new job<fn>
+          Congratulations!
+          </fn> and you can choose between one of two ways to use the money:
+          you can invest it in a mutual fund that will,
+          on average, earn 8% interest annually,
+          or you can purchase a used car that will,
+          on average, depreciate 12% annually.
+          Let's explore how the $20,000 changes over time.
+        </p>
+        <p>
+          Let <m>M(t)</m> denote the value of the $20,000 after <m>t</m> years if it is invested in the mutual fund.
+          Let <m>C(t)</m> denote the value of the car <m>t</m> years after it is purchased.
+        </p>
+        <p>
+          We know that <m>M(0)=20000</m> since when <m>t=0</m>,
+          you are starting with $20,000.
+          After one year you will have 8% more, so that
+          <me>
+            M(1) = 20000+0.8(20000) = 20000(1.08) = 21600
+          </me>.
+        </p>
+        <p>
+          In general, a quantity increasing by 8% annually will be multiplied by 1.08 each year, so that
+          <me>
+            M(2) = 20000(1.08)^2 = 23,328\qquad\text{ and } \qquad M(3) = 20000(1.08)^3 = 25194.24
+          </me>.
+        </p>
+        <p>
+          A formula for <m>M(t)</m> after <m>t</m> years is then
+          <me>
+            M(t) = 20000(1.08)^t
+          </me>.
+          A graph of <m>M(t)</m> is
+        </p>
+        <figure>
+          <caption><m>M(t) = 20000(1.08)^t</m> describes 8% annual growth over <m>t</m> years.</caption>
+          <image width="56%" source="APCPreview3-1-1-M.png"/>
+        </figure>
+        <p>
+          Let's now look at the value of the car.
+          We know that <m>C(0) = 20000</m>.
+          After one year, the value of the car will be 12% <em>less</em>
+          than it was originally worth, so that
+          <me>
+            C(1) = 20000-0.12(20000) = 20000(1-0.12) = 20000(0.88)= 17600
+          </me>.
+        </p>
+        <p>
+          Note that if a quantity depreciates
+          (meaning decreases by)
+          12% annually, after a given year,
+          <m>(100-12)\% = 88\%</m> of that quantity remains.
+          So for each year that passes,
+          we multiply by another <m>0.88</m>:
+          <me>
+            C(2) =20000(0.88)^2= 15488\qquad\text{ and } \qquad C(3) = 20000(0.88)^3= 13629.44
+          </me>.
+        </p>
+        <p>
+          A formula for <m>C(t)</m> after <m>t</m> years is then
+          <me>
+            C(t) = 20000(0.88)^t
+          </me>.
+          A graph of <m>C(t)</m> is
+        </p>
+        <figure>
+          <caption><m>C(t) = 20000(0.88)^t</m> describes 12% annual depreciation over <m>t</m> years.</caption>
+          <image width="56%" source="APCPreview3-1-1-C.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      Note the very different behavior of the two functions: 8% growth results in an increasing,
+      concave up function,
+      while 12% depreciation results in a decreasing, concave up function.
+      Both functions have a coefficient of <m>A=20000</m>.
+      The only difference in the formula is in the base <m>b</m> of the exponential function:
+      growth corresponds to a base of <m>b=1.08>1</m>,
+      while depreciation corresponds to a base of <m>b=0.88\lt 1</m>.
+      This is <em>not</em> a coincidence.
+      Bases larger than 1 will increase as the exponent increases,
+      while bases between 0 and 1 will decrease as the exponent increases.
+    </p>
+    <p>
+      For an exponential function <m>f(x)=Ab^x</m>,
+      we note that <m>f(0) = A\cdot b^0 = A\cdot 1 = A</m>,
+      so an exponential function has <m>y</m>-intercept equal to the coefficient <m>A</m>.
+      This is sometimes called the <em>initial value</em>
+      of the quantity being modeled.
+      In the example above, <m>M(0) = 20000</m> and
+      <m>C(0)=20000</m> are the initial quantity of your bonus that you either invested or paid for the car.
+    </p>
+    <p>
+      Note that because a positive number raised to any power is always positive
+      (for instance,
+      <m>2^{10} = 1024</m> and <m>2^{-10} = \frac{1}{2^{10}} = \frac{1}{1024}</m>),
+      the expression <m>b^x</m> is also always positive.
+      An exponential function <m>f(x) = Ab^x</m> will then always be positive when the coefficient <m>A</m> is positive and will always be negative when <m>A</m> is negative.
+      In particular, <m>f(x) = Ab^x</m> is never zero,
+      and thus has no <m>x</m>-intercepts.
+      In the example above,
+      <m>M(t)</m> and <m>C(t)</m> both have positive coefficient <m>A=20000</m>,
+      so these two quantities will always be positive for any value of <m>t</m>.
+      This makes sense intuitively in both examples:
+      the values of the mutual fund and car cannot be negative.
+    </p>
+    <p>
+      Again looking at <xref ref="ex_APCPrev3-1-1">Example</xref>,
+      we call <m>1.08</m> the "growth factor" of <m>M</m> and similarly <m>0.88</m> the growth factor of <m>C</m> because we are multiplying by that factor for each 1-unit increase in time.
+      In addition,
+      we note that these values stem from the actual growth rates:
+      <m>8\% = 0.08</m> for <m>M</m>,
+      so that the growth factor is <m>1+0.08</m>,
+      and <m>-12\% = -0.12</m> for <m>C</m>,
+      so that the growth factor is <m>1-0.12</m>,
+      the latter growth rate being negative because value is deprecating.
+      In general, for a function of the form <m>f(x) = Ab^x</m>,
+      we call <m>b</m> the <em>growth factor</em>.
+      Moreover, if <m>b = 1+r</m>, we call <m>r</m> the <em>growth rate</em>.
+      Whenever <m>b>1</m>,
+      we often say that the function <m>f</m> is exhibiting
+      <em>exponential growth</em>,
+      whereas if <m>0\lt b\lt 1</m>,
+      we say <m>f</m> exhibits <em>exponential decay</em>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain the difference between growth factor and growth rate.
+          Use the context of <xref ref="ex_APCPrev3-1-1">Example</xref> to help you explain.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Let's compare linear and exponential functions to best illustrate this new growth pattern.
+    </p>
+    <example xml:id="ex_linvsexpgrowthpattern">
+      <title>Patterns of Growth for Linear vs. Exponential Functions</title>
+      <statement>
+        <p>
+          In the tables below,
+          we see output for two different functions <m>r</m> and <m>s</m> that correspond to equally spaced inputs:
+        </p>
+        <table>
+          <title>A table of values for <m>r(t)</m></title>
+          \begin{subtable}{.5\linewidth}
+          <tabular>
+            <row>
+              <cell><m>t</m></cell>
+              <cell>0</cell>
+              <cell>3</cell>
+              <cell>6</cell>
+              <cell>9</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>r(t)</m></cell>
+              <cell>12</cell>
+              <cell>10</cell>
+              <cell>8</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+          \end{subtable}
+          \begin{subtable}{.5\linewidth}
+          <tabular>
+            <row>
+              <cell><m>t</m></cell>
+              <cell>0</cell>
+              <cell>3</cell>
+              <cell>6</cell>
+              <cell>9</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>s(t)</m></cell>
+              <cell>12</cell>
+              <cell>9</cell>
+              <cell>6.75</cell>
+              <cell>5.0625</cell>
+            </row>
+          </tabular>
+          \caption{A table of values for <m>s(t)</m>.}
+          \end{subtable}
+          \caption{Two different functions <m>r</m> and <m>s</m>, with equally spaced inputs.}
+        </table>
+        <p>
+          In the left-hand table,
+          we see a function that exhibits constant average rate of change since the change in output is always
+          <m>\Delta r = -2</m> for any change in input of <m>\Delta t = 3</m>.
+          Said differently, <m>r</m> is a linear function with slope
+          <me>
+            m =\frac{\Delta r}{\Delta t} =  -\frac{2}{3}
+          </me>.
+          Since its <m>y</m>-intercept is <m>(0,12)</m>, the function's formula is
+          <me>
+            y=r(t) = -\frac{2}{3}t+12
+          </me>.
+        </p>
+        <p>
+          The difference between one output and the next is always a constant <m>-2</m>,
+          as long as the input increases by 3.
+        </p>
+        <p>
+          By contrast,
+          the function <m>s</m> given by the right-hand table does not exhibit constant average rate of change:
+          <me>
+            AV_{[0,3]} = \frac{9-12}{3-0} = -1, AV_{[3,6]} = \frac{6.75-9}{6-3} = -0.75, AV_{[6,9]} = \frac{5.0625-6.75}{9-6} = -0.5625
+          </me>.
+        </p>
+        <p>
+          Thus the difference between one output and the next is <em>not constant</em>
+          as the input increases by a constant amount and <m>s(t)</m> is
+          <em>not</em> a linear function.
+        </p>
+        <p>
+          Instead, observe that in the table for <m>s(t)</m>,
+          <em>each output is a multiple of the previous output</em>.
+          The first two outputs have a ratio of
+          <me>
+            \frac{9}{12} = \frac{3}{4}
+          </me>.
+          The second and third outputs have a ratio of
+          <me>
+            \frac{6.75}{9} = 0.75 = \frac{3}{4}
+          </me>
+        </p>
+        <p>
+          The third and fourth outputs have a ratio of
+          <me>
+            \frac{5.0625}{6.75} = 0.75 = \frac{3}{4}
+          </me>.
+          For <m>r(t)</m>,
+          we see that when the input increases by 3, the output is multiplied by <m>\frac{3}{4}</m>.
+          As a formula,
+          <me>
+            s(t) = 12\left(\frac{3}{4}\right)^{t/3}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Summarizing the key difference between linear and exponential change:
+    </p>
+    <p>
+      \fbox{ Whereas the <em>differences</em>
+      in the outputs of a linear function are constant,
+      the <em>ratios</em> in the outputs of the exponential function are constant
+      (over equally spaced inputs). }
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          In <xref ref="ex_linvsexpgrowthpattern">Example</xref>,
+          the exponent of <m>\frac{3}{4}</m> is <m>t/3</m>.
+          Why does this translate to multiplying by
+          <m>\frac{3}{4}</m> when <m>t</m> increases by <m>3</m>?
+          What would happen if we used <m>3t</m> as the exponent instead?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Finding Formulas for Exponential Functions</title>
+    <p>
+      We now do some algebra.
+      Recall that we can find the formula of a linear function from knowing only two points that lie on the line.
+      Similarly, if we know two points on the graph of an exponential function,
+      we can determine the function's formula.
+      We demonstrate two different methods for doing so in the next example and the following exercise.
+    </p>
+    <example xml:id="ex_APCExample3-1-6">
+      <statement>
+        <p>
+          Suppose that <m>p</m> is an exponential function and we know that <m>p(2)=11</m> and <m>p(5) = 18</m>.
+          Determine the exact values of <m>A</m> and <m>b</m> for which <m>p(t) = Ab^t</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since we know that <m>p(t) = Ab^t</m>,
+          the two data points give us two equations in the unknowns <m>A</m> and <m>b</m>.
+          First, using <m>t=2</m>,
+          <me>
+            Ab^2 = 11
+          </me>,
+          and using <m>t=5</m> we also have
+          <me>
+            Ab^5 = 18
+          </me>.
+        </p>
+        <p>
+          Because we know that the ratios of outputs of an exponential function corresponding to equally-spaced inputs must be constant,
+          we consider the ratio of our outputs <m>\frac{18}{11}</m>:
+          <me>
+            \frac{18}{11} = \frac{Ab^5}{Ab^2} = \frac{b^5}{b^2} =b^3
+          </me>.
+        </p>
+        <p>
+          Solving for <m>b</m>, we find that
+          <me>
+            b = \sqrt[3]{\frac{18}{11}}\approx 1.1784
+          </me>.
+        </p>
+        <p>
+          Using the exact value <m>b = \sqrt[3]{\frac{18}{11}}</m> and substituting this value for <m>b</m> in <m>Ab^2 = 11</m>,
+          we see that
+          <me>
+            A\left(\sqrt[3]{\frac{18}{11}}\right)^2 = 11  \Rightarrow  A = \frac{11}{\left(\frac{18}{11}\right)^{2/3}}\approx 7.9215
+          </me>
+        </p>
+        <p>
+          Therefore,
+          <me>
+            p(t) =  \frac{11}{\left(\frac{18}{11}\right)^{2/3}}\left(\sqrt[3]{\frac{18}{11}}\right)^t\approx 7.9215(1.1784)^t
+          </me>
+          and a plot of <m>y=p(x)</m> confirms that the function indeed passes through <m>(2,11)</m> and <m>(5,18)</m>:
+        </p>
+        <p>
+          <image width="46%" source="APCExample3-1-6.png"/>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <title>Another Approach</title>
+      <statement>
+        <p>
+          In <xref ref="ex_APCExample3-1-6">Example</xref>,
+          we saw that as the input <m>t</m> increases by <m>5-2=3</m>,
+          the ratio of the outputs is <m>\frac{18}{11}</m>.
+          Since the ratio of outputs is constant for exponential functions,
+          another increase of <m>3</m> in <m>t</m> will result in multiplication by another <m>\frac{18}{11}</m>, so that
+          <me>
+            p(t) = A\left(\frac{18}{11}\right)^{t/3}
+          </me>
+        </p>
+        <p>
+          From here, use the fact that <m>p(2)=11</m> (or <m>p(5)=18</m>;
+          you can use either) to find <m>A</m>.
+          Verify that this value of <m>A</m> is the same as was found in <xref ref="ex_APCExample3-1-6">Example</xref>.
+          (You will probably want to write what you found as a decimal.)
+        </p>
+        <p>
+          Lastly, observe that:
+          <me>
+            \left(\frac{18}{11}\right)^{t/3} = \left(\frac{18}{11}\right)^{(1/3)\cdot t} =\left(\sqrt[3]{\frac{18}{11}}\right)^t
+          </me>
+          so that the base of the two functions is the same if we isolate <m>t</m> in the exponent.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Properties of Exponential Functions</title>
+    <p>
+      We've seen in our examples so far that exponential function arise when modeling quantities that change by a percent of their value.
+      In this section,
+      we will explore how this affects the shape of such functions.
+    </p>
+    <exercise>
+      <title>Exploring Exponential Functions in Desmos</title>
+      <statement>
+        <p>
+          Note the conditions on the constants <m>A</m> and <m>b</m> in the definition of an exponential function:
+          <me>
+            f(x) = Ab^x\qquad\text{ with } \qquad A\neq 0\qquad b>0\qquad b\neq 1
+          </me>
+        </p>
+        <p>
+          Open this Desmos graph:
+          <url href="https://www.desmos.com/calculator/r9fyqvhwpa">https://www.desmos.com/calculator/r9fyqvhwpa</url>
+          by clicking on the link and use it to answer the questions below.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                The Desmos graph is initially set to <m>A=1</m> and <m>b=2</m>.
+                Describe the shape of the resulting function <m>f(x) = 2^x</m>.
+                Is the function positive?
+                Negative?
+                Increasing?
+                Decreasing?
+                Concave up?
+                Concave down?
+              </p>
+            </li>
+            <li>
+              <p>
+                Experiment setting <m>A</m> to any nonzero number
+                (try both positive and negative)
+                and setting <m>b</m> to either a number between 0 and 1, or a number greater than 1.
+                How do these different choices affect the shape of the graph?
+              </p>
+            </li>
+            <li>
+              <p>
+                Why can't we use <m>A=0</m>?
+                Set <m>A=0</m> in the Desmos graph.
+                How does this change the shape of the graph?
+                Would you call this graph "exponential?"
+              </p>
+            </li>
+            <li>
+              <p>
+                Why can't we have <m>b=1</m>?
+                Set <m>A</m> to any nonzero number and <m>b=1</m>.
+                How does this change the shape of the graph?
+                Would you call this graph "exponential?"
+              </p>
+            </li>
+            <li>
+              <p>
+                Set <m>b=-0.5</m>.
+                It's going to look very strange
+                (if Desmos shows you anything;
+                sometimes it doesn't).
+                Think about what values we can have for the exponent <m>x</m> in the expression <m>f(x) = A(-0.5)^x</m>.
+                What would happen with <m>x=\frac{1}{2}</m>?
+                <m>x=-\frac{1}{4}</m>?
+                <m>x=\frac{97}{6}</m>?
+                There are infinitely many values of <m>x</m> for which a negative base would result in an undefined expression.
+                This is why the definition of an exponential function excludes <m>b\lt 0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      If we consider an exponential function <m>f</m> with a growth factor <m>b>1</m>,
+      such as the function pictured to the left below,
+      then the function is always increasing because higher powers of <m>b</m> are greater than lesser powers (for example,
+      <m>(1.2)^3>(1.2)^2</m>).
+      On the other hand, if <m>0\lt b\lt 1</m>,
+      such as the function pictured to the right below,
+      then the exponential function will be decreasing because higher powers of positive numbers <em>less than 1</em>
+      get smaller (for example,
+      <m>(0.9)^3\lt (0.9)^2</m>).
+      If you don't believe this, plug the numbers into a calculator.
+    </p>
+    <tabular>
+      <row>
+        <cell><image width="37%" source="APCFigure3-1-8.png"/></cell>
+        <cell><image width="37%" source="APCFigure3-1-9.png"/></cell>
+      </row>
+      <row>
+        <cell><m>f(t) = Ab^t</m> with <m>b>1</m></cell>
+        <cell><m>g(t) = Ab^t</m> with <m>0\lt b\lt 1</m></cell>
+      </row>
+    </tabular>
+    <p>
+      We also notice that each graph bends upward and is therefore concave up.
+      We can better understand why this is so by considering the average rate of change of both <m>f</m> and <m>g</m> on consecutive intervals of width 1, so that the average rate of change can be computed by
+      <me>
+        AV_{[t,t+1]} = \frac{f(t+1)-f(t)}{1} = f(t+1)-f(t)
+      </me>.
+      The tables below give the average rate of change of <m>f(t) = 2(1.25)^t</m> and
+      <m>g(t) = 8(0.75)^t</m> on several consecutive unit intervals:
+    </p>
+    <tabular>
+      <row>
+        <cell><image width="23%" source="APCTable3-1-10.png"/></cell>
+        <cell><image width="23%" source="APCTable3-1-11.png"/></cell>
+      </row>
+      <row>
+        <cell>Average change of <m>f(t) = 2(1.25)^t</m></cell>
+        <cell>Average change of <m>g(t) = 8(0.75)^t</m></cell>
+      </row>
+    </tabular>
+    <p>
+      We can see that for <m>f</m>,
+      the average rate of change is increasing as we increase the value of <m>t</m>.
+      We say that <m>f</m> appears to be "increasing at an increasing rate." In other words,
+      that <m>f</m> is concave up.
+      For the function <m>g</m>,
+      we first notice that its average rate of change is always negative,
+      but also that the average rate of change gets <em>less negative</em>
+      as we increase the value of <m>t</m>.
+      Said differently,
+      the average rate of change of <m>g</m> is also increasing as we increase the value of <m>t</m>,
+      thus <m>g</m> is also concave up.
+    </p>
+    <p>
+      We summarize a few of these observations here:
+    </p>
+    <theorem xml:id="thm_propertiesofexpfunctions">
+      <title>Properties of Exponential Functions</title>
+      <statement>
+        <p>
+          For an exponential function of the form
+          <m>f(x) = Ab^x</m> where <m>A</m> and <m>b</m> are both positive with <m>b\neq 1</m>,
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                The value of <m>f(x)</m> is never zero for any <m>x\in\mathbb{R}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>b>1</m>, then <m>f</m> is always increasing and concave up.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>0\lt b\lt 1</m>, then <m>f</m> is always decreasing and concave up.
+              </p>
+            </li>
+            <li>
+              <p>
+                The graph of <m>f</m> passes the Horizontal Line Test.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Note the last statement:
+      the graph of <m>f</m> passes the Horizontal Line Test.
+      This is because <m>f</m> is either increasing or decreasing and so its graph cannot repeat values.
+      Another way to say this is that exponential functions are one-to-one and that
+      <em>every exponential function has an inverse!</em> Let's repeat that:
+    </p>
+    <p>
+      \fbox{ Every exponential function has an inverse!!! }
+    </p>
+    <p>
+      In the next section,
+      we will define and explore the inverses of exponential functions.
+      They are called <em>logarithms</em>.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Since exponential functions are one-to-one,
+          if <m>b^c = b^d</m>, then we must have <m>c=d</m>.
+          Use this property to determine the value of <m>x</m> that satisfies each equation below.
+          This will be useful in the next section when we want to find values of logarithms.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                Find <m>x</m> with <m>2^x = 8</m> by rewriting <m>8</m> as a power of <m>2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>x</m> with <m>3^x = \frac{1}{81}</m> by rewriting
+                <m>\frac{1}{81}</m> as a power of <m>3</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>x</m> with <m>\left(\frac{1}{25}\right)^x = 125</m> by rewriting
+                <m>\frac{1}{25}</m> and <m>125</m> as powers of <m>5</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    transcendental function, exponential function; initial value, growth factor, growth rate, exponential growth, exponential decay.
+    <p>
+      <em>Key ideas:</em> Exponential functions model percent increase or decrease.
+      We can describe this increase (respectively,
+      decrease) via either a growth rate or growth factor
+      (respectively, decay rate or decay factor).
+      Exponential functions have a very predictable shape,
+      determined by whether the coefficient is negative or positive,
+      and whether the base is between 0 and 1 or greater than 1.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Exponential functions are never equal to 0 and are always one-to-one.
+      Their inverses are called logarithms.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.2}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

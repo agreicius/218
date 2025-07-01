@@ -1,0 +1,303 @@
+<section>
+  <title>L'H&#xf4;pital's Rule with Trigonometric Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Practice using L'H&#xf4;pital's Rule with trigonometric functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Practice connecting limit computations with the visual behavior of a function on a graph.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Examples of applying L'H&#xf4;pital's Rule with Trigonometric Functions</title>
+    <p>
+      Having now formally defined the derivatives of the sine and cosine functions via limits,<fn>
+      The derivatives of tangent, secant, cosecant,
+      and cotangent were all derived from sine and cosine using standard derivative rules
+      (quotient and chain rules)
+      so we do not have to go back and recalculate those with limits,
+      thank goodness!
+      </fn> we can use L'H&#xf4;pital's rule to calculate limits of the form <m>\frac{0}{0}</m> and
+      <m>\frac{\infty}{\infty}</m> for functions involving trigonometric functions.
+      Let's start with two limits calculated via the Squeeze Theorem in the last section:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Since <m>\ds\lim_{x\to 0}\frac{\sin x}{x} = \frac{0}{0}</m>,
+          we may use L'H&#xf4;pital's rule immediately:
+          <me>
+            \begin{aligned}\lim_{x\to 0}\frac{\sin x}{x} \amp \stackrel[L'H]{}= \lim_{x\to 0}\frac{\cos x}{1}\\ \amp = \frac{\cos 0}{1}\\ \amp = \frac{1}{1}\\ \amp = 1 \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Similarly, <m>\ds\lim_{x\to 0}\frac{1-\cos x}{x} = \frac{0}{0}</m>:
+          <me>
+            \begin{aligned}\lim_{x\to 0}\frac{1-\cos x}{x} \amp \stackrel[L'H]{}= \lim_{x\to 0}\frac{\sin x}{1}\\ \amp = \frac{\sin 0}{1}\\ \amp = \frac{0}{1}\\ \amp = 0 \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use L'H&#xf4;pital's rule to calculate limits below:
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 0}\frac{\sin 3x}{2x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 0}\frac{3\cos(2x)-3}{5x}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Of course, we can use L'H&#xf4;pital's rule with any trigonometric functions,
+      not just sine and cosine,
+      provided that the limit has the form of either
+      <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Determine whether <m>f(x) = \frac{2x}{\tan^2x}</m> has a vertical asymptote at <m>x=0</m>,
+          and if so,
+          the precise behavior of the function to the right and left of the vertical asymptote.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In calculating <m>\ds\lim_{x\to 0}\frac{2x}{\tan^2x}</m>,
+          we observe that <m>\ds\lim_{x\to 0}2x = 0</m> and <m>\ds\lim_{x\to 0}\tan^2x = (\tan 0)^2 = 0^2=0</m>,
+          so the limit is indeed of the form <m>\frac{0}{0}</m>.
+          Then
+          <me>
+            \begin{aligned}\lim_{x\to 0}\frac{2x}{\tan^2x} \amp \stackrel[L'H]{}= \lim_{x\to 0}\frac{2}{2\tan x\sec^2 x}\\ \amp = \frac{2}{2(0)(1)^2}\\ \amp = \frac{2}{0} \end{aligned}
+          </me>
+        </p>
+        <p>
+          We know that this limit is infinite,
+          but we need to examine both sides of the limit to see if the approach <m>\infty</m> or <m>-\infty</m>.
+          Before doing this,
+          let's cancel the 2's and rewrite the limit in terms of sines and cosines.
+          This will allow us to use our knowledge of the unit circle and/or the graphs of sine and cosine more easily:
+          <me>
+            \frac{2}{2\tan x\sec^2 x} = \frac{1}{\frac{\sin x}{\cos x}\left(\frac{1}{\cos x}\right)^2} = \frac{\cos^3x}{\sin x}
+          </me>
+        </p>
+        <p>
+          <m>\cos x>0</m> for <m>x\approx 0</m> so it is the <m>\sin x</m> in the denominator that will determine whether the limit goes to <m>\infty</m> or <m>\infty</m>.
+          As it happens,
+          <m>\sin x>0</m> for <m>x</m> a little larger than 0 and
+          <m>\sin x\lt 0</m> for <m>x</m> a little smaller than 0
+          (graph <m>y=\sin x</m> if you don't believe me,
+          or take a look at the unit circle near an angle of 0 radians).
+          Thus
+          <me>
+            \ds\lim_{x\to 0^+}\frac{\cos^3 x}{\sin x} = \frac{1}{0^+} = \infty
+          </me>
+          and
+          <me>
+            \ds\lim_{x\to 0^-}\frac{\cos^3x}{\sin x} = \frac{1}{0^-} = -\infty
+          </me>
+        </p>
+        <p>
+          Overall, <m>\ds\lim_{x\to 0}\frac{2x}{\tan^2x}</m> DNE, but we know that
+          <m>\ds\lim_{x\to 0^+}\frac{2x}{\tan^2x} = \infty</m> while <m>\ds\lim_{x\to 0^-}\frac{2x}{\tan^2x} = -\infty</m>.
+        </p>
+        <p>
+          Thus the function <m>f(x) = \frac{2x}{\tan^2x}</m> has a vertical asymptote to <m>\infty</m> to the right of <m>x=0</m>,
+          and a vertical asymptote to <m>-\infty</m> to the left of <m>x=0</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          We calculated <m>\ds\lim_{x\to\infty}\frac{\sin x}{x} = 0</m> in <xref ref="ex_boundedvsinfinitelimits">Example</xref>
+          of <xref ref="sec_triglimits">Section</xref>,
+          so we know the calculation below is wrong.
+          Identify which steps are incorrect and explain why they do not follow from the previous step.
+          <me>
+            \begin{aligned}\lim_{x\to\infty}\frac{\sin x}{x} \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{\cos x}{1}\\ \amp = \lim_{x\to\infty}\cos x\\ \amp = \text{ DNE since cosine oscillates between } -1\text{ and } 1 \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_triglhopitalharderexamples">
+      <statement>
+        <p>
+          Calculate each of the following limits:
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 0^+}\frac{\csc x}{\ln x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to \pi/2}(\tan x-\sec x)</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol marker="labeltextbfalphitemsep5pt">
+            <li>
+              <p>
+                As <m>x\to 0^+</m>,
+                <m>\csc x</m> approaches <m>\infty</m> and <m>\ln x</m> approaches <m>-\infty</m>;
+                therefore this is a limit of the form
+                <m>\frac{\infty}{\infty}</m>, which is indeterminate.
+                L'H&#xf4;pital's rule applied and gives us
+                <me>
+                  \lim_{x\to0^+}\frac{\csc x}{\ln x} \stackrel[L'H]{}= \lim_{x\to 0^+}\frac{-\csc x\cot x}{1/x} = \lim_{x\to 0^+}(-x\csc x\cot x)
+                </me>.
+                As <m>x\to 0^+</m> we have <m>-x\to 0</m>,
+                <m>\csc x\to \infty</m>, and <m>\cot x\to \infty</m>,
+                and therefore this limit is of the indeterminate form <m>0\cdot \infty</m>.
+                After converting to sines and cosines and simplifying,
+                we will be able to apply L'H&#xf4;pital's rule again:
+                <me>
+                  \begin{aligned}\lim_{x\to 0^+}(-x\csc x\cot x) \amp = \lim_{x\to 0^+} (-x)\left(\frac{1}{\sin x}\right)\left(\frac{\cos x}{\sin x}\right)\amp  \leftarrow\text{ trigonometric identities } \\ \amp = \lim_{x\to 0^+} \frac{-x\cos x}{\sin^2 x}\amp \leftarrow\text{ algebra, limit now of form } \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to 0^+}\frac{(-1)\cos x+(-x)(-\sin x)}{2\sin x\cos x}\amp \leftarrow\text{ note use of product and chain rules } \\ \amp = \lim_{x\to 0^+}\frac{-\cos x+x\sin x}{2\sin x\cos x}\amp  \leftarrow\text{ simplify } \end{aligned}
+                </me>
+                Now as <m>x\to 0^+</m> we have
+                <m>\sin x\to 0^+</m> and <m>\cos x\to 1</m>,
+                and therefore the denominator in the remaining expression approaches <m>0^+</m>.
+                Since the numerator approaches <m>-\cos 0+0(\sin 0) = -1</m>,
+                the limit in question is of the form <m>\frac{-1}{0^+}</m> and therefore
+                <me>
+                  \lim_{x\to 0^+}\frac{\csc x}{\ln x} = \lim_{x\to 0^+}\frac{-\cos x+x\sin x}{2\sin x\cos x} = -\infty
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                At first glance this does not look like a L'H&#xf4;pital's rule problem,
+                since <m>\tan x-\sec x</m> is not in the form of a quotient.
+                Worse, the limit is of the indeterminate form <m>\infty-\infty</m>,
+                so we can't solve it simply by evaluating the function at <m>x=\frac{\pi}{2}</m>.
+                After using a bit of algebra,
+                we see that L'H&#xf4;pital's rule does apply here:
+                <me>
+                  \begin{aligned}\lim_{x\to \pi/2} (\tan x-\sec x) \amp = \lim_{x\to \pi/2}\left(\frac{\sin x}{\cos x}-\frac{1}{\cos x}\right)\amp \leftarrow\text{ definition of tangent and secant } \\ \amp =  \lim_{x\to \pi/2}\frac{\sin x-1}{\cos x}\amp \leftarrow\text{ this is now in the form } \frac{0}{0}\\ \amp \stackrel[L'H]{}=  \lim_{x\to \pi/2}\frac{\cos x}{-\sin x}\amp \leftarrow\text{ L'H\^opital's rule } \\ \amp =\frac{\cos(\pi/2)}{-\sin(\pi/2)} = \frac{0}{-1} = 0 \amp \leftarrow\text{ evaluate limit } \end{aligned}
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Does <m>f(x) = \frac{\csc x}{\ln x}</m> have a vertical asymptote at <m>x=0</m>?
+          Does <m>g(x) = \tan x-\sec x</m> have a vertical asymptote at <m>x=\pi/2</m>?
+          How can you tell from the limits in <xref ref="ex_triglhopitalharderexamples">Example</xref>?
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          After all that work computing the limits in <xref ref="ex_triglhopitalharderexamples">Example</xref>,
+          it would be wise to check our answers with some graphs.
+          Notice that the graph of <m>f(x) = \frac{\csc x}{\ln x}</m> on the left does approach <m>-\infty</m> as <m>x</m> approaches <m>0</m> from the right and the graph of
+          <m>g(x) = \tan x-\sec x</m> does approach 0 as <m>x\to\frac{\pi}{2}</m>.
+        </p>
+        <p>
+          <image width="84%" source="TaalmanPage433.png"/>
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_inversetriglhopitalexample">
+      <statement>
+        <p>
+          Calculate the limit <m>\ds\lim_{x\to 0}\frac{\sin^{-1}x}{x^2}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          As <m>x\to 0</m>, the numerator
+          <m>\sin^{-1}x</m> and the denominator <m>x^2</m> both approach zero.
+          Therefore this limit is initially in the indeterminate form <m>\frac{0}{0}</m>,
+          and L'H&#xf4;pital's rule applies.
+          This gives us
+          <me>
+            \lim_{x\to 0}\frac{\sin^{-1}x}{x^2}\stackrel[L'H]{}= \lim_{x\to 0}\frac{1/\sqrt{1-x^2}}{2x} = \lim_{x\to 0}\frac{1}{2x\sqrt{1-x^2}}
+          </me>
+        </p>
+        <p>
+          Since <m>2x\sqrt{1-x^2}</m> approaches 0 as <m>x\to 0</m>,
+          the preceding limit is of the form <m>\frac{1}{0}</m>.
+          From the left, as <m>x\to 0^-</m>,
+          the denominator approaches <m>0^-</m>,
+          and thus the limit from the left is of the form <m>\frac{1}{0^-}</m>.
+          Similarly, from the right,
+          as <m>x\to 0^+</m>, the limit is of the form <m>\frac{1}{0^+}</m>.
+          Therefore,
+          <me>
+            \lim_{x\to 0^-}\frac{\sin^{-1}x}{x^2} =  \lim_{x\to 0^-}\frac{1}{2x\sqrt{1-x^2}} = -\infty
+          </me>
+          and
+          <me>
+            \lim_{x\to 0^+}\frac{\sin^{-1}x}{x^2} =  \lim_{x\to 0^+}\frac{1}{2x\sqrt{1-x^2}} = \infty
+          </me>.
+          Thus the left and right limits as <m>x\to 0</m> are not equal to each other,
+          and the limit as <m>x\to 0</m> does not exist.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Does the function <m>h(x) = \frac{\sin^{-1}x}{x^2}</m> have a vertical asymptote at <m>x=0</m>?
+          How can you tell from the limit in <xref ref="ex_inversetriglhopitalexample">Example</xref>?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <em>Key ideas:</em> We can use L'H&#xf4;pital's rule for limits of the form <m>\frac{0}{0}</m> and
+      <m>\frac{\infty}{\infty}</m> that involve trigonometric and inverse trigonometric functions,
+      now that we know how to compute the derivatives of these types of functions.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      It is often useful to rewrite tangent, secant, cosecant,
+      and cotangent in terms of sine and cosine in order to compute with them.
+      Limits computed with L'H&#xf4;pital's rule often require an algebraic simplification after applying L'H&#xf4;pital's rule.
+      Limits at finite values of <m>x</m> that approach positive or negative infinity demonstrate that the function has a vertical asymptote at that <m>x</m>-value.
+      Limits of the form <m>\frac{1}{0}</m> are infinite
+      (so are NOT indeterminate)
+      but often need to be computed separately from the right and left in order to determine whether they approach <m>\infty</m> or <m>-\infty</m>.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 8.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

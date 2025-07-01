@@ -1,0 +1,889 @@
+<section>
+  <title>The Definition of the Derivative</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Recognize how the intuitive notion of the derivative leads to the limit definition of the derivative.
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculate the derivative of a function at a point.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find the equation of the tangent line to a function at a point.
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculate the derivative of a function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculate higher order derivatives of a function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand the meaning of first and second derivatives of position:
+          velocity and acceleration.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>The Limit Definition of the Derivative at a Point</title>
+    <p>
+      In the previous section,
+      we examined derivatives intuitively by discussing instantaneous rate of change,
+      tangent lines,
+      and associated slope functions.
+      In this section,
+      we revisit the meaning of the definition of the derivative and practice computing derivatives.
+    </p>
+    <p>
+      Recall from Definition <xref ref="def_derivoffunctionatpoint" autoname="yes"/> that the <em>derivative at</em>
+      <m>x=a</m> of a function <m>f</m> is the number
+      <me>
+        f\,'(a)=\frac{df}{dx}\Big|_{x=a}=\displaystyle\lim_{h\to0}\frac{f(a+h)-f(a)}{h}
+      </me>
+      provided that this limit exists.
+    </p>
+    <p>
+      The expression <m>\frac{f(a+h)-f(a)}{h}</m>arises as the simplification of the average change of <m>f(x)</m> on the interval <m>[a,a+h]</m>,
+      which measures the change in value of <m>f</m> between <m>x=a</m> and <m>x=a+h</m>:
+      <me>
+        AV_{[a,a+h]} = \frac{\Delta f}{\Delta x}= \frac{f(a+h)-f(a)}{(a+h)-a}=\frac{f(a+h)-f(a)}{h}
+      </me>
+    </p>
+    <p>
+      Visually, the average change is the slope between the points on the graph at <m>x=a</m> and <m>x=a+h</m>,
+      also called a secant line to the graph (a line between two points).
+    </p>
+    <p>
+      The <m>\ds\lim_{h\to0}</m> narrows the interval and causes it to approach the single point <m>x=a</m>,
+      thus visually the secant lines approach the tangent line at <m>x=a</m>.
+      Hence the derivative measures
+      <ul>
+        <li>
+          <p>
+            the slope of the tangent line to <m>f(x)</m> at <m>x=a</m> and
+          </p>
+        </li>
+        <li>
+          <p>
+            the instantaneous rate of change of <m>f(x)</m> at <m>x=a</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example xml:id="ex_derivativexsquared">
+      <statement>
+        <p>
+          Use the definition to calculate the derivative of
+          <m>f(x)=x^2</m> at the point <m>x=3</m>.
+          Interpret as an instantaneous rate of change and illustrate by drawing the tangent line to <m>f(x)</m> at <m>x=3</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the <m>h\to 0</m> definition of the derivative at the point <m>x=3</m>, we have
+          <me>
+            <md>
+              f\,'(3)\amp =\displaystyle\lim_{h\to0}\frac{f(3+h)-f(3)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{(3+h)^2-3^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{3^2+6h+h^2-3^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{6h+h^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{h(6+h)}{h}\\ \amp =\displaystyle\lim_{h\to0}6+h\\ \amp =6.
+            </md>
+          </me>
+        </p>
+        <p>
+          Thus we showed that the instantaneous rate of change of
+          <m>f(x)=x^2</m> at <m>x=3</m> is equal to 6.
+          At the instant that we have <m>x=3</m>,
+          the function <m>f(x)=x^2</m> is changing at a rate of 6 vertical units for each horizontal unit.
+          This is equivalent to saying that the slope of the tangent line is equal to 6, as shown here:
+        </p>
+        <figure xml:id="fig_taalmanpage177">
+          <caption>The tangent line to <m>f(x) = x^2</m> at <m>x=3</m> has slope <m>f'(3) = 6</m>.</caption>
+          <image width="56%" source="TaalmanPage177.png"/>
+        </figure>
+      </solution>
+    </example>
+    <example xml:id="ex_quadraticderivative">
+      <statement>
+        <p>
+          For the function <m>f(x) = x-x^2</m>,
+          use the <m>h\to 0</m> definition of the derivative to compute <m>f\,'(2)</m>.
+          In addition,
+          discuss the meaning of this value and draw a labeled graph that supports your explanation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          From the limit definition, we know that
+          <me>
+            f\,'(2) = \lim_{h\to 0}\frac{f(2+h)-f(2)}{h}
+          </me>.
+          Now we use the rule for <m>f</m>, and observe that
+          <me>
+            f(2) = 2-2^2=-2
+          </me>
+          and
+          <me>
+            \begin{aligned}f(2+h)\amp =(2+h)-(2+h)^2\\ \amp = (2+h)-(4+4h+h^2)\\ \amp = -2-3h-h^2 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Substituting these values into the limit definition, we have that
+          <me>
+            f\,'(2) = \lim_{h\to 0}\frac{(-2-3h-h^2)-(-2)}{h}
+          </me>.
+          this limit has the form <m>\frac{0}{0}</m>.
+          In order to evaluate <m>\ds\lim h\to 0</m>,
+          we must simplify the quotient.
+          Combining like terms, we have
+          <me>
+            f\,'(2) = \lim_{h\to 0}\frac{-3h-h^2}{h}
+          </me>.
+          Next, we remove a common factor of <m>h</m> in both the numerator and denominator and find that
+          <me>
+            f\,'(2) = \lim_{h\to 0}\frac{h(-3-h)}{h} = \lim_{h\to 0}(-3-h)=-3
+          </me>.
+        </p>
+        <p>
+          Finally, we are able to conclude that <m>f\,'(2) = -3</m>.
+          We note that <m>f\,'(2)</m> is the instantaneous rate of change of <m>f</m> at the point <m>(2,-2)</m>.
+          It is also the slope of the tangent line to the graph of <m>y=x-x^2</m> at the point <m>(2,-2)</m>.
+          The picture below shows both the function and the line through <m>(2,-2)</m> with slope <m>m=f\,'(2)=-3</m>.
+        </p>
+        <figure>
+          <image width="28%" source="ACFigure1-3-9.png"/>
+        </figure>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Consider the function <m>f</m> whose formula is <m>f(x)=3-2x</m>.
+          <ol marker="labelalph">
+            <li>
+              <p>
+                What familiar type of function is <m>f</m>?
+                What can you say about the slope of <m>f</m> at every value of <m>x</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the average rate of change of <m>f(x)</m> on
+                <em>every</em> interval <m>[a,b]</m>?
+                What does this imply about the instantaneous rate of change of <m>f(x)</m> at
+                <em>every</em> point <m>x=a</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the <m>h\to 0</m> definition of the derivative to compute the instantaneous rate of change of <m>f</m> with respect to <m>x</m> at the value <m>a=1</m>.
+                That is, compute <m>f\,'(1)</m> using the limit definition.
+                Show your work.
+                Does your answer match what you said in part (b) about the instantaneous rate of change?
+              </p>
+            </li>
+            <li>
+              <p>
+                Without doing any additional computations,
+                what are the values of <m>f\,'(2)</m>,
+                <m>f\,'(\pi)</m>, and <m>f\,'(-\sqrt{2})</m>?
+                Why?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_xcubedat2">
+      <statement>
+        <p>
+          In this example,
+          we will find the equation of the tangent line to <m>f(x)=x^3</m> at <m>x=2</m>.
+          In order to find the equation of a line, we need a slope.
+          The slope of the tangent line is the value of the derivative at the point <m>x=2</m>,
+          so we find the derivative <m>f\,'(2)</m>:
+          <me>
+            \begin{aligned}f\,'(2) \amp =\lim_{h\to 0}\frac{f(2+h)-f(2)}{h} = \lim_{h\to 0}\frac{(2+h)^3-2^3}{h} \amp \leftarrow\text{ derivative def'n with } x=2\\ \amp =\lim_{h\to 0}\frac{(8+12h+6h^2+h^3)-8}{h}  \amp \leftarrow\text{ multiply out } (2+h)^3\\ \amp =\lim_{h\to0}\frac{12h+6h^2+h^3}{h} = \lim_{h\to 0}\frac{h(12+6h+h^2}{h} \amp \leftarrow\text{ combine like terms, factor } h\\ \amp =\lim_{h\to 0}(12+6h+h^2) =12+6(0)+(0)^2 = 12 \amp \leftarrow\text{ cancellation, limit rules } \end{aligned}
+          </me>
+        </p>
+        <p>
+          So we see that the slope of the tangent line is <m>m=f\,'(2)=12</m>.
+          We want the line to go through the point on the graph with <m>x=2</m>,
+          so the <m>y</m>-value of the point is <m>y=f(2) = 2^3=8</m>.
+          Thus, using point-slope form and simplifying,
+          the equation of the line is
+          <me>
+            y=12(x-2)+8\Longrightarrow y=12x-24+8 \Longrightarrow y=12x-16
+          </me>.
+        </p>
+        <p>
+          When we graph the line along with the original function,
+          we see that the line <m>y=12x-16</m> is indeed the tangent line to <m>f(x)=x^3</m> at <m>x=2</m>:
+        </p>
+        <figure xml:id="fig_taalmanpage184">
+          <caption><m>y=12x-16</m> is the tangent line to <m>f(x) = x^3</m> at <m>x=2</m>.</caption>
+          <image width="46%" source="TaalmanPage184.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example xml:id="ex_rationaltangentline">
+      <statement>
+        <p>
+          Suppose <m>f(x)=\frac{2}{x}</m>.
+          Find the equation of the tangent line to <m>f</m> at <m>x=1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By definition,
+          the tangent line to <m>f</m> at <m>x=1</m> has slope <m>f\,'(1)</m> and passes through the point <m>(1,f(1)) = \left(1,\frac{2}{1}\right) = (1,2)</m>.
+          Before we can find the equation of this line,
+          we must calculate the value of <m>f\,'(1)</m>.
+          A lot of algebra will be needed before we can cancel a common factor of <m>h</m> and solve the limit:
+          <me>
+            \begin{aligned}f\,'(1) \amp = \lim_{h\to 0}\frac{f(1+h)-f(1)}{h} = \lim_{h\to 0}\frac{\frac{2}{1+h}-\frac{2}{1}}{h} \amp  \leftarrow\text{ definition of the derivative with } x=1\\ \amp = \lim_{h\to 0}\frac{\frac{2}{1+h}-\frac{2(1+h)}{1+h}}{h} = \lim_{h\to 0}\frac{\left(\frac{2-2(1+h)}{1+h}\right)}{h}\amp \leftarrow\text{ common denominator in the numerator } \\ \amp = \lim_{h\to 0} \left(\frac{2-2-2h}{1+h}\right)\cdot \frac{1}{h}\amp \leftarrow\text{ distribute, multiply by the reciprocal of } h\\ \amp =\lim_{h\to 0}\frac{-2h}{(1+h)h} = \lim_{h\to 0}\frac{-2}{1+h} = \frac{-2}{1+0} = -2 \amp \leftarrow\text{ cancellation, limit rules } \end{aligned}
+          </me>
+        </p>
+        <p>
+          So we have our derivative <m>f\,'(1) = -2</m> at last.
+          Now we use the point-slope form of a line to find the equation of the tangent line,
+          using <m>m=-2</m> and the point <m>(1,f(1)) = (1,2)</m>,
+          then simplifying to slope-intercept form:
+          <me>
+            y=-2(x-1)+2 = -2x+4
+          </me>
+        </p>
+        <p>
+          We can verify the reasonableness of the answer we just found by graphing the function
+          <m>f(x) = \frac{2}{x}</m> and the line <m>y=-2x+4</m> on the same set of exes and checking that the line appears to be tangent to the graph of <m>f</m> at the point <m>(1,f(1))</m>:
+        </p>
+        <figure xml:id="fig_taalmanpage186">
+          <caption><m>f(x) = \frac{2}{x}</m> and <m>y=-2x+4</m>.</caption>
+          <image width="46%" source="TaalmanPage186.png"/>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>The Derivative as a Function</title>
+    <p>
+      We saw in <xref ref="sec_associatedslopefunction">Section</xref>
+      that we can think of the derivative as a function,
+      specifically the function that assigns to every <m>x</m>-value the slope of the tangent line to <m>f(x)</m> at that point.
+      In other words,
+      by putting all of the point-derivatives of a function together,
+      we can define a function <m>f\,'(x)</m> whose output at any value of <m>x</m> is defined to be the derivative,
+      or instantaneous rate of change,
+      of <m>f</m> at that point.
+    </p>
+    <definition xml:id="def_derivativefunction">
+      <title>The Derivative of a Function</title>
+      <statement>
+        <p>
+          The <em>derivative</em> of a function <m>f(x)</m> is the function <m>f\,'(x)</m> defined by
+          <me>
+            f\,'(x)=\frac{df}{dx} = \displaystyle\lim_{h\to0}\frac{f(x+h)-f(x)}{h}
+          </me>
+        </p>
+        <p>
+          In terms of the change in the <m>x</m>- and <m>f</m>-values,
+          we can also write
+          <me>
+            f\,'(x) = \lim_{\Delta x\to 0}\frac{\Delta f}{\Delta x}
+          </me>,
+          meaning that the derivative is the limit of the change in <m>f</m> as the change in <m>x</m> becomes infinitely small.
+          The domain of <m>f\,'(x)</m> is the set of values <m>x</m> for which the defining limit of <m>f\,'(x)</m> exists.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The function <m>f\,'(x)</m> is also called the
+      <em>associated slope function</em>
+      that we investigated in <xref ref="sec_associatedslopefunction">Section</xref>,
+      since at each point <m>x</m> its value is the slope of the graph of <m>f</m>.
+      In addition,
+      the function <m>f\,'(x)</m> represents the instantaneous rate of change of <m>f(x)</m> at every point <m>x</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Recall that in Example <xref ref="ex_derivativexsquared" autoname="yes"/> we calculated the derivative of
+          <m>f(x)=x^2</m> at the point <m>x=3</m>.
+          We can calculate the derivative of <m>f(x)=x^2</m> for <em>all</em>
+          values of <m>x</m> with a very similar computation,
+          using the variable <m>x</m> instead of plugging in <m>x=3</m>,
+          but still simplifying,
+          factoring and canceling an <m>h</m>,
+          then taking the limit as <m>h\to 0</m>:
+          <me>
+            <md>
+              f\,'(x)\amp =\displaystyle\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{(x+h)^2-x^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{x^2+2xh+h^2-x^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{2xh+h^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{h(2x+h)}{h}\\ \amp =\displaystyle\lim_{h\to0}(2x+h)\\ \amp =2x.
+            </md>
+          </me>
+        </p>
+        <p>
+          In Example <xref ref="ex_derivativexsquared" autoname="yes"/> we found that <m>f'(3) = 6</m>,
+          but would have needed to redo our entire limit computation to find the derivative at another point.
+          Now, we can tell that
+          <me>
+            f'(3) = 2(3)=6
+          </me>
+          and, for instance, that
+          <me>
+            f'(-3) = 2(-3)=-6,  f'(0) = 2(0)=0, f'(15)=2(15) = 30, \text{ etc. }
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Finding <m>f\,'(x)</m> for general <m>x</m> is like calculating <m>f\,'(a)</m> for all possible values <m>x=a</m> at the same time.
+      Once we have a formula for <m>f\,'(x)</m>,
+      we can easily calculate any particular value <m>f\,'(a)</m>.
+      We collect all of these values and use them as the height of this slope function <m>f'(x)</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, for <m>f(x) = x^2</m>,
+          we calculated <m>f'(x) = 2x</m>.
+          Taking all of the slopes of all tangent lines of the function <m>f(x) = x^2</m>,
+          we get the slope function, a.k.a. the derivative,
+          shown to the right in <xref ref="fig_taalmanpage178" autoname="yes"/> below.
+        </p>
+        <figure xml:id="fig_taalmanpage178">
+          <caption>Slopes of <m>f(x) = x^2</m> are heights of <m>f'(x) = 2x</m>.</caption>
+          <image width="93%" source="TaalmanPage178.png"/>
+        </figure>
+        <p>
+          The point <m>(-2,-4)</m> on <m>f'(x)</m> on the right comes from the slope
+          <m>m=f'(-2) = 2(-2)=-4</m> of the tangent line at <m>x=-2</m> on the left.
+        </p>
+        <p>
+          The point <m>(0,0)</m> on <m>f'(x)</m> on the right comes from the slope
+          <m>m=f'(0) = 2(0) = 0</m> of the tangent line at <m>x=0</m> on the left.
+        </p>
+        <p>
+          The point <m>(3,6)</m> on <m>f'(x)</m> on the right comes from the slope
+          <m>m = f'(3) = 2(3) = 6</m> of the tangent line at <m>x=3</m> on the left.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          We saw in Example <xref ref="ex_quadraticderivative" autoname="yes"/> that for <m>f(x) = x-x^2</m>,
+          the slope of the tangent line at <m>x=2</m> is <m>m=f'(2) = -3</m>.
+          Calculating the derivative function <m>f'(x)</m> using the definition:
+          <me>
+            <md>
+              f\,'(x)\amp =\displaystyle\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{((x+h)-(x+h)^2)-(x-x^2)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{x+h-x^2-2xh-h^2-x+x^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{h-2xh-h^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{h(1-2x-h)}{h}\\ \amp =\displaystyle\lim_{h\to0}(1-2x-h)\\ \amp =1-2x.
+            </md>
+          </me>
+        </p>
+        <p>
+          This agrees with our earlier calculation:
+          <me>
+            f\,'(2) = 1-2(2) = 1-4 = -3
+          </me>.
+        </p>
+        <p>
+          But now we also know that <m>f'(3) = 1-2(3) = 1-6 = -5</m>,
+          <m>f'(4) = 1-2(4) = 1-8 = -7</m>, etc.
+        </p>
+        <p>
+          What else can we observe with this full function of the derivative?
+          Well, we can determine that
+          <m>f'(x) = 1-2x</m> is equal to zero when <m>x=\frac{1}{2}</m>:
+          <me>
+            \begin{aligned}f'(x) \amp = 0\\ 1-2x \amp = 0\\ 1 \amp = 2x\\ \frac{1}{2} \amp = x \end{aligned}
+          </me>
+        </p>
+        <p>
+          So we know that <m>f(x) = x-x^2</m> has a horizontal tangent line at <m>x=\frac{1}{2}</m>,
+          since a horizontal tangent line will have slope
+          <m>m = f'(1/2) = 0</m> as seen in <xref ref="fig_quadraticderivative-horiztangent" autoname="yes"/> below.
+        </p>
+        <figure xml:id="fig_quadraticderivative-horiztangent">
+          <caption><m>f(x) = x-x^2</m> has a horizontal tangent line at <m>x=\frac{1}{2}</m> where <m>f'(x) = 1-2x = 0</m>.</caption>
+          <image width="56%" source="quadraticderivative-horiztangent.png"/>
+        </figure>
+        <p>
+          There are many other things we can see from the fact that
+          <m>f'(x) = 1-2x</m> that we will spend the rest of the semester exploring.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          In Example <xref ref="ex_xcubedat2" autoname="yes"/>,
+          we found the equation of the tangent line to
+          <m>f(x) = x^3</m> at <m>x=2</m> by finding the slope <m>m=f\,'(2) = 12</m>.
+          Here, we calculate the full derivative function of <m>f(x)=x^3</m>.
+          The calculations in this example will be similar to those in <xref ref="ex_xcubedat2">Example</xref>,
+          except that we will not specify a specific value of <m>x</m> here.
+          Using the <m>h\to 0</m> definition of the derivative, we have
+          <me>
+            \begin{aligned}f\,'(x) \amp =\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}\frac{(x+h)^3-x^3}{h} \amp \leftarrow\text{ derivative } \\ \amp =\lim_{h\to 0}\frac{(x^3+3x^2h+3xh^2+h^3)-x^3}{h}  \amp \leftarrow\text{ multiply out } (x+h)^3\\ \amp =\lim_{h\to0}\frac{3x^2h+3xh^2+h^3}{h} = \lim_{h\to 0}\frac{h(3x^2+3xh+h^2}{h} \amp \leftarrow\text{ combine like terms, factor } h\\ \amp =\lim_{h\to 0}(3x^2+3xh+h^2) =3x^2+3x(0)+(0)^2 = 3x^2 \amp \leftarrow\text{ cancellation, limit rules } \end{aligned}
+          </me>
+        </p>
+        <p>
+          We just saw that if <m>f(x)=x^3</m>, then <m>f\,'(x)=3x^2</m>.
+          This matches our computation from earlier that <m>m=f'(2) = 3(2)^2 = 3(4) = 12</m>.
+        </p>
+        <p>
+          Let's compare the graphs of
+          <m>f(x) = x^3</m> and <m>f\,'(x) = 3x^2</m>.
+          If we view <m>f\,'(x)</m> through the lens of an associated slope function,
+          when we graph these two functions,
+          we can see that at each value of <m>x</m>,
+          the slope of the graph of <m>f(x)=x^3</m> is equal to the height of the graph of <m>f\,'(x)=3x^2</m>.
+          In particular, notice that the slopes of
+          <m>f(x)=x^3</m> are always positive and the graph of <m>f\,'(x)=3x^2</m> is always positive.
+          The graph of <m>f(x)=x^3</m> is steeper for larger negative values of <m>x</m>,
+          gets less steep for values of <m>x</m> closer to 0, and then steeper again for larger positive values of <m>x</m>.
+          Likewise, the graph of <m>f(x)=3x^2</m> has higher <m>y</m>-values for larger negative and positive values of <m>x</m>,
+          and is closer to 0 for values of <m>x</m> closer to 0.
+        </p>
+        <p>
+          <image width="93%" source="TaalmanPage185.png"/>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Consider the linear function <m>f(x)=3x+1</m>.
+          <ol marker="labelalph">
+            <li>
+              <p>
+                Use the <m>h\to 0</m> definition of the derivative to show that <m>f\,'(x)=3</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Why does it make intuitive sense that the derivative of the linear function
+                <m>f(x)=3x+1</m> is the constant function <m>f\,'(x)= 3</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          In Example <xref ref="ex_rationaltangentline" autoname="yes"/>,
+          we found that <m>f'(1)=2</m> when <m>f(x) = \frac{2}{x}</m>.
+          Here, we find a formula for the full derivative <m>f\,'(x)</m>:
+          <me>
+            \begin{aligned}f\,'(x) \amp = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}\frac{\frac{2}{x+h}-\frac{2}{x}}{h} \amp  \leftarrow\text{ definition of the derivative } \\ \amp = \lim_{h\to 0}\frac{\frac{2x}{x(x+h)}-\frac{2(x+h)}{x(x+h)}}{h} = \lim_{h\to 0}\frac{\left(\frac{2x-2(x+h)}{x(x+h)}\right)}{h}\amp \leftarrow\text{ common denominator in the numerator } \\ \amp = \lim_{h\to 0} \left(\frac{2x-2x-2h}{x(x+h)}\right)\cdot \frac{1}{h}\amp \leftarrow\text{ distribute, multiply by the reciprocal of } h\\ \amp =\lim_{h\to 0}\frac{-2h}{x(x+h)h} = \lim_{h\to 0}\frac{-2}{x(x+h)} = \frac{-2}{x(x+0)} = -\frac{2}{x^2} \amp \leftarrow\text{ cancellation, limit rules } \end{aligned}
+          </me>
+        </p>
+        <p>
+          This agrees with the previous calculation that <m>f'(1) = -\frac{2}{1^2} = -2</m>,
+          and we are certainly glad not to have to manage that calculation again!
+        </p>
+        <p>
+          One thing that is very much worth observing:
+          the function <m>f(x) = \frac{2}{x}</m> has domain <m>x\neq 0</m>,
+          and its derivative <m>f\,'(x) = -\frac{2}{x^2}</m> also has domain <m>x\neq 0</m>.
+          This makes a certain amount of sense:
+          when <m>f(x)</m> is undefined,
+          it cannot have a tangent line,
+          so there can be no value for the slope of the tangent line,
+          thus no value of <m>f\,'(x)</m>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Higher Order Derivatives</title>
+    <p>
+      Once we have taken one derivative,
+      there is nothing stopping us from taking more derivatives.
+      We will leave interpretation for later and for the moment simply focus on calculation.
+      The <em>second derivative</em> is defined to be the derivative of the function <m>f\,'(x)</m>,
+      and we use the notation
+      <me>
+        f''(x) = \frac{d^2f}{dx^2}
+      </me>
+    </p>
+    <p>
+      The <em>third derivative</em> is defined to be the derivative of the function
+      <m>f\,''(x)</m>, and we use the notation
+      <me>
+        f'''(x) = \frac{d^3f}{dx^3}
+      </me>
+    </p>
+    <p>
+      The <em>fourth derivative</em> is defined to be the derivative of the function <m>f\,'''(x)</m>.
+      At this point we start using numbers in parentheses instead of tick marks to denote the number of derivatives that have been taken:
+      <me>
+        f^{(4)}(x) = \frac{d^4f}{dx^4}
+      </me>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Given the function <m>f(x)</m>,
+          we have already computed that <m>f\,'(x) = 2x</m>.
+          Computing the derivative of <m>f\,'(x) = 2x</m>, we have
+          <me>
+            <md>
+              f\,''(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,'(x+h)-f\,'(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{2(x+h)-2x}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{2x+2h-2x}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{2h}{h}\\ \amp =\displaystyle\lim_{h\to0}2\\ \amp =2.
+            </md>
+          </me>
+        </p>
+        <p>
+          Computing the derivative of <m>f\,''(x) = 2</m>, we have
+          <me>
+            <md>
+              f\,'''(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,''(x+h)-f\,''(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{2-2}{h}\\ \amp =\displaystyle\lim_{h\to0}0\\ \amp =0.
+            </md>
+          </me>
+        </p>
+        <p>
+          If we want to compute yet another derivative,
+          we will get the same thing:
+          <me>
+            <md>
+              f^{(4)}(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,'''(x+h)-f\,'''(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{0-0}{h}\\ \amp =\displaystyle\lim_{h\to0}0\\ \amp =0.
+            </md>
+          </me>
+        </p>
+        <p>
+          Thus we have
+          <me>
+            f(x) = x^2,  f\,'(x) = 2x, f\,''(x) = 2, f\,'''(x) = 0
+          </me>
+          and <m>f^{(n)}(x) = 0</m> for any integer <m>n\geq 4</m>.
+          Visually, here is the function and its first three derivatives,
+          from left to right:
+        </p>
+        <figure xml:id="fig_fourderivatives">
+          <caption>From left to right: <m>f(x) = x^2,  f\ '(x) = 2x, f\ ''(x) = 2, f\ '''(x) = 0</m>.</caption>
+          <image width="84%" source="FourDerivatives.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(x) = x-x^2</m> has derivative <m>f\,'(x) = 1-2x</m>.
+          The second derivative is
+          <me>
+            <md>
+              f\,''(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,'(x+h)-f\,'(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{(1-2(x+h))-(1-2x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{1-2x-2h-1+2x}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{-2h}{h}\\ \amp =\displaystyle\lim_{h\to0}-2\\ \amp =-2.
+            </md>
+          </me>
+        </p>
+        <p>
+          The third derivative is
+          <me>
+            <md>
+              f\,'''(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,''(x+h)-f\,''(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{(-2)-(-2)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{0}{h}\\ \amp =\displaystyle\lim_{h\to0}0\\ \amp =0.
+            </md>
+          </me>
+        </p>
+        <p>
+          We know now that any higher order derivatives will also be 0.
+          Thus we have
+          <me>
+            f(x) = x-x^2,  f\,'(x) = 1-2x, f\,''(x) = -2, f\,'''(x) = 0
+          </me>
+        </p>
+        <p>
+          Below is the function
+          (in blue)
+          and its first derivative
+          (in red),
+          second derivative
+          (in green),
+          and third derivative (in orange):
+        </p>
+        <figure xml:id="fig_fourderivativesX">
+          <caption><m>f(x) = x-x^2</m> (blue),  <m>f\ '(x) = 1-2x</m> (red), <m>f\ ''(x) = -2</m> (green), <m>f\ '''(x) = 0</m> (orange).</caption>
+          <image width="56%" source="FourMoreDerivatives.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(x) = x^3</m> has derivative <m>f\,'(x) = 3x^2</m>.
+          Can you guess how many derivatives we can take before we get zero?
+          Let's find out.
+          The second derivative is
+          <me>
+            <md>
+              f\,''(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,'(x+h)-f\,'(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{3(x+h)^2-3x^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{3(x^2+2xh+h^2)-3x^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{3x^2+6xh+3h^2-3x^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{6xh+3h^2}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{h(6x+3h)}{h}\\ \amp =\displaystyle\lim_{h\to0}(6x+3h)\\ \amp =6x.
+            </md>
+          </me>
+        </p>
+        <p>
+          The third derivative is
+          <me>
+            <md>
+              f\,'''(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,''(x+h)-f\,''(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{6(x+h)-6x}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{6x+6h-6x}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{6h}{h}\\ \amp =\displaystyle\lim_{h\to0}6\\ \amp =6.
+            </md>
+          </me>
+        </p>
+        <p>
+          The fourth derivative is
+          <me>
+            <md>
+              f^{(4)}(x)\amp =\displaystyle\lim_{h\to0}\frac{f\,'''(x+h)-f\,'''(x)}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{6-6}{h}\\ \amp =\displaystyle\lim_{h\to0}\frac{0}{h}\\ \amp =\displaystyle\lim_{h\to0}0\\ \amp =0.
+            </md>
+          </me>
+        </p>
+        <p>
+          Visually, here is the function and its first four derivatives,
+          from left to right:
+        </p>
+        <figure xml:id="fig_fivederivatives">
+          <caption>From left to right: <m>f(x) = x^3,  f\ '(x) = 3x^2, f\ ''(x) = 6x, f\ '''(x) = 6, f^{(4)}(x) = 0</m>.</caption>
+          <image width="92.5%" source="FiveDerivatives.png"/>
+        </figure>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Velocity and Acceleration</title>
+    <p>
+      In this section,
+      we give one interpretation of higher order derivatives in terms of position functions.
+      In particular,
+      if <m>s(t)</m> is the position of an object moving in a straight line,
+      then its instantaneous rate of change is the velocity function <m>v(t)=s'(t)</m>.
+      Similarly, the instantaneous rate of change of velocity <m>v(t)</m> is the acceleration function <m>a(t)=v'(t)</m>,
+      which is also the second derivative of the position function <m>s(t)</m>.
+    </p>
+    <p>
+      Recall that the height of a falling object is given by the function
+      <me>
+        s(t) = -16t^2+v_0t+s_0
+      </me>,
+      where <m>v_0</m> is the object's initial velocity and <m>s_0</m> is the object's initial position.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A water balloon is tossed vertically in the air from a window.
+          The balloon's height in feet at time <m>t</m> in seconds after being launched is given by <m>s(t)=-16t^2+16t+32</m>,
+          corresponding to an initial velocity of 16 ft/sec and an initial height of 32 ft.
+        </p>
+        <figure>
+          <caption>The height of a water balloon is <m>s(t) = -16t^2+16t+32</m> feet at time <m>t</m> seconds.</caption>
+          <image width="56%" source="ACActivity1-3-3pic.png"/>
+        </figure>
+        <p>
+          We can see from the picture (or from factoring <m>s(t)</m>) that the balloon hits the ground <m>t=2</m> seconds after it is launched.
+        </p>
+        <p>
+          The average velocity of the balloon in its last second is
+          <me>
+            AV_{[1,2]} = \frac{s(2)-s(1)}{2-1} = \frac{0-32}{1} = -32\text{ feet/second }
+          </me>.
+          This means that, during the second before it hits the ground,
+          the balloon falls at an average speed of 32 feet each second.
+        </p>
+        <p>
+          Let's find the instantaneous velocity of the balloon at <m>t=1</m> second.
+          Using the limit definition to compute the instantaneous rate of change of <m>s</m> with respect to time <m>t</m>,
+          at the instant <m>t=1</m>, we have
+          <me>
+            s'(1) =\lim_{h\to 0}\frac{s(1+h)-s(1)}{h}
+          </me>.
+          We compute <m>s(1) = -16(1)^2+16(1)+32 = 32</m> and <m>s(1+h) = -16(1+h)^2+16(1+h)+32 = -16h^2-16h+32</m>.
+          Substituting into the formula for <m>s'(1)</m>,
+          <me>
+            s'(1) =\lim_{h\to 0}\frac{(-16h^2-16h+32)-32}{h} = \lim_{h\to 0}\frac{-16h^2-16h}{h}
+          </me>.
+          Now we can factor an <m>h</m> and cancel
+          (notice how that keeps happening?!?),
+          to get
+          <me>
+            s'(1) = \lim_{h\to 0}\frac{h(-16h-16)}{h} = \lim_{h\to 0}-16h-16 = -16(0)-16 = -16
+          </me>.
+        </p>
+        <p>
+          This tells us that the velocity of the balloon at precisely <m>t=1</m> second after being launched is <m>v(1)=s'(1)=-16</m> feet/second.
+          Note that the units for the derivative are the same as the units for the average velocity,
+          since the derivative is the limit of average velocities.
+        </p>
+        <p>
+          This instantaneous velocity at <m>t=1</m> has a smaller magnitude than the average velocity on the interval <m>[1,2]</m>.
+          We can intuit that the balloon will speed up as it falls,
+          so it makes sense for the average speed on the interval to be larger than the instantaneous speed at the beginning.
+        </p>
+        <p>
+          In order to confirm this intuition,
+          let's find the velocity of the balloon the entire time between when it is launched and when it hits the ground.
+          Now, we use the limit definition to compute the derivative for any time <m>t</m>.
+          Our calculations will be very similar to those above,
+          with <m>1</m> replaced by <m>t</m>:
+          <me>
+            \begin{aligned}s'(t) \amp =\lim_{h\to 0}\frac{s(t+h)-s(t)}{h}\\ \amp =\lim_{h\to 0}\frac{(-16(t+h)^2+16(t+h)+32)-(-16t^2+16t+32)}{h}\\ \amp =\lim_{h\to 0}\frac{-16(t^2+2th+h^2)+16t+16h+32+16t^2-16t-32}{h}\\ \amp =\lim_{h\to 0}\frac{-16t^2-32th-16h^2+16h+16t^2}{h}\\ \amp =\lim_{h\to 0}\frac{-32th-16h^2+16h}{h}\\ \amp =\lim_{h\to 0}\frac{h(-16h-32t+16)}{h}\\ \amp =\lim_{h\to 0}(-16h-32t+16)\\ \amp =-16(0)-32t+16 \\ \amp = -32t+16 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus we see that at any time <m>t</m>,
+          the velocity of the balloon is <m>v(t)=s'(t)=-32t+16</m> feet/second.
+          For example, at <m>t=1</m>,
+          we confirm our earlier calculation that the velocity is <m>v(1) = -32(1)+16 = -16</m> ft/sec.
+          We can also see very quickly that
+          <me>
+            v(1.5) = -32(1.5)+16 = -32\text{ ft/sec }
+          </me>
+          <me>
+            v(1.9) = -32(1.9)+16 = -44.8\text{ ft/sec }
+          </me>
+          and that
+          <me>
+            v(2) = -32(2)+16 = -48\text{ ft/sec. }
+          </me>
+        </p>
+        <p>
+          These numbers confirm our intuition that the balloon will speed up as it falls.
+        </p>
+        <p>
+          Notice also that there appears to be a point where the velocity is zero.
+          Indeed, <m>v(t) = -32t+16 = 0</m> when <m>t=0.5</m> On the graph of <m>s(t)</m>,
+          this is the vertex of the parabola where there is a horizontal tangent line.
+          In terms of the motion of the balloon,
+          this is the moment when the balloon transitions from rising to falling,
+          and is momentarily still in the air.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's now take a closer look at the parameters involved in the formula for the height of a falling object:
+      <me>
+        s(t) = -16t^2+v_0t+s_0
+      </me>
+    </p>
+    <p>
+      The "initial position" is literally the value of the position function at <m>t=0</m>:
+      <me>
+        s(0) = -16(0)^2+v_0(0)+s_0 = 0+0+s_0 = s_0
+      </me>.
+    </p>
+    <p>
+      If we take the first derivative of <m>s(t)</m>,
+      we get the velocity <m>v(t)</m>, which is
+      <me>
+        <md>
+          v(t) = s'(t) \amp = \lim_{h\to 0}\frac{s(t+h)-s(t)}{h}\\ \amp =\lim_{h\to 0}\frac{(-16(t+h)^2+v_0(t+h)+s_0)-(-16t^2+v_0t+s_0)}{h}\\ \amp =\lim_{h\to 0}\frac{-16(t^2+2th+h^2)+v_0t+v_0h+s_0+16t^2-v_0t-s_0}{h}\\ \amp =\lim_{h\to 0}\frac{-16t^2-32th-16h^2+v_0h+16t^2}{h}\\ \amp =\lim_{h\to 0}\frac{-32th-16h^2+v_0h}{h}\\ \amp =\lim_{h\to 0}\frac{h(-16h-32t+v_0)}{h}\\ \amp =\lim_{h\to 0}(-16h-32t+v_0)\\ \amp =-16(0)-32t+v_0 \\ \amp = -32t+v_0
+        </md>
+      </me>
+    </p>
+    <p>
+      Thus the velocity of a falling object at time <m>t</m> seconds is
+      <me>
+        v(t) = -32t+v_0\text{ ft/sec }
+      </me>
+    </p>
+    <p>
+      The "initial velocity" is literally the velocity at time <m>t=0</m>:
+      <me>
+        v(0) = -32(0)+v_0 = 0+v_0 = v_0
+      </me>
+    </p>
+    <p>
+      If we take the derivative of velocity,
+      we get acceleration, which is also the second derivative of position:
+      <me>
+        <md>
+          a(t) = v'(t) = s''(t) \amp =\lim_{h\to 0}\frac{v(t+h)-v(t)}{h}\\ \amp =\lim_{h\to 0}\frac{(-32(t+h)+v_0)-(-32t+v_0)}{h}\\ \amp =\lim_{h\to 0}\frac{-32t-32h+v_0+32t-v_0}{h}\\ \amp =\lim_{h\to 0}\frac{-32h}{h}\\ \amp =\lim_{h\to 0}-32\\ \amp =-32
+        </md>
+      </me>
+    </p>
+    <p>
+      Thus the acceleration of a falling object at time <m>t</m> seconds is
+      <me>
+        a(t) = -32\text{ ft/sec } ^2
+      </me>.
+    </p>
+    <p>
+      This is <em>precisely</em> the reason<fn>
+      I got a lot of questions about this recently.
+      </fn> why the coefficient of <m>t^2</m> in the formula for <m>s(t)</m> is <m>-16</m>:
+      the 2 from the <m>t^2</m> has multiplied to make it <m>-32</m>
+      (remember how the derivative of <m>x^2</m> is <m>2x</m>?),
+      and we know that acceleration due to gravity is <m>-32</m> ft/sec<m>^2</m>.
+      The basic assumption of this model is that this is the only force acting on the object as it falls,
+      so this is the only condition that our model must satisfy.
+    </p>
+    <p>
+      To see where these units come from,
+      note that <m>a(t)=v'(t)</m> is the change in velocity divided by the change in time,
+      so has units
+      <me>
+        \frac{\Delta v}{\Delta t} = \frac{\text{ ft/sec } }{\text{ sec } } = \frac{\text{ ft } }{\text{ sec } ^2}
+      </me>
+    </p>
+    <p>
+      We can keep taking derivatives of the position function:
+      the <em>jerk</em> is the third derivative of position,
+      <em>snap</em> is the fourth derivative of position,
+      <em>crackle</em> is the fifth derivative of position,
+      and <em>pop</em> is the sixth derivative of position.<fn>
+      Physicists, like mathematicians,
+      often have a strange sense of humor.
+      </fn>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          If a position function of an object is <m>s(t)</m>,
+          measured in feet at time <m>t</m> seconds,
+          the units for the velocity
+          <m>v(t) = s'(t)</m> are ft/sec and the units for acceleration <m>a(t) = v'(t) = s''(t)</m> are ft/sec<m>^2</m>.
+          What are the units for jerk, snap, crackle, and pop?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following formulas were introduced in this section:
+    </p>
+    The limit definition of <m>f'(a)</m> (the derivative at a point), the limit definition of <m>f'(x)</m> (the derivative of a function); the second derivative, third derivative, fourth derivative.
+    <p>
+      <em>Key ideas:</em> The limit definition of the derivative comes from taking the limit of average rates of change on smaller and smaller intervals.
+      Thus the derivative at a point is the instantaneous rate of change,
+      and also the slope of the tangent line.
+      The derivative is also a function,
+      where the independent variable is the original input <m>x</m> and the output is the slope of the original function at <m>x</m>.
+      We can keep taking derivatives forever
+      (at least until we get a derivative of 0, at which point further derivatives will also be 0).
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      The units for derivatives are the same as the units for average rates of change:
+      <me>
+        \frac{\text{ units of output } }{\text{ units of input } }
+      </me>.
+      Units for higher order derivatives follow a similar pattern.
+      There is an alternative notation for derivatives,
+      called Leibniz notation, that we will use more later.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 3.2}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

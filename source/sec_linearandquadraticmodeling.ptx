@@ -1,0 +1,805 @@
+<section xml:id="sec_linearandquadraticmodeling">
+  <title>Modeling with Linear and Quadratic Functions</title>
+  <introduction>
+    <p>
+          <idx><h>Functions</h><h>Modeling</h></idx>
+    </p>
+  </introduction>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Examine the mathematical modeling cycle.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use linear and quadratic functions to describe real-world problems.
+        </p>
+      </li>
+      <li>
+        <p>
+          Practice translating back and forth between the context and mathematical calculations in a problem.
+        </p>
+      </li>
+      <li>
+        <p>
+          Revisit ideas of domain and range,
+          increasing and decreasing, intercepts,
+          and average rate of change in a context that gives these concepts a practical meaning.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>The Mathematical Modeling Process</title>
+    <p>
+      A <em>mathematical model</em> is a mathematical description
+      (often by means of a function or an equation)
+      of a real-world phenomenon such as the size of a population,
+      the demand for a product,
+      the speed of a falling object,
+      the concentration of a product in a chemical reaction,
+      the life expectancy of a person at birth,
+      or the cost of emission reductions.
+      The purpose of the model is to understand the phenomenon and perhaps to make predictions about future behavior.
+    </p>
+    <p>
+      <xref ref="fig_modeling_cycle" autoname="yes"/> below illustrates the process of mathematical modeling.
+    </p>
+    <figure xml:id="fig_modeling_cycle">
+      <caption>The modeling cycle. Graphic from
+      <url href="https://www.educationaldesigner.org/ed/volume4/issue13/article53/links/link21.html">www.educationaldesigner.org</url>
+      .</caption>
+      <image width="80%" source="modelling_cycle.png"/>
+    </figure>
+    <p>
+      Given a real-world problem,
+      our first task is to formulate a mathematical problem by
+      <ul>
+        <li>
+          <p>
+            identifying and naming the independent and dependent variables
+          </p>
+        </li>
+        <li>
+          <p>
+            making assumptions that simplify the problem so it is easy enough to describe with mathematics
+          </p>
+        </li>
+        <li>
+          <p>
+            using knowledge of the physical situation to brainstorm relevant equations,
+            formulas,
+            and theorems, possibly working from data or a graph
+          </p>
+        </li>
+        <li>
+          <p>
+            obtaining equations that relate the variables
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The second step is to apply the mathematics that we know
+      (such as the calculus that we will be developing over the year)
+      to the mathematical equations that we have formulated in order to derive a mathematical solution.
+    </p>
+    <p>
+      In the third step,
+      we take those mathematical conclusions and interpret them as information about the original real-world phenomenon by way of offering explanations or making predictions.
+      The final step is to test our predictions by checking against new real data.
+      If the predictions don't compare well with reality,
+      we need to refine our model or formulate a new model and start the cycle over again.
+    </p>
+    <p>
+      This is similar to the framework for problem-solving described in <xref ref="sec_problemsolving" autoname="yes"/>, except that in a truly real-world problem,
+      the actual question may not be stated explicitly or formulated in a way that can be answered without further refinement of the question
+      (getting more information,
+      simplifying more assumptions, building more theory).
+      Since we are working in the context of a calculus course,
+      all of our "real-world" questions will be very well-behaved and tractable.
+    </p>
+    <p>
+      A mathematical model is never a completely accurate representation of a physical situation.
+      Instead, it is an <em>idealization</em>
+      or an <em>approximation</em>.
+      A good model simplifies reality enough to permit mathematical calculations but is accurate enough to provide valuable conclusions.
+      It is important to realize the limitations of the model.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Using Linear Functions as Models</title>
+    <p>
+      Since linear functions have a constant slope,
+      linear functions perfectly model quantities that change at a constant rate.
+      In context, we can often think of slope as a rate of change.
+      Paying careful attention to units can help determine whether given information is a value of a variable or a rate of change.
+    </p>
+    <example xml:id="ex_DolbearTake1">
+      <title>Dolbear's Law</title>
+      <statement>
+        <p>
+          One example of a mathematical model is found in Dolbear's Law.<fn>
+          You can read more in the
+          <url href="https://en.wikipedia.org/wiki/Dolbear%27s_law">Wikipedia entry</url>
+          for Dolbear's Law,
+          which has proven to be remarkably accurate for the behavior of snowy tree crickets.
+          For even more of the story,
+          including a reference to this phenomenon on the popular show The Big Bang Theory, see
+          <url href="https://priceonomics.com/how-to-tell-the-temperature-using-crickets/">this article</url>.
+          </fn> In the late 1800s,
+          the physicist Amos Dolbear was listening to crickets chirp and noticed a pattern:
+          how frequently the crickets chirped seemed to be connected to the outside temperature.
+          If we let <m>T</m> represent the temperature in degrees Fahrenheit and <m>N</m> the number of chirps per minute,
+          we can summarize Dolbear's observations in the following table.
+        </p>
+        <table xml:id="tab_dolbear1">
+          <title>Data for Dolbear's observations</title>
+          <tabular>
+            <row>
+              <cell>\toprule
+                <m>N</m> (chirps per minute)</cell>
+              <cell>40</cell>
+              <cell>80</cell>
+              <cell>120</cell>
+              <cell>160</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>T</m> (<m>^\circ</m> Fahrenheit)</cell>
+              <cell><m>50^\circ</m></cell>
+              <cell><m>60^\circ</m></cell>
+              <cell><m>70^\circ</m></cell>
+              <cell><m>80^\circ</m></cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          For a mathematical model,
+          we often seek an algebraic formula that captures observed behavior accurately and can be used to predict behavior not yet observed.
+          When we graph the data,
+          we can see a pattern that tells us what kind of formula to use:
+        </p>
+        <figure xml:id="fig_dolbear1">
+          <caption>Graph of Dolbear's data and the underlying curve.</caption>
+          <image width="56%" source="APCFigure1-2-3.pdf"/>
+        </figure>
+        <p>
+          The data appear to fit a line.
+          If we calculate the average rate of change between any two points,
+          this should give us the slope of the line.
+          Using the points <m>(40,50)</m> and <m>(80,60)</m>, we find
+          <me>
+            AV_{[40,80]} = \frac{60-50}{80-40} = \frac{10}{40} = 0.25
+          </me>.
+        </p>
+        <p>
+          Using point-slope form with the point<fn>
+          You could use the point <m>(80,60)</m> instead,
+          or any of the other points.
+          </fn> <m>(40,50)</m> and simplifying to slope-intercept form, we have
+          <me>
+            \begin{aligned}T \amp = 0.25(N-40)+50\\ T \amp = 0.25N-10+50\\ T \amp = 0.25N+40 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Before we attempt any further calculations,
+          we may want to check that our model accurately represents the collected data.
+          Let's check that the point
+          <m>(120,70)</m> is indeed on the line.
+          For <m>N=120</m>, we have
+          <me>
+            T=0.25(120)+40 = 30+40 = 70
+          </me>
+        </p>
+        <p>
+          Success!
+          Now that we have found a formula,
+          and convinced ourselves that it's correct,<fn>
+          If you are not convinced yet,
+          think about how you could further verify that this model is accurate.
+          </fn> let's give it a name.
+          Let <m>D</m> be the name of our "Dolbear" function that takes <m>N</m> number of chirps per minute as inputs and gives <m>T</m> temperature in degrees Fahrenheit as outputs:
+        </p>
+        <p>
+          \fbox{ Dolbear's function, <m>T = D(N) = 0.25N+40</m>,
+          models the relationship between the number <m>N</m> of cricket chirps per minute and the temperature <m>T</m> in degrees Fahrenheit.}
+        </p>
+      </statement>
+    </example>
+    <exercise xml:id="ex_dolbear1">
+      <statement>
+        <p>
+          Now that we have a model for Dolbear's observations,
+          let's use it to make some predictions.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                If we hear snowy tree crickets chirping at a rate of 92 chirps per minute,
+                what does Dolbear's model suggest should be the outside temperature?
+              </p>
+            </li>
+            <li>
+              <p>
+                If the outside temperature is
+                <m>77^\circ</m> F, how many chirps per minute should we expect to hear?
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose that in the morning an observer hears 65 chirps per minute,
+                and several hours later hears 75 chirps per minute.
+                How much has the temperature risen between observations?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_DolbearTake2">
+      <title>More about Dolbear's Law</title>
+      <statement>
+        <p>
+          Let's continue to explore the limits of our model for Dolber's observations.
+          Suppose we wish to know the number of chirps we should hear when the outside temperature is
+          <m>35^\circ</m> F. There is no point on the graph with <m>T=35</m> and so we solve numerically for <m>N</m> to determine the number of chirps one should hear when the outside temperature is <m>35^\circ</m> F.
+          <me>
+            \begin{aligned}35\amp =40+0.25N\\ -5 \amp = 0.25N\\ -20 \amp =N \end{aligned}
+          </me>
+        </p>
+        <p>
+          So we see that <m>D(-20)=35</m>.
+          In context, this means that when it's <m>35^\circ</m> outside,
+          we should hear <m>-20</m> chirps per minute.
+          A negative number of chirps per minute does not make sense,
+          and so we can see that the model is not valid when the outside temperature is <m>35^\circ</m> F.
+        </p>
+        <p>
+          At this point in the modeling process,
+          a scientist would need to revisit the physical situation and make further observations.
+          Indeed, Dolbear observed that temperatures below
+          <m>50^\circ</m> F are too cold for the crickets and temperatures above
+          <m>85^\circ</m> F are too hot for the crickets,
+          so the model is only accurate for temperatures between <m>50^\circ</m> F and
+          <m>85^\circ</m> F. What is the fewest number of chirps per minute an observer could expect to hear?
+          The greatest number of chirps per minute?
+        </p>
+        <p>
+          From the original observations in <xref ref="tab_dolbear1" autoname="yes"/>, we can see that <m>D(40)=50</m>.
+          Using the algebraic function, we can compute
+          <me>
+            \begin{aligned}85 \amp = 0.25N+40\\ 45 \amp = 0.25N\\ 180 \amp =N \end{aligned}
+          </me>
+          so that <m>D(180)=85</m>.
+          Thus we can expect to observe between 40 and 180 chirps per minute for temperatures between <m>50^\circ</m> F and
+          <m>85^\circ</m> F. Note that we are using our understanding of the shape of linear functions here:
+          this is an increasing linear function,
+          so the values of the outputs increase steadily with the values of the inputs.
+        </p>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        When working with a model,
+        it is common to have to restrict the domain of a function based on real-world conditions,
+        rather than algebraic requirements,
+        so that the model makes sense in the context it is meant to represent.
+      </p>
+    </remark>
+    <p>
+      Here is another physical phenomenon where a linear function provides an appropriate model:
+      measuring the area of a glacier over time.
+      Remember: linear functions have constant average rates of change,
+      so are ideal for modeling quantities that change at a constant rate.
+    </p>
+    <example>
+      <title>Modeling Glacier Areas</title>
+      <statement>
+        <p>
+          The summit of Africa's largest peak, Mt.
+          Kilimanjaro, has two main ice fields and a glacier at its peak.
+          Geologists measured the ice cover in the year 2000 (<m>t=0</m>) to be approximately <m>1951</m> m<m>^2</m>;
+          in the year 2007, the ice cover measured <m>1555</m> m<m>^2</m>.
+          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                Suppose that the amount of ice cover at the peak of Mt.
+                Kilimanjaro is changing at a constant average rate from year to year.
+                Find a linear model <m>A=f(t)</m> whose output is the area,
+                <m>A</m> in square meters in year <m>t</m>
+                (where <m>t</m> is the number of years after 2000).
+              </p>
+            </li>
+            <li>
+              <p>
+                What do the slope and <m>A</m>-intercept mean in the model you found in (a)?
+                In particular, what are the units on the slope?
+              </p>
+            </li>
+            <li>
+              <p>
+                Compute <m>f(17)</m>.
+                What does this quantity measure?
+                Write a complete sentence to explain.
+              </p>
+            </li>
+            <li>
+              <p>
+                If the model holds further into the future,
+                when do we predict the ice cover will vanish?
+              </p>
+            </li>
+            <li>
+              <p>
+                In light of your work above,
+                what is a reasonable domain to use for the model <m>A=f(t)</m>?
+                What is the corresponding range?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If you have time, work through the example on your own first,
+          then read the solution below.
+          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                We are told that the ice cover starts at <m>b=1951</m>,
+                so the point <m>(0,1951)</m> lies on the graph of the function.
+                We are also given the point <m>(7,1555)</m>.
+                The slope is then
+                <me>
+                  \begin{aligned}m \amp = \frac{1555-1951}{7-0}\\ \amp = \frac{-396}{7}\\ \amp \approx -56.5714 \end{aligned}
+                </me>
+                The linear model is then <m>A=f(t) = 1951-\frac{396}{7}t</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The slope is the rate at which the glacier is losing ice each year,
+                measured in m<m>^2</m>/year.
+                The <m>A</m>-intercept is the area of the ice at <m>t=0</m>
+                (in 2000).
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(17) = 1951-\frac{396}{7}(17)\approx 989.2857</m>.
+                In 2017, the ice cover on the glacier is approximately 989.2857 m<m>^2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The ice cover will vanish when <m>A=1951-\frac{396}{7}t=0</m>.
+                Solving for <m>t</m>, we have <m>t\approx 34.4874</m>.
+                The ice cover will vanish toward the end of May of 2034.
+              </p>
+            </li>
+            <li>
+              <p>
+                A reasonable domain for the model is <m>t\in[0,34.4874]</m>.
+                The corresponding range is <m>A\in[0,1951]</m>,
+                meaning the ice cover will take on values between 1951 m<m>^2</m> and 0 m<m>^2</m>.
+                (Note that we still write this interval as 0 to 1951 when using interval notation,
+                even though the ice cover is vanishing.)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          What is a quantity or phenomenon that you observe to have a constant rate of change?
+          Assign names to the independent and dependent variables and create a linear model of this phenomenon.
+          If relevant, include an appropriate domain and/or range.
+          Is your model an increasing or decreasing linear function?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Modeling with Quadratic Functions: Falling Objects</title>
+    <p>
+      One of the reasons that quadratic functions are so important is because of a physical fact of the universe we inhabit:
+      for an object only being influenced by gravity,
+      <em>acceleration due to gravity is constant</em>.
+      If we measure time in seconds and a rising or falling object's height in feet,
+      the gravitational constant is <m>-32</m> feet per second per second,
+      where the negative sign signifies that gravity is pulling "down," meaning toward the ground.
+    </p>
+    <p>
+      One of the fantastic consequences of calculus <mdash/> which,
+      like the realization that acceleration due to gravity is constant,
+      is largely due to Sir Isaac Newton in the late 1600s <mdash/> is that the height of a falling object at time <m>t</m> is modeled by a quadratic function.
+    </p>
+    <theorem xml:id="thm_fallingobject">
+      <title>Height of an object falling under the force of gravity</title>
+      <statement>
+        <p>
+          For an object tossed vertically from an initial height of <m>s_0</m> feet with a velocity of <m>v_0</m> feet per second,
+          the object's height at time <m>t</m>
+          (in seconds)
+          is given by the formula
+          <me>
+            h(t) = -16t^2+v_0t+s_0
+          </me>
+          and corresponds to a gravitational constant of <m>g=-32</m> ft/s<m>^2</m>.
+        </p>
+        <p>
+          If height is measured instead in meters and velocity in meters per second,
+          the gravitational constant is <m>g=-9.8</m> m/s<m>^2</m> and the function <m>h</m> has form <m>h(t) = -4.9t^2+v_0t+s_0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We will see where this formula comes from later in the course!
+    </p>
+    <example xml:id="ex_APC1-5-4">
+      <statement>
+        <p>
+          A water balloon is tossed vertically from a dorm room window at an initial height of 37 feet with an initial velocity of 41 feet per second.
+          We can use Theorem <xref ref="thm_fallingobject" autoname="yes"/> to model the height of the water balloon.
+          First, we notice that since the information is given in feet and seconds,
+          we should use the formula
+          <me>
+            h(t) = -16t^2+v_0t+s_0
+          </me>
+          corresponding to a gravitational constant of <m>-32</m> ft/s<m>^2</m>.
+          Next, we determine the constants in the formula.
+          The initial height in the problem is given as 37 feet,
+          so we have
+          <me>
+            s_0 = 37
+          </me>.
+        </p>
+        <p>
+          The initial velocity is given as 41 feet per second.
+          Note the units!
+          This is the rate of change of position.
+          Thus we have
+          <me>
+            v_0 = 41
+          </me>.
+        </p>
+        <p>
+          Thus our model is
+          <me>
+            h(t) = -16t^2+41t+37
+          </me>
+          where <m>t</m> is measured in seconds,
+          <m>t=0</m> denotes the time at which the water balloon is thrown,
+          and <m>h(t)</m> is measured in feet.
+        </p>
+        <p>
+          Now that we have our model, let's answer some questions.
+          First, let's determine the time that the water balloon hits the ground.
+          At that time,
+          the height will be 0, so our mathematical task is to solve
+          <me>
+            h(t) = -16t^2+41t+37 = 0
+          </me>
+          for <m>t</m>,
+          noting that we would like to have a positive time since our model only becomes valid after <m>t=0</m>.
+          That quadratic equation does not look like it will factor nicely,
+          so we will immediately use the quadratic formula:
+          <me>
+            \begin{aligned}t\amp = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\\ \amp = \frac{-41\pm\sqrt{(41)^2-4(-16)(37)}}{2(-16)}\\ \amp = \frac{-41\pm\sqrt{4049}}{-32}\\ \amp \approx 3.2697, -0.7072 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Since we are looking for a time
+          <em>after</em> the balloon is thrown,
+          the answer we are looking for is
+          <me>
+            \text{ the balloon hits the ground } t\approx 3.27\text{ seconds after it is thrown. }
+          </me>
+        </p>
+        <p>
+          This implies a domain for our model since the balloon cannot pass through the ground:
+          the model <m>h(t) = -16t^2+41t+37</m> gives the height of the water balloon <m>t</m> seconds after it is thrown until it hits the ground,
+          so for <m>t\in[0,3.27]</m>.
+        </p>
+        <p>
+          Lastly, let's graph our function and use that to estimate the time the water balloon reaches its highest point,
+          along with its height at that time.
+          This will give us the range of our model, as well.
+        </p>
+        <figure xml:id="fig_waterballoongraph">
+          <caption>The function <m>h(t) = -16t^2+41t+37</m> that models the height of the water balloon for <m>t\in[0,3.27]</m>.</caption>
+          <image width="56%" source="waterballoongraph.png"/>
+        </figure>
+        <p>
+          From the Desmos graph,
+          we can see that the quadratic function reaches its maximum at approximately the point <m>(1.281, 63.266)</m>.
+          (We can also check that our model has the correct vertical intercept and that our computation for when the balloon hits the ground is correct.)
+          The range of our model is <m>h\in[0,63.266]</m>.
+          Interpreting this information back into the context of the balloon,
+          we can say that the balloon reaches its highest point approximately <m>1.281</m> second after it is thrown,
+          and that its height is <m>63.266</m> feet at that time.
+        </p>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        One of our main goals this semester will be to develop algebraic methods with which to answer this last question of when and where a maximum occurs.
+        But we need calculus in order to do that.
+      </p>
+    </remark>
+    <exercise>
+      <statement>
+        <p>
+          Use the model developed in Example <xref ref="ex_APC1-5-4" autoname="yes"/> to answer the following questions.
+          Recall the formula from Section <xref ref="def_averagerateofchange" autoname="yes"/> for the Average Rate of Change of a function <m>f(x)</m> on an interval <m>[a,b]</m>:
+          <me>
+            AV_{[a,b]} = \frac{f(b)-f(a)}{b-a}
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Compute the average rate of change of <m>h</m> on the interval <m>[1,2]</m>.
+                What are the units for the number you computed?
+              </p>
+            </li>
+            <li>
+              <p>
+                Copy the graph of <m>h(t)</m> from <xref ref="fig_waterballoongraph" autoname="yes"/> to your notes.
+                Draw an appropriate line on the graph whose slope is the value of the average rate of change in part (a).
+              </p>
+            </li>
+            <li>
+              <p>
+                You should have computed in part (a) and be able to see in part (b) that the average rate of change of <m>h</m> on the interval <m>[1,2]</m> is negative.
+                Does this mean that the balloon is falling between <m>t=1</m> and <m>t=2</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Compute the average rate of change of <m>h</m> on the interval <m>[2,3]</m>.
+                Is the balloon speeding up or slowing down as it approaches the ground?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_costrevenueprofit-take1">
+    <title>Cost, Revenue, and Profit</title>
+    <p>
+      In this section,
+      we look at some of the functions of interest to decision-makers in a firm or industry.
+    </p>
+    <definition>
+      <title>The Cost Function</title>
+      <statement>
+        <p>
+          The <em>cost function</em>,
+          <m>C(q)</m> gives the total cost of producing a quantity <m>q</m> of some good.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      What sort of function do you expect <m>C</m> to be?
+      The more goods that are made,
+      the higher the total cost, so <m>C</m> is an increasing function.
+      Costs of production can be separated into two parts:
+      the <em>fixed costs,</em> which are incurred even if nothing is produced,
+      and the <em>variable costs,</em>
+      which depend on how many units are produced.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's consider a company that makes radios.
+          The factory and machinery needed to begin production are fixed costs,
+          which are incurred even if no radios are made.
+          The costs of labor and raw materials are variable costs since these quantities depend on how many radios are made.
+          The fixed costs for this company are $24,000 and the variable costs are $7 per radio.
+          Then
+          <me>
+            \begin{aligned}\text{ Total costs for the company }  \amp = \text{ Fixed costs } +\text{ Variable costs } \\ \amp = 24,000 + 7\cdot\text{ Number of radios, } \end{aligned}
+          </me>
+          so, if <m>q</m> is the number of radios produced,
+          <me>
+            C(q) = 24,000+7q
+          </me>.
+          This is the equation of a line with slope 7 and vertical intercept of 24,000!
+        </p>
+      </statement>
+    </example>
+    <p>
+      The variable cost for one additional unit is called the <em>marginal cost</em>.
+      For a linear cost function,
+      the marginal cost is the rate of change,
+      or slope, of the cost function.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          In each case,
+          draw a graph of a linear cost function satisfying the given conditions:
+          <ol marker="labelalph">
+            <li>
+              <p>
+                Fixed costs are large but marginal cost is small.
+              </p>
+            </li>
+            <li>
+              <p>
+                There are no fixed costs but marginal cost is high.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <definition>
+      <title>The Revenue Function</title>
+      <statement>
+        <p>
+          The <em>revenue function</em>, <m>R(q)</m>,
+          gives the total revenue received by a firm from selling a quantity,
+          <m>q</m> of some good.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      If the goods sell for a price of <m>p</m> per unit,
+      and the quantity sold is <m>q</m>, then
+      <me>
+        \text{ Revenue }  = \text{ Price } \cdot\text{ Quantity, } \text{ so }  R=pq
+      </me>.
+      If the price does not depend on the quantity sold,
+      so <m>p</m> is a constant,
+      the graph of revenue as a function of <m>q</m> is a line through the origin,
+      with slope equal to the price <m>p</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          If radios sell for $15 each, then the manufacturer's revenue function is
+          <me>
+            R(q) = pq = 15q
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Graph the cost function <m>C(q) = 24,000+7q</m> and the revenue function <m>R(q) = 15q</m> on the same axes.
+          For what values of <m>q</m> does the company make money?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The company makes money whenever revenues are greater than costs,
+          so we find the values of <m>q</m> for which the graph of <m>R(q)</m> lies above the graph of <m>C(q)</m>:
+        </p>
+        <p>
+          <image width="56%" source="Hughes-HallettPage33b.png"/>
+        </p>
+        <p>
+          We find the point at which the graph of <m>R(q)</m> and <m>C(q)</m> cross:
+          <me>
+            \begin{aligned}\text{ Revenue }  \amp = \text{ Cost } \\ 15q \amp = 24,000+7q\\ 8q \amp = 24,000\\ q \amp = 3000. \end{aligned}
+          </me>
+        </p>
+        <p>
+          The company makes a profit if it produces and sells more than 3000 radios.
+          The company loses money if it produces and sells fewer than 3000 radios.
+        </p>
+      </solution>
+    </example>
+    <p>
+      This difference between the revenue and cost is called <em>profit</em>,
+      and many decisions are made based on this quantity,
+      rather than cost or revenue alone:
+    </p>
+    <definition>
+      <title>The Profit Function</title>
+      <statement>
+        <p>
+          The <em>profit function</em>,
+          written as <m>\pi</m> to distinguish it from the price,
+          <m>p</m>, is the difference
+          <me>
+            \text{ Profit }  = \text{ Revenue } -\text{ Cost }  \text{ so }  \pi=R-C
+          </me>
+        </p>
+        <p>
+          The <em>break-even</em> point for a company is the point where the profit is zero and revenue equals cost.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          For our radio manufacturer, a formula for the profit function is
+          <me>
+            \begin{aligned}\pi(q) \amp = R(q) - C(q)\\ \amp = 15q-(24,000+7q)\\ \amp =-24,000+8q \end{aligned}
+          </me>
+        </p>
+        <p>
+          Notice that the negative of the fixed cost is the vertical intercept and the break-even point is the horizontal intercept when we graph <m>\pi(q)</m> in <xref ref="fig_radioprofitgraph" autoname="yes"/>:
+        </p>
+        <figure xml:id="fig_radioprofitgraph">
+          <caption>Profit <m>\pi(q) = -24,000+8q</m> for the radio manufacturer.</caption>
+          <image width="75%" source="radioprofitgraph.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          If cost, <m>C</m>, and revenue, <m>R</m>,
+          are given by the graph below,
+          what is the break-even point for the company?
+          For what production quantities does the firm make a profit?
+        </p>
+        <p>
+          <image width="37%" source="Hughes-HallettPage121e.png"/>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Just as we used the term marginal cost to mean the rate of change,
+      or slope, of a linear cost function,
+      we use the terms <em>marginal revenue</em> and
+      <em>marginal profit</em>
+      to mean the rate of change, or slope,
+      of linear revenue and profit functions, respectively.
+      The term <em>marginal</em> is used because we are looking at how the cost, revenue,
+      or profit change "at the margin," that is,
+      by the addition of one more unit.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, for the radio manufacturer,
+          the marginal cost is 7 dollars/item
+          (the additional cost of producing one more item is $7),
+          the marginal revenue is 15 dollars/item
+          (the additional revenue from selling one more item is $15),
+          and the marginal profit is 8 dollars/item
+          (the additional profit from selling one more item is $8).
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          How is the idea of a "marginal" cost, revenue,
+          or profit similar to the idea of the average rate of change of a function?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    mathematical model, height of a falling object, cost function, fixed cost, variable cost, marginal cost, revenue function, profit function, break-even point, marginal revenue, marginal profit.
+    <p>
+      <em>Key ideas:</em> Linear and quadratic functions are extremely useful for modeling real-world phenomena.
+      Properties of functions and average rate of change have meaningful interpretations in such contexts.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 1.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

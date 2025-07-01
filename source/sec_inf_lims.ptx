@@ -1,0 +1,1614 @@
+<section xml:id="sec_inf_lims" >
+  <title>Infinite Limits and Limits at Infinity</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          What does it mean mathematically to have an infinite limit,
+          or to take a limit at infinity?
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn the definitions of vertical and horizontal asymptotes and be able to identify them visually.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use limit notation to describe vertical and horizontal asymptotes.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn about limits of the form <m>\frac{1}{0}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Use sign analyses to determine whether infinite limits approach positive or negative infinity
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Definitions: Infinite Limits and Limits at Infinity</title>
+    <p>
+      The wonderful thing about continuity is that it lets us calculate limits by evaluation.
+      But what are we supposed to do with the limits that we cannot just evaluate,
+      such as at <m>x</m>-values that are not in the domain of a function?
+      We begin to investigate with a simple example:
+    </p>
+    <example xml:id="ex_VAmotivation">
+      <statement>
+        <p>
+          For example,
+          the function <m>f(x) = \frac{1}{x}</m> is undefined when <m>x=0</m>,
+          so the only limit of this function that we cannot calculate by simply plugging in is
+          <me>
+            \lim_{x\to 0}\frac{1}{x}
+          </me>
+        </p>
+        <p>
+          The graph of <m>f(x) = \frac{1}{x}</m> is in <xref ref="fig_taalmanpage52binfinitelimit" autoname="yes"/> below:
+        </p>
+        <figure xml:id="fig_taalmanpage52binfinitelimit">
+          <caption><m>f(x) = \frac{1}{x}</m> is undefined at <m>x=0</m>.</caption>
+          <image width="37%" source="TaalmanPage52b.png"/>
+        </figure>
+        <p>
+          Based on <xref ref="fig_taalmanpage52binfinitelimit" autoname="yes"/>,
+          you may be able to see what <m>\ds\lim_{x\to0}\frac{1}{x}</m> should be.
+          In case it isn't clear to you,
+          here is a table of values for
+          <m>f(x) = \frac{1}{x}</m> as <m>x\to 0</m> from both the left and right.
+        </p>
+        <table xml:id="tab_vaofoneoverx">
+          <title>A table of values for <m>f(x) = \frac{1}{x}</m> as <m>x\to 0</m></title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-0.5</m></cell>
+              <cell><m>-0.1</m></cell>
+              <cell><m>-0.01</m></cell>
+              <cell><m>-0.001</m></cell>
+              <cell><em>0</em></cell>
+              <cell>0.001</cell>
+              <cell>0.01</cell>
+              <cell>0.1</cell>
+              <cell>0.5</cell>
+              <cell>1</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>1/x</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-10</m></cell>
+              <cell><m>-100</m></cell>
+              <cell><m>-1000</m></cell>
+              <cell><em>?</em></cell>
+              <cell>1000</cell>
+              <cell>100</cell>
+              <cell>10</cell>
+              <cell>2</cell>
+              <cell>1</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We can see that as <m>x\to 0^+</m>,
+          the values of <m>\frac{1}{x}</m> become larger and larger.
+          We write this using limit notation as
+          <me>
+            \lim_{x\to 0^+}\frac{1}{x} = \infty
+          </me>.
+          Similarly, we can see that as <m>x\to 0^-</m>,
+          the values of <m>\frac{1}{x}</m> become larger and larger,
+          and are negative.
+          We write this using limit notation as
+          <me>
+            \lim_{x\to0^-}\frac{1}{x} = -\infty
+          </me>.
+          Since the right and left limits do not agree,
+          we cannot make any two-sided limit statement, other than to say that
+          <me>
+            \lim_{x\to 0}\frac{1}{x}\text{ DNE, because the right and left limits are not equal. }
+          </me>
+        </p>
+        <p>
+          This last answer is not particularly informative or useful,
+          and so our REAL answer for the limit as <m>x\to 0</m> is to describe both the left and right limits as precisely as we can:
+          <me>
+            \lim_{x\to 0^+}\frac{1}{x} = \infty\text{ and }  \lim_{x\to0^-}\frac{1}{x} = -\infty
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Example <xref ref="ex_VAmotivation" autoname="yes"/> demonstrates the necessity of defining a notation that describes the values of a function becoming infinitely large,
+      either positively or negatively.
+      This is stated more carefully in Definition <xref ref="def_infinitelimit" autoname="yes"/> below:
+    </p>
+    <definition xml:id="def_infinitelimit">
+      <title>Definition of Infinite Limits</title>
+      <statement>
+        <p>
+          Given a function <m>f</m> and a fixed input <m>x=c</m>,
+          we say that <em><m>f</m> approaches infinity as <m>x</m> approaches <m>c</m></em> and write
+          <me>
+            \lim_{x\to c}f(x) = \infty
+          </me>
+          provided that we can make the values of <m>f(x)</m> as large as we like by taking <m>x</m> sufficiently close
+          (but not equal)
+          to <m>c</m>.
+        </p>
+        <p>
+          Similarly, we say that <em><m>f</m> approaches negative infinity as <m>x</m> approaches <m>c</m></em> and write
+          <me>
+            \lim_{x\to c}f(x) = -\infty
+          </me>
+          provided that we can make the values of <m>f(x)</m> as large and negative as we like by taking <m>x</m> sufficiently close
+          (but not equal)
+          to <m>c</m>.
+        </p>
+        <p>
+          Either of these statements can be modified appropriately for left and right limits.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      \fbox{ Recall that in Definition <xref ref="def_limit" autoname="yes"/>,
+      a limit does not exist if there is no single value that <m>f(x)</m> approaches as <m>x\to c</m>.
+      That is the case for <em>every</em> infinite limit:
+      there is no finite value that the function approaches.
+      Even though we write that the limit is "equal to" <m>\infty</m> or <m>-\infty</m>,
+      these limits <em>do not exist</em>
+      because <m>\infty</m> and <m>-\infty</m> are not real numbers. }
+    </p>
+    <example xml:id="ex_moreVAmotivation">
+      <statement>
+        <p>
+          We can see from the graph of
+          <m>g(x) = \frac{1}{x^2}</m> in <xref ref="fig_taalmanpage301b-1verticalasymptote" autoname="yes"/> that
+          <me>
+            \lim_{x\to 0^-}\frac{1}{x^2} = \infty\text{ and }  \lim_{x\to 0^+}\frac{1}{x^2} = \infty
+          </me>
+          so that
+          <me>
+            \lim_{x\to 0}\frac{1}{x^2} = \infty
+          </me>.
+          This means only that the values of
+          <m>\frac{1}{x^2}</m> become infinitely large as <m>x\to 0</m>.
+          The limit still does not <em>exist</em>.
+          However, we do NOT write <m>\lim_{x\to 0}\frac{1}{x^2}</m> DNE because that does not give us any useful information.
+          Remember: limits are used to describe the behavior of functions,
+          not simply spit out an answer,
+          so we want our answers to be as descriptive as possible.
+        </p>
+        <figure xml:id="fig_taalmanpage301b-1verticalasymptote">
+          <caption><m>\ds\lim_{x\to 0}\frac{1}{x^2} = \infty</m>.</caption>
+          <image width="28%" source="TaalmanPage301b-1.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain what it means for a limit to be "equal to infinity."
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The graphs of <m>f(x) = \frac{1}{x}</m> and
+      <m>g(x) = \frac{1}{x^2}</m> motivate another type of limit.
+      Notice that the <m>y</m>-values of both functions approach the <m>x</m>-axis at the far left and right ends of the graph.
+      There appears to be a particular "long-term" behavior for both functions that is worth describing.
+    </p>
+    <example>
+      <statement>
+        <p>
+          If instead of looking at the middle of the graphs,
+          we look at the <em>ends</em>,
+          we can see that as <m>x</m> becomes very large,
+          either positively or negatively,
+          the values of both <m>f(x) = \frac{1}{x}</m> and
+          <m>g(x) = \frac{1}{x^2}</m> become smaller and smaller.
+        </p>
+        <figure xml:id="fig_TaalmanPage150c">
+          <caption><m>\ds\lim_{x\to\infty}\frac{1}{x} = 0</m>.</caption>
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="80%" source="TaalmanPage150c.png"/>
+          \end{subfigure}
+          \hspace{.2in}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="80%" source="TaalmanPage150d.png"/>
+          \caption{<m>\ds\lim_{x\to\infty}\frac{1}{x^2} = 0</m>.} \end{subfigure}
+          \caption{<m>f(x) = \frac{1}{x}</m> and <m>g(x) = \frac{1}{x^2}</m> have finite limits as <m>x\to\infty</m>. }
+        </figure>
+        <p>
+          Let's see this explicitly in a table of values for <m>f(x) = \frac{1}{x}</m>:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>1</cell>
+              <cell>10</cell>
+              <cell>100</cell>
+              <cell>1,000</cell>
+              <cell>10,000</cell>
+              <cell>100,000</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{1}{x}</m></cell>
+              <cell>1</cell>
+              <cell><m>\frac{1}{10} = 0.1</m></cell>
+              <cell><m>\frac{1}{100} = 0.01</m></cell>
+              <cell><m>\frac{1}{1000} = 0.001</m></cell>
+              <cell><m>\frac{1}{10000} = 0.0001</m></cell>
+              <cell><m>\frac{1}{100000} = 0.00001</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We use the notation <m>x\to\infty</m> to mean that the values of <m>x</m> are getting larger and larger.
+          This is said verbally as "<m>x</m> approaches infinity." Thus we see that the values of
+          <m>f(x) = \frac{1}{x}</m> become approximately <m>0</m> as <m>x\to\infty</m>.
+          We write
+          <me>
+            \lim_{x\to\infty}\frac{1}{x} = 0
+          </me>.
+        </p>
+        <p>
+          Similarly,
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>-1</cell>
+              <cell>-10</cell>
+              <cell>-100</cell>
+              <cell>-1,000</cell>
+              <cell>-10,000</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{1}{x}</m></cell>
+              <cell>-1</cell>
+              <cell><m>-\frac{1}{10} = -0.1</m></cell>
+              <cell><m>-\frac{1}{100} = -0.01</m></cell>
+              <cell><m>-\frac{1}{1000} = -0.001</m></cell>
+              <cell><m>-\frac{1}{10000} = -0.0001</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We use the notation <m>x\to-\infty</m> to mean that the values of <m>x</m> are <em>negative</em>
+          and getting larger and larger.
+          This is said verbally as "<m>x</m> approaches negative infinity." We see that the values of
+          <m>f(x) = \frac{1}{x}</m> become approximately <m>0</m> as <m>x\to-\infty</m> as well and write
+          <me>
+            \lim_{x\to-\infty}\frac{1}{x} = 0
+          </me>.
+        </p>
+        <p>
+          Intuitively, as <m>x</m> becomes larger,
+          <m>\frac{1}{x}</m> becomes smaller. "Smaller" here means close to 0.
+        </p>
+      </statement>
+    </example>
+    <definition xml:id="def_finitelimitatinfinity">
+      <title>Finite Limit at Infinity</title>
+      <statement>
+        <p>
+          If the values of a function <m>f(x)</m> approach <m>L</m> as <m>x</m> grows without bound,
+          then we say that <m>L</m> is the
+          <em>limit of <m>f(x)</m> as <m>x</m> approaches <m>\infty</m></em> and we write
+          <me>
+            \lim_{x\to\infty} f(x) =L
+          </me>
+        </p>
+        <p>
+          If the values of a function <m>f(x)</m> approach <m>L</m> as <m>x</m> grows without bound
+          <em>and is negative</em>,
+          then we say that <m>L</m> is the
+          <em>limit of <m>f(x)</m> as <m>x</m> approaches <m>-\infty</m></em> and we write
+          <me>
+            \lim_{x\to-\infty} f(x) = L
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Of course, it is entirely possible that the limit of a function as
+      <m>x\to\pm\infty</m> does NOT approach a finite number.
+      In the cases where the values of the function become infinitely large,
+      either positively or negatively,
+      as <m>x</m> becomes infinitely large,
+      either positively or negatively,
+      we have what is called an "infinite limit at infinity." The four cases of this are described in Definition <xref ref="def_infinitelimitatinfinity" autoname="yes"/>:
+    </p>
+    <definition xml:id="def_infinitelimitatinfinity">
+      <title>Infinite Limit at Infinity</title>
+      <statement>
+        <p>
+          If the values of a function <m>f(x)</m> grow without bound as <m>x</m> grows without bound,
+          then we say that <m>\infty</m> is the
+          <em>limit of <m>f(x)</m> as <m>x</m> approaches <m>\infty</m></em> and we write
+          <me>
+            \lim_{x\to\infty} f(x) = \infty
+          </me>
+        </p>
+        <p>
+          If the values of a function <m>f(x)</m> grow without bound
+          <em>and are negative</em>
+          as <m>x</m> grows without bound,
+          then we say that <m>-\infty</m> is the
+          <em>limit of <m>f(x)</m> as <m>x</m> approaches <m>\infty</m></em> and we write
+          <me>
+            \lim_{x\to\infty} f(x) = -\infty
+          </me>
+        </p>
+        <p>
+          If the values of a function <m>f(x)</m> grow without bound as <m>x</m> grows without bound
+          <em>and is negative</em>,
+          then we say that <m>\infty</m> is the
+          <em>limit of <m>f(x)</m> as <m>x</m> approaches <m>-\infty</m></em> and we write
+          <me>
+            \lim_{x\to-\infty} f(x) = \infty
+          </me>
+        </p>
+        <p>
+          If the values of a function <m>f(x)</m> grow without bound
+          <em>and are negative</em>
+          as <m>x</m> grows without bound
+          <em>and is negative</em>,
+          then we say that <m>-\infty</m> is the
+          <em>limit of <m>f(x)</m> as <m>x</m> approaches <m>-\infty</m></em> and we write
+          <me>
+            \lim_{x\to-\infty} f(x) = -\infty
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          Consider the graphs of <m>f(x) = x^2</m> and <m>g(x) = x^3</m> below,
+          where the infinite behavior of the values of the function as
+          <m>x\to\infty</m> have been highlighted:
+        </p>
+        <figure xml:id="fig_TaalmanPage150a">
+          <caption><m>\ds\lim_{x\to\infty}x^2 = \infty</m>.</caption>
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="80%" source="TaalmanPage150a.png"/>
+          \end{subfigure}
+          \hspace{.2in}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="80%" source="TaalmanPage150b.png"/>
+          \caption{<m>\ds\lim_{x\to\infty}x^3 = \infty</m>.} \end{subfigure}
+          \caption{<m>f(x) = x^2</m> and <m>g(x) = x^3</m> have infinite limits as <m>x\to\infty</m>. }
+        </figure>
+        <p>
+          We can see that <m>\ds\lim_{x\to \infty} x^2 = \infty</m> and <m>\ds\lim_{x\to -\infty}x^2 = \infty</m> since the values of
+          <m>f(x) = x^2</m> become large and are positive as <m>x</m> becomes large and is either positive or negative.
+          If you're not sure what to look at on the graph,
+          consider the values of <m>x^2</m> for <m>x=10, 100, 1000, \ldots</m>
+          (meaning as <m>x\to\infty</m>)
+          and for <m>x = -10, -100, -1000\ldots</m>
+          (meaning as <m>x\to-\infty</m>).
+        </p>
+        <p>
+          Similarly, we can see that
+          <m>\ds\lim_{x\to \infty} x^3 = \infty</m> and <m>\ds\lim_{x\to -\infty}x^3 = -\infty</m>.
+          This becomes clear if we think of
+          <m>x\to\infty</m> as meaning that <m>x</m> is a larger and larger positive number,
+          so that <m>x^3</m> also becomes larger and larger, and is positive.
+          Meanwhile, we can understand
+          <m>x\to-\infty</m> as meaning that <m>x</m> is a larger and larger
+          <em>negative</em> number,
+          so that <m>x^3</m> is a larger and larger
+          <em>negative</em> number.
+          For example,
+          <me>
+            (-10)^3 = -1000, (-100)^3 = -1,000,000, (-1000)^3 = -1,000,000,000,\ldots
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain what it means to take a limit "at infinity."
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_VAsandHAs">
+    <title>Vertical and Horizontal Asymptotes</title>
+    <p>
+      Infinite limits (Definition <xref ref="def_infinitelimit" autoname="yes"/>) and finite limits at infinity (Definition <xref ref="def_finitelimitatinfinity" autoname="yes"/>) correspond to two different visual features of graphs:
+      vertical and horizontal asymptotes.
+    </p>
+    <p>
+      A function has a <em>vertical asymptote</em>
+      at the point <m>x=c</m> if the values of the function become infinitely large,
+      either positively or negatively,
+      to either the left or the right
+      (or both)
+      as <m>x</m> approaches <m>c</m>.
+    </p>
+    <definition xml:id="def_verticalasymptote">
+      <title>Vertical Asymptote</title>
+      <statement>
+        <p>
+          A function <m>f</m> has a <em>vertical asymptote</em>
+          at <m>x=c</m> if one or more of the following are true:
+          <me>
+            \lim_{x\to c^+} f(x) = \infty, \lim_{x\to c^-} f(x) = \infty,  \lim_{x\to c^+} f(x) = -\infty,  \lim_{x\to c^-} f(x) = -\infty
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          If <m>f(x)</m> approaches <m>\infty</m> from both the left and the right as <m>x\to c</m>,
+          as happens in <xref ref="fig_TaalmanPage97b-1" autoname="yes"/> below to the left,
+          then we say that
+          <me>
+            \ds\lim_{x\to c}f(x) = \infty
+          </me>.
+          If <m>g(x)</m> approaches different signs of infinity from the left and the right,
+          then the two-sided limit <m>\ds\lim_{x\to c} g(x)</m> does not exist,
+          as happens in <xref ref="fig_TaalmanPage97b-2" autoname="yes"/> below to the right.
+          In this case,
+          we specify the infinite behavior of the right and left limits separately as
+          <me>
+            \ds\lim_{x\to1^-}g(x) = -\infty\text{ and } \ds\lim_{x\to1^+}g(x) = \infty
+          </me>
+        </p>
+        <figure xml:id="fig_TaalmanPage97b-1">
+          <caption><m>\ds\lim_{x\to1}f(x) = \infty</m>.</caption>
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="80%" source="TaalmanPage97b-1.png"/>
+          \end{subfigure}
+          \hspace{.2in}
+          \begin{subfigure}[H]{0.4\textwidth}
+          <image width="80%" source="TaalmanPage97b-2.png"/>
+          \caption{<m>\ds\lim_{x\to1^-}g(x) = -\infty</m> and <m>\ds\lim_{x\to1^+}g(x) = \infty</m>.} \end{subfigure}
+          \caption{Vertical asymptotes can sometimes be described by two-sided limits, when both sides agree, or must sometimes be described separately from the right and left.}
+        </figure>
+      </statement>
+    </example>
+    <p>
+      A function has a <em>horizontal asymptote</em>
+      if the values of the function approach a finite real number as <m>x</m> becomes infinitely large,
+      either positively or negatively.
+    </p>
+    <definition xml:id="def_horizontalasymptote">
+      <title>Horizontal Asymptote</title>
+      <statement>
+        <p>
+          A function <m>f</m> has a <em>horizontal asymptote</em>
+          at <m>y=L</m> if one or both of the following are true:
+          <me>
+            \lim_{x\to\infty}f(x) = L \text{ or } \lim_{x\to-\infty}f(x) = L
+          </me>.
+          If <m>\ds\lim_{x\to\infty}f(x) = L</m>,
+          then <m>f(x)</m> has a <em>right horizontal asymptote</em> at <m>y=L</m>,
+          and if <m>\ds\lim_{x\to-\infty}f(x) = L</m>,
+          then <m>f(x)</m> has a <em>left horizontal asymptote</em> at <m>y=L</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>f(x)</m> graphed below shows a function with a right horizontal asymptote at <m>y=10</m>.
+          We describe this using the limit
+          <me>
+            \lim_{x\to\infty}f(x) = 10
+          </me>.
+        </p>
+        <figure xml:id="fig_taalmanpage97c">
+          <caption><m>\ds\lim_{x\to\infty} f(x) = 10</m>.</caption>
+          <image width="37%" source="TaalmanPage97c.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          <sc>True or False?</sc> A function cannot cross a horizontal asymptote.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>A Vertical Asymptote</title>
+      <statement>
+        <p>
+          The function <m>f(x) = \frac{x}{x-1}</m> is undefined at <m>x=1</m>.
+          We create a table of values for <m>f(x)</m> as <m>x</m> approaches 1 from the left and right:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>0</cell>
+              <cell>0.5</cell>
+              <cell>0.9</cell>
+              <cell>0.99</cell>
+              <cell>0.999</cell>
+              <cell><em>1</em></cell>
+              <cell>1.001</cell>
+              <cell>1.01</cell>
+              <cell>1.1</cell>
+              <cell>1.5</cell>
+              <cell>2</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{x}{x-1}</m></cell>
+              <cell>0</cell>
+              <cell>-1</cell>
+              <cell>-9</cell>
+              <cell>-99</cell>
+              <cell>-999</cell>
+              <cell><em>?</em></cell>
+              <cell>1001</cell>
+              <cell>101</cell>
+              <cell>11</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We can see two distinct patterns begin to emerge from the left and right of <m>x=1</m>.
+          As <m>x</m> approaches 1 from the left,
+          the values of <m>\frac{x}{x-1}</m> are negative and are getting bigger and bigger
+          (we expect the next few numbers to be -9999, -99999, etc.).
+          On the other hand, as <m>x</m> approaches 1 from the right,
+          the values of <m>\frac{x}{x-1}</m> are positive and are getting bigger and bigger
+          (on this side,
+          we expect the next few numbers to be 10001, 100001, etc.).
+          The common feature is that the function is getting larger on both sides,
+          one negative and one positive,
+          and the function will continue to get bigger and bigger the closer and closer we get to 1.
+        </p>
+        <p>
+          There is no limit
+          (pun intended)
+          to how large <m>\frac{x}{x-1}</m> will become near <m>x=1</m>!
+        </p>
+        <p>
+          We summarize this behavior as
+          <me>
+            \lim_{x\to 1^-} f(x) = -\infty\text{ and }  \lim_{x\to 1^+} f(x) = \infty
+          </me>
+          and conclude that <m>f(x) = \frac{x}{x-1}</m> has a vertical asymptote at <m>x=1</m>.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_basicHAexample">
+      <title>A Horizontal Asymptote</title>
+      <statement>
+        <p>
+          We use tables of values to find
+          <m>\ds\lim_{x\to\infty}\frac{x}{x-1}</m> and <m>\ds\lim_{x\to-\infty}\frac{x}{x-1}</m>.
+        </p>
+        <p>
+          To see what happens to <m>\frac{x}{x-1}</m> as <m>x\to\infty</m>,
+          we choose a sequence of values of <m>x</m> that gets larger and larger,
+          and record the corresponding (rounded) values of <m>\frac{x}{x-1}</m>:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>25</cell>
+              <cell>50</cell>
+              <cell>100</cell>
+              <cell>1000</cell>
+              <cell>10,000</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{x}{x-1}</m></cell>
+              <cell><m>1.04167</m></cell>
+              <cell><m>1.02041</m></cell>
+              <cell><m>1.0101</m></cell>
+              <cell><m>1.001</m></cell>
+              <cell><m>1.0001</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          As <m>x</m> grows larger,
+          the quantity <m>\frac{x}{x-1}</m> approaches 1, so assuming that the pattern in the table continues for even larger values of <m>x</m>, we have
+          <me>
+            \lim_{x\to\infty}\frac{x}{x-1} = 1
+          </me>.
+        </p>
+        <p>
+          We conclude that <m>f(x) = \frac{x}{x-1}</m> has a right horizontal asymptote at <m>y=1</m>.
+        </p>
+        <p>
+          To see what happens to <m>\frac{x}{x-1}</m> as <m>x\to-\infty</m>,
+          we choose a sequence of values of <m>x</m> that get larger and larger and are <em>negative</em>,
+          and record the corresponding (rounded) values of <m>\frac{x}{x-1}</m>:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>-25</m></cell>
+              <cell><m>-50</m></cell>
+              <cell><m>-100</m></cell>
+              <cell><m>-1000</m></cell>
+              <cell><m>-10,000</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{x}{x-1}</m></cell>
+              <cell><m>0.96154</m></cell>
+              <cell><m>0.98039</m></cell>
+              <cell><m>0.990099</m></cell>
+              <cell><m>0.99900</m></cell>
+              <cell><m>0.99990</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          As <m>x</m> approaches negative infinity,
+          the quantity <m>\frac{x}{x-1}</m> approaches <m>0.999999\ldots = 1</m>,
+          so assuming that the pattern in the table continues for even larger values of <m>x</m>, we have
+          <me>
+            \lim_{x\to-\infty}\frac{x}{x-1} = 1
+          </me>.
+        </p>
+        <p>
+          We conclude that <m>f(x) = \frac{x}{x-1}</m> has a left horizontal asymptote at <m>y=1</m>.
+        </p>
+        <p>
+          Thus we have seen that <m>f(x) = \frac{x}{x-1}</m> has a horizontal asymptote to both the right and left,
+          and that the function approaches the finite value of <m>y=1</m> on both sides of its graph.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>Visualizing Vertical and Horizontal Asymptotes</title>
+      <statement>
+        <p>
+          By graphing <m>f(x) = \frac{x}{x-1}</m> in <xref ref="fig_VAandHAExample" autoname="yes"/> below,
+          we confirm that is has a vertical asymptote at <m>x=1</m>
+          (marked in red)
+          and a horizontal asymptote to both the right and left at <m>y=1</m> (marked in green):
+        </p>
+        <figure xml:id="fig_VAandHAExample">
+          <caption><m>f(x) = \frac{x}{x-1}</m> has a vertical asymptote at <m>x=1</m> and a horizontal asymptote at <m>y=1</m>.</caption>
+          <image width="56%" source="VAandHAExample.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Identify whether each of the limits below describes a vertical asymptote,
+          horizontal asymptote, or neither.
+          <ol marker="labelalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 2} f(x) = 500</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to \infty} g(x) = -4</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to -40} h(x) = \infty</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to -\infty} k(x) = \infty</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_oneoverzerolimits">
+    <title>Limits of the form <m>\frac{1}{0}</m></title>
+    <p>
+      As we saw in Example <xref ref="ex_VAmotivation" autoname="yes"/> and Example <xref ref="ex_moreVAmotivation" autoname="yes"/> the graphs of <m>y= \frac{1}{x}</m> and
+      <m>y= \frac{1}{x^2}</m> have vertical asymptotes at <m>x=0</m>.
+      These two examples motivate a category of limits that "have the form
+      <m>\frac{1}{0}</m>" and that result in vertical asymptotes.
+    </p>
+    <p>
+      As we saw in Example <xref ref="ex_moreVAmotivation" autoname="yes"/> in the case of <m>y=\frac{1}{x^2}</m>,
+      when the denominator approaches <m>0</m> and is positive,
+      the limit will approach <m>\infty</m>.
+      We denote this behavior as having the form
+      <m>\frac{1}{0^+}</m> since the denominator is always positive.
+      However, as we saw in Example <xref ref="ex_VAmotivation" autoname="yes"/> in the case of <m>y=\frac{1}{x}</m>,
+      it is possible for the denominator to approach <m>0</m> and be positive on one side of the limit
+      (which we denote by the form <m>\frac{1}{0^+}</m>)
+      but approach <m>0</m> and be negative on the other side of the limit
+      (which we denote by the form <m>\frac{1}{0^-}</m>).
+      Thus with limits of the form <m>\frac{1}{0}</m>,
+      it is necessary to determine whether the denominator is positive or negative on either side of the limit.
+      Only then will we be able to determine whether the limit approaches <m>\infty</m> or <m>-\infty</m>.
+    </p>
+    <p>
+      The above discussion is summarized in Theorem <xref ref="thm_VAthm" autoname="yes"/> below:
+    </p>
+    <theorem xml:id="thm_VAthm">
+      <title>Limits Whose Denominators Approach Zero from the Right or the Left</title>
+      <statement>
+        <p>
+          For any real number <m>c</m>,
+          <ol marker="labelalph">
+            <li>
+              <p>
+                If <m>\ds\lim_{x\to c}\frac{f(x)}{g(x)}</m> is of the form <m>\frac{1}{0^+}</m>,
+                then <m>\ds\lim_{x\to c}\frac{f(x)}{g(x)} = \infty</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>\ds\lim_{x\to c}\frac{f(x)}{g(x)}</m> is of the form <m>\frac{1}{0^-}</m>,
+                then <m>\ds\lim_{x\to c}\frac{f(x)}{g(x)} = -\infty</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          The above statements also apply to one-sided limits.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Of course, the numerator of the limit need not be exactly equal to 1.
+      Any nonzero finite number divided by a very small number will become very large.
+      For instance,
+      <me>
+        \frac{2}{0.000001} = 2,000,000
+      </me>.
+    </p>
+    <p>
+      For ease of notation,
+      we say that limits that evaluate to <m>\dfrac{\text{ "non-zero" } }{\text{ zero } }</m> have
+      <em>the form <m>\mathbf{\frac{1}{0}}</m></em>,
+      even though the numerator may be any nonzero number.
+      As we shall see later,
+      the sign of the numerator does have an influence on whether the overall limit is positive or negative,
+      even though the size of the nonzero numerator does not matter.
+    </p>
+    <example xml:id="ex_lengthyVAcalculation">
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            f(x) = \frac{x}{3-x}
+          </me>.
+          Its domain is <m>x\neq 3</m> and so the only limit that we cannot compute by plugging in is <m>\ds\lim_{x\to 3}\frac{x}{3-x}</m>.
+          If we do try to evaluate the limit by plugging in, we have
+          <me>
+            \lim_{x\to 3}\frac{x}{3-x} = \frac{3}{0}
+          </me>.
+          As a value, this is undefined.
+          However, we are attempting to describe the
+          <em>behavior of the function</em> near <m>x=3</m>.
+          Instead we recognize that this limit "has the form
+          <m>\frac{1}{0}</m>" since its numerator approaches a non-zero number (3) and its denominator approaches zero.
+          Thus we expect this limit to be infinite and to describe a vertical asymptote of <m>f(x) = \frac{x}{3-x}</m> at <m>x=3</m>.
+        </p>
+        <p>
+          In order to apply Theorem <xref ref="thm_VAthm" autoname="yes"/>,
+          we need to determine whether the denominator approaches a small positive number or a small negative number.
+          To accomplish this,
+          we complete a brief sign analysis for the denominator <m>3-x</m>:
+        </p>
+        <table>
+          <tabular>
+            <row>
+              <cell>\toprule
+                Interval</cell>
+              <cell><m>3-x</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>x\lt 3</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x>3</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          This is much easier to visualize on a number line,
+          where we mark the points at which the expression <m>3-x</m> is equal to zero and test values on either side:
+        </p>
+        <figure>
+          <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (0,0) node[above left] {\(3-x\)} -- (6,0)  ;
+\foreach \x in  { 3}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {3}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)};
+\foreach \x in  {3}
+\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {1.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {4.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+          </image>
+        </figure>
+        <p>
+          We see that as <m>x\to 3^-</m>,
+          the values of <m>x</m> are less than 3 while approaching <m>3</m>,
+          hence that <m>3-x</m> is positive while approaching <m>0</m>.
+          Thus we can calculate the left limit as:
+          <me>
+            \lim_{x\to 3^-}\frac{x}{3-x} = \frac{3}{0^+} = \infty
+          </me>
+        </p>
+        <p>
+          Similarly, we see that as <m>x\to 3^+</m>,
+          the values of <m>x</m> are greater than 3 while approaching 3, hence that <m>3-x</m> is negative while approaching <m>0</m>.
+          Thus we can calculate the right limit as:
+          <me>
+            \lim_{x\to 3^+}\frac{x}{3-x} = \frac{3}{0^-} = -\infty
+          </me>
+        </p>
+        <p>
+          In case you are not convinced,
+          the same information is displayed in <xref ref="tab_valeftlimit" autoname="yes"/> and <xref ref="tab_varightlimit" autoname="yes"/> below.
+          <xref ref="tab_valeftlimit" autoname="yes"/> shows the values of <m>x</m> approaching <m>3</m> from the left.
+          The values of <m>3-x</m> approach 0 and are positive,
+          while the values of <m>\frac{x}{3-x}</m> approach <m>\infty</m>.
+        </p>
+        <table xml:id="tab_valeftlimit">
+          <title>As <m>x\to 3^-</m>, the values of <m>3-x\to 0^+</m> so that the values of <m>\frac{3}{3-x}\to\infty</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>2.9</cell>
+              <cell>2.99</cell>
+              <cell>2.999</cell>
+              <cell>2.9999</cell>
+              <cell>2.99999</cell>
+              <cell><m>\to 3^-</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>3-x</m></cell>
+              <cell><m>0.1</m></cell>
+              <cell><m>0.01</m></cell>
+              <cell><m>0.001</m></cell>
+              <cell><m>0.0001</m></cell>
+              <cell><m>0.00001</m></cell>
+              <cell><m>\to 0^+</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{x}{3-x}</m></cell>
+              <cell>29</cell>
+              <cell>299</cell>
+              <cell>2999</cell>
+              <cell>29,999</cell>
+              <cell>299,999</cell>
+              <cell><m>\to \infty</m></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          <xref ref="tab_varightlimit" autoname="yes"/> shows the values of <m>x</m> approaching <m>3</m> from the right.
+          The values of <m>3-x</m> approach 0 and are negative,
+          while the values of <m>\frac{x}{3-x}</m> approach <m>-\infty</m>.
+        </p>
+        <table xml:id="tab_varightlimit">
+          <title>As <m>x\to 3^+</m>, the values of <m>3-x\to 0^-</m> so that the values of <m>\frac{3}{3-x}\to-\infty</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>3.1</cell>
+              <cell>3.01</cell>
+              <cell>3.001</cell>
+              <cell>3.0001</cell>
+              <cell>3.00001</cell>
+              <cell><m>\to 3^+</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>3-x</m></cell>
+              <cell><m>-0.1</m></cell>
+              <cell><m>-0.01</m></cell>
+              <cell><m>-0.001</m></cell>
+              <cell><m>-0.0001</m></cell>
+              <cell><m>-0.00001</m></cell>
+              <cell><m>\to 0^-</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{x}{3-x}</m></cell>
+              <cell><m>-31</m></cell>
+              <cell><m>-301</m></cell>
+              <cell><m>-3001</m></cell>
+              <cell><m>-30,001</m></cell>
+              <cell><m>-300,001</m></cell>
+              <cell><m>\to -\infty</m></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Vistually, <m>f(x)=\frac{x}{3-x}</m> has a vertical asymptote at <m>x=3</m>,
+          the left side of which approaches positive infinity and the right side of which approaches negative infinity.
+        </p>
+        <figure xml:id="ex_vaexample2">
+          <caption><m>f(x) = \frac{x}{3-x}</m> has a vertical asymptote at <m>x=3</m>.</caption>
+          <image width="46%" source="VAExample2.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      How do we identify the value of <m>x=c</m> at which to look for a vertical asymptote?
+      Recall that vertical asymptotes are also called infinite discontinuities.
+      As long as we are working with algebraic functions,
+      discontinuities occur only at points that are not in the domain of a function,
+      and we are specifically interested in limits with denominators of zero.
+      Therefore, we expect vertical asymptotes to occur only at the values of <m>x</m> for which the denominator of an algebraic function is equal to zero.
+    </p>
+    <p>
+      \fbox{<em>In order to determine whether an algebraic function has a vertical asymptote:</em>
+      <ul>
+        <li>
+          <p>
+            An algebraic function can only have a vertical asymptote if it can be written in the form of a fraction with a non-constant denominator.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the value(s) <m>x=c</m> for which the denominator of the function is equal to zero.
+            If there is no such value, the function cannot have a vertical asymptote.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate the limit at <m>x=c</m>.
+            If the limit has the form <m>\frac{1}{0}</m>, the limit is infinite.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the precise behavior of the function to the left and right at <m>x=c</m> by performing a sign analysis on the denominator.
+          </p>
+        </li>
+        <li>
+          <p>
+            If necessary, describe right and left limits separately.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          At what <m>x</m>-values could
+          <me>
+            f(x) = \frac{2-x}{x^2-3x-4}
+          </me>
+          have a vertical asymptote?
+          Graph the function to confirm your conjecture.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      As we have seen, it is often
+      (but not always)
+      necessary to evaluate a limit of the form
+      <m>\frac{1}{0}</m> using separate right and left limits.
+      The key observation is whether the denominator changes sign at the <m>x</m>-value where it is equal to zero.
+    </p>
+    <example>
+      <statement>
+        <p>
+          It was necessary in Example <xref ref="ex_lengthyVAcalculation" autoname="yes"/> to evaluate
+          <m>\ds\lim_{x\to 3}\frac{x}{3-x}</m> using separate left and right limits at <m>x=3</m> because <m>3-x</m> changes sign at <m>x=3</m>.
+          It is positive for <m>x\lt 3</m> and negative for <m>x>3</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          It is not necessary to evaluate
+          <m>\ds\lim_{x\to -2}\frac{7}{(x+2)^4}</m> using separate left and right limits because <m>(x+2)^4</m> is positive for both <m>x>-2</m> and <m>x\lt -2</m>.
+          We know this because even powers of an expression cannot be negative.
+          A sign analysis for <m>(x+2)^4</m> looks like:
+        </p>
+        <table>
+          <tabular>
+            <row>
+              <cell>\toprule
+                Interval</cell>
+              <cell><m>(x+2)^4</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>x\lt -2</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x>-2</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          This information can also be written using a number line:
+        </p>
+        <figure>
+          <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-5,0) node[above left] {\((x+2)^4\)} -- (1,0)  ;
+\foreach \x in  { -2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {-2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)};
+\foreach \x in  {-2}
+\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {-3.5,-0.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};\end{tikzpicture}]]>
+</latex-image>
+          </image>
+        </figure>
+        <p>
+          Thus from both sides, <m>(x+2)^4\to 0^+</m> and
+          <me>
+            \lim_{x\to -2}\frac{7}{(x+2)^4} = \frac{7}{0^+} = \infty
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Once we know whether to use separate right and left limits,
+      we evaluate the sign of the rest of the expression in the limit to determine whether the limit goes to positive or negative infinity.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>f(x) = \frac{x}{\sqrt{x+1}}</m> likely has a vertical asymptote at <m>x=-1</m> since that is where the denominator is equal to 0.
+          Note as well that <m>\sqrt{x+1}</m> is undefined for <m>x\lt -1</m> since we must have
+          <m>x+1\geq 0</m> inside the square root.
+        </p>
+        <p>
+          Evaluating the limit from the right only,
+          <me>
+            \lim_{x\to -1^+}\frac{x}{\sqrt{x+1}} = \frac{-1}{0^+}
+          </me>
+        </p>
+        <p>
+          The denominator is positive and the numerator is negative,
+          hence the fraction is negative overall for values of <m>x</m> near <m>-1</m>.
+          Thus we conclude that the values of the expression become very large and are negative,
+          which we summarize using limit notation as
+          <me>
+            \lim_{x\to -1^+}\frac{x}{\sqrt{x+1}} = -\infty
+          </me>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's examine one more fairly complicated example.
+    </p>
+    <example xml:id="ex_twoVAsoneHole">
+      <statement>
+        <p>
+          Determine algebraically whether the function
+          <m>h(x) = \dfrac{x-3}{x^3 - 3 x^2 - 4 x + 12}</m> has any vertical asymptotes,
+          and if so,
+          where they occur and the precise behavior of the function.
+        </p>
+        <p>
+          <m>h(x)</m> is undefined when its denominator is equal to zero.
+          In order to determine the <m>x</m>-values where the denominator is zero,
+          we factor by grouping<fn>
+          Some videos on factoring by grouping: Organic Chemistry Tutor
+          <url href="https://www.youtube.com/watch?v=t7-JCa7phCQ">https://www.youtube.com/watch?v=t7-JCa7phCQ</url>
+          or Mario's Math Tutoring
+          <url href="https://www.youtube.com/watch?v=VYUhUeeD_Z0">https://www.youtube.com/watch?v=VYUhUeeD_Z0</url>,
+          accessed October 6, 2022.
+          </fn> and then by difference of squares:
+          <me>
+            \begin{aligned}x^3 - 3 x^2 - 4 x + 12 \amp = 0\\ x^2(x-3)-4(x-3) \amp =0\\ (x-3)(x^2-4) \amp = 0\\ (x-3)(x-2)(x+2) \amp =0 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Thus <m>h(x)</m> is undefined at <m>x=\pm 2</m> and <m>x=3</m>.
+        </p>
+        <p>
+          <em>First, we examine the limit at <m>x=2</m> in detail.</em>
+          Note that the linear factor <m>x-2</m> in the denominator causes the limit to have the form <m>\frac{1}{0}</m>:
+          <me>
+            \lim_{x\to2} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{-1}{(-1)(0)(4)}
+          </me>
+        </p>
+        <p>
+          Second, observe that <m>x-2</m> changes sign at <m>x=2</m>:
+        </p>
+        <figure>
+          <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-1,0) node[above left] {\(x-2\)} -- (5,0)  ;
+\foreach \x in  { 2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)};
+\foreach \x in  {2}
+\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {3.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {0.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+          </image>
+        </figure>
+        <p>
+          Hence we compute left and right limits separately:
+          <me>
+            \lim_{x\to2^-} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{-1}{(-1)(0^-)(4)} = -\infty
+          </me>
+        </p>
+        <p>
+          The overall sign of the left limit is negative,
+          because there are three negative factors.
+          <me>
+            \lim_{x\to2^+} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{-1}{(-1)(0^+)(4)} = \infty
+          </me>
+        </p>
+        <p>
+          The overall sign of the right limit is positive,
+          because there are two negative factors.
+          Thus overall,
+          the limit at <m>x=2</m> is best described by separate right and left limits:
+          <me>
+            \lim_{x\to2^-} \frac{x-3}{ (x-3)(x-2)(x+2) }  = -\infty\text{ and }  \lim_{x\to2^+} \frac{x-3}{ (x-3)(x-2)(x+2) }  = \infty
+          </me>
+          and we have determined that <m>h(x)</m> has a vertical asymptote at <m>x=2</m> along with the precise behavior of the function to the left and right of <m>x=2</m>.
+        </p>
+        <p>
+          <em>Next, let's calculate <m>\ds\lim_{x\to-2}h(x)</m>.</em> In this case,
+          it is the linear factor <m>x+2</m> in the denominator that causes the limit to have the form <m>\frac{1}{0}</m>:
+          <me>
+            \lim_{x\to-2} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{-5}{(-5)(-4)(0)}
+          </me>
+        </p>
+        <p>
+          Note that <m>x+2</m> also changes sign at <m>x=-2</m>:
+        </p>
+        <figure>
+          <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-5,0) node[above left] {\(x+2\)} -- (1,0)  ;
+\foreach \x in  { -2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {-2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {\(\x\)};
+\foreach \x in  {-2}
+\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {-0.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {-3.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+          </image>
+        </figure>
+        <p>
+          Hence we compute left and right limits separately:
+          <me>
+            \lim_{x\to-2^-} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{-5}{(-5)(-4)(0^-)} = \infty
+          </me>
+        </p>
+        <p>
+          The overall sign of the left limit is positive,
+          because there are four negative factors.
+          <me>
+            \lim_{x\to-2^+} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{-5}{(-5)(-4)(0^+)} = -\infty
+          </me>
+        </p>
+        <p>
+          The overall sign of the right limit is negative,
+          because there are three negative factors.
+          Thus overall,
+          the limit at <m>x=-2</m> is best described by separate right and left limits:
+          <me>
+            \lim_{x\to-2^-} \frac{x-3}{ (x-3)(x-2)(x+2) }  = \infty\text{ and }  \lim_{x\to-2^+} \frac{x-3}{ (x-3)(x-2)(x+2) }  = -\infty
+          </me>
+          and we have determined that <m>h(x)</m> has a vertical asymptote at <m>x=-2</m> along with the precise behavior of the function to the left and right of <m>x=-2</m>.
+        </p>
+        <p>
+          <em>Finally,
+          let's look at <m>\ds\lim_{x\to 3}h(x)</m>.</em> In this case,
+          the linear factor <m>x-3</m> appears in both the numerator and denominator,
+          so that the limit does NOT have the form <m>\frac{1}{0}</m>:
+          <me>
+            \lim_{x\to3} \frac{x-3}{ (x-3)(x-2)(x+2) } = \frac{0}{(0)(1)(5)} = \frac{0}{0}
+          </me>
+        </p>
+        <p>
+          We do not yet know how to calculate such limits algebraically
+          (though maybe you can guess what we should do).
+          Examining a table of values:
+        </p>
+        <table>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>2.5</cell>
+              <cell>2.9</cell>
+              <cell>2.99</cell>
+              <cell>2.999</cell>
+              <cell><em>3</em></cell>
+              <cell>3.001</cell>
+              <cell>3.01</cell>
+              <cell>3.1</cell>
+              <cell>3.5</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>h(x)</m></cell>
+              <cell><m>0.44444</m></cell>
+              <cell><m>0.22676</m></cell>
+              <cell><m>0.20243</m></cell>
+              <cell><m>0.200240</m></cell>
+              <cell><em>?</em></cell>
+              <cell><m>0.19976</m></cell>
+              <cell><m>0.19762</m></cell>
+              <cell><m>0.17825</m></cell>
+              <cell><m>0.12121</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          From this table,
+          we might conclude that the limit approaches <m>0.2</m>.
+          We can't tell whether this number is precise,
+          but we can tell that the limit does approach a finite number,
+          rather than becoming infinite.
+          Thus if we conclude that <m>h(x)</m> does not have a vertical asymptote at <m>x=3</m>,
+          we are still correct,
+          even though we do not yet know the precise value of the limit at <m>x=3</m>.<fn>
+          We'll cover that in the next section,
+          but I think we can all agree that this section is long enough already.
+          </fn>
+        </p>
+        <p>
+          We can confirm from a graph that there are only the two vertical asymptotes of this function at <m>x=\pm2</m>:
+        </p>
+        <figure>
+          <image width="56%" source="twoVAsoneHole.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Determine where <m>x^3+2x^2+x</m> is equal to zero.
+          Then use this to determine where
+          <m>g(x) = \dfrac{5}{x^3+2x^2+x}</m> may have vertical asymptotes and whether you need separate right and left limits to determine the precise behavior of the function at each limit
+          (whether it approaches <m>\infty</m> or <m>-\infty</m>).
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    infinite limit, limit at infinity, infinite limit at infinity; vertical asymptote, horizontal asymptote; limits of the form <m>\frac{1}{0}</m>.
+    <p>
+      <em>Key ideas:</em> Limits that have infinite <m>y</m>-values for finite <m>x</m>-values are called vertical asymptotes.
+      Limits that have finite <m>y</m>-values for infinite <m>x</m>-values are called horizontal asymptotes.
+      Limits of the form <m>\frac{1}{0}</m> are always infinite,
+      and often need to be computed separately from the left and right to determine whether the limit is positive or negative from either side.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      We still have a long way to go to be able to calculate limits algebraically.
+      We do not yet know how to calculate limits at infinity,
+      except in very simple cases.
+      We also do not yet know how to manage limits that evaluate to <m>\frac{0}{0}</m>.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 2.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

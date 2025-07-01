@@ -1,0 +1,635 @@
+<section>
+  <title>The Mean Value Theorem and Critical Points</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Explain the meaning of the Mean Value Theorem.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand why the hypotheses of the Mean Value Theorem are necessary for the conclusion of the theorem to be true.
+        </p>
+      </li>
+      <li>
+        <p>
+          Visualize the Mean Value Theorem in terms of secant and tangent lines.
+        </p>
+      </li>
+      <li>
+        <p>
+          The Mean Value Theorem implies that local extrema must occur at points where the derivative is equal to zero or is undefined.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Real-World Motivation for the Mean Value Theorem</title>
+    <p>
+      Let's begin with a practical question:
+      should the driver of the car photographed below be issued a speeding ticket?
+    </p>
+    <p>
+      The two cameras that took these images are located at a distance of 0.2 miles apart on this particular roadway,
+      which has a speed limit of 70 mph.
+      The times printed in the upper left hand corner of each image are
+      (top photo)
+      12:03:52 and
+      (bottom photo)
+      12:04:01
+      (in the format hours:minutes:seconds).
+    </p>
+    <p>
+      <image width="73%" source="speedcamera.pdf"/>
+    </p>
+    <p>
+      This means that it took the car 9 seconds to travel the 0.2 miles between cameras,
+      so had an average speed of
+      <me>
+        \frac{0.2\text{ miles } }{9\text{ seconds } } = \frac{1}{45} = 0.0\overline{2} \text{ miles per second }
+      </me>.
+      Converting this to a more standard unit of miles per hour,
+      we multiply by <m>60\times60 = 3600\,\frac{\text{ seconds } }{\text{ hour } }</m>:
+      <me>
+        \frac{1}{45} \,\frac{\text{ miles } }{\text{ second } }\times 3600\,\frac{\text{ seconds } }{\text{ hour } } =  80 \text{ miles per hour }
+      </me>.
+      The speed limit on this stretch of road is 70 mph,
+      so this driver will get a speeding ticket.
+    </p>
+    <p>
+      <em>What assumptions underly this decision?</em>
+      Here are a few observations about this:
+      we calculated that the driver's
+      <em>average speed</em> was 80 mph,
+      so we don't actually know that they were going 80 mph the entire time.
+      Intuitively,
+      they were probably going faster sometimes and slower at other times,
+      and so naturally at some point they must have been going exactly 80 mph.
+    </p>
+    <p>
+      Said using mathematical language,
+      our intuition tells us that the driver's
+      <em>instantaneous speed</em>
+      must have been 80 mph at some point,
+      meaning that the derivative of the driver's position function must have been equal to 80 mph at some point.
+      We don't know <em>when</em> precisely,
+      but it must have been somewhere between the two cameras.
+    </p>
+    <p>
+      Intuitively and mathematically,
+      this driver has no chance of getting out of the speeding ticket because of a very important theorem called the Mean Value Theorem.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain how the average speed of a car on a stretch of road is different from the instantaneous speed of the car at a particular point on that road.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Mean Value Theorem</title>
+    <p>
+      The Mean Value Theorem states what we understand intuitively to be true for moving objects:
+    </p>
+    An average rate of change on an interval must be realized as the instantaneous rate of change at some point on that interval.
+    <p>
+      This intuition requires that the movement of that object is continuous
+      (it cannot jump forward or backward)
+      and that the movement is "smooth," meaning that the derivative should be defined everywhere.
+      We state this theorem formally and then explain the details of the notation.
+    </p>
+    <theorem xml:id="thm_meanvaluetheorem">
+      <title>The Mean Value Theorem</title>
+      <statement>
+        <p>
+          If <m>f</m> is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>,
+          then there exists at least one value <m>x=c</m> with <m>a\lt c\lt b</m> such that
+          <me>
+            f'(c) = \frac{f(b)-f(a)}{b-a}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's look at the right-hand side of the equation in Theorem <xref ref="thm_meanvaluetheorem" autoname="yes"/>.
+      The "mean" in the "Mean Value Theorem" refers to an <em>average</em>,
+      specifically the <em>average rate of change</em>
+      of <m>f</m> on <m>[a,b]</m>:
+      <me>
+        AV_{[a,b]} = \frac{f(b)-f(a)}{b-a}
+      </me>
+      that we studied extensively in previous sections.
+      Recall that we can visualize the average rate of change on an interval <m>[a,b]</m> as the slope of the secant line between the points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
+    </p>
+    <p>
+      The left-hand side of the equation in Theorem <xref ref="thm_meanvaluetheorem" autoname="yes"/> is the derivative,
+      which we remember is also called the
+      <em>instantaneous rate of change</em>.
+      We can visualize this as the slope of the tangent line at the point <m>(c,f(c))</m>.
+    </p>
+    <p>
+      Visually, the Mean Value Theorem tells us that there is a tangent line at some point <m>x=c</m> that is parallel to the secant line through the points at <m>x=a</m> and <m>x=b</m>,
+      as illustrated in the figures below:
+    </p>
+    <p>
+      <image width="93%" source="TaalmanPage226.png"/>
+    </p>
+    <p>
+      There could in fact be several points
+      <m>x=c_1, c_2, \ldots</m> where the tangent line is parallel to the secant line through the points at <m>x=a</m> and <m>x=b</m>:
+    </p>
+    <p>
+      <image width="37%" source="MVT2.png"/>
+    </p>
+    <p>
+      In our example of the car going an average speed of 80 mph,
+      it is very reasonable to believe that the car's speed varied over the 0.2 miles and that there were quite a few points when the car was traveling exactly 80 mph.
+      As in this example,
+      the Mean Value Theorem does not tell us precisely where the instantaneous rate of change is equal to the average rate of change,
+      simply that it must be equal somewhere.
+      If we had an equation for the velocity of the car, of course,
+      we could determine where precisely the velocity was equal to 80.
+      In the examples that follow, since we have a function,
+      we can find its derivative,
+      and so solve for the value of <m>c</m> algebraically.
+    </p>
+    <example xml:id="ex_MVTExample1">
+      <statement>
+        <p>
+          Verify that the function <m>f(x) = 2x^3-4x+5</m> satisfies the hypotheses of the Mean Value Theorem on the interval <m>[-1,2]</m>.
+          What does the conclusion of the Mean Value Theorem tell us?
+        </p>
+        <p>
+          Separately, find all numbers <m>x=c</m> that satisfy the conclusion of the Mean Value Theorem.
+          Sketch the secant line between <m>(-1,f(-1))</m> and
+          <m>(2,f(2))</m> along with the tangent line at the value <m>x=c</m> to check that they are indeed parallel.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, we check the hypotheses of the Mean Value Theorem:
+          <m>f(x)</m> must be
+          <ul>
+            <li>
+              <p>
+                continuous on <m>[-1,2]</m> and
+              </p>
+            </li>
+            <li>
+              <p>
+                differentiable on <m>(-1,2)</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Since <m>f(x)</m> is a polynomial (a type of algebraic function),
+          it is continuous everywhere within its domain by <xref ref="thm_contofalgebraicfunctions">Theorem</xref>.
+          In particular, it is continuous on <m>[-1,2]</m>.
+        </p>
+        <p>
+          <m>f'(x) = 6x^2-4</m> and this is defined for all <m>x</m>-values,
+          so including on <m>(-1,2)</m>,
+          making <m>f(x)</m> differentiable<fn>
+          Remember that "differentiable" means "able to take the derivative," so as long as the derivative is defined,
+          a function is differentiable.
+          </fn> on <m>(-1,2)</m>.
+        </p>
+        <p>
+          The conclusion of the Mean Value Theorem tells us:
+        </p>
+        There exists at least one value <m>x=c</m>  with <m>-1\lt c\lt 2</m> such that
+        <me>
+          f'(c) = \frac{f(2)-f(-1)}{2-(-1)}
+        </me>.
+        <p>
+          The Mean Value Theorem does not tell us what the value of <m>c</m> is,
+          besides knowing that there must be one between <m>x=-1</m> and <m>x=2</m>.
+          However, since we have a function for <m>f(x)</m>,
+          we can find <m>c</m> explicitly.
+        </p>
+        <p>
+          First, we simplify <m>\frac{f(2)-f(-1)}{2-(-1)}</m>.
+          Since <m>f(2) = 2(2)^3-4(2)+5 = 13</m> and <m>f(-1) = 2(-1)^3-4(-1)+5 = 7</m>, we have
+          <me>
+            \frac{f(2)-f(-1)}{2-(-1)} = \frac{13-7}{2+1} = \frac{6}{3}=2
+          </me>.
+        </p>
+        <p>
+          Thus we are trying to find <m>c</m> with <m>f'(c) = 2</m>.
+          <me>
+            \begin{aligned}f'(c)  \amp = 2\\ 6c^2-4 \amp = 2\\ 6c^2 \amp = 6\\ c^2 \amp = 1\\ c \amp =\pm 1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          Even though <m>f'(1)=2</m> and <m>f'(-1)=2</m>,
+          we notice that the Mean Value Theorem specifies that <m>-1\lt c\lt 2</m>,
+          and so only <m>c=1</m> satisfies the conclusion of the Mean Value Theorem on this particular interval.
+        </p>
+        <p>
+          <m>f(x)</m> is graphed below along with the secant line between <m>(-1,f(-1))</m> and <m>(2,f(2))</m>
+          (in green)
+          and the tangent line at <m>(1,f(1))</m>,
+          which are indeed parallel.
+        </p>
+        <p>
+          <image width="46%" source="MVTExample1.png"/>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Repeat the same steps from <xref ref="ex_MVTExample1">Example</xref>
+          with <m>g(x) = \sqrt{x}</m> on the interval <m>[0,4]</m>:
+          <ol marker="labelalph">
+            <li>
+              <p>
+                Verify that <m>g(x) = \sqrt{x}</m> is continuous on <m>[0,4]</m>
+                (by stating its domain)
+                and differentiable on <m>(0,4)</m> (by calculating the derivative <m>g'(x)</m> and stating its domain).
+              </p>
+            </li>
+            <li>
+              <p>
+                What does the Mean Value Theorem allow you to conclude?
+              </p>
+            </li>
+            <li>
+              <p>
+                Find all numbers <m>x=c</m> that satisfy the conclusion of the Mean Value Theorem on the interval <m>[0,4]</m> by explicitly solving the equation <m>g'(c) = \frac{g(4)-g(0)}{4-0}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Sketch the graph of <m>y=g(x) = \sqrt{x}</m> and the secant line between <m>(0,g(0))</m> and <m>(4,g(4))</m>,
+                along with the tangent line at the value <m>x=c</m> to check that they are indeed parallel.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>An Application of the Mean Value Theorem</title>
+      <statement>
+        <p>
+          Two runners start a race at the same time and finish in a tie.
+          We can use the Mean Value Theorem to show that at some time during the race,
+          the two runners have the same speed.
+        </p>
+        <p>
+          Let <m>s_1(t)</m> be the position of the first runner,
+          and let <m>s_2(t)</m> be the position of the second runner.
+          If we let <m>t=a</m> denote the beginning of the race and <m>t=b</m> denote the end of the race,
+          we translate the information given in the problem into <m>s_1(a)=s_2(a)</m>
+          (the runners start a race at the same time)
+          and <m>s_1(b) = s_2(b)</m>
+          (the runners finish in a tie).
+        </p>
+        <p>
+          Let <m>f(t) = s_1(t)-s_2(t)</m> be the difference in the positions of the two runners.
+          The runner's position functions are both continuous on <m>[a,b]</m> and differentiable<fn>
+          Position functions of moving objects are always continuous since objects cannot jump from one place to another.
+          And since the runners must have some speed at every moment,
+          the position functions are also differentiable.
+          </fn> on <m>(a,b)</m>,
+          so <m>f(x)</m> is also continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m> as a difference of continuous and differentiable functions.
+          Hence we know <m>f(x)</m> satisfies the hypotheses of the Mean Value Theorem.
+        </p>
+        <p>
+          Since <m>s_1(a)=s_2(a)</m> and <m>s_1(b) = s_2(b)</m>,
+          we know that <m>f(a)=s_1(a)-s_2(a)=0</m> and <m>f(b)=s_1(b)-s_2(b)=0</m>.
+          Thus the conclusion of the mean value theorem tells us
+        </p>
+        There exists at least one value <m>x=c</m>  with <m>a\lt c\lt b</m> such that
+        <me>
+          f'(c) = \frac{f(b)-f(a)}{b-a} = \frac{0-0}{b-a} = 0
+        </me>.
+        <p>
+          <m>f'(t) = s_1'(t)-s_2'(t)</m> and so we have some <m>c</m> with <m>f'(c) = s_1'(c)-s_2'(c)=0</m>.
+          This tells us that <m>s_1'(c)=s_2'(c)</m>,
+          meaning that the runners' speeds are the same at <m>t=c</m>,
+          which is exactly what we said we would show.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>The Hypotheses of the Mean Value Theorem are Important</title>
+    <p>
+      If the driver of our speeding car could convince a judge that they were able to skip instantaneously from the first camera to the second,
+      they would stand a chance of getting out of paying the speeding ticket,
+      at least if the judge knows mathematics.
+      If the hypotheses of the Mean Value Theorem are not satisfied
+      (if the function is not continuous or not differentiable)
+      then the conclusion does not have to be true.
+    </p>
+    <example>
+      <title>Non-Examples</title>
+      <statement>
+        <p>
+          The functions in the pictures below are either not continuous or not differentiable at some point,
+          and the conclusion of the Mean Value Theorem is false for all three:
+        </p>
+        <p>
+          <image width="92.5%" source="TaalmanPage228b.png"/>
+        </p>
+        <p>
+          For all three functions,
+          <m>f(1)=f(3)=0</m> and so in the conclusion of the theorem,
+          we would want to have
+          <me>
+            f'(c) = \frac{f(3)-f(1)}{3-1} = \frac{0}{2} = 0
+          </me>.
+        </p>
+        <p>
+          Recall that points where <m>f'(c)=0</m> are where the tangent line is horizontal.
+          None of the three graphs have a horizontal tangent line at any point,
+          and so there is no <m>x=c</m> with <m>f'(c)=0</m>.
+        </p>
+        <p>
+          The function <m>f</m> in the left-most graph fails to be differentiable at <m>x=2</m>,
+          and therefore can "turn around" at <m>x=2</m> without having a horizontal tangent line.
+        </p>
+        <p>
+          In the middle graph,
+          the function <m>g(x)</m> fails to be continuous at the very place where we would have expected its derivative to be zero.
+          Since this function is not continuous at <m>x=2</m>,
+          it is also not differentiable at <m>x=2</m>,
+          and <m>g'(2)</m> does not exist, so cannot be equal to 0.
+        </p>
+        <p>
+          The right-most graph illustrates a function <m>h(x)</m> that fails to be continuous at the right endpoint <m>x=3</m> of the interval.
+          There is no value of <m>c</m> with <m>h'(c)=0</m>;
+          the function never has to "turn around" since it just jumps down to the zero at <m>x=3</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Draw an example of a function for which
+          <m>AV_{[1,3]} = -1</m> but <m>f'(c)</m> is never equal to <m>-1</m> for any <m>c</m> with <m>1\lt c\lt 3</m>.
+          <em>Note: For this to be true,
+          the hypotheses of the Mean Value Theorem must be false on <m>[1,3]</m>,
+          so the function must either fail to be continuous or differentiable at some point.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Critical Points</title>
+    <p>
+      The Mean Value Theorem is important for many theoretical reasons in mathematics.
+      Our main use for this theorem will be in understanding the ways in which the graph of a function can have a local minimum or maximum.
+    </p>
+    <p>
+      Suppose a differentiable function has the same value at <m>x=a</m> and <m>x=b</m>,
+      meaning that <m>f(a)=f(b)</m>.
+      What does the Mean Value Theorem say about the graph of <m>f</m> between <m>a</m> and <m>b</m>?
+      The three graphs that follow next provide a clue:
+      if the graph of a function is smooth and unbroken,
+      and if the function is not constant between <m>x=a</m> and <m>x=b</m>,
+      then somewhere between <m>x=a</m> and <m>x=b</m> the function must turn around.
+      The Mean Value Theorem tells us what we can see visually:
+      there must be a point
+      (or several points)
+      between <m>x=a</m> and <m>x=b</m> where <m>f'(c)=\frac{f(b)-f(a)}{b-a} = \frac{0}{b-a} = 0</m>,
+      since we are assuming that
+      <m>f(a)=f(b)</m> so that <m>f(b)-f(a)=0</m>.
+      In other words, <m>f</m> must have a horizontal tangent line,
+      and the location <m>x=c</m> of that horizontal tangent is the turning point:
+    </p>
+    <p>
+      <image width="92.5%" source="TaalmanPage225.png"/>
+    </p>
+    <p>
+      However, it may be the case that a continuous function can turn around without having a horizontal tangent line,
+      as the pictures below illustrate.
+      In this case,
+      the function must either be discontinuous or not differentiable,
+      so that the Mean Value Theorem does not apply.
+    </p>
+    <p>
+      <image width="46%" source="ACFigure3-1-5.png"/> <image width="46%" source="ACFigure3-1-5b.png"/>
+    </p>
+    <p>
+      These "turning points" are also called <em>local extrema,</em>
+      since they are the largest or smallest
+      (most extreme)
+      points nearby
+      (locally).
+    </p>
+    <definition xml:id="def_localextrema">
+      <title>Local Extrema of a Function</title>
+      <statement>
+        <p>
+          We say that <m>f(c)</m> is a <em>local maximum</em> or
+          <em>relative maximum</em>
+          of <m>f</m> provided that <m>f(c)\geq f(x)</m> for all <m>x</m> near <m>c</m>.
+        </p>
+        <p>
+          Similarly, <m>f(c)</m> is a <em>local </em> or
+          <em>relative minimum</em>
+          of <m>f</m> whenever <m>f(c)\leq f(x)</m> for all <m>x</m> near <m>c</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>g(x)</m> below has a local minimum,
+          a.k.a. relative minimum, of <m>g(b)</m> at the point <m>(b,g(b))</m>
+          (the center red dot)
+          and two relative maxima,
+          one of <m>g(a)</m> at <m>x=a</m> and one of <m>g(c)</m> at <m>x=c</m>.
+        </p>
+        <p>
+          <image width="46%" source="ACFigure3-1-2.png"/>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We would like to be able to find local minima and maxima of a function,
+      and calculus provides us with the tools to do this.
+      Of course, if we are given the graph of a function,
+      it is often straightforward to locate these important behaviors visually.
+      But how can we find them algebraically if we only have the formula that defines a function?
+      The following graphs below give us a clue:
+    </p>
+    <p>
+      <image width="92.5%" source="TaalmanPage224.png"/>
+    </p>
+    <p>
+      Intuitively, at a local minimum or maximum,
+      the tangent line of a function must be either horizontal or undefined.
+      If a continuous function has a relative maximum at <m>x=c</m>,
+      then it must be that the function changes from being increasing just before <m>c</m> to decreasing just after <m>c</m>.
+      A continuous function has a relative minimum at <m>x=c</m> if and only if the function changes from decreasing to increasing at <m>c</m>.
+      Because of the Intermediate Value Theorem and <xref ref="thm_changesign">Theorem</xref>,
+      there are only two possible ways for these changes in behavior to occur:
+      either <m>f'(c)=0</m> or <m>f'(c)</m> is undefined.
+      Because these values of <m>c</m> are so important,
+      we call them <em>critical numbers</em>
+      or <em>critical points</em>.
+    </p>
+    <definition xml:id="def_criticalnumbers">
+      <title>Critical Points of a Function</title>
+      <statement>
+        <p>
+          We say that a function <m>f</m> has a <em>critical point</em>
+          at <m>x=c</m> provided that <m>c</m> is in the domain of <m>f</m>,
+          and <m>f'(c)=0</m> or <m>f'(c)</m> is undefined.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Notice that only points in the domain of <m>f</m> are considered critical points.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, consider the function <m>f(x) = \frac{1}{x}</m>,
+          whose derivative is <m>f'(x) = -\frac{1}{x^2}</m>.
+          Clearly <m>f'(0)</m> does not exist;
+          however, since <m>x=0</m> is not in the domain of <m>f</m>,
+          it is not called a critical point.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The preceding graphs suggest that every local extremum must occur at a critical point.
+      This seemingly obvious relationship between critical points and extrema turns out to be the foundation on which we will build our development of calculus:
+    </p>
+    <theorem xml:id="thm_localextremaarecriticalpoints">
+      <title>Local Extrema are Critical Points</title>
+      <statement>
+        <p>
+          If <m>x=c</m> is the location of a local extremum of <m>f</m>,
+          then <m>x=c</m> is a critical point of <m>f</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      \fbox{ The converse of Theorem <xref ref="thm_localextremaarecriticalpoints" autoname="yes"/> is not true.
+      That is, not every critical point is a local extremum of <m>f</m>.
+      <xref ref="thm_localextremaarecriticalpoints">Theorem</xref>
+      is also known as <em>Fermat's Theorem for Local Extrema</em>
+      when formulated equivalently as saying that if <m>x=c</m> is a local extremum and <m>f</m> is differentiable at <m>x=c</m>,
+      then <m>f'(c)</m> must be zero. }
+    </p>
+    <example xml:id="ex_notallcriticalpoints">
+      <title>Not every critical point is a local extremum</title>
+      <statement>
+        <p>
+          The function <m>f(x) = x^3-3x^2+3x</m> has derivative <m>f'(x) = 3x^2-6x+3</m>.
+          In order to find the critical points of <m>f</m>,
+          we set this derivative equal to 0 and solve
+          (by factoring).
+          <me>
+            f'(x) =  3x^2-6x+3 = 3(x^2-2x+1) = 3(x-1)(x-1) = 0
+          </me>
+          when <m>x=1</m>.
+          Note that since <m>f</m> is a polynomial,
+          <m>f'</m> is also a polynomial and so is defined everywhere,
+          thus there are no critical points where <m>f'</m> undefined.
+        </p>
+        <p>
+          Thus <m>x=1</m> is the critical point of <m>f(x)</m>.
+        </p>
+        <p>
+          However, looking at the following graph of <m>f</m>,
+          we can see that <m>f</m> has neither a local minimum nor a local maximum at <m>x=1</m>:
+        </p>
+        <p>
+          <image width="56%" source="TaalmanPage228a.png"/>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The critical points of the function
+          <m>f(x) = \sqrt{x-2}</m> are the points in the domain of <m>f</m> where <m>f'(x)=0</m> or is undefined.
+          The domain of <m>f</m> is <m>x-2\geq 0</m>, or <m>x\geq 2</m>.
+          <me>
+            f'(x) = \frac{1}{2}(x-2)^{-1/2} = \frac{1}{2\sqrt{x-2}}
+          </me>
+        </p>
+        <p>
+          Since the numerator of this expression cannot be equal to 0, <m>f'(x)\neq 0</m> for any <m>x</m>.
+          On the other hand,
+          the denominator can be 0, making <m>f'(x)</m> undefined:
+          <me>
+            2\sqrt{x-2}=0  \Leftrightarrow  x-2=0  \Leftrightarrow  x=2
+          </me>
+          and since <m>x=2</m> is in the domain of <m>f</m>, it is a critical point.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(x) = x^3-4x^2+3x</m> has two critical points since <m>f'(x) = 3x^2-8x+3 = 0</m> when
+          <me>
+            x=\frac{-(-8)\pm\sqrt{8^2-4(3)(3)}}{2(3)} = \frac{8\pm\sqrt{28}}{6} \approx 0.451, 2.215
+          </me>.
+        </p>
+        <p>
+          If we look at the graph of <m>f(x)</m>,
+          then we can see that the smaller of these two <m>x</m>-values is the location of a local maximum and the larger is the location of a local minimum:
+        </p>
+        <p>
+          <image width="56%" source="TaalmanExample3-1-4Graph.png"/>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          If <m>f</m> has a local maximum at <m>x=1</m>,
+          then what can you say about <m>f'(1)</m>?
+          What if you also know that <m>f</m> is differentiable?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    The Mean Value Theorem, local extrema, critical point.
+    <p>
+      <em>Key ideas:</em> The Mean Value Theorem tells us that a continuous and differentiable function must have a point within an interval where the instantaneous rate of change is equal to the average rate of change on the interval.
+      The theorem does not tell us exactly where that point is,
+      but we can calculate it separately by setting the derivative equal to the average rate of change on the interval and solving for <m>x</m>.
+      The Mean Value Theorem allows us to conclude that local extrema
+      (minimum or maximum values)
+      must occur at critical points,
+      meaning where the derivative is zero or undefined.
+    </p>
+    <p>
+      <em>Other ideas reinforced/introduced:</em>
+      Algebraic functions are continuous on their domains,
+      and differentiable on the domain of their derivative.
+      Average rates of change can be visualized as slopes of secant lines.
+      Instantaneous rates of change can be visualized as slopes of tangent lines.
+      Horizontal tangent lines occur where the derivative is equal to zero.
+      A continuous function has a local minimum where the derivative changes from negative to positive,
+      and a local maximum where the derivative changes from positive to negative.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 4.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

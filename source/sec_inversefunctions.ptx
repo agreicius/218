@@ -1,0 +1,1264 @@
+<section xml:id="sec_inversefunctions">
+  <title>Inverse Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Understand the inverse of a function as reversing the process of the function,
+          both intuitively and algebraically.
+        </p>
+      </li>
+      <li>
+        <p>
+          Identify algebraic and visual conditions under which a function does or does not have an inverse.
+        </p>
+      </li>
+      <li>
+        <p>
+          Summarize key properties of inverse functions and apply these to calculate and visualize inverses.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Why Inverse Functions?</title>
+    <p>
+      In order to study several categories of transcendental functions,
+      you first need to know about inverse functions.
+      Intuitively,
+      an inverse function is a function that "undoes" another function.
+      In this section we will first review some relevant properties of functions,
+      define what it means to "undo" or "invert" a function,
+      determine conditions under which we
+      <em>can</em> invert a function,
+      and then summarize some useful properties of inverse functions.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Brief Review of Functions</title>
+    <p>
+      Before discussing inverse functions,
+      let's recall the basic definitions and terminology for functions from the beginning of the year:
+    </p>
+    <p>
+      A <em>function</em> <m>f</m> from a set <m>A</m> to a set <m>B</m> is a rule <m>f</m> that associates to each element <m>x</m> of the <em>domain</em>
+      set <m>A</m> exactly one element <m>y=f(x)</m> of the
+      <em>range</em> set <m>B</m>.
+      We will use the notation
+      <me>
+        f: A\rightarrow B
+      </me>
+      to represent a function <m>f</m> together with its domain set <m>A</m> and range set <m>B</m>.
+      This notation is pronounced "<m>f</m> from <m>A</m> to <m>B</m>." If <m>x</m> and <m>y</m> are variables that represent elements of the sets <m>A</m> and <m>B</m>,
+      respectively,
+      then we say that <m>y</m> is a function of <m>x</m> and write <m>y=f(x)</m>.
+      The variable <m>x</m> is called the
+      <em>independent variable</em>
+      and represents the "input" of the function.
+      The function <m>f</m> sends each input <m>x</m> to
+      <em>one and only one</em>
+      "output," some value of the <em>dependent variable</em> <m>y</m>.
+      Notice that <m>y</m> depends on <m>x</m>,
+      according to the assignment defined by the function <m>f</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The rule <m>F=g(C)=\frac{9}{5}C+32</m> is the function that takes Celsius temperature inputs <m>C</m> and produces the corresponding Fahrenheit temperature outputs <m>F</m>.
+        </p>
+        <p>
+          Therefore, the domain of <m>g</m> is all possible Celsius temperatures,
+          and the range of <m>g</m> is all possible Fahrenheit temperatures.
+          If we know that the temperature is 25 degrees Celsius,
+          but want to know the corresponding Fahrenheit temperature,
+          we can compute <m>g(25)=\frac{9}{5}(25)+32=77</m> degrees Fahrenheit.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Recall that the graph of a function must pass the
+      <em>vertical line test</em>
+      (Theorem <xref ref="thm_vlt" autoname="yes"/>):
+    </p>
+    <em>The Vertical Line Test:</em>
+    A graph represents a function if and only if every vertical line intersects the graph in at most one point.
+    <example>
+      <statement>
+        <p>
+          The following is the graph of the function <m>F=g(C)=\frac{9}{5}C+32</m>.
+          We can see that every vertical line intersects the graph in at most one point,
+          so this graph represents a function,
+          because it passes the vertical line test.
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{axis}[
+axis lines=middle,
+xlabel=\(C\), ylabel=\(F\),
+every axis plot/.style={very thick},
+]
+\addplot coordinates { (38,100.4) (-29,-20.2)};
+\addplot[gray, dashed] coordinates { (9,-20) (9,100.4)};
+\addplot[gray, dashed] coordinates { (-12,-20) (-12,100.4)};
+\addplot[gray, dashed] coordinates { (15,-20) (15,100.4)};
+\end{axis}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Defining Inverse Functions</title>
+    <p>
+      Because every function is a process that converts a collection of inputs to a corresponding collection of outputs,
+      a natural question is:
+      for a particular function,
+      can we <em>change perspective and think of the original function's outputs as the inputs for a reverse process</em>?
+      If we phrase this question algebraically,
+      it is analogous to asking:
+      given an equation that defines <m>y</m> as a function of <m>x</m>,
+      is it possible to find a corresponding equation where <m>x</m> is a function of <m>y</m>?
+    </p>
+    <example xml:id="ex_Preview1-7-1">
+      <statement>
+        <p>
+          It is possible to solve the equation <m>F=\frac{9}{5}C+32</m> for <m>C</m>.
+          In other words,
+          we are able to isolate <m>C</m> through a series of algebraic steps.
+          Doing so results in the equation which takes Fahrenheit temperature inputs <m>F</m> and produces the corresponding Celsius temperature outputs <m>C</m>,
+          meaning a function <m>C=h(F)</m>.
+        </p>
+        <p>
+          We start with the equation
+          <me>
+            F=\frac{9}{5}C+32
+          </me>
+          and subtract <m>32</m> from both sides, to get
+          <me>
+            F-32=\frac{9}{5}C
+          </me>.
+        </p>
+        <p>
+          Then to get <m>C</m> by itself,
+          we multiply both sides by <m>\frac{5}{9}</m> to get
+          <me>
+            C=\frac{5}{9}(F-32)
+          </me>.
+        </p>
+        <p>
+          Note that the equation <m>C=\frac{5}{9}(F-32)</m> expresses <m>C</m> as a function of <m>F</m>.
+          Call this function <m>h</m> so that <m>C=h(F)=\frac{5}{9}(F-32)</m>.
+        </p>
+        <p>
+          Now, <m>g</m> is a function which takes a temperature in degrees Celsius,
+          and converts it to a temperature in degrees Fahrenheit,
+          and <m>h</m> is a function which takes a temperature in degrees Fahrenheit,
+          and converts it to a temperature in degrees Celsius.
+        </p>
+        <p>
+          Take a moment to think about what would happen if we convert from one system to the other and then back.
+          In other words, what happens if we compose these functions?
+          Lets find the simplest expression that we can for the composite function <m>j(C)=h(g(C))</m>.
+          <me>
+            <md>
+              j(C)\amp =h(g(C))\\ \amp =\frac{5}{9}(g(C)-32)\\ \amp =\frac{5}{9}\left(\frac{9}{5}C+32-32\right)\\ \amp =\frac{5}{9}\left(\frac{9}{5}C\right)\\ \amp =C.
+            </md>
+          </me>
+        </p>
+        <p>
+          Next, we find the simplest expression that we can for the composite function <m>k(F)=g(h(F))</m>:
+          <me>
+            <md>
+              k(F)\amp =g(h(F))\\ \amp =\frac{9}{5}h(F)+32\\ \amp =\frac{9}{5}\left(\frac{5}{9}(F-32)\right)+32\\ \amp =(F-32)+32\\ \amp =F.
+            </md>
+          </me>
+        </p>
+        <p>
+          Notice how simple both of these compositions become!
+          This is not a coincidence<ellipsis/>
+        </p>
+      </statement>
+    </example>
+    <p>
+      <em>Inverses Reverse Each Other!</em>
+      In <xref ref="ex_Preview1-7-1">Example</xref>,
+      we found that for the function <m>F=g(C)=\frac{9}{5}C+32</m>,
+      it's possible to solve for <m>C</m> in terms of <m>F</m> and write <m>C=h(F) = \frac{5}{9}(C-32)</m>.
+      The first function, <m>g</m>,
+      converts Celsius temperatures to Fahrenheit ones;
+      the second function, <m>h</m>,
+      converts Fahrenheit temperatures to Celsius ones.
+      Thus, the process <m>h</m> <em>reverses the process</em> of <m>g</m>,
+      and likewise the process of <m>g</m>
+      <em>reverses the process</em> of <m>h</m>.
+      This is also why it makes sense that
+      <m>j=h\circ g</m> and <m>k = g\circ h</m> are so simple,
+      namely that <m>j(C) = h(g(C)) = C</m> and <m>k(F) = g(h(F)) = F</m>,
+      meaning both compositions end up back where they started.
+      If, for instance, we take a Celsius temperature <m>C</m>,
+      convert it to Fahrenheit, and convert the result back to Celsius,
+      we arrive back at the Celsius temperature we started with:
+      <m>h(g(C)) = C</m>.
+    </p>
+    <p>
+      Similar work is sometimes possible with other functions.
+      When we can find a new function that reverses the process of the original function,
+      we say that the original function "has an inverse function" and make the following formal definition.
+    </p>
+    <definition xml:id="def_inverses">
+      <title>The Inverse of a Function</title>
+      <statement>
+        <p>
+          Let <m>f:A\to B</m> be a function.
+          If there exists a function <m>g: B\to A</m> such that
+          <me>
+            g(f(a))=a \textrm{  and  } f(g(b))=b
+          </me>
+          for each <m>a</m> in <m>A</m> and each <m>b</m> in <m>B</m>,
+          then we say that <m>f</m> has an
+          <em>inverse function</em>
+          and that the function <m>g</m> is
+          <em>the inverse of <m>f</m></em>.
+        </p>
+        <p>
+          A function is called <em>invertible</em>
+          if it has in inverse function.
+        </p>
+        <p>
+          <em>Notation:</em> When a given function <m>f</m> has a corresponding inverse function <m>g</m>,
+          we usually rename <m>g</m> as <m>f^{-1}</m> which we read aloud as
+          <q><m>f</m>-inverse</q>. The equation <m>g(f(a))=a</m> now reads
+          <me>
+            f^{-1}\big(f(a)\big)=a
+          </me>,
+          which we interpret as saying ``<m>f</m>-inverse converts <m>f(a)</m> back to <m>a</m>.
+          We similarly write that
+          <me>
+            f\big(f^{-1}(b)\big)=b
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note particularly what the equation <m>g(f(a))=a</m> says:
+      for any input <m>a</m> in the domain of <m>f</m>. the function <m>g</m> will reverse the process of <m>f</m> (which converts <m>a</m> to <m>f(a)</m>) because <m>g</m> converts <m>f(a)</m> back to <m>a</m>.
+    </p>
+    <p>
+      Note that the two conditions in <xref ref="def_inverses">Definition</xref>
+      guarantee that if a function <m>g</m> is the inverse of a function <m>f</m>,
+      then <m>f</m> is the inverse of the function <m>g</m>.
+    </p>
+    <example xml:id="ex_invertingxcubed">
+      <statement>
+        <p>
+          For example, the functions <m>f(x) = x^3</m> and
+          <m>g(x) = \sqrt[3]{x}</m> are inverses of each other.
+          Intuitively,
+          taking the cube of a number is undone by taking the cube root,
+          and vice versa.
+          Its easy to verify this algebraically by converting <m>\sqrt[3]{x} = x^{1/3}</m>:
+          <me>
+            g(f(x))=\sqrt[3]{x^3}=(x^3)^{1/3} = x^{3\cdot(1/3)} = x^1 = x, \textrm{ and}
+          </me>
+          <me>
+            f(g(x))=(\sqrt[3]{x})^3=(x^{1/3})^3 = x^{(1/3)\cdot 3} = x^1=x
+          </me>.
+          Thus we can write <m>f^{-1}(x) = \sqrt[3]{x}</m> for the inverse of <m>f(x) = x^3</m>.
+          Likewise, we can write <m>g^{-1}(x) = x^3</m> for the inverse of <m>g(x) = \sqrt[3]{x}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      \fbox{ <em>Very Important!</em>
+      It is critical to note that although we use the notation <m>x^{-1}</m> to denote the reciprocal
+      <m>\frac{1}{x}</m> of a number or variable <m>x</m>,
+      the notation <m>f^{-1}</m> does <em>not</em>
+      stand for the reciprocal <m>\frac{1}{f}</m>.
+      The notation <m>f^{-1}</m> stands for <m>f</m>-inverse!
+      We are now using the same notation for two very different concepts,
+      but it should be clear from the context what we mean. }
+    </p>
+    <exercise xml:id="ex_dolbearinverse">
+      <statement>
+        <p>
+          Recall Dolbear's function <m>F=D(N)=40+\frac{1}{4}N</m> that converts the number,
+          <m>N</m>,
+          of snowy tree cricket chirps per minute to a corresponding Fahrenheit temperature <m>F</m>.
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Solve the equation <m>F=40+\frac{1}{4}N</m> for <m>N</m> in terms of <m>F</m>.
+                Call the resulting function <m>N=E(F)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain in words the process or effect of the function <m>N=E(F)</m>.
+                What does it take as input?
+                What does it generate as output?
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the function <m>E</m> that you found in (a) to compute <m>j(N)=E(D(N))</m>.
+                Simplify your result as much as possible.
+                Do likewise for <m>k(F)=D(E(F))</m>.What do you notice about these two composite functions <m>j</m> and <m>k</m>?
+                Compare this result to <xref ref="def_inverses">Definition</xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Do the functions <m>F=D(N)</m> and <m>N=E(F)</m> express different relationships between <m>F</m> and <m>N</m> or do they express the same relationship in two different ways?
+                Explain.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      When a given function has an inverse function,
+      it allows us to express the same relationship from two different points of view.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For instance, if <m>w=f(z) = 2z+1</m>,
+          we can show that the function
+          <m>z=g(w)=\dfrac{w-1}{2}</m> reverses the effect of <m>f</m>
+          (and vice versa),
+          and thus <m>g=f^{-1}</m>.
+          We observe that
+          <me>
+            \begin{aligned}w\amp = 2z+1\\ w-1 \amp = 2z\\ \frac{w-1}{2} \amp = z \end{aligned}
+          </me>
+          so that
+          <me>
+            w=f(z)=2z+1\qquad \textrm{ and } \qquad z=f^{-1}(w)=\dfrac{w-1}{2}
+          </me>
+          are equivalent forms of the same equation,
+          and thus they say the same thing from two different perspectives.
+          The first version of the equation is solved for <m>w</m> in terms of <m>z</m>,
+          while the second equation is solved for <m>z</m> in terms of <m>w</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      This important principle holds in general whenever a function has an inverse function:
+    </p>
+    <p>
+      \fbox{<em>Two perspectives from a function and its inverse function.</em>
+      If <m>y=f(x)</m> has an inverse function, then the equations
+      <me>
+        y=f(x)\qquad \textrm{ and } \qquad x=f^{-1}(y)
+      </me>
+      say the exact same thing but from two different perspectives. }}
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose <m>f</m> is an invertible function with inverse <m>f^{-1}</m>.
+          If <m>f(3) = 7</m>, what does this tell us about <m>f^{-1}</m>?
+        </p>
+        <p>
+          The function <m>f^{-1}</m> reverses the process of <m>f</m>,
+          so that inputs become outputs and vice versa.
+          Thus if <m>f</m> takes the input of 3 to the output of 7:
+          <me>
+            f(3)=7
+          </me>
+          then <m>f^{-1}</m> should reverse this process and take the input of 7 to the output of 3:
+          <me>
+            f^{-1}(7)=3
+          </me>.
+        </p>
+        <p>
+          Thus know that <m>f^{-1}(7) = 3</m>.
+        </p>
+        <p>
+          We check this against <xref ref="def_inverses">Definition</xref>
+          to make sure our line of reasoning is correct:
+          <me>
+            f^{-1}(f(3)) = f^{-1}(7)=3
+          </me>
+          and
+          <me>
+            f(f^{-1}(7)) = f(3) = 7
+          </me>
+          as desired.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The number <m>N</m> of operating drive-in movie theaters in the state of Virginia in various years <m>y</m> is given in the table below.
+          We can view <m>N</m> as a function of <m>y</m> and write <m>N=f(y)</m>.
+        </p>
+        <table>
+          <title><m>N=f(y)</m> gives the number <m>N</m> of operating drive-in movie theaters in the year <m>y</m></title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>y</m></cell>
+              <cell>1958</cell>
+              <cell>1967</cell>
+              <cell>1972</cell>
+              <cell>1977</cell>
+              <cell>1982</cell>
+              <cell>1999</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>N</m></cell>
+              <cell>143</cell>
+              <cell>109</cell>
+              <cell>102</cell>
+              <cell>87</cell>
+              <cell>56</cell>
+              <cell>9</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Recall that tables are a convenient way of summarizing corresponding inputs and outputs of a function.
+          For instance, we know that <m>f(1977)=87</m>,
+          meaning that in 1977, there were 87 operating drive-in movie theaters.
+          On the other hand, given the data available,
+          it is accurate to say that when there were 87 operating movie theaters,
+          the year was 1977.
+          In terms of functions, we can write <m>f^{-1}(87) = 1977</m>.
+          Is this saying anything meaningfully different?
+          No.
+          Remember: inverse functions are just a change in perspective.
+        </p>
+        <p>
+          We can summarize the values of this inverse perspective in the table below simply by swapping the rows:
+        </p>
+        <table>
+          <title>The year <m>y</m> when there were <m>N</m> operating drive-in movie theaters</title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>N</m></cell>
+              <cell>143</cell>
+              <cell>109</cell>
+              <cell>102</cell>
+              <cell>87</cell>
+              <cell>56</cell>
+              <cell>9</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>y</m></cell>
+              <cell>1958</cell>
+              <cell>1967</cell>
+              <cell>1972</cell>
+              <cell>1977</cell>
+              <cell>1982</cell>
+              <cell>1999</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          This table defines <m>y</m> as a function of <m>N</m>,
+          and we can write <m>y=f^{-1}(N)</m>.
+          Lastly, we will finish by reorganizing the table so that our "input" values of <m>N</m> appear in increasing order,
+          as is typical (though not strictly necessary):
+        </p>
+        <table>
+          <title>A table of values for <m>y=f^{-1}(N)</m></title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>N</m></cell>
+              <cell>9</cell>
+              <cell>56</cell>
+              <cell>87</cell>
+              <cell>102</cell>
+              <cell>109</cell>
+              <cell>143</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>y</m></cell>
+              <cell>1999</cell>
+              <cell>1982</cell>
+              <cell>1977</cell>
+              <cell>1972</cell>
+              <cell>1967</cell>
+              <cell>1958</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+    <remark>
+      <p>
+        Notice that we sometimes swap the input and output variables while finding the inverse function
+        (as in Example <xref ref="ex_invertingxcubed" autoname="yes"/>),
+        while sometimes we do not swap variables
+        (as in <xref ref="ex_dolbearinverse">Exercise</xref>).
+        It is only appropriate to switch input and output variable for functions that are entirely abstract,
+        and especially if we are talking about the inverse as its own function and want to graph it on the same set of axes as the original function.
+        In cases where the variables represent real-world quantities,
+        such as number of cricket chirps and temperature,
+        it would not make sense to switch variables.
+      </p>
+    </remark>
+    <exercise>
+      <statement>
+        <p>
+          In your own words,
+          explain the meaning and purpose of an inverse function.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>When is a Function Invertible?</title>
+    <p>
+      Not all functions have inverses.
+    </p>
+    <example xml:id="ex_nonHLT">
+      <statement>
+        <p>
+          For example, consider the squaring function
+          <m>f(x) = x^2</m> with the domain <m>\mathbb{R}</m>.
+          How could we reverse the process defined by <m>f</m>?
+        </p>
+        <p>
+          Observe that <m>f(2) = 4</m> and <m>f(-2)=4</m>.
+          An inverse of <m>f</m> would have to send the input 4 back to both <m>2</m> and <m>-2</m> in order to reverse <m>f</m>.
+          This violates our rules for a function since an input must have one and only one output.
+          Thus <m>f(x) = x^2</m> does <em>not</em> have an inverse.
+        </p>
+        <p>
+          In particular, <m>\sqrt{x^2} = x</m> is
+          <em>not</em> always true,
+          so that <m>\sqrt{x}</m> is <em>not</em>
+          a true inverse to <m>x^2</m>.
+          <em>Why not?
+          Find a value for <m>x</m> such that <m>\sqrt{x^2}\neq x</m>.</em>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It's important to note in <xref ref="def_inverses">Definition</xref> that we say "<em>If</em>
+      there exists<ellipsis/>." That is,
+      we are not guaranteed that an inverse function exists for a given function.
+      Thus, we might ask:
+      how can we determine whether or not a given function has a corresponding inverse function?
+      As with many questions about functions,
+      there are often three different possible ways to explore such a question:
+      through a table, through a graph,
+      or through an algebraic formula.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>g</m> and <m>h</m> be functions defined by the following tables:
+        </p>
+        <table xml:id="tab_notinvertible">
+          <title>A table defining <m>g</m></title>
+          \begin{subtable}{.5\linewidth}
+          <tabular>
+            <row>
+              <cell>\toprule
+                <m>x</m></cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>g(x)</m></cell>
+              <cell>6</cell>
+              <cell>4</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+          \end{subtable}
+          \begin{subtable}{.5\linewidth}
+          <tabular>
+            <row>
+              <cell>\toprule
+                <m>x</m></cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>h(x)</m></cell>
+              <cell>3</cell>
+              <cell>1</cell>
+              <cell>4</cell>
+              <cell>2</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+          \caption{A table defining <m>h</m>.} \end{subtable}
+          \caption{Tables defining <m>g</m> and <m>h</m>}
+        </table>
+        <p>
+          The function <m>g</m> does not have an inverse function because there are two different inputs that lead to the same output:
+          <m>g(0)=6</m> and <m>g(4)=6</m>.
+          If we attempt to reverse this process,
+          we have a situation where the input <m>6</m> would correspond to two potential outputs,
+          <m>0</m> and <m>4</m>.
+        </p>
+        <p>
+          Note that if we try to reverse the rows of <xref ref="tab_notinvertible" autoname="yes"/>,
+          we can see the "input" of 6 occurs twice in the top row and has two different "outputs."
+        </p>
+        <table>
+          <title>A table attempting to define <m>g^{-1}</m> by swapping the rows of \xautoref{tab_notinvertible}. This is not a function</title>
+          <tabular>
+            <row>
+              <cell>\toprule
+                <m>x</m> (formerly <m>g(x)</m>)</cell>
+              <cell>6</cell>
+              <cell>4</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>g^{-1}(x)</m> (formerly <m>x</m>)</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          However, the function <m>h</m> does have an inverse function because if we reverse the rows in Table (b),
+          each input indeed corresponds to one and only one output:
+        </p>
+        <table>
+          <title>Table defining <m>h^{-1}</m> by swapping the rows of \xautoref{tab_invertible}</title>
+          <tabular>
+            <row>
+              <cell>\toprule
+                <m>x</m> (formerly <m>h(x)</m>)</cell>
+              <cell>3</cell>
+              <cell>1</cell>
+              <cell>4</cell>
+              <cell>2</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>h^{-1}(x)</m> (formerly <m>x</m>)</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We can thus make observations such as <m>h^{-1}(4)=2</m>,
+          which is the same as saying that <m>h(2)=4</m>,
+          just from a different perspective.
+        </p>
+        <p>
+          If we "clean up" the table for <m>h^{-1}</m> by putting its inputs in order,
+          it looks like what we would expect to see in a table defining a function:
+        </p>
+        <table>
+          <title>Table defining <m>h^{-1}</m></title>
+          <tabular>
+            <row>
+              <cell>\toprule
+                <m>x</m></cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell>\midrule
+                <m>h^{-1}(x)</m></cell>
+              <cell>4</cell>
+              <cell>1</cell>
+              <cell>3</cell>
+              <cell>0</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell>\bottomrule</cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+    <p>
+      In the above two examples,
+      we see that if we can identify at least one pair of distinct inputs that lead to the same output (such as
+      <m>f(2)=f(-2)=4</m> or <m>g(0)=g(4)=6</m>),
+      then the process of the function cannot be reversed and the function does not have an inverse.
+    </p>
+    <example xml:id="ex_HLT">
+      <statement>
+        <p>
+          Consider the functions <m>p</m> and <m>q</m>,
+          defined by the graphs below:
+        </p>
+        <figure>
+          <caption>The graph that defines function <m>p</m></caption>
+          \begin{subfigure}[b]{0.4\textwidth}
+          <image width="73%" source="ACFigure1-7-7.png"/>
+          \end{subfigure}
+          \begin{subfigure}[b]{0.4\textwidth}
+          <image width="73%" source="ACFigure1-7-6.png"/>
+          \caption{The graph that defines function <m>q</m>} \end{subfigure}
+        </figure>
+        <p>
+          We note explicitly that <m>p</m> is a function because its graph passes the Vertical Line Test.
+          If we attempt to change perspective and use the graph of <m>p</m> to view <m>x</m> as a function of <m>y</m>,
+          we see that this fails because the <m>y</m>-value <m>c</m> is associated with two different <m>x</m>-values,
+          <m>a</m> and <m>b</m>.
+          Said differently,
+          because the horizontal line <m>y=c</m> intersects the graph of <m>p</m> at both <m>(a,c)</m> and <m>(b,c)</m>,
+          we cannot view <m>y</m> as the input to a function process that produces the corresponding <m>x</m>-value.
+          If we turn our head to the side and view the <m>y</m>-axis as our inputs,
+          the graph would not pass this tipped over Vertical Line Test.
+          Therefore, <m>p</m> does not have an inverse function.
+        </p>
+        <p>
+          On the other hand,
+          the function <m>q</m> does have an inverse because we can view <m>x</m> as a function of <m>y</m> via the graph
+          (provided that the behavior seen in the figure continues).
+          This is because for any choice of <m>y</m>,
+          there corresponds one and only one <m>x</m> that results from <m>y</m>.
+          We can think of this visually by starting at a value such as <m>y=c</m> on the <m>y</m>-axis,
+          moving horizontally to where the line intersects the graph of <m>p</m> and then moving down to the corresponding location
+          (here <m>x=a</m>)
+          on the horizontal axis.
+          From the behavior of the graph of <m>q</m> (a straight line that is always increasing),
+          we see that this correspondence will hold for any choice of <m>y</m>,
+          and thus indeed <m>x</m> is a function of <m>y</m>.
+          From this, we can say that <m>q</m> indeed has an inverse function.
+          We thus can write that <m>q^{-1}(c)=a</m>,
+          which is a different way to express the equivalent fact that <m>q(a)=c</m>.
+          Likewise, we can see that <m>q^{-1}(d) = b</m>, since <m>q(b) = d</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      What have we observed so far?
+      Functions are invertible provided that no two inputs produce the same output.
+      Visually, no two points can be at the same height on the graph,
+      so that no horizontal line intersects the graph in more than one point.
+      The graphical observations that we made for the function <m>q</m> in <xref ref="ex_HLT">Example</xref>
+      provide a general test for whether or not a function given by a graph has a corresponding inverse function.
+    </p>
+    <theorem xml:id="thm_HLT">
+      <title>Horizontal Line Test</title>
+      <statement>
+        <p>
+          A function whose graph lies in the <m>xy</m>-plane has a corresponding inverse function if and only if every horizontal line intersects the graph at most once.
+          When the graph passes this test,
+          the horizontal coordinate of each point on the graph can be viewed as a function of the vertical coordinate of the point.
+        </p>
+      </statement>
+    </theorem>
+    <definition>
+      <title>One-to-One</title>
+      <statement>
+        <p>
+          A function <m>f</m> whose graph passes the horizontal line test is said to be <em>one-to-one</em>.
+          This is because the inputs and outputs of such a function pair uniquely with each other,
+          without any "doubling up" of multiple inputs to one output.
+        </p>
+        <p>
+          Another way of stating that a function is one-to-one is that,
+          for any values <m>a</m> and <m>b</m> of the independent variable,
+        </p>
+        if <m>a\neq b</m>, then <m>f(a)\neq f(b)</m>.
+        <p>
+          Equivalently, using the contrapositive, we can phrase this as
+        </p>
+        if <m>f(a)=f(b)</m>, then <m>a=b</m>.
+      </statement>
+    </definition>
+    <exercise>
+      <statement>
+        <p>
+          Give an example from your own life or experience of a function that is invertible,
+          a.k.a one-to-one.
+          <em>Recall that this means that each value of the dependent variable corresponds to only one value of the independent variable.
+          In other words, the function cannot repeat output values.</em>
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_visualinvertible1">
+      <title>Identifying An Invertible Function Visually</title>
+      <statement>
+        <p>
+          Consider the function <m>y=r(t)=3-\dfrac{1}{5}(t-1)^3</m> defined by the graph below:
+        </p>
+        <figure>
+          <caption>The graph that defines function <m>r</m></caption>
+          <image width="30%" source="ACFigure1-7-9-r.png"/>
+        </figure>
+        <p>
+          We can see that <m>r(t)</m> passes the horizontal line test,
+          and is therefore one-to-one.
+          This means that each point on the graph can be viewed as a function of the vertical coordinate of the point,
+          and therefore <m>r(t)</m> has an inverse function.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>Finding the Inverse of an Invertible Function Algebraically</title>
+      <statement>
+        <p>
+          Thanks to Example <xref ref="ex_visualinvertible1" autoname="yes"/>,
+          we know that <m>y=r(t)=3-\dfrac{1}{5}(t-1)^3</m> is invertible,
+          meaning that the inverse function <m>t=r^{-1}(y)</m> exists.
+          To find an explicit formula for this function,
+          we take the equation <m>y=3-\dfrac{1}{5}(t-1)^3</m>, and solve for <m>t</m>:
+        </p>
+        <p>
+          First, subtract <m>3</m> from both sides to get
+          <me>
+            y-3=-\dfrac{1}{5}(t-1)^3
+          </me>.
+        </p>
+        <p>
+          Next, multiplying both sides by <m>-5</m>, it follows that
+          <me>
+            -5(y-3)=(t-1)^3
+          </me>.
+        </p>
+        <p>
+          Because the cube root function has the property that
+          <m>\sqrt[3]{z^3}=z</m> for every real number <m>z</m>
+          (since the cube root function is the inverse function for the cubing function,
+          and each function has both a domain and range of all real numbers),
+          we can take the cube root of both sides of the preceding equation to get
+          <me>
+            \sqrt[3]{-5(y-3)}=t-1
+          </me>.
+        </p>
+        <p>
+          Finally, adding 1 to both sides, we have determined that
+          <me>
+            t=1+\sqrt[3]{-5(y-3)}
+          </me>
+        </p>
+        <p>
+          Because we have been able to express <m>t</m> as a single function of <m>y</m> for every possible value of <m>y</m>,
+          this shows that <m>r</m> indeed has an inverse and that <m>t=r^{-1}(y)=1+\sqrt[3]{-5(y-3)}</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>Visually and Algebraically NOT Invertible</title>
+      <statement>
+        <p>
+          Consider the function <m>y=s(t)=3-\dfrac{1}{5}(t-1)^2</m> defined by the graph below:
+        </p>
+        <figure>
+          <caption>The graph that defines function <m>s</m></caption>
+          <image width="30%" source="ACFigure1-7-10-s.png"/>
+        </figure>
+        <p>
+          We can see that <m>s(t)</m> does NOT pass the horizontal line test;
+          in particular, it looks like <m>s(2)=s(0)</m>,
+          and using the formula <m>s(t) = 3-\frac{1}{5}(t-1)^2</m>,
+          we can indeed calculate that <m>s(2)=s(0)=\dfrac{14}{5}</m>.
+          Therefore <m>s(t)</m> does not have an inverse function.
+        </p>
+        <p>
+          What if we did not have a picture?
+          Would we still be able to determine that <m>y=s(t)</m> is not invertible?
+          If we were to try to solve for <m>t</m> in terms of <m>y</m> algebraically,
+          we could again subtract <m>3</m> from both sides to get
+          <me>
+            y-3=-\dfrac{1}{5}(t-1)^2
+          </me>.
+        </p>
+        <p>
+          Next, multiplying both sides by <m>-5</m>, it follows that
+          <me>
+            -5(y-3)=(t-1)^2
+          </me>.
+        </p>
+        <p>
+          Here, however, we encounter a crucial issue.
+          Recall from <xref ref="ex_nonHLT">Example</xref>
+          that the function <m>f(x)=x^2</m> does not have an inverse.
+          It takes any nonzero number and its opposite to the same output (e.g.
+          <m>(-5)^2=25=(5)^2</m>),
+          this means that we have to account for both possible inputs that result in the same output.
+          Based on our last equation, this means that either
+          <me>
+            t-1=\sqrt{-5(y-3)}\qquad\textrm{ or } \qquad t-1=-\sqrt{-5(y-3)}
+          </me>
+        </p>
+        <p>
+          As such, we find not a single equation that expresses <m>t</m> as a function of <m>y</m>,
+          but rather two:
+          <me>
+            t=1+\sqrt{-5(y-3)}\qquad\textrm{ or } \qquad t=1-\sqrt{-5(y-3)}
+          </me>
+        </p>
+        <p>
+          It appears that <m>t</m> cannot be expressed as a single function of <m>y</m>;
+          and indeed, <m>y=s(t)=3-\dfrac{1}{5}(t-1)^2</m> does not have an inverse function.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Determine, with justification,
+          whether each of the following functions is one-to-one,
+          and therefore whether it has an inverse function.
+          <em>Remember,
+          both of these are the same as saying that the graph passes the Horizontal Line Test (Theorem <xref ref="thm_HLT" autoname="yes"/>).</em>
+        </p>
+        <p>
+          For each function that is <em>not</em> one-to-one,
+          give an example of two inputs with the same output,
+          such as <m>f(1)=3</m> and <m>f(2)=3</m>.
+        </p>
+        <p>
+          For each function that <em>is</em> one-to-one,
+          give two examples of values of the inverse function by writing statements such as
+          <q><m>f^{-1}(3)=1</m></q>.
+          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+            <li>
+              <p>
+                The function <m>g: S\to S</m>,
+                given by the following table,
+                where <m>S=\{0,1,2,3,4\}</m>.
+                <me>
+                  \begin{array}{cccccc} x\amp 0\amp 1\amp 2\amp 3\amp 4\\ \hline g(x)\amp 4\amp 0\amp 3\amp 1\amp 2 \end{array}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>q</m> given by <m>q(t)=7-\frac{3}{5}t^4</m>.
+                Assume that the domain of <m>q</m> is
+                <q>all real numbers.</q>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>r</m> given by the following graph:
+                <image width="37%" source="ACFigure1-7-13.png"/> Assume that the graph shows all of the important behavior of the function and that the apparent trends continue beyond what is pictured.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Properties of Inverse Functions</title>
+    <p>
+      When a function has an inverse function,
+      we have observed several important relationships that hold between the original function and the corresponding inverse function,
+      which we summarize here.
+      Note that many of these properties seem to be saying the same thing,
+      only with a different emphasis.
+    </p>
+    <theorem xml:id="thm_inverseproperties">
+      <title>Properties of an inverse function</title>
+      <statement>
+        <p>
+          Let <m>f:A\to B</m> be a function whose domain is <m>A</m> and whose range is <m>B</m> be such that <m>f</m> has an inverse function <m>f^{-1}</m>.
+          Then:
+          <ol marker="labeltextbfalphitemsep15pttopsep10pt">
+            <li>
+              <p>
+                The functions <m>f</m> and <m>f^{-1}</m> reverse one another's processes.
+                Symbolically,
+                <m>f^{-1}(f(a))=a</m> for every input <m>a</m> in the domain of <m>f</m>,
+                and similarly,
+                <m>f(f^{-1}(b))=b</m> for every input <m>b</m> in the domain of <m>f^{-1}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>b=f(a)</m>,
+                then we can express the exact same relationship from a different perspective by writing <m>a=f^{-1}(b)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>f^{-1}</m> is <m>B</m> and its range is <m>A</m>.
+                Symbolically, <m>f^{-1}:B\to A</m>,
+                meaning that <m>f^{-1}</m> is a rule that assigns to each element <m>b</m> of the set <m>B</m> and element <m>a</m> of the set <m>A</m> via <m>a=f^{-1}(b)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If a point <m>(a,b)</m> lies on the graph of <m>f</m>,
+                then we write <m>b=f(a)</m>.
+                From this, we can equivalently say that <m>a=f^{-1}(b)</m>.
+                Hence, the point <m>(b,a)</m> lies on the graph of <m>a=f^{-1}(b)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The graph of <m>y=f^{-1}(x)</m> is the graph of <m>y=f(x)</m> reflected across the line <m>y=x</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Property (e) above is new but follows immediately from property (d):
+      because inverse functions reverse inputs and outputs,
+      inverting a function reverses the <m>x</m>- and <m>y</m>-values in the <m>xy</m>-plane.
+      This means that the graph of the inverse of a function is a reflection of the graph of the original function across the line <m>y=x</m>.
+    </p>
+    <example>
+      <title>Applying Properties and Visualizing Inverse Functions</title>
+      <statement>
+        <p>
+          For example, consider the function <m>f(x) = \sqrt{x+1}</m>.
+          <m>f(x)</m> has the domain <m>[-1,\infty)</m> since we need
+          <m>x\geq -1</m> in order to have <m>x+1\geq 0</m>.
+        </p>
+        <p>
+          We can see from the graph below that <m>f(x)</m> is invertible and one-to-one because it passes the horizontal line test.
+          We can also observe from the graph that <m>f(x)</m> appears to have the range <m>[0,\infty)</m>.
+        </p>
+        <figure>
+          <caption>The graph of <m>f(x) = \sqrt{x+1}</m> has domain <m>[-1,\infty)</m> and range <m>[0,\infty)</m>.</caption>
+          <image width="37%" source="TaalmanPage68a.png"/>
+        </figure>
+        <p>
+          To find the inverse function <m>f^{-1}</m>,
+          we reverse inputs and outputs,
+          meaning we solve <m>y=\sqrt{x+1}</m> for <m>x</m>:
+          <me>
+            \begin{aligned}y\amp = \sqrt{x+1}\\ y^2 \amp = x+1\\ y^2-1\amp = x \end{aligned}
+          </me>
+        </p>
+        <p>
+          Changing notation so that <m>x</m> is again the independent variable,
+          we see that the inverse of <m>f(x)</m> is given by the formula
+          <me>
+            f^{-1}(x)=x^2-1
+          </me>.
+        </p>
+        <p>
+          <xref ref="fig_TaalmanPage68b" autoname="yes"/> illustrates Property (d) of <xref ref="thm_inverseproperties">Theorem</xref> for <m>f(x)=\sqrt{x+1}</m>:
+          the graph of <m>f^{-1}(x)</m> is the graph of <m>f(x)</m> reflected across the line <m>y=x</m>:
+        </p>
+        <figure xml:id="fig_TaalmanPage68b">
+          <caption>Reflect <m>f(x)</m> across the line <m>y=x</m> to obtain <m>f^{-1}(x)</m>.</caption>
+          <image width="46%" source="TaalmanPage68b.png"/>
+        </figure>
+        <p>
+          Note that <m>y=x^2-1</m> is not invertible;
+          if you graph this,
+          you will get a parabola that does not pass the horizontal line test.
+          This appears to contradict our previous calculations!
+          However, the important detail here comes from <xref ref="thm_inverseproperties">Theorem</xref> part (c):
+        </p>
+        The domain of <m>f^{-1}</m> is <m>B</m> and its range is <m>A</m>.
+        <p>
+          In this example, the range of <m>f(x)=\sqrt{x+1}</m> was
+          <m>[0,\infty)</m> so that the domain of
+          <m>f^{-1}(x)</m> must be the same set <m>[0,\infty)</m>.
+          We see this in <xref ref="fig_TaalmanPage68b" autoname="yes"/> above:
+          only the half of the parabola with <m>x\geq 0</m> results from reflecting
+          <m>f(x) = \sqrt{x+1}</m> across the line <m>y=x</m>.
+          Thus when we consider <m>f^{-1}(x)=x^2-1</m> as the inverse of <m>f(x) = \sqrt{x+1}</m>,
+          we must restrict the domain to <m>[0,\infty)</m>,
+          as in <xref ref="fig_TaalmanPage68c" autoname="yes"/> below:
+        </p>
+        <figure xml:id="fig_TaalmanPage68c">
+          <caption><m>f^{-1}(x) = x^2-1</m> has domain <m>[0,\infty)</m> and range <m>[-1,\infty)</m>.</caption>
+          <image width="37%" source="TaalmanPage68c.png"/>
+        </figure>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          During a major rainstorm,
+          the rainfall at Gerald R. Ford Airport is measured on a frequent basis for a 10-hour period of time.
+          The following function <m>g</m> models the rate,
+          <m>R</m>, at which the rain falls
+          (in cm/hr)
+          on the time interval <m>t=0</m> to <m>t=10</m>:
+          <me>
+            R=g(t)=\frac{4}{t+2}+1
+          </me>
+          <ol marker="labelalphitemsep5pt">
+            <li>
+              <p>
+                Compute <m>g(3)</m> and write a complete sentence to explain its meaning in the given context,
+                including units.
+              </p>
+            </li>
+            <li>
+              <p>
+                Plot the function <m>y=g(t)</m> using a computational device.
+                On the domain <m>[0,10]</m>, what is the corresponding range of <m>g</m>?
+                Why does the function <m>g</m> have an inverse function?
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine <m>g^{-1}\left(\frac{9}{5}\right)</m> and write a complete sentence to explain its meaning in the given context.
+                <em>Note: you could find a formula for <m>g^{-1}</m>,
+                but you don't need to.</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                According to the model <m>g</m> is there ever a time during the storm that the rain falls at a rate of exactly <m>1</m> centimeter per hour?
+                Why or why not?
+                Provide an algebraic justification for your answer.
+              </p>
+            </li>
+            <li>
+              <p>
+                Interpret your answer to part (d) in terms of the range of <m>g</m>,
+                and equivalently the domain of <m>g^{-1}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    inverse function, <m>f^{-1}</m> is the inverse of <m>f</m>, invertible; Horizontal Line Test, one-to-one function.
+    <p>
+      <em>Key ideas:</em> An inverse function reverses the process of a function,
+      swapping perspective between "input" and "output" of the original function.
+      Functions are invertible if and only if they pass the Horizontal Line Test.
+      Equivalently, functions are invertible if they are one-to-one.
+      The graph of the inverse of a function is the reflection of the graph of the function over the line <m>y=x</m>.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Some functions that are <em>not</em>
+      invertible have partial inverses,
+      obtained by restricting the domain of the function to an interval on which the function passes the Horizontal Line Test.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.1}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

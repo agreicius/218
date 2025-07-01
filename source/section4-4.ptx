@@ -1,0 +1,589 @@
+<section>
+  <title>Elementary Derivative Rules</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Learn and apply formulas for derivatives of constant,
+          linear, and power functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Develop a better understanding of Leibniz notation.
+        </p>
+      </li>
+      <li>
+        <p>
+          Learn and apply the constant multiple, sum,
+          and difference derivative rules.
+        </p>
+      </li>
+      <li>
+        <p>
+          Begin to practice taking derivatives using variables other than <m>x</m> and also taking higher order derivatives.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Derivatives of Constant and Linear Functions</title>
+    <p>
+      You may have noticed by now that using the definition of the derivative to calculate derivatives via limits can be rather tedious.
+      While the definition is important for understanding the meaning of the derivative,
+      and is sometimes necessary in advanced applications,
+      derivatives are predominantly calculated through a collection of formulas.
+      We start with the simplest formulas:
+      for constant and linear functions.
+      If <m>f</m> is a linear function,
+      then it has slope <m>m</m> everywhere,
+      and therefore its derivative is always equal to <m>m</m> at every point.
+      Since constant functions are linear functions with slope 0, their derivatives are always equal to 0 at every point.
+      These are our first differentiation rules:
+    </p>
+    <theorem xml:id="thm_derivativeslinear">
+      <title>Derivatives of Constant and Linear Functions</title>
+      <statement>
+        <p>
+          For any real numbers <m>k,m</m>, and <m>b</m>,
+          <ol marker="labelalph">
+            <li>
+              <p>
+                If <m>f(x) = k</m>, then <m>f'(x)=0</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f(x) = x</m>, then <m>f'(x)=1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f(x) = mx+b</m>, then <m>f'(x)=m</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      With this differentiation rule we can find derivatives of linear function very quickly,
+      without having to consider the definition of the derivative.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The derivative of <m>f(x) = 3</m> is <m>f'(x) = 0</m>.
+        </p>
+        <p>
+          The derivative of <m>g(x) = 3x+1</m> is <m>g'(x) = 3</m>.
+        </p>
+        <p>
+          The derivative of <m>h(x) = 2x-99</m> is <m>h'(x) = 2</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find the derivatives of <m>s(x)=4</m>,
+          <m>m(t)=4t</m>, and <m>y(z)=12z+800</m>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Leibniz Notation</title>
+    <p>
+      Before introducing more derivative rules,
+      we take a detailed look at "Leibniz notation," which will make writing down the derivative rules much easier.
+      This notation is named after Gottfried Leibniz who,
+      along with Isaac Newton,
+      is credited with discovering (inventing?) calculus.
+      From
+      <url href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">his Wikipedia article</url>
+      (with added emphasis):
+    </p>
+    "Gottfried Wilhelm (von) Leibniz (1 July 1646 – 14 November 1716) was a German polymath active as a mathematician, philosopher, scientist, and diplomat. He is a prominent figure in both the history of philosophy and the history of mathematics. He wrote works on philosophy, theology, ethics, politics, law, history, and philology. Leibniz also made major contributions to physics and technology, and anticipated notions that surfaced much later in probability theory, biology, medicine, geology, psychology, linguistics, and computer science\ldots
+    As a philosopher, he was one of the greatest representatives of 17th-century rationalism and idealism. As a mathematician, his greatest achievement was the development of the main ideas of differential and integral calculus, independently of Isaac Newton's contemporaneous developments. <em>Mathematical works have consistently favored Leibniz's notation as the conventional expression of calculus.</em>"
+    <p>
+      A fun piece of mathematical mythology is that Newton and Leibniz really did not like each other,
+      which is one possible explanation for why there are two distinct notations for derivatives.
+      Up until now,
+      we have been using "prime notation," which is attributed to Lagrange,
+      another early founder of Calculus.
+      As noted above,
+      the notation developed by Leibniz is more widely used.
+      We reintroduce it here and will use it interchangeably with prime notation from now on.
+    </p>
+    <p>
+      According to Leibniz,
+      if we wish to take the derivative of a function named <m>f</m> that depends on the independent variable <m>x</m>,
+      we can apply the operator <m>\frac{d}{dx}</m> to <m>f</m> and write
+      <me>
+        \frac{d}{dx}(f) \text{ or }  \frac{df}{dx}
+      </me>
+    </p>
+    <p>
+      The expression <m>\frac{d}{dx}</m> is read "dee,
+      dee-ex" and means "take the derivative using <m>x</m> as the variable." It is what is called a
+      <em>mathematical operator,</em>
+      which is a symbol that indicates an operation to be performed.
+      In this case,
+      that operation is "taking the derivative." The expression <m>\frac{d}{dx}(f)</m> is read "dee,
+      dee-ex of <m>f</m>" and means "take the derivative of <m>f</m>,
+      using <m>x</m> as the variable." The operation of "taking the derivative" is being applied to the function <m>f</m>.
+      The notation <m>\frac{df}{dx}</m> is read "dee-eff,
+      dee-ex" and also means "take the derivative of <m>f</m> using <m>x</m> as the variable."
+    </p>
+    <p>
+      <em><m>\mathbf{\frac{df}{dx}}</m> is exactly what you are already used to seeing written as <m>\mathbf{f'(x)}</m>!</em> Similarly,
+      if <m>y</m> is a dependent variable with independent variable <m>x</m>,
+      then we can write any<fn>
+      Physicists use even more notations for derivatives,
+      such as using dots over variable to indicate the number of derivatives.
+      Think of these multiple notations as evidence of how widely used derivatives are:
+      all of the different disciplines who use derivatives have developed their own short-hand for them.
+      </fn> of
+      <me>
+        y' = \frac{d}{dx}(y) = \frac{dy}{dx}
+      </me>
+      for the derivative of <m>y</m>.
+    </p>
+    <p>
+      The main benefit of Leibniz notation is that it is very clear about what letter is the independent variable.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, if we have a position function <m>s(t)</m>,
+          then the function is named <m>s</m> and the independent variable is <m>t</m>,
+          so here are all of the different ways we have of writing the derivative:
+          <me>
+            v(t) = s'(t) = \frac{d}{dt}(s) = \frac{ds}{dt}
+          </me>
+          where by <m>v(t)</m> we mean the velocity function.
+        </p>
+        <p>
+          The notation <m>\frac{d}{dt}</m> means to take the derivative,
+          treating <m>t</m> as the independent variable.
+        </p>
+      </statement>
+    </example>
+    <p>
+      We see the full use of Leibniz notation when we consider expressions that have more than one letter that could be the independent variable.
+      In this course,
+      only one letter can serve as the independent variable at a time.
+      If you wish to let more than one letter serve as a variable,
+      you will need to take Multivariable Calculus.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, the volume of a cylinder is <m>V=\pi r^2 h</m>.
+          If we think of the radius <m>r</m> of the cylinder as being a changeable number
+          (meaning a variable)
+          while the height <m>h</m> is constant,
+          then the volume is a function of <m>r</m>:
+          <m>V(r) = \pi r^2 h</m>.
+          We can take its derivative:
+          <me>
+            V'(r) = \frac{d}{dr}(V)
+          </me>
+        </p>
+        <p>
+          On the other hand,
+          the radius <m>r</m> may be constant while the height <m>h</m> changes,
+          so the volume is a function of <m>h</m>:
+          <m>V(h) = \pi r^2 h</m>.
+          Note that the formula is the same,
+          but our perspective of which letter is the variable has changed.
+          We can take the derivative of this function instead:
+          <me>
+            V'(h) = \frac{d}{dh}(V)
+          </me>
+        </p>
+        <p>
+          If we just write the prime notation <m>V'</m>,
+          we don't know which letter we are using for the variable.
+          However, if we write <m>\dfrac{dV}{dr}</m> or <m>\dfrac{dV}{dh}</m>,
+          we know exactly which letter we are using for the variable.
+          We will revisit this example again later.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Leibniz notation is intentionally structured to remind us of the connection between derivatives and average rates of change.
+      Intuitively,
+      the expression <m>dx</m> represents an infinitesimally small change in <m>x</m>,
+      just as we have used <m>\Delta x</m> to represent a finite change in <m>x</m>,
+      and <m>dy</m> represents an infinitesimally small change in <m>y</m>,
+      just as we have used <m>\Delta y</m> to represent a finite change in <m>y</m>.
+      In Leibniz notation,
+      we can rewrite the definition of the derivative in terms of the changes in the independent and dependent variable.
+      If we let <m>\Delta x = (x+h)-x = h</m> and <m>\Delta y = f(x+h)-f(x)</m>,
+      then the definition of the derivative as a limit of average rates of change is strikingly clear:
+      <me>
+        \frac{dy}{dx} = \lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}
+      </me>
+    </p>
+    <p>
+      This notation means that the instantaneous change in <m>y</m> with respect to the instantaneous change in <m>x</m> is the limit as the change in <m>x</m> approaches 0 of the average rate of change
+      (the change in <m>y</m> divided by the change in <m>x</m>).
+      Once you unpack this notation,
+      it's exactly same as what we were doing.
+      However, writing the derivative in this way can provide a clearer understanding of its meaning.
+    </p>
+    <p>
+      TL;DR? The <m>\Delta</m> (pronounced "delta") turns into a <m>d</m> when going from average change to instantaneous change using Leibniz notation.
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Power Rule</title>
+    <p>
+      Now we return to listing more formulas for derivatives.
+      We'll use Leibniz notation to avoid needing to refer to explicit names of functions.
+    </p>
+    <p>
+      You may have already noticed a particular pattern for the derivatives of power functions.
+      Collecting a few examples of derivatives that we have computed (either in the course notes or on worksheets):
+      <me>
+        \frac{d}{dx}(x^2) = 2x \text{ and }   \frac{d}{dx}(x^3) = 3x^2
+      </me>.
+    </p>
+    <p>
+      Additionally, we saw that if <m>f(x) = \frac{1}{x}</m>,
+      then <m>f'(x) = -\frac{1}{x^2}</m>.
+      Rewriting this last relationship in terms of powers of <m>x</m>:
+      <me>
+        \frac{d}{dx}(x^{-1}) = -x^{-2}
+      </me>
+    </p>
+    <p>
+      From these examples, it appears that,
+      to take the derivative of the power function <m>x^n</m>,
+      we bring down the exponent <m>n</m> to the front of the expression and then decrease the exponent by one,
+      to get <m>nx^{n-1}</m>.
+    </p>
+    <theorem xml:id="thm_powerrule">
+      <title>The Power Rule</title>
+      <statement>
+        <p>
+          For any non-zero real number <m>n</m>,
+          <me>
+            \frac{d}{dx}(x^n)=nx^{n-1}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Although we have only seen examples where <m>n</m> is an integer,
+      the power rule is actually true for any nonzero real number <m>n</m>.
+      (If <m>n=0</m>, then <m>x^0=1</m> is a constant function,
+      which we already know has derivative equal to 0.)
+    </p>
+    <p>
+      For example, recall that <m>\sqrt{x} = x^{1/2}</m> so that
+      <me>
+        \begin{aligned}\frac{d}{dx}(\sqrt{x}) \amp = \frac{d}{dx}(x^{1/2}) \\ \amp = \frac{1}{2}x^{1/2-1}\\ \amp  = \frac{1}{2}x^{-1/2}\\ \amp = \frac{1}{2\sqrt{x}}. \end{aligned}
+      </me>
+    </p>
+    <p>
+      Considering the algebra involved in applying the definition of the derivative,
+      it is a relief to have such a simple formula for finding derivatives of power functions!
+      With this formula we can quickly say, for example that
+      <me>
+        \frac{d}{dx}(x^{15}) = 15x^{14}
+      </me>
+      or that
+      <me>
+        \frac{d}{dx}(x^{-1000}) = -1000x^{-1001}
+      </me>
+      or even that
+      <me>
+        \frac{d}{dx}(x^{17/12}) = \frac{17}{12}x^{5/12}
+      </me>.
+      Note that the exponent in the last derivative comes from <m>\frac{17}{12}-1 = \frac{17}{12} - \frac{12}{12} = \frac{5}{12}</m>.
+    </p>
+    <p>
+      Believe it or not, we can even say that
+      <me>
+        \frac{d}{dx}(x^\pi) = \pi x^{\pi-1}
+      </me>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Find the derivatives of <m>x^{5}</m>,
+          <m>\frac{1}{x^4} = x^{-4}</m>,
+          and <m>\sqrt[7]{x} = x^{1/7}</m>.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Constant Multiple and Sum Rules</title>
+    <p>
+      In Chapter 2 we saw that limits can be split up over arithmetic combinations of functions.
+      For example, limits can distribute over sums:
+      <m>\ds\lim_{x\to c}(f(x)+g(x)) = \ds\lim_{x\to c}f(x)+\lim_{x\to c}g(x)</m>.
+      See <xref ref="thm_limitrules">Theorem</xref>
+      for a reminder of the limit rules.
+      Since derivatives are limits,
+      <em>some</em> of the same types of rules are true for derivatives:
+    </p>
+    <theorem xml:id="thm_derivativesmultiplessums">
+      <title>Derivatives of Constant Multiples and Sums of Function</title>
+      <statement>
+        <p>
+          If <m>f</m> and <m>g</m> are functions and <m>k</m> is a constant,
+          then for all <m>x</m> where the functions involved are differentiable,
+          we have the following differentiation formulas:
+          <me>
+            <md>
+              \textrm{\textbf{Constant Multiple Rule:}} \amp \qquad \frac{d}{dx}(k f(x))=k\cdot\frac{d}{dx}(f(x))\\ \\ \textrm{\textbf{Sum Rule:}} \amp \qquad  \frac{d}{dx}(f(x)+g(x))=\frac{d}{dx}(f(x))+\frac{d}{dx}(g(x))\\ \\ \textrm{\textbf{Difference Rule:}} \amp \qquad  \frac{d}{dx}(f(x)-g(x))=\frac{d}{dx}(f(x))-\frac{d}{dx}(g(x))
+            </md>
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Note that the difference rule is just a combination of the sum and constant multiple rules,
+      since <m>f(x)-g(x) = f(x)+(-g(x))</m>.
+    </p>
+    <p>
+      These rules mean that we can factor out constants and split up sums when calculating derivatives.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          derivatives of sums or constant multiples of the functions <m>f(x)=x^2</m> and
+          <m>g(x) = x^4</m> can be expressed as sums or constant multiples of their derivatives
+          <m>f'(x) = 2x</m> and <m>g'(x) = 4x^3</m>, as we can see here:
+          <me>
+            \begin{aligned}\frac{d}{dx}(5x^2+2x^4)\amp = \frac{d}{dx}(5x^2)+\frac{d}{dx}(2x^4) \amp  \leftarrow\text{ sum rule } \\ \amp = 5\frac{d}{dx}(x^2)+2\frac{d}{dx}(x^4)\amp  \leftarrow\text{ constant multiple rule } \\ \amp = 5(2x)+2(4x^3)\amp  \leftarrow\text{ power rule } \\ \amp =10x+8x^3.\amp  \leftarrow\text{ simplify } \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find the derivative of <m>f(z) = 4\sqrt{z}+\dfrac{3}{z^4}</m>.
+          <em>Hint: rewrite both terms as powers of <m>z</m>.</em>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Rewriting in terms of powers of <m>z</m>:
+          <me>
+            f(z) = 4z^{1/2}+3z^{-4}
+          </me>
+          so that
+          <me>
+            \begin{aligned}f'(z) \amp = 4\left(\frac{1}{2}z^{1/2-1}\right)+3(-4z^{-4-1})\\ \amp = 2z^{-1/2}-12z^{-5}\\ \amp = \frac{2}{\sqrt{z}}-\frac{12}{z^5} \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise xml:id="ex_derivativeofp">
+      <statement>
+        <p>
+          Find <m>\dfrac{dp}{dt}</m> if <m>p(t) = 3t^5-7t^4+t^2+9</m>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      \fbox{A good follow-up question to ask is:
+    </p>
+    What <em>can't</em> we do when taking derivatives that we <em>could</em> do when taking limits?
+    <p>
+      We <em>cannot</em> distribute derivatives over products,
+      fractions, or composition of functions.
+      We will see why and how to handle such calculations in the next two sections. }}
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let's return to our cylinder with volume
+          <m>V=\pi r^2h</m> of radius <m>r</m> and height <m>h</m>.
+          Viewing <m>r</m> as the variable and <m>h</m> as a constant
+          (meaning a number),
+          <m>V(r) = \pi r^2 h = (\pi h)r^2</m> is a multiple of the power function <m>r^2</m>,
+          with coefficient <m>\pi h</m>.
+          By the constant multiple rule and the power rule, we have
+          <me>
+            \begin{aligned}\frac{d}{dr} (V)\amp = \frac{d}{dr}(\pi r^2h)\\ \amp = \pi h\frac{d}{dr}(r^2)\\ \amp = (\pi h)(2r)\\ \amp = 2\pi r h. \end{aligned}
+          </me>
+        </p>
+        <p>
+          On the other hand,
+          if <m>h</m> is the variable and <m>r</m> is the constant,
+          then <m>V(h) = \pi r^2 h = (\pi r^2)h</m> is a linear function of <m>h</m> with coefficient <m>\pi r^2</m>.
+          Since this is a linear function,
+          its derivative is the slope,
+          which is the coefficient <m>\pi r^2</m> of <m>h</m>:
+          <me>
+            \frac{dV}{dh} = \pi r^2
+          </me>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <title>The Meaning of Derivatives</title>
+      <statement>
+        <p>
+          Let's take a look at the meaning of the last two derivatives we calculated.
+        </p>
+        <p>
+          When viewing <m>r</m> as the variable, we get
+          <me>
+            \frac{dV}{dr} = 2\pi r h
+          </me>,
+          meaning that the instantaneous rate of change of the volume of the cylinder is <m>2\pi rh</m>.
+          <m>2\pi r h</m> is also the formula for the area of the side of the cylinder
+          (the part of the cylinder that looks like a toilet paper tube).
+          So this derivative means that if we increase the radius,
+          the volume increases by the area of the side of the cylinder.
+          Think of the cylinder expanding out from the middle by layering on more and more tubes so the sides.
+        </p>
+        <p>
+          On the other hand, when <m>h</m> is the variable, we get
+          <me>
+            \frac{dV}{dh} = \pi r^2
+          </me>.
+        </p>
+        <p>
+          You may recognize the expression <m>\pi r^2</m> as the area of the circle at the top of the cylinder.
+          So this derivative means that if we increase the height,
+          the volume increases by the area of the top of the cylinder.
+          Think of the cylinder getting taller by layering on more and more circles on the top
+          (or bottom).
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find <m>\dfrac{dy}{dw}</m> and
+          <m>\dfrac{dy}{dz}</m> if <m>y=5w^2+3z^{-1}</m>.
+          <em>Hint: if <m>w</m> is the variable, then <m>z</m> is constant
+          (think of it like a number),
+          and vice versa.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Higher Order Derivatives</title>
+    <p>
+      Leibniz notation can also be used for second derivatives.
+      For example,
+      the second derivative is the derivative of the first derivative, so
+      <me>
+        f''(x) = \frac{d}{dx}\left[\frac{df}{dx}\right] = \frac{d^2 f}{dx^2}
+      </me>
+    </p>
+    <p>
+      Similarly, we could find the third,
+      fourth, fifth, etc. derivatives of a function <m>f</m>:
+      <me>
+        f'''(x) = \frac{d^3f}{dx^3}, f^{(4)}(x) = \frac{d^4f}{dx^4}, f^{(5)}(x) = \frac{d^5f}{dx^5}, \ldots
+      </me>
+    </p>
+    <p>
+      Notice that in the prime notation,
+      we replace the primes with a parenthetical notation for 4<m>^\text{ th }</m> derivatives and higher.
+      In general, the <em><m>\mathbf{n^{\text{ th } }}</m> derivative of a function <m>\mathbf{f}</m></em> is denoted by
+      <me>
+        f^{(n)}(x) = \frac{d^nf}{dx^n} = \underbrace{\frac{d}{dx}\Big(\frac{d}{dx}\Big(\frac{d}{dx}\ldots\Big(\frac{d}{dx}}_{n\text{ times } }(f(x))\Big)\ldots\Big)\Big)
+      </me>
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, if <m>f(x) = x^4</m>,
+          then <m>f'(x) = 4x^3</m>, <m>f''(x) = 12x^2</m>,
+          <m>f'''(x) = 24 x</m>, <m>f^{(4)}(x) = 24</m>,
+          and <m>f^{(5)}(x) = 0</m>.
+          These functions are graphed next;
+          each one is the associated slope function for the one before.
+        </p>
+        <p>
+          <image width="73%" source="TaalmanPage196.png"/>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Now that we can do it quickly,
+          let's see again that the acceleration of a falling object with height modeled by
+          <me>
+            s(t) = -16t^2+v_0t+s_0
+          </me>
+          is <m>-32</m> ft/sec<m>^2</m>.
+        </p>
+        <p>
+          Taking the first derivative, we have
+          <me>
+            v(t) = s'(t) = -32t+v_0
+          </me>
+          where the units for <m>v(t) = \frac{ds}{dt}</m> are <m>\frac{\text{ ft } }{\text{ sec } }</m>.
+          Taking the second derivative, we have
+          <me>
+            a(t) = \frac{d}{dt}(-32t+v_0) = -32
+          </me>
+          where the units for <m>a(t) = \frac{d^2s}{dt^2}</m> are <m>\frac{\text{ ft/sec } }{\text{ sec } } = \frac{\text{ ft } }{\text{ sec } ^2}</m>.
+        </p>
+        <p>
+          Summarizing the key point to take away:
+          the model <m>s(t) = -16t^2+v_0t+s_0</m> accurately describes an object with constant acceleration of <m>-32</m> ft/sec<m>^2</m> due to gravity.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          For <m>p(t) = 3t^5-7t^4+t^2+9</m>,
+          calculate <m>\dfrac{d^2p}{dt^2}</m> and
+          <m>\dfrac{d^3p}{dt^3}</m>,<nbsp/><m>\dfrac{d^4p}{dt^4}</m>,
+          <m>\dfrac{d^5p}{dt^5}</m>, etc. until you run out of derivatives to take
+          (meaning the derivatives become 0).
+          <em>Remember, you already found
+          <m>\frac{dp}{dt}</m> in <xref ref="ex_derivativeofp">Exercise</xref>.</em>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and formulas were introduced in this section:
+    </p>
+    Derivatives of constant and linear functions, mathematical operator, the power rule, the constant multiple and sum rules, <m>n^\text{ th }</m> derivative of <m>f</m>.
+    <p>
+      <em>Key ideas:</em> The derivative of a constant function is its slope,
+      while the derivatives of power functions involves taking the power down and subtracting one.
+      Leibniz notation is extremely useful,
+      especially for specifying which letter to use as a variable in situations where there could be more than one choice.
+      We need to be careful not to apply "extra" formulas that we have not explicitly said are "legal" when taking derivatives,
+      such as derivatives of products,
+      fractions, and compositions.
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      Leibniz notation is a better visual representation of the units and meaning of the derivative as coming from an average rate of change.
+      Don't worry about the cylinder examples for the moment if they do not make sense.
+      They are laying the foundation for future material.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 3.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,1050 @@
+<section xml:id="sec_logfunctions">
+  <title>Logarithmic Functions</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Define logarithms as the inverses of exponential functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Combine properties of inverse functions and exponential functions to develop properties of logarithmic functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize key features of graphs of logarithmic functions,
+          including domain, range, and <m>x</m>-intercept.
+        </p>
+      </li>
+      <li>
+        <p>
+          Memorize the logarithm rules,
+          with or without justification
+          (your choice).
+        </p>
+      </li>
+      <li>
+        <p>
+          Solve equations involving exponential and logarithmic functions.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Defining Logarithmic Functions</title>
+    <p>
+      We saw at the end of the last section in <xref ref="thm_propertiesofexpfunctions">Theorem</xref>
+      that every exponential function
+      <m>f(x) = b^x</m> passes the Horizontal Line Test,
+      and so every exponential function has an inverse.
+      In this section,
+      we will define and explore inverse functions to the exponential functions.
+      These inverse functions have a specific name:
+      <em>logarithmic functions</em>.
+    </p>
+    <definition xml:id="def_baseblogs">
+      <title>Logarithmic Functions as Inverses of Exponential Functions</title>
+      <statement>
+        <p>
+          The inverse of the base-<m>b</m> exponential function <m>b^x</m> is the
+          <em>base-<m>b</m>logarithmic function</em>
+          <me>
+            \log_b x
+          </me>
+          which is the power that we raise <m>b</m> to to get <m>x</m>.
+          In other words,
+          <me>
+            y=\log_b x  \Leftrightarrow b^y=x
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="ex_logdefninaction">
+      <title>Examples of Finding Values of Logarithms</title>
+      <statement>
+        <p>
+          The following examples demonstrate <xref ref="def_baseblogs">Definition</xref> in action:
+          <ol marker="labeltextbfalphitemsep5pttopsep5pt">
+            <li>
+              <p>
+                <m>\log_2 8</m> is another way of asking "To what power do we raise 2 to get 8?" Since <m>2^3=8</m>, we have
+                <me>
+                  2^3=8  \Leftrightarrow \log_2 8=3
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\log_{36} 6</m> is another way of asking "To what power do we raise 36 to get 6?" Since <m>\sqrt{36} = 36^{1/2}=6</m>, we have
+                <me>
+                  36^{1/2}=6  \Leftrightarrow \log_{36} 6=\frac{1}{2}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\log_7 \frac{1}{49}</m> is another way of asking "To what power do we raise 7 to get
+                <m>\frac{1}{49}</m>?" Since <m>7^2=49</m>,
+                <m>7^{-2} = \frac{1}{49}</m>, thus we have
+                <me>
+                  7^{-2} = \frac{1}{49}  \Leftrightarrow \log_7 \frac{1}{49}=-2
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\log_b 1</m> is another way of asking "To what power do we raise <m>b</m> to get 1?" Since <m>b^0=1</m> for any base <m>b</m>, we have
+                <me>
+                  b^0=1  \Leftrightarrow \log_b 1=0
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      \fbox{As a special case,
+      the inverse of the base-<m>10</m> exponential function <m>10^x</m> is often written without an explicit base:
+      <me>
+        \log_{10} x = \log x
+      </me>,
+      This is the power to which we raise <m>10</m> to get <m>x</m>:
+      <me>
+        y=\log_{10}x  \Leftrightarrow 10^y=x
+      </me>
+    </p>
+    <p>
+      Why single out the base-<m>10</m> logarithm as the meaning of <m>\log</m> without an explicit base?
+      This convention varies by discipline and is most common in the sciences where people make frequent use of scientific notation,
+      where very large numbers are written in terms of powers of 10, such as
+      <me>
+        5,000,000,000 = 5\times10^9
+      </me>.
+    </p>
+    <p>
+      In computer science,
+      people are more likely to use base-<m>2</m> logarithms without an explicit base due to the use of powers of 2 for the size of data (a byte is <m>2^8</m>,
+      a kilobyte is <m>2^{10}</m>, a megabyte is <m>2^{20}</m>, etc.).
+      Mathematicians typically use a base of <m>e</m>,
+      which you will learn about in a future section.
+    </p>
+    <p>
+      Note that on WeBWorK, the function <m>\log</m> denotes <m>\log_e</m>,
+      rather than either <m>\log_{10}</m> or <m>\log_{2}</m>.
+      On WeBWorK, you will need to enter
+      <m>\log_{10}(x)</m> as "log10<m>(x)</m>."
+    </p>
+    <p>
+      We require that the base <m>b</m> satisfy <m>b>0</m> and <m>b\neq 1</m>,
+      because these are exactly the conditions we must have for <m>y=b^x</m> to be an exponential function.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A table of values for the function <m>f(x) = 2^x</m> is
+        </p>
+        <table>
+          <title>Table of values for <m>f(x)=2^x</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>f(x) = 2^x</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>-4</m></cell>
+              <cell><m>\frac{1}{16}</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>-3</m></cell>
+              <cell><m>\frac{1}{8}</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>-2</m></cell>
+              <cell><m>\frac{1}{4}</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>-1</m></cell>
+              <cell><m>\frac{1}{2}</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>0</m></cell>
+              <cell><m>1</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>4</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>8</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>4</m></cell>
+              <cell><m>16</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          The inverse function must reverse inputs and outputs,
+          thus a table of values for <m>f^{-1}(x) = \log_2x</m> is
+        </p>
+        <table>
+          <title>Table of values for <m>f^{-1}(x)=\log_2 x</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell><m>f^{-1}(x) = \log_2(x)</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  ><m>\frac{1}{16}</m></cell>
+              <cell><m>-4</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{1}{8}</m></cell>
+              <cell><m>-3</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{1}{4}</m></cell>
+              <cell><m>-2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\frac{1}{2}</m></cell>
+              <cell><m>-1</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>0</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>1</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>4</m></cell>
+              <cell><m>2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>8</m></cell>
+              <cell><m>3</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>16</m></cell>
+              <cell><m>4</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Both functions are graphed below.
+          Note that the graph of <m>f^{-1}(x) = \log_2 x</m> is the graph of
+          <m>f(x) = 2^x</m> reflected over the line <m>y=x</m>.
+        </p>
+        <figure xml:id="fig_ExpLog2">
+          <caption>The graph of <m>f^{-1}(x) = \log_2 x</m> (in green) is the graph of <m>f(x) = 2^x</m> (in blue) reflected over the line <m>y=x</m> (in red).</caption>
+          <image width="56%" source="ExpLog2.png"/>
+        </figure>
+        <p>
+          The domain of <m>f(x) = 2^x</m> is the set of all real numbers and its range is the set of all positive numbers:
+          <m>(0,\infty)</m>.
+          Inverse functions switch input and output,
+          thus switch domain and range,
+          hence we know that the domain of <m>f^{-1}(x) = \log_2 x</m> is
+          <m>(0,\infty)</m> and its range is <m>(-\infty,\infty)</m>.
+          We can confirm this graphically in <xref ref="fig_ExpLog2">Figure</xref>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Recall that inverse functions describe the same relationship as the original function from a different perspective.
+      In this way,
+      logarithms are simply a different perspective on exponential relationships.
+      In other words,
+      logarithms give us an equivalent way to write exponential equations.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For instance,
+          <me>
+            10^2 = 100\text{ and } \log_{10}(100) = 2
+          </me>
+          each say the same thing from two different perspectives.
+          The first says "100 is 10 to the power 2", while the second says "2 is the power to which we raise 10 to get 100." Similarly
+          <me>
+            10^{-3} = \frac{1}{1000}\text{ and } \log_{10}\left(\frac{1}{1000}\right) = -3
+          </me>.
+        </p>
+        <p>
+          The first says "10 to the power of <m>-3</m> is
+          <m>\frac{1}{1000}</m>" while the second says "<m>-3</m> is the power to which we raise 10 to get <m>\frac{1}{1000}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Remember that we began by defining inverse functions as reverse processes of each other via the identities
+      <me>
+        f(f^{-1}(x))=x\qquad\text{ and } \qquad f(f^{-1}(x))=x
+      </me>
+    </p>
+    <p>
+      This is also true for exponential functions and logarithms.
+    </p>
+    <example>
+      <statement>
+        <p>
+          If we rearrange the statements of the facts in
+          <m>10^2 = 100</m> and <m>\log_{10}(100) = 2</m>,
+          we can see yet another important relationship between the powers of 10 and base-10 logarithm function.
+          Noting that <m>\log_{10}(100) = 2</m> and
+          <m>100 = 10^2</m> are equivalent statements,
+          and substituting the latter equation into the former, we see that
+          <me>
+            \log_{10}(10^2) = 2
+          </me>.
+        </p>
+        <p>
+          In words, this equation says that "the power to which we raise <m>10</m> to get <m>10^2</m> is 2." That is,
+          the base-<m>10</m> logarithm function reverses raising 10 to a power.
+        </p>
+        <p>
+          In a similar way, if we rearrange the statements in
+          <m>10^{-3} = \frac{1}{1000}</m> and <m>\log_{10}\left(\frac{1}{1000}\right) = -3</m>,
+          we can observe that by replacing <m>-3</m> with <m>\log_{10}\left(\frac{1}{1000}\right)</m> we have
+          <me>
+            10^{\log_{10}\left(\frac{1}{1000}\right)} = \frac{1}{1000}
+          </me>.
+          In words, this equation says that "when <m>10</m> is raised to the power to which we raise <m>10</m> in order to get <m>\frac{1}{1000}</m>,
+          we get <m>\frac{1}{1000}</m>."
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can use properties of inverse functions to write down some relationships between logarithmic and exponential functions,
+      all of which we have already observed explicitly in the examples above.
+    </p>
+    <theorem xml:id="thm_relationshipsoflogsandexp">
+      <title>Relationships Between $\log_b x$ and $b^x$</title>
+      <statement>
+        <p>
+          Since exponential functions and logarithmic functions are inverses of each other,
+          for <m>b>0</m> and <m>b\neq 1</m> we have the following relationships:
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>b^0=1</m> and <m>\log_b 1 = 0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The graph of <m>y=\log_b x</m> is the graph of <m>y=b^x</m> reflected over the line <m>y=x</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>b^x</m> is the set of all real numbers and the range of <m>b^x</m> is the set of all
+                <em>positive</em> numbers.
+              </p>
+            </li>
+            <li>
+              <p>
+                The domain of <m>\log_b x</m> is the set of all <em>positive</em>
+                numbers and the range of <m>\log_b x</m> is the set of all real numbers.
+              </p>
+            </li>
+            <li>
+              <p>
+                For any real number <m>x</m>, <m>\log_b (b^x) = x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For any <em>positive</em> real number <m>x</m>, <m>b^{\log_b x} = x</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <example xml:id="ex_solvingexplogequations">
+      <statement>
+        <p>
+          We can use the relationships between exponential functions and logarithms from above to solve equations involving both exponential and logarithmic functions:
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                We could not previously solve the equation
+                <me>
+                  5^{2x} = 21
+                </me>
+                because 21 is not a power of <m>5</m>.
+                Now, we can convert the above expression into a logarithm using <xref ref="def_baseblogs">Definition</xref> and solve for <m>x</m>:
+                <me>
+                  \begin{aligned}5^{2x} \amp = 21\\ \log_5 (21)\amp = 2x\\ \frac{\log_5(21)}{2} \amp = x \end{aligned}
+                </me>
+                This answer may not look particularly nice,
+                but we can use a calculator in order to estimate the value of <m>x</m>:
+                <me>
+                  x = \frac{\log_5(21)}{2} \approx 0.9458
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We could also have used part (e) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>
+                to solve the equation in part (a) by applying <m>\log_5</m> to both sides of the equation:
+                <me>
+                  \begin{aligned}5^{2x} \amp = 21\\ \log_5 \left(5^{2x}\right)\amp = \log_5(21)\\ 2x\amp = \log_5(21)\\ x \amp = \frac{\log_5(21)}{2} \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose we wish to solve the equation
+                <me>
+                  \log_3(x+5)+6 = 10
+                </me>
+                we can begin by isolating the logarithm and then converting to an exponential form using <xref ref="def_baseblogs">Definition</xref>
+                 in order to isolate <m>x</m>:
+                <me>
+                  \begin{aligned}\log_3(x+5)+6 \amp = 10\\ \log_3(x+5)  \amp = 4\\ 3^4 \amp = x+5\\ 81 \amp = x+5\\ 76 \amp = x \end{aligned}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                We could also solve the equation in part (c) above using part (f) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>
+                by first isolating the logarithm,
+                raising <m>3</m> to the power of each side,
+                and setting the two expressions equal:
+                <me>
+                  \begin{aligned}\log_3(x+5)+6 \amp = 10\\ \log_3(x+5)  \amp = 4\\ 3^{\log_3(x+5)}\amp =3^4\\ x+5 \amp = 81\\ x \amp = 76 \end{aligned}
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Because of the many relationships between exponential and logarithmic functions,
+      there are typically many different ways to solve such equations.
+      If one of the methods outlined in <xref ref="ex_solvingexplogequations">Example</xref>
+      makes more sense to you than the other,
+      that is the one you should use.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use logarithms to find the value of the variable:
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>10^x = 0.00001</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>2^w = 37</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>5^t = 0.04</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>3\cdot 7^v+11 = 147</m> <em>Hint: Isolate the exponential function first.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Use exponential functions to find the value of the variable:
+          <ol marker="labeltextbfalphitemsep10pttopsep5ptstart5">
+            <li>
+              <p>
+                <m>\log_{10}(10,000) = r</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\log_2 s = 1.375</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>2\log_{10}(y)+5 = 1</m> <em>Hint: Isolate the logarithmic function first.</em>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Shapes of Graphs of Logarithms</title>
+    <p>
+      As the inverse of exponential functions <m>f(x) = b^x</m>,
+      we have already established that logarithmic functions
+      <m>g(x) = \log_b x</m> have the set of all positive real numbers as their domains and the set of all real numbers as their range.
+      In addition, being the inverse of <m>f(x) = b^x</m>,
+      we know that when we plot exponential and logarithmic functions on the same coordinate axes,
+      their graphs are reflections of one another across the line <m>y=x</m>,
+      as seen below
+    </p>
+    <p>
+      <image width="93%" source="TaalmanPage345.png"/>
+    </p>
+    <p>
+      Consider <m>b=2</m>.
+      Because the graph of <m>f(x) = 2^x</m> increases more and more rapidly as <m>x</m> increases,
+      the graph of <m>\log_2{x}</m> increases more slowly as <m>x</m> increases.
+      Even though the logarithmic function grows very slowly,
+      it grows without bound
+      (meaning without reaching a horizontal limit)
+      because we can make <m>\log_2 x</m> as large as we want by making <m>x</m> sufficiently large.
+      For instance,
+      if we want <m>x</m> such that <m>\log_2(x) = 100</m>,
+      we choose <m>x=2^{100}</m>, since <m>\log_2(2^{100}) = 100</m>.
+      If we want <m>\log_2(x)=1,000</m>,
+      we can choose <m>x=2^{1,000}</m>.
+      If we want <m>\log_2(x) = 1,000,000</m>,
+      we can choose <m>x=2^{1,000,000}</m>, etc.
+    </p>
+    <p>
+      Summarizing:
+    </p>
+    <p>
+      \fbox{For any base-<m>b</m> logarithm with <m>b>1</m>,
+      the graph of <m>y=\log_b(x)</m>:
+      <ul>
+        <li>
+          <p>
+            passes through the point <m>(1,0)</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+            is always increasing,
+          </p>
+        </li>
+        <li>
+          <p>
+            is always concave down,
+          </p>
+        </li>
+        <li>
+          <p>
+            increases without bound as <m>x\to\infty</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Use Desmos to graph <m>y=\log_{1/2} x</m>.
+          Determine which of the above observations above are true for base-<m>b</m> logarithms with <m>0\lt b\lt 1</m>.
+          Modify any that are not true appropriately.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Logarithm Rules</title>
+    <p>
+      In this section,
+      we cover a list of rules for manipulating logarithms.
+      These can be memorized, if you like.
+      However, it is far more satisfying
+      (in my opinion)
+      to have some idea <em>why</em> these rules are true.
+      We state the rules first and give justifications for them in the next section.
+      If you do not care to read the justifications, that is your prerogative.
+    </p>
+    <theorem xml:id="thm_logproperties">
+      <title>The Logarithm Rules</title>
+      <statement>
+        <p>
+          For any positive real numbers <m>c</m> and <m>d</m> and any real number <m>n</m>,
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>\log_b(c\cdot d) = \log_b(c)+\log_b(d)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\log_b\left(\dfrac{c}{d}\right) = \log_b(c)-\log_b(d)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\log_b(c^n) = n\log_b(c)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <title>Simplifying Logarithmic Expressions</title>
+      <statement>
+        <p>
+          We can use the logarithm rules to simplify expressions:
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                We simplify <m>\log_64+2\log_63</m> without needing a calculator.
+                First observe that we can use rule (c) to rewrite
+                <me>
+                  2\log_6 3 = \log_6 9
+                </me>
+                and then use rule (a) to combine terms,
+                multiplying the arguments of both logarithms:
+                <me>
+                  \log_6 4+\log_6 9 = \log_6(4\cdot 9) = \log_6 36
+                </me>.
+                We know that <m>36 = 6^2</m> and so by <xref ref="thm_relationshipsoflogsandexp">Theorem</xref> part (e),
+                <me>
+                  \log_6 36 = \log_6 6^2 = 2
+                </me>.
+                In this way, we fully simplify
+                <me>
+                  \log_64+2\log_63=2
+                </me>
+                without needing to touch a calculator.
+              </p>
+            </li>
+            <li>
+              <p>
+                Similarly, we can simplify
+                <m>\frac{1}{2}\log_5 16-2\log_5 10</m> without needing a calculator:
+                <me>
+                  \begin{aligned}\frac{1}{2}\log_5 16-2\log_5 10 \amp = \log_5 (16^{1/2})-\log_5 (10^2)\\ \amp = \log_5 4-\log_5 100\\ \amp = \log_5 \left(\frac{4}{100}\right)\\ \amp = \log_5\left(\frac{1}{25}\right)\\ \amp = \log_5(5^{-2})\\ \amp = -2 \end{aligned}
+                </me>
+                In order, we have applied Logarithm Rule (c), then Logarithm Rule (b),
+                rewritten the fraction <m>1/25</m> in terms of a power of <m>5</m>,
+                and then applied <xref ref="thm_relationshipsoflogsandexp">Theorem</xref> part (e).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Solve the equation below for <m>x</m> without using a calculator:
+          <me>
+            2\log_{10}x = \log_{10}12+\log_{10}3
+          </me>
+        </p>
+        <p>
+          Until you get used to applying all of these formulas,
+          it is very important to keep track of which Logarithm Rule or part of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>
+          you use at each step so that you do not misuse them.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      This last property of <xref ref="thm_logproperties">Theorem</xref> is extremely powerful:
+      suppose that the exponent is a <em>variable</em>.
+      By working with logarithms appropriately,
+      it enables us to move from having a variable in an exponential expression to the variable being part of a linear expression.
+      Moreover, it enables us to solve exponential equations exactly,
+      regardless of the base involved.
+    </p>
+    <example xml:id="ex_hawksbill">
+      <statement>
+        <p>
+          Hawksbill turtles are endangered and are extensively hunted as the traditional source of tortoiseshell.
+          They currently have a population of 25,000 and the population is decreasing at a rate of 12% each year.
+          How long will it be until there are under 5,000 hawksbill turtles left?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We measure the population of hawksbill turtles with the function
+          <me>
+            P(t) = 25000(0.88)^t
+          </me>,
+          using the growth rate of <m>-12\%</m> to determine the growth factor of <m>b=1-0.12 = 0.88</m>.
+          We wish to solve the equation
+          <me>
+            25000(0.88)^t = 5000
+          </me>.
+        </p>
+        <p>
+          First divide by 25000:
+          <me>
+            \begin{aligned}0.88^t \amp = \frac{5000}{25000}\\ 0.88^t\amp =0.2. \end{aligned}
+          </me>
+        </p>
+        <p>
+          We could convert this to a logarithm with base <m>0.88</m> in order to solve for <m>t</m>,
+          or we could apply any other base logarithm
+          (such as a base-10 logarithm)
+          to both sides and use <xref ref="thm_logproperties">Theorem</xref>
+          part (c) to bring the <m>t</m> out of the exponent:
+          <me>
+            \begin{aligned}\log_{10}(0.88^t) \amp = \log_{10}(0.2)\\ t\cdot\log_{10}(0.88) \amp = \log_{10}(0.2)\\ t \amp = \frac{\log_{10}(0.2)}{\log_{10}(0.88)} \end{aligned}
+          </me>
+        </p>
+        <p>
+          The benefit to doing it this way is that most calculators have a <m>\log_{10}</m> key.
+          Evaluating this, we get
+          <me>
+            t = \frac{\log_{10}(0.2)}{\log_{10}(0.88)}\approx 12.59
+          </me>.
+        </p>
+        <p>
+          So in a bit more than 12 and a half years,
+          there will be only 5,000 hawksbill turtles left.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Here is one final useful property of logarithms:
+      the <em>change of base formula:</em>
+    </p>
+    <theorem>
+      <title>Change of Base Formula for Logarithms</title>
+      <statement>
+        <p>
+          For any positive real numbers
+          <m>d,
+          a, b</m> such that neither <m>d</m> nor <m>b</m> are <m>1</m>, we have
+          <me>
+            \log_b a = \frac{\log_d a}{\log_d b}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This allows us to rewrite a logarithm in base <m>b</m> in terms of logarithms in any base <m>d</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The change of base formula is useful for simplifying certain gross computations involving logarithms.
+          For example,
+          <me>
+            \log_{1/4} 32\sqrt{2}
+          </me>
+          is a bit eye-melting.
+          However, notice that all of the numbers involved are powers of <m>2</m>.
+          Thus we might think to use the change of base formula with <m>d=2</m>:
+          <me>
+            \log_{1/4} 32\sqrt{2} = \frac{\log_2 32\sqrt{2}}{\log_2(1/4)}
+          </me>
+        </p>
+        <p>
+          We now have two simpler, more manageable logarithms to deal with:
+          <me>
+            \log_2 32\sqrt{2}\qquad\text{ and } \qquad \log_2(1/4)
+          </me>
+        </p>
+        <p>
+          We could convert <m>32\sqrt{2}</m> into a power of 2, or we could first use Logarithm Rule (a) to make this calculation even simpler:
+          <me>
+            \log_2(32\sqrt{2}) = \log_2 32+\log_2\sqrt{2} = \log_2 2^5+\log_2 2^{1/2} = 5+\frac{1}{2} = \frac{11}{2}
+          </me>
+        </p>
+        <p>
+          Similarly, we could either convert
+          <m>1/4 = 2^{-2}</m> in order to see that <m>\log_2(1/4) = -2</m>,
+          or we could use Logarithm Rule (b):
+          <me>
+            \log_2\left(\frac{1}{4}\right) = \log_2 1-\log_2 4 = \log_2 2^0-\log_2 2^2 = 0-2 = -2
+          </me>.
+        </p>
+        <p>
+          Putting all of this together, we see that:
+          <me>
+            \begin{aligned}\log_{1/4} 32\sqrt{2} \amp = \frac{\log_2 32\sqrt{2}}{\log_2(1/4)}\\ \amp = \frac{11/2}{-2}\\ \amp = -\frac{11}{4} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Which method is best?
+          That depends entirely on which you think of first and can do most accurately.
+          Just make sure not to make up your own "rules."
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          We can use the Change of Base Formula to see why we can solve <xref ref="ex_hawksbill">Example</xref>
+          using any base logarithm and still arrive at the same answer.
+          In particular,
+          suppose we did use a base-<m>0.88</m> logarithm to solve the equation
+          <me>
+            0.88^t = 0.2
+          </me>.
+        </p>
+        <p>
+          We then have
+          <me>
+            t = \log_{0.88}(0.2)
+          </me>.
+          By the Change of Base Formula,
+          we can rewrite this as a fraction using any base logarithm,
+          including but not limited to base-10:
+          <me>
+            \begin{aligned}\log_{0.88}(0.2) \amp = \frac{\log_{10}(0.2)}{\log_{10}(0.88)}\\ \amp =\frac{\log_{2}(0.2)}{\log_{2}(0.88)}\\ \amp = \frac{\log_{b}(0.2)}{\log_{b}(0.88)} \end{aligned}
+          </me>
+          for any choice of <m>b</m> with <m>b>0</m> and <m>b\neq 1</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          As mentioned earlier,
+          evaluating logarithms on a calculator can be tricky,
+          since most calculators do not have buttons that allow you to use an arbitrary base.
+          For this reason,
+          you may end up using the Change of Base formula more than any other logarithm rule or property.
+        </p>
+        <p>
+          Use the change of base formula to rewrite
+          <me>
+            \log_{7}(426)
+          </me>
+          in terms of base-10 logarithms.
+          This is what you will need to do to enter such an expression into WeBWorK, using the function "log10<m>(\ldots)</m>."
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Justifications for the Logarithm Rules</title>
+    <p>
+      Recall the Logarithm Rules from <xref ref="thm_logproperties">Theorem</xref>: For any positive real numbers <m>c</m> and <m>d</m> and any real number <m>n</m>,
+      <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+        <li>
+          <p>
+            <m>\log_b(c\cdot d) = \log_b(c)+\log_b(d)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\log_b\left(\dfrac{c}{d}\right) = \log_b(c)-\log_b(d)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\log_b(c^n) = n\log_b(c)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Also recall the Change of Base Formula for Logarithms: For any positive real numbers
+      <m>d,
+      a, b</m> such that neither <m>d</m> nor <m>b</m> are <m>1</m>, we have
+      <me>
+        \log_b a = \frac{\log_d a}{\log_d b}
+      </me>
+    </p>
+    <p>
+      As mentioned earlier,
+      you can memorize and use these without knowing why they are true.
+      However, many people remember better with some kind of understanding of why a formula is valid.
+      They are a result of the exponent rules.
+      It is your choice whether you read the justifications and proofs below,
+      and if you only have time to read one, I recommend the justification for part (c) of <xref ref="thm_logproperties">Theorem</xref>.
+    </p>
+    <p>
+      <em>Justification of <xref ref="thm_logproperties">Theorem</xref> part (a):</em>
+      Let's begin by working with a base of 10 instead of an arbitrary base <m>b</m>.
+      Recall some of the rules for exponents in <xref ref="thm_rulesforexponents">Theorem</xref>.
+      In particular, we know that
+      <me>
+        10^x\cdot 10^y = 10^{x+y}
+      </me>.
+      Applying <m>\log_{10}</m> to both sides, we have
+      <me>
+        \begin{aligned}\log_{10}(10^x\cdot 10^y) \amp = \log_{10}(10^{x+y}) \\ \amp = x+y \end{aligned}
+      </me>
+      where the second equality is due to part (e) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>.
+      Part (e) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>
+      also tells us that <m>x = \log_{10}(10^x)</m> and <m>y = \log_{10}(10^y)</m>, so that
+      <me>
+        \begin{aligned}\log_{10}(10^x\cdot 10^y) \amp = \log_{10}(10^{x+y}) \\ \amp = x+y\\ \amp =  \log_{10}(10^x)+\log_{10}(10^y) \end{aligned}
+      </me>
+    </p>
+    <p>
+      Thus we have justified why,
+      for any positive numbers <m>c=10^x</m> and <m>d = 10^y</m>,
+      <me>
+        \log_b(c\cdot d) = \log_b(c)+\log_b(d)
+      </me>.
+      This argument is valid because <m>c=10^x</m> and <m>d=10^y</m> can indeed be equal to any positive number for suitable values of <m>x</m> and <m>y</m>,
+      and the range of <m>10^x</m> or <m>10^y</m> is all positive real numbers.
+    </p>
+    <p>
+      <em>Proof of <xref ref="thm_logproperties">Theorem</xref> part (b):</em>
+      In order to call this a "proof" rather than a "justification," we will use the arbitrary base of <m>b</m> instead of an explicit base.
+      Let <m>c=b^x</m> and <m>d=b^y</m>.
+      Recall this means that
+      <me>
+        x=\log_b(c)\qquad\text{ and } \qquad y=\log_b(d)
+      </me>.
+      By nearly the same argument as in the justification for part (a),
+      we can say that
+      <me>
+        \begin{aligned}\log_b\left(\frac{c}{d}\right) \amp = \log_b\left(\frac{b^x}{b^y}\right)\\ \amp = \log_b(b^{x-y})\\ \amp = x-y\\ \amp =\log_b(c)-\log_b(d) \end{aligned}
+      </me>
+    </p>
+    <p>
+      <em>Justification of <xref ref="thm_logproperties">Theorem</xref> part (c):</em>
+      Because positive integer exponents are a shorthand way to express repeated multiplication,
+      we can use the multiplication rule for logarithms to think about exponents as well.
+      For example,
+      <me>
+        \log_b(a^3) = \log_b(a\cdot a\cdot a)
+      </me>
+      and by repeated applications of part (a) of the Logarithm Rules, we see
+      <me>
+        \log_b(a^3) = \log_b(a\cdot a\cdot a)= \log_b(a) + \log_b(a) + \log_b(a) = 3\log_b(a)
+      </me>.
+      A similar argument works to show that for every natural number <m>n</m>,
+      <me>
+        \log_b(a^n) = n\log_b(a)
+      </me>.
+      More sophisticated mathematics can be used to prove that this property holds for every real number exponent,
+      not just for natural numbers.
+    </p>
+    <p>
+      <em>Proof of the Change of Base Formula:</em> Let <m>y = \log_b a</m>.
+      Then <m>b^y = a</m>.
+      Take <m>\log_d</m> of both sides to get
+      <me>
+        \log_d(b^y) = \log_d(a)
+      </me>.
+      By part (c) of <xref ref="thm_logproperties">Theorem</xref>,
+      <me>
+        y\log_db = \log_da
+      </me>.
+      Substituting for <m>y</m>,
+      <me>
+        \log_ba\cdot\log_d b = \log_d a
+      </me>.
+      Finally, dividing both sides by <m>\log_b a</m>,
+      we have the change of base formula:
+      <me>
+        \log_b a = \frac{\log_d a}{\log_d b}
+      </me>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and formulas were introduced in this section:
+    </p>
+    logarithmic function; <m>y=\log_b x</m> if and only if <m>b^y=x</m>; <m>\log_b(b^x)=x</m> (for all <m>x</m>) and <m>b^{\log_b x} = x</m> (for all <em>positive</em> <m>x</m>); the Logarithm Rules and the Change of Base Formula.
+    <p>
+      <em>Key ideas:</em> The base-<m>b</m> logarithm
+      <m>\log_b x</m> is the inverse of the base-<m>b</m> exponential function <m>b^x</m>.
+      The domain of <m>\log_b x</m> is the set of all positive numbers and the range of
+      <m>\log_b x</m> is the set of all real numbers.
+      There are many rules and formulas associated with logarithms that allow us to solve equations involving exponential and logarithmic functions.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 5.3}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

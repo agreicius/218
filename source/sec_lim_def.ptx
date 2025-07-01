@@ -1,0 +1,831 @@
+<section xml:id="sec_lim_def">
+  <title>Instantaneous Velocity and the Definition of Limits</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Understand the meaning of a limit as describing the behavior of a function near a point,
+          rather than at a point.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand limit notation: What is <m>c</m>?
+          What is <m>L</m>?
+        </p>
+      </li>
+      <li>
+        <p>
+          Identify the value of a limit from a graph or table,
+          or from an algebraic formula only for a few simpler examples.
+        </p>
+      </li>
+      <li>
+        <p>
+          Determine left and right limits from graphs.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>The Idea of a Limit</title>
+    <p>
+      There are many instances when studying natural phenomena where we wish to know what happens near a point,
+      but not specifically at a point.
+      Alternately,
+      we may wish to know about the long-term behavior of a quantity,
+      but not specifically at some time in the future, no matter how distant.
+      The mathematical idea of a "limit" is precisely designed to describe such things using the language of functions.
+      Instead of looking at the output value of a function when plugging in a specific input,
+      we look at the pattern of the output values over a sequence of input values.
+    </p>
+    <example>
+      <title>Using Limits to Describe Zeno's Paradox</title>
+      <statement>
+        <p>
+          Zeno's paradox<fn>
+          See a delightful Numberphile video at
+          <url href="https://youtu.be/u7Z9UnWOJNY">https://youtu.be/u7Z9UnWOJNY</url>
+          for more on Zeno's Paradox and infinite processes.
+          </fn> is a wonderful example of a limit.
+          Consider that in moving from one place to another,
+          you must first travel half the distance,
+          then half of the remaining distance,
+          then half of that remaining distance, etc.
+          Since there will never be zero distance left to travel,
+          you will never reach your destination.
+          We can express these distances as a sequence of fractions of the total distance:
+          <me>
+            \left\{\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, \ldots\right\}
+          </me>
+        </p>
+        <p>
+          Note that each term in the sequence has the form
+          <me>
+            \frac{1}{2^n}
+          </me>
+          for a positive integer <m>n</m>.
+          Note as well that as <m>n</m> increases,
+          the denominator <m>2^n</m> increases,
+          with the result that the fractions
+          <m>\frac{1}{2^n}</m> become smaller and smaller as <m>n</m> gets bigger and bigger.
+          Eventually, the fractions <m>\frac{1}{2^n}</m> are so small as to be indistinguishable from zero;
+          in a theoretical way we have not yet reached our destination,
+          but in a practical sense, it makes no difference.
+        </p>
+        <p>
+          With the "limit" notation that you will be learning in this section,
+          we would express this idea as
+          <me>
+            \lim_{n\to\infty}\frac{1}{2^n} = 0
+          </me>.
+        </p>
+        <p>
+          What it is saying is that we will eventually have 0 distance left to travel,
+          though it will take us infinitely long to get there.
+          So do we ever actually get where we are going?
+        </p>
+      </statement>
+    </example>
+    <p>
+      While interesting,
+      thousands-of-years-old Greek riddles are not our main motivation for being interested in limits.
+      Instead, they are motivated by the hundreds-of-years-old<fn>
+      Calculus was invented in the 17th century by Isaac Newton and Gottfried Leibnitz
+      (independently, and they disagreed with each other).
+      See
+      <url href="https://www.livescience.com/50777-calculus.html">https://www.livescience.com/50777-calculus.html</url>
+      accessed September 27, 2022.
+      </fn> question, "How much is a quantity changing?" We already studied one way to answer:
+      average rates of change.
+      The following example shows how this answer can be made more precise by studying smaller and smaller intervals of time,
+      resulting in a limit.
+    </p>
+    <example xml:id="ex_fallingball">
+      <title>Instantaneous Velocity as a Limit of Average Velocity</title>
+      <statement>
+        <p>
+          Recall that,
+          for an object moving in a straight line with position function <m>s(t)</m>,
+          the <em>average velocity</em> of the object on the interval from <m>t=a</m> to <m>t=b</m>,
+          denoted <m>AV_{[a,b]}</m>, is given by the formula
+          <me>
+            AV_{[a,b]} = \frac{s(b)-s(a)}{b-a}
+          </me>
+          where <m>s(t)</m> is the position of the object.
+          Average velocity is the same as average rate of change of position.
+        </p>
+        <p>
+          Suppose that the height <m>s</m> of a ball at time <m>t</m>
+          (in seconds)
+          is given in feet by the formula <m>s(t) = 64-16(t-1)^2</m>.
+          A graph of <m>s(t)</m> for <m>0\leq t\leq 3</m> is:
+        </p>
+        <p>
+          <image width="46%" source="ACPrev1-1-1Graph.png"/>
+        </p>
+        <p>
+          We can see from the graph that the ball is 48 feet high when it is released,
+          it is 64 feet high at its highest point,
+          which occurs 1 second after it is released,
+          and that the ball lands after 3 seconds.
+        </p>
+        <p>
+          Additionally,
+          we can see that the ball is going up on the interval
+          <m>0\lt t\lt 1</m> and going down on the interval <m>1\lt t\lt 3</m>.
+          Think about what the ball is doing at the exact moment corresponding to <m>t=1</m>.
+          How fast is it rising or falling?
+        </p>
+        <p>
+          To begin to answer this,
+          we could look at the average velocity of the ball on the half-seconds before and after <m>t=1</m>.
+          On the interval <m>[0.5,1]</m> the average velocity is:
+          <me>
+            AV_{[0.5,1]} = \frac{s(1)-s(0.5)}{1-0.5} = \frac{64-60}{0.5} = 8 \text{ ft/sec. }
+          </me>
+        </p>
+        <p>
+          On the interval <m>[1,1.5]</m>, the average velocity is
+          <me>
+            AV_{[1,1.5]} = \frac{s(1.5)-s(1)}{1.5-1} = \frac{60-64}{0.5} = -8 \text{ ft/sec. }
+          </me>
+        </p>
+        <p>
+          Neither of these seems particularly precise and we aren't sure what we should conclude. (Maybe you are.
+          What do you think we should do with these two numbers?) Half-second intervals seem fairly long,
+          so let's make the intervals shorter.
+          <xref ref="tab_instvelocityfallingball" autoname="yes"/> below gives the average velocity on intervals that are smaller and smaller on either side of <m>t=1</m>:
+        </p>
+        <table xml:id="tab_instvelocityfallingball">
+          <title>Average velocities for <m>s(t) = 64-16(t-1)^2</m> on intervals around <m>t=1</m></title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>[0.5,1]</m></cell>
+              <cell><m>[0.9,1]</m></cell>
+              <cell><m>[0.99,1]</m></cell>
+              <cell><m>\mathbf{t=1}</m></cell>
+              <cell><m>[1,1.01]</m></cell>
+              <cell><m>[1,1.1]</m></cell>
+              <cell><m>[1,1.5]</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Avg. Vel. (ft/sec)</cell>
+              <cell>8</cell>
+              <cell><m>1.6</m></cell>
+              <cell><m>0.16</m></cell>
+              <cell><em>?</em></cell>
+              <cell><m>-0.16</m></cell>
+              <cell><m>-1.6</m></cell>
+              <cell><m>-8</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          We start to notice a pattern:
+          the average velocities get smaller and smaller as the interval gets narrower and narrower.
+          Because the numbers are consistently on either side of 0, we could now guess that the ball's speed at the precise moment <m>t=1</m> is 0 ft/sec.
+          This momentary speed is called the
+          <em>instantaneous velocity at <m>t=1</m></em>.
+        </p>
+        <p>
+          Our answer makes some intuitive sense:
+          for the tiniest fraction of a millisecond,
+          the ball is suspended in the air before it begins to fall.
+          This is similar to the moment on a swing when you reach the peak of your swing and feel weightless,
+          before going the other way.
+        </p>
+        <p>
+          As a limit, we express this idea as
+          <me>
+            \lim_{b\to a} AV_{[a,b]} = \lim_{b\to a}\frac{s(b)-s(a)}{b-a} = 0 \text{ ft/sec }
+          </me>.
+          This same idea of shrinking the interval was introduced in <xref ref="ex_teaserinstchangewithcomposition" autoname="yes"/>.
+        </p>
+        <p>
+          Notice, though,
+          that we cannot simply have <m>b=a</m> in the average velocity formula,
+          since in that case <m>b-a = 0</m> and we would be dividing by 0.
+          So is the ball actually ever motionless in the air?
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          What is an example from your own life or interests of a quantity that approaches a value,
+          but maybe is never actually equal to that value?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Definition of a Limit</title>
+    <p>
+      Let's make these ideas more precise and also explain what this "limit notation" actually means.
+      The basic idea is that we ask what output values the function gets close to near an input value.
+    </p>
+    <definition xml:id="def_limit">
+      <title>Definition of a Limit</title>
+      <statement>
+        <p>
+          Given a function <m>f</m>,
+          a fixed input <m>x=c</m>, and a real number <m>L</m>,
+          we say that <em><m>f</m> has limit <m>L</m> as <m>x</m> approaches <m>c</m></em> and write
+          <me>
+            \lim_{x\to c}f(x) = L
+          </me>
+          provided that we can make <m>f(x)</m> as close to <m>L</m> as we like by taking <m>x</m> sufficiently close
+          (but not equal)
+          to <m>c</m>.
+        </p>
+        <p>
+          If we cannot make <m>f(x)</m> as close to a single value as we would like as <m>x</m> approaches <m>c</m>,
+          then we say that <em><m>f</m> does not have a limit as <m>x</m> approaches <m>c</m>. </em>Another way to say this is that the limit
+          <q>does not exist,</q>
+          and we abbreviate with
+          <me>
+            \ds \lim_{x\to c}f(x)  \text{ DNE }
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      \fbox{ The symbols <m>\ds\lim_{x\to c} f(x) = L</m> are read, "the limit as <m>x</m> approaches <m>c</m> of <m>f(x)</m> is equal to <m>L</m>." }
+    </p>
+    <p>
+      Here is an example of finding the limit of a function at a point that is not in the domain of a rational function:
+    </p>
+    <example xml:id="ex_TaalmanPage95b">
+      <statement>
+        <p>
+          For example,
+          the function <m>g(x) = \dfrac{x^2-1}{x-1}</m> can be simplified by factoring the numerator as <m>\dfrac{x^2-1}{x-1} = \dfrac{(x-1)(x+1)}{x-1}</m> so that
+          <me>
+            g(x) = \begin{cases}x+1, \amp  \text{ for } x\neq 1\\ \text{ undefined } , \amp  \text{ for }  x=1 \end{cases}
+          </me>
+        </p>
+        <p>
+          Then for values of <m>x</m> <em>near</em>
+          1, the values of <m>g(x)</m> are still
+          <em>near</em> <m>x+1=(1)+1=2</m>,
+          even though <m>g(1)</m> is undefined,
+          pictured in <xref ref="fig_taalmanpage95b" autoname="yes"/> below:
+        </p>
+        <figure xml:id="fig_taalmanpage95b">
+          <caption><m>\ds\lim_{x\to 1}g(x) = 2</m> but <m>g(1)</m> is undefined.</caption>
+          <image width="37%" source="TaalmanPage95b.png"/>
+        </figure>
+        <p>
+          Note the small hole in the graph of the line at the point <m>(1,2)</m> because the graph does not actually contain this point.
+          This is precisely the kind of situation that limits are designed for; we write
+          <me>
+            \lim_{x\to 1} g(x) = 2
+          </me>
+          because the limit does not care what happens <em>at</em>
+          the point where <m>x=1</m>,
+          only <em>close</em> to it.
+        </p>
+        <p>
+          In this example <m>x=c=1</m> is the value that the input approaches,
+          and <m>y=L=2</m> is the value that the outputs approach.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Many times, we can determine limits visually from the graph of a function,
+      without needing to know the algebraic formula for the function.
+    </p>
+    <example xml:id="ex_ACPreview1-2-1">
+      <statement>
+        <p>
+          Suppose that <m>g</m> is the function given by the graph below.
+        </p>
+        <p>
+          <image width="46%" source="ACPreview1-2-1.png"/>
+        </p>
+        <p>
+          We can see by the closed dots on the graph that <m>g(0) = 1</m> and <m>g(1) = 3</m>.
+          There is a hole at <m>x=2</m> so <m>g(2)</m> is undefined.
+          Let's decsribe the limits of the function at all three of these <m>x</m>-values.
+        </p>
+        <p>
+          Near <m>x=0</m>, the <m>y</m>-values of <m>g(x)</m> get close to 4.
+          Even though the function is equal to 1 at <m>x=0</m>, the limit is
+          <me>
+            \ds\lim_{x\to 0}g(x) = 4
+          </me>.
+        </p>
+        <p>
+          Note that the value <m>y=L=4</m> of the limit is not equal to the value of the function <m>y=g(0)=1</m>.
+          This is because the limit only looks at what happens as <m>x</m> approaches <m>x=0</m>,
+          not when it is equal to <m>x=0</m>.
+        </p>
+        <p>
+          Near <m>x=1</m>,
+          we have a problem because some of the <m>y</m>-values
+          (the ones to the left of the jump)
+          get close to 3 while others
+          (the ones to the right)
+          get close to 2.
+          Referring back to the definition of a limit,
+          because the values of the function do not get close to a single value,
+          this limit does not exist:
+          <me>
+            \lim_{x\to 1}g(x) \text{ DNE }
+          </me>
+        </p>
+        <p>
+          Near <m>x=2</m>,
+          the <m>y</m>-values of <m>g</m> get close to <m>y=L=1</m>,
+          though they never actually get there because <m>y=g(2)</m> is undefined.
+          Nevertheless, we write
+          <me>
+            \ds\lim_{x\to 2}g(x) = 1
+          </me>
+          to express the fact that for values of <m>x</m>
+          <em>approaching</em> <m>x=2</m>,
+          the <m>y</m>-values of <m>g(x)</m>
+          <em>approach</em> <m>y=1</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Use the picture below to determine
+          <ol marker="labeltextbfalphitemsep10pt">
+            <li>
+              <p>
+                <m>\ds\lim_{x\to -2} f(x)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(-2)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to -1} f(x)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 0} f(x)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds\lim_{x\to 1} f(x)</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          <image width="37%" source="TaalmanPage99a.png"/>
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      It's not always the case that the output of a function will approach a finite number at a non-domain point.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            f(x) = \frac{1}{(x-1)^2}
+          </me>.
+          We can see that the domain of <m>f(x)</m> is <m>x\neq 1</m> since the denominator is equal to zero when <m>x-1=0</m>,
+          hence when <m>x=1</m>.
+          Graphing <m>f(x)</m>,
+          we see that the values of <m>f(x)</m> become infinitely large as <m>x</m> gets close to <m>x=1</m>:
+        </p>
+        <figure>
+          <image width="37%" source="TaalmanPage97a.png"/>
+        </figure>
+        <p>
+          Because the values of <m>f(x)</m> do not approach an actual <em>number</em>,
+          technically the limit <em>does not exist</em>
+          according to Definition <xref ref="def_limit" autoname="yes"/>.
+          However, we write
+          <me>
+            \lim_{x\to 1}f(x) = \infty
+          </me>
+          to describe the fact that the values of the function become infinitely large as <m>x\to 1</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      As a last preliminary example,
+      let's see how to determine a limit numerically using a table of values.
+      Before we begin this example, I want to establish that tables are a method that we are using <em>temporarily</em>
+      until we learn algebraic methods for approaching such a problem.
+      It is too laborious to use as a main method of finding the value of a limit,
+      and is not necessarily precise.
+    </p>
+    <example xml:id="TaalmanSec1-1Ex43">
+      <statement>
+        <p>
+          Consider the function
+          <me>
+            h(x) = \frac{x-3}{x^3 - 3 x^2 - 2 x + 6}
+          </me>.
+          Note that <m>h(3)</m> is undefined since the denominator is <m>0</m> at <m>x=3</m>:
+          <me>
+            (3)^3-3(3)^2-2(3)+6 = 27-27-6+6=0
+          </me>.
+        </p>
+        <p>
+          Let's see if we can determine <m>\ds\lim_{x\to 3}h(x)</m> anyway.
+          Below in <xref ref="tab_taalmansec1-1ex43" autoname="yes"/>,
+          we have a table of values for <m>x</m>, as it approaches 3
+          (from the left and right),
+          and the corresponding values of <m>h(x)=\dfrac{x-3}{x^3 - 3 x^2 - 2 x + 6}</m>:
+        </p>
+        <table xml:id="tab_taalmansec1-1ex43">
+          <title>A table of values of <m>h(x)</m> as <m>x\to 3</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>2</cell>
+              <cell>2.5</cell>
+              <cell>2.9</cell>
+              <cell>2.99</cell>
+              <cell>2.999</cell>
+              <cell><em>3</em></cell>
+              <cell>3.001</cell>
+              <cell>3.01</cell>
+              <cell>3.1</cell>
+              <cell>3.5</cell>
+              <cell>4</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>h(x)</m></cell>
+              <cell>0.5</cell>
+              <cell>0.235</cell>
+              <cell>0.156</cell>
+              <cell>0.144</cell>
+              <cell>0.14298</cell>
+              <cell><em>?</em></cell>
+              <cell>0.14273</cell>
+              <cell>0.142</cell>
+              <cell>0.131</cell>
+              <cell>0.098</cell>
+              <cell>0.071</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          It's not easy to spot a pattern,
+          but it does look like for values of <m>x</m> that are very close to 3, the values of <m>y=h(x)</m> look to be very close to,
+          and on either side of, <m>0.1428</m>.
+          We can't be entirely sure of the precise value from the table,
+          but you could plug in numbers like 2.99999999 and 3.000000001 that are <sc>very</sc> close to 3 to get a better and better estimate.
+          From the information available to us, we guess that
+          <me>
+            \lim_{x\to 3}h(x)\approx 0.1428
+          </me>
+          and we eagerly await the tools to be able to get a precise answer without having to resort to using a table.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>One-Sided Limits</title>
+    <p>
+      We've seen that limits can be quite useful for describing what happens when a function is undefined.
+      They are also useful for describing what happens when two parts of a piecewise-defined function do not line up smoothly,
+      as occurred at the point <m>x=2</m> in <xref ref="ex_ACPreview1-2-1">Example</xref>.
+    </p>
+    <definition xml:id="def_onesidedlimit">
+      <title>Definition of One-Sided Limits</title>
+      <statement>
+        <p>
+          Given a function <m>f</m>,
+          a fixed input <m>x=c</m> and real numbers <m>L</m> and <m>R</m>,
+          we say that <em><m>f</m> has limit <m>L</m> as <m>x</m> approaches <m>c</m> from the left</em> and write
+          <me>
+            \lim_{x\to c^-}f(x) = L
+          </me>
+          provided that we can make <m>f(x)</m> as close to <m>L</m> as we like by taking <m>x</m> sufficiently close
+          (but not equal)
+          to <m>c</m>, while keeping <m>x</m>
+          <em>less</em> than <m>c</m>.
+        </p>
+        <p>
+          Similarly, we say that <em><m>f</m> has limit <m>R</m> as <m>x</m> approaches <m>c</m> from the right</em> and write
+          <me>
+            \lim_{x\to c^+}f(x) = R
+          </me>
+          provided that we can make <m>f(x)</m> as close to <m>R</m> as we like by taking <m>x</m> sufficiently close
+          (but not equal)
+          to <m>c</m>, while keeping <m>x</m>
+          <em>greater</em> than <m>c</m>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          Recall the graph of the function <m>g</m> from Example <xref ref="ex_ACPreview1-2-1" autoname="yes"/>:
+        </p>
+        <p>
+          <image width="46%" source="ACPreview1-2-1.png"/>
+        </p>
+        <p>
+          On the left of the jump at <m>x=1</m>,
+          the <m>y</m>-values approached 3.
+          Since <m>x\lt 1</m> on that side, we write
+          <me>
+            \lim_{x\to 1^-} g(x) = 3
+          </me>
+          and we say ``the limit from the left at 1 of <m>g(x)</m> is equal to 3". On the right of the jump,
+          the <m>y</m>-values approached 2.
+          Since <m>x>1</m> on that side, we write
+          <me>
+            \lim_{x\to 1^+} g(x) = 2
+          </me>
+          and we say ``the limit from the right at 1 of <m>g(x)</m> is equal to 2."
+        </p>
+      </statement>
+    </example>
+    <p>
+      The terminology of
+      <q>left</q>
+      and
+      <q>right</q>
+      limit refers to the orientation around <m>x=c</m> on the <m>x</m>-axis and can be visualized:
+    </p>
+    <figure xml:id="fig_leftrightlimit">
+      <caption>The notation <m>x\to c^-</m> means that <m>x</m> is approaching <m>c</m> and <m>x\lt c</m>. The notation <m>x\to c^+</m> means that <m>x</m> is approaching  <m>c</m> and <m>x>c</m>.</caption>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) node[right]{\(x\)} ;
+\foreach \x in  {0}
+\draw[shift={(\x,0)},color=black] (0pt,3pt)  -- (0pt,-3pt);
+\foreach \x in  {0}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(c\)};
+\foreach \x in  {-.75}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(x\to c^-\)};
+\foreach \x in  {.75}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(c^+\leftarrow x\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </figure>
+    <p>
+      \fbox{The regular limit <m>\ds\lim_{x\to c}f(x)</m> is sometimes called the
+      <q>two-sided</q>
+      limit of <m>c</m>,
+      and requires that <m>f(x)</m> approaches one number for values of <m>x</m> on both sides of <m>c</m>.
+      This means that in order for <m>\ds\lim_{x\to c}f(x)</m> to exist,
+      the left and right limits at <m>c</m> must exist and be equal:
+    </p>
+    <m>\ds\lim_{x\to c}f(x)=L</m>    if and only if   <m>\ds\lim_{x\to c^-}f(x) =L</m> and <m>\ds\lim_{x\to c^+}f(x) =L</m>
+    <remark>
+      <p>
+        Remember that the phrase "if and only if" is shorthand for saying that one thing can only be true if the other is also true.
+        In particular, if either right or left limit does not exist,
+        or the left and right limits are equal to different numbers,
+        then the two-sided limit does not exist.
+      </p>
+    </remark>
+    <example>
+      <statement>
+        <p>
+          For example,
+          the function <m>f</m> graphed in <xref ref="fig_TaalmanPage97-1" autoname="yes"/> has a different limit from the left than from the right as <m>x</m> approaches 1:
+        </p>
+        <figure xml:id="fig_TaalmanPage97-1">
+          <caption><m>\ds\lim_{x\to 1^-}f(x) = 2</m> but <m>\ds\lim_{x\to 1^+} f(x) = 3</m>. So <m>\ds\lim_{x\to 1}f(x)  DNE</m> even though <m>f(1)=3</m>.</caption>
+          <image width="37%" source="TaalmanPage97-1.png"/>
+        </figure>
+        <p>
+          The purple sequence of values of <m>x</m> that approach <m>x=1</m> from the left determines a sequence of values of <m>f(x)</m> that approach <m>y=2</m>,
+          while the red sequence determines values that approach <m>y=3</m>.
+          The value of the function at <m>x=1</m> happens to be <m>f(1)=3</m>,
+          but that is not relevant to either limit calculation.
+          Since the limits from the left and right are not the same,
+          there is no one real number that the function approaches as <m>x\to c</m> and we say the two-sided limit does not exist.
+        </p>
+        <p>
+          In summary, there are <em>three</em>
+          limits associated to the point <m>x=1</m> in the above picture:
+          <me>
+            \lim_{x\to 1^-} f(x) = 2, \lim_{x\to 1^+} f(x) = 3,  \lim_{x\to 1} f(x) \text{ DNE }
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          The function <m>g(x)</m> is graphed below.
+          Use the picture below to determine <m>\ds\lim_{x\to 1^-} g(x)</m>,
+          <m>\ds\lim_{x\to 1^+} g(x)</m>,
+          and <m>\ds\lim_{x\to 1} g(x)</m>.
+          Are any of these equal to <m>g(1)</m>?
+          <image width="46%" source="TaalmanPage99b.png"/>
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(x) = \frac{1}{x-1}</m> is undefined at <m>x=1</m> because the denominator <m>x-1</m> is equal to zero.
+          We can see in <xref ref="fig_taalmanpage97b" autoname="yes"/> that as <m>x</m> approaches <m>1</m> from the right,
+          the values of the function increase without bound, so that
+          <me>
+            \lim_{x\to 1^+} f(x) = \infty
+          </me>.
+          As <m>x</m> approaches <m>1</m> from the left,
+          the values of the function decrease without bound, so that
+          <me>
+            \lim_{x\to 1^-} f(x) = -\infty
+          </me>.
+          Since these the left and right limits do not agree with each other,
+          we cannot make any nice statement about the two-sided behavior of the function at the point,
+          and we write
+          <me>
+            \lim_{x\to 1} f(x) \text{ DNE }
+          </me>
+        </p>
+        <figure xml:id="fig_taalmanpage97b">
+          <caption><m>\ds\lim_{x\to 1^-} f(x) = -\infty</m> and <m>\ds\lim_{x\to 1^+} f(x) = \infty</m>.</caption>
+          <image width="46%" source="images/TaalmanPage97b.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example>
+      <title>Application: A Real-World One-Sided Limit</title>
+      <statement>
+        <p>
+          Let's return to our falling ball from Example <xref ref="ex_fallingball" autoname="yes"/>.
+          Recall that the height of the ball at time <m>t</m>
+          (in seconds)
+          is given in feet by the formula
+          <m>s(t) = 64-16(t-1)^2</m> and that the ball hits the ground at <m>t=3</m>.
+          A graph of <m>s(t)</m> for the domain of <m>0\leq t\leq 3</m> is:
+        </p>
+        <p>
+          <image width="46%" source="ACPrev1-1-1Graph.png"/>
+        </p>
+        <p>
+          How fast is the ball going when it hits the ground?
+          In other words,
+          what is the instantaneous velocity of the ball at <m>t=3</m>?
+          Since this is the moment when our model ends,
+          we can only consider values of <m>t</m> that are less than <m>3</m>,
+          and so we are interested in the limit
+          <me>
+            \lim_{a\to 3^-} AV_{[a,3]}  = \lim_{a\to 3^-} \frac{s(3)-s(a)}{3-a}
+          </me>
+        </p>
+        <p>
+          Looking at a table of values for the average velocity on intervals getting smaller and smaller to the left of <m>t=3</m>:
+        </p>
+        <table xml:id="tab_instvelocityfallingball-landing">
+          <title>Average velocities for <m>s(t) = 64-16(t-1)^2</m> on intervals approaching <m>t=3</m> from the left</title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Interval</cell>
+              <cell><m>[2.5,3]</m></cell>
+              <cell><m>[2.9,3]</m></cell>
+              <cell><m>[2.99,3]</m></cell>
+              <cell><m>[2.999,3]</m></cell>
+              <cell><m>[2.9999,3]</m></cell>
+              <cell><m>[2.99999,3]</m></cell>
+              <cell><m>t=3</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Avg. Vel. (ft/sec)</cell>
+              <cell><m>-56</m></cell>
+              <cell><m>-62.4</m></cell>
+              <cell><m>-63.84</m></cell>
+              <cell><m>-63.984</m></cell>
+              <cell><m>-63.9984</m></cell>
+              <cell><m>-63.99984</m></cell>
+              <cell><m>?</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Thus from this we infer that the limit is approaching <m>-63.999999\ldots  = -64</m> and we write
+          <me>
+            \lim_{a\to 3^-} AV_{[a,3]}  = -64
+          </me>.
+        </p>
+        <p>
+          In context, we conclude that the ball is going 64 feet per second downward when it hits the ground.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    instantaneous velocity; limit of <m>f</m> as <m>x</m> approaches <m>c</m> is equal to <m>L</m>, written <m>\ds\lim_{x\to c}f(x) = L</m>; DNE, meaning "does not exist"; limit of <m>f</m> as <m>x</m> approaches <m>c</m>  from the left is equal to <m>L</m>, written <m>\ds\lim_{x\to c^-}f(x) = L</m>; limit of <m>f</m> as <m>x</m> approaches <m>c</m> from the right is equal to <m>L</m>, written <m>\ds\lim_{x\to c^+}f(x) = L</m>.
+    <p>
+      <em>Key ideas:</em> The limit of a function describes the behavior of the <m>y</m>-values of a function <em>near</em>
+      a point, rather than at a point.
+      A limit does not exist if the <m>y</m>-values of a function do not approach a single number.
+      We can take limits separately from the left
+      (less than the input value)
+      or the right
+      (greater than the input value).
+    </p>
+    <p>
+      <em>Other ideas introduced:</em>
+      A limit only exists if both the right and left limits exist and are equal.
+      Even though we can write that a limit is "equal to infinity," such a limit
+      <em>does not exist</em>.
+      Instantaneous velocity is the (one- or two-sided) limit of average velocity.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 2.1}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

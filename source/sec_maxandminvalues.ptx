@@ -1,0 +1,1014 @@
+<section xml:id="sec_maxandminvalues">
+  <title>Minimum and Maximum Values</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Use the first derivative to classify critical points as local minima and maxima.
+        </p>
+      </li>
+      <li>
+        <p>
+          The second derivative describes the concavity of a function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use the second derivative to classify critical points as local minima and maxima.
+        </p>
+      </li>
+      <li>
+        <p>
+          (Optional) See how the Mean Value Theorem can be used to formally connect the sign of the first derivative to the idea of increasing and decreasing.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>The First Derivative Test</title>
+    <p>
+      Given the graph of a function,
+      it is straightforward to visually locate any local minimum or maximum points.
+      With our new knowledge from Theorem <xref ref="thm_localextremaarecriticalpoints" autoname="yes"/> in the last section,
+      we even have a computational way to identify the precise <m>x</m>-value where a local minimum or maximum occurs via critical points.
+      However, we would like to be able to work without a graph entirely.
+      In order to accomplish this,
+      we develop a method of using the sign of the first derivative to classify when a critical point is a local minimum, maximum,
+      or neither.
+    </p>
+    <p>
+      We know from <xref ref="thm_localextremaarecriticalpoints">Theorem</xref>
+      that every local maximum or minimum must occur at a critical point,
+      that is a point <m>x=c</m> in the domain of <m>f</m> where <m>f'(c)=0</m> or <m>f'(c)</m> does not exist.
+      So critical points are <em>candidates</em>
+      for where a function may have a local minimum or maximum.
+      Remember that not all critical points are local extrema!
+      See <xref ref="ex_notallcriticalpoints">Example</xref>.
+      The first derivative is our tool for determining whether a function actually has a local minimum or maximum at its critical points.
+    </p>
+    <p>
+      Before seeing how, exactly,
+      we must collect some results connecting the sign of the first derivative with whether a function is increasing or decreasing.
+      We have explored some of these ideas already when we first defined derivatives,
+      but in order to justify them formally,
+      we need the Mean Value Theorem.
+      Theorem <xref ref="thm_firstderivativeinfo" autoname="yes"/> is proven formally at the end of this section.
+    </p>
+    <theorem xml:id="thm_firstderivativeinfo">
+      <title>The First Derivative Measures Where a Function is increasing or Decreasing</title>
+      <statement>
+        <p>
+          Let <m>f</m> be a function that is differentiable on an interval <m>I</m>.
+          <ol marker="labelalphitemsep10pt">
+            <li>
+              <p>
+                If <m>f'</m> is positive on <m>I</m>,
+                then <m>f</m> is increasing on <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f'</m> is negative on <m>I</m>,
+                then <m>f</m> is decreasing on <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f'</m> is zero on <m>I</m>,
+                then <m>f</m> is constant on <m>I</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Intuitively,
+      the first derivative <m>f'</m> in some sense measures the direction of the graph of a function <m>f</m> at each point,
+      since <m>f'</m> is the associated slope function for <m>f</m>.
+      In particular, if <m>f'</m> is positive at a point <m>x=c</m>,
+      then the graph of <m>f</m> must be moving in an upwards direction, that is,
+      increasing, as it passes <m>x=c</m>.
+      Similarly, if <m>f'(c)</m> is negative,
+      then the graph of <m>f</m> must be decreasing at <m>x=c</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          we can divide the real number line into intervals according to where the function
+          <m>f(x) = x^3-3x^2-9x+11</m> is increasing or decreasing,
+          as shown in the figure that follows at the left.
+          This same division into subintervals descries where the derivative
+          <m>f'(x)=3x^2-6x-9</m> is positive and negative, as shown at the right.
+        </p>
+        <p>
+          <image width="93%" source="TaalmanPage234.png"/>
+        </p>
+        <p>
+          The function <m>f(x) = x^3-3x^2-9x+11</m> is increasing on
+          <m>(-\infty,-1)\cup (3,\infty)</m> where <m>f'(x) = 3x^2-6x-9</m> is positive,
+          and decreasing on <m>(-1,3)</m> where <m>f'(x) = 3x^2-6x-9</m> is negative.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now let's consider the case of a critical point where <m>f'(c)=0</m> and <m>f</m> is differentiable near <m>c</m>.
+      Then as long as <m>f</m> is not constant,
+      there are four different ways that <m>f</m> can behave near <m>x=c</m>:
+    </p>
+    <p>
+      <image width="92.5%" source="TaalmanPage236.png"/>
+    </p>
+    <p>
+      On the one hand,
+      if <m>f</m> changes from increasing to decreasing at <m>x=c</m>,
+      then <m>f</m> has a local maximum at <m>x=c</m>.
+      If <m>f</m> changes from decreasing to increasing at the point <m>x=c</m>,
+      then <m>f</m> has a local minimum at <m>x=c</m>.
+      On the other hand,
+      if <m>f</m> does not change direction at <m>x=c</m>,
+      then <m>f</m> does not have a local extremum at <m>x=c</m>.
+      Since a function <m>f</m> is increasing or decreasing according to whether its derivative is positive or negative,
+      we can record the preceding four situations on sign charts for the derivative <m>f'</m>,
+      with the corresponding information for <m>f</m> recorded as the following sign analyses:
+    </p>
+    <p>
+      <image width="92.5%" source="TaalmanPage237.png"/>
+    </p>
+    <p>
+      The first derivative test summarizes how sign changes in the first derivative
+      (which can only occur at critical points thanks to the Intermediate Value Theorem)
+      indicate the presence of a local maximum or minimum for a given function.
+    </p>
+    <theorem xml:id="thm_firstderivativetest">
+      <title>The First Derivative Test</title>
+      <statement>
+        <p>
+          If <m>c</m> is a critical number of a continuous function <m>f</m> that is differentiable near <m>c</m>
+          (except possibly at <m>x=c</m>),
+          then
+          <ol marker="labeltextbfalphitemsep20pttopsep10pt">
+            <li>
+              <p>
+                <m>f</m> has a local maximum at <m>c</m> if and only if <m>f'</m> changes sign from positive to negative at <m>c</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f</m> has a local minimum at <m>c</m> if and only if <m>f'</m> changes sign from negative to positive at <m>c</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f</m> has neither a local minimum nor a local maximum at <m>c</m> if <m>f'</m> does not change sign at <m>c</m>,
+                meaning <m>f'</m> is positive on both sides of <m>c</m> or <m>f'</m> is negative on both sides of <m>c</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <remark>
+      <p>
+        Note that we are using the <em>sign of the first derivative</em>
+        to give us information about whether the
+        <em>function is increasing or decreasing.</em>
+        The sign of the first derivative does not tell us anything about whether the original function itself is positive or negative.
+      </p>
+    </remark>
+    <example>
+      <statement>
+        <p>
+          Let's determine where the function
+          <m>f(x) = x^2-2x+1</m> is increasing and decreasing,
+          and where it has a local maximum or minimum.
+          (Note that <m>f</m> is a parabola so you may already have some ideas about whether it will have a max or a min.)
+        </p>
+        <p>
+          First, we locate the critical points of <m>f</m>,
+          which are the candidates for local extrema.
+          To do this, we take the derivative and check where it is equal to 0 or undefined:
+          <me>
+            f'(x) = 2x-2
+          </me>
+          and there are critical points where <m>f'(x) = 2x-2=0</m>
+          (at <m>x=1</m>)
+          or undefined
+          (nowhere, since this expression is always defined).
+        </p>
+        <p>
+          Now we create a number line for the
+          <em>derivative</em> <m>f'(x) = 2x-2</m>,
+          marking the point <m>x=1</m> where it could change sign:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-1.5,0) -- (3.5,0) node[right]{\(f'\)} ;
+\foreach \x in  {1}
+\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
+\foreach \x in  {1}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {2}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {0}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          Recall our method for testing a point on each interval between tick marks:
+          if we plug in, say, <m>x=0</m>,
+          we have <m>f'(0) = -2\lt 0</m> and so
+          <m>f'(x)\lt 0</m> for all <m>x</m> in <m>(-\infty,1)</m>.
+          If we plug in, say, <m>x=2</m>,
+          we have <m>f'(2) = 2>0</m> and so <m>f'(x)>0</m> for all <m>x</m> in <m>(1,\infty)</m>.
+        </p>
+        <p>
+          By <xref ref="thm_firstderivativeinfo">Theorem</xref>,
+          the information on the sign chart for <m>f'(x)</m> shows that <m>f(x)</m> is decreasing on
+          <m>(-\infty,1)</m> and increasing on <m>(1,\infty)</m>.
+        </p>
+        <p>
+          By the First Derivative Test
+          (<xref ref="thm_firstderivativetest">Theorem</xref>),
+          we know that <m>f(x)</m> has a local minimum at <m>x=1</m>.
+          The <m>y</m>-value of the local minimum is <m>y=f(1) = (1)^2-2(1)+1 = 0</m>,
+          so the minimum point is at <m>(1,0)</m>.
+        </p>
+        <p>
+          We can check our answer using what we know about parabolas:
+          <m>f(x) = x^2-2x+1</m> has a positive leading coefficient <m>a=1</m>,
+          so <m>f(x)</m> is a concave up parabola and thus must have a minimum at its vertex.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_rationalfirstderivtest">
+      <statement>
+        <p>
+          Determine the critical points of
+          <me>
+            g(x) = \frac{x^2+10x+1}{x-2}
+          </me>
+          and use the first derivative test to classify each as a local maximum, minimum,
+          or neither.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, let's observe that <m>g(x)</m> is undefined at <m>x=2</m> since that is where the denominator is equal to 0. (Think about what kind of discontinuity <m>g</m> has at <m>x=2</m>.)
+        </p>
+        <p>
+          In order to find critical points,
+          we wish to know where <m>g'(x)</m> is either 0 or undefined.
+          We find <m>g'(x)</m> using the quotient rule and simplify fully in order to determine where it is 0 or undefined:
+          <me>
+            \begin{aligned}g'(x) \amp = \frac{(x-2)(2x+10) - (x^2+10x+1)(1)}{(x-2)^2}\\ \amp = \frac{2x^2+6x-20-(x^2+10x+1)}{(x-2)^2}\\ \amp = \frac{x^2-4x-21}{(x-2)^2}\\ \amp = \frac{(x+3)(x-7)}{(x-2)^2} \end{aligned}
+          </me>
+        </p>
+        <p>
+          Note that the "simplest" form of the numerator is factored in order to be able to tell where <m>g'(x)=0</m>.
+          We also left the denominator factored because it's easier to see where the denominator is zero (where <m>g'(x)</m> is undefined) when it's in this form.
+        </p>
+        <p>
+          Now we see that <m>g'(x)=0</m> when <m>x=-3, 7</m> and that <m>g'(x)</m> is undefined when <m>x=2</m>.
+          But remember that the original function <m>g(x)</m> is undefined when <m>x=2</m> and that critical points must be in the domain of the function.
+          So only <m>x=-3</m> and <m>x=7</m> are critical points of <m>g(x)</m>.
+          In particular, since <m>g(2)</m> is undefined,
+          <m>x=2</m> cannot be a local max or min.
+          <em>This is why non-domain points are not included in the list of critical points!</em>
+        </p>
+        <p>
+          We would like to use the First Derivative Test to classify the critical points.
+          We create a sign chart for <m>g'</m> in order to know where it is positive and negative.
+          For the sign chart,
+          we need to test intervals between all three of the <m>x</m>-values <m>x=-3</m>,
+          <m>x=7</m>,
+          and <m>x=2</m>, even though <m>x=2</m> is not a critical point.
+          This is because we need to know where <m>g'</m> can change sign for the sign chart,
+          which includes all of the critical points as well as any additional points where <m>g'</m> is undefined.
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (5,0) node[right] {\(g'\)};
+\foreach \x in  {-3,2,7}
+\draw[shift={(0.5*\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {-3,2,7}
+\draw[shift={(0.5*\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {-3,7}
+\draw[shift={(0.5*\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {2}
+\draw[shift={(0.5*\x,3pt)}] node[above] {\(^\text{ DNE } \)};
+\foreach \x in  {-4,9}
+\draw[shift={(0.5*\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {0,5}
+\draw[shift={(0.5*\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          Since <m>g'</m> changes from increasing to decreasing at <m>x=-3</m>,
+          there is a local maximum at <m>x=3</m>.
+          The <m>y</m>-value on the graph is <m>y=g(3)=40</m>,
+          so there is a local maximum at the point <m>(3,40)</m>.
+          Since <m>g'</m> changes from decreasing to increasing at <m>x=7</m>,
+          there is a local minimum at <m>x=7</m>.
+          The <m>y</m>-value on the graph is <m>y=g(7)=24</m>,
+          so there is a local minimum at the point <m>(7,24)</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          What kind of discontinuity does <m>g(x) = \frac{x^2+10x+1}{x-2}</m> have at <m>x=2</m>?
+          This was the function from <xref ref="ex_rationalfirstderivtest">Example</xref>.
+        </p>
+        <p>
+          If you think visually about what <m>g(x)</m> looks like when it is decreasing around <m>x=2</m>,
+          you can use the sign chart from <xref ref="ex_rationalfirstderivtest">Example</xref>
+          to help you compute <m>\ds\lim_{x\to 2^-}g(x)</m> and <m>\ds\lim_{x\to 2^+} g(x)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <example xml:id="ex_localminmaxexample">
+      <statement>
+        <p>
+          Determine the critical points of
+          <m>f(x) = x^3-3x+2</m> and classify each as a local minimum, maximum,
+          or neither.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The derivative of <m>f(x)=x^3-3x+2</m> is
+          <me>
+            f'(x) = 3x^2-3
+          </me>.
+        </p>
+        <p>
+          This derivative is always defined and continuous,
+          so the critical points of <m>f</m> are just the places where <m>f'(x)=0</m>:
+          <me>
+            \begin{aligned}3x^2-3 \amp =0\\ 3x^2 \amp =3\\ x^2 \amp =1\\ x \amp =\pm 1 \end{aligned}
+          </me>
+        </p>
+        <p>
+          These critical points divide the real-number line into three intervals and we test the sign of <m>f'</m> on each interval:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) node[right]{\(f'\)} ;
+\foreach \x in  {-1,1}
+\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
+\foreach \x in  {-1,1}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {-2,2}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {0}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          Thus we see that <m>f</m> has a local maximum at <m>x=-1</m>,
+          where <m>f'</m> changes from positive to negative,
+          and a local minimum at <m>x=1</m>,
+          where <m>f'</m> changes from negative to positive.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Suppose you know the function <m>g(x)</m> is defined and continuous for all real numbers <m>x</m> and that <m>g'(x)</m> has the sign chart below.
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (5,0) node[right] {\(g'\)};
+\foreach \x in  {-1, 2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in  {-1,2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {-1}
+\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
+\foreach \x in  {2}
+\draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)};
+\foreach \x in  {-2,3}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {0.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          What are the critical points of <m>g</m>?
+          Classify each as a local minimum, maximum, or neither.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_concavity">
+    <title>Concavity</title>
+    <p>
+      In addition to asking <em>whether</em>
+      a function is increasing or decreasing,
+      it is also natural to inquire <em>how</em>
+      a function is increasing or decreasing.
+      There are three basic behaviors that an increasing function can demonstrate on an interval,
+      as pictured below:
+      the function can increase more and more rapidly,
+      it can increase at the same rate,
+      or it can increase in a way that is slowing down.
+      Fundamentally,
+      we are beginning to think about how a particular curve bends,
+      with the natural comparison being made to lines, which don't bend at all.
+      More than this,
+      we want to understand how the bend in a function's graph is tied to behavior characterized by the first derivative of the function.
+    </p>
+    <figure>
+      <caption>Three possible shapes for an increasing function.</caption>
+      <image width="93%" source="ACFigure1-6-7.png"/>
+    </figure>
+    <p>
+      For the leftmost curve above,
+      we draw a sequence of tangent lines to the curve:
+    </p>
+    <figure>
+      <caption>The slopes of <m>f</m> increase, meaning that <m>f</m> increases at an increasing rate.</caption>
+      <image width="46%" source="Concavity1.png"/>
+    </figure>
+    <p>
+      As we move from left at <m>A</m> to right at <m>B</m>,
+      the slopes of those tangent lines will increase.
+      Therefore, the slope, a.k.a. rate of change,
+      of the pictured function is increasing,
+      and we say this function is <em>increasing at an increasing rate</em>.
+      In other words, <m>f'</m> is increasing.
+    </p>
+    <p>
+      For the rightmost graph above,
+      observe that as <m>x</m> increases from <m>A</m> to <m>B</m>,
+      the function increases, but the slopes of the tangent lines decrease.
+    </p>
+    <figure>
+      <caption>The slopes of <m>g</m> decrease, meaning that <m>g</m> increases at a decreasing rate.</caption>
+      <image width="46%" source="Concavity2.png"/>
+    </figure>
+    <p>
+      This function is <em>increasing at a decreasing rate</em>,
+      meaning <m>g'</m> is decreasing.
+    </p>
+    <p>
+      Similar options hold for how a function can decrease.
+      Here we must be extra careful with our language,
+      because decreasing functions involve negative slopes.
+      Negative numbers present an interesting tension between common language and mathematical language.
+      For example,
+      it can be tempting to say that "<m>-100</m> is bigger than <m>-2</m>." But we must remember that
+      <q>greater than</q>
+      describes how numbers lie on a number line:
+      <m>x>y</m> provided that <m>x</m> lies to the right of <m>y</m>.
+      So <m>-2</m> is actually bigger than <m>-100</m>.
+      Informally, it might be helpful to say that "<m>-100</m> is more negative than <m>-2</m>." When a function's values are negative,
+      and those values get more negative as the input increases,
+      the function is actually decreasing.
+    </p>
+    <p>
+      From left to right below,
+      we see three functions that are all decreasing,
+      but doing so in different ways.
+    </p>
+    <figure>
+      <caption>Three possible shapes for a decreasing function.</caption>
+      <image width="93%" source="ACFigure1-6-8.png"/>
+    </figure>
+    <p>
+      The middle graph depicts a function decreasing at a constant rate.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Draw a sequence of tangent lines on the left-most and right-most graphs above.
+          Which depicts <m>f'</m> increasing and which depicts <m>f'</m> decreasing?
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      We now formally introduce the notion of <em>concavity</em>
+      which provides simpler language to describe these behaviors.
+      When a curve opens upward on a given interval,
+      like the parabola <m>y=x^2</m>,
+      we say that the curve is <em>concave up</em> on that interval.
+      Likewise, when a curve opens down,
+      like the parabola <m>y=-x^2</m>,
+      we say that the function is <em>concave down</em>.
+      Concavity is linked to both the first and second derivatives of the function;
+      it describes the change in the first derivative.
+    </p>
+    <p>
+      In the pictures below,
+      we see two functions and a sequence of tangent lines to each.
+      On the left-hand plot, where the function is concave up,
+      observe that the tangent lines always lie below the curve itself,
+      and the slopes of the tangent lines are increasing as we move from left to right.
+      In other words,
+      the function <m>f</m> is concave up on the interval shown because its derivative,
+      <m>f'</m>,
+      is increasing on that interval.
+      Similarly, on the right-hand plot below,
+      where the function shown is concave down,
+      we see that the tangent lines always lie above the curve,
+      and the slopes of the tangent lines are decreasing as we move from left to right.
+      The fact that its derivative,
+      <m>f'</m> is decreasing makes <m>f</m> concave down on the interval.
+    </p>
+    <p>
+      <image width="93%" source="ACFigure1-6-9.png"/>
+    </p>
+    <p>
+      We state these most recent observations formally as the definitions of the terms concave up and concave down:
+    </p>
+    <definition xml:id="def_concavity">
+      <title>Concavity</title>
+      <statement>
+        <p>
+          Let <m>f</m> be a differentiable function on an interval <m>I</m>.
+          Then <m>f</m> is <em>concave up</em>
+          on <m>I</m> if and only if <m>f'</m> is increasing on <m>I</m>.
+          <m>f</m> is <em>concave down</em>
+          on <m>I</m> if and only if <m>f'</m> is decreasing on <m>I</m>.
+        </p>
+        <p>
+          Stated differently:
+          <ul>
+            <li>
+              <p>
+                If <m>f''</m> is positive on <m>I</m>,
+                then <m>f</m> is concave up on <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f''</m> is negative on <m>I</m>,
+                then <m>f</m> is concave down on <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f''</m> is zero on <m>I</m>,
+                then <m>f</m> is linear on <m>I</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Compare this to <xref ref="thm_firstderivativeinfo">Theorem</xref>.
+      While the first derivative gives us information about whether <m>f</m> is increasing or decreasing,
+      the second derivative gives us information about whether <m>f</m> is concave up or concave down.
+      The relationship between the function and its first and second derivatives is pictured below:
+    </p>
+    <p>
+      <image width="92.5%" source="TaalmanPage248.png"/>
+    </p>
+    <p>
+      The function <m>f(x) = x^3</m> is pictured at the left and is concave down on
+      <m>(-\infty,0)</m> and concave up on <m>(0,\infty)</m>.
+      The derivative <m>f'(x) = 3x^2</m> is pictured in the middle,
+      and is decreasing on <m>(-\infty,0)</m> and increasing on <m>(0,\infty)</m>.
+      The second derivative <m>f''(x) = 6x</m> is picture at the right,
+      and is negative on <m>(-\infty,0)</m> and positive on <m>(0,\infty)</m>.
+    </p>
+    <p>
+      Just as a first derivative sign chart reveals all of the increasing and decreasing behavior of a function,
+      we can construct a second derivative sign chart that demonstrates all of the important information involving concavity.
+    </p>
+    <example xml:id="ex_concavityexample">
+      <statement>
+        <p>
+          The first derivative of <m>f(x) = 2x^3 -9x^2 +12x-4</m> is
+          <me>
+            f'(x) = 6x^2-18x+12
+          </me>
+          and its second derivative is
+          <me>
+            f''(x) = 12x-18
+          </me>.
+        </p>
+        <p>
+          We can see that <m>f''(x)=0</m> when <m>12x-18 = 6(2x-3) = 0</m>,
+          so at <m>x=3/2</m>.
+          A sign analysis for <m>f''(x)</m> is:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-1.5,0) -- (4.5,0) node[right]{\(f''\)} ;
+\foreach \x in  {3/2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
+\foreach \x in  {3/2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {3}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {0}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          Thus <m>f(x)</m> is concave down on
+          <m>(-\infty, 3/2)</m> and concave up on <m>(3/2,\infty)</m>.
+          We can confirm this by graphing <m>f(x)</m>:
+        </p>
+        <p>
+          <image width="46%" source="ConcavityEx.png"/>
+        </p>
+        <p>
+          The point at <m>x=3/2</m> where the concavity changes can be most easily seen on the graph by seeing where the function switches from looking like a concave down parabola with vertex at <m>(1,1)</m>,
+          to looking like a concave up parabola with vertex at <m>(2,0)</m>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>The Second Derivative Test</title>
+    <p>
+      We can also use the second derivative to determine whether some critical points are local minima or maxima.
+      At a point where <m>f'(c)=0</m>,
+      the sign of the second derivative determines whether <m>f</m> has a local minimum or local maximum at the critical point <m>c</m>.
+    </p>
+    <p>
+      <image width="93%" source="ACFigure3-1-9.png"/>
+    </p>
+    <p>
+      Above, we see the four possibilities for a function <m>f</m> that has a critical point at <m>x=c</m> at which <m>f'(c)=0</m>,
+      provided <m>f''(c)</m> is not zero on an interval including <m>c</m>
+      (except possibly at <m>c</m>).
+      On either side of the critical point,
+      <m>f''</m> can be either positive or negative,
+      and hence <m>f</m> can be either concave up or concave down.
+      In the first two graphs, <m>f</m> does not change concavity at <m>c</m>,
+      and in those situations,
+      <m>f</m> has either a local minimum or local maximum.
+      In particular, if <m>f'(c)=0</m> and <m>f''(c)\lt 0</m>,
+      then <m>f</m> is concave down at <m>c</m> with horizontal tangent line,
+      so <m>f</m> has a local maximum there.
+      This fact, along with the corresponding statement for when <m>f''(c)</m> is positive,
+      is the substance of the <em>second derivative test.</em>
+    </p>
+    <theorem>
+      <title>The Second Derivative Test</title>
+      <statement>
+        <p>
+          If <m>c</m> is a critical number of a continuous function <m>f</m> such that <m>f'(c)=0</m>, then
+          <ol marker="labeltextbfalphitemsep20pttopsep10pt">
+            <li>
+              <p>
+                <m>f</m> has a local maximum at <m>c</m> if and only if <m>f''(c)\lt 0</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f</m> has a local minimum at <m>c</m> if and only if <m>f''(c)>0</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                if <m>f''(c)=0</m>,
+                this test tells us nothing and we should use a different test
+                (like the First Derivative Test).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <remark>
+      <p>
+        In the event that <m>f''(c)=0</m>,
+        the second derivative test is "inconclusive," meaning that the test doesn't provide us any information.
+        This is because if <m>f''(c)=0</m>,
+        it is possible that <m>f</m> has a local minimum,
+        local maximum, or neither.
+        Consider the functions <m>f(x) = x^4, g(x) = -x^4</m>,
+        and <m>h(x) =x^3</m> at the critical point <m>c=0</m>,
+        for example.
+      </p>
+    </remark>
+    <example xml:id="ex_concavityexamplesecondderivtest">
+      <statement>
+        <p>
+          We saw in <xref ref="ex_concavityexample">Example</xref>
+          that the first derivative of <m>f(x) = 2x^3 -9x^2 +12x-4</m> is
+          <m>f'(x) = 6x^2-18x+12</m> and its second derivative is <m>f''(x) = 12x-18</m>.
+          We find the critical points of <m>f(x)</m> by setting the derivative equal to zero and solving for <m>x</m>:
+          <me>
+            f'(x)  = 0
+          </me>
+          <me>
+            6x^2-18x+12 = 0
+          </me>
+          <me>
+            6(x^2-3x+2) = 0
+          </me>
+          <me>
+            6(x-2)(x-1) = 0
+          </me>
+          and so the critical points are <m>x=1, 2</m>.
+          Using the second derivative test,
+          we compute the value of <m>f''</m> at each of the critical points:
+          <me>
+            f''(1) = 12(1)-18 = -6\lt 0
+          </me>
+          <me>
+            f''(2) = 12(2)-18 = 6>0
+          </me>
+        </p>
+        <p>
+          Thus we see that <m>f</m> has a local maximum at <m>x=1</m>,
+          since <m>f</m> is concave down with a horizontal tangent line.
+          <m>f</m> has a local minimum at <m>x=2</m>,
+          since <m>f</m> is concave up with a horizontal tangent line.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Find the critical points of
+          <m>f(x) = x^3-3x+2</m> by setting the first derivative equal to zero.
+          Then use the second derivative test to classify each critical numbers as a local minimum, maximum,
+          or neither by finding the sign of <m>f''</m> at each critical point.
+          Compare your answer to <xref ref="ex_localminmaxexample">Example</xref>.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      The nice thing about the Second Derivative Test is that it can be quicker than the First Derivative Test.
+      The down-side is that it only applies to critical points where the derivative is 0, and does not work when the second derivative is also 0.
+      We finish with one more example to illustrate this:
+    </p>
+    <example>
+      <statement>
+        <p>
+          For <m>h(x) = x^4(x+1)</m>,
+          we find the first derivative to locate critical points and then find the value of the second derivative to classify them.
+          <me>
+            h(x) = x^4(x+1) = x^5+x^4\Longrightarrow h'(x) = 5x^4+4x^3 = x^3(5x+4)
+          </me>
+        </p>
+        <p>
+          Thus <m>h</m> has critical numbers <m>x=0, -4/5</m>.
+          The second derivative is
+          <me>
+            h''(x) = 20x^3+12x^2
+          </me>
+          and so its values at the critical numbers are
+        </p>
+        <tabular>
+          <row>
+            <cell><m>x=c</m></cell>
+            <cell>{ <m>h''(c)</m>}</cell>
+            <cell><m>h</m> is\ldots</cell>
+            <cell><m>x=c</m> is\ldots</cell>
+          </row>
+          <row bottom="medium">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell  ><m>-4/5</m></cell>
+            <cell><m>h''(-4/5) =20(-4/5)^3+12(-4/5)^2</m></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell><m>=-2.56</m></cell>
+            <cell>concave down</cell>
+            <cell>a local max</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>0</m></cell>
+            <cell><m>h(0) =20(0)^3+12(0)^2=0</m></cell>
+            <cell>neither concave up nor down</cell>
+            <cell>???</cell>
+          </row>
+        </tabular>
+        <p>
+          Because <m>h''(0)=0</m>,
+          the Second Derivative Test didn't tell us anything about whether <m>x=0</m> is a local minimum or maximum or neither.
+          If we want to know whether <m>x=0</m> is a local minimum or maximum,
+          we will need to use the First Derivative Test.
+          Creating a number line for the first derivative:
+        </p>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) node[right]{\(h'\)} ;
+\foreach \x in  {-4/5,0}
+\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
+\foreach \x in  {-4/5,0}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\foreach \x in  {-1.5, 1.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
+\foreach \x in  {-0.5}
+\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        <p>
+          Thus we see that <m>x=0</m> is a local minimum,
+          since <m>h'</m> changes from negative to positive.
+          This also confirms that <m>x=-4/5</m> is a local maximum.
+          (Remember, we always want mathematics to be consistent,
+          so answers found using multiple methods should still be the same.)
+        </p>
+        <p>
+          To check our answers, let's graph <m>h(x)</m>:
+        </p>
+        <p>
+          <image width="46%" source="SDTcanfailEx.png"/>
+        </p>
+        <p>
+          <m>x=-4/5</m> is indeed a local maximum and <m>x=0</m> is a local minimum.
+          But notice how flat the graph is near <m>x=0</m>.
+          This is the result of having <m>h''(0)=0</m>;
+          the graph is neither concave up nor concave down at <m>x=0</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      \fbox{In general,
+      you can use either the First or Second Derivative test to classify critical points <m>x=c</m>.
+      However:
+      <ul>
+        <li>
+          <p>
+            you must use the First Derivative Test whenever <m>f'(c)</m> is undefined.
+          </p>
+        </li>
+        <li>
+          <p>
+            you will need to use the First Derivative Test if the Second Derivative Test fails,
+            meaning if <m>f''(c)=0</m> as well.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Proof of Theorem \xautoref{thm_firstderivativeinfo} Using the Mean Value Theorem</title>
+    <p>
+      Theorem <xref ref="thm_firstderivativeinfo" autoname="yes"/> tells us that a positive derivative corresponds to an increasing function,
+      a negative derivative corresponds to a decreasing function,
+      and a derivative of zero corresponds to a constant function,
+      all on an interval that we will call <m>I</m>.
+      We have been using this fact informally ever since intuitively defining the derivative as an associated slope function in Section <xref ref="sec_associatedslopefunction" autoname="yes"/>.
+    </p>
+    <p>
+      The proof below is not necessary to read for your understanding of derivatives or functions and you can safely skip reading the rest of this section if you are not interested.
+      However, it is a good example of how mathematicians encode intuitive ideas into rigorous definitions and then formally connect those ideas into theorems using deductive arguments.
+      In order to prove that a positive/negative derivative corresponds to an increasing/decreasing function,
+      we must first give a more formal definition of what it means for a function to be increasing or decreasing.
+    </p>
+    <definition>
+      <title>Formal Definition of Increasing and Decreasing</title>
+      <statement>
+        <p>
+          A function <m>f</m> is <em>increasing on an interval <m>I</m></em> if
+        </p>
+        <m>f(a)\lt f(b)</m> for any <m>a</m> and <m>b</m> in <m>I</m> with <m>a\lt b</m>.
+        <p>
+          In other words, if <m>b</m> is bigger than <m>a</m>,
+          then <m>f(b)</m> is bigger than <m>f(a)</m>.
+        </p>
+        <p>
+          The reverse is true for a decreasing function: A function <m>f</m> is
+          <em>decreasing on an interval <m>I</m></em> if
+        </p>
+        <m>f(a)>f(b)</m> for any <m>a</m> and <m>b</m> in <m>I</m> with <m>a\lt b</m>.
+        <p>
+          In other words, if <m>b</m> is bigger than <m>a</m>,
+          then <m>f(b)</m> will be <em>smaller</em>
+          than <m>f(a)</m> if <m>f</m> is decreasing.
+        </p>
+      </statement>
+    </definition>
+    <proof>
+      <p>
+        First we consider the case where <m>f'</m> is positive and show that <m>f</m> must be increasing.
+        Suppose that <m>f'(x)</m> is positive for all values of <m>x</m> on the interval <m>I</m>,
+        and that <m>a</m> and <m>b</m> are values of <m>x</m> that are in <m>I</m>.
+        Since <m>f'</m> is positive, we know that <m>f'</m> is defined,
+        thus <m>f</m> is differentiable and so also continuous by Theorem <xref ref="thm_diffimpliescont" autoname="yes"/>.
+        Hence the Mean Value Theorem applies to <m>f</m> on the interval <m>[a,b]</m>.
+      </p>
+      <p>
+        According to the Mean Value Theorem,
+        <me>
+          \frac{f(b)-f(a)}{b-a} = f'(c)
+        </me>
+        for some <m>c</m> between <m>a</m> and <m>b</m>.
+        We are assuming that <m>f'(c)</m> is positive.
+        Observe that <m>b-a</m> is also positive since <m>b</m> is bigger than <m>a</m>.
+        Hence in the equation above,
+        the right-hand side is positive and the denominator of the left-hand side is positive,
+        thus the numerator of the left-hand side must also be positive.
+        Thus we see that
+        <me>
+          f(b)-f(a)>0 \Longrightarrow  f(b)>f(a)
+        </me>.
+        This means that <m>f(b)</m> is bigger than <m>f(a)</m>,
+        showing that <m>f</m> is increasing on <m>[a,b]</m>.
+        Overall, if we know that <m>f'</m> is positive,
+        the Mean Value Theorem tells us that <m>f</m> is increasing.
+      </p>
+      <p>
+        The same argument works to argue that <m>f</m> is decreasing if we know that <m>f'</m> is negative.
+        Again, the Mean Value Theorem applies since we are assuming <m>f'</m> exists,
+        thus <m>f</m> is differentiable and continuous.
+        According to the Mean Value Theorem,
+        <me>
+          \frac{f(b)-f(a)}{b-a} = f'(c)
+        </me>
+        for some <m>c</m> between <m>a</m> and <m>b</m>.
+        If we know that <m>f'(c)</m> is negative,
+        then since <m>b-a</m> is still positive (<m>b</m> is still bigger than <m>a</m>),
+        we must have that <m>f(b)-f(a)</m> is negative so that the fraction on the left-hand side of the equation is negative.
+        Then
+        <me>
+          f(b)-f(a)\lt 0 \Longrightarrow  f(b)\lt f(a)
+        </me>,
+        meaning that <m>f(b)</m> is <em>smaller</em> than <m>f(a)</m>.
+        Thus, if we know that <m>f'</m> is negative,
+        the Mean Value Theorem tells us that <m>f</m> is decreasing.
+      </p>
+      <p>
+        Lastly, we can show that if <m>f'</m> is zero,
+        then <m>f</m> must be constant.
+        In this case,
+        the Mean Value Theorem still applies (since <m>f'(x)=0</m>,
+        it does still exist, so <m>f</m> is differentiable and continuous).
+        Thus
+        <me>
+          \frac{f(b)-f(a)}{b-a} = f'(c)=0
+        </me>.
+      </p>
+      <p>
+        Since <m>f(b)-f(a)=0</m>, it must be true that <m>f(b)=f(a)</m>,
+        so <m>f</m> must have the same value for all <m>a</m> and <m>b</m> on the interval <m>I</m>
+        (since we could pick any <m>a</m> and <m>b</m> we like on <m>I</m>).
+        If the value of <m>f</m> is the same for all inputs,
+        then <m>f</m> is constant.
+      </p>
+      <p>
+        Collecting all three arguments above,
+        we see that when <m>f'</m> is positive,
+        <m>f</m> is increasing, when <m>f'</m> is negative,
+        <m>f</m> is decreasing, and when <m>f'</m> is zero, <m>f</m> is constant,
+        all thanks to the Mean Value Theorem and the formal definitions of an increasing/decreasing function.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    The First Derivative Test, concavity, concave up, concave down, the Second Derivative Test.
+    <p>
+      <em>Key ideas:</em> A function is increasing where the derivative is positive and decreasing where the derivative is negative.
+      This implies that a continuous function will have a local minimum where the derivative changes from negative to positive,
+      and a local maximum where the derivative changes from positive to negative
+      (the First Derivative Test).
+      The second derivative is positive where a function is concave up and negative where a function is concave down.
+      This implies that a critical point of a differentiable function with positive second derivative is a local minimum and a critical point with negative second derivative is a local maximum
+      (the Second Derivative Test).
+    </p>
+    <p>
+      <em>Other ideas reinforced/introduced:</em>
+      A critical point is where the first derivative is either zero or undefined,
+      but must be in the domain of the function.
+      Expressions can change sign whenever they are zero or undefined.
+      The second derivative is the rate of change of the first derivative,
+      so the first derivative is increasing where the second derivative is positive,
+      and the first derivative is decreasing where the second derivative is negative.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 4.4}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

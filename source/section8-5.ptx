@@ -1,0 +1,453 @@
+<section>
+  <title>Trigonometric Identities and Formulas</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Simplify compositions of trigonometric and inverse trigonometric functions into algebraic expressions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Apply the sum and difference identities to finding the exact values of
+          <m>\sin\frac{\pi}{12}</m> and <m>\cos\frac{\pi}{12}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Combine the sum and difference identities into the double-angle identities.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Overview: A Few More Identities</title>
+    <p>
+      We have seen over the past few sections that there are many relationships between the trigonometric functions and that these give rise to many ways of rewriting one function in terms of another function.
+      Likewise, there are additional relationships between the trigonometric and inverse trigonometric functions,
+      since the latter are derived from the former.
+      In this section, we cover a few more of these relationships,
+      called <em>identities</em>,
+      that are the last ones we will examine this semester.
+    </p>
+    <p>
+      We begin by showing how compositions of trigonometric and inverse trigonometric functions can be simplified to purely algebraic expressions,
+      which is either surprising or not
+      (you can decide).
+      The second subsection gives the sum and difference identities for sine and cosine,
+      which gives us a way to calculate the values of the trigonometric functions for <m>\frac{\pi}{12}</m> exactly
+      (remember how there were more points on the unit circle back in <xref ref="sec_theunitcircle">Section</xref> that we never labeled?).
+      Lastly, we will combine the sum and Pythagorean Identities into what are called
+      <em>Double-Angle Identities,</em>
+      which are some of the standard,
+      useful trigonometric identities that you may need to use in future math classes or elsewhere.
+    </p>
+    <p>
+      It's worth noting that there are an
+      <em>unlimited number</em>
+      of trigonometric identities,
+      and that thousands of them have been "discovered" and recorded in some book or other over the centuries during which humanity has studied trigonometry.
+      The most useful approach that I have found to them,
+      however, is to know that they are out there, somewhere,
+      and that Google is extremely good at finding the ones I need in any given situation.
+      The useful skill is not in memorizing the identities,
+      but in recognizing which ones are applicable to a given problem.
+    </p>
+  </subsection>
+  <subsection xml:id="sec_simplifyingcompositionsoftrigandinversetrig">
+    <title>Simplifying compositions of inverse trigonometric and trigonometric functions</title>
+    <p>
+      Recall that if we know the value of, say,
+      <m>\sin\theta</m> and the sign of <m>\cos\theta</m>,
+      then we can determine the value of
+      <m>\cos\theta</m> without knowing the precise value of the angle <m>\theta</m>.
+      In this way, we can think of the composition
+      <me>
+        \cos(\sin^{-1} x)
+      </me>
+      as a single function that takes as input the value
+      <m>x=\sin\theta</m> and gives as output the value of <m>\cos\theta</m>,
+      with the additional condition that <m>\theta</m> must be on the interval <m>\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</m>
+      (because this is the range of the function <m>\sin^{-1}x = \arcsin x</m>).
+      It follows that,
+      if <m>-\frac{\pi}{2}\leq\theta\leq\frac{\pi}{2}</m>,
+      then <m>\theta</m> is in the fourth or first quadrant on the unit circle,
+      so the value of cosine, the horizontal coordinate, is positive.
+      The conclusion is that <m>\cos(\sin^{-1} x)</m> must be <em>positive</em>.
+    </p>
+    <p>
+      It turns out that this composition can be written as an
+      <em>algebraic</em> function,
+      meaning a function without any trigonometric or inverse trigonometric functions.
+      Once again, we have the Pythagorean Theorem to thank for this amazing occurrance.
+    </p>
+    <example xml:id="ex_compoftrigandinvtrig">
+      <statement>
+        <p>
+          Write <m>\cos(\sin^{-1}x)</m> as an algebraic function, that is,
+          a function that involves only arithmetic operations and rational powers.
+        </p>
+        <p>
+          The first thing we do is to define <m>\theta = \sin^{-1}x</m>,
+          so that we can write <m>\sin\theta = x</m> where <m>\theta</m> must be in the interval <m>\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</m>.
+          If we draw <m>\theta</m> in the first quadrant <m>\left[0,\frac{\pi}{2}\right]</m>,
+          then we can draw a reference triangle for <m>\theta</m> as shown in <xref ref="fig_TaalmanPage446a">Figure</xref> below.
+        </p>
+        <figure xml:id="fig_TaalmanPage446a">
+          <caption>A reference triangle for an angle <m>\theta</m> in <m>\left[0,\frac{\pi}{2}\right]</m>.</caption>
+          <image width="37%" source="TaalmanPage446a.png"/>
+        </figure>
+        <p>
+          If we wish <m>\theta</m> to have a sine of <m>x</m>,
+          then the ratio of the length of the opposite side to the length of the hypotenuse must be <m>x</m>.
+          The hypotenuse is <m>1</m>, since we are working with the unit circle,
+          so the ratio we want is <m>\frac{\text{ opp } }{\text{ hyp } } = \frac{x}{1}</m>.
+          Thus we can label the vertical leg of the triangle with <m>x</m>,
+          the hypotenuse with <m>1</m>,
+          and use the Pythagorean Theorem to solve for the third side:
+        </p>
+        <figure xml:id="fig_TaalmanPage446b">
+          <caption>Use the Pythagorean Theorem to determine the length of the remaining leg.</caption>
+          <image width="37%" source="TaalmanPage446b.png"/>
+        </figure>
+        <p>
+          Now <m>\cos\theta</m> is the horizontal coordinate of the point on the unit circle corresponding to <m>\theta</m>,
+          or, in terms of "adjacent over hypotenuse," we have
+          <me>
+            \cos\theta = \frac{\sqrt{1-x^2}}{1} = \sqrt{1-x^2}
+          </me>
+        </p>
+        <p>
+          The case where <m>\theta</m> is in the fourth quadrant, that is,
+          where <m>\theta</m> is in <m>\left[-\frac{\pi}{2},0\right]</m>,
+          is similar and also shows that <m>\cos\theta = \sqrt{1-x^2}</m>.
+          Therefore we have shown that
+          <me>
+            \cos(\sin^{-1}x) = \sqrt{1-x^2}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Draw an alternate picture of the unit circle for <xref ref="ex_compoftrigandinvtrig">Example</xref>
+          where <m>\theta</m> is in the fourth quadrant
+          <m>\left[-\frac{\pi}{2},0\right]</m> and explain why the equation
+          <me>
+            \cos\theta = \sqrt{1-x^2}
+          </me>
+          is still true,
+          including especially why we only consider the positive square root.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>Testing Values</title>
+      <statement>
+        <p>
+          To verify the remarkable fact that <m>\cos(\sin^{-1}x) = \sqrt{1-x^2}</m>,
+          we evaluate both sides at some simple <m>x</m>-values.
+          While looking at just a few <m>x</m>-values will not prove that the two expressions are equal for all <m>x</m>,
+          it will at least give us some evidence that the equality is reasonable.
+        </p>
+        <p>
+          For example, at <m>x=0</m> we have
+          <me>
+            \cos(\sin^{-1} 0) = \cos 0 = 1\text{ and }  \sqrt{1-0^2} =\sqrt{1} = 1
+          </me>,
+          and at <m>x=1</m> we have
+          <me>
+            \cos(\sin^{-1} 1) = \cos \left(\frac{\pi}{2}\right) = 0\text{ and }  \sqrt{1-1^2} =\sqrt{0} = 0
+          </me>.
+        </p>
+        <p>
+          As a less trivial example, consider <m>x=\frac{1}{2}</m>.
+          At this value we have
+          <me>
+            \cos\left(\sin^{-1} \left(\frac{1}{2}\right)\right) = \cos \left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2}\text{ and }  \sqrt{1-\left(\frac{1}{2}\right)^2} =\sqrt{1-\frac{1}{4}} =\sqrt{\frac{3}{4}} =\frac{ \sqrt{3}}{2}
+          </me>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>The Sum Identities</title>
+    <p>
+      Given two angles <m>\alpha</m> and <m>\beta</m>,
+      is <m>\sin(\alpha+\beta)</m> the same thing as <m>\sin\alpha+\sin\beta</m>?
+      That would be convenient, but alas, it is not true.
+      For example,
+      if <m>\alpha=\frac{\pi}{4}</m> and <m>\beta=\frac{\pi}{2}</m>,
+      then <m>\sin\left(\frac{\pi}{4}+\frac{\pi}{2}\right)=\sin\frac{3\pi}{4}=\frac{\sqrt{2}}{2}</m>,
+      which is different from <m>\sin\left(\frac{\pi}{4}\right)+\sin\left(\frac{\pi}{2}\right)=\frac{\sqrt{2}}{2}+1</m>.
+      We can, however,
+      relate the sine of the sum of two angles to the sine and cosine of those angles:
+    </p>
+    <theorem xml:id="thm_sumdif">
+      <title>Sum and Difference Identites</title>
+      <statement>
+        <p>
+          For all angles <m>\alpha</m> and <m>\beta</m>:
+          <ol marker="labeltextbfalphtopsep5ptitemsep10pt">
+            <li>
+              <p>
+                <m>\sin(\alpha-\beta)=\sin\alpha\cos\beta-\sin\beta\cos\alpha</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\beta\sin\alpha</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\sin(\alpha+\beta)=\sin\alpha\cos\beta+\sin\beta\cos\alpha</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\beta\sin\alpha</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Here is a visual proof of parts (a) and (b) <mdash/> the difference identities:
+    </p>
+    <figure>
+      <image width="56%" source="GeometricProofDifferenceIdentity.png"/>
+    </figure>
+    <p>
+      We won't elaborate on the visual proof,
+      though you can feel free to stare at it for a bit and figure out what it's saying and why it works.
+      The proofs of the sum identities follow easily from the difference identities,
+      using the fact that sine is an odd function and cosine is an even function.
+      For example, we can prove part (c):
+      <me>
+        \begin{aligned}\sin(\alpha+\beta)\amp =\sin(\alpha-(-\beta))\amp \leftarrow\textrm{ rewrite sum as a difference} \\ \amp =\sin\alpha\cos(-\beta)-\sin(-\beta)\cos\alpha\amp \leftarrow\textrm{ difference identity for sine} \\ \amp =\sin\alpha\cos(\beta)-(-\sin(\beta))\cos\alpha\amp \leftarrow\textrm{ cosine is even, sine is odd} \\ \amp =\sin\alpha\cos\beta+\sin\beta\cos\alpha\amp \leftarrow\textrm{ simplify, and voil\`a!} \end{aligned}
+      </me>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Calculate the exact value of <m>\sin\frac{\pi}{12}</m> by hand.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The reference triangle for
+          <m>\frac{\pi}{12}</m> is not a 30-60-90 triangle, nor a 45-45-90 triangle,
+          so we cannot calculate the value of <m>\sin\frac{\pi}{12}</m> directly.
+          We can, however,
+          write <m>\frac{\pi}{12}</m> as a difference of angles that have the desired reference triangels:
+          <me>
+            \frac{\pi}{12}=\frac{3\pi}{12}-\frac{2\pi}{12}=\frac{\pi}{4}-\frac{\pi}{6}
+          </me>
+        </p>
+        <p>
+          By the difference identity for sine, we have
+          <me>
+            \begin{aligned}\sin\left(\frac{\pi}{12}\right)\amp =\sin\left(\frac{\pi}{4}-\frac{\pi}{6}\right)\amp \\ \amp =\sin\left(\frac{\pi}{4}\right)\cos\left(\frac{\pi}{6}\right)-\sin\left(\frac{\pi}{6}\right)\cos\left(\frac{\pi}{4}\right)\amp \leftarrow\textrm{ difference identity for sine} \\ \amp =\left(\frac{\sqrt{2}}{2}\right)\left(\frac{\sqrt{3}}{2}\right)-\left(\frac{1}{2}\right)\left(\frac{\sqrt{2}}{2}\right)\amp \leftarrow\textrm{ using reference triangles} \\ \amp =\frac{\sqrt{6}}{4}-\frac{\sqrt{2}}{4}\amp \\ \amp =\frac{\sqrt{6}-\sqrt{2}}{4}\amp \end{aligned}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Calculate the exact value of <m>\cos\frac{\pi}{12}</m> by hand.
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      Note that we are now able to label all 24 of the points on our original picture of the unit circle with exact coordinates.
+      We will not give this as an exercise,
+      but recommend that you take a moment to consider how you would go about this:
+    </p>
+    <p>
+      <image width="65%" source="APCFigure2-2-3.png"/>
+    </p>
+    <p>
+      Many of the identities in <xref ref="sec_identitiespart1">Section</xref>
+      are a consequence of the sum identity.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example,
+          we can rewrite the expression <m>\sin\left(t+\frac{\pi}{2}\right)</m>:
+          <me>
+            \begin{aligned}\sin\left(t+\frac{\pi}{2}\right)\amp =\sin t\cdot\cos\left(\frac{\pi}{2}\right)+\sin\left(\frac{\pi}{2}\right)\cos t\\ \amp =\sin t\cdot 0+1\cdot\cos t\\ \amp =\cos t. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Isn't that cool?!
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          As another example, we can rewrite the expression <m>\cos(t-\pi)</m>:
+          <me>
+            \begin{aligned}\cos\left(t-\pi\right)\amp =\cos t\cdot\cos\pi+\sin t\cdot\sin \pi\\ \amp =\cos t\cdot(-1)+\sin t\cdot0\\ \amp =-\cos t. \end{aligned}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Pick one more identity from <xref ref="sec_identitiespart1">Section</xref>
+          that you could prove using the Sum or Difference Identities and then prove it!
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Double-Angle Identities</title>
+    <p>
+      Many more trigonometric identities can be obtained from the sum and difference identities.
+      For example,
+      we can write down identities for rewriting expressions like <m>\sin\left(\theta+\frac{\pi}{4}\right)</m> or
+      <m>\sin\left(\theta+3\pi\right)</m>. (How would you do that?) We can also obtain identities for the sine and cosine of
+      <q>double angles</q>
+      that tell us how to rewrite the sine and cosine of <m>2\theta</m> in terms of the sine and cosine of <m>\theta</m>:
+    </p>
+    <theorem xml:id="thm_doubleangle">
+      <title>Double-Angle Identites</title>
+      <statement>
+        <p>
+          For every angle <m>\theta</m>:
+          <ol marker="labeltextbfalphtopsep5ptitemsep10pt">
+            <li>
+              <p>
+                <m>\sin(2\theta)=2\sin\theta\cos\theta</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\cos(2\theta)=\cos^2\theta-\sin^2\theta</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\cos(2\theta)=1-2\sin^2\theta</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\cos(2\theta)=2\cos^2\theta-1</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Notice that we have three different ways to express the cosine of a double angle.
+      These are the result of rewriting the first that we get from the Sum Identity by combining it with the Pythagorean Identity.
+      Let's prove some of these:
+    </p>
+    <proof>
+      <p>
+        To prove the double-angle identity for sine,
+        we write <m>2\theta</m> as the sum <m>\theta+\theta</m> of two angles,
+        and apply the sum identify for sine:
+        <me>
+          \begin{aligned}\sin\left(2\theta\right)\amp =\sin\left(\theta+\theta\right)\amp \leftarrow\text{ rewrite } \theta\textrm{ as a sum} \\ \amp =\sin\theta\cos\theta+\sin\theta\cos\theta\amp \leftarrow\textrm{ sum identity for sine} \\ \amp =2\sin\theta\cos\theta.\amp \leftarrow\textrm{ combine like terms} \end{aligned}
+        </me>
+      </p>
+      <p>
+        The proof for the first double-angle identity for cosine in part (b) is similar.
+        (Why?
+        Try writing it out for yourself.)
+      </p>
+      <p>
+        We can prove the alternative double-angle identities for cosine by applying Pythagorean Identity.
+        For example, to prove part (c),
+        we can use that fact that since <m>\sin^2\theta+\cos^2\theta=1</m>,
+        we have <m>\cos^2\theta=1-\sin^2\theta</m>:
+        <me>
+          \begin{aligned}\cos\left(2\theta\right)\amp =\cos^2\theta-\sin^2\theta\amp \leftarrow\text{ first double-angle identity for cosine } \\ \amp =(1-\sin^2\theta)+\sin^2\theta\amp \leftarrow\text{ Pythagorean identity } \\ \amp =1-2\sin^2\theta.\amp \leftarrow\textrm{ combine like terms} \end{aligned}
+        </me>
+      </p>
+      <p>
+        The proof of part (d) is similar.
+        (Why?
+        Try writing it out for yourself.)
+      </p>
+    </proof>
+    <example>
+      <statement>
+        <p>
+          Prove the following double-angle identity for tangent:
+          <me>
+            \tan2\theta=\frac{2\tan\theta}{1-\tan^2\theta}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since most of the identities we know at this point involve sines and cosines,
+          it is a good idea to recast this identity in terms of those functions.
+          We begin by simplifying the right side of the identity:
+          <me>
+            \begin{aligned}\frac{2\tan\theta}{1-\tan^2\theta}\amp =\frac{2\frac{\sin\theta}{\cos\theta}}{1-\left(\frac{\sin\theta}{\cos\theta}\right)^2}\\ \amp =\left(\frac{\cos^2\theta}{\cos^2\theta}\right)\left(\frac{2\frac{\sin\theta}{\cos\theta}}{1-\left(\frac{\sin\theta}{\cos\theta}\right)^2}\right)\\ \amp =\frac{\cos^2\theta\left(2\frac{\sin\theta}{\cos\theta}\right)}{\cos^2\theta\left(1-\left(\frac{\sin\theta}{\cos\theta}\right)^2\right)}\\ \amp =\frac{2\sin\theta\cos\theta}{\cos^2\theta-\sin^2\theta}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Now we simplify the left side:
+          <me>
+            \begin{aligned}\tan2\theta\amp =\frac{\sin2\theta}{\cos2\theta}\\ \amp =\frac{2\sin\theta\cos\theta}{\cos^2\theta-\sin^2\theta}. \end{aligned}
+          </me>
+        </p>
+        <p>
+          Combining these two equations,
+          it follows that <m>\tan2\theta=\frac{2\tan\theta}{1-\tan^2\theta}</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          <em>True or False?</em> Is the equation
+          <me>
+            \sin(2\theta) = 2\sin\theta
+          </me>
+          true for every angle <m>\theta</m>?
+          If so, prove it.
+          If not, find an angle for which it is false.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following formulas were introduced in this section:
+    </p>
+    The Sum and Difference Identities, the Double-Angle Identities.
+    <p>
+      <em>Key ideas:</em> The underlying definitions of trigonometric and inverse trigonometric functions let us simplify their compositions using the unit circle and carefully-labeled reference triangles.
+      The Sum and Difference Identities generalize some of the identities we already observed,
+      and can be combined with the Pythagorean Identities in order to deduce the Double-Angle Identities.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      An identity is a relationship between two expressions that are always equal,
+      and give us a short-cut to rewriting an expression in terms of another.
+      Thinking flexibly about the unit-circle and triangle definitions of sine and cosine is important for being able to calculate with them.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 7.5}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>

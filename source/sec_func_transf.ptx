@@ -1,0 +1,748 @@
+<section xml:id="sec_func_transf">
+  <title>Transformations and Symmetry</title>
+  <introduction>
+    <p>
+          <idx><h>Functions</h><h>Transformations of Functions</h></idx>
+          <idx><h>Functions</h><h>Symmetry</h></idx>
+    </p>
+  </introduction>
+  <subsection>
+    <title>Learning Goals</title>
+    <p>
+      <ul>
+      <li>
+        <p>
+          Learn about transformations of functions and how they influence the shape of a graph.
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand how the definitions of even and odd functions correspond to certain types of symmetry in the graph of a function.
+        </p>
+      </li>
+      <li>
+        <p>
+          Determine algebraically whether a function is even, odd,
+          or neither.
+        </p>
+      </li>
+      <li>
+        <p>
+          Application:
+          the vertex form of a quadratic function arises from a series of transformations of the function <m>y=x^2</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  </subsection>
+  <subsection>
+    <title>Transformations</title>
+    <p>
+      In this section,
+      we examine a few specific compositions of functions that give rise to what are called
+      <em>transformations</em>.
+      Given a function <m>f(x)</m> and constants <m>a, b, c</m>,
+      and <m>d</m>,
+      we could consider such modifications as <m>f(x+a),
+      f(x)+b, f(cx)</m>, and <m>df(x)</m>.
+      Each of these transformations changes <m>f(x)</m> graphically and algebraically.
+    </p>
+    <p>
+      What exactly is the result of adding or multiplying,
+      and what difference does it make to do so on the inside versus the outside of the function?
+      Take a moment to use this 
+    <url href="https://www.desmos.com/calculator/zq0dcadodr">Desmos graph</url>
+      to explore for yourself.
+      The original function <m>f(x)</m> is graphed in blue.
+      Adjusting each of the sliders for <m>a, b, c</m>,
+      and <m>d</m> will generate a new graph <m>g(x)</m> in orange corresponding to the modification <m>f(x+a),
+      f(x)+b, f(cx)</m>, and <m>df(x)</m>.
+      <em>Note: you will probably need to access the Desmos graph via a computer,
+      rather than a tablet or phone,
+      in order for the sliders to work correctly.</em>
+    </p>
+    <example>
+      <title>Vertical Translation</title>
+      <statement>
+        <p>
+          Transforming <m>f(x)</m> to
+          <m>f(x)\pm b</m> adds/subtracts <m>b</m> units to every output of <m>f(x)</m>.
+          This means that the graph of <m>y=f(x)</m> shifts up or down vertically <m>b</m> units everywhere,
+          to become the graph of <m>y=f(x)+b</m> or <m>y=f(x)-b</m>,
+          as illustrated by the red and green graphs, respectively,
+          shown in <xref ref="fig_taalmanpage64a" autoname="yes"/> below.
+        </p>
+        <figure xml:id="fig_taalmanpage64a">
+          <caption><m>y=f(x)+2</m> shifts <m>f(x)</m> up two units. <m>y=f(x)-2</m> shifts <m>f(x)</m> down two units.</caption>
+          <image width="46%" source="TaalmanPage64a.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example>
+      <title>Horizontal Translation</title>
+      <statement>
+        <p>
+          If we instead add or subtract a constant to the independent variable and transform <m>f(x)</m> to <m>f(x\pm a)</m>,
+          the graph shifts left or right horizontally by <m>a</m> units,
+          as illustrated in the green and red graphs shown in <xref ref="fig_taalmanpage64b" autoname="yes"/> below.
+        </p>
+        <figure xml:id="fig_taalmanpage64b">
+          <caption><m>y=f(x+5)</m> shifts <m>f(x)</m> left five units. <m>y=f(x-5)</m> shifts <m>f(x)</m> right five units.</caption>
+          <image width="46%" source="TaalmanPage64b.png"/>
+        </figure>
+        <p>
+          Note that the shift to the left for <m>f(x+5)</m> and to the right for <m>f(x-5)</m> might be the opposite of what we might initially expect.
+        </p>
+      </statement>
+    </example>
+    <example xml:id="ex_vstretch">
+      <title>Vertical Stretch or Shrink</title>
+      <statement>
+        <p>
+          If we instead transform <m>f(x)</m> by multiplication to <m>df(x)</m>,
+          then the graph of <m>y=f(x)</m> expands or contracts vertically by a factor of <m>d</m> to become the graph of <m>y=df(x)</m>,
+          as shown in the red and green graphs in <xref ref="fig_taalmanpage65a" autoname="yes"/>.
+        </p>
+        <figure xml:id="fig_taalmanpage65a">
+          <caption><m>y=2f(x)</m> stretches <m>f(x)</m> vertically by 2. <m>y=\frac{1}{2}f(x)</m> compresses <m>f(x)</m> vertically by 2.</caption>
+          <image width="46%" source="TaalmanPage65a.png"/>
+        </figure>
+      </statement>
+    </example>
+    <example xml:id="ex_hstretch">
+      <title>Horizontal Stretch or Shrink</title>
+      <statement>
+        <p>
+          In contrast,
+          if we do the same transformation to the independent variable and transform <m>f(x)</m> to <m>f(cx)</m>,
+          this contracts or expands the graph of <m>y=f(x)</m> by a factor of <m>c</m> in the horizontal direction,
+          as illustrated in the red and green graphs in <xref ref="fig_taalmanpage65b" autoname="yes"/>.
+        </p>
+        <figure xml:id="fig_taalmanpage65b">
+          <caption><m>y=f(2x)</m> compresses <m>f(x)</m> horizontally by 2. <m>y=f\left(\frac{1}{2}x\right)</m> stretches <m>f(x)</m> horizontally by 2.</caption>
+          <image width="46%" source="TaalmanPage65b.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      <em>Reflections:</em> Note that in Examples <xref ref="ex_vstretch" autoname="yes"/> and <xref ref="ex_hstretch" autoname="yes"/>,
+      the values of <m>c</m> and <m>d</m> used were positive.
+      What happens if we multiply <m>x</m> or <m>f(x)</m> by a negative number?
+      We can answer that question just by looking at what happens when we multiply by <m>-1</m>.
+    </p>
+    <example>
+      <title>Vertical and Horizontal Reflection</title>
+      <statement>
+        <p>
+          Changing <m>f(x)</m> to <m>-f(x)</m> transforms all positive outputs into negative outputs,
+          and vice versa.
+          The graph of <m>y=f(x)</m> is then reflected across the <m>x</m>-axis to become the graph of <m>y=-f(x)</m>,
+          as shown in the red graph in <xref ref="fig_taalmanpage65c" autoname="yes"/>.
+        </p>
+        <p>
+          If we instead multiply the independent variable by <m>-1</m>,
+          then we obtain a reflection across the <m>y</m>-axis,
+          as shown in the graph graph in <xref ref="fig_taalmanpage65c" autoname="yes"/>.
+        </p>
+        <figure xml:id="fig_taalmanpage65c">
+          <caption><m>y=f(-x)</m> reflects across the <m>y</m>-axis (red). <m>y=-f(x)</m> reflects across the <m>x</m>-axis (green).</caption>
+          <image width="46%" source="TaalmanPage65c.png"/>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      Now if we want to transform <m>f(x)</m> to <m>f(-2x)</m>,
+      for example,
+      we can transform <m>f(x)</m> first to <m>f(2x)</m> and then by reflection to <m>f(-2x)</m>.
+    </p>
+    <p>
+      The table that follows summarizes the graphical and algebraic effects of the transformations just discussed.
+    </p>
+    <table>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><em>Transformation</em></cell>
+          <cell><em>Graphical Result</em></cell>
+          <cell><em>Algebraic Result</em></cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  ><m>f(x+a)</m></cell>
+          <cell>shifts left <m>a</m> units if <m>a>0</m></cell>
+          <cell><m>(x,y)\rightarrow (x-a,y)</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell>shifts right <m>a</m> units if <m>a\lt 0</m></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>f(x)+b</m></cell>
+          <cell>shifts up <m>b</m> units if <m>b>0</m></cell>
+          <cell><m>(x,y)\rightarrow (x,y+b)</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell>shifts down <m>b</m> units if <m>b\lt 0</m></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>f(cx)</m></cell>
+          <cell>horizontal compression by <m>c</m> if <m>c>1</m></cell>
+          <cell><m>(x,y)\rightarrow\left(\frac{1}{c} x,y\right)</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell>horizontal stretch by <m>c</m> if <m>0\lt c\lt 1</m></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>df(x)</m></cell>
+          <cell>vertical stretch by <m>d</m> if <m>d>1</m></cell>
+          <cell><m>(x,y)\rightarrow (x,dx)</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell>vertical compression by <m>d</m> if <m>0\lt d\lt 1</m></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>-f(x)</m></cell>
+          <cell>graph reflects across the <m>x</m>-axis</cell>
+          <cell><m>(x,y)\rightarrow (x,-y)</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>f(-x)</m></cell>
+          <cell>graph reflects across the <m>y</m>-axis</cell>
+          <cell><m>(x,y)\rightarrow (-x,y)</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </table>
+    <example>
+      <statement>
+        <p>
+          Consider the function <m>r</m> given in <xref ref="fig_APCfigure1-8-13" autoname="yes"/> below.
+          Describe in words how the function
+          <m>m(x) = 2r(x+1)-1</m> is the result of three transformations of <m>r(x)</m>.
+          Does the order in which these transformations occur matter?
+          Why or why not?
+        </p>
+        <figure xml:id="fig_APCfigure1-8-13">
+          <caption>The function <m>y=r(x)</m>.</caption>
+          <image width="37%" source="APCFigure1-8-13.png"/>
+        </figure>
+      </statement>
+      <solution>
+        <p>
+          There are three basic transformations involved:
+          a vertical shift of 1 unit down,
+          a horizontal shift of 1 unit left,
+          and a vertical stretch by a factor of 2.
+          To understand the order in which these transformations are applied,
+          it's essential to remember that a function is a <em>process</em>
+          that converts inputs to outputs.
+        </p>
+        <p>
+          By the algebraic rule for <m>m</m>, <m>m(x) = 2r(x+1)-1</m>.
+          In words, this means that given an input <m>x</m> for <m>m</m>,
+          we do the following processes in this particular order:
+          <ol>
+            <li>
+              <p>
+                add 1 to <m>x</m> and then apply the function <m>r</m> to the quantity <m>x+1</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                multiply the output of <m>r(x+1)</m> by 2;
+              </p>
+            </li>
+            <li>
+              <p>
+                subtract 1 from the output of <m>2r(x+1)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          These three steps correspond to three basic transformations:
+          <ol>
+            <li>
+              <p>
+                shift the graph of <m>r</m> to the left by 1 unit;
+              </p>
+            </li>
+            <li>
+              <p>
+                stretch the resulting graph vertically by a factor of 2;
+              </p>
+            </li>
+            <li>
+              <p>
+                shift the resulting graph vertically by <m>-1</m> units.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          We can see the graphical impact of these algebraic steps by taking them one at a time.
+          Note that in each of the following figures,
+          we track the point <m>(2,-1)</m> from the original function.
+          <ol>
+            <li>
+              <p>
+                In <xref ref="fig_APCfigure1-8-14" autoname="yes"/>,
+                we see the function that results from a shift of 1 unit left of the function <m>y=r(x)</m> in <xref ref="fig_APCfigure1-8-13" autoname="yes"/>.
+                The tracked point first moves left 1 unit to <m>(1,-1)</m>.
+                (Each time we take an additional step,
+                we will de-emphasize the preceding function by having it appear in lighter color and dashed.)
+                <figure xml:id="fig_APCfigure1-8-14">
+                  <caption>The function <m>y=r(x+1)</m>.</caption>
+                  <image width="37%" source="APCFigure1-8-14.png"/>
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Continuing, we now consider the function <m>y=2r(x+1)</m>,
+                which results in a vertical stretch away from the <m>x</m>-axis by a factor of 2, as seen in <xref ref="fig_APCfigure1-8-15" autoname="yes"/>.
+                The tracked point is stretched vertically by a factor of 2 away from the <m>x</m>-axis to <m>(1,-2)</m>.
+                <figure xml:id="fig_APCfigure1-8-15">
+                  <caption>The function <m>y=2r(x+1)</m>.</caption>
+                  <image width="37%" source="APCFigure1-8-15.png"/>
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Finally, we arrive at <m>y=2r(x+1)-1</m> by subtracting 1 from the previous graph;
+                this of course is a vertical shift of <m>-1</m> units,
+                and produces the graph of <m>m</m> shown in red in <xref ref="fig_APCfigure1-8-16" autoname="yes"/>.
+                The tracked point is shifted 1 unit down to the point <m>(1,-3)</m>.
+                <figure xml:id="fig_APCfigure1-8-16">
+                  <caption>The function <m>m(x)=2r(x+1)-1</m>.</caption>
+                  <image width="37%" source="APCFigure1-8-16.png"/>
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          While there are some transformations that can be executed in either order (such as the combination of a horizontal translation and a vertical translation,
+          in other situations order matters.
+          In this example,
+          we have to apply the vertical stretch <em>before</em>
+          applying the vertical shift, Algebraically, this is because
+          <me>
+            2r(x+1)-1\neq 2[r(x+1)-1]
+          </me>.
+          The quantity <m>2r(x+1)-1</m> multiplies the function <m>r(x+1)</m> by 2 first
+          (the stretch)
+          and then the vertical shift follows;
+          the quantity <m>2[r(x+1)-1]</m> shifts the function <m>r(x+1)</m> down 1 unit first,
+          and then executes a vertical stretch by a factor of 2.
+          In the latter scenario,
+          the point <m>(1,-1)</m> that lies on <m>r(x+1)</m> gets transformed first to <m>(1,-2)</m> and then to <m>(1,-4)</m>,
+          which is not the same as the point <m>(1,-3)</m> that lies on <m>m(x)=2r(x+1)-1</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <title>Vertical and horizontal translations, stretches, and reflections</title>
+      <statement>
+        <p>
+          The figure that follows shows a piece of the graph of a parabola with five marked points.
+          Sketch graphs for each of the given transformations.
+          On each graph, mark the new coordinates of the five marked points
+        </p>
+        <figure>
+          <image width="37%" source="TaalmanPage69.png"/>
+        </figure>
+        <ol marker="labelalph">
+          <li>
+            <p>
+              <m>f(x)+3, f(x)-3, f(x+3)</m>, and <m>f(x-3)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>2f(x), \frac{1}{2}f(x), f(2x)</m>,
+              and <m>f\left(\frac{1}{2} x\right)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-f(x)</m> and <m>f(-x)</m>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection xml:id="sec_symmetry">
+    <title>Symmetry</title>
+    <p>
+      Some graphs do not change under certain transformations.
+      For example,
+      the graph of <m>f(x) = x^2</m> shown in <xref ref="fig_taalmanpage66a" autoname="yes"/> below remains the same if we reflect it across the <m>y</m>-axis.
+      We say that this function has <em><m>y</m>-axis symmetry</em>.
+    </p>
+    <figure xml:id="fig_taalmanpage66a">
+      <caption><m>y=x^2</m> is preserved under reflection across the <m>y</m>-axis.</caption>
+      <image width="80%" source="TaalmanPage66a.png"/>
+    </figure>
+    <p>
+      As another example, the graph of
+      <m>g(x) = x^3</m> shown in <xref ref="fig_taalmanpage66b" autoname="yes"/> below remains the same if we reflect it first across the <m>y</m>-axis and then across the <m>x</m>-axis.
+      This double-reflection across the <m>x</m>- and <m>y</m>-axis is equivalent to rotation around the origin by <m>180^\circ</m>.
+      Take a moment to experiment with this:
+      on a piece of scrap paper, draw a smiley face or some other picture.
+      Flip the paper vertically and then horizontally
+      (or horizontally and then vertically).
+      This gives you the same result as rotating the paper by 180 degrees.
+      A function that is preserved under the transformation of
+      <m>180^\circ</m> rotation is said to have <m>180^\circ</m>
+      <em>rotational symmetry</em>.
+    </p>
+    <figure xml:id="fig_taalmanpage66b">
+      <caption><m>y=x^3</m> is preserved under <m>180^\circ</m> rotation about the origin.</caption>
+      <image width="80%" source="TaalmanPage66b.png"/>
+    </figure>
+    <p>
+      These types of symmetries are also called <em>even symmetry</em>
+      and <em>odd symmetry</em>,
+      since power functions with even powers all have <m>y</m>-axis symmetry and power functions with odd powers all have rotational symmetry.
+      Because graphical reflections correspond to multiplication by <m>-1</m>,
+      we can describe functions with even and odd symmetry algebraically as follows:
+    </p>
+    <definition>
+      <title>Even and Odd Functions</title>
+      <statement>
+        <p>
+          Even functions have <m>y</m>-axis symmetry while odd functions have rotational symmetry:
+          <ul>
+            <li>
+              <p>
+                A function <m>f</m> is an <em>even function</em>
+                if <m>f(-x)=f(x)</m> for all <m>x</m> in the domain of <m>f</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A function <m>f</m> is an <em>odd function</em>
+                if <m>f(-x)=-f(x)</m> for all <m>x</m> in the domain of <m>f</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      For example,
+      the function <m>f(x) = x^2</m> is even because for all <m>x</m> we have
+      <me>
+        f(-x) = (-x)^2 = (-1)^2(x)^2 = x^2 = f(x)
+      </me>.
+      In contrast,
+      the function <m>g(x) = x^3</m> is odd because for all <m>x</m> we have
+      <me>
+        g(-x) = (-x)^3 = (-1)^3(x)^3 = -x^3 = -g(x)
+      </me>
+    </p>
+    <p>
+      Note that many functions are neither even nor odd.
+      In fact, it is quite hard for a function to be either even or odd,
+      since this would require the graph to have one of these two specific symmetries.
+    </p>
+    <example>
+      <statement>
+        <p>
+          <m>h(x) = x^2+x</m> is neither even nor odd.
+          <me>
+            h(-x) = (-x)^2+(-x) = x^2-x
+          </me>
+          and so we can see that <m>h(-x)\neq h(x)</m>,
+          thus <m>h(x)</m> is not even.
+          Similarly, since <m>-h(x) = -x^2-x</m>,
+          we can also see that <m>h(-x)\neq -h(x)</m>,
+          thus <m>h(x)</m> is not odd.
+          Consequently, the function
+          <m>h(x) = x^2+x</m> has neither <m>y</m>-axis symmetry nor rotational symmetry.
+          Confirm this for yourself by graphing <m>h(x)</m> using Desmos or a graphing calculator.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Sketch a graph that has neither <m>y</m>-axis symmetry nor <m>180^\circ</m> rotational symmetry.
+          Congratulations!
+          You have drawn the graph of a function that is neither even nor odd.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <title>Testing if functions are even or odd</title>
+      <statement>
+        <p>
+          Determine whether each of the following function is even, odd,
+          or neither.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                <m>f(x) = \frac{1}{x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>g(x) = x^4-x^2</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x) = \frac{2+x}{1+x^2}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We first determine algebraically whether each function satisfies the definition of even or odd
+          (or if it does not)
+          and then verify graphically.
+          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+            <li>
+              <p>
+                To determine whether <m>f</m> is even or odd
+                (or neither)
+                we must calculate <m>f(-x)</m> and determine if it is equal to <m>f(x), -f(x)</m>,
+                or neither.
+                If <m>f(-x)=f(x)</m>, it is even,
+                and if <m>f(-x)=-f(x)</m>, it is odd.
+                We have
+                <me>
+                  f(-x) = \frac{1}{-x} = -\frac{1}{x}  = -f(x)
+                </me>,
+                so <m>f(x) = \frac{1}{x}</m> is an odd function since it satisfies <m>f(-x)=-f(x)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We follow the same procedure to determine whether <m>g(x)</m> is even, odd,
+                or neither.
+                If <m>g(-x)=g(x)</m>, it is even,
+                if <m>g(-x)=-g(x)</m>, it is odd,
+                and if neither of those two things is true,
+                then it is neither even nor odd.
+                Well
+                <me>
+                  g(-x) = (-x)^4-(-x)^2  = x^4-x^2 = g(x)
+                </me>,
+                so <m>g(x)</m> is an even function.
+              </p>
+            </li>
+            <li>
+              <p>
+                Following the same line of reasoning,
+                we must examine <m>h(-x)</m> to determine if it is equal to either <m>h(x)</m> or <m>-h(x)</m>,
+                or neither.
+                <me>
+                  h(-x) = \frac{2+(-x)}{1+(-x)^2} = \frac{2-x}{1+x^2}
+                </me>.
+                This does not appear to be equal to either <m>h(x)</m> or <m>-h(x)</m>.
+                Indeed,
+                <me>
+                  -h(x) = -\frac{2+x}{1+x^2} = \frac{-2-x}{1+x^2}\neq h(-x) =  \frac{2-x}{1+x^2}
+                </me>.
+                Hence the function <m>h(x)</m> is neither even nor odd.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          The graphs of <m>f(x), g(x)</m>,
+          and <m>h(x)</m> appear below in <xref ref="fig_taalmanpage72a-c" autoname="yes"/>:
+        </p>
+        <figure xml:id="fig_taalmanpage72a">
+          <caption><m>f(x) =  \frac{1}{x}</m> is an odd function.</caption>
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="70%" source="TaalmanPage72a.png"/>
+          \end{subfigure}
+          \hspace{.25in}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="70%" source="TaalmanPage72b.png"/>
+          \caption{<m>g(x) =  x^4+x^2</m> is an even function.} \end{subfigure}
+          \hspace{.25in}
+          \begin{subfigure}[H]{0.3\textwidth}
+          <image width="70%" source="TaalmanPage72c.png"/>
+          \caption{<m>h(x) = \frac{2+x}{1+x^2}</m> is neither even nor odd.} \end{subfigure}
+          \caption{The graphs of <m>f(x), g(x)</m>, and <m>h(x)</m> confirm whether the functions are even, odd, or neither.}
+        </figure>
+        <p>
+          We can see in <xref ref="fig_taalmanpage72a" autoname="yes"/> that <m>f(x) = \frac{1}{x}</m> has
+          <m>180^\circ</m> rotational symmetry about the origin,
+          which confirms that <m>f(x)</m> is an odd function.
+          In <xref ref="fig_taalmanpage72b" autoname="yes"/>,
+          we see that <m>g(x) = x^4+x^2</m> has reflectional symmetry across the <m>y</m>-axis,
+          confirming that <m>g(x)</m> is an even function.
+          Lastly, in <xref ref="fig_taalmanpage72c" autoname="yes"/>,
+          we see that <m>h(x) = \frac{2+x}{1+x^2}</m> has neither type of symmetry,
+          confirming that <m>h(x)</m> is neither even nor odd.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Application: The Vertex Form of a Quadratic Function</title>
+    <p>
+      There is another "standard" form in which you may see a quadratic function,
+      called the <em>vertex form</em>:
+    </p>
+    <definition>
+      <title>Vertex form of a quadratic function</title>
+      <statement>
+        <p>
+          A quadratic function with vertex <m>(h,k)</m> may be written in the form
+          <me>
+            y=a(x-h)^2+k
+          </me>.
+          The constant <m>a</m> may be determined from one other point on the graph of the function.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      This form arises from taking the parabola
+      <m>f(x)=x^2</m> and applying appropriate transformations to obtain any other parabola as follows:
+      <ul>
+        <li>
+          <p>
+            First, shift <m>f(x)=x^2</m> horizontally via <m>f(x-h)</m>.
+            If the parabola must shift to the right,
+            use a positive value for <m>h</m>.
+            If the parabola must shift to the left,
+            use a negative value for <m>h</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Next, stretch the parabola vertically via <m>af(x-h)</m>.
+            If the parabola must shrink,
+            use a value of <m>a</m> that is between <m>-1</m> and <m>1</m>.
+            If the parabola must be reflected across the <m>x</m>-axis,
+            use a negative value of <m>a</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Finally, shift the parabola vertically via <m>af(x-h)+k</m>.
+            If the parabola must shift up,
+            use a positive value for <m>k</m>.
+            If the parabola must shift down,
+            use a negative value for <m>k</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <example>
+      <statement>
+        <p>
+          We can reason graphically via transformations of <m>y=x^2</m> to determine whether the parabola
+          <me>
+            p(x) = -3(x+1)^2+9
+          </me>
+          has 0, 1, or 2 <m>x</m>-intercepts.
+        </p>
+        <p>
+          The vertex of the parabola has shifted left by one unit (<m>h=-1</m>) and up by nine units (<m>k=9</m>) from the graph of <m>y=x^2</m>,
+          so the vertex of <m>p(x)</m> is in the second quadrant at the point <m>(-1,9)</m>.
+          The coefficient of <m>-3</m> has reflected the graph over the <m>x</m>-axis,
+          so <m>p(x)</m> opens downward.
+          Thus we know that <m>p(x)</m> must have 2 <m>x</m>-intercepts.
+          See if you can find them algebraically.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Simplify the vertex form of a quadratic function
+          <me>
+            f(x) = a(x-h)^2+k
+          </me>
+          by combining like terms in order to determine formulas for the parameters <m>a,b</m>,
+          and <m>c</m> such that
+          <me>
+            f(x) = a(x-h)^2+k = ax^2+bx+c
+          </me>.
+          These will be in terms of the letters <m>a, h</m>, and <m>k</m>.
+          (Hint: the formula for <m>a</m> is <m>a=a</m>.)
+        </p>
+        <p>
+          Recall from Exercise <xref ref="ex_quadraticparameters" autoname="yes"/> that we explored how the parameters <m>a, b</m>,
+          and <m>c</m> impact the graph of <m>y=ax^2+bx+c</m>.
+          Experiment with the Desmos graph at
+        </p>
+        <url href="https://www.desmos.com/calculator/yayrd6etuz">https://www.desmos.com/calculator/yayrd6etuz</url>
+        <p>
+          if you do not remember.
+          We see in this exercise how the values of <m>a, b</m>,
+          and <m>c</m> are obtained based on the location of the vertex and width of the parabola.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms were introduced in this section:
+    </p>
+    transformations: vertical, horizontal, vertical stretch or compression, horizontal stretch or compression, reflection; <m>y</m>-axis symmetry and even functions; <m>180^\circ</m> rotational symmetry and odd functions; the vertex form of a quadratic equation
+    <p>
+      <em>Key ideas:</em> Adding, subtracting, multiplying,
+      or dividing a function by a number results a predictable change in the graph that leaves some aspects of the shape of the graph unchanged.
+      Some graphs have particular types of symmetry that confer special names on those functions
+      (even and odd),
+      and we can determine algebraically whether or not a function has these types of symmetry.
+    </p>
+  </subsection>
+</section>

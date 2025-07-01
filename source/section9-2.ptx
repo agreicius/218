@@ -1,0 +1,505 @@
+<section>
+  <title>The Squeeze Theorem</title>
+  <subsection>
+    <title>Learning Goals</title>
+    <ul>
+      <li>
+        <p>
+          Learn the Squeeze Theorem and how its statement is interpreted visually in terms of the graphs of functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use a few known inequalities involving sine, cosine,
+          and arctangent in order to apply the Squeeze Theorem to calculate limits.
+        </p>
+      </li>
+      <li>
+        <p>
+          See how to use the Squeeze Theorem to rigorously prove that the derivative of sine is cosine and recognize the importance of avoiding circular logic in mathematical deduction.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Statement of the Squeeze Theorem</title>
+    <p>
+      Another useful tool for calculating new types of limits is the Squeeze Theorem.
+      This theorem says that if the output of a function <m>f(x)</m> is always bounded between a "lower function" <m>l(x)</m> and an "upper function" <m>u(x)</m>,
+      and if the lower and upper functions approach the same value <m>L</m> as <m>x\to c</m>,
+      then <m>f(x)</m> gets squeezed between the lower and upper functions and also approaches <m>L</m> as <m>x\to c</m>
+    </p>
+    <theorem>
+      <title>The Squeeze Theorem for Limits</title>
+      <statement>
+        <p>
+          If <m>l(x)\leq f(x)\leq u(x)</m> for all <m>x</m> near <m>c</m>,
+          not not necessarily at <m>x=c</m>,
+          and if <m>\ds\lim_{x\to c}l(x)</m> and
+          <m>\ds\lim_{x\to c} u(x)</m> are both equal to <m>L</m>,
+          then <m>\ds\lim_{x\to c}f(x) = L</m>.
+        </p>
+        <p>
+          <image width="51%" source="SqueezeTheoremPic.png"/>
+        </p>
+        <p>
+          The theorem holds for <m>x\to\pm\infty</m> and <m>x\to c^\pm</m>.
+        </p>
+      </statement>
+    </theorem>
+    <remark>
+      <p>
+        The Squeeze Theorem is also called the Sandwich Theorem.
+        You can think of the lower and upper functions as pieces of bread that make a sandwich with the middle function <m>f(x)</m>.
+      </p>
+    </remark>
+    <example xml:id="ex_SqueezeTheorem2">
+      <statement>
+        <p>
+          For example,
+          the figure that follows shows a function <m>f</m> that is sandwiched between two functions <m>u</m> and <m>l</m> as <m>x\to 0</m>.
+          Since <m>u(x)</m> and <m>l(x)</m> have the same limit as <m>x\to 0</m> and <m>f(x)</m> is squeezed between them,
+          we know that <m>f(x)</m> must share that same limit as <m>x\to 0</m>.
+        </p>
+        <p>
+          <image width="46%" source="TaalmanPage152.png"/>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The Squeeze Theorem gives us a way to compute limits algebraically that we may suspect to be true based on the graph of a function,
+      as demonstrated in the next example.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the graph of the function <m>f(x) = x^2\sin\frac{1}{x}</m> shown below:
+        </p>
+        <p>
+          <image width="46%" source="TaalmanPage153a.png"/>
+        </p>
+        <p>
+          From this graph it seems reasonable that <m>\ds\lim_{x\to0}x^2\sin \frac{1}{x} = 0</m>.
+          We can use the Squeeze Theorem to find this limit algebraically.
+          The sine function has outputs that are always between <m>-1</m> and <m>1</m>,
+          regardless of the input.
+          Therefore,
+          <me>
+            -1\leq \sin\frac{1}{x}\leq 1
+          </me>
+          where we are substituting <m>\theta = \frac{1}{x}</m> in the inequality <m>-1\leq \sin \theta\leq 1</m>.
+          Multiplying both sides of the above inequality by <m>x^2</m>,
+          <me>
+            -x^2\leq x^2\sin\frac{1}{x}\leq x^2
+          </me>.
+        </p>
+        <p>
+          Note that we do not have to worry about flipping the order of the inequalities because <m>x^2\geq 0</m>,
+          so we know we are not multiplying by a negative number.
+          We can see this relationship between the graphs of <m>x^2\sin\frac{1}{x}</m>,
+          <m>-x^2</m>,
+          and <m>x^2</m> in the graph below:
+        </p>
+        <p>
+          <image width="46%" source="TaalmanPage153a.png"/>
+        </p>
+        <p>
+          We know that <m>\ds\lim_{x\to 0} -x^2 = 0</m> and <m>\ds\lim_{x\to 0}x^2 = 0</m>.
+          Therefore by the Squeeze Theorem we must also have <m>\ds\lim_{x\to 0}x^2\sin\frac{1}{x} = 0</m>.
+        </p>
+      </statement>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          In <xref ref="ex_SqueezeTheorem2">Example</xref>,
+          why was it important that <m>x^2</m> is not negative?
+        </p>
+      </statement>
+    </exercise>
+    <remark>
+      <p>
+        There are three important hypotheses that must be satisfied in order to use the Squeeze Theorem:
+        <ul>
+          <li>
+            <p>
+              We must have the inequality
+              <m>l(x)\leq f(x)\leq u(x)</m> for <m>x</m> near <m>c</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The limits <m>\ds\lim_{x\to c} l(x)</m> and <m>\ds\lim_{x\to c}u(x)</m> must exist
+              (and be finite).
+            </p>
+          </li>
+          <li>
+            <p>
+              The limits <m>\ds\lim_{x\to c} l(x)</m> and
+              <m>\ds\lim_{x\to c}u(x)</m> must be equal to each other.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Once those hypotheses are satisfied,
+        the conclusion of the theorem is that
+        <m>\ds\lim_{x\to c} f(x)</m> is the same as the limits
+        <m>\ds\lim_{x\to c} l(x)</m> and <m>\ds\lim_{x\to c}u(x)</m>.
+      </p>
+    </remark>
+    <exercise>
+      <statement>
+        <p>
+          Use
+          <url href="https://www.desmos.com/calculator">Desmos</url>
+          to graph <m>f(x) = x^2\ln(|x|)</m>,
+          <m>g(x)=|x|</m>, and <m>h(x) = -|x|</m>.
+          <ol marker="labelalphitemsep5pttopsep10pt">
+            <li>
+              <p>
+                Verify that for <m>x</m> near <m>0</m>,
+                <m>-|x|\leq x^2\ln|x|\leq |x|</m>.
+                How close to <m>x=0</m> do we need to be in order for this inequality to be true?
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>\ds\lim_{x\to 0}-|x|</m> and <m>\ds\lim_{x\to 0}|x|</m>.
+                What are they both equal to?
+              </p>
+            </li>
+            <li>
+              <p>
+                Fill in the blanks: "By the Squeeze Theorem,
+                we can conclude that <m>\lim_{x\to\rule[-.25em]{.2in}{.5pt}}x^2\ln|x| = \rule[-.25em]{.5in}{.5pt}</m>."
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Using the Squeeze Theorem</title>
+    <p>
+      In general, finding the inequality <m>l(x)\leq f(x)\leq u(x)</m> is very difficult.
+      However, there are three inequalities that are particularly useful as a starting point for applying the Squeeze Theorem:
+      <me>
+        -1\leq \sin\theta\leq 1
+      </me>
+      <me>
+        -1\leq \cos\theta\leq 1
+      </me>
+      <me>
+        -\frac{\pi}{2}\lt \arctan\theta\lt \frac{\pi}{2}
+      </me>
+    </p>
+    <p>
+      For limits involving sine, cosine, or arctangent,
+      we can use these inequalities as a starting point for building up to an inequality involving the function we wish to know the limit of.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use the Squeeze Theorem to find any horizontal asymptotes of <m>f(x) = \frac{\sin x}{x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We wish to determine <m>\ds\lim_{x\to\infty} \frac{\sin x}{x}</m> and <m>\ds\lim_{x\to-\infty} \frac{\sin x}{x}</m>.
+          Starting with <m>x\to\infty</m>,
+          we begin with the inequality
+          <me>
+            -1\leq \sin x\leq 1
+          </me>.
+        </p>
+        <p>
+          We are interested in the function <m>\frac{\sin x}{x}</m>,
+          so we can divide by <m>x</m> in order to have the middle function equal to <m>\frac{\sin x}{x}</m>;
+          this is what we want in order to apply the Squeeze Theorem.
+          As <m>x\to\infty</m>,
+          we know that <m>x>0</m> and so dividing by <m>x</m> does not flip the inequality:
+          <me>
+            -\frac{1}{x}\leq \frac{\sin x}{x}\leq\frac{1}{x}
+          </me>.
+          If we take the limit of the bounding functions,
+          they are both equal to zero:
+          <me>
+            \lim_{x\to\infty}-\frac{1}{x} = 0\text{ and } \lim_{x\to\infty}\frac{1}{x} = 0
+          </me>
+        </p>
+        <p>
+          Hence by the Squeeze Theorem,
+          the limit of the middle function <m>\frac{\sin x}{x}</m> is the same:
+          <me>
+            \lim_{x\to\infty}\frac{\sin x}{x} = 0
+          </me>
+        </p>
+        <p>
+          Let's now consider <m>x\to-\infty</m>.
+          We can still start with
+          <me>
+            -1\leq \sin x\leq 1
+          </me>
+          but now <m>x\lt 0</m> so when we divide by <m>x</m>,
+          we must flip the inequalities:
+          <me>
+            -\frac{1}{x}\geq \frac{\sin x}{x}\geq\frac{1}{x}
+          </me>.
+          We still have that the limits of both bounding function are equal to zero:
+          <me>
+            \lim_{x\to-\infty}-\frac{1}{x} = 0\text{ and } \lim_{x\to-\infty}\frac{1}{x} = 0
+          </me>
+          so by the Squeeze Theorem,
+          the limit of the middle function <m>\frac{\sin x}{x}</m> is the same:
+          <me>
+            \lim_{x\to-\infty}\frac{\sin x}{x} = 0
+          </me>
+        </p>
+        <p>
+          Thus overall, the function
+          <m>f(x) = \frac{\sin x}{x}</m> has left and right horizontal asymptotes at <m>y=0</m>.
+        </p>
+      </solution>
+    </example>
+    <exercise xml:id="ex_squeezesinxoverx">
+      <statement>
+        <p>
+          Explain why we <em>cannot</em> use the Squeeze Theorem and the inequality
+          <me>
+            -\frac{1}{x}\leq \frac{\sin x}{x}\leq\frac{1}{x}
+          </me>
+          to determine <m>\ds\lim_{x\to 0}\frac{\sin x}{x}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <example>
+      <statement>
+        <p>
+          Use the Squeeze Theorem to calculate
+          <me>
+            \lim_{x\to\infty}\frac{3x^2+\cos x^2}{x^2+1}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Beginning with the inequality
+          <me>
+            -1\leq \cos \theta\leq 1
+          </me>,
+          we build up the middle of the inequality until it is equal to the given function:
+          <m>\frac{3x^2+\cos x^2}{x^2+1}</m>.
+        </p>
+        <p>
+          To start, we use <m>\theta = x^2</m> and have
+          <me>
+            -1\leq \cos x^2\leq 1
+          </me>
+        </p>
+        <p>
+          Next, add <m>3x^2</m> to both sides of the inequality:
+          <me>
+            3x^2-1\leq 3x^2+\cos x^2\leq 3x^2+1
+          </me>
+        </p>
+        <p>
+          Lastly, divide all three parts by <m>x^2+1</m>.
+          Note that the expression <m>x^2+1</m> is positive for all values of <m>x</m>,
+          so we do not have to worry about flipping the inequality:
+          <me>
+            \frac{3x^2-1}{x^2+1}\leq \frac{3x^2+\cos x^2}{x^2+1}\leq \frac{3x^2+1}{x^2+1}
+          </me>
+        </p>
+        <p>
+          Now from our previous work with rational functions, we know that
+          <me>
+            \lim_{x\to\infty}\frac{3x^2-1}{x^2+1} =3 \text{ and }  \lim_{x\to\infty}\frac{3x^2+1}{x^2+1}=3
+          </me>
+        </p>
+        <p>
+          Hence by the Squeeze Theorem,
+          <me>
+            \lim_{x\to\infty}\frac{3x^2+\cos x^2}{x^2+1}=3
+          </me>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          Start with the inequality <m>-\frac{\pi}{2}\lt \arctan\theta\lt \frac{\pi}{2}</m>.
+          What steps do you need to follow in order to conclude that
+          <me>
+            \left(5-\frac{\pi}{2x^4}\right)\lt  \left(5+\frac{\arctan(\pi x)}{x^4}\right)\lt \left(5+\frac{\pi}{2x^4}\right)?
+          </me>
+        </p>
+        <p>
+          Use this inequality and the Squeeze Theorem to calculate <m>\ds\lim_{x\to \infty} \left(5+\frac{\arctan(\pi x)}{x^4}\right)</m>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>The Derivatives of Sine and Cosine: Rigorous Proofs</title>
+    <p>
+      In <xref ref="sec_derivativesoftrigfunctions">Section</xref>,
+      we inferred that the derivative of the sine function is the cosine function by observing the behavior of the associated slope function of sine,
+      and likewise that the derivative of the cosine function is the negative of the sine function.
+      However, that is not a mathematically rigorous proof.
+      In this section, we formally prove what you already know:
+      <me>
+        \frac{d}{dx}(\sin x) = \cos x\text{ and } \frac{d}{dx}(\cos x) = -\sin x
+      </me>.
+      There is a very complicated application of the Squeeze Theorem necessary for this proof,
+      which is why we include it here.
+      However, it is much harder than anything we will ask you to do.
+      It is worth reading through this section to see how all of the different ideas we've developed fit together,
+      but don't feel like you have to follow every single detail.
+      In particular,
+      the two special limits calculated via the Squeeze Theorem will be found using different methods in the next section.
+    </p>
+    <p>
+      In order to calculate the derivative of <m>\sin x</m>,
+      we start with the limit definition of the derivative:
+      <me>
+        \begin{aligned}\frac{d}{dx}(\sin x) \amp = \lim_{h\to 0}\frac{\sin (x+h)-\sin x}{h} \amp  \leftarrow\text{ definition of the derivative } \\ \amp = \lim_{h\to 0}\frac{(\sin x\cos h+\sin h\cos x)-\sin x}{h}\amp  \leftarrow\text{ sum identity for sine } \\ \amp = \lim_{h\to 0}\frac{\sin x(\cos h-1)+\sin h\cos x}{h}\amp  \leftarrow\text{ rearrange and factor } \\ \amp = \lim_{h\to 0}\left(\sin x\frac{\cos h-1}{h}+\cos x\frac{\sin h}{h}\right)\amp  \leftarrow\text{ factor more } \\ \amp =\sin x\left(\lim_{h\to 0}\frac{\cos h-1}{h}\right)+\cos x\left(\lim_{h\to 0}\frac{\sin h}{h}\right)\amp  \leftarrow\text{ use limit rules and factor again } \end{aligned}
+      </me>
+    </p>
+    <p>
+      In the last step above,
+      notice that since the variable in the limit is <m>h</m>,
+      not <m>x</m>,
+      we can factor the <m>\sin x</m> and <m>\cos x</m> out of the limits as "constants."
+    </p>
+    <p>
+      We now need to calculate the limits
+      <m>\ds\lim_{h\to 0}\frac{\cos h-1}{h}</m> and <m>\ds\lim_{h\to 0}\frac{\sin h}{h}</m>,
+      which both have the form <m>\frac{0}{0}</m>.
+      However, we cannot use L'H&#xf4;pital's rule!
+      Why??? <em>This is a very important piece of logic:
+      we are trying to prove the formula for the derivative of the sine function,
+      so we cannot use the derivative of the sine function while proving it.</em>
+      That would be what is called "circular logic:" when we rely on the thing we are trying to prove in order to prove it.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Give an example from your own experience that demonstrates circular logic,
+          meaning an argument that uses a "fact" in order to justify that same "fact."
+        </p>
+      </statement>
+    </exercise>
+    <p>
+      In order to evaluate <m>\ds\lim_{h\to 0}\frac{\sin h}{h}</m>,
+      we use the Squeeze Theorem.
+      However, as observed in <xref ref="ex_squeezesinxoverx">Exercise</xref>,
+      we cannot use the inequality <m>-\frac{1}{h}\leq \frac{\sin h}{h}\leq \frac{1}{h}</m> for this limit.
+      (In that exercise, you were asked to explain why.)
+    </p>
+    <p>
+      Instead, consider the picture below that shows a triangle appropriate for small,
+      positive values of <m>\theta</m>
+      (so values close to <m>0^+</m>).
+    </p>
+    <p>
+      <image width="37%" source="TaalmanPage427a.png"/>
+    </p>
+    <p>
+      In the smaller triangle,
+      the hypotenuse is 1, the height of the side opposite <m>\theta</m> is <m>\sin\theta</m>,
+      and the length of the adjacent side is <m>\cos\theta</m>.
+      In the larger triangle, the adjacent side has length 1.
+      We can find the height of the opposite side using similar triangles:
+      <me>
+        \frac{\text{ opp } }{\text{ adj } } = \frac{\sin\theta}{\cos\theta} = \frac{\text{?} }{1}
+      </me>
+      and so the height of the unknown opposite side of the larger triangle must be <m>\frac{\sin\theta}{\cos\theta} = \tan\theta</m>.
+      Lastly, the length of the arc from the bottom right corner of the larger triangle to the top right corner of the smaller triangle has length <m>\theta</m> because the hypotenuse of the smaller triangle is <m>1</m>;
+      radians are specifically defined to be equal to the arc length around the circle of radius 1.
+      Comparing these three lengths,
+      we see that <m>\sin\theta</m> is the smallest,
+      <m>\tan\theta</m> is the largest,
+      and <m>\theta</m> is between these two.
+      Hence we have the inequality
+      <me>
+        \sin\theta\leq \theta\leq \tan\theta
+      </me>.
+      Dividing through by <m>\sin\theta</m>,
+      which is positive as long as <m>\theta\to0^+</m>,
+      and remembering that <m>\tan\theta = \frac{\sin\theta}{\cos\theta}</m>,
+      <me>
+        1\leq \frac{\theta}{\sin\theta}\leq \frac{1}{\cos\theta}
+      </me>.
+      Since all of the expressions in this chain of inequalities are positive,
+      we can take reciprocals and flip the inequalities to obtain:
+      <me>
+        1\geq \frac{\sin\theta}{\theta}\geq \cos\theta
+      </me>.
+      We justified this inequality for
+      <m>\theta\to0^+</m> but it is also true for <m>\theta\to0^-</m>,
+      only we must draw the picture in the fourth quadrant and the arithmetic has a few more flippings of inequalities since the quantities involved are negative.
+    </p>
+    <p>
+      Now by applying the Squeeze Theorem to this inequality,
+      we have <m>\ds\lim_{\theta\to 0}1 =\ds\lim_{\theta\to0}\cos\theta = 1</m>, hence
+      <me>
+        \lim_{\theta\to 0}\frac{\sin\theta}{\theta} = 1
+      </me>.
+    </p>
+    <p>
+      In particular, <m>\ds\lim_{h\to0}\frac{\sin h}{h} = 1</m>.
+      We also needed to compute <m>\ds\lim_{h\to 0}\frac{\cos h-1}{h}</m>.
+      In order to do this, we let
+      <m>h=2\theta</m> and use the double-angle identity <m>\cos2\theta = 1-\sin^2\theta</m>:
+      <me>
+        \begin{aligned}\lim_{h\to 0}\frac{1-\cos h}{h} \amp = \lim_{\theta\to 0}\frac{1-\cos2\theta}{2\theta}\amp \leftarrow\text{ let } h=2\theta\\ \amp = \lim_{\theta\to 0} \frac{1-(1-2\sin^2\theta)}{2\theta}\amp \leftarrow\text{ use } \cos2\theta = 1-\sin^2\theta\\ \amp =\lim_{\theta\to 0}\frac{\sin^2\theta}{\theta}\amp \leftarrow\text{ simplify } \\ \amp =\lim_{\theta\to 0}\theta\cdot\frac{(\sin\theta)^2}{\theta^2}\amp \leftarrow\text{ multiply and divide by an extra } \theta\\ \amp =\left(\lim_{\theta\to 0}\theta\right)\cdot\left(\lim_{\theta\to 0}\frac{\sin\theta}{\theta}\right)^2\amp \leftarrow\text{ limit rules } \\ \amp = (0)(1)^2\amp \leftarrow\text{ use that } \lim_{\theta\to0}\frac{\sin\theta}{\theta}=1\\ \amp = 0 \amp \leftarrow\text{ Voila! } \end{aligned}
+      </me>
+    </p>
+    <p>
+      Thus we see that
+      <me>
+        \lim_{h\to 0}\frac{1-\cos h}{h}  = \lim_{h\to 0}-\frac{\cos h-1}{h} = 0
+      </me>
+      and returning to our calculation of the derivative:
+      <me>
+        \begin{aligned}\frac{d}{dx}(\sin x) \amp =\sin x\left(\lim_{h\to 0}\frac{\cos h-1}{h}\right)+\cos x\left(\lim_{h\to 0}\frac{\sin h}{h}\right)\amp  \leftarrow\text{ where we left off before } \\ \amp = \sin x(0)+\cos x(1)\amp \leftarrow\text{ using the limits we calculated } \\ \amp = \cos x\amp \leftarrow\text{ simplifying } \end{aligned}
+      </me>
+    </p>
+    <p>
+      We can use the sum identity for cosine and the same two limits in order to calculate the derivative of cosine using the limit definition of the derivative:
+      <me>
+        \begin{aligned}\frac{d}{dx}(\cos x) \amp = \lim_{h\to 0}\frac{\cos (x+h)-\cos x}{h} \amp  \leftarrow\text{ definition of the derivative } \\ \amp = \lim_{h\to 0}\frac{(\cos x\cos h-\sin x\sin h)-\cos x}{h}\amp  \leftarrow\text{ sum identity for cosine } \\ \amp = \lim_{h\to 0}\frac{\cos x(\cos h-1)-\sin x\sin h}{h}\amp  \leftarrow\text{ rearrange and factor } \\ \amp = \lim_{h\to 0}\left(\cos x\frac{\cos h-1}{h}-\sin x\frac{\sin h}{h}\right)\amp  \leftarrow\text{ factor more } \\ \amp =\cos x\left(\lim_{h\to 0}\frac{\cos h-1}{h}\right)-\sin x\left(\lim_{h\to 0}\frac{\sin h}{h}\right)\amp  \leftarrow\text{ use limit rules and factor again } \\ \amp = \cos x(0)-\sin x(1)\amp \leftarrow\text{ using the limits we calculated } \\ \amp = -\sin x\amp \leftarrow\text{ simplifying } \end{aligned}
+      </me>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      The following terms and theorems were introduced in this section:
+    </p>
+    The Squeeze Theorem; circular logic
+    <p>
+      <em>Key ideas:</em> When a function is bounded above and below at a point by functions that approach a particular limit,
+      then the bounded function approaches that same limit.
+      We can use the ranges of the sine, cosine,
+      and arctangent functions to our advantage in coming up with an inequality with which to apply the Squeeze Theorem.
+      Other than being able to start with one of these three inequalities,
+      it is very hard to find an inequality to use for the Squeeze Theorem.
+    </p>
+    <p>
+      <em>Other ideas reinforced:</em>
+      Mathematical Theorems must be proven rigorously with deductive arguments that use known axioms and facts,
+      avoiding circular logic
+      (meaning assuming what you wish to know in order to prove that it is true).
+      This is sometimes incredibly difficult and tedious.
+    </p>
+    <p>
+      \fbox{\fbox{ End of Section 8.2}}
+    </p>
+    <p>
+      \rule{1.1\textwidth}{2pt}
+    </p>
+  </subsection>
+</section>
