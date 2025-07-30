@@ -87,105 +87,182 @@
       We will begin with the abstract idea before applying this knowledge to something more concrete.
     </p>
     <p>
-      Here is a formal,
-      mathematical statement that we shall take to be the precise meaning of the word "function" for the rest of the year.
-      Return to it as you read the examples that follow in order to make sense of the notation and terminology.
+      In <xref ref="def_function"/> we give a formal,
+      mathematical statement that we shall take to be the precise meaning of the word <q>function</q>. 
+      Return to this definition as you read the examples that follow in order to make sense of the notation and terminology.
     </p>
+    <p>
+      To make our definition as rigorous as possible, we will make use of some notions and notation related to the mathematical theory of sets that we now officially introduce.    
+    </p>
+    <definition xml:id="d_sets"> 
+          <title>Sets and set membership</title>
+          <notation>
+          <usage> <m>a\in A</m> </usage>
+          <description>set membership</description>
+        </notation>
+          <statement>
+            <p>
+            A <term>set</term> <m>A</m> is a collection of objects, called the <term>members</term> or <term>elements</term> of <m>A</m>. We write <m>a\in A</m> if the object <m>a</m> is a member of <m>A</m>, and <m>a\notin A</m> if <m>a</m> is not a member of <m>A</m>.
+            </p>
+            <p>
+              In the special case when a set <m>A</m> consists of the finitely many elements <m>a_1, a_2,\dots, a_n</m>, we write 
+              <men xml:id="eq_set_finite_list">
+                A=\{a_1,a_2,\dots, a_n\}
+              </men>.
+              Similarly, if the elements of <m>A</m> are given by the infinite list <m>a_1,a_2,\dots</m>, we write 
+              <men xml:id="eq_set_infinite_list">
+                A=\{a_1,a_2,\dots, \}
+              </men>.
+              The set descriptions in <xref ref="eq_set_finite_list"/> and <xref ref="eq_set_infinite_list"/> are called <term>enumerations</term> or <term>enumerative descriptions</term>.
+            </p>
+          </statement>
+        </definition>
+        <example xml:id="eg_set_member">
+        <title>Set membership</title>
+        <statement>
+        <p>
+        Let <m>A=\{0,1,4\}</m>. Since <m>0</m>, <m>1</m>, and <m>4</m> are elements of <m>A</m>, we have 
+        <md>
+          <mrow>0\amp \in A \amp 1\amp\in A \amp 4\amp\in A </mrow>
+        </md>.
+        Since <m>-1</m> is not an element of <m>A</m>, we have 
+        <me>
+          -1\notin A
+        </me>.
+        </p>
+        </statement>
+        <solution>
+        <p>
+        
+        </p>
+        </solution>
+        </example>
+        <p>
+          We are now ready to define a function. 
+        </p>
     <definition xml:id="def_function">
-      <title>Function, Independent and Dependent Variables</title>
-      <statement>
-        <p>
-              <idx><h>Functions</h><h>Independent Variable</h></idx>
-              <idx><h>Functions</h><h>Dependent Variable</h></idx>
-          A <em>function</em> <m>f</m> is a rule that takes certain numbers <m>a</m> in the set <m>A</m> as inputs and assigns to each a single number <m>b</m> in the set <m>B</m> as the output.
-        </p>
-        <p>
-          The notation
-          <me>
-            f: A\rightarrow B
-          </me>
-          represents a function <m>f</m> together with its input set <m>A</m> and output set <m>B</m>.
-          It is pronounced "<m>f</m> from <m>A</m> to <m>B</m>." The notation
-          <me>
-            b=f(a)
-          </me>,
-          pronounced "<m>b</m> is equal to <m>f</m> of <m>a</m>," represents the assignment of the output <m>b</m> to the input <m>a</m>.
-        </p>
-        <p>
-          The collection of symbols <m>f(a)=b</m> is called
-          <em>function notation</em>,
-          where the <m>a</m> in parentheses is called the
-          <em>independent variable</em>
-          and represents the input of the function.
-          The output of the function is represented by either <m>f(a)</m> or <m>b</m>,
-          which is called the <em>dependent variable</em>
-          because its value depends on the choice of input.
-        </p>
-      </statement>
+      <title>Function</title>
+          <notation>
+            <usage><m>f\colon A\rightarrow B</m></usage>
+            <description>a function from <m>X</m> to <m>Y</m></description>
+          </notation>
+          
+          <statement>
+            <p>
+            Let <m>A</m> and <m>B</m> be sets. A <term>function</term> <m>f</m> from <m>A</m> to <m>B</m>, denoted 
+            <men xml:id="eq_function">
+                f\colon A\rightarrow B
+            </men>, is a rule which, given any <term>input</term> <m>a\in A</m>, returns an <term>output</term> <m>b\in B</m>. We write <m>b=f(a)</m> in this case, and call <m>b</m> the <term>image</term> of <m>a</m> under <m>f</m>, or the <term>value</term> of <m>f</m> at <m>a</m>. Similarly, we say <m>f</m> <term>maps</term> (or <term>sends</term>) the input <m>a</m> to the output <m>b=f(a)</m>.
+          </p>
+          <p>
+              The set <m>A</m> is called the <term>domain</term> of <m>f</m>; the set <m>B</m> is called the <term>codomain</term> of <m>f</m>. 
+            </p>
+          </statement>
     </definition>
-    <remark>
+    <remark xml:id="rm_ind_dep_vars">
+      <title>Independent and dependent variables</title>
       <p>
-        It is particularly important that each input has only one output.
-        Think about the function as a machine, the input as a command,
-        and the output as a task the machine will perform based on which command you give.
-        When you give the machine an instruction,
-        it should consistently perform a predictable task.
-        You don't want it to be unpredictable and do different tasks based on the same instruction.
+        The essential detail in the definition of a function <m>f\colon A\rightarrow B</m>, is that for each input <m>a</m> in our domain <m>A</m> the functions assigns a <em>unique</em> output <m>b</m> in our codomain <m>B</m>. This detail introduces a fundamental asymmetry between the roles of the variable <m>a</m> and the variable <m>b</m> in the context of the function <m>f\colon A\rightarrow B</m>. We codify this asymmetry with the terms <em>independent variable</em> and <em>dependent variable</em>.
+      </p>
+      <p>In more detail, we call the variable <m>a</m>, which is allowed to range freely over all elements of the domain <m>A</m>, an <term>independent variable</term> of <m>f</m>; and we call the variable <m>b</m> a <term>dependent variable</term> of <m>f</m>, as given any input <m>a</m>, the output <m>b=f(a)</m> is determined by <m>a</m>. 
       </p>
     </remark>
+    
     <example xml:id="ex_xsquared">
+      <title>Squaring function</title>
       <statement>
         <p>
-          For example,
-          the rule that takes a real number and squares it is a function.
-          Since the result is also a real number, we write
-          <me>
-            f:\mathbb{R}\to\mathbb{R}
-          </me>
-          where the symbol <m>\mathbb{R}</m> is used to represent the
-          <em>set of all real numbers</em>.
-          In this example,
-          <m>\mathbb{R}</m> is both our input and our output set.
-          This will be the case for many of the examples we study this semester.
+         Consider the rule <m>f</m> that takes as input any real number and returns as an output the square of that number. This rule defines a function since for any real number <m>x</m>, its square <m>x^2=x\cdot x</m> is uniquely determined.
         </p>
         <p>
-          Introducing some notation,
-          let's call the number we are squaring <m>x</m> so that once we square it,
-          we may write <m>x^2</m>.
-          We can pick the name <m>f</m> to refer to this function by writing <m>f(x) = x^2</m>,
-          which is pronounced "<m>f</m> of <m>x</m> is equal to <m>x</m> squared." Thus we have chosen <m>x</m> as the symbol we use to represent our
-          <em>independent variable</em>.
-          We can also choose to represent our outputs with the
-          <em>dependent variable</em>
-          <m>y</m> and can use the notation <m>y=x^2</m> or <m>y=f(x)</m> to represent the fact that the values of <m>y</m> are the result of squaring <m>x</m>,
+          Let's flesh out all the details of the function <m>f</m>, as well as the accompanying notation. Observe that the phrase <q>takes as input any real number</q> implies that the domain of <m>f</m> is <m>\R</m>, the set of all real numbers. Since the square of a real number is itself a real number, we see that we can also set our codomain to be <m>\R</m>. 
+        </p>
+        <p>
+          Thus, in full and glorious detail, <m>f</m> is the function 
+          <me>
+            f\colon \R\rightarrow \R
+          </me>
+          defined as <m>f(x)=x^2</m> for all <m>x\in \R</m>.           
+        </p> 
+        <p>
+          Letting <m>x</m> and <m>y</m> denote the independent and dependent variables of <m>f</m>, respectively, we write 
+        <m>y=x^2</m> or <m>y=f(x)</m> to represent the fact that the values of <m>y</m> are the result of squaring <m>x</m>,
           or equivalently, applying the function <m>f</m> to <m>x</m>.
         </p>
         <p>
-          For instance,
-          if we choose the input value <m>x=3</m>, then we write
-          <me>
-            f(3) = 3^2 = 9
-          </me>,
-          which is read "<m>f</m> of <m>3</m> is equal to <m>3</m> squared,
-          which is equal to <m>9</m>." The number <m>9</m> is the output of the function when the input is <m>3</m>.
-        </p>
-        <p>
-          We could also use the input value <m>x=-3</m>, and then we would write
-          <me>
-            f(-3)=(-3)^2 = 9
-          </me>,
-          which is read "<m>f</m> of negative <m>3</m> is equal to negative <m>3</m> squared,
-          which is equal to <m>9</m>." The number <m>9</m> is again the output of the function when the input is <m>-3</m>.
-        </p>
-        <p>
-          The pictures below illustrate how the function <m>f</m> behaves as a machine that takes the input (<m>x, 3</m>,
-          or <m>-3,\ldots</m>) to the output (<m>f(x), 9</m>, or <m>9,\ldots</m>).
-        </p>
-        <p>
-          <image width="73%" source="TaalmanPage37.pdf"/>
+          Looking at some concrete examples of <m>f</m> applied to various inputs, observe that we have 
+          <md>
+            <mrow>f(3) \amp =3^2=9</mrow>
+            <mrow>f(-3) \amp =(-3)^2=9</mrow>
+          </md>.
+          Using the language of <xref ref="def_function"/>, this means that the value of <m>f</m> at <m>3</m> is <m>9</m>, and the value of <m>f</m> at <m>-3</m> is also <m>9</m> (or alternatively, <m>f</m> maps both <m>3</m> and <m>-3</m> to the output <m>9</m>).
         </p>
       </statement>
     </example>
+    <remark>
+      <title>Squaring function</title>
+      <p>
+        The two input/output statements 
+        <md>
+          <mrow>f(3) \amp =9</mrow>
+          <mrow>f(-3) \amp =9</mrow>
+        </md>
+        from <xref ref="ex_xsquared"/> nicely illustrate the asymmetry in the roles of independent variable and dependent variable mentioned in <xref ref="rm_ind_dep_vars"/>. Whereas, by definition, corresponding to each input of a function there is a <em>unique output</em>, it is <em>not</em> necessarily the case that for each output of the function there is a <em>unique input</em> that gets mapped to it. In this case, we see that the output <m>y=9</m> is the value of <m>f</m> at two different inputs: <m>x=3</m> and <m>x=-3</m>. More on this later, when we discuss invertible functions. 
+      </p>
+    </remark>
+    <p>
+      Intimately related to the squaring operation on <m>\R</m> is the notion of square roots. Recall that given a real number <m>x\in \R</m>, a (real) square root of <m>x</m> is a number <m>y\in \R</m> satisfying <m>y^2=x</m>. For example, <m>2</m> is a square root of <m>4</m>, since <m>2^2=4</m>. It is possible to define a function based on square roots, but we have to proceed with caution, as the next example illustrates. 
+    </p>
+    <example xml:id="eg_square_roots">
+    <title>Square roots: a non-example</title>
+    <statement>
+    <p>
+    Explain why the following proposed rule does not define a function <m>f\colon \R\rightarrow \R</m>: given a real number <m>x\in \R</m>, define <m>f(x)</m> to be the square root of <m>x</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    There are two issues with this proposed function. 
+    <ol>
+      <li>
+        <p>
+          Firstly, not every real number <m>x</m> has a (real) square root! Consider <m>x=-1</m>, for example. We cannot have <m>-1=y^2</m> for a real number <m>y\in \R</m> since <m>y^2\geq 0</m> for any <m>y\in \R</m> and <m>-1&lt; 0</m>. More generally, no <em>negative</em> real number has a square root.
+        </p>
+      </li>
+      <li>
+        <p>
+          The specific issue described in (1) is easily remedied by replacing our domain <m>\R</m> with the smaller domain <m>D</m> of all nonnegative numbers <m>x\geq 0</m>, since it is a (nontrivial) fact that every nonnegative real number has a square root. However, a separate issue arises preventing <m>f</m> from being a well-defined function. Namely, with the exception of <m>x=0</m>, a nonnegative number has <em>two</em> distinct square roots. For example, the number <m>x=4</m> has two square roots: <m>y=2</m> and <m>y=-2</m>.  This means there is no such thing as <q>the</q> square root, even if we restrict our attention to nonnegative numbers! Since our rule fails to assign a <em>unique</em> output for each input of the domain, it fails to be a function. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+      Our discussion of <xref ref="eg_square_roots"/> laid bare two issues that arise when defining a function that computes square roots: (1) not all real numbers have a square root; and (2) positive real numbers have two distinct square roots (if <m>y</m> is a square root of <m>x</m>, then so is <m>-y</m>). The <em>principal square root function</em> defined in <xref ref="d_radical"/> sorts these issues out by taking as its domain the set of all nonnegative real numbers (since nonnegative numbers <em>do</em> have square roots) and choosing for each nonnegative integer its unique <em>nonnegative</em> square root (only one of <m>y</m> and <m>-y</m> will be nonnegative). 
+    </p>
+    <definition xml:id="d_radical">
+    <title>Principal square root function</title>
+    <notation>
+      <usage><m>\sqrt{x}</m></usage>
+      <description>the nonnegative square root of <m>x</m></description>
+    </notation>
+    <statement>
+    <p>
+    Given any nonnegative real number <m>x\geq 0</m>, we denote by <m>\sqrt{x}</m> its unique nonnegative square root, and we call <m>\sqrt{x}</m> the <term>principal square root</term> of <m>x</m> (or more casually, the <term>radical</term> of <m>x</m>). 
+    </p>
+    <p>
+      Let <m>D</m> be the set of all nonnegative real numbers <m>x\geq 0</m>. The function <m>f\colon D\rightarrow \R</m> defined as <m>f(x)=\sqrt{x}</m> is called the <term>principal square root function</term>. 
+    </p>
+    </statement>
+    </definition>
+    <remark>
+      <title>Principal square root</title>
+      <p>
+        Texts (and instructors) can be pretty sloppy when dealing with the principal square root operation,  often referring to the expression <m>\sqrt{x}</m> as <q>the square root of <m>x</m></q>. This seemingly innocuous mistake can lead to larger misconceptions down the line. As such you are encouraged to adopt the following habit: each time you see <m>\sqrt{x}</m> utter to yourself <q>the <em>nonnegative</em> square root of <m>x</m></q>. 
+      </p>
+    </remark>
+
     <exercise>
       <statement>
         <p>
@@ -196,12 +273,493 @@
         </p>
       </statement>
     </exercise>
+    
+          
+    
+  </subsection>
+  <subsection xml:id="ss_set_notation">
+  <title>Set-builder notation and intervals</title>
+  <p>
+   In order to describe the domains, codomains, and ranges (see <xref ref="d_range"/> below) of functions we will need some more set theory concepts and notation.
+  </p>
+   <definition xml:id="d_set_inclusion">
+            <title>Subsets</title>
+            <idx><h>sets</h><h>subset</h></idx>
+            <idx><h>sets</h><h>inclusion</h></idx>
+            <notation>
+              <usage><m>A\subseteq B</m></usage>
+              <description>set inclusion</description>
+            </notation>
+            <notation>
+                <usage><m>A\subsetneq B</m></usage>
+                <description>proper set inclusion</description>
+              </notation>
+            <statement>
+              <p>
+              A set <m>A</m> is a <term>subset</term> of a set <m>B</m>, denoted <m>A \subseteq B</m>, if every member of <m>A</m> is a member of <m>B</m>: <ie/>, <m>a\in A</m> implies <m>a\in B</m>. The relation <m>A\subseteq B</m> is called <term>set inclusion</term>.
+              </p>
+            </statement>
+          </definition>
+     <definition xml:id="d_set_builder_notation">
+            <title>Set-builder notation</title>
+            <idx><h>sets</h><h>set builder notation</h></idx>
+            <statement>
+              <p>
+              Let <m>A</m> be a set, and let <m>P</m> be a property that elements of <m>A</m> either satisfy or do not satisfy. For an element <m>a\in A</m>, let <m>P(a)</m> denote the statement that <m>a</m> satisfies property <m>P</m>.  The set of all elements of <m>A</m> that satisfy property <m>P</m> is denoted
+              <me>
+                \{a \in A \mid  P(a) \}
+              </me>.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            Set-builder notation is a convenient means of carving out an interesting subset from an existing set using a defining property. For example, the set <m>D</m> of all nonnegative real numbers, which appeared as the domain of the principal square root function, can be described using set-builder notation as 
+            <me>
+              \{x\in \R\mid x\geq 0\}
+            </me>.
+            The next example uses set-builder notation to describe some familiar subsets of the integers <m>\Z</m>. 
+          </p>
+          <example xml:id="eg_integers_even_odd">
+          <title>Subsets of integers</title>
+          <statement>
+          <p>
+            We denote the set of all integers as <m>\Z</m>: <ie/>, we have 
+            <men xml:id="eq_integers">
+              \Z=\{\dots -2,-1,0,1,2,3,\dots\}
+            </men>.
+          </p>
+          <p>
+            Identify each set below as a familiar subset of <m>\Z</m> and provide an <xref ref="d_sets" text="custom">enumerative description</xref> of the set. 
+            <ol>
+              <li>
+                <p>
+                  <m>A=\{n\in \Z\mid  n&gt; 0\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>B=\{n\in \Z\mid  n=2k \text{ for some } k\in \Z\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>C=\{n\in \Z\mid  n=2k+1 \text{ for some } k\in \Z\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+          </statement>
+          <solution>
+          <p>
+          <ol>
+            <li>
+              <p>
+                Using <xref ref="d_set_builder_notation"/>, we see that <m>A</m> is the set of integers satisfying the property of being greater than 0. In other words, <m>A</m> is precisely the set of <em>positive</em> integers. We can describe <m>A</m> enumeratively as 
+                <me>
+                  A=\{1,2,3,\dots\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Again following <xref ref="d_set_builder_notation"/>, we see that <m>B</m> is the set of all integers satisfying the property that they are equal to <m>2k</m> for some integer <m>k</m>. Said another way, <m>B</m> is the set of integers that are <em>multiples</em> of <m>2</m>. Such integers are called <em>even</em>, and we conclude that <m>B</m> is the set of all even integers. We can enumerate <m>B</m> as 
+                <me>
+                  B=\{\dots -4,-2,0,2,4,6,\dots\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Similar reasoning as above leads us to conclude that <m>C</m> is the set of all <em>odd</em> integers: 
+                <me>
+                  C=\{\dots -3,-1,1,3,5,\dots\}
+                </me>.
+              </p>
+            </li>
+          </ol>
+          </p>
+          </solution>
+          </example>
+          <p>
+            When dealing with subsets of <m>\R</m> it is often convenient to make use of <em>interval notation</em>. <em>Intervals</em> are special types of subsets of <m>\R</m>. Roughly speaking, for a subset <m>I</m> of <m>\R</m> to be an interval means that if <m>I</m> contains two elements <m>x</m> and <m>y</m>, then it also contains all real numbers <em>between</em> <m>x</m> an <m>y</m>. The set 
+      <me>
+        D=\{x\in \R\mid x\geq 0\}
+      </me>
+      of nonegative integers is an interval, and is expressed using interval notation as 
+      <me>
+        \{x\in \R\mid x\geq 0\}=[0,\infty)
+      </me>.
+      Graphically we represent such an interval as a line segment (or ray) extending over a portion of the number line.
+    </p>
+    <figure xml:id="fig_interval_nonneg_reals">
+      <caption>Number line representation of <m>[0,\infty)</m></caption>
+    <image width="50%">
+<latex-image>
+\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) ;
+\draw [very thick, - latex, blue] (0,0) -- (2.5,0);
+\node[circle,draw=blue, fill=blue, inner sep=0pt,minimum size=5pt] (a) at (0,0) {};
+\foreach \x in  {-2,-1,0,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in {-2,-1,0,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\end{tikzpicture}
+</latex-image>
+</image>
+    </figure>
+      <p>
+        Instead of burdening you with a formal definition of intervals, we simply provide in <xref ref="tab_intervals"/> examples of various kinds of intervals. In that table <m>a</m> and <m>b</m> are assumed to be real numbers satisfying <m>a&lt; b</m>. 
+    </p>
+    <table xml:id="tab_intervals">
+      <title>Intervals and interval notation</title>
+      <tabular>
+        <row header="yes" bottom="minor">
+          <cell>Interval notation</cell>
+          <cell>Set-builder notation</cell>
+          <cell>Interval type</cell>
+        </row>
+        <row>
+          <cell><m>[a,b]</m></cell> 
+          <cell><m>\{x\in \R\mid a\leq x\leq b\}</m></cell>
+          <cell>Closed (finite) interval</cell>
+        </row>
+        <row>
+          <cell><m>[a,\infty)</m></cell> 
+          <cell><m>\{x\in \R\mid x\geq a\}</m></cell>
+          <cell>Closed (infinite) interval</cell>
+        </row>
+        <row>
+          <cell><m>(-\infty,b]</m></cell> 
+          <cell><m>\{x\in \R\mid x\leq b\}</m></cell>
+          <cell>Closed (infinite) interval</cell>
+        </row>
+        <row>
+          <cell><m>(a,b)</m></cell> 
+          <cell><m>\{x\in \R\mid a&lt;  x&lt; b\}</m></cell>
+          <cell>Open (finite) interval</cell>
+        </row>
+        <row>
+          <cell><m>(a,\infty)</m></cell> 
+          <cell><m>\{x\in \R\mid x&gt;  a\}</m></cell>
+          <cell>Open (infinite) interval</cell>
+        </row>
+        <row>
+          <cell><m>(-\infty,b)</m></cell> 
+          <cell><m>\{x\in \R\mid x&lt; b\}</m></cell>
+          <cell>Open (infinite) interval</cell>
+        </row>
+        <row>
+          <cell><m>[a,b)</m></cell> 
+          <cell><m>\{x\in \R\mid a\leq  x&lt; b\}</m></cell>
+          <cell>Half-open or half-closed interval</cell>
+        </row>
+        <row>
+          <cell><m>(a,b]</m></cell> 
+          <cell><m>\{x\in \R\mid a&lt; x\leq b\}</m></cell>
+          <cell>Half-open or half-closed interval</cell>
+        </row>
+        <row>
+          <cell><m>(-\infty,\infty)</m></cell> 
+          <cell><m>\R</m></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </table>
     <p>
+    Note that, roughly speaking, a square bracket (<c><m>[</m></c> and <c><m>]</m></c> ) indicates the inclusion of the corresponding number in the interval, whereas a parenthesis indicates that the number is excluded. Graphically speaking a number being included or excluded from the interval is indicated by either a closed (solid) or open dot, respectively.  
+    </p>
+    <figure xml:id="fig_included_enpoints">
+      <caption>Included and excluded elements of intervals</caption>
+      <sidebyside>
+        <figure xml:id="fig_included">
+          <caption>The interval <m>[-1,1]</m></caption>
+          <image><latex-image>
+            \begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) ;
+\draw [very thick, blue] (-1,0) -- (1,0);
+\node[circle,draw=blue, fill=blue, inner sep=0pt,minimum size=5pt] (a) at (-1,0) {};
+\node[circle,draw=blue, fill=blue, inner sep=0pt,minimum size=5pt] (b) at (1,0) {};
+\foreach \x in  {-2,-1,0,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in {-2,-1,0,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\end{tikzpicture}
+          </latex-image></image>
+        </figure>
+        <figure xml:id="fig_excluded">
+          <caption>The interval <m>[-1,1)</m></caption>
+         <image> <latex-image>
+            \begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) ;
+\draw [very thick, blue] (-1,0) -- (.9,0);
+\node[circle,draw=blue, fill=blue, inner sep=0pt,minimum size=5pt] (a) at (-1,0) {};
+\node[circle,thick, draw=blue, inner sep=0pt,minimum size=5pt] (b) at (1,0) {};
+\foreach \x in  {-2,-1,0,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in {-2,-1,0,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+\end{tikzpicture}
+          </latex-image></image>
+        </figure>
+      </sidebyside>
+    </figure>
+    <p>
+      Not all subsets of <m>\R</m> are intervals. For example the set 
+      <me>
+        A=\{x\in \R\mid x\notin [1,2]\}
+      </me>
+      is not itself an interval. That said, we can also describe such sets as <em>unions</em> of intervals.
+    </p>
+    <definition xml:id="d_union_intersection">
+    <title>Set union and intersection</title>
+    <notation>
+      <usage><m>A\cup B</m></usage>
+      <description>the union of <m>A</m> and <m>B</m></description>
+    </notation>
+    <notation>
+      <usage><m>A\cap B</m></usage>
+      <description>the intersection of <m>A</m> and <m>B</m></description>
+    </notation>
+    <statement>
+    <p>
+    Let <m>A</m> and <m>B</m> be subsets of a common set <m>X</m>. 
+    <ul>
+      <li>
+        <p>
+          The <term>union</term> of <m>A</m> and <m>B</m>, denoted <m>A\cup B</m> is defined as the set of all elements of <m>X</m> that lie either in <m>A</m> or <m>B</m>: <ie/>, 
+          <me>
+            A\cup B=\{x\in X\mid x\in A \text{ or } x\in B\}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <term>intersection</term> of <m>A</m> and <m>B</m>, denoted <m>A\cap B</m> is defined as the set of all elements of <m>X</m> that lie both in <m>A</m> and <m>B</m>: <ie/>, 
+          <me>
+            A\cap B=\{x\in X\mid x\in A \text{ and } x\in B\}
+          </me>.
+        </p>
+      </li>
+    </ul>
+    </p>
+    </statement>
+    </definition>
+    <example xml:id="eg_union_intervals">
+    <title>Union of intervals</title>
+    <statement>
+    <p>
+    Let <m>A=\{x\in \R\mid x\notin [1,2]\}</m>. Express <m>A</m> as a union of intervals and represent <m>A</m> graphically on the number line. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    For an element <m>x\in \R</m> to not be in <m>[1,2]</m> is equivalent to <m>x</m> either being less than <m>1</m> or greater than <m>2</m>: <ie/>, we have <m>x\in (-\infty, 1)</m> or <m>x\in (2,\infty)</m>. Thus we have 
+    <me>
+      A=(-\infty, 1)\cup (2,\infty)
+    </me>.
+    We represent <m>A</m> graphically as follows.    
+    </p>
+    <image xml:id="im_union_intervals" width="75%">
+      <shortdescription>Union of two intervals</shortdescription>
+      <latex-image>
+        \begin{tikzpicture}
+          \draw[latex-latex] (-1.5,0) -- (4.5,0) ;
+\draw [very thick,- latex, blue] (0.95,0) -- (-1.5,0);
+\draw [very thick,- latex, blue] (2.05,0) -- (4.5,0);
+\node[circle,thick, draw=blue, inner sep=0pt,minimum size=4pt] (a) at (1,0) {};
+\node[circle,thick, draw=blue, inner sep=0pt,minimum size=4pt] (b) at (2,0) {};
+\foreach \x in  {-1,0,1,2,3,4}
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in {-1,0,1,2,3,4}
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
+{\(\x\)};
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+    </solution>
+    </example>
+    <p>
+      At this point we have introduced a number of important sets and their corresponding notation. Let's make these official with a definition. We also take the opportunity to add one more important set to our repertoire: the <em>empty set</em>.  
+    </p>
+    <definition xml:id="d_imporant_sets">
+    <title>Important sets</title>
+    <notation>
+      <usage><m>\Z</m></usage>
+      <description>the integers</description>
+    </notation>
+    <notation>
+      <usage><m>\R</m></usage>
+      <description>the real numbers</description>
+    </notation>
+    <notation>
+      <usage><m>\emptyset</m></usage>
+      <description>the empty set</description>
+    </notation>
+    <statement>
+    <p>
+      The following is a preliminary list of some important sets. 
+    <ul>
+      <li>
+        <title>Empty set</title>
+        <p>
+          The <term>empty set</term>, denoted <m>\{ \}</m> or <m>\emptyset</m>, is the set that contains no elements. 
+        </p>
+      </li>
+      <li>
+        <title>Integers</title>
+        <p>
+          The <term>integers</term>, denoted <m>\Z</m>, is the set of all whole numbers and their negatives: <ie/>, 
+          <me>
+            \Z=\{0, 1, 2, \dots\}\cup \{-1,-2,-3,\dots\}=\{\dots, -2,-1,0,1,2,3,\dots\}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The set of real numbers is denoted <m>\R</m>. We do not give an explicit definition of this number system, but rather take it as a given.
+        </p>
+      </li>
+    </ul>
+    </p>
+    </statement>
+    </definition>
+    
+  </subsection>
+  <subsection xml:id="ss_implied_domain">
+  <title>Implied domain and range</title>
+  <p>
+      According to <xref ref="def_function"/>,  to give a complete definition of a function, we need to specify three things: the domain of the function, its codomain, and the rule that defines the value of the function at each of its inputs. Consequently, a statement like
+        <men xml:id="eq_incomp_state">
+            \text{ let } f(x)=x^2
+        </men>
+        is technically speaking not a complete definition of a function, since it does not specify the domain and codomain in question. So as not to get bogged down by such technicalities, we hereby adopt the following convention in the form of an official decree, or <em>fiat</em>.
+</p>
+<assumption xml:id="fiat_domain">
+    <title>Implied domain</title>
+    <statement>
+        <p>
+            If a function <m>f</m> is introduced via a formula without specifying a domain or codomain, we will assume that the codomain is <m>\R</m> and that the <term>implied domain</term> <m>D</m> is the set of all real numbers for which the formula can be meaningfully evaluated. 
+        </p>
+    </statement>
+</assumption>
+
+<example xml:id="eg_implied_domain_recip">
+<title>Implied domain: reciprocal function</title>
+<statement>
+<p>
+Let <m>f</m> be the function defined as <m>f(x)=1/x</m>.  Following <xref ref="fiat_domain"/>, give a full definition of this function by determining the codomain and implied domain. Use interval notation to describe these sets. 
+</p>
+</statement>
+<solution>
+<p>
+  Since <m>f</m> is only given as a formula, following <xref ref="fiat_domain"/>, the codomain of <m>f</m> is <m>\R=(-\infty, \infty)</m> and the implied domain is the set of all real numbers <m>x</m> for which the formula <m>1/x</m> makes sense. Since the fraction <m>1/x</m> is well-defined if and only of <m>x\ne 0</m>, we conclude that the domain <m>D</m> of <m>f</m> is the set  of all <em>nonzero</em> real numbers: <ie/>, 
+  <me>
+    D=\{x\in \R\mid x\ne 0\}=(-\infty,0)\cup (0,\infty)
+  </me>.
+  Thus, in all its glorious detail, and using interval notation, <m>f</m> is the function 
+  <me>
+    f\colon (-\infty,0)\cup (0,\infty) \rightarrow (-\infty, \infty)
+  </me>
+  defined as <m>f(x)=1/x</m>.
+</p>
+</solution>
+</example>
+<p>
+      In addition to the domain and codomain of a function, another important set associated to it is the set of all possible outputs. Consider again the function <m>f(x)=x^2</m>, whose domain and codomain, following <xref ref="fiat_domain"/>, are both equal to <m>\R</m>. You may recall, however, that squares of real numbers are in fact <em>nonnegative</em> real numbers: <ie/>, <m>x^2\geq 0</m> for all <m>x\in \R</m>. This means that the set of outputs of <m>f\colon \R\rightarrow \R</m> is strictly <em>smaller</em> than the codomain <m>\R</m> as it does not contain any negative real numbers. There is nothing wrong with this. In general, the codomain of a function should be thought of simply as a <em>target set</em> that the outputs of <m>f</m> land in; our function definition <xref ref="def_function"/> does not insist that every element of the codomain must be an output of the function.
+      That said, the set of all outputs of a function is important to us, and as such warrants an official name: the <em>range</em> of the function.
+    </p>
+          <definition xml:id="d_range">
+          <title>Range</title>
+          <notation>
+            <usage><m>\range f</m></usage>
+            <description>the range of the function <m>f</m></description>
+          </notation>
+          <statement>
+          <p>
+          The <term>range</term> of a function <m>f\colon A\rightarrow B</m>, denoted <m>\range f</m>, is the set of all outputs of <m>f</m>. Using <xref ref="d_set_builder_notation" text="custom">set-builder notation</xref>, we have 
+          <men xml:id="eq_range">
+            \range f=\{b\in B\colon b=f(a) \text{ for some } a\in A\}
+          </men>,
+          or equivalently, 
+          <men xml:id="eq_range_alt">
+            \range f=\{f(a)\mid a\in A\}
+          </men>.
+          </p>
+          </statement>
+          </definition>
+    <remark>
+    <title>Range depends on domain</title>
+    <p>
+    Note that the definition of the range of a function <m>f\colon A\rightarrow B</m> depends very much on the domain <m>A</m>, since it is the set of all outputs of the form <m>f(a)</m>, where <m>a\in A</m>. This is one reason why when defining a function we must know precisely what the domain is. 
+    </p>
+    <p>
+      For example consider the two following functions: <m>f\colon \R\rightarrow \R </m>, <m>f(x)=2x</m>; <m>g\colon [1,\infty)\rightarrow \R</m>, <m>g(x)=2x</m>. Although the functions are defined using the same rule, since they have different domains, they are strictly speaking different functions. This difference is reflected in their having different ranges. Indeed, an argument along the lines of the ones given in <xref ref="eg_range_squaring"/> and <xref ref="eg_range_radical"/> reveals that 
+      <md>
+        <mrow>\range f \amp =\{2x\colon x\in \R\}=\R</mrow>
+        <mrow>\range g \amp =\{2x\colon x\in [1,\infty)\}=[2,\infty)</mrow>
+      </md>.
+      As a result, when computing the range of a function, it is absolutely essential to know precisely what the domain of the function is. 
+    </p>
+    </remark>
+    <example xml:id="eg_range_squaring">
+      <title>Range: squaring function</title>
+      <statement>
+        <p>
+          Let <m>f</m> be defined as <m>f(x)=x^2</m>. Compute <m>\range f</m>, expressed using interval notation. 
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First we apply <xref ref="fiat_domain"/> to determine the codomain and implied domain of <m>f</m>. As always in this setting, the codomain is <m>\R</m>. Furthermore, since the defining expression <m>x^2</m> of <m>f</m> makes sense for any real number, we conclude that the domain of <m>f</m> is <m>\R</m> and we write <m>f\colon \R\rightarrow \R</m>.
+        </p>
+        <p>
+          Next, by definition, we have 
+          <md>
+            <mrow>\range f \amp =\{y\in \R\mid y=f(x) \text{ for some } x\in \R\}</mrow>
+            <mrow> \amp = \{y\in \R\mid y=x^2 \text{ for some } x\in \R\}</mrow>
+            <mrow> \amp = \{x^2\mid x\in \R\}</mrow>
+          </md>.
+          Since <m>x^2\geq 0</m> for all <m>x\in \R</m>, and since every element of <m>\range f</m> is of the form <m>x^2</m> for some <m>x</m>, we see that all elements of <m>\range f</m> are nonnegative, and hence that <m>\range f\subseteq [0,\infty)</m>. As you might have guessed, this set inclusion is in fact an equality: <ie/>, we claim that <m>\range f=[0,\infty)</m>.
+        </p>
+        <p>
+          To prove this claim, it remains only to show the reverse set inclusion: <ie/>, that every nonnegative real number <m>y\geq 0</m> is an element of <m>range f</m>, or equivalently, that if <m>y\geq 0</m>, then we have <m>y=f(x)=x^2</m> for some <m>x\in \R</m>. This in turn is equivalent to showing that if <m>y\geq 0</m>, then we can solve the equation 
+          <men xml:id="eq_range_squaring">
+            y=x^2
+          </men>
+          for <m>x</m>. Thankfully, this is not so difficult. Indeed, given any <m>y\geq 0</m>, the number <m>x=\sqrt{y}</m> satisfies <m>x^2=(\sqrt{y})^2=y</m>. (Of course, <m>x=-\sqrt{y}</m> is another solution to <xref ref="eq_range_squaring"/>, but we only needed to provide one.) Putting it all together, we conclude that given any <m>y\geq 0</m>, we have <m>y=f(x)</m>, where <m>x=\sqrt{y}</m>. This shows that every nonnegative real number is an element of <m>\range f</m>, and completes the proof that 
+          <me>
+            \range f=[0,\infty)
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="eg_range_radical">
+    <title>Range: principal square-root function</title>
+    <statement>
+    <p>
+    Let <m>f</m> be defined as <m>f(x)=\sqrt{x}</m>. Compute <m>\range f</m>, expressed using interval notation.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Firstly, we observe that the implied domain of <m>f</m> is <m>D=[0,\infty)</m>, since the expression <m>\sqrt{x}</m> is only defined for nonnegative real numbers <m>x</m>. We claim that 
+    <me>
+      \range f=[0,\infty)
+    </me>.
+    Indeed, since by definition <m>\sqrt{x}</m> is the <em>nonnegative</em> square root of <m>x</m>, we have <m>f(x)=\sqrt{x}\in [0,\infty)</m> for all <m>x\in [0,\infty)</m>, and hence that <m>\range f\subseteq [0,\infty)</m>. For the other direction, note that given any <m>y\in [0,\infty)</m>, we have <m>y=\sqrt{y^2}</m>. Thus for all <m>y\in [0,\infty)</m>, we have <m>y=f(x)</m>, where <m>x=y^2</m>, and thus <m>y\in \range f</m>. We conclude that <m>\range f=[0,\infty)</m>, as claimed. 
+    
+    </p>
+    </solution>
+    </example>
+    
+    </subsection>
+    <subsection xml:id="ss_graphs">
+      <title>Tables and graphs</title>
+      <p>
       In  <xref ref="ex_xsquared" />,
       you saw two different ways of representing the same function:
-      a description in words (a rule that squares numbers) and a formula (<m>f(x) = x^2</m>).
-      There are two additional ways to represent a function (a table and graph),
-      making four total ways to represent a function:
+      a description in words (a rule that squares numbers), and a description via a formula (<m>f(x) = x^2</m>).
+      In this subsection we introduce two additional forms of representation of a function: <em>tables</em> and <em>graphs</em>. This makes a grand total of four ways to represent a function:
       <ul>
         <li>
           <p>
@@ -224,967 +782,642 @@
           </p>
         </li>
       </ul>
-    </p>
-    <p>
       We will need to be able to work with all four of these representations.
       Depending on what information we are given and what questions we have,
       one may be more or less useful than another.
     </p>
-    <example xml:id="ex_xsquaredcont">
-      <statement>
-        <p>
-          Continuing with our function
-          <m>f(x) = x^2</m> that squares numbers,
-          it would be very tedious to list out all of the different assignments for the function <m>f</m> one by one,
-          so instead we can collect them in a table.
-          <xref ref="tab_xsquared" /> below has inputs of the function <m>f</m> in the top row with their corresponding outputs below them in the second row:
-        </p>
-        <table xml:id="tab_xsquared">
-          <title>A table of values of the function <m>f(x)=x^2</m></title>
-          <tabular>
-            <row>
-              <cell>\toprule
-                <m>x</m></cell>
-              <cell><m>-3</m></cell>
-              <cell><m>-2</m></cell>
-              <cell><m>-1</m></cell>
-              <cell>0</cell>
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>3</cell>
-            </row>
-            <row>
-              <cell>\midrule
-                <m>f(x)</m></cell>
-              <cell>9</cell>
-              <cell>4</cell>
-              <cell>1</cell>
-              <cell>0</cell>
-              <cell>1</cell>
-              <cell>4</cell>
-              <cell>9</cell>
-            </row>
-            <row>
-              <cell>\bottomrule</cell>
-            </row>
-          </tabular>
-        </table>
-        <p>
-          We soon realize that this is also quite tedious.
-          After all, we have only listed seven values of the function and they are all integers.
-          What about all of the decimals between them??? It would be much quicker to illustrate all of the assignments of the function <m>f</m> in a picture.
-          <xref ref="fig_xsquared" /> below shows the <em>graph</em>
-          of the function <m>f(x) = x^2</m> with the values from <xref ref="tab_xsquared" /> labeled,
-          along with a few other points.
-          The input values <m>x</m> appear on the horizontal axis while the output values <m>y=f(x)</m> appear on the vertical axis.
+    <p>
+      A table (or table of values) for a function <m>f</m> is just a rectangular display of a collection of inputs of <m>f</m> together with their corresponding outputs (or values). For example, in <xref ref="fig_table_values"/> here are two tables for the function <m>f(x)=x^2</m> that differ both in their choice of inputs and the manner in which the table is oriented. 
+    </p>
+    <figure xml:id="fig_table_values">
+      <caption>Two tables for <m>f(x)=x^2</m></caption>
+      <sidebyside>
+       <table>
+        <title></title>
+        <tabular>
+          <col right="minor"/>
+          <col/>
+          <row bottom="minor">
+            <cell>x</cell><cell>f(x)</cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>0</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>1</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>4</cell>
+          </row>
+        </tabular>
+       </table>
+       <table>
+        <title></title>
+        <tabular>
+          <row bottom="minor">
+            <cell right="minor">x</cell> <cell>-2</cell> <cell>-1</cell> <cell>0</cell><cell>1</cell><cell>2</cell>
+          </row>
+          <row>
+            <cell right="minor">f(x)</cell><cell>4</cell><cell>1</cell><cell>0</cell><cell>1</cell><cell>4</cell>
+          </row>
+        </tabular>
+       </table>
+      </sidebyside>
+    </figure>
+    <p>
+      As illustrated by <xref ref="fig_table_values"/>, a table of values of a function in general only provides <em>partial</em> information about that function: that is, it only tells us the values of the function for the chosen inputs, and remains silent regarding any other inputs. Indeed, the table in (b) above, by adding a few additional inputs, tells us something interesting about <m>f</m> that the table in (a) did not reveal: namely, that <m>f</m> sends multiple inputs to the same output. 
+    </p>
+    <p>
+      A table would give us a <em>complete</em> representation of a function <m>f</m> if it included the outputs for <em>all</em> of the possible inputs of <m>f</m>: <ie/>, if it displayed the input/output pairs <m>(x,f(x))</m> for all <m>x</m> in the domain of <m>f</m>. If the domain of <m>f</m> happens to be an interval in <m>\R</m>, it is of course impossible to list all these input/output pairs <m>(x,f(x))</m>. In this setting a <xref ref="d_graph_function" text="custom">graph</xref> of the function can provide a useful means of visualizing all of the input/output pairs of the function. 
+    </p>
+    <definition xml:id="d_Cartesian_plane">
+    <title>Cartesian plane</title>
+    <statement>
+    <p>
+    The <term>Cartesian plane</term> (or <term><m>xy</m>-plane</term>), denoted <m>\R^2</m>, is the set of all pairs of real numbers <m>(x,y)</m>: <ie/>, 
+    <me>
+      \R^2=\{(x,y)\mid x,y\in \R\}
+    </me>.
+    </p>
+    </statement>
+    </definition>
+    
+    <definition xml:id="d_graph_function">
+    <title>Graph of a function</title>
+    <statement>
+    <p>
+    Let <m>f\colon D\rightarrow \R</m> be a function, where <m>D\subseteq \R</m>. The <term>graph</term>  of <m>f</m>, denoted <m>\operatorname{graph} f</m>, is the set of all pairs <m>(x,f(x))</m>, where <m>x\in D</m>: <ie/>, 
+    <me>
+      \operatorname{graph} f=\{(x,y)\in \R^2\mid x\in D \text{ and } y=f(x)\}=\{(x,f(x))\mid x\in D\}
+    </me>.
+    </p>
+    </statement>
+    </definition>
+    <p>
+      Producing a detailed graph of a function by hand is in general a challenging task. Indeed, in this course we develop sophisticated techniques based on calculus for doing just this! One way of proceeding, however, is to begin with a table of values for the function, plotting the resulting input/output pairs in <m>\R^2</m>, and then <em>extrapolating</em> to get a full graph. 
+    </p>
+    <p>
+      For example, starting with the table of values of <m>f(x)=x^2</m> in (b) of <xref ref="fig_table_values"/> and adding a few additional input/out pairs (<eg/>, <m>(2.5, f(2.5))=(2.5, 6.25)</m>), we are able to produce a convincing graph of <m>f</m>. 
         </p>
         <figure xml:id="fig_xsquared">
           <caption>A graph of the function <m>f(x)=x^2</m>.</caption>
           <image width="65%" source="xsquared.png"/>
         </figure>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          Looking back over <xref ref="ex_xsquared" /> and <xref ref="ex_xsquaredcont" />,
-          which type of representation do you understand the best?
-          Which do you understand the least?
-          What are some different scenarios where each representation may be most useful?
-        </p>
-      </statement>
-    </exercise>
-  </subsection>
-  <subsection>
-    <title>Domain and Range of a Function</title>
     <p>
-      The function <m>f(x)=x^2</m> in <xref ref="ex_xsquared" /> and <xref ref="ex_xsquaredcont" /> is fairly typical in that both the input and output sets are numbers;
-      most of the functions we consider in this course will have numbers as inputs and outputs.
-      In order to be more precise in our discussion of functions,
-      we introduce some additional terminology to describe the input and output sets:
+      With a solid understanding of the precise relation between a function <m>f</m> and its graph, you will be able to easily translate visual features of the graph into corresponding properties of the function. As a general rule of thumb, horizontal features of the graph of a function <m>f</m> tell us something about the inputs of <m>f</m>, and vertical features tell us about its outputs.
     </p>
-    <definition>
-      <title>Domain and Range of a Function</title>
-      <statement>
-        <p>
-          If <m>f</m> is a function between unspecified subsets of <m>\mathbb{R}</m>,
-          then we will take the <em>domain</em>
-          of <m>f</m> to be the largest subset of
-          <m>\mathbb{R}</m> for which <m>f</m> is defined:
-          <me>
-            \text{ Domain } (f) = \{\text{ real numbers } x\text{ such that }  f(x)\text{ is defined } \}
-          </me>.
-          The <em>range</em> of such a function is the set of all possible outputs that it can attain:
-          <me>
-            \text{ Range } (f) = \{\text{ real numbers } y\text{ such that we can find } x\text{ in Domain } (f)\text{ for which } f(x) = y\}
-          </me>
-        </p>
-      </statement>
-    </definition>
-    <example>
-      <statement>
-        <p>
-          Returning to the squaring function
-          <m>f(x)=x^2</m> in  <xref ref="ex_xsquared" />.
-          Because we can take any number <m>x</m> as an input and successfully square it,
-          the domain of <m>f(x)</m> is indeed the set of all real numbers <m>\mathbb{R}</m>.
-          However, notice that some real numbers can never serve as outputs,
-          because squares of real numbers can never be negative.
-          The <em>range</em> of the squaring function is real numbers that are greater than or equal to zero.
-          Here are two different ways of describing that set symbolically:
-          <ul>
-            <li>
-              <p>
-                With "set notation" <m>\{y\in \mathbb{R}\mid y\geq 0\}</m> where the symbol "<m>\in</m>" means "in" and the symbol "<m>\mid</m>" means "such that," so that this expression translates directly as "the set of <m>y</m> in the real numbers such that <m>y</m> is greater than or equal to zero." It is more common to omit the formal set notation and simply use the inequality <m>y\geq 0</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                With "interval notation" <m>[0,\infty)</m> where the symbol "<m>[</m>" means that we include the left endpoint <m>0</m> and the symbol "<m>)</m>" means that we do not include right endpoint;
-                together with the infinity symbol <m>\infty</m>,
-                the right side of this interval extends forever.
-                We can visualize this on a number line:
-              </p>
-            </li>
-          </ul>
-        </p>
-        <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (2.5,0) ;
-\draw [very thick, - latex, blue] (0,0) -- (2.5,0);
-\node[circle,draw=blue, fill=blue, inner sep=0pt,minimum size=5pt] (a) at (0,0) {};
-\foreach \x in  {-2,-1,0,1,2}
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-2,-1,0,1,2}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};\end{tikzpicture}]]>
-</latex-image>
-        </image>
-      </statement>
-    </example>
-    <remark>
-      <p>
-        While we will only refer to the domain and range of a function,
-        there is another set that you may encounter relating to functions:
-        the <em>codomain</em>.
-        When we use the notation
-        <me>
-          f:A\to B
-        </me>
-        to represent a function,
-        the set <m>A</m> is the domain but the set <m>B</m> is called the <em>codomain</em>
-        and does not have to be the same as the range of the function.
-        The range of a function is either equal to or is a subset of the codomain.
-        For example,
-        when looking at the function <m>f:\mathbb{R}\to\mathbb{R}</m> defined by
-        <m>f(x) = x^2</m> in  <xref ref="ex_xsquared" />,
-        the codomain is <m>\mathbb{R}</m> while the range is the set of numbers greater than or equal to <m>0</m>.
-      </p>
-    </remark>
+    <p>
+       For example, to infer the domain of a function from its graph, we simply take note of all the <m>x</m>-values of points <m>P=(x,y)</m> on the graph. This can be done visually by mentally <q>projecting</q> the points of the graph onto the <m>x</m>-axis and seeing what subset is produced. Similarly, the range of the function corresponds to the set of all <m>y</m>-values of points appearing in the graph, and this can be visualized by <q>projecting</q> all of the points of the graph onto the <m>y</m>-axis. Looking at the graph of <m>f(x)=x^2</m> given in <xref ref="fig_xsquared"/>, and imagining this graph as continuing in a similar manner indefinitely to the left and right, we see that projecting points onto the <m>x</m>-axis produces the entire <m>x</m>-axis, whereas projecting onto the <m>y</m>-axis yields only the nonnegative portion of the <m>y</m>-axis. This is visual confirmation that the domain of <m>f</m> is all of <m>\R</m>, whereas the range of <m>f</m> is just <m>[0,\infty)</m>. 
+    </p>
+    <p>
+      The following examples further illustrate this technique.
+    </p>
+
     <example xml:id="ex_introsqrt">
-      <title>A Function with a Square Root</title>
+      <title>Graph: radical function</title>
       <statement>
         <p>
-          Consider the function <m>g(x) = \sqrt{4-x}</m>.
-          We can successfully use the value <m>x=0</m> as an input because
-          <me>
-            g(0) = \sqrt{4-0}=\sqrt{4}=2
-          </me>
-        </p>
-        <p>
-          So we see that the output <m>g(0)=2</m> is defined as the input of <m>x=0</m>,
-          hence <m>x=0</m> is in the domain of <m>g</m>.
-          Similarly, we can plug in the values <m>x=1, 2, 3</m>,
-          and <m>4</m>,
-          along with the values <m>x=-1, -2,-3</m> and <m>-4</m>:
-        </p>
-        <table xml:id="tab_introsqrt">
-          <title>A table of values of the function <m>g(x)=\sqrt{4-x}</m></title>
-          <tabular>
-            <row>
-              <cell>\toprule
-                <m>x</m></cell>
-              <cell><m>-4</m></cell>
-              <cell><m>-3</m></cell>
-              <cell><m>-2</m></cell>
-              <cell><m>-1</m></cell>
-              <cell>0</cell>
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>3</cell>
-              <cell>4</cell>
-            </row>
-            <row>
-              <cell>\midrule
-                <m>g(x)</m></cell>
-              <cell><m>\sqrt{8}</m></cell>
-              <cell><m>\sqrt{7}</m></cell>
-              <cell><m>\sqrt{6}</m></cell>
-              <cell><m>\sqrt{5}</m></cell>
-              <cell>2</cell>
-              <cell><m>\sqrt{3}</m></cell>
-              <cell><m>\sqrt{2}</m></cell>
-              <cell><m>\sqrt{1}=1</m></cell>
-              <cell><m>\sqrt{0}=0</m></cell>
-            </row>
-            <row>
-              <cell>\bottomrule</cell>
-            </row>
-          </tabular>
-        </table>
-        <p>
-          However, if we try to plug in <m>x=5</m>,
-          we do not get an output because we cannot take square roots of negative numbers:
-          <me>
-            g(5) = \sqrt{4-5} = \sqrt{-1}\text{ is undefined }
-          </me>.
-          Thus <m>x=-4, -3,\ldots, 3, 4</m> ARE in the domain of <m>g</m> while <m>x=5</m> is NOT in the domain of <m>g</m>.
-          How can we determine exactly where the domain begins and ends?
-          Since we need the quantity inside the square root to be non-negative,
-          meaning 0 or greater, we set up and solve the inequality
-          <me>
-            \begin{aligned}4-x \amp \geq 0\\ +x \amp  \amp  +x\\ \hline 4 \amp \geq x \end{aligned}
-          </me>
-        </p>
-        <p>
-          Hence any value of <m>x</m> that is equal or less than 4 is in the domain,
-          which we write as either <m>x\leq 4</m> or <m>(-\infty,4]</m>.
-        </p>
-        <p>
-          Determining the range of <m>g(x)</m> is aided by looking at a graph:
+          The graph of the function <m>g(x) = \sqrt{4-x}</m> is given <xref ref="fig_introsqrt"/>.
+          <ol>
+            <li>
+              <p>
+                Use the graph to infer what the domain of <m>g</m> is. Confirm your answer by computing the implied domain of <m>g</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the graph to infer what the range of <m>g</m> is.
+              </p>
+            </li>
+          </ol>
         </p>
         <figure xml:id="fig_introsqrt">
           <caption>A graph of the function <m>y=\sqrt{4-x}</m>.</caption>
           <image width="50%" source="introsqrt.png"/>
         </figure>
-        <p>
-          Thus we see that the smallest value we can get as an output is <m>y=0</m>,
-          while it looks like the values of <m>y</m> continue to increase as the values of <m>x</m> become more and more negative.
-          Thus from the graph,
-          it appears that the range of the function is <m>y\geq 0</m>.
-        </p>
-      </statement>
+        </statement>
+        <solution>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  We see that the <m>x</m>-values of points on the graph of <m>g</m> seem to range over all real numbers less than or equal to <m>4</m>. This suggests that the domain of <m>g</m> is <m>(-\infty, 4]</m>. To confirm this observe that the expression <m>\sqrt{4-x}</m> is defined only if <m>4-x\geq 0</m>. Now solve this inequality for <m>x</m>: 
+                  <md>
+                    <mrow>4-x \amp\geq 0 </mrow>
+                    <mrow>4-x +x \amp \geq 0+x</mrow>
+                    <mrow>4 \amp \geq x</mrow>
+                  </md>.
+                  We conclude that <m>\sqrt{4-x}</m> is defined if and only if <m>x\leq 4</m>, confirming that the domain of <m>g</m> is <m>(-\infty, 4]</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The <m>y</m>-values of the points of the graph of <m>g</m> appear to range over all of <m>[0,\infty)</m>. We thus infer that the range of <m>g</m> is <m>[0,\infty)</m>. (And indeed, this claim is readily confirmed using arguments as in <xref ref="eg_range_squaring"/> and <xref ref="eg_range_radical"/>.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
     </example>
     <example xml:id="ex_graphfunction">
-      <title>A Function with a Denominator</title>
-      <statement>
-        <p>
-          Below is the graph of the function <m>h(x) = \dfrac{1}{x^2-4}</m>.
-          Note that even though there are three distinct curves that make up the graph,
-          each <m>x</m>-value only has one part of the curve above or below it,
-          so we can determine from the curve the associated <m>y</m>-value given by the function.
-          For instance,
-          the point on the graph <m>(1,h(1))</m> is plotted in blue,
-          and we can estimate from the picture that <m>y=h(1)\approx -0.3</m>.
-          Finding the precise value from the formula, we see that
-          <me>
-            h(1) = \dfrac{1}{1^2-4} = \frac{1}{1-4} = -\frac{1}{3}
-          </me>
-        </p>
-        <figure xml:id="fig_ch1sec1rationalfunction">
-          <caption>A graph of the function <m>y=h(x)</m>.</caption>
-          <image width="65%" source="Ch1Sec1RationalFunction.png"/>
-        </figure>
-        <p>
-          Looking closely at the graph,
-          it appears that the parts of the curve near <m>x=-2</m> and <m>x=2</m> become nearly vertical,
-          and it's not clear what <m>y</m>-value we are meant to use for <m>h(-2)</m> and <m>h(2)</m>.
-          In fact, there are NO <m>y</m>-values associated with <m>h(-2)</m> and <m>h(2)</m>;
-          <m>x=-2</m> and <m>x=2</m> are not in the domain of this function!
-        </p>
-        <p>
-          We can see algebraically that when we try to compute the value of the function at <m>x=-2</m>,
-          we end up dividing by <m>0</m>, which is undefined:
-          <me>
-            h(-2)  = \frac{1}{(-2)^2-4} = \frac{1}{4-4} = \frac{1}{0}\text{ , which is undefined. }
-          </me>
-        </p>
-        <p>
-          Similarly, <m>h(2)</m> is undefined:
-          <me>
-            h(2)  = \frac{1}{(2)^2-4} = \frac{1}{4-4} = \frac{1}{0}\text{ , which is undefined. }
-          </me>
-        </p>
-        <p>
-          These are the only <m>x</m>-values for which the denominator is equal to <m>0</m>,<fn>
-          You will learn how to determine this in  <xref ref="sec_linearandquadraticfunctions" />.
-          </fn> so we can confirm from both the graph and the formula of the function <m>h</m> that its domain is
-          <me>
-            x\neq -2,2
-          </me>.
-          which we can write using interval notation as
-          <me>
-            x\in (-\infty,-2)\cup(-2,2)\cup(2,\infty)
-          </me>.
-          The round parentheses mean we do not include the endpoints at <m>-2</m> and <m>2</m>,
-          and <m>\cup</m> is the "union" symbol,
-          which means we are glueing the intervals together.
-        </p>
-        <p>
-          From the graph,
-          it appears that the range of <m>y=h(x)</m> does not include all values of <m>y</m>;
-          the right- and left-most parts of the graph approach the <m>x</m>-axis,
-          and so the <m>y</m>-values get close to <m>0</m>,
-          but the middle part of the graph has a distinct gap at the top and the <m>y</m>-values do not seem to quite reach 0.
-          Experiment with the graph of <m>y=h(x)</m> by clicking on the Desmos graph
-        </p>
-        <url href="https://www.desmos.com/calculator/7sh4jaq0ox">https://www.desmos.com/calculator/7sh4jaq0ox</url>.
-        <p>
-          The point <m>(a,h(a))</m> is plotted in purple and there is a slider where you can adjust the values of <m>a</m>.
-          Note that Desmos gives a value for <m>y=h(a)</m> everywhere except for when <m>a=-2</m> and <m>a=2</m>.
-        </p>
-        <p>
-          We can see using the Desmos graph that the highest point on the middle part of the graph occurs at <m>x=0</m> when <m>h(0) = -\frac{1}{4} = -0.25</m>.
-          Thus the range of <m>h(x)</m> includes all values of <m>y</m> that are greater than 0, from the left and right curves,
-          or that are less than or equal to
-          <m>-\frac{1}{4}</m>, from the middle curve.
-          This is written in interval notation as:
-          <me>
-            (-\infty,-1/4)\cup(0,\infty)
-          </me>
-        </p>
-      </statement>
-    </example>
-  </subsection>
-  <subsection>
-    <title>Non-Functions and the Vertical Line Test</title>
+    <title>Graph: rational function</title>
+    <statement>
     <p>
-      So, what <em>isn't</em> a function?
-      If a rule assigns a real-number input to more than one output,
-      then that rule is not a function.
-      In this subsection,
-      we learn a theorem to help us determine graphically whether or not a relationship is a function.
-    </p>
-    <example>
-      <title>A Non-Example</title>
-      <statement>
-        <p>
-          For example,
-          consider the relationship between the independent variable <m>x</m> and the dependent variable <m>y</m> where the square of <m>y</m> is equal to <m>x</m>.
-          We could write this as <m>y^2 = x</m>,
-          where we remember that the input is <m>x</m>.
-          For example, if we take <m>x=4</m>,
-          then the output <m>y</m> is a number that squares to <m>4</m>.
-          This could be either <m>y=2</m> or <m>y=-2</m>,
-          since <m>2^2=4</m> and <m>(-2)^2 = 4</m>.
-          Since we don't know which to choose,
-          we say that "<m>y</m> is not defined as a function of <m>x</m>."
-        </p>
-        <p>
-          Algebraically,
-          we could try to "solve" the equation <m>y^2=x</m> for <m>y</m> by writing <m>y=\pm\sqrt{x}</m>,
-          and we see that we have the same issue where the input <m>x=4</m> corresponds to <em>two</em>
-          different <m>y</m>-values,
-          both <m>y=-2</m> and <m>y=2</m>.
-        </p>
-        <p>
-          If you think of a function as a machine or algorithm that is required to return a single value,
-          this ambiguity in having either <m>y=2</m> or <m>y=-2</m> as our output can be thought of as a program that crashes and fails to complete its task.
-        </p>
-      </statement>
-    </example>
-    <p>
-      Here is another example of a relationship between variables that does not describe a function.
-    </p>
-    <example>
-      <title>A relationship described by a formula and graph that is NOT a function</title>
-      <statement>
-        <p>
-          The relationship between the variables <m>x</m> and <m>y</m> given by the equation
-          <me>
-            x^2+y^2=16
-          </me>
-          is graphed in <xref ref="fig_ch1sec1circle" /> below in red.
-        </p>
-        <figure xml:id="fig_ch1sec1circle">
-          <caption>The red circle is the points <m>(x,y)</m> that satisfy the equation <m>x^2+y^2=16</m>.</caption>
-          <image width="50%" source="Ch1Sec1Circle.png"/>
-        </figure>
-        <p>
-          If we let <m>x=1</m>, we can solve for <m>y</m>:
-          <me>
-            \begin{aligned}(1)^2+y^2 \amp =16\\ y^2 \amp =16-1\\ y^2 \amp =15\\ y \amp = \pm\sqrt{15}\approx \pm3.873 \end{aligned}
-          </me>
-        </p>
-        <p>
-          The points <m>(1,\sqrt{15})</m> and
-          <m>(1,-\sqrt{15})</m> are labeled in blue and green, respectively.
-          Thus we see that when <m>x=1</m>,
-          there are <em>two</em> <m>y</m>-values given by the equation instead of <m>1</m>,
-          and without more information,
-          we do not know which to use.
-          So we see that <m>y</m> cannot be defined as a function of <m>x</m> from the equation <m>x^2+y^2=16</m>,
-          even though it defines a very nice curve (a circle of radius 4).
-        </p>
-        <p>
-          Note that <m>x=1</m> was picked at random.
-          You can see from the picture of the circle that there are many other points where a single <m>x</m>-value corresponds to two different <m>y</m>-values,
-          in particular anywhere that a vertical line passes through the circle twice.
-        </p>
-      </statement>
-    </example>
-    <p>
-      Let's summarize the key property that determines whether or not a relationship or process is a function:
-    </p>
-    <p>
-      each input has one and only one output.
-    </p>
-    
-    <p>
-      Thus, the usual way to demonstrate that a relationship or process is <em>not</em>
-      a function is to find a particular input that is associated with two or more outputs.
-      When the relationship is given graphically,
-      we can use the vertical line test to determine whether or not the graph represents a function:
-    </p>
-    <theorem xml:id="thm_vlt">
-      <title>The Vertical Line Test</title>
-      <statement>
-        <p>
-              <idx><h>Functions</h><h>Vertical Line Test</h></idx>
-          A graph represents a function if and only if every vertical line intersects the graph in at most one point.
-        </p>
-        <p>
-          When the graph passes this test,
-          the vertical coordinate of each point on the graph can be viewed as a function of the horizontal coordinate of the point.
-          When the graph does not pass this test,
-          the vertical coordinate cannot be viewed as a function of the horizontal coordinate.
-        </p>
-      </statement>
-    </theorem>
-    <example>
-      <title>A graph that is not a function</title>
-      <statement>
-        <p>
-          In <xref ref="fig_TaalmanPage39b" />,
-          the marked vertical line passes through the graph twice,
-          and so the graph does not pass the Vertical Line Test.
-          Thus the vertical coordinate <m>y</m> cannot be viewed as a function of the horizontal coordinate <m>x</m>.
-        </p>
-        <figure xml:id="fig_TaalmanPage39b">
-          <caption>A graph that does not pass the Vertical Line Test is not a function.</caption>
-          <image width="35%" source="TaalmanPage39b.png"/>
-        </figure>
-        <p>
-          This graph corresponds to the equation <m>y^2-4y = x-5</m>.
-          Because we already know from the Vertical Line Test that <m>y</m> is not a function of <m>x</m>,
-          we <em>cannot</em> rewrite this equation as <m>y=f(x)</m>,
-          where <m>f(x)</m> is some expression involving only the variable <m>x</m>.
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          Think about a relationship between two quantities in an area of your own interest that satisfies the definition of a function.
-          First, give a verbal description of this relationship.
-          Next, pick variable names for each of the quantities involved and specify which is the independent and dependent variable.
-          Lastly, explain why this relationship assigns to each input one and only one output
-          (in other words,
-          the relationship passes the Vertical Line Test if you graph the dependent variable on the vertical axis and the independent variable on the horizontal axis).
-        </p>
-      </statement>
-    </exercise>
-    <example xml:id="ex_functionexamples">
-      <statement>
-        <p>
-          Which of the relationships below are functions?
-          Which are not?
+    An interactive graph of the function <m>h(x)=\frac{1}{x^2-4}</m> is given in <xref ref="fig_desmos_graph"/>.
           <ol>
             <li>
               <p>
-                The relationship between the circumference of a circle and its diameter.
+                Use the interactive to infer what the domain of <m>h</m> is. Confirm your answer by computing the implied domain of <m>h</m>. 
               </p>
             </li>
             <li>
               <p>
-                The relationship between people and phone numbers.
-              </p>
-            </li>
-            <li xml:id="ex_conicaltank1-1">
-              <p>
-                The relationship between <m>t</m> and <m>V</m> given by <xref ref="tab_conicaltank1-1" />.
-                <table xml:id="tab_conicaltank1-1">
-                  <title>A relationship between <m>t</m> and <m>V</m></title>
-                  <tabular halign="center" row-headers="yes">
-                    <row bottom="minor">
-                      <cell><m>t</m></cell>
-                      <cell><m>0</m></cell>
-                      <cell><m>1</m></cell>
-                      <cell><m>2</m></cell>
-                      <cell><m>3</m></cell>
-                      <cell><m>4</m></cell>
-                      <cell><m>5</m></cell>
-                    </row>
-                    <row>
-                      <cell><m>V</m></cell>
-                      <cell><m>0</m></cell>
-                      <cell><m>0.75</m></cell>
-                      <cell><m>1.5</m></cell>
-                      <cell><m>2.25</m></cell>
-                      <cell><m>3.0</m></cell>
-                      <cell><m>3.75</m></cell>
-                    </row>
-                  </tabular>
-                </table>
-              </p>
-            </li>
-            <li>
-              <p>
-                The relationship between <m>x</m> and <m>y</m> given by <xref ref="tab_notfunc" />.
-                <table xml:id="tab_notfunc">
-                  <title>A relationship between <m>x</m> and <m>y</m></title>
-                  <tabular>
-                    <row>
-                       <cell><m>x</m></cell>
-                      <cell><m>3</m></cell>
-                      <cell><m>2</m></cell>
-                      <cell><m>-1</m></cell>
-                      <cell><m>0</m></cell>
-                      <cell><m>1</m></cell>
-                      <cell><m>2</m></cell>
-                      <cell><m>3</m></cell>
-                    </row>
-                    <row>
-                      <cell><m>y</m></cell>
-                      <cell><m>-9</m></cell>
-                      <cell><m>-7</m></cell>
-                      <cell><m>1</m></cell>
-                      <cell><m>0</m></cell>
-                      <cell><m>1</m></cell>
-                      <cell><m>4</m></cell>
-                      <cell><m>9</m></cell>
-                    </row>
-                  </tabular>
-                </table>
+                Use the interactive to infer what the range of <m>h</m> is.
               </p>
             </li>
           </ol>
-        </p>
-      </statement>
-      <solution>
+    </p>
+    <figure xml:id="fig_desmos_graph">
+      <caption>Graph of the function <m>h(x)=\frac{1}{x^2-4}</m>.</caption>
+      <interactive xml:id="desmos_rational_range" desmos="7sh4jaq0ox" width="100%"/>
+    </figure>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
         <p>
-          <ol marker="labeltextbfalphitemsep10pt">
-            <li>
-              <p>
-                The relationship between the circumference of a circle and its diameter is a function.
-                If we are given a diameter,
-                we can determine the circumference of the correspondingly sized circle in an unambiguous way.
-                Can you remember how?
-                This will be answered later in this section.
-              </p>
-            </li>
-            <li>
-              <p>
-                The relationship between people and phone numbers is NOT a function.
-                A given individual person can be associated with more than one phone number,
-                such as their cell phone and their work telephone.
-                This means that we can't view phone numbers as a function of people:
-                one input (a person) can lead to two different outputs
-                (phone numbers).
-                We also can't view people as a function of phone numbers,
-                since more than one person can be associated with a phone number,
-                such as when a family shares a single phone at home.
-              </p>
-            </li>
-            <li>
-              <p>
-                The relationship between <m>t</m> and <m>V</m> is a function.
-                If we view <m>t</m> as the independent variable,
-                there is only one value of <m>V</m> associated to each.
-                The reverse is also true:
-                if we view <m>V</m> as the independent variable,
-                there is only one value of <m>t</m> associated to each.
-              </p>
-            </li>
-            <li>
-              <p>
-                <xref ref="tab_notfunc" /> does NOT represent a function.
-                <m>y</m> cannot be a function of <m>x</m> because if <m>x</m> is the independent variable,
-                the input <m>x=3</m> corresponds to two different outputs <m>y=-9</m> and <m>y=9</m>.
-                Similarly, the input <m>x=2</m> corresponds to two different outputs <m>y=-7</m> and <m>y=4</m>.
-                We also cannot view <m>x</m> as a function of <m>y</m> because if <m>y</m> is the independent variable,
-                the input <m>y=1</m> corresponds to two different outputs <m>x=-1</m> and <m>x=1</m>.
-              </p>
-            </li>
-          </ol>
+          As we trace points on the interactive in <xref ref="fig_desmos_graph"/>, we see that the <m>x</m>-values of points on the graph of <m>h</m> appear to assume all values with the exception of <m>-2</m> and <m>2</m>, suggesting that the domain of <m>h</m> is 
+          <me>
+            \{x\in \R\mid x\ne \pm 2\}=(-\infty, -2)\cup (-2,2)\cup (2,\infty)
+          </me>.
+          We confirm this algebraically by first noting that the expression <m>1/(x^2-4)</m> is undefined exactly when <m>x^2-4=0</m>. Now solve this equation: 
+          <md>
+            <mrow>x^2-4 \amp =0</mrow>
+            <mrow>x^2 \amp =4 </mrow>
+            <mrow>x \amp =2 \text{ or } x=-2</mrow>
+          </md>.
+          (We review in more detail how to solve equations like <m>x^2-4=0</m> in <xref ref="sec_linearandquadraticfunctions"/>.) We conlude that <m>1/(x^2-4)</m> is defined as long as <m>x\ne \pm 2</m> and thus that 
+          <me>
+            \{x\in \R\mid x\ne \pm 2\}=(-\infty, -2)\cup (-2,2)\cup (2,\infty)
+          </me>,
+          as claimed. 
         </p>
-      </solution>
+      </li>
+      <li>
+        <p>
+          Tracing points in the interactive, we observe that for points in the left- and right-most portions of the graph, the <m>y</m>-values of points assume all values except <m>0</m>. (As we move points to the left or right indefinitely, the graph gets very close to the <m>x</m>-axis, but never quite touches it.) On the other hand, for points in the middle section of the graph (between the lines <m>x=-2</m> and <m>x=2</m>), the <m>y</m>-values appear to range freely over the interval <m>(-\infty, -1/4]</m>.   We infer from these two observations that 
+          <me>
+            \range h=\{x\in \R\mid x\ne 0\}=(-\infty, -1/4]\cup (0,\infty)
+          </me>.
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
     </example>
+     
   </subsection>
   <subsection>
-    <title>Real-world Examples of Functions</title>
+    <title>Vertical Line Test</title>
     <p>
-      Let's take a closer look at two of the functions described in  <xref ref="ex_functionexamples" /> in order to get a sense of how functions can be used in the real-world.
+      The graph of a function is a special example of a more general concept, the graph of an <em>equation</em>, which we now define. 
     </p>
-    <example>
-      <title>A function described in words</title>
-      <statement>
+    <definition xml:id="d_graph_equation">
+    <title>Graph of equation</title>
+    <statement>
+    <p>
+    Consider an arbitrary equation 
+    <men xml:id="eq_graph_eqn">
+      F(x,y)=c
+    </men>,
+    where <m>F(x,y)</m> is a mathematical expression in the <term>unknowns</term> <m>x</m> and <m>y</m>, and <m>c\in \R</m> is a fixed constant. A <term>solution</term> to <xref ref="eq_graph_eqn"/> is a pair <m>(a,b)\in \R^2</m> such that evaluating the expression <xref ref="eq_graph_eqn"/> at <m>x=a</m> and <m>y=b</m> yields the true equation 
+    <me>
+      F(a,b)=c
+    </me>.
+    The <term>graph</term> of an equation like <xref ref="eq_graph_eqn"/> is the set <m>S</m> of all solutions to this equation: <ie/>, 
+    <me>
+      S=\{(a,b)\in \R^2\mid F(a,b)=c\}
+    </me>.
+    </p>
+    </statement>
+    </definition>
         <p>
-          Consider again the function defined by the relationship between the circumference of a circle and its diameter.
-          The circumference of a circle is
-          <em>directly proportional</em>
-          to the diameter of the circle,
-          meaning that the ratio of the two quantities is a constant value.
-          The ratio of the circumference to the diameter of a circle<fn>
-          Chinese mathematician and astronomer Zu Chongzhi (429–501) estimated the value of <m>\pi</m> by calculating the value of the ratio of the circumference of a circle to its diameter.
-          His approximation was <m>355/113</m>.
-          Other historical mathematicians independently estimated <m>\pi</m> using the ratio of the area and radius of a circle.
-          The ancient Babylonians (ca. 1900–1680 BC) estimated <m>\pi</m> as <m>3.125</m>.
-          On the Rhind Papyrus (ca.1650 BC), Egyptian mathematicians recorded the value of <m>\pi</m> as 3.1605.
-          Archimedes of Syracuse (287–212 BC) showed that <m>\pi</m> is between
-          <m>3\frac{1}{7}</m> and <m>3\frac{10}{71}</m>.
-          <url href="https://www.exploratorium.edu/pi/history-of-pi">https://www.exploratorium.edu/pi/history-of-pi</url>
-          accessed August 4, 2022.
-          </fn> happens to be the constant value <m>\pi</m>,
-          so we can write this relationship explicitly as
+          Let's consider the equation 
+          <men xml:id="eq_equation_circle">
+            x^2+y^2=16
+          </men>
+          as an example. Let's first try and produce a few solutions <m>(x,y)</m> to this equation by hand. One trick that often comes in handy is to set one of the variables equal to zero and see what the other variable must be to produce a solution. Setting <m>x=0</m> in <xref ref="eq_equation_circle"/> reduces the equation to 
           <me>
-            \frac{C}{d}=\pi
-          </me>
-          where <m>C</m> represents the circumference and <m>d</m> is the diameter.
-          If we choose to make <m>C</m> the
-          <em>dependent variable</em>
-          and <m>d</m> the <em>independent variable</em>,
-          we can rewrite this relationship so that <m>C</m> is a function of <m>d</m>:
+            y^2=16
+          </me>,
+          which implies that <m>y=\pm\sqrt{16}=\pm 4</m>. We conclude that <m>(0,4)</m> and <m>(0,-4)</m> are solutions to <xref ref="eq_equation_circle"/>. Similarly, setting <m>y=0</m> gives rise to the solutions <m>(4,0)</m> and <m>(-4,0)</m>. In all, we have managed to produce a set of four solutions to the equation: 
           <me>
-            C=\pi d
+            \{(4,0),(-4,0),(0,4),(0,-4)\}
           </me>.
-          Given the diameter of a circle,
-          you can find its circumference by multiplying by <m>\pi</m>.
-        </p>
-      </statement>
-    </example>
-    <example xml:id="ex_tablefunction">
-      <title>A function described in a table</title>
-      <statement>
-        <p>
-          Recall the table of values in <xref ref="tab_conicaltank1-1" />.
-          Typically, we would view <m>t</m> as the
-          <em>independent variable</em>
-          and view <m>V</m> as the <em>dependent variable</em>,
-          meaning that <m>V</m> is a function of <m>t</m>,
-          which we could write as <m>V=f(t)</m>.
-          If we read from the table alone without any interpretation,
-          the domain for the function <m>V=f(t)</m> is
-          <m>\text{ Domain } (V) = \in\{0, 1, 2, 3, 4,5\}</m> while the range is <m>\text{ Range } (V) = \{0, 0.75, 1.5, 2.25, 3.0, 3.75\}</m>.
+          This is far from the set of all solutions however. Indeed, observe that for each assignment <m>x=t</m> with <m>t\in [-4,4]</m> the expression <m>16-t^2</m> is nonnegative, and hence we can solve 
+          <me>
+            y^2=16-t^2
+          </me>
+          as <m>y=\pm \sqrt{16-t^2}</m>. This means for each <m>t\in [-4,4]</m>, the pairs
+          <me>
+            (x,y)=\left(t,\sqrt{16-t^2}\right)
+          </me>
+          is a solution to <xref ref="eq_equation_circle"/>, as is the pair
+          <me>
+            (x,y)=\left(t,-\sqrt{16-t^2}\right)
+          </me>.
+          This yields infinitely many solutions to <xref ref="eq_equation_circle"/>: two for each choice of <m>t\in [-4,4]</m>. For example, setting <m>t=3</m> in the expressions above yields the solutions <m>(3,\sqrt{5})</m> and <m>(3,-\sqrt{5})</m>. 
         </p>
         <p>
-          Now we add some context!
-          Consider a tank in the shape of an inverted circular cone
-          (point down)
-          where the tank's radius is 2 feet and its depth is 4 feet.
-          See <xref ref="fig_conicaltank1-1" /> below.
+          We can use technology to produce a detailed graph of <xref ref="eq_equation_circle"/>. Alternatively, you might recognize this equation as defining a certain circle centered at the origin. (Don't worry if you didn't catch this! We will review such special equations in much more detail later.) Below we provide this graph, along with the few points we managed to produce by hand. 
         </p>
-        <figure xml:id="fig_conicaltank1-1">
-          <caption>The empty conical tank.</caption>
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="70%" source="APCFigure1-1-7.png"/>
-          \end{subfigure}
-          \hspace{.5in}
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="40%" source="APCFigure1-1-8.png"/>
-          \caption{The conical tank, partially filled.} \end{subfigure}
-          \caption{A tank in the shape of an inverted circular cone (point down) with radius 2 feet and depth 4 feet is being filled with water.}
+        <figure xml:id="fig_graph_eqn_circle">
+          <caption>Graph of the equation <m>x^2+y^2=16</m></caption>
+         <image xml:id="im_graph_eqn_circle" width="60%">
+          <shortdescription>Plot of circle of radius 4</shortdescription>
+          <sageplot>
+var('x y t')
+C=parametric_plot((4*cos(t),4*sin(t)),(t,-pi,pi))
+p1=point((4,0),size=50,color="red")
+p2=point((-4,0),size=50,color="red")
+p3=point((0,4),size=50,color="red")
+p4=point((0,-4),size=50,color="red")
+p5=point((3,sqrt(7)),size=50,color="red")
+p6=point((3,-sqrt(7)),size=50,color="red")
+t1=text("$(4,0)$",(4.75,.5),fontsize=16, color="black")
+t2=text("$(-4,0)$",(-4.75,.5),fontsize=16, color="black")
+t3=text("$(0,4)$",(.75,4.5),fontsize=16, color="black")
+t4=text("$(0,-4)$",(.75,-4.5),fontsize=16, color="black")
+t5=text(r"$(3,\sqrt{7})$",1.25*vector((3,sqrt(7))),fontsize=16, color="black")
+t6=text(r"$(3,-\sqrt{7})$",1.25*vector((3,-sqrt(7))),fontsize=16, color="black")
+C+p1+p2+p3+p4+p5+p6+t1+t2+t3+t4+t5+t6
+          </sageplot>
+         </image> 
         </figure>
         <p>
-          Suppose that the tank is being filled with water that is entering at a constant rate of <m>0.75</m> cubic feet per minute.
-          Initially, there is no water in the tank and after each subsequent minute,
-          there is <m>0.75</m> ft<m>^3</m> more water in the tank.
-          <xref ref="tab_conicaltank1-1b" /> below summarizes the relationship between the time <m>t</m> that has passed and the volume <m>V</m> of the water in the tank.
-          This is the same as <xref ref="tab_conicaltank1-1" />,
-          except that now <m>t</m> represents time and <m>V</m> represents volume in a physical context where water is being added continuously to the tank.
+          The graph of equation <xref ref="eq_equation_circle"/> displayed in <xref ref="fig_graph_eqn_circle"/> is similar in nature to the examples in the previous subsection. In particular, all of these graphs are <em>curves</em> of some sort in <m>\R^2</m>. One explanation of this similarity is that a graph of a <em>function</em> is just a specific example of a graph of an <em>equation</em>. Indeed, given function <m>f\colon D\rightarrow \R</m>, its graph 
+          <me>
+            \{(x,f(x))\mid x\in D\}
+          </me>
+          is just the graph of the equation 
+          <m>
+            f(x)=y
+          </m> (with the restriction that <m>x</m>-values of solutions must lie in <m>D</m>). So are there any differences between graphs of functions and graphs of curves more generally? Yes! The defining property of a function is that for each input <m>x\in D</m> of a function <m>f</m>, there is <em>exactly</em> one input/output pair <m>(x,f(x))</m> on the graph of <m>f</m>. Graphically, this means that for each point <m>t</m> on the <m>x</m>-axis, there is <em>at most one point</em> on the graph of <m>f</m> with <m>x</m>-coordinate equal to <m>t</m>: equivalently, there is at most one point of the graph of <m>f</m> lying on the line <m>x=t</m>. This simple observation is the essence of the <xref ref="th_vlt" text="custom">vertical line text</xref>. 
         </p>
-        <table xml:id="tab_conicaltank1-1b">
-          <title>How time and volume change in tandem in a conical tank</title>
+      <theorem xml:id="th_vlt">
+      <title>Vertical line test</title>
+      <statement>
+        <p>
+          Let <m>C</m> be a set of points in <m>\R^2</m>.
+        </p>
+              <p>
+                If for all <m>t\in \R</m>, the vertical line <m>x=t</m> intersects <m>C</m> in <em>at most one point</em>, then <m>C</m> is the graph of a function. 
+              </p>
+              <p>
+                Conversely, if there is any vertical line <m>x=t</m> that intersects <m>C</m> at <em>more than one point</em>, then <m>C</m> is not the graph of a function. 
+              </p>
+      </statement>
+    </theorem>
+    <p>
+      The quantifiers <q>for all</q> and <q>there is</q> appearing in <xref ref="th_vlt"/> are very important. To clarify their role in the statement of the theorem, let's introduce some additional terminology. Given a vertical line <m>L</m>, let's say that a set <m>C\subseteq \R^2</m> <term>passes the <m>L</m>-test</term> if <m>L</m> intersects <m>C</m> in at most one point; similarly, we will say <m>C</m> <term>fails the <m>L</m>-test</term> if <m>L</m> intersects <m>C</m> in more than one point. In terms of this new language, we see that the vertical line test asserts that <m>C</m> is the graph of a function if it passes the <m>L</m>-test <em>for all</em> vertical lines <m>L</m> in <m>\R^2</m>; and conversely, <m>C</m> is not the graph of a function if <m>C</m> fails the <m>L</m>-test for some vertical line <m>L</m> in <m>\R^2</m>. 
+    </p>
+    <p>Let's see how this plays out with the graph <m>C</m> of equation <xref ref="eq_equation_circle"/>. As illustrated in <xref ref="fig_vlt_circle"/>, there are three qualitatively different ways in which a given vertical line <m>L</m> can intersect with <m>C</m>. 
+      <ul>
+        <li>
+          <p>
+            If the line <m>L</m> lies strictly to the left or right of <m>C</m>, then <m>L</m> does not intersect with <m>C</m> at all, and hence <m>C</m> passes the <m>L</m>-test. 
+          </p>
+        </li>
+        <li>
+          <p>
+            If the line <m>L</m> is one of the two vertical lines <m>x=-4</m> or <m>x=4</m>, then <m>L</m> intersects <m>C</m> in exactly one point, and hence <m>C</m> passes the <m>L</m>-test. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Lastly, if <m>L</m> lies strictly between the lines <m>x=-4</m> and <m>x=4</m>, then <m>L</m> intersects <m>C</m> in exactly two points, and thus <m>C</m> fails the <m>L</m>-test. 
+          </p>
+        </li>
+      </ul>  
+      Since <m>C</m> fails the <m>L</m>-test with respect to some vertical line (<eg/>, the line <m>x=3</m>), we conclude by <xref ref="th_vlt"/> that <m>C</m> is not the graph of a function.  
+    </p>
+    <figure xml:id="fig_vlt_circle">
+      <caption>Vertical line test: <m>x^2+y^2=16</m></caption>
+      <image xml:id="im_vlt_circle" width="60%">
+        <shortdescription>Vertical line test applied to circle</shortdescription>
+        <sageplot>
+var('x y t')
+C=parametric_plot((4*cos(t),4*sin(t)),(t,-pi,pi))
+p2=point((-4,0),size=50,color="red")
+p5=point((3,sqrt(7)),size=50,color="red")
+p6=point((3,-sqrt(7)),size=50,color="red")
+L1=line(((-6,-5),(-6,5)),color="green")
+L2=line(((-4,-5),(-4,5)),color="green")
+L3=line(((3,-5),(3,5)),color="green")
+C+p2+p5+p6+L1+L2+L3
+        </sageplot>
+      </image>
+    </figure>
+      <remark>
+        <title>Vertical line test</title>
+        <p>
+          It might be helpful to envision the vertical line test as a scanning procedure. Imagine scanning your set <m>C\subseteq \R^2</m> with a device that produces a vertical green line <m>L</m> that we move from left to right across the entire expanse of <m>C</m>.
+          <ul>
+            <li>
+              <p>
+                If at some moment while we are scanning from left to right our green vertical line <m>L</m> hits two or more different points on the graph, then our scanner emits a loud error beep, indicating that <m>C</m> has failed an <m>L</m>-test, and declares that <m>C</m> is not the graph of a function. 
+              </p>
+            </li>
+            <li>
+              <p>
+                If, on the other hand, we are able to scan the entire expanse of <m>C</m> from left to right without hearing the error beep, then <m>C</m> has passed the <m>L</m>-test for all vertical lines <m>L</m>, and the scanner declares that <m>C</m> is the graph of a function.  
+              </p>
+            </li>
+          </ul>  
+        </p>
+      </remark>
+    <p>
+      By way of illustration we apply the vertical line test to a set <m>C\subseteq \R^2</m> already known to be the graph of a function. 
+    </p>
+    <example xml:id="eg_vlt_radical">
+    <title>Vertical line test: radical function</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\sqrt{4-x}</m> and let <m>C</m> be the graph of <m>f</m>, as depicted in <xref ref="fig_introsqrt"/>.
+    <ol>
+      <li>
+        <p>
+          Suppose the line <m>L</m> has equation <m>x=t</m>, where <m>t\in (-\infty, 4]</m>. How many points lie in the intersection of <m>L</m> and <m>C</m>. Does <m>C</m> pass the <m>L</m>-test for this line <m>L</m>? 
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose the line <m>L</m> has equation <m>x=t</m> with <m>t\in (4,\infty)</m>. How many points lie in the intersection of <m>L</m> and <m>C</m>. Does <m>C</m> pass the <m>L</m>-test in for this line <m>L</m>? 
+        </p>
+      </li>
+      <li>
+        <p>
+          What do (1) and (2) imply in regards to <m>C</m> passing the vertical line test or not? Explain. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+        <p>
+          Graphically, for such lines <m>L</m>, we see that <m>L</m> intersects <m>C</m> in exactly one point. In more detail, if <m>L</m> has equation <m>x=t</m> with <m>t\in (-\infty, 4]</m>, then <m>L</m> intersects <m>C</m> at the point 
+          <me>
+            (t,f(t))=(t,\sqrt{4-t})
+          </me>.
+          We conclude that <m>C</m> passes the <m>L</m>-test for such a line <m>L</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>L</m> has equation <m>x=t</m> with <m>t\in (4,\infty)</m>, then we see graphically that <m>L</m> does not intersect <m>C</m> at all, and hence <m>C</m> passes the <m>L</m>-test. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Since the lines discussed in (1) and (2) cover <em>all</em> possible lines in <m>\R^2</m>, and since we saw that <m>C</m> passes the <m>L</m>-test for all these lines <m>L</m>, we conclude by vertical line test that <m>C</m> is the graph of a function. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <remark>
+      <title>Vertical line test: no intersection</title>
+    <p>
+      Students are sometimes perplexed that if a vertical line <m>L</m> does not intersect <m>C</m>, then <m>C</m> still passes the <m>L</m>-test. <xref ref="eg_vlt_radical"/> is helpful in clearing up this confusion. There we see that the lines <m>L</m> with equation <m>x=t</m> that do not intersect <m>C</m> are precisely those for which <m>t\notin (-\infty, 4]</m>, the domain of <m>f(x)=\sqrt{4-x}</m>. The observation holds more generally: if <m>C</m> is the graph of a function <m>f\colon D\rightarrow \R</m>, then a line <m>L</m> with equation <m>x=t</m> intersects <m>C</m> in exactly one point if <m>t\in D</m> and does not intersect <m>C</m> at all for if <m>t\notin D</m>. This is because <m>C</m> only contains points of the form <m>(x,f(x))</m>, where <m>x\in D</m>. 
+    </p>
+    </remark>
+  </subsection>
+  <subsection xml:id="ss_func_relations">
+  <title>Functions and relations</title>
+  <p>
+    Yet another way of interpreting a function is as a <em> binary relation</em> (or just relation, for short). Loosely speaking, a binary relation <m>R</m> is a property that either holds (<ie/>, is true) or does not hold (<ie/>, is not true) for a given pair of elements <m>(x,y)</m>. When the property holds for <m>(x,y)</m> we write <m>R(x,y)</m>. A familiar example of a binary relation from mathematics is furnished by the <q>less than</q> relation: we define <m>R(x,y)</m> to mean the real number <m>x</m> is less than the real number <m>y</m>, denoted <m>x&lt; y</m> in mathematical notation.  For an example outside of mathematics, consider the binary relation <m>R(x,y)</m> defined as <q><m>x</m> is a cousin of <m>y</m></q>. In this case <m>R(x,y)</m> is true exactly when persons <m>x</m> and <m>y</m> are cousins. 
+  </p>
+  <p>
+  A function <m>f\colon A\rightarrow B</m> gives rise to a binary relation <m>R</m> in a natural way: namely, we can define the relation <m>R(x,y)</m> as <q><m>y</m> is the value of <m>f</m> at <m>x</m></q> (or <m>y=f(x)</m>, for short). For example, the function <m>f\colon \R\rightarrow \R</m> defined as <m>f(x)=x^2</m> gives rise to the relation <m>R(x,y)</m> defined as <m>y=x^2</m>, or in plainer English, <q><m>y</m> is the square of <m>x</m></q>. For example, in this case <m>R(2,4)</m> is true, since <m>4</m> is the square of <m>2</m> (<ie/>, <m>4=2^2</m>), but <m>R(4,2)</m> is not true since <m>2</m> is not the square of <m>4</m> (<ie/>, <m>2\ne 4^2</m>).
+  </p>
+  <p>
+    Thus, we see that every function can be thought of as a certain binary relation. As with the situation with graphs of equations, however, not every relation arises from a function in this way. What makes relations arising from functions special is the defining property of a function: namely, that for every input <m>x</m> of a function <m>f</m>, there is <em>exactly one</em> output <m>y=f(x)</m>. As a consequence a relation <m>R(x,y)</m> is of the form <m>y=f(x)</m> for some function <m>f</m> if and only if for every <m>x</m> there is <em>at most</em> one <m>y</m> such that <m>R(x,y)</m> is true. This is just a logical analogue of the vertical line test!
+  </p>
+  <p>
+    We will say that a relation <m>R(x,y)</m> <term>defines <m>y</m> as a function of <m>x</m></term> if there is a function <m>f</m> such that <m>R(x,y)</m> is true if and only if <m>x</m> is in the domain of <m>f</m> and <m>y=f(x)</m>. From our discussion above, it follows that a relation <m>R(x,y)</m> defines <m>y</m> as a function of <m>x</m> if and only if for every <m>x</m> there is at most one <m>y</m> such that <m>R(x,y)</m> is true.  
+  </p>
+  <p>
+    Consider again the relation <m>R(x,y)</m> defined as <q><m>x</m> is a cousin of <m>y</m></q>. This relation does not define <m>y</m> as a function of <m>x</m> since it is possible for a person <m>x</m> to have more than one cousin. 
+  </p>
+<example xml:id="eg_relations">
+<title>Relations and functions</title>
+<statement>
+<p>
+Decide whether the given relation <m>R</m> defines <m>y</m> as a function of <m>x</m>. 
+<ol>
+  <li>
+    <p>
+      <m>R(x,y)</m> is defined as <q><m>y</m> is a square root of <m>x</m></q>. (Here <m>x</m> and <m>y</m> are assumed to range over <m>\R</m>.)
+    </p>
+  </li>
+  <li>
+    <p>
+      <m>R(x,y)</m> is defined as <q><m>y</m> is a nonnegative square root of <m>x</m></q>. (Here <m>x</m> and <m>y</m> are assumed to range over <m>\R</m>.)
+    </p>
+  </li>
+  <li>
+    <p>
+      <m>R(x,y)</m> is defined as <q><m>y</m> is the phone number of <m>x</m></q>. (Here <m>x</m> ranges over humans, and <m>y</m> ranges over all possible phone numbers.)
+    </p>
+  </li>
+  <li>
+    <p>
+      <m>R(x,y)</m> is defined as <q><m>x</m> is the phone number of <m>y</m></q>. (Here <m>x</m> ranges over all possible phone numbers, and <m>y</m> ranges over all humans.)
+    </p>
+  </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+  <li>
+    <p>
+      Note that both <m>R(4,2)</m> and <m>R(4,-2)</m> are true, since <m>2</m> and <m>-2</m> are both square roots of <m>4</m>. Thus it is not the case that for all <m>x</m> there is <em>at most</em> one <m>y</m> such that <m>R(x,y)</m> is true. We conclude that this relation does not define <m>y</m> as a function of <m>x</m>. 
+    </p>
+  </li>
+  <li>
+    <p>
+      In this case the relation <m>R</m> does define <m>y</m> as a function of <m>x</m>. This is because for each real number <m>x</m> there is <em>at most</em> one nonnegative square root. More explicitly, defining <m>f(x)=\sqrt{x}</m>, we see that <m>R(x,y)</m> is true if and only if <m>y=f(x)</m>. 
+    </p>
+  </li>
+  <li>
+    <p>
+      The given relation <m>R(x,y)</m> does not define <m>y</m> as a function of <m>x</m> for the simple reason that a person <m>x</m> can have more than one phone number! 
+    </p>
+  </li>
+  <li>
+    <p>
+      The answer here is perhaps somewhat debatable. If we agree that a given phone number can <q>belong</q> to at most one person, then <m>R</m> arises from the function <m>f</m> defined as follows: given a (registered) phone number <m>x</m>, <m>f(x)</m> is the owner of phone number <m>x</m>. 
+    </p>
+    <p>
+      Why is this debatable? Well, for one thing, in the era before mobile phones, households were equipped with a single phone (called a <q>land line</q>), and the case could be made that that number was <q>owned</q> by all the people in the household. Thus, if we want to make a function out of this example, we would have to take more care to define what it means for a phone number to belong to a user.   
+    </p>
+    <p>
+      This discussion is meant to be amusing, but is not entirely idle. It is often the case that a proposed function turns out upon closer inspection to not be well defined. Indeed, something very similar went wrong with the proposed function in <xref ref="eg_square_roots"/>. 
+    </p>
+  </li>
+</ol>
+</p>
+</solution>
+</example>
+
+  </subsection>
+    <subsection xml:id="ss_func_model">
+    <title>Modeling with functions</title>
+    <p>
+    Now that we have taken our first confident strides down the path of function exploration, you may be wondering why the study of functions is so important in the first place. The short answer is that functions are one of the most fundamental tools for <em>modeling</em> empirical phenomena. Scientific inquiry will often begin by treating one empirical quantity <m>q</m> as being <em>determined</em> or <em>dependent</em> on some other empirical quantity <m>x</m> (or even multiple quantities <m>x_1, x_2,\dots, x_n</m> in a <em>multivariable model</em>). In this situation it is natural to model the quantity <m>q</m> as a function of these other quantities: <ie/>, we assume there is a function <m>f</m> satisfying <m>q=f(x)</m> (or <m>q=f(x_1,x_2,\dots, x_n)</m> in a multivariable model). Here are some typical examples.  
+    <ul>
+        <li>
+            <p>
+                We can model the vertical velocity <m>v</m> of a skydiver in free fall as a function of the time <m>t</m> elapsed since the diver jumped from the plane. In this case we assume <m>v=f(t)</m> for some function <m>f</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We can model the atmospheric temperature <m>T</m> as a function of altitude <m>a</m>. In this case we assume <m>T=f(a)</m> for some function <m>f</m>.  
+            </p>
+        </li>
+        <li>
+            <p>
+                We can model the yearly sales <m>S</m> of a certain product as a function of its price <m>p</m> and the yearly amount <m>a</m> the producer spends on advertising. In this case we assume <m>S=f(p,a)</m> for some (multivariable) function <m>f</m>.  
+            </p>
+        </li>
+    </ul>
+Observe how in these modeling situations the defining characteristic of a function <m>f</m>, that each input <m>x</m> has a unique output <m>f(x)</m>, captures our intuitive idea of one quantity being dependent on another. Indeed, this is what motivates the language of dependent and independent variables introduced in <xref ref="rm_ind_dep_vars"/>. <xref ref="ex_draining_tank"/> leads you through a simplified simulation of how scientists proceed from observations of physical phenomena to a full-fledged mathematical model. You are encouraged to explore that exercise on your own. 
+</p>
+<p> In the meantime, we end this first section by giving a preview of what calculus is, and how it plays an important role in empirical modeling. In short, calculus is the science of functions. It provides us powerful tools to study properties of functions. What kind of properties of functions are we interested in determining? Continuing with the empirical modeling context, suppose we are modeling quantity <m>q</m> as a function <m>q=f(s)</m> of quantity <m>s</m> (<ie/>, quantity <m>q</m> is dependent on, or determined by quantity <m>s</m>). Here are some natural questions about <m>f</m> we are interested in when studying the function <m>f</m> that articulates the relation between <m>s</m> and <m>q</m>. 
+    <ul>
+        <li>
+            <title>Maximum/minimum values</title>
+            <p>
+                Is there a maximum value of <m>q</m> that can be attained? Is there a minumum value? In terms of <m>f</m>, we are asking whether <m>\range f</m> has a maximum and/or minimum value. If it does, we would also like to know which inputs <m>s</m> give rise to these maximum and minimum values.   
+            </p>
+        </li>
+        <li>
+            <title>Asymptotic values/asymptotic behavior</title>
+            <p>
+               Perhaps <m>q</m> does not reach a maximum value. Does it <em>approach</em> some maximum value as <m>s</m> varies, without ever attaining that value? Suppose quantity <m>s</m> ranges naturally over the set <m>[0,\infty)</m> of all nonnegative numbers: how does the output <m>q=f(s)</m> vary as <m>s</m> gets infinitely large?    
+            </p>
+        </li>
+        <li>
+            <title>Increasing/decreasing</title>
+            <p>
+                How do the values <m>q=f(s)</m> change as we vary <m>s</m>? More specifically, does <m>q</m> increase as we increase <m>s</m>? Does <m>q</m> decrease as we increase <m>s</m>?
+            </p>
+        </li>
+        <li>
+            <title>Average/instantaneous rates of change</title>
+            <p>
+            Fix a particular value <m>s_0</m> of our quantity <m>q</m>, and let <m>q_0=f(s_0)</m> be the value of <m>q</m> corresponding to that input. How does <m>q_0</m> change as we vary <m>q</m> by <em>arbitrarily small</em> amounts about <m>q_0</m>. More specifically, call
+            <me>
+                R_{q_1}=\frac{q_1-q_0}{s_1-s_0}=\frac{f(q_1)-f(q_0)}{s_1-s_0}
+            </me>
+            the <em>average rate of change</em> with respect to <m>s</m> as we vary <m>s</m> from <m>s_0</m> to <m>s_1</m>. What happens to these average rates of change if we keep <m>q_0</m> fixed, and pick <m>q_1</m> to be arbitrarily close to <m>q</m>. Do they approach a well-defined <em>instantaneous rate of change</em>? 
+            </p>
+        </li>
+    </ul>  
+    All the questions above can be phrased as questions about the function <m>f</m> that models the relation between <m>q</m> and <m>s</m>, and we will be able to answer all of these questions, using calculus, by the end of this course! 
+</p>
+<!-- <p>
+    Historically, the development of calculus was most plagued by the challenge of coming up with rigorous mathematical definitions for the notions of <em>approaching a value</em> to arbitrarily close degree without necessarily attaining it. Much nonsense was produced in this endeavor (Isaac Newton's <em>fluxions</em> and <em>fluents</em>, and Gottfried Wilhelm Leibniz's <em>infinitesimals</em>, for example), as well as a fair dose of vitriolic recriminations (George Berkeley accusing Newton and Leibniz of peddling in dubious <q>ghosts of departed quantities</q>).
+    <aside>
+        <title>Historical reading</title>
+        
+        
+        <p>
+            If you are interested in the history of calculus, which is fascinating, you might check out <em>The History of the calculus and its conceptual development</em> by Carl B. Boyer.
+        </p>
+    </aside>
+    These shaky foundations were not firmed up until the 19th century, when the modern definition of the <em>limit</em> was developed by mathematicians like Augustin-Louis Cauchy and Karl Weierstrass. 
+    Fittingly, it is with the limit that this course will begin in earnest! 
+</p> -->
+<exercise xml:id="ex_draining_tank">
+      <title>Modeling a draining tank</title>
+      <statement>
+        <p>
+          <xref ref="fig_draining_tank"/> depicts a water tank in the shape of a circular cone (with tip pointed downward). The height of the tank is 4 meters, and its circular top has a radius of 2 meters. The tank contains an initial quantity of water that steadily drains through a regulated valve at the bottom.
+        </p>
+        <figure xml:id="fig_draining_tank">
+          <caption>A draining conical tank</caption>
+          <image width="30%" source="APCFigure1-1-8.png"/>
+        </figure>
+        <p>
+          Once the draining begins we record at each subsequent minute <m>t</m> the measurements of the height <m>h</m> (in meters), radius <m>r</m> (in meters), and volume <m>V</m> (in cubic meters) of the conical body of water remaining in the tank. These are summarized in <xref ref="table_draining_tank"/>.
+        </p>
+        <table xml:id="table_draining_tank">
+          <title>Measurements of a draining water tank</title>
           <tabular>
+            <col/><col/><col/><col/><col/><col/>
             <row>
-              <cell>\toprule
-                <m>t</m> (in minutes)</cell>
-              <cell><m>0</m></cell>
-              <cell><m>1</m></cell>
-              <cell><m>2</m></cell>
-              <cell>3</cell>
-              <cell>4</cell>
-              <cell>5</cell>
+              <cell right="minor"><m>t</m> (min)</cell> <cell>0</cell> <cell>1</cell> <cell>2</cell> <cell>3</cell> <cell>4</cell>
             </row>
             <row>
-              <cell>\midrule
-                <m>V</m> (in ft<m>^3</m>)</cell>
-              <cell>0</cell>
-              <cell><m>0.75</m></cell>
-              <cell><m>1.5</m></cell>
-              <cell><m>2.25</m></cell>
-              <cell><m>3.0</m></cell>
-              <cell><m>3.75</m></cell>
+              <cell right="minor"><m>h</m> (m)</cell> <cell>3</cell> <cell>2.5</cell> <cell>2</cell> <cell>1.5</cell> <cell>1</cell>
             </row>
             <row>
-              <cell>\bottomrule</cell>
+              <cell right="minor"><m>r</m> (m)</cell> <cell>1.5</cell> <cell>1.25</cell> <cell>1</cell> <cell>0.75</cell> <cell>1</cell>
             </row>
+            <row>
+              <cell right="minor"><m>V</m> (m<m>^3</m>)</cell> <cell></cell> <cell></cell> <cell></cell> <cell></cell> <cell></cell>
+            </row> 
           </tabular>
         </table>
         <p>
-          We can now use some of our intuition from this new context to interpret the table.
-          In the first five minutes,
-          the values for <m>V</m> tell us that the tank starts at 0 ft<m>^3</m> of water (empty) and fills to <m>3.75</m> ft<m>^3</m> of water.
-          We know that the volume is increasing steadily and so contains <em>all values</em>
-          between 0 and <m>3.75</m>,
-          and no values outside that range,
-          during the time frame from <m>t=0</m> to <m>t=5</m>.
-          These are significant assumptions that come from our knowledge of the physical setting of the problem!
-          Based on this deeper interpretation,
-          we can say that on a domain of <m>t</m> between 0 and 5 minutes,
-          the range for <m>V</m> is from 0 to <m>3.75</m> ft<m>^3</m>.
+          It is evident that at any time <m>t</m> since the draining has begun, the height, radius, and volume of the remaining water have determinate values. Thus we have well-defined functions <m>h=f_1(t)</m>, <m>r=f_2(t)</m>, and <m>V=f_3(t)</m> that output the height, radius, and volume of the remaining water <m>t</m> minutes after draining has begun.  
+        <ol>
+          <li>
+            <p>
+              What is an appropriate domain <m>D</m> for the functions <m>f_1,f_2,f_3</m>? Our table only provides values of the functions for <m>t\in \{0,1,2,3,4\}</m>. Does this mean we should set <m>D=\{0,1,2,3,4\}</m>? (There is not one correct answer here.)   
+            </p>
+          </li>
+          <li>
+            <p>
+              Focus on the measurements of the height <m>h</m> of the remaining water. How does the height change with each passing minute? Conjecture a formula for the function <m>h=f_1(t)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              The table suggests a relation between the height <m>h</m> and radius <m>r</m> of the remaining water at any given time. Express this as an equation involving <m>h</m> and <m>r</m>. Assuming your conjectured formula for <m>f_1</m> is correct, derive a formula for <m>r=f_2(t)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              The volume formula for cylinders tells us that <m>V=\frac{1}{3}\pi r^2\, h</m>.
+              <aside>
+                <p>
+                  This conical volume formula <m>V=\frac{1}{3}\pi r^2\, h</m> is nontrivial, and in fact its derivation requires some sophisticated calculus techniques: techniques you will be equipped with by the end of this course!
+                </p>
+              </aside>
+              Assuming your conjectured formula for <m>f_1</m> is correct, compute a formula for <m>V=f_3(t)</m>. Assess the accuracy of your formula by comparing its outputs with <xref ref="table_draining_tank"/>.  
+            </p>
+          </li>
+          <li>
+            <p>
+              You have now modeled the various quanties associated to the remaining water with the functions <m>f_1,f_2, f_3</m>. Assess whether your model gives a sensible answer to the following question: what is the volume of the remaining water 10 minutes after the draining has begun? What, in the face of the evidence given by <xref ref="table_draining_tank"/>, is a plausible answer to this question. What is a natural way of adjusting your model so that it provides this answer?  
+            </p>
+          </li>
+        </ol>
         </p>
-        <p>
-          <xref ref="ex_conicaltank1-1exercise" /> will have you explore this function in even greater depth
-          (no pun intended).
-          We will also review it during class,
-          but if you have time you should attempt it now.
-        </p>
-      </statement>
-    </example>
-    <exercise xml:id="ex_conicaltank1-1exercise">
-      <statement>
-        <p>
-          Recall the conical tank being filled with water in <xref ref="ex_tablefunction" />.
-          The table of values that we are given stops at <m>t=5</m> seconds.
-          How long could we continue to fill the tank before it overflows?
-          <ol>
-            <li>
-              <p>
-                Plot the points given in <xref ref="tab_conicaltank1-1b" /> on a set of axes with time <m>t</m> in minutes on the horizontal axis and volume <m>V</m> in ft<m>^3</m> on the vertical axis.
-                What shape does the graph of the function seem to be?
-              </p>
-            </li>
-            <li>
-              <p>
-                Try to think of a formula for the function that gives the volume as a function of time,
-                meaning a formula for <m>V=f(t)</m>.
-                Use your graph from part (a) as inspiration.
-              </p>
-            </li>
-            <li>
-              <p>
-                Graph your formula from part (b) for <m>V=f(t)</m>
-                (using Desmos)
-                and confirm our earlier intuition that if <m>t</m> takes on all values between <m>0</m> and <m>5</m>,
-                <m>V</m> steadily increases from <m>0</m> to <m>3.75</m>,
-                and takes on no values outside of that range.
-              </p>
-            </li>
-            <li>
-              <p>
-                Now return to your intuitive understanding of the problem.
-                What is the total volume of the conical tank?<fn>
-                Hint: the volume of a cone is <m>V=\frac{1}{3}\pi r^2h</m>.
-                </fn> What does this tell you about the largest possible volume of water in the cone?
-                Use this and your formula for <m>V=f(t)</m> to determine how long it will take for the cone to overflow.
-              </p>
-            </li>
-          </ol>
-        </p>
-        <figure xml:id="fig_conicaltank1-1d">
-          <caption>The conical tank, partially filled.</caption>
-          <image width="40%" source="APCFigure1-1-8.png"/>
-        </figure>
       </statement>
     </exercise>
-  </subsection>
-  <subsection>
-    <title>Interval Notation for Sets</title>
-    <p>
-      When we talk about functions,
-      they will always take some set of numbers as their domain and have some set of numbers as their range.
-      In this section,
-      we talk briefly about what a "set" is and some different notations for how to write them down.
-    </p>
-    <p>
-      You have already seen one mathematical shorthand for a commonly used set:
-      <m>\mathbb{R}</m> denotes the set of all real numbers.
-      Another useful notation is the <em>empty set</em>:
-      <m>\emptyset</m> denotes the set that contains nothing.
-    </p>
-    <remark>
-      <p>
-        Please do not confuse <m>\emptyset</m> with the number 0.
-        They are VERY different and should NOT be used interchangeably.
-      </p>
-    </remark>
-    <p>
-      Another set we discussed was the domain and range of the water in the tank in  <xref ref="ex_tablefunction" />.
-      We said that if the time <m>t</m> is between 0 and 5 minutes,
-      then the volume <m>V</m> was between 0 and <m>3.75</m> ft<m>^3</m>.
-      We can write these using inequalities:
-      <me>
-        0\leq t\leq 5 \qquad\text{ and } \qquad 0\leq V \leq 3.75
-      </me>,
-      which are read "0 is less than or equal to <m>t</m>,
-      which is less than or equal to 5" and "0 is less than or equal to <m>V</m>,
-      which is less than or equal to <m>3.75</m>." An alternate notation for writing these two sets is called
-      <em>interval notation</em>.
-      The set <m>0\leq t \leq 5</m> is written
-      <me>
-        [0,5]
-      </me>
-      and the set <m>0\leq V\leq 3.75</m> is written
-      <me>
-        [0,3.75]
-      </me>.
-      This notation is nice and concise,
-      but does not specify a variable and so can be confusing or ambiguous.
-      If we wish to name the variable <m>t</m>,
-      we would write <m>t\in[0,5]</m>,
-      read "<m>t</m> is in the set of numbers from 0 (inclusive) to 5 (inclusive)." Likewise for <m>V</m>,
-      we can write <m>V\in[0,3.75]</m>,
-      read "<m>V</m> is in the set of numbers from 0 (inclusive) to 3.75 (inclusive)." The symbol <m>\in</m> means "in" and the square brackets indicate the the endpoints of the interval are included.
-    </p>
-    <p>
-      Other sets that you saw were the domain and range of the function
-      <m>g(x) = \sqrt{4-x}</m> in <xref ref="ex_introsqrt"/>.
-      The range <m>y\geq 0</m> can be written in interval notation as <m>y\in [0,\infty)</m>.
-      The domain <m>x\leq 4</m> can be written in interval notation as <m>x\in (-\infty,4]</m>.
-      The meaning of this set is best illustrated on a number line:
-    </p>
-    <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) -- (5.5,0) ;
-\draw [very thick,  latex-, blue] (-2.5,0) -- (4,0);
-\node[circle,draw=blue, fill=blue, inner sep=0pt,minimum size=5pt] (a) at (4,0) {};
-\foreach \x in  {-2,-1,0,1,2, 3, 4,5}
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-2,-1,0,1,2, 3, 4,5}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};\end{tikzpicture}]]>
-</latex-image>
-    </image>
-    <p>
-      The values of <m>x</m> are allowed to be any number below <m>x=4</m>,
-      denoted by the open parentheses and <m>-\infty</m> on the left of the interval <m>(-\infty,4]</m>.
-    </p>
-    <p>
-      Another set that you saw was the domain of the function <m>h</m> in  <xref ref="ex_graphfunction" />.
-      We wrote this using the standard shorthand of <m>x\neq -2,2</m>,
-      which means that <m>x</m> can take on any value except for <m>-2</m> and <m>2</m>.
-      To write this using inequalities,
-      we would need three different parts:
-      <me>
-        x\lt -2\text{ or }  -2\lt x\lt 2\text{ or }  2\lt x
-      </me>.
-      The corresponding interval notation also has three parts:
-      <me>
-        (-\infty,-2)\cup(-2,2)\cup(2,\infty)
-      </me>.
-    </p>
-    <p>
-      The round parentheses mean we do not include the endpoints at <m>-2</m> and <m>2</m>,
-      and <m>\cup</m> is the "union" symbol,
-      which means we are glueing the intervals together.
-    </p>
-    <p>
-      Finally, one more standard notation is an alternate way of writing the set of all real numbers:
-      instead of writing <m>\mathbb{R}</m>,
-      we can write <m>(-\infty,\infty)</m>.
-      There is no way to write the empty set
-      <m>\emptyset</m> using interval notation; WeBWorK will typically have you enter the word "none" in cases where there is no solution.
-    </p>
-    <p>
-      Here is a table summarizing all of the above examples,
-      along with a few more to help you understand when to use "<m>(</m>" vs. "<m>[</m>" and how to incorporate "<m>\cup</m>".
-    </p>
-    <table xml:id="tab_intervalnotation">
-      <title>A table of intervals written using interval notation</title>
-      <tabular>
-        <row>
-          <cell>\toprule</cell>
-          <cell><em>Interval notation</em></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>\mathbb{R}</m></cell>
-          <cell><m>(-\infty,\infty)</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>\emptyset</m></cell>
-          <cell>none</cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>0\leq t\leq 5</m></cell>
-          <cell><m>[0,5]</m> or <m>t\in [0,5]</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>0\leq V\leq 3.75</m></cell>
-          <cell><m>[0,3.75]</m> or <m>V\in [0,3.75]</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>x\leq 4</m></cell>
-          <cell><m>(-\infty, 4]</m> or <m>x\in (-\infty,4]</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>y\geq 0</m></cell>
-          <cell><m>[0,\infty)</m> or <m>y\in[0,\infty)</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>x\neq -2,2</m></cell>
-          <cell><m>(-\infty,-2)\cup(-2,2)\cup(2,\infty)</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>-1\leq x\lt 3</m></cell>
-          <cell><m>[-1,3)</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>-1\lt x\leq 3</m></cell>
-          <cell><m>(-1,3]</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>x\lt -4</m> or <m>x\geq 5</m></cell>
-          <cell><m>(-\infty,-4)\cup [5,\infty)</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            <m>-3\leq x\leq 7</m> and <m>x\neq 0</m></cell>
-          <cell><m>[-3,0)\cup(0,7]</m></cell>
-        </row>
-        <row>
-          <cell>\bottomrule</cell>
-        </row>
-      </tabular>
-    </table>
-  </subsection>
-  <subsection>
-    <title>Summary</title>
-    <p>
-      The following terms were introduced in this section:
-    </p>
-    function, set <m>\mathbb{R}</m> of all real numbers, domain, range, function notation, independent variable, dependent variable, graph,  directly proportional, interval notation, the empty set <m>\emptyset</m>
-    <p>
-      <em>Key ideas:</em> A relationship or process is a function if each individual input is associated with one and only one output.
-      This is represented visually on graphs via the Vertical Line Test.
-      There are four different ways to represent a function
-      (words, formula, table, graph).
-      The domain of a function is the set of all inputs with a defined output.
-      The range of a function is the set of all realized outputs.
-    </p>
-    <p>
-      <em>Other ideas introduced:</em><fn>
-      You do not have to understand them now and likely have many questions about them.
-      We will work on these ideas much more over the next few sections.
-      </fn> interval notation will become a convenient way to represent sets of numbers,
-      the inside of a square root cannot be negative and the denominator of a fraction cannot be zero,
-      the range of a function is not easy to find without a graph or table.
-    </p>
-    <p>
-      \fbox{\fbox{ End of Section 1.1}}
-    </p>
-    <p>
-      \rule{1.1\textwidth}{2pt}
-    </p>
-  </subsection>
+    
+    </subsection>
+
+
 </section>
