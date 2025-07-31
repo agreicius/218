@@ -8,7 +8,8 @@
   </introduction>
   <subsection>
     <title>Learning Goals</title>
-    <ul>
+    <p>
+      <ul>
       <li>
         <p>
           Understand the definition of linear and quadratic functions.
@@ -30,14 +31,14 @@
         </p>
       </li>
     </ul>
+  </p>
   </subsection>
   <subsection>
     <title>Definitions of linear and quadratic functions</title>
-    <introduction>
       <p>
         Linear and quadratic functions are important for modeling relationships between many different quantities.
         For example, in statistics,
-        the method of Linear Regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other.
+        the method of linear regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other.
         Quadratic functions are used to model the height of an object falling under the force of gravity.
         We will explore several models that use linear and quadratic functions in <xref ref="sec_linearandquadraticmodeling"/> after we develop our mathematical understanding of them.
       </p>
@@ -52,151 +53,216 @@
         Remember that we generally need a few examples to make sense of definitions,
         and these follow below each of the definitions.
       </p>
-      <definition xml:id="def_linearfunction">
-        <title>Linear Functions</title>
+      <assumption xml:id="fiat_real-valued_functions">
         <statement>
           <p>
-            A <em>linear function</em> is a function that can be written in the form
-            <m>f(x) = mx+b</m> for some real numbers <m>m</m> and <m>b</m>.
-            Alternately, a linear function can be written as a
-            <em>linear equation</em> <m>y=mx+b</m>,
-            where <m>y</m> is a dependent variable of the independent variable <m>x</m>.
+            Henceforth, unless specified otherwise, all functions in this course will be assumed to be of the form <m>f\colon D\rightarrow \R</m>, where <m>D\subseteq \R</m>. In other words, by default, the inputs and outputs of functions in this course are assumed to be real numbers. 
+          </p>
+        </statement>
+      </assumption>
+      <definition xml:id="d_linearfunction">
+        <title>Linear functions</title>
+        <statement>
+          <p>
+            A function <m>f</m> is <term>linear</term> (or <term>affine</term>) if there are real constants <m>m</m> and <m>b</m> such that 
+            <men xml:id="eq_affine_stand">
+              f(x)=mx+b
+            </men>
+            for all <m>x</m> in its domain.
           </p>
         </statement>
       </definition>
-      <example xml:id="ex_linfuncs">
-        <title>Examples of linear functions</title>
+    
+      <example xml:id="eg_linfuncs">
+        <title>Linear functions</title>
         <statement>
           <p>
-            Below are three examples of linear functions.
-            <ol marker="labeltextbfalph">
+            Verify that the given function is linear using <xref ref="d_linearfunction"/>.
+            <ol>
               <li>
                 <p>
-                  The equation
-                  <me>
-                    y=3x+1
-                  </me>
-                  defines <m>y</m> as a linear function of <m>x</m>,
-                  taking <m>m=3</m> and <m>b=1</m> in Definition <xref ref="def_linearfunction" autoname="yes"/>
+                 <m>f(x)=3x+1</m>
                 </p>
               </li>
               <li>
                 <p>
-                  The equation
-                  <me>
-                    y=x
-                  </me>
-                  also defines <m>y</m> as a linear function of <m>x</m> if we rewrite it as
-                  <me>
-                    y=1\cdot x+0
-                  </me>
-                  so that we see that we must take <m>m=1</m> and <m>b=0</m>.
-                  This function, <m>f(x) = x</m> is a special function,
-                  called the <em>identity function</em>,
-                  where the output and input are the same.
+                  <m>g(t)=t</m>
                 </p>
               </li>
               <li>
                 <p>
-                  The equation
-                  <me>
-                    y=1.2
-                  </me>
-                  is also a linear equation, so defines <m>y</m> as a linear function
-                  (the independent variable isn't specified,
-                  though we can infer it to be <m>x</m>).
-                  To see this, rewrite it as
-                  <me>
-                    y=0\cdot x+1.2
-                  </me>
-                  so that we can see that we must take <m>m=0</m> and <m>b=1.2</m>.
-                  <m>f(x)=1.2</m> is an example of a
-                  <em>constant function</em>,
-                  which is a function of the form <m>f(x) = b</m>.
-                  For any input, the output is always <m>b</m>,
-                  meaning the output is a constant number.
+                  h(s)=1.2
+                </p>
+              </li>
+              <li>
+                <p>
+                  f(x)=\frac{1}{2}(x+2)+2x+1
                 </p>
               </li>
             </ol>
           </p>
         </statement>
+        <solution>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  It follows immediately that <m>f</m> is linear. Here <m>m=3</m> and <m>b=1</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  We have 
+                  <me>
+                    g(t)=t=1\cdot t+0
+                  </me>
+                  for all <m>t</m> in the domain of <m>g</m>. Thus <m>g</m> is linear with <m>m=1</m> and <m>b=0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  We have
+                  <me>
+                    h(s)=1.2=0\cdot s+1.2
+                  </me>.
+                  Thus <m>h</m> is linear with <m>m=0</m> and <m>b=1.2</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  We have 
+                  <me>
+                    f(x)=\frac{1}{2}(x+2)+2x+1=\frac{1}{2}x+1+2x+1=\frac{5}{2}x+2
+                  </me>
+                  for all <m>x</m>. Thus <m>f</m> is linear with <m>m=\frac{5}{2}</m> and <m>b=2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
       </example>
+      <remark>
+        <title>Standard form</title>
+        <p>
+          As illustrated by <xref ref="eg_linfuncs"/>, a function can be linear even if its given formula does not look precisely like the form in <xref ref="eq_affine_stand"/>. Often we need to manipulate the given formula algebraically in order to bring it into the <em>standard form</em> prescribed by <xref ref="eq_affine_stand"/>.
+        </p>
+      </remark>
       <p>
-        An important detail of the above definition is that a linear function <em>can</em>
-        be rewritten in the form <m>f(x)=mx+b</m>;
-        it may not look like that originally.
+        <xref ref="eg_linfuncs"/> included to important types of linear functions that deserve their own definition: the <em>identity function</em> and <em>constant functions</em>. 
       </p>
-      <exercise>
-        <statement>
+      <definition xml:id="d_ident_const">
+      <title>Identity function and constant functions</title>
+      <statement>
+      <p>
+      <ul>
+        <li>
           <p>
-            Rewrite
-            <me>
-              y=\frac{3x+1}{2},  \text{ and }   2y-1=6x
-            </me>
-            in the form <m>y=mx+b</m> and identify <m>m</m> and <m>b</m>.
-            These are two more examples of linear functions.
+            A function <m>f</m> is an <term>identity function</term> if
+            <men xml:id="eq_ident">
+              f(x)=x
+            </men>
+            for all <m>x</m> in its domain.             
           </p>
-        </statement>
-      </exercise>
-      <definition>
-        <title>Quadratic Function</title>
+        </li>
+        <li>
+          <p>
+            A function <m>f</m> is a <term>constant function</term> if there is a real constant <m>c</m> such that 
+            <men xml:id="eq_const_func">
+              f(x)=c
+            </men>
+            for all <m>x</m> in its domain. 
+          </p>
+        </li>
+      </ul>
+      </p>
+      </statement>
+      </definition>
+    <p>
+      We now move on to <em>quadratic functions</em>, which are only slightly more complicated than linear functions. 
+    </p>
+      <definition xml:id="d_quad_func">
+        <title>Quadratic function</title>
         <statement>
           <p>
-            A <em>quadratic function</em> is one that may be written in the form
-            <me>
+            A function <m>f</m> is  <term>quadratic</term> if there are real constants <m>a,b,c</m> with <m>a\ne 0</m> such that
+            <men xml:id="eq_quad_stand">
               f(x)=ax^2+bx+c
-            </me>,
-            where <m>a, b</m>, and <m>c</m> are real numbers with <m>a\neq 0</m>.
-            Alternately, a quadratic function can be written as a
-            <em>quadratic equation</em>
-            <me>
-              y=ax^2+bx+c
-            </me>,
-            where <m>y</m> is a dependent variable of the independent variable <m>x</m>.
+            </men>
+            for all <m>x</m> in its domain. 
           </p>
         </statement>
       </definition>
+      <remark>
+        <title>Quadratic functions</title>
       <p>
-        Similar to linear functions,
-        quadratic functions <em>can</em>
-        be written in the form <m>f(x) = ax^2+bx+c</m> but do not need to begin that way.
+        Why do we insist that <m>a\ne 0</m> in <xref ref="d_quad_func"/>? This is to distinguish linear functions as a separate family from quadratic functions. If we allowed <m>a=0</m> in our definition of quadratic functions then a linear function <m>f(x)=mx+b</m> would also be quadratic, since 
+        <me>
+          f(x)=mx+b=0x^2+mx+b
+        </me>
+        for all <m>x</m> in its domain. 
+      </p>
+      </remark>
+      <p>
+        As with linear functions, we sometimes need to do a little algebraic work to show that a given quadratic function has a formula of the <em>standard form</em> represented by <xref ref="eq_quad_stand"/>.
       </p>
       <exercise>
         <statement>
           <p>
-            Rewrite each of the expressions below in the form
-            <me>
-              y=ax^2+bx+c
-            </me>
-            and identify <m>a, b</m>, and <m>c</m>.
-            These are examples of quadratic functions.
-            <ol marker="labelroman">
+            Verify that the given function is quadratic using <xref ref="d_quad_func"/>. 
+            <ol>
               <li>
                 <p>
-                  <m>y=(x-2)^2</m>
+                  <m>f(x)=(x-2)^2</m>
                 </p>
               </li>
               <li>
                 <p>
-                  <m>y=x^3-x(x^2+3x-7)+2</m>
+                  <m>g(x)=x^3-x(x^2+3x-7)+2</m>
                 </p>
               </li>
               <li>
                 <p>
-                  <m>y=x^2</m>
+                  <m>h(t)=t^2</m>
                 </p>
               </li>
             </ol>
           </p>
         </statement>
+        <solution>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  We have 
+            <md>
+              <mrow>f(x) \amp =(x-2)^2</mrow>
+              <mrow> \amp = x^2-4x+4</mrow>
+            </md>,
+            showing that <m>f</m> is quadratic.
+                </p>
+              </li>
+              <li>
+                <p>
+                  We have 
+                  <md>
+                    <mrow>g(x) \amp= x^3-x(x^3+3x-7)+2 </mrow>
+                    <mrow> \amp = x^3-x^3-3x^2+7x+2</mrow>
+                    <mrow> \amp =-3x^2+7x+2</mrow>
+                  </md>.
+                </p>
+              </li>
+            </ol>
+            
+          </p>
+        </solution>
       </exercise>
-    </introduction>
-    <subsubsection>
+    
+    <remark>
       <title>Parameters</title>
       <p>
         It is important to note that when we write an expression like
         <m>f(x) = mx+b</m> or <m>f(x) = ax^2+bx+c</m>,
-        only <m>x</m> and <m>y</m> are variables.
+        only <m>x</m> is being treated as a variable.
         The extra letters <m>a, b, c</m>,
         and <m>m</m> that are not variables are called
         <em>parameters</em> of the function.
@@ -212,81 +278,73 @@
         <url href="https://mathinsight.org/function_machine_parameters">https://mathinsight.org/function_machine_parameters</url>
         </fn>
       </p>
+      </remark>
       <figure xml:id="fig_func-machine">
-        <caption>Think of a function as a machine that turns inputs into outputs.</caption>
-        \begin{subfigure}[H]{0.45\textwidth}
-        <image width="90%" source="mathinsight-functionmachine.png"/>
-        \end{subfigure}
-        \begin{subfigure}[H]{0.45\textwidth}
-        <image width="90%" source="mathinsight-functionmachine-withdials.png"/>
-        \caption{Parameters are "dials" that adjust how the function machine works.} \end{subfigure}
-        \caption
+        <caption>Machine analogy for functions and parameters</caption>
+        <sidebyside>
+          <figure xml:id="fig_func_machine">
+            <caption>Function visualized as machine turning inputs into outputs</caption>
+            <image source="mathinsight-functionmachine.png"/>
+          </figure>
+          <figure xml:id="fig_func_machine_dials">
+            <caption>Parameters visualized as adjustment dials on function machine</caption>
+            <image source="mathinsight-functionmachine-withdials.png"/>
+          </figure>
+        </sidebyside>
       </figure>
-      <example>
-        <title>Parameters of Linear Functions</title>
-        <statement>
-          <p>
-            Consider the linear function:
+        <p>
+            Consider the general form of a linear function: 
             <me>
-              y = mx + b
-            </me>
-          </p>
-          <p>
-            Here <m>x</m> is the independent variable and <m>y</m> is the dependent variable.
-            The letters <m>m</m> and <m>b</m> are parameters of the linear equation.
+              f(x) = mx + b
+            </me>.
+            Here <m>x</m> is the independent variable that is allowed range over all elements of the domain of <m>f</m>, whereas the constants <m>m</m> and <m>b</m> are parameters. 
             <ul>
               <li>
                 <p>
-                  If we choose a specific value of <m>m</m> and <m>b</m> ("set the dials"), we get a specific line.
+                  If we choose a specific value of <m>m</m> and <m>b</m> (<q>set the dials</q>), we get a specific function. 
                   For example,
-                  if <m>m = 3</m> and <m>b = -7</m> we get the linear function <m>y = 3x - 7</m>.
+                  if <m>m = 3</m> and <m>b = -7</m> we get the linear function <m>f(x)= 3x - 7</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  When we change the dials, we get a different line.
+                  As we change the parameters <m>m</m> and <m>b</m> (<q>adjusting the dials</q>), we get different linear functions with different properties. 
                 </p>
               </li>
             </ul>
+        Thus, when we give a general form of a linear function <m>f(x)=mx+b</m> in terms of unspecified parameters <m>m</m> and <m>b</m>, we are really presenting an entire <em>family of functions</em>: we get one linear function for each choice of the parameter values <m>m</m> and <m>b</m>. 
           </p>
-        </statement>
-      </example>
-      <p>
-        When we have a <em>function with parameters</em>,
-        we can think of this function representing a whole family of functions,
-        one for each combination of parameter values.
-      </p>
-      <exercise>
+        <example xml:id="eg_desmos_linear">
+        <title>Desmos: family of linear functions</title>
         <statement>
-          <p>
-            To get a hands-on feel for this, go to the Desmos site
-          </p>
-          <url href="https://www.desmos.com/calculator/uo5qirntxg">https://www.desmos.com/calculator/uo5qirntxg</url>.
-          <p>
-            You'll see the equation <m>y = mx+b</m> in the top left and below that,
-            sliders for <m>m</m> and <m>b</m>
-            (these are our <em>parameters</em>).
-            The graph is currently set for <m>m = 3</m> and <m>b = -7</m>.
-            <ol marker="labelalph">
-              <li>
-                <p>
-                  Play around with the values of <m>m</m> and <m>b</m>.
-                  What happens to the graph?
-                  What does each parameter represent in this example?
-                </p>
-              </li>
-              <li>
-                <p>
-                  Can you find values of <m>m, b</m> that represents a horizontal line?
+        <p>
+        The Desmos interactive in <xref ref="fig_linear_fam"/> illustrates what effect the parameters <m>m</m> and <m>b</m> defining a linear function have on the graph of this function. 
+        <ol>
+          <li>
+            <p>
+               Play around with the values of <m>m</m> and <m>b</m>. Identify what graphical property each parameter represents. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Can you find values of <m>m, b</m> that represents a horizontal line?
                   Can you find values of <m>m, b</m> that represents a vertical line?
                   If so, what are they?
                   If not, why not?
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
+            </p>
+          </li>
+        </ol>
+      </p>
+      <figure xml:id="fig_linear_fam">
+        <caption><url href="https://www.desmos.com/calculator/uo5qirntxg">Desmos interactive</url>: adjusting parameters of linear functions </caption>
+          <interactive desmos="uo5qirntxg" width="60%" aspect="2:3"/>
+      </figure>
+    </statement>
+        </example>
+        
+        
+        
+      
       <example>
         <title>Parameters of Quadratic Functions</title>
         <statement>
@@ -299,7 +357,7 @@
             Graphically, this describes a family of parabolas.
           </p>
           <p>
-            <xref ref="fig_quadfuncfamily" autoname="yes"/> shows a graph of some members of this family.
+            <xref ref="fig_quadfuncfamily"  /> shows a graph of some members of this family.
             This graph shows parabolas with <m>a = -2;
             b = 0, 1, \text{ or } 2</m>;
             and <m>c = 2.5</m> and parabolas with <m>a = -1;
@@ -325,7 +383,7 @@
           </p>
         </statement>
       </exercise>
-    </subsubsection>
+    
   </subsection>
   <subsection xml:id="subsec_propgraphs1">
     <title>Properties of Functions</title>
@@ -336,7 +394,7 @@
     </p>
     <remark>
       <p>
-        <xref ref="tab_funcprops1" autoname="yes"/> uses <m>x</m> as the independent variable and <m>y</m> as the dependent variable.
+        <xref ref="tab_funcprops1"  /> uses <m>x</m> as the independent variable and <m>y</m> as the dependent variable.
         The notation <m>x_1, x_2, y_1,\ldots</m> is used to indicate particular values of <m>x</m> and <m>y</m>.
         We are using these instead of other letters because we have been using other letters to indicate parameters.
         A subscript is called an "index"
@@ -505,7 +563,7 @@
         </p>
         <p>
           \fbox{ Use this example to check your understanding of each of the properties,
-          going back and forth between <xref ref="tab_funcprops1" autoname="yes"/> and <xref ref="fig_TaalmanPage40" autoname="yes"/> to identify each feature.}
+          going back and forth between <xref ref="tab_funcprops1"  /> and <xref ref="fig_TaalmanPage40"  /> to identify each feature.}
         </p>
       </statement>
     </example>
@@ -618,7 +676,7 @@
       </fn>
     </p>
     <p>
-      These three ways of describing lines give us three forms of equations for lines found in <xref ref="tab_linfuncforms" autoname="yes"/>:
+      These three ways of describing lines give us three forms of equations for lines found in <xref ref="tab_linfuncforms"  />:
       <em>slope-intercept form</em>,
       <em>point-slope form</em>, and <em>two-point form</em>.
       Note that here we are again using indices to represent different values of the variables <m>x</m> and <m>y</m>.
@@ -912,7 +970,7 @@
     <example>
       <statement>
         <p>
-          Returning to <m>3x^2-6x = 3x(x-2)</m> from Example <xref ref="ex_factoring1" autoname="yes"/>,
+          Returning to <m>3x^2-6x = 3x(x-2)</m> from Example <xref ref="ex_factoring1"  />,
           the real expression <m>3x(x-2)</m> is a product of the real expressions <m>3x</m> and <m>x-2</m>.
           <m>3x=0</m> when <m>x=0</m> whereas <m>x-2=0</m> when <m>x=2</m>,
           and so the product <m>3x(x-2)=0</m> when <em>either</em>
