@@ -565,86 +565,113 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Linear and Quadratic Functions",
-  "body": " Linear and Quadratic Functions    Functions Linear Functions  Functions Quadratic Functions     Learning Goals    Understand the definition of linear and quadratic functions.    Explore how the parameters of a linear or quadratic function change the shape of its graph and its properties.    Use the different forms for equations for lines.    Solve quadratic equations via factoring or the quadratic formula.      Definitions of linear and quadratic functions   Linear and quadratic functions are important for modeling relationships between many different quantities. For example, in statistics, the method of Linear Regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other. Quadratic functions are used to model the height of an object falling under the force of gravity. We will explore several models that use linear and quadratic functions in after we develop our mathematical understanding of them.  We begin with the mathematical definitions of linear and quadratic functions. Recall that a mathematical definition is \"used to give a precise meaning to a new term, by describing a condition which unambiguously qualifies what a mathematical term is and is not.\"  https:\/\/en.wikipedia.org\/wiki\/Definition accessed August 4, 2022. Thus the definitions below give us the precise meaning of a linear or quadratic function. Remember that we generally need a few examples to make sense of definitions, and these follow below each of the definitions.   Linear Functions   A linear function is a function that can be written in the form for some real numbers and . Alternately, a linear function can be written as a linear equation  , where is a dependent variable of the independent variable .     Examples of linear functions   Below are three examples of linear functions.   The equation defines as a linear function of , taking and in Definition     The equation also defines as a linear function of if we rewrite it as so that we see that we must take and . This function, is a special function, called the identity function , where the output and input are the same.    The equation is also a linear equation, so defines as a linear function (the independent variable isn't specified, though we can infer it to be ). To see this, rewrite it as so that we can see that we must take and . is an example of a constant function , which is a function of the form . For any input, the output is always , meaning the output is a constant number.       An important detail of the above definition is that a linear function can be rewritten in the form ; it may not look like that originally.    Rewrite in the form and identify and . These are two more examples of linear functions.     Quadratic Function   A quadratic function is one that may be written in the form , where , and are real numbers with . Alternately, a quadratic function can be written as a quadratic equation  , where is a dependent variable of the independent variable .    Similar to linear functions, quadratic functions can be written in the form but do not need to begin that way.    Rewrite each of the expressions below in the form and identify , and . These are examples of quadratic functions.                       Parameters  It is important to note that when we write an expression like or , only and are variables. The extra letters , and that are not variables are called parameters of the function. How should you think about these parameters and what they represent?  While the word parameter may be new to you, the concept is probably not so unfamiliar. We can think of a parameter as a \"dial\" on the function machine. Setting the dials to different values creates different functions. Analogy and Image from https:\/\/mathinsight.org\/function_machine_parameters     Think of a function as a machine that turns inputs into outputs. \\begin{subfigure}[H]{0.45\\textwidth} \\end{subfigure} \\begin{subfigure}[H]{0.45\\textwidth} \\caption{Parameters are \"dials\" that adjust how the function machine works.} \\end{subfigure} \\caption   Parameters of Linear Functions   Consider the linear function:   Here is the independent variable and is the dependent variable. The letters and are parameters of the linear equation.   If we choose a specific value of and (\"set the dials\"), we get a specific line. For example, if and we get the linear function .    When we change the dials, we get a different line.       When we have a function with parameters , we can think of this function representing a whole family of functions, one for each combination of parameter values.    To get a hands-on feel for this, go to the Desmos site  https:\/\/www.desmos.com\/calculator\/uo5qirntxg . You'll see the equation in the top left and below that, sliders for and (these are our parameters ). The graph is currently set for and .   Play around with the values of and . What happens to the graph? What does each parameter represent in this example?    Can you find values of that represents a horizontal line? Can you find values of that represents a vertical line? If so, what are they? If not, why not?        Parameters of Quadratic Functions   Consider the quadratic equation , where . Graphically, this describes a family of parabolas.   shows a graph of some members of this family. This graph shows parabolas with ; and and parabolas with ; and    for different values of the parameters , and .        Take a moment to use https:\/\/www.desmos.com\/calculator\/yayrd6etuz to explore how changing the values of the parameters , and impact the graph of . What do the members of the family of parametric functions have in common? How do they differ? Which parameter seems to have the simplest effect? Which parameter seems to have the most complicated effect?       Properties of Functions  The table that follows gives us vocabulary and precise mathematical definitions for various types of graphical behavior. Rows 1, 2, 5, 6, and 8 describe behaviors that a function could exhibit at a specific point. Rows 3, 4, and 7 describe graphical behaviors that occur over an interval of real numbers.    uses as the independent variable and as the dependent variable. The notation is used to indicate particular values of and . We are using these instead of other letters because we have been using other letters to indicate parameters. A subscript is called an \"index\" (plural \"indices\"). The benefit to using these is that it is easier to keep track of whether they represent a value of the independent variable (for example, or ) or the dependent variable (for example, or ).    Properties of functions in terms of the behavior of their graphs    \\toprule  Vocabulary  Definition  Behavior    \\midrule 1.  has a -intercept or zero at   graph intersects the -axis at          2.  has a -intercept at   graph intersects the -axis at          3.  is positive on  for all  graph is above the -axis on          4.  is increasing on  for all in  graph moves up as we look from left to right on    \\midrule 5.  has a local maximum at  for all near  graph has a relative \"hilltop\" at          6.  has a global maximum at  for all  graph is the highest at          7.  is concave up on  values of grow at a faster and faster rate as increases on  graph curves upwards on like part of a \"U\"          8.  has an inflection point at  and the concavity of changes at  graph of changes from curving upward to curving downward, or vice versa, at    \\bottomrule     There are similar definitions for negative, decreasing, and concave down behavior, as well as local and global minima.  Notice that we describe extrema (maxima and minima) by where on the -axis they occur, since we can always find the corresponding -values from these -values. The concept of \"near\" in the description of a local maximum will be made more precise in Chapters 2 and 3. Inflection points and concavity cannot be precisely defined until we learn about derivatives in Chapter 3. In that chapter we will also learn ways for algebraically calculating the locations of extrema and inflection points. For now we present them just to set terminology and to familiarize ourselves with various types of function behavior; we will have to be content with examining such things graphically.    The -intercepts of are where , so at the values of with . Solving for :   So we see that has an -intercept at .  View a graph of via https:\/\/www.desmos.com\/calculator\/uo5qirntxg and set the sliders to . From this we see that is positive (above the -axis) for and negative (below the -axis) for . The graph also tells us that is decreasing for , meaning for all values of .  The graph of has no local or global maxima or minima. This is true of all linear functions: none of them have any local or global extrema. Similarly, since the graphs of linear functions are lines, they are neither concave up nor concave down and do not have any inflection points.      The list that follows at the right describes each of the properties in the table above of the graph shown on the left.  \\fbox{ Use this example to check your understanding of each of the properties, going back and forth between and to identify each feature.}     Conjecture   A mathematical conjecture is \"is a conclusion or a proposition that is proffered on a tentative basis without proof.\"  https:\/\/en.wikipedia.org\/wiki\/Conjecture accessed August 5, 2022   Use the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  and set the parameters to , and to graph the function .   Determine whether has any -intercepts. Conjecture: Do all quadratic functions have -intercepts?    Determine the intervals on which is increasing\/decreasing. Conjecture: Do all quadratic functions have both intervals on which they are increasing, as well as intervals on which they are decreasing?    Determine the locations of any local and global extrema (minima or maxima) of . Conjecture: Do all quadratic functions have local\/global extrema?    Determine the intervals on which is concave up\/down. Are there any inflection points (where the concavity changes)? Conjecture: Play with the parameters , and and determine which parameter controls the concavity of a quadratic function.        Finding a \"good\" graphing window   Since we are using graphs to determine the properties of functions (for now), we should be especially careful that we can create a \"good\" graph of a function, meaning a graph that captures all of the key features and properties of the graph.  Here, we demonstrate finding a \"good\" graphing window for the graph of the function .  The three graphs that follow show in various graphing windows. Each of these windows is \"bad\" in the sense that the true behavior of the graph of is not represented.   Three \"bad\" graphing windows for . The properties of the graph are not accurately represented.    A \"good\" window (if one exists) is a window in which the local behavior of the graph of is clear and the global behavior is accurately represented (the \"ends\" of the graph keep going in the direction indicated). The following figure shows the graph of in a \"good\" window:   A \"good\" graphing windows for . The properties of the graph are accurately represented.    For now we will use trial and error to find an effective graphing window. Later, we will learn algebraic methods for determining all of these properties.      Different Equations of Lines  A line in the plane is completely described by its slope and -intercept . You could tell someone the values of and in a text message and they would know exactly which line you were referring to, without needing to attach a picture. We can also describe a line in the plane with its slope and the coordinates of any point on the line, or with the coordinates of any two points on the line. This last is how Euclid's Elements begin to develop geometry. Book I Postulate 1 states that given any two points, there is a line that joins them. https:\/\/mathcs.clarku.edu\/ djoyce\/elements\/bookI\/post1.html accessed August 17, 2022.   These three ways of describing lines give us three forms of equations for lines found in : slope-intercept form , point-slope form , and two-point form . Note that here we are again using indices to represent different values of the variables and . , and represent values of the independent variable , while , and represent values of the dependent variable .   Three forms for the equation of a line    \\toprule Name of form  Information given  Equation of line    \\midrule slope-intercept form  slope , -intercept          point-slope form  slope and any point on the line          two-point form  any two points and on the line  or    \\bottomrule     There is an advantage to slope-intercept form in that we can tell from looking at any two functions in that form whether they represent the same line. However, the other forms are sometimes easier to use based on our given information.  Let's explore the point-slope and two-point forms a bit more. The slope of a line can be interpreted as how much the line \"rises\" (increases or decreases) given a \"run\" of one unit increase in . Thus the slope can be calculated by the formula \\fbox{ } for any two points and on the line. From this we see that the two-point form of the equation of a line is the same as the point-slope form, as long as we calculate the slope from the two points ahead of time. Note that when we do that, we may use either point or to determine the equation, but we must stick with one or the other.   Finding equations of lines   Find equations for each of the linear functions described. Two lines are said to be parallel if they have the same slopes, and perpendicular if their slopes, and , are negative reciprocals of each other (meaning that or vice versa).   The line with slope that passes through the point , in slope-intercept form.    The line that passes through the points and , in slope-intercept form.    The line that passes through the point and is perpendicular to the line , in slope-intercept form.          Using the point-slope formula with slope and point , we get the equation . To put this equation into slope-intercept form, we just simplify: (The symbol used in the calculation above denotes that the equality to the left of the symbol logically implies the equality to the right of the symbol.)    The slope of the line through the points and is . Using this slope, the point , and the two-point formula, we get Using the point will give you the same equation in slope-intercept form after simplifying. Try it!    The line we are looking for is perpendicular to and thus has slope . Using the point-slope form with slope and point , we obtain . In slope-intercept form the equation is written .        Checking the Answer   To verify that the three linear functions we just found are reasonable, we can graph them with a graphing utility (such as Desmos). In particular, let's graph the lines (red) and (green) in part c to make sure they appear to be perpendicular:     Notice that the scales on the - and -axes are the same, so the lines correctly appear as perpendicular. Additionally, we can see that the point is on the line .      Find an equation for the line passing through that is parallel to the line . Write your answer first in point-slope form and then in slope-intercept form.      Finding -intercepts of Quadratic Functions  In this section, we develop algebraic methods for finding the -intercepts of quadratic functions. This is where the graph of the function crosses the -axis. As we can see in Figure , by shifting the graph of a quadratic function vertically, we can make its graph cross the -axis 0 times (as in the graph labeled ), exactly 1 time ( as in the graph labeled ), or twice (as in the graph labeled ). These points are the -intercepts, sometimes referred to as zeros of the graph, because these are the points where the quadratic function is equal to 0.   Three examples of quadratic functions that open up.    If we want to find the zeros of a quadratic equation, we must find the values of that make the quadratic function equal to zero, meaning we must solve solve the quadratic equation  for the variable . Some quadratic equations can be solved easily by factoring the quadratic expression . To factor an algebraic expression, you write that expression as a product of simpler expressions. There are a few different common methods for factoring that we will discuss here:    For example, the expression can be factored by recognizing that both terms share common factors of 3 and that can be un-distributed from the expression:   We can think of this factoring as \"reverse distributing.\"    Some quadratic expressions can be factored by doing the \"FOIL\" (\"First-Outside-Inside-Last\") method backwards:    For example, the expression can be factored as . Breaking this down, observe that the first terms in both and are and multiply to the . The outside terms and multiply to while the inside terms and multiply to , and that these can be added together to get . The last terms and multiply to .  Here is a good Purplemath article and here is a Khan Academy video on factoring this type of quadratic.      Factor as much as possible by working backwards (\"reverse FOILing\") to find constants and with . You may need to guess-and-check a few times to determine the answer.   Challenge: Factor as much as possible.    Differences of squares can be factored with the use of the following formula:   Formulas for Factoring Differences of Squares   For all real numbers and ,       The expression can be rewritten as , which is the difference of the square of and the square of . Thus the quadratic expression can be factored as .    There are more formulas for factoring differences of higher powers, but we won't introduce them here.  The reason that factoring can help solve an equation is that a basic property of the real numbers is that a product can be equal to zero only if one of the factors in the product is zero. In the following theorem we use the term real expressions, which will denote any expressions that when calculated are real numbers.   A Product Is Zero If and Only If One of the Factors Is Zero   For any real expressions and , if and only if or .      Returning to from Example , the real expression is a product of the real expressions and . when whereas when , and so the product when either  or .  Thus the quadratic function has zeros at and . Use the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  to verify that crosses the -axis at and .      We can solve the quadratic equation via factoring the difference of squares as before and setting each factor equal to 0:   Thus the function has -intercepts at .     If you try to solve by adding 4 to both sides and taking the square root of both sides, you may think that there is only one solution when . For this reason, factoring is a more reliable method for solving this type of equation! We will explore why exactly we get the positive and negative square root of 4 as the solutions to in Section 1.7.   The phrase \"if and only if\" in Theorem is shorthand for saying that the implication goes both ways. The forward direction of this implication says that if is zero, then either or (or both) is zero. the backwards direction says that if or is zero, then is also zero. This theorem can be generalized to products involving more than two factors; for example, a product if and only if one or more of the factors , , , and is zero.   Warning!  Theorem applies only to equations that are set to zero, that is, equations of the form . Theorem does not say, for example, that if and only if or .    To find the solutions of the equation , we CANNOT factor the left-hand side and then set each factor equal to a divisor of . For example, the following calculation is INCORRECT:   However, when , , and when , .  The correct method is to first subtract the 4 from both sides so that the right side is 0, and then factor the left-hand side:   You should check that when either or by plugging in those values and simplifying.    Unfortunately, some quadratic expressions, such as , are not so easy to factor. If we wish to find the -values that satisfy the quadratic equation without factoring, we can apply the quadratic formula to determine the solutions.   The Quadratic Formula   If , and are real numbers, the solutions of the quadratic equation are of the form      Deriving the quadratic formula involves a process called \"completing the square\" that we aren't going to get into, but here's a good video on deriving this formula, in case you are interested.     Applying the quadratic formula to the equation , we have , , and , so the solutions are and so the quadratic function has two roots at and at . Once again, you should verify this using this Desmos graph .    The expression is called the discriminant , and it determines the number of solutions of the quadratic equation .   If is positive, then there will be two solutions: one when the symbol is a plus and one when it is a minus.    If is zero, then there is only one solution, namely, .    If is negative, then its square root is not a real number and thus the equation has no real solutions. In this case the equation does have complex-number solutions, but in this book we will be concerned only with real numbers, so a quadratic equation with a negative discriminant will be said to have \"no solutions.\"       Find the zeros (if there are any) of the quadratic functions below, either by factoring or using the quadratic formula. Use a graph to check your answers.                            Summary  The following terms and formulas were introduced in this section: linear function, linear equation, identity function, constant function, quadratic function, quadratic equation, parameter, function with parameter; -intercept, zero of a function, -intercept, positive (and negative), increasing (and decreasing), local maximum (and minimum), global maximum (and minimum), concave up (and concave down), inflection point; extrema, conjecture; slope-intercept form, point-slope form, and two-point form of a line; parallel, perpendicular; real expressions, difference of squares, quadratic formula, discriminant  Key ideas: Linear and quadratic functions can be written in the forms and , respectively, for particular values of the parameters , and . There are alternate forms for the equations of a line that can be useful. There are many methods for factoring quadratic equations and finding the -intercepts of a quadratic function, including using the Quadratic Formula.   Other ideas introduced: Families of functions can have similar properties that change depending on the values of the parameters of the function. We wish to develop algebraic methods for determining the properties of functions so we do not have to rely on computer-generated graphs.  \\fbox{\\fbox{ End of Section 1.2}}  \\rule{1.1\\textwidth}{2pt}   "
+  "body": " Linear and Quadratic Functions    Functions Linear Functions  Functions Quadratic Functions     Learning Goals     Understand the definition of linear and quadratic functions.    Explore how the parameters of a linear or quadratic function change the shape of its graph and its properties.    Use the different forms for equations for lines.    Solve quadratic equations via factoring or the quadratic formula.       Definitions of linear and quadratic functions  Linear and quadratic functions are important for modeling relationships between many different quantities. For example, in statistics, the method of linear regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other. Quadratic functions are used to model the height of an object falling under the force of gravity. We will explore several models that use linear and quadratic functions in after we develop our mathematical understanding of them.  We begin with the mathematical definitions of linear and quadratic functions. Recall that a mathematical definition is \"used to give a precise meaning to a new term, by describing a condition which unambiguously qualifies what a mathematical term is and is not.\"  https:\/\/en.wikipedia.org\/wiki\/Definition accessed August 4, 2022. Thus the definitions below give us the precise meaning of a linear or quadratic function. Remember that we generally need a few examples to make sense of definitions, and these follow below each of the definitions.    Henceforth, unless specified otherwise, all functions in this course will be assumed to be of the form , where . In other words, by default, the inputs and outputs of functions in this course are assumed to be real numbers.     Linear functions   A function is linear (or affine ) if there are real constants and such that for all in its domain.     Linear functions   Verify that the given function is linear using .             h(s)=1.2    f(x)=\\frac{1}{2}(x+2)+2x+1          It follows immediately that is linear. Here and .    We have for all in the domain of . Thus is linear with and .    We have . Thus is linear with and .    We have for all . Thus is linear with and .        Standard form  As illustrated by , a function can be linear even if its given formula does not look precisely like the form in . Often we need to manipulate the given formula algebraically in order to bring it into the standard form prescribed by .    included to important types of linear functions that deserve their own definition: the identity function and constant functions .   Identity function and constant functions      A function is an identity function if for all in its domain.    A function is a constant function if there is a real constant such that for all in its domain.       We now move on to quadratic functions , which are only slightly more complicated than linear functions.   Quadratic function   A function is quadratic if there are real constants with such that for all in its domain.     Quadratic functions  Why do we insist that in ? This is to distinguish linear functions as a separate family from quadratic functions. If we allowed in our definition of quadratic functions then a linear function would also be quadratic, since for all in its domain.   As with linear functions, we sometimes need to do a little algebraic work to show that a given quadratic function has a formula of the standard form represented by .    Verify that the given function is quadratic using .                        We have , showing that is quadratic.    We have .        Parameters  It is important to note that when we write an expression like or , only is being treated as a variable. The extra letters , and that are not variables are called parameters of the function. How should you think about these parameters and what they represent?  While the word parameter may be new to you, the concept is probably not so unfamiliar. We can think of a parameter as a \"dial\" on the function machine. Setting the dials to different values creates different functions. Analogy and Image from https:\/\/mathinsight.org\/function_machine_parameters      Machine analogy for functions and parameters    Function visualized as machine turning inputs into outputs     Parameters visualized as adjustment dials on function machine      Consider the general form of a linear function: . Here is the independent variable that is allowed range over all elements of the domain of , whereas the constants and are parameters.   If we choose a specific value of and ( set the dials ), we get a specific function. For example, if and we get the linear function .    As we change the parameters and ( adjusting the dials ), we get different linear functions with different properties.   Thus, when we give a general form of a linear function in terms of unspecified parameters and , we are really presenting an entire family of functions : we get one linear function for each choice of the parameter values and .   Desmos: family of linear functions   The Desmos interactive in illustrates what effect the parameters and defining a linear function have on the graph of this function.   Play around with the values of and . Identify what graphical property each parameter represents.    Can you find values of that represents a horizontal line? Can you find values of that represents a vertical line? If so, what are they? If not, why not?      Desmos interactive : adjusting parameters of linear functions       Parameters of Quadratic Functions   Consider the quadratic equation , where . Graphically, this describes a family of parabolas.   shows a graph of some members of this family. This graph shows parabolas with ; and and parabolas with ; and    for different values of the parameters , and .        Take a moment to use https:\/\/www.desmos.com\/calculator\/yayrd6etuz to explore how changing the values of the parameters , and impact the graph of . What do the members of the family of parametric functions have in common? How do they differ? Which parameter seems to have the simplest effect? Which parameter seems to have the most complicated effect?      Properties of Functions  The table that follows gives us vocabulary and precise mathematical definitions for various types of graphical behavior. Rows 1, 2, 5, 6, and 8 describe behaviors that a function could exhibit at a specific point. Rows 3, 4, and 7 describe graphical behaviors that occur over an interval of real numbers.    uses as the independent variable and as the dependent variable. The notation is used to indicate particular values of and . We are using these instead of other letters because we have been using other letters to indicate parameters. A subscript is called an \"index\" (plural \"indices\"). The benefit to using these is that it is easier to keep track of whether they represent a value of the independent variable (for example, or ) or the dependent variable (for example, or ).    Properties of functions in terms of the behavior of their graphs    \\toprule  Vocabulary  Definition  Behavior    \\midrule 1.  has a -intercept or zero at   graph intersects the -axis at          2.  has a -intercept at   graph intersects the -axis at          3.  is positive on  for all  graph is above the -axis on          4.  is increasing on  for all in  graph moves up as we look from left to right on    \\midrule 5.  has a local maximum at  for all near  graph has a relative \"hilltop\" at          6.  has a global maximum at  for all  graph is the highest at          7.  is concave up on  values of grow at a faster and faster rate as increases on  graph curves upwards on like part of a \"U\"          8.  has an inflection point at  and the concavity of changes at  graph of changes from curving upward to curving downward, or vice versa, at    \\bottomrule     There are similar definitions for negative, decreasing, and concave down behavior, as well as local and global minima.  Notice that we describe extrema (maxima and minima) by where on the -axis they occur, since we can always find the corresponding -values from these -values. The concept of \"near\" in the description of a local maximum will be made more precise in Chapters 2 and 3. Inflection points and concavity cannot be precisely defined until we learn about derivatives in Chapter 3. In that chapter we will also learn ways for algebraically calculating the locations of extrema and inflection points. For now we present them just to set terminology and to familiarize ourselves with various types of function behavior; we will have to be content with examining such things graphically.    The -intercepts of are where , so at the values of with . Solving for :   So we see that has an -intercept at .  View a graph of via https:\/\/www.desmos.com\/calculator\/uo5qirntxg and set the sliders to . From this we see that is positive (above the -axis) for and negative (below the -axis) for . The graph also tells us that is decreasing for , meaning for all values of .  The graph of has no local or global maxima or minima. This is true of all linear functions: none of them have any local or global extrema. Similarly, since the graphs of linear functions are lines, they are neither concave up nor concave down and do not have any inflection points.      The list that follows at the right describes each of the properties in the table above of the graph shown on the left.  \\fbox{ Use this example to check your understanding of each of the properties, going back and forth between and to identify each feature.}     Conjecture   A mathematical conjecture is \"is a conclusion or a proposition that is proffered on a tentative basis without proof.\"  https:\/\/en.wikipedia.org\/wiki\/Conjecture accessed August 5, 2022   Use the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  and set the parameters to , and to graph the function .   Determine whether has any -intercepts. Conjecture: Do all quadratic functions have -intercepts?    Determine the intervals on which is increasing\/decreasing. Conjecture: Do all quadratic functions have both intervals on which they are increasing, as well as intervals on which they are decreasing?    Determine the locations of any local and global extrema (minima or maxima) of . Conjecture: Do all quadratic functions have local\/global extrema?    Determine the intervals on which is concave up\/down. Are there any inflection points (where the concavity changes)? Conjecture: Play with the parameters , and and determine which parameter controls the concavity of a quadratic function.        Finding a \"good\" graphing window   Since we are using graphs to determine the properties of functions (for now), we should be especially careful that we can create a \"good\" graph of a function, meaning a graph that captures all of the key features and properties of the graph.  Here, we demonstrate finding a \"good\" graphing window for the graph of the function .  The three graphs that follow show in various graphing windows. Each of these windows is \"bad\" in the sense that the true behavior of the graph of is not represented.   Three \"bad\" graphing windows for . The properties of the graph are not accurately represented.    A \"good\" window (if one exists) is a window in which the local behavior of the graph of is clear and the global behavior is accurately represented (the \"ends\" of the graph keep going in the direction indicated). The following figure shows the graph of in a \"good\" window:   A \"good\" graphing windows for . The properties of the graph are accurately represented.    For now we will use trial and error to find an effective graphing window. Later, we will learn algebraic methods for determining all of these properties.      Different Equations of Lines  A line in the plane is completely described by its slope and -intercept . You could tell someone the values of and in a text message and they would know exactly which line you were referring to, without needing to attach a picture. We can also describe a line in the plane with its slope and the coordinates of any point on the line, or with the coordinates of any two points on the line. This last is how Euclid's Elements begin to develop geometry. Book I Postulate 1 states that given any two points, there is a line that joins them. https:\/\/mathcs.clarku.edu\/ djoyce\/elements\/bookI\/post1.html accessed August 17, 2022.   These three ways of describing lines give us three forms of equations for lines found in : slope-intercept form , point-slope form , and two-point form . Note that here we are again using indices to represent different values of the variables and . , and represent values of the independent variable , while , and represent values of the dependent variable .   Three forms for the equation of a line    \\toprule Name of form  Information given  Equation of line    \\midrule slope-intercept form  slope , -intercept          point-slope form  slope and any point on the line          two-point form  any two points and on the line  or    \\bottomrule     There is an advantage to slope-intercept form in that we can tell from looking at any two functions in that form whether they represent the same line. However, the other forms are sometimes easier to use based on our given information.  Let's explore the point-slope and two-point forms a bit more. The slope of a line can be interpreted as how much the line \"rises\" (increases or decreases) given a \"run\" of one unit increase in . Thus the slope can be calculated by the formula \\fbox{ } for any two points and on the line. From this we see that the two-point form of the equation of a line is the same as the point-slope form, as long as we calculate the slope from the two points ahead of time. Note that when we do that, we may use either point or to determine the equation, but we must stick with one or the other.   Finding equations of lines   Find equations for each of the linear functions described. Two lines are said to be parallel if they have the same slopes, and perpendicular if their slopes, and , are negative reciprocals of each other (meaning that or vice versa).   The line with slope that passes through the point , in slope-intercept form.    The line that passes through the points and , in slope-intercept form.    The line that passes through the point and is perpendicular to the line , in slope-intercept form.          Using the point-slope formula with slope and point , we get the equation . To put this equation into slope-intercept form, we just simplify: (The symbol used in the calculation above denotes that the equality to the left of the symbol logically implies the equality to the right of the symbol.)    The slope of the line through the points and is . Using this slope, the point , and the two-point formula, we get Using the point will give you the same equation in slope-intercept form after simplifying. Try it!    The line we are looking for is perpendicular to and thus has slope . Using the point-slope form with slope and point , we obtain . In slope-intercept form the equation is written .        Checking the Answer   To verify that the three linear functions we just found are reasonable, we can graph them with a graphing utility (such as Desmos). In particular, let's graph the lines (red) and (green) in part c to make sure they appear to be perpendicular:     Notice that the scales on the - and -axes are the same, so the lines correctly appear as perpendicular. Additionally, we can see that the point is on the line .      Find an equation for the line passing through that is parallel to the line . Write your answer first in point-slope form and then in slope-intercept form.      Finding -intercepts of Quadratic Functions  In this section, we develop algebraic methods for finding the -intercepts of quadratic functions. This is where the graph of the function crosses the -axis. As we can see in Figure , by shifting the graph of a quadratic function vertically, we can make its graph cross the -axis 0 times (as in the graph labeled ), exactly 1 time ( as in the graph labeled ), or twice (as in the graph labeled ). These points are the -intercepts, sometimes referred to as zeros of the graph, because these are the points where the quadratic function is equal to 0.   Three examples of quadratic functions that open up.    If we want to find the zeros of a quadratic equation, we must find the values of that make the quadratic function equal to zero, meaning we must solve solve the quadratic equation  for the variable . Some quadratic equations can be solved easily by factoring the quadratic expression . To factor an algebraic expression, you write that expression as a product of simpler expressions. There are a few different common methods for factoring that we will discuss here:    For example, the expression can be factored by recognizing that both terms share common factors of 3 and that can be un-distributed from the expression:   We can think of this factoring as \"reverse distributing.\"    Some quadratic expressions can be factored by doing the \"FOIL\" (\"First-Outside-Inside-Last\") method backwards:    For example, the expression can be factored as . Breaking this down, observe that the first terms in both and are and multiply to the . The outside terms and multiply to while the inside terms and multiply to , and that these can be added together to get . The last terms and multiply to .  Here is a good Purplemath article and here is a Khan Academy video on factoring this type of quadratic.      Factor as much as possible by working backwards (\"reverse FOILing\") to find constants and with . You may need to guess-and-check a few times to determine the answer.   Challenge: Factor as much as possible.    Differences of squares can be factored with the use of the following formula:   Formulas for Factoring Differences of Squares   For all real numbers and ,       The expression can be rewritten as , which is the difference of the square of and the square of . Thus the quadratic expression can be factored as .    There are more formulas for factoring differences of higher powers, but we won't introduce them here.  The reason that factoring can help solve an equation is that a basic property of the real numbers is that a product can be equal to zero only if one of the factors in the product is zero. In the following theorem we use the term real expressions, which will denote any expressions that when calculated are real numbers.   A Product Is Zero If and Only If One of the Factors Is Zero   For any real expressions and , if and only if or .      Returning to from Example , the real expression is a product of the real expressions and . when whereas when , and so the product when either  or .  Thus the quadratic function has zeros at and . Use the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  to verify that crosses the -axis at and .      We can solve the quadratic equation via factoring the difference of squares as before and setting each factor equal to 0:   Thus the function has -intercepts at .     If you try to solve by adding 4 to both sides and taking the square root of both sides, you may think that there is only one solution when . For this reason, factoring is a more reliable method for solving this type of equation! We will explore why exactly we get the positive and negative square root of 4 as the solutions to in Section 1.7.   The phrase \"if and only if\" in Theorem is shorthand for saying that the implication goes both ways. The forward direction of this implication says that if is zero, then either or (or both) is zero. the backwards direction says that if or is zero, then is also zero. This theorem can be generalized to products involving more than two factors; for example, a product if and only if one or more of the factors , , , and is zero.   Warning!  Theorem applies only to equations that are set to zero, that is, equations of the form . Theorem does not say, for example, that if and only if or .    To find the solutions of the equation , we CANNOT factor the left-hand side and then set each factor equal to a divisor of . For example, the following calculation is INCORRECT:   However, when , , and when , .  The correct method is to first subtract the 4 from both sides so that the right side is 0, and then factor the left-hand side:   You should check that when either or by plugging in those values and simplifying.    Unfortunately, some quadratic expressions, such as , are not so easy to factor. If we wish to find the -values that satisfy the quadratic equation without factoring, we can apply the quadratic formula to determine the solutions.   The Quadratic Formula   If , and are real numbers, the solutions of the quadratic equation are of the form      Deriving the quadratic formula involves a process called \"completing the square\" that we aren't going to get into, but here's a good video on deriving this formula, in case you are interested.     Applying the quadratic formula to the equation , we have , , and , so the solutions are and so the quadratic function has two roots at and at . Once again, you should verify this using this Desmos graph .    The expression is called the discriminant , and it determines the number of solutions of the quadratic equation .   If is positive, then there will be two solutions: one when the symbol is a plus and one when it is a minus.    If is zero, then there is only one solution, namely, .    If is negative, then its square root is not a real number and thus the equation has no real solutions. In this case the equation does have complex-number solutions, but in this book we will be concerned only with real numbers, so a quadratic equation with a negative discriminant will be said to have \"no solutions.\"       Find the zeros (if there are any) of the quadratic functions below, either by factoring or using the quadratic formula. Use a graph to check your answers.                            Summary  The following terms and formulas were introduced in this section: linear function, linear equation, identity function, constant function, quadratic function, quadratic equation, parameter, function with parameter; -intercept, zero of a function, -intercept, positive (and negative), increasing (and decreasing), local maximum (and minimum), global maximum (and minimum), concave up (and concave down), inflection point; extrema, conjecture; slope-intercept form, point-slope form, and two-point form of a line; parallel, perpendicular; real expressions, difference of squares, quadratic formula, discriminant  Key ideas: Linear and quadratic functions can be written in the forms and , respectively, for particular values of the parameters , and . There are alternate forms for the equations of a line that can be useful. There are many methods for factoring quadratic equations and finding the -intercepts of a quadratic function, including using the Quadratic Formula.   Other ideas introduced: Families of functions can have similar properties that change depending on the values of the parameters of the function. We wish to develop algebraic methods for determining the properties of functions so we do not have to rely on computer-generated graphs.  \\fbox{\\fbox{ End of Section 1.2}}  \\rule{1.1\\textwidth}{2pt}   "
 },
 {
-  "id": "def_linearfunction",
+  "id": "fiat_real-valued_functions",
   "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#def_linearfunction",
-  "type": "Definition",
+  "url": "sec_linearandquadraticfunctions.html#fiat_real-valued_functions",
+  "type": "Fiat",
   "number": "1.2.1",
-  "title": "Linear Functions.",
-  "body": " Linear Functions   A linear function is a function that can be written in the form for some real numbers and . Alternately, a linear function can be written as a linear equation  , where is a dependent variable of the independent variable .   "
-},
-{
-  "id": "ex_linfuncs",
-  "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#ex_linfuncs",
-  "type": "Example",
-  "number": "1.2.2",
-  "title": "Examples of linear functions.",
-  "body": " Examples of linear functions   Below are three examples of linear functions.   The equation defines as a linear function of , taking and in Definition     The equation also defines as a linear function of if we rewrite it as so that we see that we must take and . This function, is a special function, called the identity function , where the output and input are the same.    The equation is also a linear equation, so defines as a linear function (the independent variable isn't specified, though we can infer it to be ). To see this, rewrite it as so that we can see that we must take and . is an example of a constant function , which is a function of the form . For any input, the output is always , meaning the output is a constant number.      "
-},
-{
-  "id": "sec_linearandquadraticfunctions-4-2-6",
-  "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-2-6",
-  "type": "Checkpoint",
-  "number": "[STRUCT].2",
   "title": "",
-  "body": "  Rewrite in the form and identify and . These are two more examples of linear functions.   "
+  "body": "  Henceforth, unless specified otherwise, all functions in this course will be assumed to be of the form , where . In other words, by default, the inputs and outputs of functions in this course are assumed to be real numbers.   "
 },
 {
-  "id": "sec_linearandquadraticfunctions-4-2-7",
+  "id": "d_linearfunction",
   "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-2-7",
+  "url": "sec_linearandquadraticfunctions.html#d_linearfunction",
   "type": "Definition",
-  "number": "1.2.3",
-  "title": "Quadratic Function.",
-  "body": " Quadratic Function   A quadratic function is one that may be written in the form , where , and are real numbers with . Alternately, a quadratic function can be written as a quadratic equation  , where is a dependent variable of the independent variable .   "
+  "number": "1.2.2",
+  "title": "Linear functions.",
+  "body": " Linear functions   A function is linear (or affine ) if there are real constants and such that for all in its domain.   "
 },
 {
-  "id": "sec_linearandquadraticfunctions-4-2-9",
+  "id": "eg_linfuncs",
   "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-2-9",
+  "url": "sec_linearandquadraticfunctions.html#eg_linfuncs",
+  "type": "Example",
+  "number": "1.2.3",
+  "title": "Linear functions.",
+  "body": " Linear functions   Verify that the given function is linear using .             h(s)=1.2    f(x)=\\frac{1}{2}(x+2)+2x+1          It follows immediately that is linear. Here and .    We have for all in the domain of . Thus is linear with and .    We have . Thus is linear with and .    We have for all . Thus is linear with and .      "
+},
+{
+  "id": "sec_linearandquadraticfunctions-4-7",
+  "level": "2",
+  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-7",
+  "type": "Remark",
+  "number": "1.2.4",
+  "title": "Standard form.",
+  "body": " Standard form  As illustrated by , a function can be linear even if its given formula does not look precisely like the form in . Often we need to manipulate the given formula algebraically in order to bring it into the standard form prescribed by .  "
+},
+{
+  "id": "d_ident_const",
+  "level": "2",
+  "url": "sec_linearandquadraticfunctions.html#d_ident_const",
+  "type": "Definition",
+  "number": "1.2.5",
+  "title": "Identity function and constant functions.",
+  "body": " Identity function and constant functions      A function is an identity function if for all in its domain.    A function is a constant function if there is a real constant such that for all in its domain.      "
+},
+{
+  "id": "d_quad_func",
+  "level": "2",
+  "url": "sec_linearandquadraticfunctions.html#d_quad_func",
+  "type": "Definition",
+  "number": "1.2.6",
+  "title": "Quadratic function.",
+  "body": " Quadratic function   A function is quadratic if there are real constants with such that for all in its domain.   "
+},
+{
+  "id": "sec_linearandquadraticfunctions-4-12",
+  "level": "2",
+  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-12",
+  "type": "Remark",
+  "number": "1.2.7",
+  "title": "Quadratic functions.",
+  "body": " Quadratic functions  Why do we insist that in ? This is to distinguish linear functions as a separate family from quadratic functions. If we allowed in our definition of quadratic functions then a linear function would also be quadratic, since for all in its domain.  "
+},
+{
+  "id": "sec_linearandquadraticfunctions-4-14",
+  "level": "2",
+  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-14",
   "type": "Checkpoint",
-  "number": "[STRUCT].3",
+  "number": "1.2.8",
   "title": "",
-  "body": "  Rewrite each of the expressions below in the form and identify , and . These are examples of quadratic functions.                    "
+  "body": "  Verify that the given function is quadratic using .                        We have , showing that is quadratic.    We have .      "
+},
+{
+  "id": "sec_linearandquadraticfunctions-4-15",
+  "level": "2",
+  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-15",
+  "type": "Remark",
+  "number": "1.2.9",
+  "title": "Parameters.",
+  "body": " Parameters  It is important to note that when we write an expression like or , only is being treated as a variable. The extra letters , and that are not variables are called parameters of the function. How should you think about these parameters and what they represent?  While the word parameter may be new to you, the concept is probably not so unfamiliar. We can think of a parameter as a \"dial\" on the function machine. Setting the dials to different values creates different functions. Analogy and Image from https:\/\/mathinsight.org\/function_machine_parameters    "
 },
 {
   "id": "fig_func-machine",
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#fig_func-machine",
   "type": "Figure",
-  "number": "1.2.4",
+  "number": "1.2.10",
   "title": "",
-  "body": " Think of a function as a machine that turns inputs into outputs. \\begin{subfigure}[H]{0.45\\textwidth} \\end{subfigure} \\begin{subfigure}[H]{0.45\\textwidth} \\caption{Parameters are \"dials\" that adjust how the function machine works.} \\end{subfigure} \\caption "
+  "body": " Machine analogy for functions and parameters    Function visualized as machine turning inputs into outputs     Parameters visualized as adjustment dials on function machine     "
 },
 {
-  "id": "sec_linearandquadraticfunctions-4-3-5",
+  "id": "eg_desmos_linear",
   "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3-5",
+  "url": "sec_linearandquadraticfunctions.html#eg_desmos_linear",
   "type": "Example",
-  "number": "1.2.5",
-  "title": "Parameters of Linear Functions.",
-  "body": " Parameters of Linear Functions   Consider the linear function:   Here is the independent variable and is the dependent variable. The letters and are parameters of the linear equation.   If we choose a specific value of and (\"set the dials\"), we get a specific line. For example, if and we get the linear function .    When we change the dials, we get a different line.      "
+  "number": "1.2.11",
+  "title": "Desmos: family of linear functions.",
+  "body": " Desmos: family of linear functions   The Desmos interactive in illustrates what effect the parameters and defining a linear function have on the graph of this function.   Play around with the values of and . Identify what graphical property each parameter represents.    Can you find values of that represents a horizontal line? Can you find values of that represents a vertical line? If so, what are they? If not, why not?      Desmos interactive : adjusting parameters of linear functions     "
 },
 {
-  "id": "sec_linearandquadraticfunctions-4-3-7",
+  "id": "sec_linearandquadraticfunctions-4-19",
   "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3-7",
-  "type": "Checkpoint",
-  "number": "1.2.6",
-  "title": "",
-  "body": "  To get a hands-on feel for this, go to the Desmos site  https:\/\/www.desmos.com\/calculator\/uo5qirntxg . You'll see the equation in the top left and below that, sliders for and (these are our parameters ). The graph is currently set for and .   Play around with the values of and . What happens to the graph? What does each parameter represent in this example?    Can you find values of that represents a horizontal line? Can you find values of that represents a vertical line? If so, what are they? If not, why not?      "
-},
-{
-  "id": "sec_linearandquadraticfunctions-4-3-8",
-  "level": "2",
-  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3-8",
+  "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-19",
   "type": "Example",
-  "number": "1.2.7",
+  "number": "1.2.13",
   "title": "Parameters of Quadratic Functions.",
   "body": " Parameters of Quadratic Functions   Consider the quadratic equation , where . Graphically, this describes a family of parabolas.   shows a graph of some members of this family. This graph shows parabolas with ; and and parabolas with ; and    for different values of the parameters , and .     "
 },
@@ -653,7 +680,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#ex_quadraticparameters",
   "type": "Checkpoint",
-  "number": "1.2.9",
+  "number": "1.2.15",
   "title": "",
   "body": "  Take a moment to use https:\/\/www.desmos.com\/calculator\/yayrd6etuz to explore how changing the values of the parameters , and impact the graph of . What do the members of the family of parametric functions have in common? How do they differ? Which parameter seems to have the simplest effect? Which parameter seems to have the most complicated effect?   "
 },
@@ -662,7 +689,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#subsec_propgraphs1-3",
   "type": "Remark",
-  "number": "1.2.10",
+  "number": "1.2.16",
   "title": "",
   "body": "  uses as the independent variable and as the dependent variable. The notation is used to indicate particular values of and . We are using these instead of other letters because we have been using other letters to indicate parameters. A subscript is called an \"index\" (plural \"indices\"). The benefit to using these is that it is easier to keep track of whether they represent a value of the independent variable (for example, or ) or the dependent variable (for example, or ).  "
 },
@@ -671,7 +698,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#tab_funcprops1",
   "type": "Table",
-  "number": "1.2.11",
+  "number": "1.2.17",
   "title": "Properties of functions in terms of the behavior of their graphs",
   "body": " Properties of functions in terms of the behavior of their graphs    \\toprule  Vocabulary  Definition  Behavior    \\midrule 1.  has a -intercept or zero at   graph intersects the -axis at          2.  has a -intercept at   graph intersects the -axis at          3.  is positive on  for all  graph is above the -axis on          4.  is increasing on  for all in  graph moves up as we look from left to right on    \\midrule 5.  has a local maximum at  for all near  graph has a relative \"hilltop\" at          6.  has a global maximum at  for all  graph is the highest at          7.  is concave up on  values of grow at a faster and faster rate as increases on  graph curves upwards on like part of a \"U\"          8.  has an inflection point at  and the concavity of changes at  graph of changes from curving upward to curving downward, or vice versa, at    \\bottomrule    "
 },
@@ -680,7 +707,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#subsec_propgraphs1-7",
   "type": "Example",
-  "number": "1.2.12",
+  "number": "1.2.18",
   "title": "",
   "body": "  The -intercepts of are where , so at the values of with . Solving for :   So we see that has an -intercept at .  View a graph of via https:\/\/www.desmos.com\/calculator\/uo5qirntxg and set the sliders to . From this we see that is positive (above the -axis) for and negative (below the -axis) for . The graph also tells us that is decreasing for , meaning for all values of .  The graph of has no local or global maxima or minima. This is true of all linear functions: none of them have any local or global extrema. Similarly, since the graphs of linear functions are lines, they are neither concave up nor concave down and do not have any inflection points.   "
 },
@@ -689,7 +716,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#subsec_propgraphs1-8",
   "type": "Example",
-  "number": "1.2.13",
+  "number": "1.2.19",
   "title": "",
   "body": "  The list that follows at the right describes each of the properties in the table above of the graph shown on the left.  \\fbox{ Use this example to check your understanding of each of the properties, going back and forth between and to identify each feature.}   "
 },
@@ -698,7 +725,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#subsec_propgraphs1-9",
   "type": "Checkpoint",
-  "number": "1.2.14",
+  "number": "1.2.20",
   "title": "Conjecture.",
   "body": " Conjecture   A mathematical conjecture is \"is a conclusion or a proposition that is proffered on a tentative basis without proof.\"  https:\/\/en.wikipedia.org\/wiki\/Conjecture accessed August 5, 2022   Use the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  and set the parameters to , and to graph the function .   Determine whether has any -intercepts. Conjecture: Do all quadratic functions have -intercepts?    Determine the intervals on which is increasing\/decreasing. Conjecture: Do all quadratic functions have both intervals on which they are increasing, as well as intervals on which they are decreasing?    Determine the locations of any local and global extrema (minima or maxima) of . Conjecture: Do all quadratic functions have local\/global extrema?    Determine the intervals on which is concave up\/down. Are there any inflection points (where the concavity changes)? Conjecture: Play with the parameters , and and determine which parameter controls the concavity of a quadratic function.      "
 },
@@ -707,7 +734,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#subsec_propgraphs1-10",
   "type": "Example",
-  "number": "1.2.15",
+  "number": "1.2.21",
   "title": "Finding a \"good\" graphing window.",
   "body": " Finding a \"good\" graphing window   Since we are using graphs to determine the properties of functions (for now), we should be especially careful that we can create a \"good\" graph of a function, meaning a graph that captures all of the key features and properties of the graph.  Here, we demonstrate finding a \"good\" graphing window for the graph of the function .  The three graphs that follow show in various graphing windows. Each of these windows is \"bad\" in the sense that the true behavior of the graph of is not represented.   Three \"bad\" graphing windows for . The properties of the graph are not accurately represented.    A \"good\" window (if one exists) is a window in which the local behavior of the graph of is clear and the global behavior is accurately represented (the \"ends\" of the graph keep going in the direction indicated). The following figure shows the graph of in a \"good\" window:   A \"good\" graphing windows for . The properties of the graph are accurately represented.    For now we will use trial and error to find an effective graphing window. Later, we will learn algebraic methods for determining all of these properties.   "
 },
@@ -716,7 +743,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#tab_linfuncforms",
   "type": "Table",
-  "number": "1.2.18",
+  "number": "1.2.24",
   "title": "Three forms for the equation of a line",
   "body": " Three forms for the equation of a line    \\toprule Name of form  Information given  Equation of line    \\midrule slope-intercept form  slope , -intercept          point-slope form  slope and any point on the line          two-point form  any two points and on the line  or    \\bottomrule    "
 },
@@ -725,7 +752,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6-7",
   "type": "Example",
-  "number": "1.2.19",
+  "number": "1.2.25",
   "title": "Finding equations of lines.",
   "body": " Finding equations of lines   Find equations for each of the linear functions described. Two lines are said to be parallel if they have the same slopes, and perpendicular if their slopes, and , are negative reciprocals of each other (meaning that or vice versa).   The line with slope that passes through the point , in slope-intercept form.    The line that passes through the points and , in slope-intercept form.    The line that passes through the point and is perpendicular to the line , in slope-intercept form.          Using the point-slope formula with slope and point , we get the equation . To put this equation into slope-intercept form, we just simplify: (The symbol used in the calculation above denotes that the equality to the left of the symbol logically implies the equality to the right of the symbol.)    The slope of the line through the points and is . Using this slope, the point , and the two-point formula, we get Using the point will give you the same equation in slope-intercept form after simplifying. Try it!    The line we are looking for is perpendicular to and thus has slope . Using the point-slope form with slope and point , we obtain . In slope-intercept form the equation is written .      "
 },
@@ -734,7 +761,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6-8",
   "type": "Example",
-  "number": "1.2.20",
+  "number": "1.2.26",
   "title": "Checking the Answer.",
   "body": " Checking the Answer   To verify that the three linear functions we just found are reasonable, we can graph them with a graphing utility (such as Desmos). In particular, let's graph the lines (red) and (green) in part c to make sure they appear to be perpendicular:     Notice that the scales on the - and -axes are the same, so the lines correctly appear as perpendicular. Additionally, we can see that the point is on the line .   "
 },
@@ -743,7 +770,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6-9",
   "type": "Checkpoint",
-  "number": "1.2.21",
+  "number": "1.2.27",
   "title": "",
   "body": "  Find an equation for the line passing through that is parallel to the line . Write your answer first in point-slope form and then in slope-intercept form.   "
 },
@@ -752,7 +779,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#fig_quadratics",
   "type": "Figure",
-  "number": "1.2.22",
+  "number": "1.2.28",
   "title": "",
   "body": " Three examples of quadratic functions that open up.   "
 },
@@ -761,7 +788,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#ex_factoring1",
   "type": "Example",
-  "number": "1.2.23",
+  "number": "1.2.29",
   "title": "",
   "body": "  For example, the expression can be factored by recognizing that both terms share common factors of 3 and that can be un-distributed from the expression:   We can think of this factoring as \"reverse distributing.\"   "
 },
@@ -770,7 +797,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-7",
   "type": "Example",
-  "number": "1.2.24",
+  "number": "1.2.30",
   "title": "",
   "body": "  For example, the expression can be factored as . Breaking this down, observe that the first terms in both and are and multiply to the . The outside terms and multiply to while the inside terms and multiply to , and that these can be added together to get . The last terms and multiply to .  Here is a good Purplemath article and here is a Khan Academy video on factoring this type of quadratic.   "
 },
@@ -779,7 +806,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-8",
   "type": "Checkpoint",
-  "number": "1.2.25",
+  "number": "1.2.31",
   "title": "",
   "body": "  Factor as much as possible by working backwards (\"reverse FOILing\") to find constants and with . You may need to guess-and-check a few times to determine the answer.   Challenge: Factor as much as possible.   "
 },
@@ -788,7 +815,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-10",
   "type": "Theorem",
-  "number": "1.2.26",
+  "number": "1.2.32",
   "title": "Formulas for Factoring Differences of Squares.",
   "body": " Formulas for Factoring Differences of Squares   For all real numbers and ,    "
 },
@@ -797,7 +824,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-11",
   "type": "Example",
-  "number": "1.2.27",
+  "number": "1.2.33",
   "title": "",
   "body": "  The expression can be rewritten as , which is the difference of the square of and the square of . Thus the quadratic expression can be factored as .   "
 },
@@ -806,7 +833,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#thm_prodiszero",
   "type": "Theorem",
-  "number": "1.2.28",
+  "number": "1.2.34",
   "title": "A Product Is Zero If and Only If One of the Factors Is Zero.",
   "body": " A Product Is Zero If and Only If One of the Factors Is Zero   For any real expressions and , if and only if or .   "
 },
@@ -815,7 +842,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-15",
   "type": "Example",
-  "number": "1.2.29",
+  "number": "1.2.35",
   "title": "",
   "body": "  Returning to from Example , the real expression is a product of the real expressions and . when whereas when , and so the product when either  or .  Thus the quadratic function has zeros at and . Use the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  to verify that crosses the -axis at and .   "
 },
@@ -824,7 +851,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-16",
   "type": "Example",
-  "number": "1.2.30",
+  "number": "1.2.36",
   "title": "",
   "body": "  We can solve the quadratic equation via factoring the difference of squares as before and setting each factor equal to 0:   Thus the function has -intercepts at .   "
 },
@@ -833,7 +860,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-17",
   "type": "Remark",
-  "number": "1.2.31",
+  "number": "1.2.37",
   "title": "",
   "body": " If you try to solve by adding 4 to both sides and taking the square root of both sides, you may think that there is only one solution when . For this reason, factoring is a more reliable method for solving this type of equation! We will explore why exactly we get the positive and negative square root of 4 as the solutions to in Section 1.7.  "
 },
@@ -842,7 +869,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-20",
   "type": "Example",
-  "number": "1.2.32",
+  "number": "1.2.38",
   "title": "",
   "body": "  To find the solutions of the equation , we CANNOT factor the left-hand side and then set each factor equal to a divisor of . For example, the following calculation is INCORRECT:   However, when , , and when , .  The correct method is to first subtract the 4 from both sides so that the right side is 0, and then factor the left-hand side:   You should check that when either or by plugging in those values and simplifying.   "
 },
@@ -851,7 +878,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-22",
   "type": "Theorem",
-  "number": "1.2.33",
+  "number": "1.2.39",
   "title": "The Quadratic Formula.",
   "body": " The Quadratic Formula   If , and are real numbers, the solutions of the quadratic equation are of the form    "
 },
@@ -869,7 +896,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-24",
   "type": "Example",
-  "number": "1.2.34",
+  "number": "1.2.40",
   "title": "",
   "body": "  Applying the quadratic formula to the equation , we have , , and , so the solutions are and so the quadratic function has two roots at and at . Once again, you should verify this using this Desmos graph .   "
 },
@@ -878,7 +905,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7-26",
   "type": "Checkpoint",
-  "number": "1.2.35",
+  "number": "1.2.41",
   "title": "",
   "body": "  Find the zeros (if there are any) of the quadratic functions below, either by factoring or using the quadratic formula. Use a graph to check your answers.                         "
 },
