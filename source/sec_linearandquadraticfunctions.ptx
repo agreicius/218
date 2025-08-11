@@ -36,10 +36,9 @@
   <subsection>
     <title>Definitions of linear and quadratic functions</title>
       <p>
-        Linear and quadratic functions are important for modeling relationships between many different quantities.
+        Part of our exploration of functions in this course will include the study of important <em>families</em> of functions. In this section we introduce two such families: <em>linear functions</em> and <em>quadratic functions</em>. These functions will serve as a useful starting point for two reasons: on the one hand, they are fairly simple functions and hence easy to analyze; on the other hand, these functions are widely used in real-world applications. 
         For example, in statistics,
-        the method of linear regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other.
-        Quadratic functions are used to model the height of an object falling under the force of gravity.
+        the method of linear regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other; and quadratic functions are used in mechanics to model the height of an object falling under the force of gravity.
         We will explore several models that use linear and quadratic functions in <xref ref="sec_linearandquadraticmodeling"/> after we develop our mathematical understanding of them.
       </p>
       <p>
@@ -56,7 +55,7 @@
       <assumption xml:id="fiat_real-valued_functions">
         <statement>
           <p>
-            Henceforth, unless specified otherwise, all functions in this course will be assumed to be of the form <m>f\colon D\rightarrow \R</m>, where <m>D\subseteq \R</m>. In other words, by default, the inputs and outputs of functions in this course are assumed to be real numbers. 
+            Henceforth, unless specified otherwise, all functions in this course will be assumed to be of the form <m>f\colon D\implies \R</m>, where <m>D\subseteq \R</m>. In other words, by default, the inputs and outputs of functions in this course are assumed to be real numbers. 
           </p>
         </statement>
       </assumption>
@@ -341,435 +340,439 @@
       </figure>
     </statement>
         </example>
-        
-        
-        
-      
-      <example>
-        <title>Parameters of Quadratic Functions</title>
+        <p>
+          Similarly, the general form 
+          <me>
+            f(x)=ax^2+bx+c
+          </me>
+          of a quadratic function gives rise to an entire family of functions, one for each choice of the parameters <m>a,b,c</m>. The graphical effect of these parameters on a quadratic function is explored in <xref ref="eg_desmos_quad"/>. As you will see, the relationship between the parameters and the graph is not as straightforward as it is for linear functions.
+        </p>
+      <example xml:id="eg_desmos_quad">
+        <title>Desmos: family of quadratic functions</title>
         <statement>
           <p>
-            Consider the quadratic equation
-            <me>
-              y = ax^2 + bx + c
-            </me>,
-            where <m>a \neq 0</m>.
-            Graphically, this describes a family of parabolas.
-          </p>
-          <p>
-            <xref ref="fig_quadfuncfamily"  /> shows a graph of some members of this family.
-            This graph shows parabolas with <m>a = -2;
-            b = 0, 1, \text{ or } 2</m>;
-            and <m>c = 2.5</m> and parabolas with <m>a = -1;
-            b = 0, 1, \text{ or } 2</m>; and <m>c = -1</m>
-          </p>
-          <figure xml:id="fig_quadfuncfamily">
-            <caption><m>y=ax^2+bx+c</m> for different values of the parameters <m>a, b</m>, and <m>c</m>.</caption>
-            <image width="70%" source="1100-QuadraticSpecific.png"/>
-          </figure>
+            The Desmos interactive in <xref ref="fig_quad_fam"/> explores what effect the parameters <m>a,b,c</m> have on the graph of a quadratic function of the form <m>f(x)=ax^2+bx+c</m>. 
+        <ol>
+          <li>
+            <p>
+              Note that the graphs of quadratic functions are always parabolas. What detail about the parameters <m>a,b,c</m> determines whether this parabola opens up or down?
+            </p>
+          </li>
+          <li>
+            <p>
+              How does the parameter <m>c</m> affect the graph of the function?
+            </p>
+          </li>
+        </ol>
+      </p>
+      <figure xml:id="fig_quad_fam">
+        <caption><url href="https://www.desmos.com/calculator/yayrd6etuz">Desmos interactive</url>: adjusting parameters of quadratic functions </caption>
+          <interactive desmos="yayrd6etuz" width="60%" aspect="2:3"/>
+      </figure>
         </statement>
       </example>
-      <exercise xml:id="ex_quadraticparameters">
-        <statement>
-          <p>
-            Take a moment to use
-            <url href="https://www.desmos.com/calculator/yayrd6etuz">https://www.desmos.com/calculator/yayrd6etuz</url>
-            to explore how changing the values of the parameters <m>a, b</m>,
-            and <m>c</m> impact the graph of <m>y=ax^2+bx+c</m>.
-            What do the members of the family of parametric functions <m>y=ax^2+bx+c</m> have in common?
-            How do they differ?
-            Which parameter seems to have the simplest effect?
-            Which parameter seems to have the most complicated effect?
-          </p>
-        </statement>
-      </exercise>
+      
     
   </subsection>
   <subsection xml:id="subsec_propgraphs1">
-    <title>Properties of Functions</title>
+    <title>Properties of linear functions</title>
     <p>
-      The table that follows gives us vocabulary and precise mathematical definitions for various types of graphical behavior.
-      Rows 1, 2, 5, 6, and 8 describe behaviors that a function could exhibit at a specific point.
-      Rows 3, 4, and 7 describe graphical behaviors that occur over an interval <m>I</m> of real numbers.
+     Before drilling down more in our analysis of linear and quadratic functions, we give a formal definition of various properties of functions that we will be interested in studying.   
     </p>
-    <remark>
-      <p>
-        <xref ref="tab_funcprops1"  /> uses <m>x</m> as the independent variable and <m>y</m> as the dependent variable.
-        The notation <m>x_1, x_2, y_1,\ldots</m> is used to indicate particular values of <m>x</m> and <m>y</m>.
-        We are using these instead of other letters because we have been using other letters to indicate parameters.
-        A subscript is called an "index"
-        (plural "indices").
-        The benefit to using these is that it is easier to keep track of whether they represent a value of the independent variable
-        (for example, <m>x=x_1</m> or <m>x=x_2</m>)
-        or the dependent variable
-        (for example, <m>y=y_1</m> or <m>y=y_2</m>).
-      </p>
-    </remark>
-    <table xml:id="tab_funcprops1">
-      <title>Properties of functions in terms of the behavior of their graphs</title>
-      <tabular>
-        <row>
-          <cell>\toprule</cell>
-          <cell><em>Vocabulary</em></cell>
-          <cell><em>Definition</em></cell>
-          <cell><em>Behavior</em></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            1.</cell>
-          <cell><m>f</m> has a <em><m>x</m>-intercept</em> or  <em>zero</em>  at <m>x=x_1</m></cell>
-          <cell><m>f(x_1)=0</m></cell>
-          <cell>graph intersects the <m>x</m>-axis at <m>x=x_1</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>2.</cell>
-          <cell><m>f</m> has a <em><m>y</m>-intercept</em> at <m>y=y_1</m></cell>
-          <cell><m>f(0)=y_1</m></cell>
-          <cell>graph intersects the <m>y</m>-axis at <m>y=y_1</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>3.</cell>
-          <cell><m>f</m> is <em>positive</em> on <m>I</m></cell>
-          <cell><m>f(x)>0</m> for all <m>x\in I</m></cell>
-          <cell>graph is above the <m>x</m>-axis on <m>I</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>4.</cell>
-          <cell><m>f</m> is <em>increasing</em> on <m>I</m></cell>
-          <cell><m>f(x_2)>f(x_1)</m> for all <m>x_2>x_1</m> in <m>I</m></cell>
-          <cell>graph moves up as we look from left to right on <m>I</m></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            5.</cell>
-          <cell><m>f</m> has a <em>local maximum</em> at <m>x=x_1</m></cell>
-          <cell><m>f(x_1)\geq f(x)</m> for all <m>x</m> near <m>x=x_1</m></cell>
-          <cell>graph has a relative "hilltop" at <m>x=x_1</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>6.</cell>
-          <cell><m>f</m> has a <em>global maximum</em> at <m>x=x_1</m></cell>
-          <cell><m>f(x_1)\geq f(x)</m> for all <m>x\in\text{ Domain } (f)</m></cell>
-          <cell>graph is the highest at <m>x=x_1</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>7.</cell>
-          <cell><m>f</m> is <em>concave up</em> on <m>I</m></cell>
-          <cell>values of <m>f</m> grow at a faster and faster rate as <m>x</m> increases on <m>I</m></cell>
-          <cell>graph curves upwards on <m>I</m> like part of a "U"</cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>8.</cell>
-          <cell><m>f</m> has an <em>inflection point</em> at <m>x=x_1</m></cell>
-          <cell><m>x=x_1\in\text{ Domain } (f)</m> and the concavity of <m>f</m> changes at <m>x=x_1</m></cell>
-          <cell>graph of <m>f</m> changes from curving upward to curving downward, or vice versa, at <m>x=x_1</m></cell>
-        </row>
-        <row>
-          <cell>\bottomrule</cell>
-        </row>
-      </tabular>
-    </table>
+    <definition xml:id="d_func_props">
+    <title>Properties of functions</title>
+    <statement>
     <p>
-      There are similar definitions for negative, decreasing,
-      and concave down behavior, as well as local and global minima.
+    Let <m>f</m> be a function with domain <m>D\subseteq \R</m>. 
+<ul>
+  <li>
+    <title>Zeros and <m>x</m>-intercepts</title>
+    <p>
+      A <term>zero</term> (or <term>root</term>) of <m>f</m> is an element <m>c\in D</m> satisfying <m>f(c)=0</m>. An <term><m>x</m>-intercept</term> of <m>f</m> is a point on the graph of <m>f</m> of the form
+      <me>
+        (c,0)=(c,f(c))
+      </me>.
+      Thus each zero <m>c</m> of <m>f</m> gives rise to an <m>x</m>-intercept <m>(c,0)</m> on the graph of <m>f</m>, and vice versa. Graphically speaking, an <m>x</m>-intercept is a point where the graph of <m>f</m> intersects the <m>x</m>-axis.
+    </p>
+  </li>
+  <li>
+    <title><m>y</m>-intercept</title>
+    <p>
+      Assume <m>0\in D</m>. The <term><m>y</m>-intercept</term> of <m>f</m> is the point 
+      <me>
+        (0,f(0))
+      </me>
+      on the graph of <m>f</m>. Graphically speaking, the <m>y</m>-intercept is the point where the graph of <m>f</m> intersects the <m>y</m>-axis.
+    </p>
+  </li>
+  <li>
+    <title>Positive/negative</title>
+    <p>
+      Let <m>I\subseteq D</m> be an interval. We say <m>f</m> is <term>positive</term> (resp., <term>negative</term>) on <m>I</m>, denoted <m>f&gt; 0</m> (resp., <m>f&lt; 0</m>), if <m>f(x)&gt; 0</m> (resp., <m>f(x)&lt; 0</m>) for all <m>x\in I</m>. Similarly, <m>f</m> is <term>nonnegative</term> (resp. <term>nonpositive</term>) on <m>I</m>, denoted <m>f\ge 0</m> (resp., <m>f\le 0</m>), if <m>f(x)\ge 0</m> (resp., <m>f(x)\le 0</m>) for all <m>x\in I</m>.
     </p>
     <p>
-      Notice that we describe <em>extrema</em>
-      (maxima and minima)
-      by <em>where</em> on the <m>x</m>-axis they occur,
-      since we can always find the corresponding <m>y</m>-values from these <m>x</m>-values.
-      The concept of "near" in the description of a local maximum will be made more precise in Chapters 2 and 3.
-      Inflection points and concavity cannot be precisely defined until we learn about
-      <em>derivatives</em> in Chapter 3.
-      In that chapter we will also learn ways for algebraically calculating the locations of extrema and inflection points.
-      For now we present them just to set terminology and to familiarize ourselves with various types of function behavior;
-      we will have to be content with examining such things graphically.
+      Graphically speaking, <m>f</m> is positive on <m>I</m> if points <m>(x,f(x))</m> of <m>f</m> lie above the <m>x</m>-axis for all <m>x\in I</m>. Similar statements apply for negative, nonnegative, and nonpositive. 
     </p>
-    <example>
-      <statement>
+  </li>
+  <li>
+    <title>Increasing/decreasing</title>
+    <p>
+      Let <m>I\subseteq D</m> be an interval. We say <m>f</m> is <term>increasing</term> on <m>I</m> if for all <m>a,b\in D</m>, if <m>a&lt; b</m>, then <m>f(a)&lt; f(b)</m>. Similarly, we say <m>f</m> is <term>decreasing</term> on <m>I</m> if for all <m>a,b\in D</m>, if <m>a&lt; b</m>, then <m>f(a)&gt; f(b)</m>.
+    </p>
+    <p>
+      Graphically speaking, if <m>f</m> is increasing (resp. decreasing) on <m>I</m> then the graph of <m>f</m> moves up (resp. down) as we move to the right. 
+    </p>
+  </li>
+  <li>
+    <title>Maximum/minimum</title>
+    <p>
+  Let <m>D'\subseteq D</m> and let <m>c\in D'</m>. We say <m>f</m> has a <term>maximum at <m>c</m> relative to <m>D'</m></term> if <m>f(c)\ge f(x)</m> for all <m>x\in D'</m>. In this case we call <m>f(c)</m> the <term>maximum value</term> of <m>f</m> on <m>D'</m>.  Similarly, we say <m>f</m> has a <term>minimum at <m>c</m> relative to <m>D'</m></term> if <m>f(c)\le f(x)</m> for all <m>x\in D'</m>, and in this case we call <m>f(c)</m> the <term>minimum value</term> of <m>f</m> on <m>D'</m>.
+    </p>
+    <p>
+      A maximum (resp. minumum) <m>c</m> of <m>f</m> relative to the entire domain <m>D</m> is called a <term>global maximum</term> (resp. <term>global minimum</term>) of <m>f</m>, and in this case <m>f(c)</m> is called the <term>global maximum value</term> (resp. <term>global minimum value</term>) of <m>f</m>.
+    </p>
+    <p>
+      Graphically speaking, <m>f</m> has a maximum (resp., minimum) at <m>c\in D'</m> if the point <m>(c,f(c))</m> is the highest (resp., lowest) point on the graph of <m>f</m> with <m>x</m>-coordinate in <m>D'</m>. 
+    </p>
+  </li>
+
+</ul>    </p>
+    </statement>
+    </definition>
+    <p>
+      Let's test out some of this new terminology on some linear functions.
+    </p>
+    <example xml:id="eg_func_props_linear">
+    <title>Linear function properties</title>
+    <statement>
+    <p>
+    For the given function <m>f\colon \R\implies \R</m> do the following: (a) find all <m>x</m>- and <m>y</m>-intercepts, (b) determine the intervals on which <m>f</m> is positive, negative, increasing, and decreasing, (c) find all inputs where <m>f</m> has a global maximum or minumum (if any). The Desmos interactive in <xref ref="fig_linear_fam"/> may be helpful.
+    <ol>
+      <li>
         <p>
-          The <m>x</m>-intercepts of
-          <m>f(x) = 1-3x</m> are where <m>f(x) = 0</m>,
-          so at the values of <m>x</m> with <m>1-3x=0</m>.
-          Solving for <m>x</m>:
+          <m>f(x)=-2x+3</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>f(x)=3x+5</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>f(x)=-2</m>
+        </p>
+      </li>
+    </ol>
+    </p>
+     <figure xml:id="fig_lin_func_props">
+      <caption>Three linear functions</caption>
+      <sidebyside>
+        <figure xml:id="fig_lin_func_a">
+          <caption>Graph of <m>f(x) = -2x + 3</m></caption>
+          <image>
+            <shortdescription>Graph of f(x)=-2x+3</shortdescription>
+            <sageplot>
+            var('x')
+            f(x) = -2*x + 3
+            plot(f(x),-2, 2,thickness=5)
+            </sageplot>
+          </image>
+        </figure>
+        <figure xml:id="fig_lin_func_b">
+          <caption>Graph of <m>f(x) = 3x + 5</m></caption>
+          <image>
+            <shortdescription>Graph of f(x)=3x+5</shortdescription>
+            <sageplot>
+            var('x')
+            f(x) = 3*x + 5
+            plot(f(x), -2, 2, thickness=5)
+            </sageplot>
+          </image>
+        </figure>
+        <figure xml:id="fig_lin_func_c">
+          <caption>Graph of <m>f(x) = -2</m></caption>
+          <image>
+            <shortdescription>Graph of f(x)=-2</shortdescription>
+            <sageplot>
+            var('x')
+            f(x) = -2
+            plot(f(x),-2, 2,ymin=-3, ymax=1,thickness=5)
+            </sageplot>
+          </image>
+        </figure>
+      </sidebyside>
+    </figure>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+       
+        <p>
+          The <m>y</m>-intercept of <m>f</m> is easily computed as 
           <me>
-            \begin{aligned}1-3x \amp = 0\\ 1 \amp =3x\\ \frac{1}{3} \amp =x \end{aligned}
-          </me>
-        </p>
-        <p>
-          So we see that <m>f(x) = 1-3x</m> has an <m>x</m>-intercept at <m>x=\frac{1}{3}</m>.
-        </p>
-        <p>
-          View a graph of <m>f(x)</m> via
-          <url href="https://www.desmos.com/calculator/uo5qirntxg">https://www.desmos.com/calculator/uo5qirntxg</url>
-          and set the sliders to <m>m=-3, b=1</m>.
-          From this we see that <m>f(x)</m> is positive
-          (above the <m>x</m>-axis)
-          for <m>x\lt \frac{1}{3}</m> and negative
-          (below the <m>x</m>-axis)
-          for <m>x>\frac{1}{3}</m>.
-          The graph also tells us that <m>f(x)</m> is decreasing for <m>x\in\mathbb{R}</m>,
-          meaning for all values of <m>x</m>.
-        </p>
-        <p>
-          The graph of <m>f(x)</m> has no local or global maxima or minima.
-          This is true of all linear functions:
-          none of them have any local or global extrema.
-          Similarly, since the graphs of linear functions are lines,
-          they are neither concave up nor concave down and do not have any inflection points.
-        </p>
-      </statement>
-    </example>
-    <example>
-      <statement>
-        <p>
-          The list that follows at the right describes each of the properties in the table above of the graph <m>y=f(x)</m> shown on the left.
-        </p>
-        <p>
-          \fbox{ Use this example to check your understanding of each of the properties,
-          going back and forth between <xref ref="tab_funcprops1"  /> and <xref ref="fig_TaalmanPage40"  /> to identify each feature.}
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <title>Conjecture</title>
-      <statement>
-        <p>
-          A mathematical <em>conjecture</em>
-          is "is a conclusion or a proposition that is proffered on a tentative basis without proof."<fn>
-          <url href="https://en.wikipedia.org/wiki/Conjecture">https://en.wikipedia.org/wiki/Conjecture</url>
-          accessed August 5, 2022
-          </fn>
-        </p>
-        <p>
-          Use the Desmos graph at
-        </p>
-        <url href="https://www.desmos.com/calculator/yayrd6etuz">https://www.desmos.com/calculator/yayrd6etuz</url>
-        <p>
-          and set the parameters to <m>a=1, b=-1</m>,
-          and <m>c=-6</m> to graph the function <m>f(x) = x^2-x-6</m>.
-          <ol marker="labelalph">
-            <li>
-              <p>
-                Determine whether <m>f(x) = x^2-x-6</m> has any <m>x</m>-intercepts.
-                <em>Conjecture:</em> Do all quadratic functions have <m>x</m>-intercepts?
-              </p>
-            </li>
-            <li>
-              <p>
-                Determine the intervals on which
-                <m>f(x)= x^2-x-6</m> is increasing/decreasing.
-                <em>Conjecture:</em> Do all quadratic functions have both intervals on which they are increasing,
-                as well as intervals on which they are decreasing?
-              </p>
-            </li>
-            <li>
-              <p>
-                Determine the locations of any local and global extrema
-                (minima or maxima)
-                of <m>f(x)= x^2-x-6</m>.
-                <em>Conjecture:</em> Do all quadratic functions have local/global extrema?
-              </p>
-            </li>
-            <li>
-              <p>
-                Determine the intervals on which <m>f(x)= x^2-x-6</m> is concave up/down.
-                Are there any inflection points (where the concavity changes)?
-                <em>Conjecture:</em> Play with the parameters <m>a, b</m>,
-                and <m>c</m> and determine which parameter controls the concavity of a quadratic function.
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
-    <example>
-      <title>Finding a "good" graphing window</title>
-      <statement>
-        <p>
-          Since we are using graphs to determine the properties of functions
-          (for now),
-          we should be especially careful that we can create a "good" graph of a function,
-          meaning a graph that captures all of the key features and properties of the graph.
-        </p>
-        <p>
-          Here, we demonstrate finding a "good" graphing window for the graph of the function
-          <me>
-            f(x) = x^3-6x^2-x+6
+            (0,f(0))=(0,3)
           </me>.
+          To find the <m>x</m>-intercept(s) of <m>f</m>, we solve the equation <m>f(x)=0</m>:
+          <md>
+            <mrow>f(x) \amp = 0</mrow>
+            <mrow>-2x+3 \amp = 0</mrow>
+            <mrow>-2x \amp = -3</mrow>
+            <mrow>x \amp = \frac{3}{2}</mrow>
+          </md>.
+          We conclude that <m>f</m> has <em>exactly</em> one zero (or root), <m>x=3/2</m> and hence exactly only <m>x</m>-intercept, <m>(3/2,0)</m>.
+        </p>
+         <p>
+         Looking at the graph of <m>f(x)=-2x+3</m>, we see that the function is decreasing on every interval <m>I\subseteq \R</m>: in plain English, the graph of <m>f</m> <em>always</em> moves down as we move to the right. 
         </p>
         <p>
-          The three graphs that follow show <m>y=f(x)</m> in various graphing windows.
-          Each of these windows is "bad" in the sense that the true behavior of the graph of <m>f</m> is not represented.
+          Since <m>f</m> has a unique zero at <m>x=3/2</m> and is decreasing on <m>\R</m>, it follows that <m>f</m> is positive on the interval <m>(-\infty,3/2)</m> and negative on the interval <m>(3/2,\infty)</m>.
         </p>
-        <figure xml:id="fig_badgraphingwindows">
-          <caption>Three "bad" graphing windows for <m>f(x)</m>. The properties of the graph are not accurately represented.</caption>
-          <image width="90%" source="TaalmanPage43b.png"/>
-        </figure>
         <p>
-          A "good" window
-          (if one exists)
-          is a window in which the local behavior of the graph of <m>f</m> is clear and the global behavior is accurately represented
-          (the "ends" of the graph keep going in the direction indicated).
-          The following figure shows the graph of <m>f</m> in a "good" window:
+          Moreover, it follows from <m>f</m> being decreasing on <m>\R</m> that it has no global maximum or minimum value. Roughly speaking, given any input <m>c</m>, the value of <m>f</m> will be greater than <m>f(c)</m> for inputs to the left of <m>c</m>, and less than <m>f(c)</m> for inputs to the right. More formally, if we choose any <m>a\in \R</m> with <m>a&lt; c</m>, then since <m>f</m> is decreasing everywhere we have <m>f(a)&gt; f(c)</m>; similarly,  if we choose  any <m>b\in \R</m> with <m>b&gt; c</m>, we have <m>f(b)&lt; f(c)</m>. Thus <m>f</m> has neither a global maximum nor global minimum at <m>c</m>. Since <m>c</m> was arbitrary, there is no input where <m>f</m> has a global maximum or minimum. 
         </p>
-        <figure xml:id="fig_badgraphingwindowsX">
-          <caption>A "good" graphing windows for <m>f(x)</m>. The properties of the graph are accurately represented.</caption>
-          <image width="40%" source="TaalmanPage44.png"/>
-        </figure>
+      </li>
+      <li>
         <p>
-          For now we will use trial and error to find an effective graphing window.
-          Later, we will learn algebraic methods for determining all of these properties.
+          Reasoning along the same lines as in (a), we find that the <m>y</m>-intercept of <m>f</m> is 
+          <me>
+            (0,f(0))=(0,5)
+          </me>
+          and there is a unique <m>x</m>-intercept at 
+          <me>
+            (-\frac{5}{3},0)
+          </me>
+          corresponding to the unique solution of the equation <m>3x+5=0</m>.
         </p>
-      </statement>
+        <p>
+          Moreover, the function <m>f</m> is increasing on every interval <m>I\subseteq \R</m>, from whence it follows that <m>f</m> is negative on the interval <m>(-\infty,-\frac{5}{3})</m> and positive on the interval <m>(-\frac{5}{3},\infty)</m>.
+        </p>
+        <p>
+          Lastly, since <m>f</m> is increasing on <m>\R</m>, it follows that <m>f</m> has no global maximum or minimum value, and thus no input where it has a global maximum or minimum.
+        </p>
+      </li>
+      <li>
+        <p>
+          Our answers for the constant function <m>f(x)=-2</m> are qualitatively very different from those in (a) and (b). As always, the <m>y</m>-intercept of <m>f</m> is easily computed as 
+          <me>
+            (0,f(0))=(0,-2)
+          </me>,
+          since <m>f(x)=-2</m> for <em>all</em> inputs <m>x\in \R</m>. However, in this case there are no <m>x</m>-intercepts. Algebraically, this is a result of the fact that <m>f(x)=-2</m> for all <m>x\in \R</m>, and hence that we cannot have <m>f(x)=0</m> for any <m>x\in \R</m>. Graphically, this is reflected in the fact that the graph of <m>f</m>, the horizontal line <m>y=-2</m>, does not intersect the <m>x</m>-axis.
+        </p>
+        <p>
+          Since the value of <m>f</m> is equal to <m>-2</m> for all inputs, we see that <m>f</m> is always negative and never positive. Furthermore, over any interval <m>I\subseteq \R</m>, since the value of <m>f</m> on <m>I</m> is constant, it is neither increasing nor decreasing. Finally, we see that <m>-2</m> is both the global maximum and global minimum value of <m>f</m>: a trivial result of its being the <em>only</em> value of <m>f</m>! Since <m>f(x)=-2</m> for all <m>x\in \R</m>, it follows that <m>f</m> has a global maximum and global minimum at every element in its domain! 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    
     </example>
-  </subsection>
-  <subsection>
-    <title>Different Equations of Lines</title>
     <p>
-      A line in the plane is completely described by its slope <m>m</m> and <m>y</m>-intercept <m>b</m>.
-      You could tell someone the values of <m>m</m> and <m>b</m> in a text message and they would know exactly which line you were referring to,
-      without needing to attach a picture.
-      We can also describe a line in the plane with its slope and the coordinates of any point on the line,
-      or with the coordinates of any two points on the line.<fn>
-      This last is how Euclid's Elements begin to develop geometry.
-      Book I Postulate 1 states that given any two points,
-      there is a line that joins them.
-      <url href="https://mathcs.clarku.edu/~djoyce/elements/bookI/post1.html">https://mathcs.clarku.edu/<nbsp/>djoyce/elements/bookI/post1.html</url>
-      accessed August 17, 2022.
-      </fn>
+      Our analysis of the three linear functions in <xref ref="eg_func_props_linear"/> easily generalizes to the family of all linear functions, as we now make official.
     </p>
+    <theorem xml:id="th_lin_func_props">
+    <title>Properties of linear functions</title>
+    <statement>
     <p>
-      These three ways of describing lines give us three forms of equations for lines found in <xref ref="tab_linfuncforms"  />:
-      <em>slope-intercept form</em>,
-      <em>point-slope form</em>, and <em>two-point form</em>.
-      Note that here we are again using indices to represent different values of the variables <m>x</m> and <m>y</m>.
-      <m>x_0, x_1</m>,
-      and <m>x_2</m> represent values of the independent variable <m>x</m>,
-      while <m>y_0, y_1</m>,
-      and <m>y_2</m> represent values of the dependent variable <m>y</m>.
+    Let <m>f\colon \R\implies \R</m> be defined as <m>f(x)=mx+b</m>, where <m>m</m> and <m>b</m> are real constants. 
+    <ul>
+      <li>
+        <p>
+          The <m>y</m>-intercept of <m>f</m> is <m>(0,b)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>m\ne 0</m>, then <m>f</m> has a unique zero at <m>x=-b/m</m>, and hence a unique <m>x</m>-intercept at <m>(-b/m,0)</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>m&gt; 0</m>, then <m>f</m> is increasing on every interval <m>I\subseteq \R</m>; if <m>m&lt; 0</m>, then <m>f</m> is decreasing on every interval <m>I\subseteq \R</m>; if <m>m=0</m>, then <m>f</m> is constant on every interval <m>I\subseteq \R</m>, and hence is never increasing or decreasing.
+        </p>
+      </li>
+    </ul>
     </p>
-    <table xml:id="tab_linfuncforms">
-      <title>Three forms for the equation of a line</title>
-      <tabular>
-        <row>
-          <cell>\toprule
-            <em>Name of form</em></cell>
-          <cell><em>Information given</em></cell>
-          <cell><em>Equation of line</em></cell>
-        </row>
-        <row>
-          <cell>\midrule
-            slope-intercept form</cell>
-          <cell>slope <m>m</m>, <m>y</m>-intercept <m>b</m></cell>
-          <cell><m>y=mx+b</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>point-slope form</cell>
-          <cell>slope <m>m</m> and any point <m>(x_0,y_0)</m> on the line</cell>
-          <cell><m>y=m(x-x_0)+y_0</m></cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>two-point form</cell>
-          <cell>any two points <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m> on the line</cell>
-          <cell><m>y=\left(\frac{y_2-y_1}{x_2-x_1}\right) (x-x_1)+y_1</m> or <m>y=\left(\frac{y_2-y_1}{x_2-x_1}\right) (x-x_2)+y_2</m></cell>
-        </row>
-        <row>
-          <cell>\bottomrule</cell>
-        </row>
-      </tabular>
-    </table>
+    </statement>
+    </theorem>
     <p>
-      There is an advantage to slope-intercept form in that we can tell from looking at any two functions in that form whether they represent the same line.
-      However, the other forms are sometimes easier to use based on our given information.
+      As illustrated by all of our examples, the graph of a linear function
+      is a line in <m>\R^2</m>. Why is this so? Recall from our discussion in <xref ref="ss_vlt" text="title"/> that the graph of the function <m>f(x)=mx+b</m> is the same thing as the graph of the equation 
+      <me>
+        y=mx+b
+      </me>, 
+      which we recognize as the <em>slope-intercept form</em> of the equation of a line. In <xref ref="d_line_eqns"/> we recall some of the different forms of equations of lines in the plane. 
     </p>
+      <definition xml:id="d_line_eqns">
+      <title>Equations of lines</title>
+      <statement>
+      <p>
+      Let <m>L</m> be a line in the plane <m>\R^2</m>. 
+      </p>
+      <p>
+        A <term>general form</term> of <m>L</m> is any equation of the form
+            <men xml:id="eq_gen_line">
+              ax+by=c
+            </men>,
+            where <m>a</m>, <m>b</m>, and <m>c</m> are real constants, and <m>L</m> is the graph of <xref ref="eq_gen_line"/>. Every line in the plane has a general form.
+          </p>
+        <p>
+            Assume now that <m>L</m> is not a vertical line.
+            <ul>
+              <li>
+                <title>Slope</title>
+                <p>
+                  The <term>slope</term> of <m>L</m> is the constant <m>m</m> defined as 
+                  <men xml:id="eq_slope">
+                    m=\frac{y_2-y_1}{x_2-x_1}
+                  </men>,
+                  where <m>P_1=(x_1,y_1)</m> and <m>P_2=(x_2,y_2)</m> are any two distinct points on <m>L</m>.
+                </p>
+              </li>
+              <li>
+                <title>Point-slope form</title>
+                <p>
+                  A <term>point-slope form</term> of <m>L</m> is an equation of <m>L</m> of the form
+                  <men xml:id="eqn-point_slope">
+                    y-y_0=m(x-x_0)
+                  </men>,
+                  where <m>P=(x_0,y_0)</m> is any point on <m>L</m>, and <m>m</m> is the slope of <m>L</m>. 
+                </p>
+              </li>
+              <li>
+                <title>Slope-intercept form</title>
+                <p>
+                  The <term>slope-intercept form</term> of <m>L</m> is the unique equation of <m>L</m> of the form
+                  <men xml:id="eq_slope_intercept">
+                    y=mx+b
+                  </men>,
+                  where <m>m</m> is the slope of <m>L</m> and <m>b</m> is a constant. 
+                </p>
+              </li>
+
+            </ul>
+            
+      </p>
+      </statement>
+      </definition>
+      <remark xml:id="rm_line_eqns">
+        <title>Equations of lines</title>
     <p>
-      Let's explore the point-slope and two-point forms a bit more.
-      The slope <m>m</m> of a line can be interpreted as how much the line "rises"
-      (increases or decreases)
-      given a "run" of one unit increase in <m>x</m>.
-      Thus the slope can be calculated by the formula \fbox{<m>m =\frac{\text{ rise } }{\text{ run } }=\dfrac{y_2-y_1}{x_2-x_1}</m>} for any two points
-      <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m> on the line.
-      From this we see that the two-point form of the equation of a line is the same as the point-slope form,
-      as long as we calculate the slope <m>m</m> from the two points ahead of time.
-      Note that when we do that,
-      we may use either point <m>(x_1,y_1)</m> or
-      <m>(x_2,y_2)</m> to determine the equation,
-      but we must stick with one or the other.
+      As suggested by <xref ref="d_line_eqns"/>, a line <m>L</m> in <m>\R^2</m> does not have a single defining equation, but rather many different equations of varying form. Some comments are in order. 
+      <ul>
+        <li>
+          <p>
+            The general form of a line is useful theoretically, as <em>any</em> line in <m>\R^2</m> can be defined in this manner. In particular, <em>vertical lines</em>, have defining equations in general form (namely, <m>x=c</m>), but no defining equation in slope-intercept or point-slope form. 
+          </p>
+        </li>
+        <li>
+          <p>
+           The slope <m>m</m> of a line is only defined for non-vertical lines. The fact that it can be computed as 
+           <me>
+            m=\frac{y_2-y_1}{x_2-x_1}
+           </me>,
+           where <m>P_1=(x_1,y_1)</m> and <m>P_2=(x_2,y_2)</m> are <em>any</em> two distinct points on <m>L</m> is evidence of a certain regularity that lines satisfy. Indeed, letting <m>\Delta y=y_2-y_1</m> and <m>\Delta x=x_2-x_1</m>, we see that 
+           <me>
+            m=\frac{\Delta y}{\Delta x}
+           </me>
+           is the ratio of the change in <m>y</m> to the change in <m>x</m> between any two points on <m>L</m>. The fact that this ratio does not depend on the choice of points means that starting from any point <m>L</m>, as we move to the right on <m>L</m> any positive distance <m>\Delta x</m>, we move vertically by a directed distance of <me>\Delta y=m\cdot \Delta x</me>. We summarize this observation by saying that the slope computes the "rise over run" of the line <m>L</m>: 
+           <men xml:id="eq_slope_rise_run">
+            m=\frac{\Delta y}{\Delta x}=\frac{\text{ rise } }{\text{ run } }
+           </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The slope-intercept form <m>y=mx+b</m> of a non-vertical line <m>L</m> is useful, as we can read off the slope <m>m</m> and <m>y</m>-intercept <m>(0,b)</m> directly from the equation. Furthermore, unlike the other equation forms of a line, the slope-intercept form is <em>unique</em>. As a consequence, we can distinguish two lines simply by looking at their slope-intercept forms (assuming both lines are non-vertical).  
+          </p>
+        </li>
+        <li>
+          <p>
+          By contrast, the point-slope form <m>y-y_0=m(x-x_0)</m> of a non-vertical line <m>L</m> is not unique. Indeed, though the parameter <m>m</m> appearing in such an equation is unique (being the slope of the line), the constants <m>x_0</m> and <m>y_0</m> are not unique since they can be chosen as the <m>x</m>-  and <m>y</m>- coordinates of <em>any</em> point on the line.
+          </p>
+          <p>
+            That said, it is precisely this non-uniqueness that makes the point-slope form so useful. As illustrated in <xref ref="proc_line_eqns"/>, as soon as we know the slope of a line and the coordinates of <em>any</em> point on the line, we can derive a point-slope form. Furthermore, if desired, we can always easily derive the slope-intercept form from the point-slope form using a little algebra. (See <xref ref="proc_line_eqns "/>.)
+          </p>
+        </li>
+      </ul>
     </p>
-    <example>
-      <title>Finding equations of lines</title>
+
+      </remark>
+      <p>
+        Two common ways of specifying a line <m>L</m> in <m>\R^2</m> is either by specifying its slope and providing a point, or by specifying two distinct points on <m>L</m>. The procedure below describes how to derive a point-slope form of the line in each of these situations.  
+      </p>
+    <algorithm xml:id="proc_line_eqns">
+      <title>Equations of lines</title>
+    
       <statement>
         <p>
-          Find equations for each of the linear functions described.
-          Two lines are said to be <em>parallel</em>
-          if they have the same slopes,
-          and <em>perpendicular</em> if their slopes,
-          <m>m_1</m> and <m>m_2</m>, are negative reciprocals of each other
-          (meaning that <m>m_2 =-1/m_1</m> or vice versa).
-          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+        Let <m>L</m> be a non-vertical line in the plane. Depending on the given information, we can derive a point-slope form of <m>L</m> as follows. 
+        <ul>
+          <li>
+            <p>
+              If the slope <m>m</m> of <m>L</m> is known, and a point <m>P=(x_0,y_0)</m> is given, then 
+              <me>
+                y-y_0=m(x-x_0)
+              </me>
+              is a point-slope form of <m>L</m>. If desired, the slope-intercept form can then be derived as
+              <me>
+                y=m(x-x_0)+y_0=mx+(y_0-mx_0)
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If two points <m>P_1=(x_1,y_1)</m> and <m>P_2=(x_2,y_2)</m> on <m>L</m> are given, then the slope of <m>L</m> can be computed as  
+              <me>
+                m=\frac{y_2-y_1}{x_2-x_1}
+              </me>,
+              and a point-slope form of <m>L</m> can be derived as 
+              <me>
+                y-y_1=m(x-x_1)
+              </me>,
+              using the point <m>P_1=(x_1,y_1)</m>, or 
+              <me>
+                y-y_2=m(x-x_2)
+              </me>,
+              using <m>P_2=(x_2,y_2)</m>. 
+            </p>
+            <p>
+              As above, if desired, the slope-intercept form of <m>L</m> can be derived algebraically from either of these two point-slope forms. 
+            </p>
+          </li>
+        </ul>      
+        </p>
+      </statement>
+    </algorithm>
+    <example>
+      <title>Equations of lines</title>
+      <statement>
+        <p>
+          Find both a point-slope form and the slope-intercept form for the given line. 
+          Recall that two lines in parallel in <m>\R^2</m> if and only if they have the same slope,
+          and perpendicular if and only if their slopes are negative reciprocals of each other. 
+          <ol>
             <li>
               <p>
-                The line with slope <m>-2</m> that passes through the point <m>(3,1)</m>,
-                in slope-intercept form.
+                <m>L</m> is the line with slope <m>-2</m> that passes through the point <m>(3,1)</m>.
               </p>
             </li>
             <li>
               <p>
-                The line that passes through the points <m>(-1, 2)</m> and <m>(3,4)</m>,
-                in slope-intercept form.
+               <m>L</m> is  the line that passes through the points <m>(-1, 2)</m> and <m>(3,4)</m>.
               </p>
             </li>
             <li>
               <p>
-                The line that passes through the point <m>(2,0)</m> and is perpendicular to the line
-                <m>y=\frac{1}{3}+1</m>, in slope-intercept form.
+                <m>L</m> is the line passing through <m>(4,9)</m> that is parallel to the line <m>2x-3y=5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>L</m> is  the line that passes through the point <m>(2,0)</m> and is perpendicular to the line
+                <m>y=\frac{1}{3}x+1</m>.
               </p>
             </li>
           </ol>
@@ -777,29 +780,50 @@
       </statement>
       <solution>
         <p>
-          <ol marker="labeltextbfalphitemsep10pttopsep10pt">
+          <ol>
             <li>
               <p>
-                Using the point-slope formula with slope <m>m=-2</m> and point <m>(x_0,y_0)=(3,1)</m>,
+                Using the point-slope formula with slope <m>m=-2</m> and point <m>(3,1)</m>,
                 we get the equation <m>y = -2(x-3)+1</m>.
-                To put this equation into slope-intercept form, we just simplify:
+                To derive the slope-intercept form, we simply distribute:
                 <me>
-                  y = -2(x-3)+1\Rightarrow y=-2x+6+1 \Rightarrow y=-2x+7
-                </me>
-                (The symbol <m>\Rightarrow</m> used in the calculation above denotes that the equality to the left of the symbol logically implies the equality to the right of the symbol.)
+                  y = -2(x-3)+1=-2x+6+1=-2x+7
+                </me>.
               </p>
             </li>
             <li>
               <p>
                 The slope of the line through the points <m>(x_1,y_1) = (-1,2)</m> and
-                <m>(x_2,y_2) =(3,4)</m> is <m>\frac{y_2-y_1}{x_2-x_1} = \frac{4-2}{3-(-1)} =\frac{2}{4} = \frac{1}{2}</m>.
-                Using this slope, the point <m>(-1,2)</m>,
-                and the two-point formula, we get
+                <m>(x_2,y_2) =(3,4)</m> is <me>m=\frac{y_2-y_1}{x_2-x_1} = \frac{4-2}{3-(-1)} =\frac{2}{4} = \frac{1}{2}</me>.
+                From the slope <m>m</m> and the point <m>(-1,2)</m> we derive the point-slope form 
                 <me>
-                  y = \frac{1}{2}(x-(-1))+2\Rightarrow y = \frac{1}{x}(x+1)+2 \Rightarrow y=\frac{1}{2}x+\frac{5}{2}
-                </me>
-                Using the point <m>(3,4)</m> will give you the same equation in slope-intercept form after simplifying.
-                Try it!
+                  y-2=m(x-(-1))=\frac{1}{2}(x+1)
+                </me>.
+                We then derive the slope-intercept form as 
+                <me>
+                  y=\frac{1}{2}(x+1)+2=\frac{1}{2}x+\frac{1}{2}+2=\frac{1}{2}x+\frac{5}{2}
+                </me>.
+                Note that using the other point <m>(3,4)</m> would yield a different point-slope form 
+                <me>
+                  y-4=\frac{1}{2}(x-3)
+                </me>,
+                which can then be brought into the same slope-intercept form as above with a little algebra.
+              </p>
+            </li>
+            <li>
+              <p>
+                The line with equation <m>2x-3y=5</m> can be rewritten in slope-intercept form as
+                <me>
+                  y=\frac{2}{3}x-\frac{5}{3}
+                </me>,
+                and thus has slope <m>\frac{2}{3}</m>. Since the line <m>L</m> is parallel to this line it also has slope <m>\frac{2}{3}</m>. Since it passes through the point <m>(4,9)</m>, <m>L</m> has point-slope form 
+                <me>
+                  y-9=\frac{2}{3}(x-4)
+                </me>,
+                and thus slope-intercept form
+                <me>
+                  y=\frac{2}{3}(x-4)+9=\frac{2}{3}x-\frac{8}{3}+\frac{27}{3}=\frac{2}{3}x+\frac{19}{3}
+                </me>.
               </p>
             </li>
             <li>
@@ -807,392 +831,674 @@
                 The line we are looking for is perpendicular to
                 <m>y=\frac{1}{3}x+1</m> and thus has slope <m>m=-\frac{1}{1/3} = -3</m>.
                 Using the point-slope form with slope <m>m=-3</m> and point <m>(x_0,y_0)=(2,0)</m>,
-                we obtain <m>y=-3(x-2)+0</m>.
-                In slope-intercept form the equation is written <m>y=-3x+6</m>.
+                we obtain the equation  <me>y=-3(x-2)</me>. As above, a little algebra then reveals the slope-intercept form 
+                <me>
+                  y=-3x+6
+                </me>.
               </p>
             </li>
           </ol>
         </p>
       </solution>
     </example>
-    <example>
-      <title>Checking the Answer</title>
-      <statement>
-        <p>
-          To verify that the three linear functions we just found are reasonable,
-          we can graph them with a graphing utility
-          (such as Desmos).
-          In particular, let's graph the lines <m>y=-3x+6</m> (red) and
-          <m>y=\frac{1}{3}x+1</m> (green) in part c to make sure they appear to be perpendicular:
-        </p>
-        <p>
-          <image width="46%" source="TaalmanPage57mod.png"/>
-        </p>
-        <p>
-          Notice that the scales on the <m>x</m>- and <m>y</m>-axes are the same,
-          so the lines correctly appear as perpendicular.
-          Additionally,
-          we can see that the point <m>(2,0)</m> is on the line <m>y=-3x+6</m>.
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          Find an equation for the line passing through <m>(4,9)</m> that is parallel to the line <m>2x-3y=5</m>.
-          Write your answer first in point-slope form and then in slope-intercept form.
-        </p>
-      </statement>
-    </exercise>
-  </subsection>
-  <subsection>
-    <title>Finding <m>x</m>-intercepts of Quadratic Functions</title>
-    <p>
-      In this section,
-      we develop algebraic methods for finding the <m>x</m>-intercepts of quadratic functions.
-      This is where the graph of the function crosses the <m>x</m>-axis.
-      As we can see in <xref ref="fig_quadratics">Figure</xref>,
-      by shifting the graph of a quadratic function vertically,
-      we can make its graph cross the <m>x</m>-axis 0 times
-      (as in the graph labeled <m>p</m>),
-      exactly 1 time ( as in the graph labeled <m>q</m>), or twice
-      (as in the graph labeled <m>r</m>).
-      These points are the <m>x</m>-intercepts,
-      sometimes referred to as <em>zeros</em> of the graph,
-      because these are the points where the quadratic function is equal to 0.
-    </p>
-    <figure xml:id="fig_quadratics">
-      <caption>Three examples of quadratic functions that open up.</caption>
-      <image width="37%" source="APCFigure1-5-3.png"/>
-    </figure>
-    <p>
-      If we want to find the zeros of a quadratic equation,
-      we must find the values of <m>x</m> that make the quadratic function <m>f(x) = ax^2+bx+c</m> equal to zero,
-      meaning we must solve solve the
-      <em>quadratic equation</em>
-      <m>ax^2+bx+c=0</m> for the variable <m>x</m>.
-      Some quadratic equations can be solved easily by <em>factoring</em>
-      the quadratic expression <m>ax^2+bx+c</m>.
-      To factor an algebraic expression,
-      you write that expression as a product of simpler expressions.
-      There are a few different common methods for factoring that we will discuss here:
-    </p>
-    <example xml:id="ex_factoring1">
-      <statement>
-        <p>
-          For example,
-          the expression <m>3x^2-6x</m> can be factored by recognizing that both terms share common factors of 3 and <m>x</m> that can be un-distributed from the expression:
-          <me>
-            3x^2-6x = 3x\cdot x-3x\cdot 2 = 3x(x-2)
-          </me>
-        </p>
-        <p>
-          We can think of this factoring as "reverse distributing."
-        </p>
-      </statement>
-    </example>
-    <p>
-      Some quadratic expressions can be factored by doing the "FOIL" ("First-Outside-Inside-Last") method backwards:
-    </p>
-    <example>
-      <statement>
-        <p>
-          For example, the expression
-          <m>x^2-3x-4</m> can be factored as <m>(x-4)(x+1)</m>.
-          Breaking this down,
-          observe that the first terms in both <m>x-4</m> and <m>x+1</m> are <m>x</m> and multiply to the <m>x^2</m>.
-          The outside terms <m>x</m> and <m>1</m> multiply to <m>x</m> while the inside terms <m>-4</m> and <m>x</m> multiply to <m>-4x</m>,
-          and that these can be added together to get <m>-3x</m>.
-          The last terms <m>-4</m> and <m>1</m> multiply to <m>-4</m>.
-        </p>
-        <p>
-          Here is a good
-          <url href="https://www.purplemath.com/modules/factquad.htm">Purplemath article</url>
-          and here is a
-          <url href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratics-multiplying-factoring/x2f8bb11595b61c86:factor-quadratics-intro/v/factoring-quadratic-expressions">Khan Academy video</url>
-          on factoring this type of quadratic.
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          Factor <m>x^2+11x+24</m> as much as possible by working backwards ("reverse FOILing") to find constants <m>a</m> and <m>b</m> with <m>x^2+11x+24 = (x+a)(x+b)</m>.
-          You may need to guess-and-check a few times to determine the answer.
-        </p>
-        <p>
-          <em>Challenge:</em> Factor <m>4x^2-7x-2</m> as much as possible.
-        </p>
-      </statement>
-    </exercise>
-    <p>
-      Differences of squares can be factored with the use of the following formula:
-    </p>
-    <theorem>
-      <title>Formulas for Factoring Differences of Squares</title>
-      <statement>
-        <p>
-          For all real numbers <m>n</m> and <m>m</m>,
-          <me>
-            n^2-m^2 = (n-m)(n+m)
-          </me>
-        </p>
-      </statement>
-    </theorem>
-    <example>
-      <statement>
-        <p>
-          The expression <m>x^2-4</m> can be rewritten as <m>x^2-2^2</m>,
-          which is the difference of the square of <m>x</m> and the square of <m>2</m>.
-          Thus the quadratic expression <m>x^2-4</m> can be factored as <m>(x-2)(x+2)</m>.
-        </p>
-      </statement>
-    </example>
-    <p>
-      There are more formulas for factoring differences of higher powers,
-      but we won't introduce them here.
-    </p>
-    <p>
-      The reason that factoring can help solve an equation is that a basic property of the real numbers is that a product can be equal to zero only if one of the factors in the product is zero.
-      In the following theorem we use the term
-      <em>real expressions,</em>
-      which will denote any expressions that when calculated are real numbers.
-    </p>
-    <theorem xml:id="thm_prodiszero">
-      <title>A Product Is Zero If and Only If One of the Factors Is Zero</title>
-      <statement>
-        <p>
-          For any real expressions <m>A</m> and <m>B</m>,
-          <m>AB=0</m> if and only if <m>A=0</m> or <m>B=0</m>.
-        </p>
-      </statement>
-    </theorem>
-    <example>
-      <statement>
-        <p>
-          Returning to <m>3x^2-6x = 3x(x-2)</m> from Example <xref ref="ex_factoring1"  />,
-          the real expression <m>3x(x-2)</m> is a product of the real expressions <m>3x</m> and <m>x-2</m>.
-          <m>3x=0</m> when <m>x=0</m> whereas <m>x-2=0</m> when <m>x=2</m>,
-          and so the product <m>3x(x-2)=0</m> when <em>either</em>
-          <m>x=0</m> or <m>x=2</m>.
-        </p>
-        <p>
-          Thus the quadratic function
-          <m>f(x) = 3x^2-6x</m> has zeros at <m>x=0</m> and <m>x=2</m>.
-          Use the Desmos graph at
-        </p>
-        <url href="https://www.desmos.com/calculator/yayrd6etuz">https://www.desmos.com/calculator/yayrd6etuz</url>
-        <p>
-          to verify that <m>f(x) = 3x^2-6x</m> crosses the <m>x</m>-axis at <m>x=0</m> and <m>x=2</m>.
-        </p>
-      </statement>
-    </example>
-    <example>
-      <statement>
-        <p>
-          We can solve the quadratic equation
-          <m>x^2-4 = 0</m> via factoring the difference of squares as before and setting each factor equal to 0:
-          <me>
-            \begin{aligned}x^2-4 \amp =0\\ (x-2)(x+2) \amp =0\\ x-2=0  \amp \text{ or }   x+2=0\\ x=2  \amp \text{ or }   x=-2 \end{aligned}
-          </me>
-        </p>
-        <p>
-          Thus the function <m>f(x) = x^2-4</m> has <m>x</m>-intercepts at <m>x=\pm 2</m>.
-        </p>
-      </statement>
-    </example>
     <remark>
+      <title>Checking the Answer</title>
       <p>
-        If you try to solve <m>x^2-4=0</m> by adding 4 to both sides and taking the square root of both sides,
-        you may think that there is only one solution when <m>x=2</m>.
-        For this reason,
-        factoring is a more reliable method for solving this type of equation!
-        We will explore why exactly we get the positive and negative square root of 4 as the solutions to <m>x^2=4</m> in Section 1.7.
+        To verify that the three linear functions we just found are reasonable,
+        we can graph them with a graphing utility
+        (such as Desmos).
+        In particular, let's graph the lines <m>y=-3x+6</m> (red) and
+        <m>y=\frac{1}{3}x+1</m> (green) in part c to make sure they appear to be perpendicular:
+      </p>
+        <image width="46%" source="TaalmanPage57mod.png"/>
+      <p>
+        Notice that the scales on the <m>x</m>- and <m>y</m>-axes are the same,
+        so the lines correctly appear as perpendicular.
+        Additionally,
+        we can see that the point <m>(2,0)</m> is on the line <m>y=-3x+6</m>.
+      </p>
+    </remark>
+  
+  </subsection>
+  <subsection xml:id="ss_quad_func_props">
+    <title>Properties of quadratic functions</title>
+    <p>
+      In exploring properties of quadratic functions, we are naturally led to two useful algebraic techniques: solving quadratic equations (by factoring or using the quadratic formula) and completing the square.
+    </p>
+    <p>
+      Given a quadratic function of the form <m>f(x)=ax^2+bx+c</m>, in order to find its roots and <m>x</m>-intercepts, we need to solve the equation
+      <me>
+        ax^2+bx+c=0
+      </me>.
+      <xref ref="proc_solve_quadr"/> describes a systematic procedure for solving such equations. The validity of that technique relies on two important results about real number algebra that are deserving of their own official statements. 
+    </p>
+    <theorem xml:id="th_zero_divisors">
+    <title>Zero product</title>
+    <statement>
+    <p>
+    Given <m>a,b\in \R</m>, we have <m>ab=0</m> if and only if <m>a=0</m> or <m>b=0</m>. Using logical notation: 
+    <men xml:id="eq_zero_divisors">
+      ab=0 \iff a=0 \text{ or } b=0
+    </men>.
+    In plain English, a product of two numbers is zero if and only if one of the numbers is equal to zero.
+    </p>
+    </statement>
+    </theorem>
+    <remark xml:id="rm_logical_notation">
+      <title>Logical notation</title>
+      <p>
+        The previous theorem sneaks in an important notion from logic, the <q>if and only if</q> connector, along with its double-headed, double-barreled arrow notation <m>\iff</m>. In general, given propositions <m>\mathcal{P}</m> and <m>\mathcal{Q}</m>, the compound statement <q><m>\mathcal{P}</m> if and only if <m>\mathcal{Q}</m></q>, written using logical notation as 
+        <me>
+          \mathcal{P}\iff \mathcal{Q}
+        </me>
+        means that proposition <m>\mathcal{P}</m> is true exactly when proposition <m>\mathcal{Q}</m> is true. More formally, this means the statements are <em>logically equivalent</em>. 
+      </p>
+      <p>
+        Logical equivalence, along with its logical notation <m>\iff</m>, is intimately related to the notion of <em>logical implication</em>, and its notation <m>\implies</m>. The statement <q><m>\mathcal{P}</m> implies <m>\mathcal{Q}</m></q> or <q>if <m>\mathcal{P}</m>, then <m>\mathcal{Q}</m></q>, written 
+        <me>
+          \mathcal{P}\implies \mathcal{Q}
+        </me>,
+        is the assertion that if proposition <m>\mathcal{P}</m> is true, so is proposition <m>\mathcal{Q}</m>. 
+      </p>
+      <p>
+        Mark well that the logical equivalence statement <m>\mathcal{P}\iff \mathcal{Q}</m> is <em>stronger</em> than the logical implication statement <m>\mathcal{P}\implies \mathcal{Q}</m>. More precisely, to assert <m>\mathcal{P}\iff \mathcal{Q}</m> is equivalent to asserting that two implications hold: <m>\mathcal{P}\implies \mathcal{Q}</m> and <m>\mathcal{Q}\implies \mathcal{P}</m>. This exlains why we use the double-headed arrow <m>\iff</m> to denote logical equivalence: <m>\mathcal{P}\iff \mathcal{Q}</m> asserts a two-way implication between <m>\mathcal{P}</m> and <m>\mathcal{Q}</m>. 
       </p>
     </remark>
     <p>
-      The phrase "if and only if" in <xref ref="thm_prodiszero">Theorem</xref>
-      is shorthand for saying that the implication goes both ways.
-      The forward direction of this implication says that if <m>AB</m> is zero,
-      then either <m>A</m> or <m>B</m>
-      (or both)
-      is zero. the backwards direction says that if <m>A</m> or <m>B</m> is zero,
-      then <m>AB</m> is also zero.
-      This theorem can be generalized to products involving more than two factors;
-      for example,
-      a product <m>ABCD=0</m> if and only if one or more of the factors <m>A</m>,
-      <m>B</m>,
-      <m>C</m>, and <m>D</m> is zero.
+      As simple and intuitive as the statement of <xref ref="th_zero_divisors"/> may seem, it plays an absolutely crucial role in algebra. Namely, it is the basis of the <em>factoring technique</em> for solving equations. Let's see why. Suppose we manage, after some factoring, to derive an equation of the form 
+      <me>
+        (3x+4)(-2x+7)=0
+      </me>.
+      According to <xref ref="th_zero_divisors"/>, since the product of the two numbers <m>3x+4</m> and <m>-2x+7</m> is zero, we must have 
+      <me>
+        3x+4=0 \text{ or } -2x+7=0
+      </me>.
+      Solving both of these linear equations separately and preserving our <q>or</q> connector, we conclude that 
+      <me>
+        x=-\frac{4}{3} \text{ or } x=\frac{7}{2}
+      </me>.
     </p>
-    <p>
-      <em>Warning!</em> <xref ref="thm_prodiszero">Theorem</xref>
-      applies only to equations that are set to zero, that is,
-      equations of the form <m>AB=0</m>.
-      Theorem does <em>not</em> say, for example,
-      that <m>3x(x-2)=2</m> if and only if <m>3x=2</m> or <m>x-2=2</m>.
-    </p>
-    <example>
-      <statement>
-        <p>
-          To find the solutions of the equation <m>x^2-3x=4</m>,
-          we CANNOT factor the left-hand side and then set each factor equal to a divisor of <m>4</m>.
-          For example, the following calculation is INCORRECT:
-          <me>
-            \begin{aligned}x^2-3x \amp = 4\\ x(x-3) \amp = 2\cdot 2\\ x=2  \amp \text{ or }   x-3=2\\ x=2  \amp \text{ or }   x=5 \end{aligned}
-          </me>
-        </p>
-        <p>
-          However, when <m>x=2</m>,
-          <me>
-            x^2-3x = (2)^2-3(2) = 4-6=-2\neq 4
-          </me>,
-          and when <m>x=5</m>,
-          <me>
-            x^2-3x = (5)^2-3(5) = 25-15 = 10\neq 4
-          </me>.
-        </p>
-        <p>
-          The correct method is to first subtract the 4 from both sides so that the right side is 0, and then factor the left-hand side:
-          <me>
-            \begin{aligned}x^2-3x \amp = 4\\ x^2-3x-4 \amp = 0\\ (x-4)(x+1) \amp = 0\\ x-4 = 0  \amp \text{ or }   x+1 = 0\\ x = 4  \amp \text{ or }   x = -1 \end{aligned}
-          </me>
-        </p>
-        <p>
-          You should check that <m>x^2-3x = 4</m> when either <m>x=4</m> or <m>x=-1</m> by plugging in those values and simplifying.
-        </p>
-      </statement>
-    </example>
-    <p>
-      Unfortunately, some quadratic expressions,
-      such as <m>3x^2-7x+1</m>, are not so easy to factor.
-      If we wish to find the <m>x</m>-values that satisfy the quadratic equation <m>3x^2-7x+1=0</m> without factoring,
-      we can apply the <em>quadratic formula</em>
-      to determine the solutions.
-    </p>
-    <theorem>
-      <title>The Quadratic Formula</title>
-      <statement>
-        <p>
-          If <m>a, b</m>, and <m>c</m> are real numbers,
-          the solutions of the quadratic equation <m>ax^2+bx+c=0</m> are of the form
-          <me>
-            x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
-          </me>
-        </p>
-      </statement>
-    </theorem>
-    <proof>
+    <warning>
+      <title>Factoring technique</title>
+<p>
+  The zero appearing in <xref ref="eq_zero_divisors"/> is absolutely essential. <xref ref="th_zero_divisors"/> draws no conclusions from a factored equation of the form 
+  <me>
+    ab=c
+  </me>
+  where <m>c\ne 0</m>. For example, consider the factored equation 
+  <me>
+    x(x+3)=4
+  </me>.
+  Observing that <m>4=2\cdot 2</m>, you might be tempted to conclude that since 
+  <me>
+    x(x+3)=4=2\cdot 2
+  </me>
+  we must have 
+  <me>
+    x=2 \text{ or } x+3=2
+  </me>,
+  and hence 
+  <me>
+    x=2 \text{ or } x=-1
+  </me>.
+  However, there is absolutely no justification for this step, and indeed the conclusion is false! Neither <m>x=2</m> nor <m>x=-1</m> is a solution of the equation <m>x(x+3)=4</m>, as is easily verified by evaluating <m>x(x+3)</m> at each of these values:
+  <md>
+  <mrow>x=2 \amp \implies x(x+3)=2\cdot 5=10\ne 4 </mrow>
+  <mrow>x=-1\amp \implies x(x+3)=-1\cdot 2=-2\ne 4 </mrow>
+  </md>.
+  This illustrates why, when solving an equation using factoring, we must always begin by bringing the equation into a form where one side is equal to zero. Continuing with the given equation, we proceed as follows:
+  <md>
+    <mrow>x(x+4) \amp =4</mrow>
+    <mrow>x(x+4)-4 \amp =0</mrow>
+    <mrow>x^2+4x-4 \amp = 0</mrow>
+    <mrow>(x+4)(x-1) \amp = 0</mrow>
+  </md>.
+  Now we have an equation to which <xref ref="th_zero_divisors"/> applies. We conclude that 
+  <md>
+    <mrow>x+4 =0  \text{ or }  x-1=0</mrow>
+  </md>,
+  and hence that 
+  <md>
+    <mrow>x =-4  \text{ or }  x=1</mrow>
+  </md>.
+</p>
+    </warning>
+  <p>
+    The second important property from real number algebra we need to recall is none other than the <em>quadratic formula</em>.
+  </p>
+  <theorem xml:id="th_quadratic_formula">
+  <title>Quadratic formula</title>
+  <statement>
+  <p>
+  Consider the equation 
+  <men xml:id="eq_quadratic">
+    ax^2+bx+c=0
+  </men>,
+  where <m>a,b,c\in \R</m> and <m>a\ne 0</m>.
+  <ol>
+    <li>
       <p>
-        Deriving the quadratic formula involves a process called "completing the square" that we aren't going to get into, but
-        <url href="https://www.youtube.com/watch?v=oUZ3s3JtrBE">here's a good video</url>
-        on deriving this formula, in case you are interested.
+        Equation <xref ref="eq_quadratic"/> has a real number solution if and only if 
+        <me>
+          b^2-4ac\geq 0
+        </me>.
       </p>
-    </proof>
-    <example>
-      <statement>
-        <p>
-          Applying the quadratic formula to the equation <m>3x^2-7x+1=0</m>,
-          we have <m>a=3</m>, <m>b=-7</m>,
-          and <m>c=1</m>, so the solutions are
-          <me>
-            \begin{aligned}x \amp =  \frac{-(-7)\pm\sqrt{(-7)^2-4(3)(1)}}{2(3)}\\ \amp = \frac{7\pm\sqrt{49-12}}{6}\\ \amp =\frac{7\pm\sqrt{37}}{6} \end{aligned}
-          </me>
-          and so the quadratic function <m>q(x)=3x^2-7x+1</m> has two roots at
-          <m>x=\frac{7+\sqrt{37}}{6}\approx 2.18046</m> and at <m>x=\frac{7-\sqrt{37}}{6}\approx 0.152873</m>.
-          Once again, you should verify this using this
-          <url href="https://www.desmos.com/calculator/4gsu8trpg8">Desmos graph</url>.
-        </p>
-      </statement>
-    </example>
+    </li>
+    <li>
+      <p>
+        Assume <m>b^2-4ac\geq 0</m>. The solutions to <xref ref="eq_quadratic"/> are 
+        <md>
+          <mrow>x \amp = \frac{-b+\sqrt{b^2-4ac}}{2a} \amp x\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}</mrow>
+        </md>,
+        or 
+        <men xml:id="eq_quadratic_sol">
+          x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}
+        </men>
+        for short. 
+      </p>
+    </li>
+  </ol>
+  </p>
+  </statement>
+  </theorem>
+  <remark>
+    <title>Quadratic formula and discriminant</title>
     <p>
-      The expression <m>b^2-4ac</m> is called the <em>discriminant</em>,
-      and it determines the number of solutions of the quadratic equation <m>ax^2+bx+c=0</m>.
-      <ul>
-        <li>
-          <p>
-            If <m>b^2-4ac</m> is positive,
-            then there will be two solutions:
-            one when the <m>\pm</m> symbol is a plus and one when it is a minus.
-          </p>
-        </li>
-        <li>
-          <p>
-            If <m>b^2-4ac</m> is zero,
-            then there is only one solution,
-            namely, <m>x=-\frac{b}{2a}</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            If <m>b^2-4ac</m> is negative,
-            then its square root is not a real number and thus the equation
-            <m>ax^2+bx+c=0</m> has no real solutions.
-            In this case the equation does have complex-number solutions,
-            but in this book we will be concerned only with real numbers,
-            so a quadratic equation with a negative discriminant will be said to have "no solutions."
-          </p>
-        </li>
-      </ul>
+      Note that <xref ref="th_quadratic_formula"/> supplies more than just a formula: the first part of the theorem tells us whether or not a given quadratic equation has a real solution. As asserted there, this depends on whether the constant 
+      <me>
+        D=b^2-4ac
+      </me>,
+      called the <term>discriminant</term> of the quadratic expression <m>ax^2+bx+c</m>, is nonnegative. 
     </p>
-    <exercise>
+    <p>
+      In particular, it tells us that the corresponding equation has no real solution if <m>D&lt; 0</m>. A classic example of this is furnished by the equation 
+      <men xml:id="eq_imaginary">
+        x^2=-1
+      </men>.
+      After bringing this equation into the form 
+      <me>
+        x^2+1=x^2+0x+1=0
+      </me>,
+      we see that the discriminant is
+      <me>
+        D=0^2-4\cdot 1\cdot 1=-4
+      </me>.
+      Since <m>D&lt; 0</m>, <xref ref="th_quadratic_formula"/> implies that this equation, and hence also the equation <xref ref="eq_imaginary"/>, has no real solution. Of course, this just reaffirms the fact that <m>-1</m> does not have a real square root.  
+    </p>
+    <aside>
+        <p>As you may already know, although <m>-1</m> does not have a <em>real</em> square root, we can expand the reals to a larger number system, called the <em>complex numbers</em>, in which <m>-1</m> does have a square-root. This is the origin of the famous <em>imaginary</em> number <m>i</m> satisfying <m>i^2=-1</m>.
+        </p>
+      </aside>
+  </remark>
+  <p>
+    We have now laid out the necessary groundwork for the following general procedure for solving quadratic equations. 
+  </p>
+    <algorithm xml:id="proc_solve_quadr">
+      <title>Solving quadratic equations</title>
       <statement>
         <p>
-          Find the zeros
-          (if there are any)
-          of the quadratic functions below,
-          either by factoring or using the quadratic formula.
-          Use a graph to check your answers.
-          <ol marker="labelalph">
+          Consider a quadratic equation of the form 
+          <me>
+            ax^2+bx=d
+          </me>.
+          To solve this equation for <m>x</m>, proceed as follows.
+          <ol>
+            
             <li>
               <p>
-                <m>f(x)=2x-48+x^2</m>
+                Use algebra to bring all terms to the left side (using addition/subtraction) and zero on the right side, obtaining an equation of the form 
+                <men xml:id="eq_solve_quad">
+                  ax^2+bx+c=0
+                </men>.
               </p>
             </li>
             <li>
               <p>
-                <m>g(x)=3x^2-9x-4</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>h(x) = 4x^2-81</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>k(x) = x^2+x+1</m>
+                If possible, factor the left side of <xref ref="eq_solve_quad"/> by hand to obtain an equation of the form 
+                <men xml:id="eq_factored_quad">
+                  (px+q)(rx+s)=0
+                </men>,
+                where <m>p</m>, <m>q</m>, <m>r</m>, and <m>s</m> are constants. Conclude that the solutions of <xref ref="eq_solve_quad"/> are
+                <md>
+                  <mrow>x\amp =-\frac{q}{r} \amp  x\amp =-\frac{s}{p}</mrow>
+                </md>.
+                If factoring by hand is difficult, solve <xref ref="eq_solve_quad"/> using the quadratic formula as follows. 
+                <ol>
+                  <li>
+                    <p>
+                      Compute the discriminant <m>D=b^2-4ac</m>. Equation <xref ref="eq_solve_quad"/> has a solution if and only if <m>D\geq 0</m>. 
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                    If <m>D&gt; 0</m>, then the solutions of <xref ref="eq_solve_quad"/> are given as 
+                    <md>
+                      <mrow>x \amp =\frac{-b+\sqrt{b^2-4ac}}{2a} \amp  x \amp =\frac{-b-\sqrt{b^2-4ac}}{2a}</mrow>
+                    </md>.
+                    </p>
+                  </li>
+                </ol>
               </p>
             </li>
           </ol>
         </p>
       </statement>
-    </exercise>
+    </algorithm>
+    <p>
+      Let's put <xref ref="proc_solve_quadr"/> to work with a variety of quadratic equations. As you will see, quadratic equations come in a number of different varieties, and each distinct variety lends itself to a particular variation of <xref ref="proc_solve_quadr"/>. Make sure to look at the solutions below, where we point out these different varieties and recall some factoring tricks.
+    </p>
+    <example xml:id="eg_quad_equations">
+    <title>Quadratic equations</title>
+    <statement>
+    <p>
+    Find all (if any) solutions to the given equation. 
+    <ol>
+      <li>
+        <p>
+          <m>9x^2=16</m>
+        </p>
+      </li>
+      
+      <li>
+        <p>
+          <m>x^2+\sqrt{2} x=0</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>20x^2+7x=3</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>x^2+x+1=0</m>
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+        <p>
+          We will solve this equation in two different ways. 
+        </p>
+        <p>
+          First observe that the absence of a term involving <m>x</m> in the equation <m>9x^2=16</m> allows us to solve just using the principal square root function: 
+          <md>
+            <mrow> 9x^2\amp =16\amp </mrow>
+            <mrow>x^2 \amp =\frac{16}{9}</mrow>
+            <mrow>x \amp = \pm \sqrt{\frac{16}{9}}=\pm \frac{4}{3}</mrow>
+          </md>.
+          You of course get the same answer by writing the equation as <m>9x^2-16=0</m> and using the quadratic formula, but our method above is quicker. As such, keep an eye out for quadratic equations lacking a term involving <m>x</m>.
+        </p>
+        <p>
+          Alternatively, writing the equation as <m>9x^2-16=0</m>, when can solve by factoring, noting that the left side is an instance of a <em>difference of squares</em> and using the general difference of squares formula 
+          <me>
+            a^2-b^2=(a-b)(a+b)
+          </me>.
+          Using this technique, we solve as follows: 
+          <md>
+            <mrow>9x^2-16 \amp =0</mrow>
+            <mrow>(3x)^2-4^2 \amp = 0 </mrow>
+            <mrow>(3x-4)(3x+4) \amp =0</mrow>
+            <mrow>3x-4=0 \text{ or } 3x+4 \amp=0 </mrow>
+            <mrow>x=\frac{4}{3} \text{ or } x \amp =-\frac{4}{3}</mrow>
+          </md>.
+          Moral: keep an eye out for quadratic expressions that are difference of squares; they factor easily! 
+        </p>
+      </li>
+      <li>
+        <p>
+          We solve the equation by factoring: 
+          <md>
+            <mrow>x^2+\sqrt{2}x \amp =0</mrow>
+            <mrow>x(x+\sqrt{2}) \amp =0 </mrow>
+            <mrow>x=0 \text{ or } x+\sqrt{2} \amp = 0</mrow>
+            <mrow>x=0 \text{ or } x \amp =-\sqrt{2}</mrow>
+          </md>.
+          What made the factoring easy here was the fact that each term in the expression <m>x^2-\sqrt{2}x</m> includes a factor of <m>x</m>. The factoring method here is thus a sort of <q>reverse distribution</q> method, since the equality 
+          <me>
+            x^2+\sqrt{2}x=x(x+\sqrt{2})
+          </me>
+          if read from right to left (<ie/>, in reverse), is just an assertion of the distributive property <m>a(b+c)=ab+ac</m>. 
+        </p>
+        <p>
+          Again, we could have also used the quadratic formula to solve the equation. That method would proceed as follows: 
+          <md>
+            <mrow>x^2+\sqrt{2}x\amp =0</mrow>
+            <mrow>x^2+\sqrt{2}x+0 \amp =0 </mrow>
+            <mrow> x\amp =\frac{-\sqrt{2}\pm \sqrt{(\sqrt{2})^2-4\cdot 0}}{2} </mrow>
+            <mrow> \amp = \frac{-\sqrt{2}\pm \sqrt{2}}{2}</mrow>
+            <mrow> \amp = 0, \sqrt{2} </mrow>
+          </md>.
+          Would you agree the first method is simpler? 
+        </p>
+      </li>
+      <li>
+        <p>
+         First write the equation as 
+         <md>
+          <mrow>20x^2+7x-3 \amp =0</mrow>
+         </md>.
+         Applying the quadratic formula here is not too difficult. We get the solutions 
+         <md>
+          <mrow>x \amp =\frac{-7\pm \sqrt{49+240}}{40}</mrow>
+          <mrow>\amp =\frac{-7\pm \sqrt{289}}{40} \amp (17^2=289)</mrow>
+          <mrow> \amp =\frac{-7\pm 17}{40} </mrow>
+          <mrow> \amp =\frac{1}{4}, -\frac{3}{5} </mrow>
+         </md>.
+         The fact that the two solutions here are nice <em>rational numbers</em> (<ie/>, quotients of integers) suggests that our quadratic expression factors nicely. Indeed, taking a factoring approach, we solve the equation as follows:
+         <md>
+          <mrow> 20x^2+7x-3 \amp =0 </mrow>
+          <mrow>(5x+3)(4x-1) \amp =0</mrow>
+          <mrow>5x+3=0 \text{ or } 4x-1 \amp =0</mrow>
+          <mrow>x=-\frac{3}{5} \text{ or } x \amp =\frac{1}{4}</mrow>
+         </md>.
+         The factoring step 
+          <me>
+            20x^2+7x-3=(5x+3)(4x-1)
+          </me>
+          was accomplished using what might be deemed a <q>reverse FOIL</q> method. Here we try and find constants <m>p,q,r,s</m> such that the factored expression 
+          <me>
+            (px+q)(rx+s)
+          </me>
+          expands out to <m>20x^2+7x-3</m> when using FOIL (First, Outer, Inner, Last). For this to be the case we need <m>p,q,r,s</m> to satisfy 
+          <md>
+            <mrow>pr \amp =20</mrow>
+            <mrow>qs \amp = -3</mrow>
+            <mrow>ps+qr \amp =7</mrow>
+          </md>.
+          The first two equations suggest that we play around with (positive and negative) integer factors of <m>20</m> and <m>3</m>, which leads to our factorization.
+          For a refresher of this technique, see this 
+          <url href="https://www.purplemath.com/modules/factquad.htm">Purplemath article</url>
+          or this 
+          <url href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratics-multiplying-factoring/x2f8bb11595b61c86:factor-quadratics-intro/v/factoring-quadratic-expressions">Khan Academy video</url>.
+        </p>
+      </li>
+      <li>
+        <p>
+          After trying in vain to factor the quadratic expression <m>x^2+x+1</m>, we make use of <xref ref="th_quadratic_formula"/>. The discriminant of this expression is 
+          <me>
+            D=1-4=-3
+          </me>.
+          Since <m>D&lt; 0</m>, we conclude that the equation 
+          <me>
+            x^2+x+1=0
+          </me>
+          has no real solutions. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+      For the sake of visibility, we make official some of the factoring tricks employed in the solution to <xref ref="eg_quad_equations"/> and variations thereof. 
+    </p>
+    <theorem xml:id="th_factoring">
+    <title>Quadratic factoring identities</title>
+    <statement>
+    <p>
+      Let <m>a,b\in \R</m>. 
+    <ol>
+      <li>
+        <title>Difference of squares</title>
+        <p>
+          <m>a^2-b^2=(a-b)(a+b).</m>
+        </p>
+      </li>
+      <li>
+        <title>Binomial square</title>
+        <p>
+          <m>(a+b)^2=a^2+2ab+b^2.</m>
+        </p>
+      </li>
+      <li>
+        <title>Distribution</title>
+        <p>
+          <m>a^2+ab=a(a+b).</m>
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    
+    </theorem>
+    
+    <p>
+      Now that we have a good command of solving quadratic equations, let's apply this knowledge to the analysis of quadratic functions. 
+    </p>
+    <example xml:id="eg_quad_func">
+    <title>Quadratic function properties</title>
+    <statement>
+    <p>
+    Let <m>f(x)=x^2+4x+3</m>.
+    <ol>
+      <li>
+        <p>
+          Compute the <m>x</m>-intercepts of <m>f</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Decide whether <m>-3</m> is an element of <m>\range f</m>.  
+        </p>
+      </li>
+      <li>
+        <p>
+          Compute <m>\range f</m>. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+        <p>
+          We solve the equation <m>f(x)=0</m> using the reverse FOIl factoring technique:
+          <md>
+            <mrow>x^2+4x+3 \amp =0</mrow>
+            <mrow>(x+3)(x+1) \amp = 0</mrow>
+            <mrow>x+3=0 \text{ or } x+1 \amp =0</mrow>
+            <mrow>x=-3\text { or } x \amp =-1</mrow>
+          </md>.
+          We conclude that the roots of <m>f</m> are <m>x=-3</m> and <m>x=-1</m>, and hence that the <m>x</m>-intercepts of <m>f</m> are <m>(-3,0)</m> and <m>(-1,0)</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Using <xref ref="d_range"/>, we have <m>-3\in \range f</m> if and only if there is an <m>x\in \R</m> (the domain of <m>f</m>) satisying <m>f(x)=-3</m>. In other words, <m>3\in \range f</m> if and only if we can solve the equation 
+          <me>
+            x^2+4x+3=-3
+          </me>.
+          Following <xref ref="proc_solve_quadr"/> we first bring the equation into standard form: 
+          <me>
+            x^2+4x+6=0
+          </me>.
+          After a few failed attempts of factoring the right side of the above equation by hand, we make use of <xref ref="th_quadratic_formula"/>. The discriminant of <m>x^2+4x+6</m> is 
+          <me>
+          D=4^2-4\cdot 6=16-24=-8
+          </me>.
+          Since <m>D&lt; 0</m>, we conclude that the equation has no solutions! Following our logic backwards, this means there is no <m>x</m> satisfying <m>f(x)=-3</m>, and hence that <m>-3</m> is not in the range of <m>f</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          The logic used in (b) can be generalized to answer this question. Namely, a real number <m>r</m> is an element of <m>\range f</m> if and only if we can solve the equation <m>f(x)=r</m>. Let's investigate this equation: 
+          <md>
+            <mrow>f(x) \amp =r</mrow>
+            <mrow>x^2+4x+3 \amp =r</mrow>
+            <mrow>x^2+4x+(3-r) \amp = 0</mrow>
+          </md>.
+          For which values of <m>r</m> does the last equation have a solution? The quadratic formula tells us that this has a solution if and only if the discriminant
+          <me>
+            D=4^2-4(3-r)=16-12+4r=4+4r
+          </me>
+          is nonnegative. We now solve the elementary inequality <m>4+4r\geq 0</m> for <m>r</m>:
+          <md>
+            <mrow> 4+4r\amp\geq 0 </mrow>
+            <mrow>4r \amp \geq -4</mrow>
+            <mrow>r \amp \geq -1</mrow>
+          </md>.
+          <aside>
+           <p> We have made use here of some techniques for solving inequalities: namely that an inequality is preserved when adding a constant to both sides of the inequality, or when multiplying both sides by a positive number. We will give a thorough treatment of solving inequalities in <xref ref="sec_solvinginequalities"/>.</p>
+          </aside>
+          Following are logic, we conclude that <m>f(x)=r</m> has a solution if and only if <m>r\geq -1</m>, and hence that <m>r\in \range f</m> if and only if <m>r\geq -1</m>. This shows that <m>\range f=[-1, \infty)</m>, the set of all real numbers greater than or equal to <m>-1</m>. 
+        </p>
+        <p>
+          Verify our claim <m>\range f=[-1,\infty)</m> graphically using <xref ref="fig_quad_fam"/>. In more detail, enter the quadratic function <m>f(x)=x^2+4x+3</m> into the Desmos interactive using the sliders and see why the resulting graph of <m>f</m> indicates that <m>\range f=[-1,\infty)</m>. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+  <p>
+    The quadratic formula played a crucial role in the fairly thorough analysis of the function in <xref ref="eg_quad_func"/>. Can we produce a similar analaysis that applies to the entire family of quadratic functions, as opposed to a single example? Indeed, we can, and with another algebraic tool: the method of <em>completing the square</em>. Consider again the function <m>f(x)=x^2+4x+3</m> treated in <xref ref="eg_quad_func"/>. Looking just at the first two terms <m>x^2+4x</m> of the formula for <m>f</m> and taking into consideration the identity <m>(a+b)^2=a^2+2ab+b^2</m> for the square of a binomial, we can re-write the formula for <m>f</m> as 
+    <md>
+      <mrow>f(x) \amp =x^2+4x+3</mrow>
+      <mrow> \amp = x^2+4x+4-4+3</mrow>
+      <mrow> \amp =(x+2)^2-1 </mrow>
+    </md>.
+    The funny step of adding and substracting 4 in the second line above was done solely to <q>complete</q> the nearly square expression <m>x^2+4x</m> to the square expression 
+    <me>
+      x^2+4x+4=(x+2)^2
+    </me>.
+    Re-writing the formula for <m>f</m> as <m>f(x)=(x+2)^2+-1</m> in this manner is called completing the square. What virtue is there in doing this? For one thing, the fact that 
+    <me>
+      \range f=[-1,\infty)
+    </me>,
+    which cost us some effort to conclude in <xref ref="eg_quad_func"/>,
+    is much easier to discern from this new formula. The key observation is that the term <m>(x+2)^2</m>, being a square, is <em>always nonnegative</em>. This means that the value <m>f(x)=(x+2)^2-1</m> is always of the form <m>-1</m> plus some nonnegative value. We conclude that <m>f(x)\geq -1</m> for all <m>x</m>, and thus that <m>\range f\subseteq [-1,\infty)</m>. Moreover, we see that <m>f</m> attains its minimum value of <m>-1</m> exactly when <m>(x+2)^2=0</m>: <ie/>, <m>f</m> has a unique global minumum at <m>x=-2</m>, with minimum value <m>f(-2)=-1</m>. 
+  </p>
+  <p>
+    Lastly, the algebra required to show that <m>\range f=[-1,\infty)</m> is simplified by our completed square formula: given any <m>r\in [-1,\infty)</m>, we can solve <m>f(x)=r</m>  for <m>x</m> without invoking the quadratic formula as follows:
+    <md>
+      <mrow>f(x) \amp = r</mrow>
+      <mrow>(x+2)^2-1 \amp =r</mrow>
+      <mrow>(x+2)^2 \amp =r+1</mrow>
+      <mrow>x+2 \amp = \pm \sqrt{r+1}</mrow>
+      <mrow>x \amp = -2\pm \sqrt{r+1}</mrow>
+    </md>.
+    Note that our use of the radical here is justified by the fact that <m>r\geq -1</m> and hence <m>r+1\geq 0</m>. 
+  </p>
+  <p>
+    Let's make official here this completing the square technique and the properties of quadtratic functions it immediately brings to light. We will revisit this technique in <xref ref="sec_func_transf"/> to deduce yet more properties of quadratic functions. 
+  </p>
+  <theorem xml:id="th_quad_funcs">
+  <title>Properties of quadratic functions</title>
+  <statement>
+  <p>
+  Let <m>f(x)=ax^2+bx+c</m>, where <m>a,b,c\in \R</m> and <m>a\ne 0</m>. 
+    <ol>
+      <li>
+        <title>Completing the square</title>
+        <p>
+          We have 
+          <men xml:id="eq_complete_square">
+            f(x)=a(x+d)^2+e
+          </men>,
+          where 
+          <mdn>
+            <mrow xml:id="eq_complete_square_consts">d\amp =\frac{b}{2a} \amp e\amp =c-\frac{b^2}{4a} </mrow>
+          </mdn>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>a&gt; 0</m>, then <m>\range f=[e,\infty)</m> and <m>f</m> has a unique global minimum at <m>x=-d</m>, where <m>d</m> and <m>e</m> are as in <xref ref="eq_complete_square"/>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>a&lt; 0</m>, then <m>\range f=(-\infty, e]</m> and <m>f</m> has a unique global maximum at <m>x=-d</m>, where <m>d</m> and <m>e</m> are as in <xref ref="eq_complete_square"/>.
+        </p>
+      </li>
+    </ol>
+</p>
+  </statement>
+  
+  </theorem>
+  <remark xml:id="rm_complete_square">
+    <title>Completing the square</title>
+    <p>
+      When completing the square for a quadratic expression, instead of commiting the formulas in <xref ref="eq_complete_square_consts"/> to memory, it is advisable to factor out the constant <m>a</m> first and complete the square on the resulting simpler quadratic expression whose leading term is equal to 1:
+      <md>
+        <mrow>f(x) \amp =ax^2+bx+c</mrow>
+        <mrow> \amp =a\left(x^2+\frac{b}{a}x\right)+c</mrow>
+        <mrow> \amp =a\left(x^2+\frac{b}{a}x+\frac{b^2}{4a^2}-\frac{b^2}{4a^2}\right)+c</mrow>
+        <mrow> \amp = a((x+b/a)^2-b^2/(4a^2))+c</mrow>
+        <mrow> \amp =a(x+b/a)^2+(c-b^2/(4a))</mrow>
+        <mrow> \amp =a(x+d)^2+e</mrow>
+      </md>.
+    </p>
+  </remark>
+  <example xml:id="eg_quad_complete_sq">
+  <title>Completing the square</title>
+  <statement>
+  <p>
+  Let <m>f(x)=-3x^2+7x-5</m>. 
+  <ol>
+    <li>
+      <p>
+        Derive a completed square formula for <m>f</m>. 
+      </p>
+    </li>
+    <li>
+      <p>
+        Compute the range of <m>f</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Determine whether <m>f</m> has a global minimum value and/or a global maximum value. 
+      </p>
+    </li>
+    <li>
+      <p>
+        Verify your answer using the Desmos interactive in <xref ref="fig_quad_fam"/>. 
+      </p>
+    </li>
+  </ol>
+  </p>
+  </statement>
+  <solution>
+  <p>
+        Following <xref ref="rm_complete_square"/> we compute 
+        <md>
+          <mrow>f(x) \amp =-3x^2+7x-5</mrow>
+          <mrow> \amp =-3\left(x^2-\frac{7}{3}x\right)-5</mrow>
+          <mrow> \amp =-3((x-7/6)^2-49/36)-5</mrow>
+          <mrow> \amp =-3(x-7/6)^2+49/12-5</mrow>
+          <mrow> \amp =-3(x-7/6)^2-11/12</mrow>
+        </md>.
+    From this completed square formula for <m>f</m> and <xref ref="th_quad_funcs"/>, we see that 
+    <me>
+      \range f=\left(-\infty, -\frac{11}{12}\right]
+    </me>
+    and that <m>f</m> attains a global maximum value of <m>-11/12</m> at <m>x=7/6</m>. There is no global minimum value of <m>f</m> since it attains all values in the infinite interval <m>(-\infty, -11/12]</m>.
+  </p>
+  <p>
+    Using the interactive in <xref ref="fig_quad_fam"/>, we produce a graph like the one in <xref ref="fig_quad_func_eg"/>. 
+  </p>
+  <figure xml:id="fig_quad_func_eg">
+    <caption>Graph of <m>f(x)=-3x+7x-5</m></caption>
+  
+  <image>
+    <shortdescription>Graph of quadratic function</shortdescription>
+    <sageplot>
+    f(x)=-3*x^2+7*x-5
+    plot(f(x),-1,3, thickness=3)
+    </sageplot>
+  </image>
+  </figure>
+  </solution>
+  </example>
+  
   </subsection>
-  <subsection>
-    <title>Summary</title>
-    <p>
-      The following terms and formulas were introduced in this section:
-    </p>
-    linear function, linear equation, identity function, constant function, quadratic function, quadratic equation, parameter, function with parameter;  <m>x</m>-intercept, zero of a function, <m>y</m>-intercept, positive (and negative), increasing (and decreasing), local maximum (and minimum), global maximum (and minimum), concave up (and concave down), inflection point; extrema, conjecture; slope-intercept form, point-slope form, and two-point form of a line; parallel, perpendicular; real expressions, difference of squares, quadratic formula, discriminant
-    <p>
-      <em>Key ideas:</em> Linear and quadratic functions can be written in the forms
-      <m>f(x)=mx+b</m> and <m>f(x) = ax^2+bx+c</m>, respectively,
-      for particular values of the parameters <m>m, a, b</m>,
-      and <m>c</m>.
-      There are alternate forms for the equations of a line that can be useful.
-      There are many methods for factoring quadratic equations and finding the <m>x</m>-intercepts of a quadratic function,
-      including using the Quadratic Formula.
-    </p>
-    <p>
-      <em>Other ideas introduced:</em>
-      Families of functions can have similar properties that change depending on the values of the parameters of the function.
-      We wish to develop algebraic methods for determining the properties of functions so we do not have to rely on computer-generated graphs.
-    </p>
-    <p>
-      \fbox{\fbox{ End of Section 1.2}}
-    </p>
-    <p>
-      \rule{1.1\textwidth}{2pt}
-    </p>
-  </subsection>
+  
 </section>
