@@ -1,5 +1,5 @@
 <section xml:id="sec_polyandratfuncs">
-  <title>Polynomial and Rational Functions</title>
+  <title>Polynomial and rational functions</title>
   <introduction>
     <p>
           <idx><h>Functions</h><h>Polynomial Functions</h></idx>
@@ -8,7 +8,8 @@
   </introduction>
   <subsection>
     <title>Learning Goals</title>
-    <ul>
+    <p>
+      <ul>
       <li>
         <p>
           Learn the definition of polynomial and rational functions.
@@ -35,6 +36,11 @@
         </p>
       </li>
     </ul>
+  </p>
+    
+  </subsection>
+  <subsection>
+    <title>Polynomial functions</title>
     <p>
       So far we have looked at linear and quadratic functions.
       Now we will expand to larger categories of functions,
@@ -42,127 +48,178 @@
       These functions are much more complicated,
       both in appearance and in their properties.
     </p>
-  </subsection>
-  <subsection>
-    <title>Definition of Polynomial Functions</title>
-    <example>
-      <statement>
-        <p>
-          Here are some examples of polynomials:
-          <me>
-            f(x) = 1-5x
-          </me>
-          <me>
-            f(x) = x^3
-          </me>
-          <me>
-            f(x) = 3
-          </me>
-          <me>
-            f(x) = x^4+1
-          </me>
-        </p>
-        <me>
-          f(x) = x^7+x^6+x^5+x^4+x^3+x^2+x+1
-        </me>
-        <me>
-          f(x) = x^5 -2x^3+2x^2-8x+10
-        </me>
-        <me>
-          f(x) = -x^3-x-1
-        </me>
-        <me>
-          f(x) = 4.23x^{517}-0.5x^{24}+x^{6}-\pi
-        </me>
-      </statement>
-    </example>
     <p>
-      Some things that we notice:
-      there can be many terms added together in a polynomial,
-      rather than just one, two, or three,
-      but there cannot be an unlimited number of terms added together.
-      Each term is either constant or a number times a power of <m>x</m>.
-      The power of <m>x</m> is always a positive whole number,
-      though the numbers in front of the <m>x</m>'s may be decimals.
-      Here is another way of saying this exact same thing using more formal mathematical language:
-    </p>
-    A <em>polynomial function</em> is a finite sum of terms of the form <m>ax^i</m> where <m>a</m> is some real number and <m>i</m> is any nonnegative integer (meaning <m>i=0, 1, 2, 3, \ldots</m>).
-    <p>
-      The following definition provides a general notation for writing down an arbitrary polynomial,
-      in much the same way that <m>f(x)=mx+b</m> is an arbitrary linear function and
-      <m>f(x)=ax^2+bx+c</m> is an arbitrary quadratic function
-      (those are also both polynomials).
-      Since we may have many many terms,
-      we use indices for the parameters <m>a_0, a_1, a_2</m>,
-      etc. in front of the powers of <m>x</m>,
-      and it's convenient to have the index match the power:
+      Before giving the formal definition, let's take a look at some examples of what we will call polynomial functions: 
+    <md>
+      <mrow>f(x) \amp =1-5x</mrow>
+      <mrow>f(x) \amp =x^3</mrow>
+      <mrow>f(x) \amp =3</mrow>
+      <mrow>f(x) \amp =2x^4+1</mrow>
+      <mrow>f(x) \amp =x^7+x^6+x^5+x^4+x^3+x^2+x+1</mrow>
+      <mrow>f(x) \amp = 4.23x^{517}-\sqrt{2}x^{24}+x^{6}-\pi</mrow>
+    </md>.
+      We next make a list of some common features of these functions.
+      <ul>
+        <li>
+          <p>
+           In contrast to linear and quadratic functions, these polynomials are seen to be sums of an unlimited (but finite) number of terms.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each term is either constant or a number times a power of <m>x</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The power of <m>x</m> is always a positive whole number, though the constant in front may be any real number whatsoever. 
+          </p>
+        </li>
+      </ul>
+      Lastly, we synthesize these observations in a formal definition. 
     </p>
     <definition xml:id="d_polynomialfunction">
-      <title>Polynomial Functions</title>
+      <title>Polynomials</title>
       <statement>
         <p>
-          A <em>polynomial function</em> is a function that can be written in the form
-          <me>
-            f(x) = a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}+\ldots+a_2x^2+a_1x+a_0
-          </me>
-          for some integer <m>n\geq 0</m> and some real numbers
-          <m>a_0, a_1, \ldots a_n</m> with <m>a_n\neq 0</m>.
-          The integer <m>n</m> is called the
-          <em>degree</em> of the polynomial,
-          and is the largest power of <m>x</m> that appears in the polynomial.
+          A <term>polynomial</term> is a function <m>f</m> that can be written in the form
+          <men xml:id="eq_poly">
+            f(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots+a_2x^2+a_1x+a_0
+          </men>
+          for some integer <m>n\geq 0</m> and real numbers
+          <m>a_0, a_1, \dots a_n</m>.
+          For each <m>0\leq k\leq n</m>, <m>a_kx^k</m> is called the <term><m>k</m>-th term</term> of <m>f</m> and <m>a_k</m> is called its <term><m>k</m>-th coefficient</term>; <m>a_0</m> is called the <term>constant term</term> of <m>f</m>. 
+        </p>
+        <p>
+          Furthermore, if <m>a_n\ne 0</m>, then <m>a_nx^n</m> is called the <term>leading term</term> of <m>f</m>, <m>a_n</m> its <term>leading coefficient</term>, and <m>n</m> its <term>degree</term>, denoted <m>\deg f</m>. 
         </p>
       </statement>
     </definition>
-    <remark>
+    <remark xml:id="rm_cons_lin_quad">
+      <title>Constant, linear, quadratic functions</title>
       <p>
-        As a matter of convention,
-        we also say that the constant zero function
-        <m>f(x) = 0</m> is a polynomial function
-        (and that its degree is undefined).
+        Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the <m>n</m> appearing in <xref ref="d_polynomialfunction"/> is equal to <m>0</m>, <m>1</m>, or <m>2</m>, as illustrated in <xref ref="table_cons_lin_quad"/>. 
+      </p>
+      <table xml:id="table_cons_lin_quad">
+        <title>Small degree polynomials</title>
+        <tabular>
+          <col halign="center" /><col halign="center" /><col halign="center" />
+          <row header="yes">
+            <cell><m>n</m></cell><cell>Type</cell><cell>Formula</cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>Constant</cell><cell><m>f(x)=a_0</m></cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>Linear</cell><cell><m>f(x)=a_1x+a_0</m></cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>Quadratic</cell><cell><m>f(x)=a_2x^2+a_1x+a_0</m>,  <m>a_2\ne 0</m></cell>
+          </row>
+        </tabular>
+      </table>
+      <p>
+        In this sense <xref ref="d_polynomialfunction"/> is a generalization of these earlier definitions. As such our <em>parametric</em> manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients <m>a_0,a_1,\dots, a_n</m> appearing in the general formula 
+        <me>
+          f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1+a_0
+        </me>
+        function as parameters: by varying our choice of the coefficients <m>a_k</m>, we get an infinite family of polynomials. 
       </p>
     </remark>
-    <p>
-      The parameters <m>a_n, a_{n-1}, a_{n-2}, \ldots a_1, a_0</m> are called the
-      <em>coefficients</em> of the polynomial.
-      The subscripts <m>n,
-      n-1, n-2, \ldots 2, 1, 0</m> on the coefficients are called <em>indices</em>
-      (a single one is called an <em>index</em>) and are a way of labeling lots of different parameters without running out of letters.
-      Note that the coefficient belonging to the term containing the power <m>x^i</m> is conveniently named <m>a_i</m>.
-      For example,
-      the coefficient of the term <m>x^2</m> is called <m>a_2</m>.
-      Each of the coefficients represents a single real number.
-      There are no restrictions on what the coefficients could be equal to,
-      but if we want the highest power of <m>x</m> in the polynomial to be <m>n</m>
-      (so that the degree is <m>n</m>),
-      then we need that coefficient,
-      labeled <m>a_n</m> to not be zero.
-      The coefficient <m>a_n</m> belonging to the highest power of <m>x</m> is called the
-      <em>leading coefficient</em>,
-      and the term <m>a_nx^n</m> containing the highest power of <m>x</m> with
-      <m>a_n\neq 0</m> is called the <em>leading term</em>.
-      The coefficient <m>a_0</m> is called the <em>constant term.</em>
-    </p>
+    
+    <remark xml:id="rm_zero_poly">
+      <title>Zero function and zero polynomial</title>
+      <p>
+        A function <m>f\colon D\rightarrow \R</m> is called a <term>zero function</term> if <m>f(x)=0</m> for all <m>x\in D</m>. Observe that a zero function is also a polynomial according to <xref ref="d_polynomialfunction"/>. Indeed we have 
+        <me>
+          f(x)=a_0
+        </me>
+        where <m>a_0=0</m>. Because of this, zero functions are also called <term>zero polynomials</term>.
+      </p>
+      <p>
+        Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in <xref ref="d_polynomialfunction"/> does not apply: <ie/>, technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be <m>-\infty</m>! 
+      </p>
+    </remark>
+    <remark>
+      <title>Larger degree polynomials</title>
+      <p>
+        Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials <m>f</m> of higher degree. 
+      </p>
+      <table>
+        <title>Polynomials of higher degree</title>
+        <tabular>
+          <col halign="left"/><col halign="center"/><col halign="center"/>
+          <row header="yes">
+            <cell>Formula</cell><cell>Degree</cell><cell>Type</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=a_2x^2+a_1x+a_0, a_2\ne 0</m></cell> <cell><m>\deg f=2</m></cell><cell>Quadratic</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=a_3x^3+a_2x^2+a_1x+a_0, a_3\ne 0</m></cell> <cell><m>\deg f=3</m></cell><cell>Cubic</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=a_4x^4+a_3x^3+\cdots +a_0, a_4\ne 0</m></cell> <cell><m>\deg f=4</m></cell><cell>Quartic</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=a_5x^5+a_4x^4+\cdots +a_0, a_5\ne 0</m></cell> <cell><m>\deg f=5</m></cell><cell>Quintic</cell>
+          </row>
+        </tabular>
+      </table>
+    </remark>
     <example>
+      <title>Polynomials</title>
       <statement>
         <p>
-          For the polynomial <m>f(x) = x(3x+1)(x-2)^2</m>,
-          determine the leading coefficient, leading term, degree,
-          constant term, and coefficients <m>a_1</m> and <m>a_3</m>.
+          Determine if the given function <m>f\colon \R\rightarrow\R</m> is a polynomial. If yes, determine the constant term of <m>f</m>, and if applicable, the leading term, leading coefficient, and degree. 
+          <ol>
+            <li>
+              <p>
+                <m>f(x)=-\sqrt{2}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x)=0</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x)=x(3x+1)(x-2)^2</m>
+              </p>
+            </li>
+          </ol>
         </p>
       </statement>
       <solution>
         <p>
-          We can expand <m>f(x)</m> as
-          <me>
-            \begin{aligned}f(x) \amp = x(3x+1)(x-2)^2\\ \amp = (3x^2+x)(x^2-4x+4)\\ \amp = 3 x^4 - 11 x^3 + 8 x^2 + 4 x \end{aligned}
-          </me>
-        </p>
-        <p>
-          From this, we can see that the leading coefficient is 3, the leading term is <m>3x^4</m>,
-          the degree is 4, the constant term is 0, the coefficient of <m>x=x^1</m> is <m>a_1</m> and so is equal to 4, and the coefficient of <m>x^3</m> is <m>a_3</m> and so is equal to <m>-11</m>.
+          <ol>
+            <li>
+              <p>
+                As discussed in <xref ref="rm_cons_lin_quad"/>, all constant functions are polynomials (corresponding to the choice <m>n=0</m>). In this case the constant term of <m>f</m> is <m>\sqrt{2}</m>. Since <m>\sqrt{2}\ne 0</m>, this is also the leading term and leading coefficient of <m>f</m>, and we have <m>\deg f=0</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                As discussed in <xref ref="rm_zero_poly"/>, the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply. 
+              </p>
+            </li>
+            <li>
+              <p>
+                The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form <xref ref="eq_poly"/>: 
+                <md>
+                  <mrow>f(x) \amp = x(3x+1)(x-2)^2</mrow>
+                  <mrow> \amp = (3x^2+x)(x^2-4x+4) </mrow>
+                  <mrow> \amp = 3 x^4 - 11 x^3 + 8 x^2 + 4 x+0</mrow>
+                </md>.
+                Once in this form, we see that the constant term of <m>f</m> is <m>0</m>, its leading term is <m>3x^4</m>, its leading coefficient is <m>3</m>, and its degree is <m>4</m>. 
+              </p>
+            </li>
+          </ol>
         </p>
       </solution>
     </example>
+
     <exercise>
       <statement>
         <p>
@@ -172,20 +229,6 @@
         </p>
       </statement>
     </exercise>
-    <p>
-      We have special names for some polynomials according to their degrees.
-      For example,
-      polynomials of degree 0 are called <em>constant</em>,
-      of degree 1 are called <em>linear</em>,
-      of degree 2 are called <em>quadratic</em>,
-      of degree 3 are called <em>cubic</em>,
-      of degree 4 are called <em>quartic</em>,
-      and of degree 5 are called <em>quintic</em> polynomials.
-      (Note: We require non-zero leading coefficients for quadratics and higher degrees,
-      but not for linear functions;
-      in other words,
-      we will consider constant functions to be linear as we did in <xref ref="sec_linearandquadraticfunctions" autoname="yes"/>.)
-    </p>
   </subsection>
   <subsection>
     <title>The Structure of Polynomial Functions: Factors and Zeros</title>
