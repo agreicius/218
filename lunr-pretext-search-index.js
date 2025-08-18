@@ -1104,51 +1104,60 @@ var ptx_lunr_docs = [
   "url": "sec_polyandratfuncs.html",
   "type": "Section",
   "number": "1.4",
-  "title": "Polynomial and Rational Functions",
-  "body": " Polynomial and Rational Functions    Functions Polynomial Functions  Functions Quadratic Functions     Learning Goals    Learn the definition of polynomial and rational functions.    Understand how zeros of polynomial functions correspond to linear factors.    Review the rules for fractions.    Discover how to find the domain of a rational functions.    Take a first look at the graphical properties of rational functions at points where they are undefined.    So far we have looked at linear and quadratic functions. Now we will expand to larger categories of functions, called polynomial and rational functions. These functions are much more complicated, both in appearance and in their properties.    Definition of Polynomial Functions    Here are some examples of polynomials:            Some things that we notice: there can be many terms added together in a polynomial, rather than just one, two, or three, but there cannot be an unlimited number of terms added together. Each term is either constant or a number times a power of . The power of is always a positive whole number, though the numbers in front of the 's may be decimals. Here is another way of saying this exact same thing using more formal mathematical language: A polynomial function is a finite sum of terms of the form where is some real number and is any nonnegative integer (meaning ). The following definition provides a general notation for writing down an arbitrary polynomial, in much the same way that is an arbitrary linear function and is an arbitrary quadratic function (those are also both polynomials). Since we may have many many terms, we use indices for the parameters , etc. in front of the powers of , and it's convenient to have the index match the power:   Polynomial Functions   A polynomial function is a function that can be written in the form for some integer and some real numbers with . The integer is called the degree of the polynomial, and is the largest power of that appears in the polynomial.     As a matter of convention, we also say that the constant zero function is a polynomial function (and that its degree is undefined).   The parameters are called the coefficients of the polynomial. The subscripts on the coefficients are called indices (a single one is called an index ) and are a way of labeling lots of different parameters without running out of letters. Note that the coefficient belonging to the term containing the power is conveniently named . For example, the coefficient of the term is called . Each of the coefficients represents a single real number. There are no restrictions on what the coefficients could be equal to, but if we want the highest power of in the polynomial to be (so that the degree is ), then we need that coefficient, labeled to not be zero. The coefficient belonging to the highest power of is called the leading coefficient , and the term containing the highest power of with is called the leading term . The coefficient is called the constant term.     For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .    We can expand as   From this, we can see that the leading coefficient is 3, the leading term is , the degree is 4, the constant term is 0, the coefficient of is and so is equal to 4, and the coefficient of is and so is equal to .      For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .    We have special names for some polynomials according to their degrees. For example, polynomials of degree 0 are called constant , of degree 1 are called linear , of degree 2 are called quadratic , of degree 3 are called cubic , of degree 4 are called quartic , and of degree 5 are called quintic polynomials. (Note: We require non-zero leading coefficients for quadratics and higher degrees, but not for linear functions; in other words, we will consider constant functions to be linear as we did in .)    The Structure of Polynomial Functions: Factors and Zeros  Higher degrees often result in more -intercepts, a.k.a. zeros, and more local minima and maxima in the graph of a polynomial.    Examine the cubic, quartic, and quintic polynomials in Figure below.   A cubic (left), quartic (middle), and quintic (right) polynomial and their graphs.    The cubic polynomial on the left has three -intercepts at , and . Note that we can see this from the factored form of by setting each factor equal to zero and solving for : .  The quartic polynomial in the middle also has three -intercepts , and . When factored, , and we can see that the -intercept comes from setting the factor equal to 0, while and come from and , respectively.  The quintic polynomial on the right has four zeros: , and . When factored, and we can see that each factor corresponds to an -intercept again.  Note that has one local minimum and one local maximum. has two local minima and one local maxima, and that the local minimum at is also a global minimum. has two local maxima and two local minima.    You may be wondering if there is a pattern or rule in the number of -intercepts and local minima\/maxima that a polynomial function has. It turns out that, yes, there is, but it is more complicated than our observations of linear and quadratic functions. There is a very powerful theorem (called The Fundamental Theorem of Algebra ) that says that every polynomial function can be factored into linear factors and\/or irreducible quadratic factors. Each of the linear factors corresponds to an -intercept.  A quadratic expression is irreducible if it cannot be factored with real-number coefficients; that is is irreducible if it cannot be written in the form for some real numbers and . Since each factor would correspond to an -intercept:  a quadratic expression is irreducible if the equation has no solution. We already know that the equation has no solution if the discriminant is negative, so we know that a quadratic expression is irreducible if and only if its discriminant is negative    For example, the quadratic expression is irreducible. We can rewrite in order to see that and then compute the discriminant:   Since the discriminant is negative, the quadratic expression is irreducible. It does not factor and we can see graphically that it does not have any zeros:   The graph of has no -intercepts.        Show that and are irreducible, first by computing their discriminants, then by graphing and observing that they are never equal to zero.    \\fbox{ Note that every linear factor of a polynomial corresponds to an -intercept of that polynomial, since if a polynomial can be factored as for some other polynomial (meaning, if is a factor of ), then and thus is an -intercept of . The converse is also true: if is an -intercept of , then has linear factor : for some other polynomial . }}    The polynomials in Figure on the previous page have already been factored for us. We can see that the cubic polynomial has three -intercepts. The -intercept at corresponds to the linear factor . The -intercept at corresponds to the linear factor . The -intercept at corresponds to the linear factor .  Note that also has three -intercept, despite being a fourth-degree polynomial. This is because there are two linear factors with the same -intercept of since the factorization of includes .  The quintic (degree-five) polynomial has four -intercepts, again with a double- -intercept at corresponding to the linear factor .    When a linear factor occurs more than once in the factorization of a polynomial , we say that has a repeated zero at . We say that repeated zeros are double zeros if the factorization includes , triple zeros if the factorization includes , and so on, according to the number of times the factor is repeated.    For example, the function has a double zero at and the polynomial has a triple zero at and a quadruple zero at . Notice in the graphs of these functions that there is some interesting behavior at the repeated zero:     In the first figure, the graph of does not go straight through the -axis at the double zero ; instead, it bounces off, much like a concave-down parabola. In the second graph, the triple zero at behaves like the graph of near its -intercept and the quadruple zero behaves like the graph of next its -intercept. This phenomenon happens in general: a zero repeated -times as a linear factor is graphically similar to the graph of near its -intercept.    The next theorem describes some key graphical properties of polynomial functions. The second part of Theorem is related to the Fundamental Theorem of Algebra, and the proof of this deep theorem is far, far beyond the score of this course. We will prove the third part after we learn more about derivatives.   Graphical Properties of Polynomial Functions   If is a polynomial function of degree , then the graph of    has domain     has at most real roots.    has at most local minima\/maxima; which we will call turning points          Give formulas and graphs for three cubic polynomials: one with three distinct real zeros, one with two distinct real zeros, and one with only one real, non-repeated, zero.    To construct a cubic polynomial with three distinct real zeros we simply multiply together three distinct linear factors, as shown in the picture below at the left. To obtain exactly two distinct zeros we can make one of our factors repeated, as in the middle picture. Finally, to have only one zero that is not repeated, we can multiply a linear factor and an irreducible quadratic factor, since irreducible quadratic factors do not have any real zeros; see the right-most picture. Note that the left and middle pictures both have two turning points, while the third picture has none.   Three cubic polynomials with one, two, and three distinct zeros, from right to left, respectively.      However, just because a polynomial has a factorization doesn't mean that we have an easy way to actually factor that polynomial! In general, factoring a polynomial is extremely hard, and is often impossible; there is no mathematical formula for finding the zeros of polynomials of degree 5 and higher. It's not that nobody has found such a formula yet. It has actually been proven as mathematical fact that it is impossible to find such a formula. How would you even prove that something is impossible? Mathematics can! The only \"manageable\" formulas for factoring higher-degree polynomials are generalizations of the \"difference of squares\" formula from :   Formulas for Factoring Differences of Powers   For all real numbers and , and any positive integer ,       The sixth-degree polynomial can first factor as a difference of squares: and then we can factor the cubic polynomial using the above formula for the difference of cubes:   The factorization is the best that we can do with our current methods, though the cubic factor does have a zero and can be reduced (we just don't know how).  Note that we also could have used the formula for 6-degree differences first and gotten but then we do not know how to factor the resulting degree-five polynomial. As we already mentioned, factoring is a seriously non-trivial mathematical endeavor. This could be another Expansion Project, if you are very interested in knowing how to do it. Just ask.       In Example , we factored as much as we are able. Verify that is irreducible (use the discriminant) and does not factor further. Then graph and estimate the location of its zero . This tells us that has another linear factor of that we could not find directly via factoring.      Rules for Fractions  In the next subsection, we will define rational functions. Because the word \"rational\" means that we will be working with fractions, before we talk about rational functions, we must recall some rules for adding, multiplying, and dividing fractions.   Algebraic Rules for Fractions   Let , and be any real numbers. Then (assuming that no denominator in any expression is zero)    Adding Fractions:       Multiplying Fractions:       Dividing Fractions:         You can also add fractions by forming the lowest common denominator.    We can calcuate using the formula above: but it is easier to convert to a common denominator of 6 instead:     The following are some more useful rules that are consequences of Theorem , meaning that you can manage just using the rules in Theorem , but these are convenient to remember as well.   More Algebraic Rules for Fractions   Let , and be any real numbers. Then (assuming that no denominator in any expression is zero)    Subtracting Fractions:       Multiplying a Fraction by a Number:       Dividing a Fraction by a Number:       Dividing a Number by a Fraction:           Which of the rules for fractions in Theorem and Theorem are familiar to you? Which are new to you? Pick one rule that is new to you and give an example using it with numbers. Check your work by plugging both sides into a calculator.      Definition of Rational Functions  A rational number is a number that can be written as a quotient (a.k.a. fraction) of the simplest possible numbers you can imagine, namely, integers. For example, and . Similarly, a rational function is a quotient of simpler functions, namely, polynomials.   Rational Functions are Quotients of Polynomials   A rational function is a function that can be written as the quotient of two polynomial functions for any such that .    Just like our previous definitions for functions, the key realization is that a rational function can be written in such a form. It does not have to begin that way.    We rewrite the function as a rational function by finding a common denominator, adding fractions, then simplifying:   Thus we see that is rational because it can be written as a fraction of the polynomial divided by the polynomial .      Use the rules for fractions in Theorem and Theorem to write the following function in the form of a rational function, that is, in the form where and are polynomial functions.   Begin by subtracting the fractions in the numerator, then divide by the denominator using Theorem part (c).      Domain and Zeros of Rational Functions  Remember that we cannot divide by 0. Using this idea, we can see from Definition that the domain of a rational function is all -values that are not zeros of the denominator of that function.    Let's find the domains of , , and .  The domain of is . We can write this using interval notation as .  The domain of is . We can write this using interval notation as .  The domain of is . We can write this using interval notation as .      Find the domain of .    We know that the domain of a rational function is all -values that are not zeros of the denominator. Thus we set the denominator equal to 0 and solve for , which will give us the -values to exclude from the domain.  Factoring, we have when and so when .  Thus the domain is since those are the -values where the denominator is equal to 0. Using interval notation we can write the domain as     What do the graphs of rational functions look like? They can be very interesting, especially because as we get close to -values that are not in the domain of the function, we are getting close to a point where we are dividing by 0. However, graphs of rational functions are highly dependent on small changes in their numerators and denominators. Pay careful attention to the details in the next example, especially the number of times that each linear factor is repeated in the numerator and\/or denominator:    What is the domain of the three following rational functions? What do the graphs look like near the -values that are not in the domain?     The domain of all three functions is since in all three functions, and are the zeros of the denominator. However, we can see that the functions have very different properties at and . and have a vertical asymptote at and a hole at . On the other hand, has vertical asymptotes at both and . We will look at some of the reasons for these here, but we will have to leave the details to explore later when we develop our language of limits .    The reason why and above have a hole at instead of a vertical asymptote is related to the following theorem:   Cancellation when Variables are Involved   Given any real expression that depends on a variable ,       For example, if you can cancel a common factor from the numerator and denominator of a fraction, the cancelled expression will equal the original expression for all values of  except  . One illustration of this theorem is the cancellation       In Example , the function has a hole at instead of a zero or vertical asymptote because algebraically, we can cancel the common :   Thus the graph of in Example looks identical to the graph of  except at the point where is undefined. We represent this undefined point on the graph with a hole.    The next theorem tells us when a quotient can be equal to zero. This theorem will help us solve equations that can be written as quotients.   When Is a Quotient Equal to Zero?   If and are any real expressions, then if and only if and .      For example, the function in Example does not have a zero at , even though its numerator is equal to zero when , even after canceling:   Because the original denominator of the function is zero when , the function is forever undefined at .    \\fbox{Note in particular that does not imply that .  In fact, if , then is undefined. That is why we require not only that but also that .  Note also that Theorem is valid only for equations that are set to zero. }}    Find the zeros of the function .    As we saw in Example , the domain of the function is found by setting the denominator equal to zero. According to Theorem , we find the zeros by setting the numerator equal to zero, and also checking that the denominator is not equal to zero.  The numerator is and .  We already found in Example that the denominator is equal to zero for , and so is not equal to zero when .  Thus the only zero of is at .      Find the domain of the function . What are the zeros, if any, of ?    The domain of is where the denominator , so .  The zeros of are where the numerator  and the denominator . Using the difference of squares,   But we already know that the denominator is 0 when , so the only zero of the function is       Graph the functions and using Desmos. Verify the zeros found in Example and Example are correct. Do the functions have vertical asymptotes or holes at their non-domain points? Note that Desmos will not automatically display an empty circle if there is a hole on a graph. However, if you try to evaluate the function at the point, it will tell you it is undefined.       Summary  The following terms were introduced in this section: polynomial function, degree, coefficient, leading coefficient, leading term, constant term; cubic, quartic, quintic polynomial; irreducible quadratic, repeated zero, double zero, triple zero; turning point; vertical asymptote, hole.  Key ideas: Linear factors of a polynomial function correspond to zeros, and a polynomial function of degree can have at most zeros. Rational functions are undefined where their denominators are equal to zero. They have zeros where their numerators are equal to zero, provided that the denominator is not also equal to zero.   Other ideas introduced: Polynomial functions of degree can have at most turning points. Rational functions can have either vertical asymptotes or holes at points where they are undefined. Factoring is really hard and often impossible for higher-degree polynomials.  \\fbox{\\fbox{ End of Section 1.5}}  \\rule{1.1\\textwidth}{2pt}   "
-},
-{
-  "id": "sec_polyandratfuncs-4-2",
-  "level": "2",
-  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-2",
-  "type": "Example",
-  "number": "1.4.1",
-  "title": "",
-  "body": "  Here are some examples of polynomials:           "
+  "title": "Polynomial and rational functions",
+  "body": " Polynomial and rational functions    Functions Polynomial Functions  Functions Quadratic Functions     Learning Goals     Learn the definition of polynomial and rational functions.    Understand how zeros of polynomial functions correspond to linear factors.    Review the rules for fractions.    Discover how to find the domain of a rational functions.    Take a first look at the graphical properties of rational functions at points where they are undefined.       Polynomial functions  So far we have looked at linear and quadratic functions. Now we will expand to larger categories of functions, called polynomial and rational functions. These functions are much more complicated, both in appearance and in their properties.  Before giving the formal definition, let's take a look at some examples of what we will call polynomial functions: . We next make a list of some common features of these functions.   In contrast to linear and quadratic functions, these polynomials are seen to be sums of an unlimited (but finite) number of terms.    Each term is either constant or a number times a power of .    The power of is always a positive whole number, though the constant in front may be any real number whatsoever.   Lastly, we synthesize these observations in a formal definition.   Polynomials   A polynomial is a function that can be written in the form for some integer and real numbers . For each , is called the -th term of and is called its -th coefficient ; is called the constant term of .  Furthermore, if , then is called the leading term of , its leading coefficient , and its degree , denoted .     Constant, linear, quadratic functions  Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the appearing in is equal to , , or , as illustrated in .   Small degree polynomials     Type Formula    0 Constant    1 Linear    2 Quadratic ,     In this sense is a generalization of these earlier definitions. As such our parametric manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients appearing in the general formula function as parameters: by varying our choice of the coefficients , we get an infinite family of polynomials.    Zero function and zero polynomial  A function is called a zero function if for all . Observe that a zero function is also a polynomial according to . Indeed we have where . Because of this, zero functions are also called zero polynomials .  Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in does not apply: , technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be !    Larger degree polynomials  Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials of higher degree.   Polynomials of higher degree     Formula Degree Type     Quadratic     Cubic     Quartic     Quintic       Polynomials   Determine if the given function is a polynomial. If yes, determine the constant term of , and if applicable, the leading term, leading coefficient, and degree.                        As discussed in , all constant functions are polynomials (corresponding to the choice ). In this case the constant term of is . Since , this is also the leading term and leading coefficient of , and we have .    As discussed in , the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.    The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form : . Once in this form, we see that the constant term of is , its leading term is , its leading coefficient is , and its degree is .         For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .      The Structure of Polynomial Functions: Factors and Zeros  Higher degrees often result in more -intercepts, a.k.a. zeros, and more local minima and maxima in the graph of a polynomial.    Examine the cubic, quartic, and quintic polynomials in Figure below.   A cubic (left), quartic (middle), and quintic (right) polynomial and their graphs.    The cubic polynomial on the left has three -intercepts at , and . Note that we can see this from the factored form of by setting each factor equal to zero and solving for : .  The quartic polynomial in the middle also has three -intercepts , and . When factored, , and we can see that the -intercept comes from setting the factor equal to 0, while and come from and , respectively.  The quintic polynomial on the right has four zeros: , and . When factored, and we can see that each factor corresponds to an -intercept again.  Note that has one local minimum and one local maximum. has two local minima and one local maxima, and that the local minimum at is also a global minimum. has two local maxima and two local minima.    You may be wondering if there is a pattern or rule in the number of -intercepts and local minima\/maxima that a polynomial function has. It turns out that, yes, there is, but it is more complicated than our observations of linear and quadratic functions. There is a very powerful theorem (called The Fundamental Theorem of Algebra ) that says that every polynomial function can be factored into linear factors and\/or irreducible quadratic factors. Each of the linear factors corresponds to an -intercept.  A quadratic expression is irreducible if it cannot be factored with real-number coefficients; that is is irreducible if it cannot be written in the form for some real numbers and . Since each factor would correspond to an -intercept:  a quadratic expression is irreducible if the equation has no solution. We already know that the equation has no solution if the discriminant is negative, so we know that a quadratic expression is irreducible if and only if its discriminant is negative    For example, the quadratic expression is irreducible. We can rewrite in order to see that and then compute the discriminant:   Since the discriminant is negative, the quadratic expression is irreducible. It does not factor and we can see graphically that it does not have any zeros:   The graph of has no -intercepts.        Show that and are irreducible, first by computing their discriminants, then by graphing and observing that they are never equal to zero.    \\fbox{ Note that every linear factor of a polynomial corresponds to an -intercept of that polynomial, since if a polynomial can be factored as for some other polynomial (meaning, if is a factor of ), then and thus is an -intercept of . The converse is also true: if is an -intercept of , then has linear factor : for some other polynomial . }}    The polynomials in Figure on the previous page have already been factored for us. We can see that the cubic polynomial has three -intercepts. The -intercept at corresponds to the linear factor . The -intercept at corresponds to the linear factor . The -intercept at corresponds to the linear factor .  Note that also has three -intercept, despite being a fourth-degree polynomial. This is because there are two linear factors with the same -intercept of since the factorization of includes .  The quintic (degree-five) polynomial has four -intercepts, again with a double- -intercept at corresponding to the linear factor .    When a linear factor occurs more than once in the factorization of a polynomial , we say that has a repeated zero at . We say that repeated zeros are double zeros if the factorization includes , triple zeros if the factorization includes , and so on, according to the number of times the factor is repeated.    For example, the function has a double zero at and the polynomial has a triple zero at and a quadruple zero at . Notice in the graphs of these functions that there is some interesting behavior at the repeated zero:     In the first figure, the graph of does not go straight through the -axis at the double zero ; instead, it bounces off, much like a concave-down parabola. In the second graph, the triple zero at behaves like the graph of near its -intercept and the quadruple zero behaves like the graph of next its -intercept. This phenomenon happens in general: a zero repeated -times as a linear factor is graphically similar to the graph of near its -intercept.    The next theorem describes some key graphical properties of polynomial functions. The second part of Theorem is related to the Fundamental Theorem of Algebra, and the proof of this deep theorem is far, far beyond the score of this course. We will prove the third part after we learn more about derivatives.   Graphical Properties of Polynomial Functions   If is a polynomial function of degree , then the graph of    has domain     has at most real roots.    has at most local minima\/maxima; which we will call turning points          Give formulas and graphs for three cubic polynomials: one with three distinct real zeros, one with two distinct real zeros, and one with only one real, non-repeated, zero.    To construct a cubic polynomial with three distinct real zeros we simply multiply together three distinct linear factors, as shown in the picture below at the left. To obtain exactly two distinct zeros we can make one of our factors repeated, as in the middle picture. Finally, to have only one zero that is not repeated, we can multiply a linear factor and an irreducible quadratic factor, since irreducible quadratic factors do not have any real zeros; see the right-most picture. Note that the left and middle pictures both have two turning points, while the third picture has none.   Three cubic polynomials with one, two, and three distinct zeros, from right to left, respectively.      However, just because a polynomial has a factorization doesn't mean that we have an easy way to actually factor that polynomial! In general, factoring a polynomial is extremely hard, and is often impossible; there is no mathematical formula for finding the zeros of polynomials of degree 5 and higher. It's not that nobody has found such a formula yet. It has actually been proven as mathematical fact that it is impossible to find such a formula. How would you even prove that something is impossible? Mathematics can! The only \"manageable\" formulas for factoring higher-degree polynomials are generalizations of the \"difference of squares\" formula from :   Formulas for Factoring Differences of Powers   For all real numbers and , and any positive integer ,       The sixth-degree polynomial can first factor as a difference of squares: and then we can factor the cubic polynomial using the above formula for the difference of cubes:   The factorization is the best that we can do with our current methods, though the cubic factor does have a zero and can be reduced (we just don't know how).  Note that we also could have used the formula for 6-degree differences first and gotten but then we do not know how to factor the resulting degree-five polynomial. As we already mentioned, factoring is a seriously non-trivial mathematical endeavor. This could be another Expansion Project, if you are very interested in knowing how to do it. Just ask.       In Example , we factored as much as we are able. Verify that is irreducible (use the discriminant) and does not factor further. Then graph and estimate the location of its zero . This tells us that has another linear factor of that we could not find directly via factoring.      Rules for Fractions  In the next subsection, we will define rational functions. Because the word \"rational\" means that we will be working with fractions, before we talk about rational functions, we must recall some rules for adding, multiplying, and dividing fractions.   Algebraic Rules for Fractions   Let , and be any real numbers. Then (assuming that no denominator in any expression is zero)    Adding Fractions:       Multiplying Fractions:       Dividing Fractions:         You can also add fractions by forming the lowest common denominator.    We can calcuate using the formula above: but it is easier to convert to a common denominator of 6 instead:     The following are some more useful rules that are consequences of Theorem , meaning that you can manage just using the rules in Theorem , but these are convenient to remember as well.   More Algebraic Rules for Fractions   Let , and be any real numbers. Then (assuming that no denominator in any expression is zero)    Subtracting Fractions:       Multiplying a Fraction by a Number:       Dividing a Fraction by a Number:       Dividing a Number by a Fraction:           Which of the rules for fractions in Theorem and Theorem are familiar to you? Which are new to you? Pick one rule that is new to you and give an example using it with numbers. Check your work by plugging both sides into a calculator.      Definition of Rational Functions  A rational number is a number that can be written as a quotient (a.k.a. fraction) of the simplest possible numbers you can imagine, namely, integers. For example, and . Similarly, a rational function is a quotient of simpler functions, namely, polynomials.   Rational Functions are Quotients of Polynomials   A rational function is a function that can be written as the quotient of two polynomial functions for any such that .    Just like our previous definitions for functions, the key realization is that a rational function can be written in such a form. It does not have to begin that way.    We rewrite the function as a rational function by finding a common denominator, adding fractions, then simplifying:   Thus we see that is rational because it can be written as a fraction of the polynomial divided by the polynomial .      Use the rules for fractions in Theorem and Theorem to write the following function in the form of a rational function, that is, in the form where and are polynomial functions.   Begin by subtracting the fractions in the numerator, then divide by the denominator using Theorem part (c).      Domain and Zeros of Rational Functions  Remember that we cannot divide by 0. Using this idea, we can see from Definition that the domain of a rational function is all -values that are not zeros of the denominator of that function.    Let's find the domains of , , and .  The domain of is . We can write this using interval notation as .  The domain of is . We can write this using interval notation as .  The domain of is . We can write this using interval notation as .      Find the domain of .    We know that the domain of a rational function is all -values that are not zeros of the denominator. Thus we set the denominator equal to 0 and solve for , which will give us the -values to exclude from the domain.  Factoring, we have when and so when .  Thus the domain is since those are the -values where the denominator is equal to 0. Using interval notation we can write the domain as     What do the graphs of rational functions look like? They can be very interesting, especially because as we get close to -values that are not in the domain of the function, we are getting close to a point where we are dividing by 0. However, graphs of rational functions are highly dependent on small changes in their numerators and denominators. Pay careful attention to the details in the next example, especially the number of times that each linear factor is repeated in the numerator and\/or denominator:    What is the domain of the three following rational functions? What do the graphs look like near the -values that are not in the domain?     The domain of all three functions is since in all three functions, and are the zeros of the denominator. However, we can see that the functions have very different properties at and . and have a vertical asymptote at and a hole at . On the other hand, has vertical asymptotes at both and . We will look at some of the reasons for these here, but we will have to leave the details to explore later when we develop our language of limits .    The reason why and above have a hole at instead of a vertical asymptote is related to the following theorem:   Cancellation when Variables are Involved   Given any real expression that depends on a variable ,       For example, if you can cancel a common factor from the numerator and denominator of a fraction, the cancelled expression will equal the original expression for all values of  except  . One illustration of this theorem is the cancellation       In Example , the function has a hole at instead of a zero or vertical asymptote because algebraically, we can cancel the common :   Thus the graph of in Example looks identical to the graph of  except at the point where is undefined. We represent this undefined point on the graph with a hole.    The next theorem tells us when a quotient can be equal to zero. This theorem will help us solve equations that can be written as quotients.   When Is a Quotient Equal to Zero?   If and are any real expressions, then if and only if and .      For example, the function in Example does not have a zero at , even though its numerator is equal to zero when , even after canceling:   Because the original denominator of the function is zero when , the function is forever undefined at .    \\fbox{Note in particular that does not imply that .  In fact, if , then is undefined. That is why we require not only that but also that .  Note also that Theorem is valid only for equations that are set to zero. }}    Find the zeros of the function .    As we saw in Example , the domain of the function is found by setting the denominator equal to zero. According to Theorem , we find the zeros by setting the numerator equal to zero, and also checking that the denominator is not equal to zero.  The numerator is and .  We already found in Example that the denominator is equal to zero for , and so is not equal to zero when .  Thus the only zero of is at .      Find the domain of the function . What are the zeros, if any, of ?    The domain of is where the denominator , so .  The zeros of are where the numerator  and the denominator . Using the difference of squares,   But we already know that the denominator is 0 when , so the only zero of the function is       Graph the functions and using Desmos. Verify the zeros found in Example and Example are correct. Do the functions have vertical asymptotes or holes at their non-domain points? Note that Desmos will not automatically display an empty circle if there is a hole on a graph. However, if you try to evaluate the function at the point, it will tell you it is undefined.       Summary  The following terms were introduced in this section: polynomial function, degree, coefficient, leading coefficient, leading term, constant term; cubic, quartic, quintic polynomial; irreducible quadratic, repeated zero, double zero, triple zero; turning point; vertical asymptote, hole.  Key ideas: Linear factors of a polynomial function correspond to zeros, and a polynomial function of degree can have at most zeros. Rational functions are undefined where their denominators are equal to zero. They have zeros where their numerators are equal to zero, provided that the denominator is not also equal to zero.   Other ideas introduced: Polynomial functions of degree can have at most turning points. Rational functions can have either vertical asymptotes or holes at points where they are undefined. Factoring is really hard and often impossible for higher-degree polynomials.  \\fbox{\\fbox{ End of Section 1.5}}  \\rule{1.1\\textwidth}{2pt}   "
 },
 {
   "id": "d_polynomialfunction",
   "level": "2",
   "url": "sec_polyandratfuncs.html#d_polynomialfunction",
   "type": "Definition",
-  "number": "1.4.2",
-  "title": "Polynomial Functions.",
-  "body": " Polynomial Functions   A polynomial function is a function that can be written in the form for some integer and some real numbers with . The integer is called the degree of the polynomial, and is the largest power of that appears in the polynomial.   "
+  "number": "1.4.1",
+  "title": "Polynomials.",
+  "body": " Polynomials   A polynomial is a function that can be written in the form for some integer and real numbers . For each , is called the -th term of and is called its -th coefficient ; is called the constant term of .  Furthermore, if , then is called the leading term of , its leading coefficient , and its degree , denoted .   "
 },
 {
-  "id": "sec_polyandratfuncs-4-11",
+  "id": "rm_cons_lin_quad",
   "level": "2",
-  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-11",
+  "url": "sec_polyandratfuncs.html#rm_cons_lin_quad",
   "type": "Remark",
-  "number": "1.4.3",
-  "title": "",
-  "body": " As a matter of convention, we also say that the constant zero function is a polynomial function (and that its degree is undefined).  "
+  "number": "1.4.2",
+  "title": "Constant, linear, quadratic functions.",
+  "body": " Constant, linear, quadratic functions  Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the appearing in is equal to , , or , as illustrated in .   Small degree polynomials     Type Formula    0 Constant    1 Linear    2 Quadratic ,     In this sense is a generalization of these earlier definitions. As such our parametric manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients appearing in the general formula function as parameters: by varying our choice of the coefficients , we get an infinite family of polynomials.  "
 },
 {
-  "id": "sec_polyandratfuncs-4-13",
+  "id": "rm_zero_poly",
   "level": "2",
-  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-13",
-  "type": "Example",
+  "url": "sec_polyandratfuncs.html#rm_zero_poly",
+  "type": "Remark",
   "number": "1.4.4",
-  "title": "",
-  "body": "  For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .    We can expand as   From this, we can see that the leading coefficient is 3, the leading term is , the degree is 4, the constant term is 0, the coefficient of is and so is equal to 4, and the coefficient of is and so is equal to .   "
+  "title": "Zero function and zero polynomial.",
+  "body": " Zero function and zero polynomial  A function is called a zero function if for all . Observe that a zero function is also a polynomial according to . Indeed we have where . Because of this, zero functions are also called zero polynomials .  Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in does not apply: , technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be !  "
 },
 {
-  "id": "sec_polyandratfuncs-4-14",
+  "id": "sec_polyandratfuncs-4-7",
   "level": "2",
-  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-14",
-  "type": "Checkpoint",
+  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-7",
+  "type": "Remark",
   "number": "1.4.5",
+  "title": "Larger degree polynomials.",
+  "body": " Larger degree polynomials  Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials of higher degree.   Polynomials of higher degree     Formula Degree Type     Quadratic     Cubic     Quartic     Quintic     "
+},
+{
+  "id": "sec_polyandratfuncs-4-8",
+  "level": "2",
+  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-8",
+  "type": "Example",
+  "number": "1.4.7",
+  "title": "Polynomials.",
+  "body": " Polynomials   Determine if the given function is a polynomial. If yes, determine the constant term of , and if applicable, the leading term, leading coefficient, and degree.                        As discussed in , all constant functions are polynomials (corresponding to the choice ). In this case the constant term of is . Since , this is also the leading term and leading coefficient of , and we have .    As discussed in , the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.    The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form : . Once in this form, we see that the constant term of is , its leading term is , its leading coefficient is , and its degree is .      "
+},
+{
+  "id": "sec_polyandratfuncs-4-9",
+  "level": "2",
+  "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-4-9",
+  "type": "Checkpoint",
+  "number": "1.4.8",
   "title": "",
   "body": "  For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .   "
 },
@@ -1157,7 +1166,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-3",
   "type": "Example",
-  "number": "1.4.6",
+  "number": "1.4.9",
   "title": "",
   "body": "  Examine the cubic, quartic, and quintic polynomials in Figure below.   A cubic (left), quartic (middle), and quintic (right) polynomial and their graphs.    The cubic polynomial on the left has three -intercepts at , and . Note that we can see this from the factored form of by setting each factor equal to zero and solving for : .  The quartic polynomial in the middle also has three -intercepts , and . When factored, , and we can see that the -intercept comes from setting the factor equal to 0, while and come from and , respectively.  The quintic polynomial on the right has four zeros: , and . When factored, and we can see that each factor corresponds to an -intercept again.  Note that has one local minimum and one local maximum. has two local minima and one local maxima, and that the local minimum at is also a global minimum. has two local maxima and two local minima.   "
 },
@@ -1166,7 +1175,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-6",
   "type": "Example",
-  "number": "1.4.8",
+  "number": "1.4.11",
   "title": "",
   "body": "  For example, the quadratic expression is irreducible. We can rewrite in order to see that and then compute the discriminant:   Since the discriminant is negative, the quadratic expression is irreducible. It does not factor and we can see graphically that it does not have any zeros:   The graph of has no -intercepts.     "
 },
@@ -1175,7 +1184,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-7",
   "type": "Checkpoint",
-  "number": "1.4.10",
+  "number": "1.4.13",
   "title": "",
   "body": "  Show that and are irreducible, first by computing their discriminants, then by graphing and observing that they are never equal to zero.   "
 },
@@ -1184,7 +1193,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-9",
   "type": "Example",
-  "number": "1.4.11",
+  "number": "1.4.14",
   "title": "",
   "body": "  The polynomials in Figure on the previous page have already been factored for us. We can see that the cubic polynomial has three -intercepts. The -intercept at corresponds to the linear factor . The -intercept at corresponds to the linear factor . The -intercept at corresponds to the linear factor .  Note that also has three -intercept, despite being a fourth-degree polynomial. This is because there are two linear factors with the same -intercept of since the factorization of includes .  The quintic (degree-five) polynomial has four -intercepts, again with a double- -intercept at corresponding to the linear factor .   "
 },
@@ -1193,7 +1202,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-11",
   "type": "Example",
-  "number": "1.4.12",
+  "number": "1.4.15",
   "title": "",
   "body": "  For example, the function has a double zero at and the polynomial has a triple zero at and a quadruple zero at . Notice in the graphs of these functions that there is some interesting behavior at the repeated zero:     In the first figure, the graph of does not go straight through the -axis at the double zero ; instead, it bounces off, much like a concave-down parabola. In the second graph, the triple zero at behaves like the graph of near its -intercept and the quadruple zero behaves like the graph of next its -intercept. This phenomenon happens in general: a zero repeated -times as a linear factor is graphically similar to the graph of near its -intercept.   "
 },
@@ -1202,7 +1211,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#thm_graphsofpolynomials1",
   "type": "Theorem",
-  "number": "1.4.13",
+  "number": "1.4.16",
   "title": "Graphical Properties of Polynomial Functions.",
   "body": " Graphical Properties of Polynomial Functions   If is a polynomial function of degree , then the graph of    has domain     has at most real roots.    has at most local minima\/maxima; which we will call turning points       "
 },
@@ -1211,7 +1220,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-14",
   "type": "Example",
-  "number": "1.4.14",
+  "number": "1.4.17",
   "title": "",
   "body": "  Give formulas and graphs for three cubic polynomials: one with three distinct real zeros, one with two distinct real zeros, and one with only one real, non-repeated, zero.    To construct a cubic polynomial with three distinct real zeros we simply multiply together three distinct linear factors, as shown in the picture below at the left. To obtain exactly two distinct zeros we can make one of our factors repeated, as in the middle picture. Finally, to have only one zero that is not repeated, we can multiply a linear factor and an irreducible quadratic factor, since irreducible quadratic factors do not have any real zeros; see the right-most picture. Note that the left and middle pictures both have two turning points, while the third picture has none.   Three cubic polynomials with one, two, and three distinct zeros, from right to left, respectively.     "
 },
@@ -1220,7 +1229,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-16",
   "type": "Theorem",
-  "number": "1.4.16",
+  "number": "1.4.19",
   "title": "Formulas for Factoring Differences of Powers.",
   "body": " Formulas for Factoring Differences of Powers   For all real numbers and , and any positive integer ,    "
 },
@@ -1229,7 +1238,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#ex_6degreepoly",
   "type": "Example",
-  "number": "1.4.17",
+  "number": "1.4.20",
   "title": "",
   "body": "  The sixth-degree polynomial can first factor as a difference of squares: and then we can factor the cubic polynomial using the above formula for the difference of cubes:   The factorization is the best that we can do with our current methods, though the cubic factor does have a zero and can be reduced (we just don't know how).  Note that we also could have used the formula for 6-degree differences first and gotten but then we do not know how to factor the resulting degree-five polynomial. As we already mentioned, factoring is a seriously non-trivial mathematical endeavor. This could be another Expansion Project, if you are very interested in knowing how to do it. Just ask.    "
 },
@@ -1238,7 +1247,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-5-18",
   "type": "Checkpoint",
-  "number": "1.4.18",
+  "number": "1.4.21",
   "title": "",
   "body": "  In Example , we factored as much as we are able. Verify that is irreducible (use the discriminant) and does not factor further. Then graph and estimate the location of its zero . This tells us that has another linear factor of that we could not find directly via factoring.   "
 },
@@ -1247,7 +1256,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#thm_fractionrules1",
   "type": "Theorem",
-  "number": "1.4.19",
+  "number": "1.4.22",
   "title": "Algebraic Rules for Fractions.",
   "body": " Algebraic Rules for Fractions   Let , and be any real numbers. Then (assuming that no denominator in any expression is zero)    Adding Fractions:       Multiplying Fractions:       Dividing Fractions:        "
 },
@@ -1256,7 +1265,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-6-5",
   "type": "Example",
-  "number": "1.4.20",
+  "number": "1.4.23",
   "title": "",
   "body": "  We can calcuate using the formula above: but it is easier to convert to a common denominator of 6 instead:    "
 },
@@ -1265,7 +1274,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#thm_fractionrules2",
   "type": "Theorem",
-  "number": "1.4.21",
+  "number": "1.4.24",
   "title": "More Algebraic Rules for Fractions.",
   "body": " More Algebraic Rules for Fractions   Let , and be any real numbers. Then (assuming that no denominator in any expression is zero)    Subtracting Fractions:       Multiplying a Fraction by a Number:       Dividing a Fraction by a Number:       Dividing a Number by a Fraction:        "
 },
@@ -1274,7 +1283,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-6-8",
   "type": "Checkpoint",
-  "number": "1.4.22",
+  "number": "1.4.25",
   "title": "",
   "body": "  Which of the rules for fractions in Theorem and Theorem are familiar to you? Which are new to you? Pick one rule that is new to you and give an example using it with numbers. Check your work by plugging both sides into a calculator.   "
 },
@@ -1283,7 +1292,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#d_rationalfunctions",
   "type": "Definition",
-  "number": "1.4.23",
+  "number": "1.4.26",
   "title": "Rational Functions are Quotients of Polynomials.",
   "body": " Rational Functions are Quotients of Polynomials   A rational function is a function that can be written as the quotient of two polynomial functions for any such that .   "
 },
@@ -1292,7 +1301,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-7-5",
   "type": "Example",
-  "number": "1.4.24",
+  "number": "1.4.27",
   "title": "",
   "body": "  We rewrite the function as a rational function by finding a common denominator, adding fractions, then simplifying:   Thus we see that is rational because it can be written as a fraction of the polynomial divided by the polynomial .   "
 },
@@ -1301,7 +1310,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-7-6",
   "type": "Checkpoint",
-  "number": "1.4.25",
+  "number": "1.4.28",
   "title": "",
   "body": "  Use the rules for fractions in Theorem and Theorem to write the following function in the form of a rational function, that is, in the form where and are polynomial functions.   Begin by subtracting the fractions in the numerator, then divide by the denominator using Theorem part (c).   "
 },
@@ -1310,7 +1319,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-8-3",
   "type": "Example",
-  "number": "1.4.26",
+  "number": "1.4.29",
   "title": "",
   "body": "  Let's find the domains of , , and .  The domain of is . We can write this using interval notation as .  The domain of is . We can write this using interval notation as .  The domain of is . We can write this using interval notation as .   "
 },
@@ -1319,7 +1328,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#ex_domainofrational",
   "type": "Example",
-  "number": "1.4.27",
+  "number": "1.4.30",
   "title": "",
   "body": "  Find the domain of .    We know that the domain of a rational function is all -values that are not zeros of the denominator. Thus we set the denominator equal to 0 and solve for , which will give us the -values to exclude from the domain.  Factoring, we have when and so when .  Thus the domain is since those are the -values where the denominator is equal to 0. Using interval notation we can write the domain as    "
 },
@@ -1328,7 +1337,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#ex_rationalfunctions",
   "type": "Example",
-  "number": "1.4.28",
+  "number": "1.4.31",
   "title": "",
   "body": "  What is the domain of the three following rational functions? What do the graphs look like near the -values that are not in the domain?     The domain of all three functions is since in all three functions, and are the zeros of the denominator. However, we can see that the functions have very different properties at and . and have a vertical asymptote at and a hole at . On the other hand, has vertical asymptotes at both and . We will look at some of the reasons for these here, but we will have to leave the details to explore later when we develop our language of limits .   "
 },
@@ -1337,7 +1346,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-8-8",
   "type": "Theorem",
-  "number": "1.4.29",
+  "number": "1.4.32",
   "title": "Cancellation when Variables are Involved.",
   "body": " Cancellation when Variables are Involved   Given any real expression that depends on a variable ,    "
 },
@@ -1346,7 +1355,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-8-9",
   "type": "Example",
-  "number": "1.4.30",
+  "number": "1.4.33",
   "title": "",
   "body": "  For example, if you can cancel a common factor from the numerator and denominator of a fraction, the cancelled expression will equal the original expression for all values of  except  . One illustration of this theorem is the cancellation    "
 },
@@ -1355,7 +1364,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-8-10",
   "type": "Example",
-  "number": "1.4.31",
+  "number": "1.4.34",
   "title": "",
   "body": "  In Example , the function has a hole at instead of a zero or vertical asymptote because algebraically, we can cancel the common :   Thus the graph of in Example looks identical to the graph of  except at the point where is undefined. We represent this undefined point on the graph with a hole.   "
 },
@@ -1364,7 +1373,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#thm_zeroquotient",
   "type": "Theorem",
-  "number": "1.4.32",
+  "number": "1.4.35",
   "title": "When Is a Quotient Equal to Zero?",
   "body": " When Is a Quotient Equal to Zero?   If and are any real expressions, then if and only if and .   "
 },
@@ -1373,7 +1382,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-8-13",
   "type": "Example",
-  "number": "1.4.33",
+  "number": "1.4.36",
   "title": "",
   "body": "  For example, the function in Example does not have a zero at , even though its numerator is equal to zero when , even after canceling:   Because the original denominator of the function is zero when , the function is forever undefined at .   "
 },
@@ -1382,7 +1391,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#ex_rationalzero",
   "type": "Example",
-  "number": "1.4.34",
+  "number": "1.4.37",
   "title": "",
   "body": "  Find the zeros of the function .    As we saw in Example , the domain of the function is found by setting the denominator equal to zero. According to Theorem , we find the zeros by setting the numerator equal to zero, and also checking that the denominator is not equal to zero.  The numerator is and .  We already found in Example that the denominator is equal to zero for , and so is not equal to zero when .  Thus the only zero of is at .   "
 },
@@ -1391,7 +1400,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#ex_rationalzeroandhole",
   "type": "Example",
-  "number": "1.4.35",
+  "number": "1.4.38",
   "title": "",
   "body": "  Find the domain of the function . What are the zeros, if any, of ?    The domain of is where the denominator , so .  The zeros of are where the numerator  and the denominator . Using the difference of squares,   But we already know that the denominator is 0 when , so the only zero of the function is    "
 },
@@ -1400,7 +1409,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_polyandratfuncs.html#sec_polyandratfuncs-8-19",
   "type": "Checkpoint",
-  "number": "1.4.36",
+  "number": "1.4.39",
   "title": "",
   "body": "  Graph the functions and using Desmos. Verify the zeros found in Example and Example are correct. Do the functions have vertical asymptotes or holes at their non-domain points? Note that Desmos will not automatically display an empty circle if there is a hole on a graph. However, if you try to evaluate the function at the point, it will tell you it is undefined.    "
 },
