@@ -47,7 +47,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -111,7 +128,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="changeme" class="pretext book ignore-math">
@@ -136,6 +153,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\R}{\mathbb R}
 \DeclareMathOperator{\range}{range}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -194,6 +212,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Properties of quadratic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ez-changing-quadratic" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -208,15 +227,11 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Polynomial and rational functions</span></a></div>
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Power, polynomial, rational functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="title">Polynomial functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="title">Rules for Fractions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="title">Definition of Rational Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -294,10 +309,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_linearandquadraticfunctions"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear and Quadratic Functions</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Linear and Quadratic Functions</span>
 </h2>
 <section class="introduction" id="sec_linearandquadraticfunctions-2"><div class="para" id="sec_linearandquadraticfunctions-2-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="subsection" id="sec_linearandquadraticfunctions-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Learning Goals</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Learning Goals</span>
 </h3>
 <div class="para logical" id="sec_linearandquadraticfunctions-3-2">
 <ul class="disc" id="sec_linearandquadraticfunctions-3-2-1">
@@ -325,20 +340,20 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_linearandquadraticfunctions-3" title="Copy heading and permalink for Subsection: Learning Goals" aria-label="Copy heading and permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="sec_linearandquadraticfunctions-4"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Definitions of linear and quadratic functions</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Definitions of linear and quadratic functions</span>
 </h3>
 <div class="para" id="sec_linearandquadraticfunctions-4-2">Part of our exploration of functions in this course will include the study of important <em class="emphasis">families</em> of functions. In this section we introduce two such families: <em class="emphasis">linear functions</em> and <em class="emphasis">quadratic functions</em>. These functions will serve as a useful starting point for two reasons: on the one hand, they are fairly simple functions and hence easy to analyze; on the other hand, these functions are widely used in real-world applications. For example, in statistics, the method of linear regression seeks to find a line that best describes the relationship between quantities that appear to change at a constant rate relative to each other; and quadratic functions are used in mechanics to model the height of an object falling under the force of gravity. We will explore several models that use linear and quadratic functions in <a href="sec_linearandquadraticmodeling.html" class="internal" title="Section 1.3: Modeling with Linear and Quadratic Functions">Section 1.3</a> after we develop our mathematical understanding of them.<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_linearandquadraticfunctions-4-3">We begin with the mathematical definitions of linear and quadratic functions. Recall that a <em class="emphasis">mathematical definition</em> is "used to give a precise meaning to a new term, by describing a condition which unambiguously qualifies what a mathematical term is and is not."<details class="ptx-footnote" aria-live="polite" id="sec_linearandquadraticfunctions-4-3-2"><summary class="ptx-footnote__number" title="Footnote 1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_linearandquadraticfunctions-4-3-2">
+<div class="para" id="sec_linearandquadraticfunctions-4-3">We begin with the mathematical definitions of linear and quadratic functions. Recall that a <em class="emphasis">mathematical definition</em> is "used to give a precise meaning to a new term, by describing a condition which unambiguously qualifies what a mathematical term is and is not."<details class="ptx-footnote" aria-live="polite" id="sec_linearandquadraticfunctions-4-3-2"><summary class="ptx-footnote__number" title="Footnote 1.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec_linearandquadraticfunctions-4-3-2">
 <a class="external" href="https://en.wikipedia.org/wiki/Definition" target="_blank">https://en.wikipedia.org/wiki/Definition</a> accessed August 4, 2022.</div></details> Thus the definitions below give us the precise meaning of a linear or quadratic function. Remember that we generally need a few examples to make sense of definitions, and these follow below each of the definitions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="assumption theorem-like" id="fiat_real-valued_functions"><h4 class="heading">
-<span class="type">Fiat</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Fiat</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
 </h4>
 <div class="para" id="fiat_real-valued_functions-1-1">Henceforth, unless specified otherwise, all functions in this course will be assumed to be of the form <span class="process-math">\(f\colon D\implies \R\text{,}\)</span> where <span class="process-math">\(D\subseteq \R\text{.}\)</span> In other words, by default, the inputs and outputs of functions in this course are assumed to be real numbers.<div class="autopermalink" data-description="Paragraph"><a href="#fiat_real-valued_functions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Fiat 1.2.1"><a href="#fiat_real-valued_functions" title="Copy heading and permalink for Fiat 1.2.1" aria-label="Copy heading and permalink for Fiat 1.2.1">🔗</a></div></article><article class="definition definition-like" id="d_linearfunction"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear functions.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Linear functions.</span>
 </h4>
 <div class="para logical" id="d_linearfunction-2-1">
 <div class="para">A function <span class="process-math">\(f\)</span> is <dfn class="terminology">linear</dfn> (or <dfn class="terminology">affine</dfn>) if there are real constants <span class="process-math">\(m\)</span> and <span class="process-math">\(b\)</span> such that</div>
@@ -351,7 +366,7 @@ f(x)=mx+b\tag{1.11}
 <div class="autopermalink" data-description="Paragraph"><a href="#d_linearfunction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 1.2.2: Linear functions"><a href="#d_linearfunction" title="Copy heading and permalink for Definition 1.2.2: Linear functions" aria-label="Copy heading and permalink for Definition 1.2.2: Linear functions">🔗</a></div></article><article class="example example-like" id="eg_linfuncs"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear functions.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Linear functions.</span>
 </h4>
 <div class="para logical" id="eg_linfuncs-2-1">
 <div class="para">Verify that the given function is linear using <a href="sec_linearandquadraticfunctions.html#d_linearfunction" class="xref" data-knowl="./knowl/xref/d_linearfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.2: Linear functions">Definition 1.2.2</a>.</div>
@@ -381,7 +396,7 @@ f(x)=mx+b\tag{1.11}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_linfuncs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_linfuncs-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="eg_linfuncs-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_linfuncs-3-1">
 <ol class="decimal" id="eg_linfuncs-3-1-1">
 <li id="eg_linfuncs-3-1-1-1">
@@ -437,7 +452,7 @@ f(x)=\frac{1}{2}(x+2)+2x+1=\frac{1}{2}x+1+2x+1=\frac{5}{2}x+2
 <div class="autopermalink" data-description="Solution 1.2.3.1"><a href="#eg_linfuncs-3" title="Copy heading and permalink for Solution 1.2.3.1" aria-label="Copy heading and permalink for Solution 1.2.3.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Example 1.2.3: Linear functions"><a href="#eg_linfuncs" title="Copy heading and permalink for Example 1.2.3: Linear functions" aria-label="Copy heading and permalink for Example 1.2.3: Linear functions">🔗</a></div></article><article class="remark remark-like" id="sec_linearandquadraticfunctions-4-7"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Standard form.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Standard form.</span>
 </h4>
 <div class="para" id="sec_linearandquadraticfunctions-4-7-2">As illustrated by <a href="sec_linearandquadraticfunctions.html#eg_linfuncs" class="xref" data-knowl="./knowl/xref/eg_linfuncs.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.2.3: Linear functions">Example 1.2.3</a>, a function can be linear even if its given formula does not look precisely like the form in <a href="sec_linearandquadraticfunctions.html#eq_affine_stand" class="xref" data-knowl="./knowl/xref/eq_affine_stand.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.11">(1.11)</a>. Often we need to manipulate the given formula algebraically in order to bring it into the <em class="emphasis">standard form</em> prescribed by <a href="sec_linearandquadraticfunctions.html#eq_affine_stand" class="xref" data-knowl="./knowl/xref/eq_affine_stand.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.11">(1.11)</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -445,7 +460,7 @@ f(x)=\frac{1}{2}(x+2)+2x+1=\frac{1}{2}x+1+2x+1=\frac{5}{2}x+2
 <a href="sec_linearandquadraticfunctions.html#eg_linfuncs" class="xref" data-knowl="./knowl/xref/eg_linfuncs.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.2.3: Linear functions">Example 1.2.3</a> included to important types of linear functions that deserve their own definition: the <em class="emphasis">identity function</em> and <em class="emphasis">constant functions</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_ident_const"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Identity function and constant functions.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Identity function and constant functions.</span>
 </h4>
 <div class="para logical" id="d_ident_const-2-1">
 <ul class="disc" id="d_ident_const-2-1-1">
@@ -481,7 +496,7 @@ f(x)=c\tag{1.13}
 <div class="autopermalink" data-description="Definition 1.2.5: Identity function and constant functions"><a href="#d_ident_const" title="Copy heading and permalink for Definition 1.2.5: Identity function and constant functions" aria-label="Copy heading and permalink for Definition 1.2.5: Identity function and constant functions">🔗</a></div></article><div class="para" id="sec_linearandquadraticfunctions-4-10">We now move on to <em class="emphasis">quadratic functions</em>, which are only slightly more complicated than linear functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_quad_func"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic function.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic function.</span>
 </h4>
 <div class="para logical" id="d_quad_func-2-1">
 <div class="para">A function <span class="process-math">\(f\)</span> is  <dfn class="terminology">quadratic</dfn> if there are real constants <span class="process-math">\(a,b,c\)</span> with <span class="process-math">\(a\ne 0\)</span> such that</div>
@@ -494,7 +509,7 @@ f(x)=ax^2+bx+c\tag{1.14}
 <div class="autopermalink" data-description="Paragraph"><a href="#d_quad_func-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 1.2.6: Quadratic function"><a href="#d_quad_func" title="Copy heading and permalink for Definition 1.2.6: Quadratic function" aria-label="Copy heading and permalink for Definition 1.2.6: Quadratic function">🔗</a></div></article><article class="remark remark-like" id="sec_linearandquadraticfunctions-4-12"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic functions.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic functions.</span>
 </h4>
 <div class="para logical" id="sec_linearandquadraticfunctions-4-12-2">
 <div class="para">Why do we insist that <span class="process-math">\(a\ne 0\)</span> in <a href="sec_linearandquadraticfunctions.html#d_quad_func" class="xref" data-knowl="./knowl/xref/d_quad_func.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.6: Quadratic function">Definition 1.2.6</a>? This is to distinguish linear functions as a separate family from quadratic functions. If we allowed <span class="process-math">\(a=0\)</span> in our definition of quadratic functions then a linear function <span class="process-math">\(f(x)=mx+b\)</span> would also be quadratic, since</div>
@@ -509,7 +524,7 @@ f(x)=mx+b=0x^2+mx+b
 <div class="autopermalink" data-description="Remark 1.2.7: Quadratic functions"><a href="#sec_linearandquadraticfunctions-4-12" title="Copy heading and permalink for Remark 1.2.7: Quadratic functions" aria-label="Copy heading and permalink for Remark 1.2.7: Quadratic functions">🔗</a></div></article><div class="para" id="sec_linearandquadraticfunctions-4-13">As with linear functions, we sometimes need to do a little algebraic work to show that a given quadratic function has a formula of the <em class="emphasis">standard form</em> represented by <a href="sec_linearandquadraticfunctions.html#eq_quad_stand" class="xref" data-knowl="./knowl/xref/eq_quad_stand.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.14">(1.14)</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="sec_linearandquadraticfunctions-4-14"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.8</span><span class="period">.</span>
 </h4>
 <div class="para logical" id="sec_linearandquadraticfunctions-4-14-1-1">
 <div class="para">Verify that the given function is quadratic using <a href="sec_linearandquadraticfunctions.html#d_quad_func" class="xref" data-knowl="./knowl/xref/d_quad_func.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.6: Quadratic function">Definition 1.2.6</a>.</div>
@@ -535,7 +550,7 @@ f(x)=mx+b=0x^2+mx+b
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_linearandquadraticfunctions-4-14-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="sec_linearandquadraticfunctions-4-14-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="sec_linearandquadraticfunctions-4-14-2-1">
 <ol class="decimal" id="sec_linearandquadraticfunctions-4-14-2-1-1">
 <li id="sec_linearandquadraticfunctions-4-14-2-1-1-1">
@@ -572,18 +587,18 @@ g(x) \amp= x^3-x(x^3+3x-7)+2 \\
 <div class="autopermalink" data-description="Solution 1.2.8.1"><a href="#sec_linearandquadraticfunctions-4-14-2" title="Copy heading and permalink for Solution 1.2.8.1" aria-label="Copy heading and permalink for Solution 1.2.8.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Checkpoint 1.2.8"><a href="#sec_linearandquadraticfunctions-4-14" title="Copy heading and permalink for Checkpoint 1.2.8" aria-label="Copy heading and permalink for Checkpoint 1.2.8">🔗</a></div></article><article class="remark remark-like" id="sec_linearandquadraticfunctions-4-15"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Parameters.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Parameters.</span>
 </h4>
 <div class="para" id="sec_linearandquadraticfunctions-4-15-2">It is important to note that when we write an expression like <span class="process-math">\(f(x) = mx+b\)</span> or <span class="process-math">\(f(x) = ax^2+bx+c\text{,}\)</span> only <span class="process-math">\(x\)</span> is being treated as a variable. The extra letters <span class="process-math">\(a, b, c\text{,}\)</span> and <span class="process-math">\(m\)</span> that are not variables are called <em class="emphasis">parameters</em> of the function. How should you think about these parameters and what they represent?<div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_linearandquadraticfunctions-4-15-3">While the word <em class="emphasis">parameter</em> may be new to you, the concept is probably not so unfamiliar. We can think of a <em class="emphasis">parameter</em> as a "dial" on the function machine. Setting the dials to different values creates different functions.<details class="ptx-footnote" aria-live="polite" id="sec_linearandquadraticfunctions-4-15-3-3"><summary class="ptx-footnote__number" title="Footnote 1.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec_linearandquadraticfunctions-4-15-3-3">Analogy and Image from <a class="external" href="https://mathinsight.org/function_machine_parameters" target="_blank">https://mathinsight.org/function_machine_parameters</a>
+<div class="para" id="sec_linearandquadraticfunctions-4-15-3">While the word <em class="emphasis">parameter</em> may be new to you, the concept is probably not so unfamiliar. We can think of a <em class="emphasis">parameter</em> as a "dial" on the function machine. Setting the dials to different values creates different functions.<details class="ptx-footnote" aria-live="polite" id="sec_linearandquadraticfunctions-4-15-3-3"><summary class="ptx-footnote__number" title="Footnote 1.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="sec_linearandquadraticfunctions-4-15-3-3">Analogy and Image from <a class="external" href="https://mathinsight.org/function_machine_parameters" target="_blank">https://mathinsight.org/function_machine_parameters</a>
 </div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-15-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.2.9: Parameters"><a href="#sec_linearandquadraticfunctions-4-15" title="Copy heading and permalink for Remark 1.2.9: Parameters" aria-label="Copy heading and permalink for Remark 1.2.9: Parameters">🔗</a></div></article><figure class="figure figure-like" id="fig_func-machine"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_func_machine"><img src="external/mathinsight-functionmachine.png" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Function visualized as machine turning inputs into outputs<div class="autopermalink" data-description="Figure 1.2.10.(a)"><a href="#fig_func_machine" title="Copy heading and permalink for Figure 1.2.10.(a)" aria-label="Copy heading and permalink for Figure 1.2.10.(a)">🔗</a></div></figcaption></figure></div>
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_func_machine_dials"><img src="external/mathinsight-functionmachine-withdials.png" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Parameters visualized as adjustment dials on function machine<div class="autopermalink" data-description="Figure 1.2.10.(b)"><a href="#fig_func_machine_dials" title="Copy heading and permalink for Figure 1.2.10.(b)" aria-label="Copy heading and permalink for Figure 1.2.10.(b)">🔗</a></div></figcaption></figure></div>
+<div class="autopermalink" data-description="Remark 1.2.9: Parameters"><a href="#sec_linearandquadraticfunctions-4-15" title="Copy heading and permalink for Remark 1.2.9: Parameters" aria-label="Copy heading and permalink for Remark 1.2.9: Parameters">🔗</a></div></article><figure class="figure figure-like" id="fig_func-machine"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="fig_func_machine"><img src="external/mathinsight-functionmachine.png" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>Function visualized as machine turning inputs into outputs<div class="autopermalink" data-description="Figure 1.2.10.(a)"><a href="#fig_func_machine" title="Copy heading and permalink for Figure 1.2.10.(a)" aria-label="Copy heading and permalink for Figure 1.2.10.(a)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="fig_func_machine_dials"><img src="external/mathinsight-functionmachine-withdials.png" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>Parameters visualized as adjustment dials on function machine<div class="autopermalink" data-description="Figure 1.2.10.(b)"><a href="#fig_func_machine_dials" title="Copy heading and permalink for Figure 1.2.10.(b)" aria-label="Copy heading and permalink for Figure 1.2.10.(b)">🔗</a></div></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Machine analogy for functions and parameters<div class="autopermalink" data-description="Figure 1.2.10"><a href="#fig_func-machine" title="Copy heading and permalink for Figure 1.2.10" aria-label="Copy heading and permalink for Figure 1.2.10">🔗</a></div></figcaption></figure><div class="para logical" id="sec_linearandquadraticfunctions-4-17">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.10<span class="period">.</span></span><span class="space"> </span>Machine analogy for functions and parameters<div class="autopermalink" data-description="Figure 1.2.10"><a href="#fig_func-machine" title="Copy heading and permalink for Figure 1.2.10" aria-label="Copy heading and permalink for Figure 1.2.10">🔗</a></div></figcaption></figure><div class="para logical" id="sec_linearandquadraticfunctions-4-17">
 <div class="para">Consider the general form of a linear function:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -608,7 +623,7 @@ f(x) = mx + b\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_desmos_linear"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Desmos: family of linear functions.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Desmos: family of linear functions.</span>
 </h4>
 <div class="para logical" id="eg_desmos_linear-2-1">
 <div class="para">The Desmos interactive in <a href="sec_linearandquadraticfunctions.html#fig_linear_fam" class="xref" data-knowl="./knowl/xref/fig_linear_fam.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.12">Figure 1.2.12</a> illustrates what effect the parameters <span class="process-math">\(m\)</span> and <span class="process-math">\(b\)</span> defining a linear function have on the graph of this function.</div>
@@ -625,7 +640,7 @@ f(x) = mx + b\text{.}
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_desmos_linear-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig_linear_fam"><iframe src="https://www.desmos.com/calculator/uo5qirntxg" id="fig_linear_fam-2" width="360" height="540"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><a class="external" href="https://www.desmos.com/calculator/uo5qirntxg" target="_blank">Desmos interactive</a>: adjusting parameters of linear functions<div class="autopermalink" data-description="Figure 1.2.12"><a href="#fig_linear_fam" title="Copy heading and permalink for Figure 1.2.12" aria-label="Copy heading and permalink for Figure 1.2.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.2.11: Desmos: family of linear functions"><a href="#eg_desmos_linear" title="Copy heading and permalink for Example 1.2.11: Desmos: family of linear functions" aria-label="Copy heading and permalink for Example 1.2.11: Desmos: family of linear functions">🔗</a></div></article><div class="para logical" id="sec_linearandquadraticfunctions-4-19">
+</div> <figure class="figure figure-like" id="fig_linear_fam"><iframe src="https://www.desmos.com/calculator/uo5qirntxg" id="fig_linear_fam-2" width="360" height="540"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.12<span class="period">.</span></span><span class="space"> </span><a class="external" href="https://www.desmos.com/calculator/uo5qirntxg" target="_blank">Desmos interactive</a><details class="ptx-footnote" aria-live="polite" id="fig_linear_fam-1-2"><summary class="ptx-footnote__number" title="Footnote 1.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="fig_linear_fam-1-2"><code class="code-inline tex2jax_ignore">www.desmos.com/calculator/uo5qirntxg</code></div></details>: adjusting parameters of linear functions<div class="autopermalink" data-description="Figure 1.2.12"><a href="#fig_linear_fam" title="Copy heading and permalink for Figure 1.2.12" aria-label="Copy heading and permalink for Figure 1.2.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.2.11: Desmos: family of linear functions"><a href="#eg_desmos_linear" title="Copy heading and permalink for Example 1.2.11: Desmos: family of linear functions" aria-label="Copy heading and permalink for Example 1.2.11: Desmos: family of linear functions">🔗</a></div></article><div class="para logical" id="sec_linearandquadraticfunctions-4-19">
 <div class="para">Similarly, the general form</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eg_desmos_quad.html">
 \begin{equation*}
@@ -636,7 +651,7 @@ f(x)=ax^2+bx+c
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_linearandquadraticfunctions-4-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_desmos_quad"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Desmos: family of quadratic functions.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.13</span><span class="period">.</span><span class="space"> </span><span class="title">Desmos: family of quadratic functions.</span>
 </h4>
 <div class="para logical" id="eg_desmos_quad-2-1">
 <div class="para">The Desmos interactive in <a href="sec_linearandquadraticfunctions.html#fig_quad_fam" class="xref" data-knowl="./knowl/xref/fig_quad_fam.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.14">Figure 1.2.14</a> explores what effect the parameters <span class="process-math">\(a,b,c\)</span> have on the graph of a quadratic function of the form <span class="process-math">\(f(x)=ax^2+bx+c\text{.}\)</span>
@@ -654,13 +669,13 @@ f(x)=ax^2+bx+c
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_desmos_quad-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig_quad_fam"><iframe src="https://www.desmos.com/calculator/yayrd6etuz" id="fig_quad_fam-2" width="360" height="540"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><a class="external" href="https://www.desmos.com/calculator/yayrd6etuz" target="_blank">Desmos interactive</a>: adjusting parameters of quadratic functions<div class="autopermalink" data-description="Figure 1.2.14"><a href="#fig_quad_fam" title="Copy heading and permalink for Figure 1.2.14" aria-label="Copy heading and permalink for Figure 1.2.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.2.13: Desmos: family of quadratic functions"><a href="#eg_desmos_quad" title="Copy heading and permalink for Example 1.2.13: Desmos: family of quadratic functions" aria-label="Copy heading and permalink for Example 1.2.13: Desmos: family of quadratic functions">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Definitions of linear and quadratic functions"><a href="#sec_linearandquadraticfunctions-4" title="Copy heading and permalink for Subsection: Definitions of linear and quadratic functions" aria-label="Copy heading and permalink for Subsection: Definitions of linear and quadratic functions">🔗</a></div></section><section class="subsection" id="subsec_propgraphs1"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of linear functions</span>
+</div> <figure class="figure figure-like" id="fig_quad_fam"><iframe src="https://www.desmos.com/calculator/yayrd6etuz" id="fig_quad_fam-2" width="360" height="540"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.14<span class="period">.</span></span><span class="space"> </span><a class="external" href="https://www.desmos.com/calculator/yayrd6etuz" target="_blank">Desmos interactive</a><details class="ptx-footnote" aria-live="polite" id="fig_quad_fam-1-2"><summary class="ptx-footnote__number" title="Footnote 1.7"><sup> 7 </sup></summary><div class="ptx-footnote__contents" id="fig_quad_fam-1-2"><code class="code-inline tex2jax_ignore">www.desmos.com/calculator/yayrd6etuz</code></div></details>: adjusting parameters of quadratic functions<div class="autopermalink" data-description="Figure 1.2.14"><a href="#fig_quad_fam" title="Copy heading and permalink for Figure 1.2.14" aria-label="Copy heading and permalink for Figure 1.2.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.2.13: Desmos: family of quadratic functions"><a href="#eg_desmos_quad" title="Copy heading and permalink for Example 1.2.13: Desmos: family of quadratic functions" aria-label="Copy heading and permalink for Example 1.2.13: Desmos: family of quadratic functions">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Definitions of linear and quadratic functions"><a href="#sec_linearandquadraticfunctions-4" title="Copy heading and permalink for Subsection: Definitions of linear and quadratic functions" aria-label="Copy heading and permalink for Subsection: Definitions of linear and quadratic functions">🔗</a></div></section><section class="subsection" id="subsec_propgraphs1"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Properties of linear functions</span>
 </h3>
 <div class="para" id="subsec_propgraphs1-2">Before drilling down more in our analysis of linear and quadratic functions, we give a formal definition of various properties of functions that we will be interested in studying.<div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_func_props"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of functions.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of functions.</span>
 </h4>
 <div class="para logical" id="d_func_props-2-1">
 <div class="para">Let <span class="process-math">\(f\)</span> be a function with domain <span class="process-math">\(D\subseteq \R\text{.}\)</span>
@@ -721,7 +736,7 @@ f(x)=ax^2+bx+c
 <div class="autopermalink" data-description="Definition 1.2.15: Properties of functions"><a href="#d_func_props" title="Copy heading and permalink for Definition 1.2.15: Properties of functions" aria-label="Copy heading and permalink for Definition 1.2.15: Properties of functions">🔗</a></div></article><div class="para" id="subsec_propgraphs1-4">Let’s test out some of this new terminology on some linear functions.<div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_func_props_linear"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear function properties.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.16</span><span class="period">.</span><span class="space"> </span><span class="title">Linear function properties.</span>
 </h4>
 <div class="para logical" id="eg_func_props_linear-2-1">
 <div class="para">For the given function <span class="process-math">\(f\colon \R\rightarrow \R\)</span> do the following: (a) find all <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-intercepts, (b) determine the intervals on which <span class="process-math">\(f\)</span> is positive, negative, increasing, and decreasing, (c) find all inputs where <span class="process-math">\(f\)</span> has a global maximum or minumum (if any). The Desmos interactive in <a href="sec_linearandquadraticfunctions.html#fig_linear_fam" class="xref" data-knowl="./knowl/xref/fig_linear_fam.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.12">Figure 1.2.12</a> may be helpful.</div>
@@ -746,12 +761,12 @@ f(x)=ax^2+bx+c
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_func_props_linear-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig_lin_func_props"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:33.3333333333333% 33.3333333333333% 33.3333333333333%;column-gap:0%;">
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_lin_func_a"><img src="generated/sageplot/fig_lin_func_a-2.svg" role="img" class="contained" alt="Graph of f(x)=-2x+3"><figcaption><span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x) = -2x + 3\)</span><div class="autopermalink" data-description="Figure 1.2.17.(a)"><a href="#fig_lin_func_a" title="Copy heading and permalink for Figure 1.2.17.(a)" aria-label="Copy heading and permalink for Figure 1.2.17.(a)">🔗</a></div></figcaption></figure></div>
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_lin_func_b"><img src="generated/sageplot/fig_lin_func_b-2.svg" role="img" class="contained" alt="Graph of f(x)=3x+5"><figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x) = 3x + 5\)</span><div class="autopermalink" data-description="Figure 1.2.17.(b)"><a href="#fig_lin_func_b" title="Copy heading and permalink for Figure 1.2.17.(b)" aria-label="Copy heading and permalink for Figure 1.2.17.(b)">🔗</a></div></figcaption></figure></div>
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_lin_func_c"><img src="generated/sageplot/fig_lin_func_c-2.svg" role="img" class="contained" alt="Graph of f(x)=-2"><figcaption><span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x) = -2\)</span><div class="autopermalink" data-description="Figure 1.2.17.(c)"><a href="#fig_lin_func_c" title="Copy heading and permalink for Figure 1.2.17.(c)" aria-label="Copy heading and permalink for Figure 1.2.17.(c)">🔗</a></div></figcaption></figure></div>
+</div> <figure class="figure figure-like" id="fig_lin_func_props"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:33.3333333333333%;"><figure class="figure figure-like" id="fig_lin_func_a"><img src="generated/sageplot/fig_lin_func_a-2.svg" role="img" class="contained" alt="Graph of f(x)=-2x+3"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>Graph of <span class="process-math">\(f(x) = -2x + 3\)</span><div class="autopermalink" data-description="Figure 1.2.17.(a)"><a href="#fig_lin_func_a" title="Copy heading and permalink for Figure 1.2.17.(a)" aria-label="Copy heading and permalink for Figure 1.2.17.(a)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel top" style="width:33.3333333333333%;"><figure class="figure figure-like" id="fig_lin_func_b"><img src="generated/sageplot/fig_lin_func_b-2.svg" role="img" class="contained" alt="Graph of f(x)=3x+5"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>Graph of <span class="process-math">\(f(x) = 3x + 5\)</span><div class="autopermalink" data-description="Figure 1.2.17.(b)"><a href="#fig_lin_func_b" title="Copy heading and permalink for Figure 1.2.17.(b)" aria-label="Copy heading and permalink for Figure 1.2.17.(b)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel top" style="width:33.3333333333333%;"><figure class="figure figure-like" id="fig_lin_func_c"><img src="generated/sageplot/fig_lin_func_c-2.svg" role="img" class="contained" alt="Graph of f(x)=-2"><figcaption><span class="codenumber">(c)</span><span class="space"> </span>Graph of <span class="process-math">\(f(x) = -2\)</span><div class="autopermalink" data-description="Figure 1.2.17.(c)"><a href="#fig_lin_func_c" title="Copy heading and permalink for Figure 1.2.17.(c)" aria-label="Copy heading and permalink for Figure 1.2.17.(c)">🔗</a></div></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Three linear functions<div class="autopermalink" data-description="Figure 1.2.17"><a href="#fig_lin_func_props" title="Copy heading and permalink for Figure 1.2.17" aria-label="Copy heading and permalink for Figure 1.2.17">🔗</a></div></figcaption></figure><div class="solutions"><details id="eg_func_props_linear-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.17<span class="period">.</span></span><span class="space"> </span>Three linear functions<div class="autopermalink" data-description="Figure 1.2.17"><a href="#fig_lin_func_props" title="Copy heading and permalink for Figure 1.2.17" aria-label="Copy heading and permalink for Figure 1.2.17">🔗</a></div></figcaption></figure><div class="solutions"><details id="eg_func_props_linear-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_func_props_linear-3-1">
 <ol class="decimal" id="eg_func_props_linear-3-1-1">
 <li id="eg_func_props_linear-3-1-1-1">
@@ -831,7 +846,7 @@ x \amp = \frac{3}{2}\text{.}
 <div class="autopermalink" data-description="Example 1.2.16: Linear function properties"><a href="#eg_func_props_linear" title="Copy heading and permalink for Example 1.2.16: Linear function properties" aria-label="Copy heading and permalink for Example 1.2.16: Linear function properties">🔗</a></div></article><div class="para" id="subsec_propgraphs1-6">Our analysis of the three linear functions in <a href="sec_linearandquadraticfunctions.html#eg_func_props_linear" class="xref" data-knowl="./knowl/xref/eg_func_props_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.2.16: Linear function properties">Example 1.2.16</a> easily generalizes to the family of all linear functions, as we now make official.<div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_lin_func_props"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of linear functions.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.18</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of linear functions.</span>
 </h4>
 <div class="para logical" id="th_lin_func_props-2-1">
 <div class="para">Let <span class="process-math">\(f\colon \R\implies \R\)</span> be defined as <span class="process-math">\(f(x)=mx+b\text{,}\)</span> where <span class="process-math">\(m\)</span> and <span class="process-math">\(b\)</span> are real constants.</div>
@@ -865,7 +880,7 @@ y=mx+b\text{,}
 <div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_line_eqns"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equations of lines.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.19</span><span class="period">.</span><span class="space"> </span><span class="title">Equations of lines.</span>
 </h4>
 <div class="para" id="d_line_eqns-2-1">Let <span class="process-math">\(L\)</span> be a line in the plane <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_line_eqns-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="d_line_eqns-2-2">
@@ -925,7 +940,7 @@ y=mx+b\text{,}\tag{1.18}
 <div class="autopermalink" data-description="Paragraph"><a href="#d_line_eqns-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 1.2.19: Equations of lines"><a href="#d_line_eqns" title="Copy heading and permalink for Definition 1.2.19: Equations of lines" aria-label="Copy heading and permalink for Definition 1.2.19: Equations of lines">🔗</a></div></article><article class="remark remark-like" id="rm_line_eqns"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equations of lines.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.20</span><span class="period">.</span><span class="space"> </span><span class="title">Equations of lines.</span>
 </h4>
 <div class="para logical" id="rm_line_eqns-2">
 <div class="para">As suggested by <a href="sec_linearandquadraticfunctions.html#d_line_eqns" class="xref" data-knowl="./knowl/xref/d_line_eqns.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.19: Equations of lines">Definition 1.2.19</a>, a line <span class="process-math">\(L\)</span> in <span class="process-math">\(\R^2\)</span> does not have a single defining equation, but rather many different equations of varying form. Some comments are in order.</div>
@@ -984,7 +999,7 @@ m=\frac{\Delta y}{\Delta x}=\frac{\text{ rise } }{\text{ run } }\text{.}\tag{1.1
 <div class="autopermalink" data-description="Remark 1.2.20: Equations of lines"><a href="#rm_line_eqns" title="Copy heading and permalink for Remark 1.2.20: Equations of lines" aria-label="Copy heading and permalink for Remark 1.2.20: Equations of lines">🔗</a></div></article><div class="para" id="subsec_propgraphs1-11">Two common ways of specifying a line <span class="process-math">\(L\)</span> in <span class="process-math">\(\R^2\)</span> is either by specifying its slope and providing a point, or by specifying two distinct points on <span class="process-math">\(L\text{.}\)</span> The procedure below describes how to derive a point-slope form of the line in each of these situations.<div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="algorithm theorem-like" id="proc_line_eqns"><h4 class="heading">
-<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equations of lines.</span>
+<span class="type">Procedure</span><span class="space"> </span><span class="codenumber">1.2.21</span><span class="period">.</span><span class="space"> </span><span class="title">Equations of lines.</span>
 </h4>
 <div class="para logical" id="proc_line_eqns-2-1">
 <div class="para">Let <span class="process-math">\(L\)</span> be a non-vertical line in the plane. Depending on the given information, we can derive a point-slope form of <span class="process-math">\(L\)</span> as follows.</div>
@@ -1039,7 +1054,7 @@ y-y_2=m(x-x_2)\text{,}
 <div class="autopermalink" data-description="Paragraph"><a href="#proc_line_eqns-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Procedure 1.2.21: Equations of lines"><a href="#proc_line_eqns" title="Copy heading and permalink for Procedure 1.2.21: Equations of lines" aria-label="Copy heading and permalink for Procedure 1.2.21: Equations of lines">🔗</a></div></article><article class="example example-like" id="subsec_propgraphs1-13"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equations of lines.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.22</span><span class="period">.</span><span class="space"> </span><span class="title">Equations of lines.</span>
 </h4>
 <div class="para logical" id="subsec_propgraphs1-13-2-1">
 <div class="para">Find both a point-slope form and the slope-intercept form for the given line. Recall that two lines in parallel in <span class="process-math">\(\R^2\)</span> if and only if they have the same slope, and perpendicular if and only if their slopes are negative reciprocals of each other.</div>
@@ -1071,7 +1086,7 @@ y-y_2=m(x-x_2)\text{,}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="subsec_propgraphs1-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="subsec_propgraphs1-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="subsec_propgraphs1-13-3-1">
 <ol class="decimal" id="subsec_propgraphs1-13-3-1-1">
 <li id="subsec_propgraphs1-13-3-1-1-1">
@@ -1165,7 +1180,7 @@ y=-3x+6\text{.}
 <div class="autopermalink" data-description="Solution 1.2.22.1"><a href="#subsec_propgraphs1-13-3" title="Copy heading and permalink for Solution 1.2.22.1" aria-label="Copy heading and permalink for Solution 1.2.22.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Example 1.2.22: Equations of lines"><a href="#subsec_propgraphs1-13" title="Copy heading and permalink for Example 1.2.22: Equations of lines" aria-label="Copy heading and permalink for Example 1.2.22: Equations of lines">🔗</a></div></article><article class="remark remark-like" id="subsec_propgraphs1-14"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Checking the Answer.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.23</span><span class="period">.</span><span class="space"> </span><span class="title">Checking the Answer.</span>
 </h4>
 <div class="para" id="subsec_propgraphs1-14-2">To verify that the three linear functions we just found are reasonable, we can graph them with a graphing utility (such as Desmos). In particular, let’s graph the lines <span class="process-math">\(y=-3x+6\)</span> (red) and <span class="process-math">\(y=\frac{1}{3}x+1\)</span> (green) in part c to make sure they appear to be perpendicular:<div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1173,7 +1188,7 @@ y=-3x+6\text{.}
 <div class="para" id="subsec_propgraphs1-14-4">Notice that the scales on the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes are the same, so the lines correctly appear as perpendicular. Additionally, we can see that the point <span class="process-math">\((2,0)\)</span> is on the line <span class="process-math">\(y=-3x+6\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec_propgraphs1-14-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Remark 1.2.23: Checking the Answer"><a href="#subsec_propgraphs1-14" title="Copy heading and permalink for Remark 1.2.23: Checking the Answer" aria-label="Copy heading and permalink for Remark 1.2.23: Checking the Answer">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Properties of linear functions"><a href="#subsec_propgraphs1" title="Copy heading and permalink for Subsection: Properties of linear functions" aria-label="Copy heading and permalink for Subsection: Properties of linear functions">🔗</a></div></section><section class="subsection" id="ss_quad_func_props"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of quadratic functions</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Properties of quadratic functions</span>
 </h3>
 <div class="para" id="ss_quad_func_props-2">In exploring properties of quadratic functions, we are naturally led to two useful algebraic techniques: solving quadratic equations (by factoring or using the quadratic formula) and completing the square.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1189,7 +1204,7 @@ ax^2+bx+c=0\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_zero_divisors"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Zero product.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.24</span><span class="period">.</span><span class="space"> </span><span class="title">Zero product.</span>
 </h4>
 <div class="para logical" id="th_zero_divisors-2-1">
 <div class="para">Given <span class="process-math">\(a,b\in \R\text{,}\)</span> we have <span class="process-math">\(ab=0\)</span> if and only if <span class="process-math">\(a=0\)</span> or <span class="process-math">\(b=0\text{.}\)</span> Using logical notation:</div>
@@ -1202,7 +1217,7 @@ ab=0 \iff a=0 \text{ or } b=0\text{.}\tag{1.20}
 <div class="autopermalink" data-description="Paragraph"><a href="#th_zero_divisors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 1.2.24: Zero product"><a href="#th_zero_divisors" title="Copy heading and permalink for Theorem 1.2.24: Zero product" aria-label="Copy heading and permalink for Theorem 1.2.24: Zero product">🔗</a></div></article><article class="remark remark-like" id="rm_logical_notation"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Logical notation.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.25</span><span class="period">.</span><span class="space"> </span><span class="title">Logical notation.</span>
 </h4>
 <div class="para logical" id="rm_logical_notation-2">
 <div class="para">The previous theorem sneaks in an important notion from logic, the “if and only if” connector, along with its double-headed, double-barreled arrow notation <span class="process-math">\(\iff\text{.}\)</span> In general, given propositions <span class="process-math">\(\mathcal{P}\)</span> and <span class="process-math">\(\mathcal{Q}\text{,}\)</span> the compound statement “<span class="process-math">\(\mathcal{P}\)</span> if and only if <span class="process-math">\(\mathcal{Q}\)</span>”, written using logical notation as</div>
@@ -1249,7 +1264,7 @@ x=-\frac{4}{3} \text{ or } x=\frac{7}{2}\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="warning remark-like" id="ss_quad_func_props-7"><h4 class="heading">
-<span class="type">Warning</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.26</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Factoring technique.</span>
+<span class="type">Warning</span><span class="space"> </span><span class="codenumber">1.2.26</span><span class="period">.</span><span class="space"> </span><span class="title">Factoring technique.</span>
 </h4>
 <div class="para logical" id="ss_quad_func_props-7-2">
 <div class="para">The zero appearing in <a href="sec_linearandquadraticfunctions.html#eq_zero_divisors" class="xref" data-knowl="./knowl/xref/eq_zero_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.20">(1.20)</a> is absolutely essential. <a href="sec_linearandquadraticfunctions.html#th_zero_divisors" class="xref" data-knowl="./knowl/xref/th_zero_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.2.24: Zero product">Theorem 1.2.24</a> draws no conclusions from a factored equation of the form</div>
@@ -1315,7 +1330,7 @@ x =-4  \text{ or }  x=1\text{.}
 <div class="autopermalink" data-description="Warning 1.2.26: Factoring technique"><a href="#ss_quad_func_props-7" title="Copy heading and permalink for Warning 1.2.26: Factoring technique" aria-label="Copy heading and permalink for Warning 1.2.26: Factoring technique">🔗</a></div></article><div class="para" id="ss_quad_func_props-8">The second important property from real number algebra we need to recall is none other than the <em class="emphasis">quadratic formula</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_quadratic_formula"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.27</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic formula.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.27</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic formula.</span>
 </h4>
 <div class="para logical" id="th_quadratic_formula-2-1">
 <div class="para">Consider the equation</div>
@@ -1362,7 +1377,7 @@ x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}\tag{1.22}
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quadratic_formula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 1.2.27: Quadratic formula"><a href="#th_quadratic_formula" title="Copy heading and permalink for Theorem 1.2.27: Quadratic formula" aria-label="Copy heading and permalink for Theorem 1.2.27: Quadratic formula">🔗</a></div></article><article class="remark remark-like" id="ss_quad_func_props-10"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.28</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic formula and discriminant.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.28</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic formula and discriminant.</span>
 </h4>
 <div class="para logical" id="ss_quad_func_props-10-2">
 <div class="para">Note that <a href="sec_linearandquadraticfunctions.html#th_quadratic_formula" class="xref" data-knowl="./knowl/xref/th_quadratic_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.2.27: Quadratic formula">Theorem 1.2.27</a> supplies more than just a formula: the first part of the theorem tells us whether or not a given quadratic equation has a real solution. As asserted there, this depends on whether the constant</div>
@@ -1396,11 +1411,11 @@ D=0^2-4\cdot 1\cdot 1=-4\text{.}
 <div class="para">Since <span class="process-math">\(D&lt; 0\text{,}\)</span> <a href="sec_linearandquadraticfunctions.html#th_quadratic_formula" class="xref" data-knowl="./knowl/xref/th_quadratic_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.2.27: Quadratic formula">Theorem 1.2.27</a> implies that this equation, and hence also the equation <a href="sec_linearandquadraticfunctions.html#eq_imaginary" class="xref" data-knowl="./knowl/xref/eq_imaginary.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.23">(1.23)</a>, has no real solution. Of course, this just reaffirms the fact that <span class="process-math">\(-1\)</span> does not have a real square root.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ss_quad_func_props-10-4" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Aside</span></h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="ss_quad_func_props-10-4-1">As you may already know, although <span class="process-math">\(-1\)</span> does not have a <em class="emphasis">real</em> square root, we can expand the reals to a larger number system, called the <em class="emphasis">complex numbers</em>, in which <span class="process-math">\(-1\)</span> does have a square-root. This is the origin of the famous <em class="emphasis">imaginary</em> number <span class="process-math">\(i\)</span> satisfying <span class="process-math">\(i^2=-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-10-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="autopermalink" data-description="Remark 1.2.28: Quadratic formula and discriminant"><a href="#ss_quad_func_props-10" title="Copy heading and permalink for Remark 1.2.28: Quadratic formula and discriminant" aria-label="Copy heading and permalink for Remark 1.2.28: Quadratic formula and discriminant">🔗</a></div></article><div class="para" id="ss_quad_func_props-11">We have now laid out the necessary groundwork for the following general procedure for solving quadratic equations.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<aside class="aside aside-like" id="ss_quad_func_props-10-4"><div class="para" id="ss_quad_func_props-10-4-1">As you may already know, although <span class="process-math">\(-1\)</span> does not have a <em class="emphasis">real</em> square root, we can expand the reals to a larger number system, called the <em class="emphasis">complex numbers</em>, in which <span class="process-math">\(-1\)</span> does have a square-root. This is the origin of the famous <em class="emphasis">imaginary</em> number <span class="process-math">\(i\)</span> satisfying <span class="process-math">\(i^2=-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-10-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside><div class="autopermalink" data-description="Remark 1.2.28: Quadratic formula and discriminant"><a href="#ss_quad_func_props-10" title="Copy heading and permalink for Remark 1.2.28: Quadratic formula and discriminant" aria-label="Copy heading and permalink for Remark 1.2.28: Quadratic formula and discriminant">🔗</a></div></article><div class="para" id="ss_quad_func_props-11">We have now laid out the necessary groundwork for the following general procedure for solving quadratic equations.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="algorithm theorem-like" id="proc_solve_quadr"><h4 class="heading">
-<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.29</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving quadratic equations.</span>
+<span class="type">Procedure</span><span class="space"> </span><span class="codenumber">1.2.29</span><span class="period">.</span><span class="space"> </span><span class="title">Solving quadratic equations.</span>
 </h4>
 <div class="para logical" id="proc_solve_quadr-2-1">
 <div class="para">Consider a quadratic equation of the form</div>
@@ -1467,7 +1482,7 @@ x \amp =\frac{-b+\sqrt{b^2-4ac}}{2a} \amp  x \amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\
 <div class="autopermalink" data-description="Procedure 1.2.29: Solving quadratic equations"><a href="#proc_solve_quadr" title="Copy heading and permalink for Procedure 1.2.29: Solving quadratic equations" aria-label="Copy heading and permalink for Procedure 1.2.29: Solving quadratic equations">🔗</a></div></article><div class="para" id="ss_quad_func_props-13">Let’s put <a href="sec_linearandquadraticfunctions.html#proc_solve_quadr" class="xref" data-knowl="./knowl/xref/proc_solve_quadr.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.2.29: Solving quadratic equations">Procedure 1.2.29</a> to work with a variety of quadratic equations. As you will see, quadratic equations come in a number of different varieties, and each distinct variety lends itself to a particular variation of <a href="sec_linearandquadraticfunctions.html#proc_solve_quadr" class="xref" data-knowl="./knowl/xref/proc_solve_quadr.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.2.29: Solving quadratic equations">Procedure 1.2.29</a>. Make sure to look at the solutions below, where we point out these different varieties and recall some factoring tricks.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_quad_equations"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.30</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic equations.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.30</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic equations.</span>
 </h4>
 <div class="para logical" id="eg_quad_equations-2-1">
 <div class="para">Find all (if any) solutions to the given equation.</div>
@@ -1499,7 +1514,7 @@ x \amp =\frac{-b+\sqrt{b^2-4ac}}{2a} \amp  x \amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_equations-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_quad_equations-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="eg_quad_equations-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_quad_equations-3-1">
 <ol class="decimal" id="eg_quad_equations-3-1-1">
 <li id="eg_quad_equations-3-1-1-1">
@@ -1623,7 +1638,7 @@ qs \amp = -3\\
 ps+qr \amp =7\text{.}
 \end{align*}
 </div>
-<div class="para">The first two equations suggest that we play around with (positive and negative) integer factors of <span class="process-math">\(20\)</span> and <span class="process-math">\(3\text{,}\)</span> which leads to our factorization. For a refresher of this technique, see this <a class="external" href="https://www.purplemath.com/modules/factquad.htm" target="_blank">Purplemath article</a> or this <a class="external" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratics-multiplying-factoring/x2f8bb11595b61c86:factor-quadratics-intro/v/factoring-quadratic-expressions" target="_blank">Khan Academy video</a>.</div>
+<div class="para">The first two equations suggest that we play around with (positive and negative) integer factors of <span class="process-math">\(20\)</span> and <span class="process-math">\(3\text{,}\)</span> which leads to our factorization. For a refresher of this technique, see this <a class="external" href="https://www.purplemath.com/modules/factquad.htm" target="_blank">Purplemath article</a><details class="ptx-footnote" aria-live="polite" id="eg_quad_equations-3-1-1-3-1-16"><summary class="ptx-footnote__number" title="Footnote 1.8"><sup> 8 </sup></summary><div class="ptx-footnote__contents" id="eg_quad_equations-3-1-1-3-1-16"><code class="code-inline tex2jax_ignore">www.purplemath.com/modules/factquad.htm</code></div></details> or this <a class="external" href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratics-multiplying-factoring/x2f8bb11595b61c86:factor-quadratics-intro/v/factoring-quadratic-expressions" target="_blank">Khan Academy video</a><details class="ptx-footnote" aria-live="polite" id="eg_quad_equations-3-1-1-3-1-18"><summary class="ptx-footnote__number" title="Footnote 1.9"><sup> 9 </sup></summary><div class="ptx-footnote__contents" id="eg_quad_equations-3-1-1-3-1-18"><code class="code-inline tex2jax_ignore">www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratics-multiplying-factoring/x2f8bb11595b61c86:factor-quadratics-intro/v/factoring-quadratic-expressions</code></div></details>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_equations-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3"><a href="#eg_quad_equations-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
@@ -1655,7 +1670,7 @@ x^2+x+1=0
 <div class="autopermalink" data-description="Example 1.2.30: Quadratic equations"><a href="#eg_quad_equations" title="Copy heading and permalink for Example 1.2.30: Quadratic equations" aria-label="Copy heading and permalink for Example 1.2.30: Quadratic equations">🔗</a></div></article><div class="para" id="ss_quad_func_props-15">For the sake of visibility, we make official some of the factoring tricks employed in the solution to <a href="sec_linearandquadraticfunctions.html#eg_quad_equations" class="xref" data-knowl="./knowl/xref/eg_quad_equations.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.2.30: Quadratic equations">Example 1.2.30</a> and variations thereof.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_factoring"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.31</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic factoring identities.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.31</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic factoring identities.</span>
 </h4>
 <div class="para logical" id="th_factoring-2-1">
 <div class="para">Let <span class="process-math">\(a,b\in \R\text{.}\)</span>
@@ -1685,7 +1700,7 @@ x^2+x+1=0
 <div class="autopermalink" data-description="Theorem 1.2.31: Quadratic factoring identities"><a href="#th_factoring" title="Copy heading and permalink for Theorem 1.2.31: Quadratic factoring identities" aria-label="Copy heading and permalink for Theorem 1.2.31: Quadratic factoring identities">🔗</a></div></article><div class="para" id="ss_quad_func_props-17">Now that we have a good command of solving quadratic equations, let’s apply this knowledge to the analysis of quadratic functions.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_quad_func"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.32</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic function properties.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.32</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic function properties.</span>
 </h4>
 <div class="para logical" id="eg_quad_func-2-1">
 <div class="para">Let <span class="process-math">\(f(x)=x^2+4x+3\text{.}\)</span>
@@ -1709,7 +1724,7 @@ x^2+x+1=0
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_func-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_quad_func-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="eg_quad_func-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_quad_func-3-1">
 <ol class="decimal" id="eg_quad_func-3-1-1">
 <li id="eg_quad_func-3-1-1-1">
@@ -1781,8 +1796,8 @@ r \amp \geq -1\text{.}
 \end{align*}
 </div>
 <div class="para">
-<details id="eg_quad_func-3-1-1-3-1-10" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Aside</span></h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="eg_quad_func-3-1-1-3-1-10-1">We have made use here of some techniques for solving inequalities: namely that an inequality is preserved when adding a constant to both sides of the inequality, or when multiplying both sides by a positive number. We will give a thorough treatment of solving inequalities in <a href="sec_solvinginequalities.html" class="internal" title="Section 1.7: Solving Inequalities">Section 1.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_func-3-1-1-3-1-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details> Following are logic, we conclude that <span class="process-math">\(f(x)=r\)</span> has a solution if and only if <span class="process-math">\(r\geq -1\text{,}\)</span> and hence that <span class="process-math">\(r\in \range f\)</span> if and only if <span class="process-math">\(r\geq -1\text{.}\)</span> This shows that <span class="process-math">\(\range f=[-1, \infty)\text{,}\)</span> the set of all real numbers greater than or equal to <span class="process-math">\(-1\text{.}\)</span>
+<aside class="aside aside-like" id="eg_quad_func-3-1-1-3-1-10"><div class="para" id="eg_quad_func-3-1-1-3-1-10-1">We have made use here of some techniques for solving inequalities: namely that an inequality is preserved when adding a constant to both sides of the inequality, or when multiplying both sides by a positive number. We will give a thorough treatment of solving inequalities in <a href="sec_solvinginequalities.html" class="internal" title="Section 1.7: Solving Inequalities">Section 1.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_func-3-1-1-3-1-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside> Following are logic, we conclude that <span class="process-math">\(f(x)=r\)</span> has a solution if and only if <span class="process-math">\(r\geq -1\text{,}\)</span> and hence that <span class="process-math">\(r\in \range f\)</span> if and only if <span class="process-math">\(r\geq -1\text{.}\)</span> This shows that <span class="process-math">\(\range f=[-1, \infty)\text{,}\)</span> the set of all real numbers greater than or equal to <span class="process-math">\(-1\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_func-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1838,7 +1853,7 @@ x \amp = -2\pm \sqrt{r+1}\text{.}
 <div class="para" id="ss_quad_func_props-21">Let’s make official here this completing the square technique and the properties of quadtratic functions it immediately brings to light. We will revisit this technique in <a href="sec_func_transf.html" class="internal" title="Section 1.9: Transformations and Symmetry">Section 1.9</a> to deduce yet more properties of quadratic functions.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quad_func_props-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_quad_funcs"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.33</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of quadratic functions.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.33</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of quadratic functions.</span>
 </h4>
 <div class="para logical" id="th_quad_funcs-2-1">
 <div class="para">Let <span class="process-math">\(f(x)=ax^2+bx+c\text{,}\)</span> where <span class="process-math">\(a,b,c\in \R\)</span> and <span class="process-math">\(a\ne 0\text{.}\)</span>
@@ -1876,7 +1891,7 @@ d\amp =\frac{b}{2a} \amp e\amp =c-\frac{b^2}{4a} \text{.}\tag{1.27}
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_funcs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 1.2.33: Properties of quadratic functions"><a href="#th_quad_funcs" title="Copy heading and permalink for Theorem 1.2.33: Properties of quadratic functions" aria-label="Copy heading and permalink for Theorem 1.2.33: Properties of quadratic functions">🔗</a></div></article><article class="remark remark-like" id="rm_complete_square"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.34</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Completing the square.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.34</span><span class="period">.</span><span class="space"> </span><span class="title">Completing the square.</span>
 </h4>
 <div class="para logical" id="rm_complete_square-2">
 <div class="para">When completing the square for a quadratic expression, instead of commiting the formulas in <a href="sec_linearandquadraticfunctions.html#th_quad_funcs-2-1-4-1-2-2" class="xref" data-knowl="./knowl/xref/eq_complete_square_consts.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.27">(1.27)</a> to memory, it is advisable to factor out the constant <span class="process-math">\(a\)</span> first and complete the square on the resulting simpler quadratic expression whose leading term is equal to 1:</div>
@@ -1893,7 +1908,7 @@ f(x) \amp =ax^2+bx+c\\
 <div class="autopermalink" data-description="Paragraph"><a href="#rm_complete_square-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Remark 1.2.34: Completing the square"><a href="#rm_complete_square" title="Copy heading and permalink for Remark 1.2.34: Completing the square" aria-label="Copy heading and permalink for Remark 1.2.34: Completing the square">🔗</a></div></article><article class="example example-like" id="eg_quad_complete_sq"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.35</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Completing the square.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.35</span><span class="period">.</span><span class="space"> </span><span class="title">Completing the square.</span>
 </h4>
 <div class="para logical" id="eg_quad_complete_sq-2-1">
 <div class="para">Let <span class="process-math">\(f(x)=-3x^2+7x-5\text{.}\)</span>
@@ -1922,7 +1937,7 @@ f(x) \amp =ax^2+bx+c\\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_complete_sq-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_quad_complete_sq-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="eg_quad_complete_sq-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_quad_complete_sq-3-1">
 <div class="para">Following <a href="sec_linearandquadraticfunctions.html#rm_complete_square" class="xref" data-knowl="./knowl/xref/rm_complete_square.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 1.2.34: Completing the square">Remark 1.2.34</a> we compute</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rm_complete_square.html ./knowl/xref/th_quad_funcs.html" id="eg_quad_complete_sq-3-1-2">
@@ -1947,9 +1962,537 @@ f(x) \amp =-3x^2+7x-5\\
 <div class="para" id="eg_quad_complete_sq-3-2">Using the interactive in <a href="sec_linearandquadraticfunctions.html#fig_quad_fam" class="xref" data-knowl="./knowl/xref/fig_quad_fam.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.14">Figure 1.2.14</a>, we produce a graph like the one in <a href="sec_linearandquadraticfunctions.html#fig_quad_func_eg" class="xref" data-knowl="./knowl/xref/fig_quad_func_eg.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.36">Figure 1.2.36</a>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_complete_sq-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_quad_func_eg"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/fig_quad_func_eg-2.svg" role="img" class="contained" alt="Graph of quadratic function"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.36<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x)=-3x+7x-5\)</span><div class="autopermalink" data-description="Figure 1.2.36"><a href="#fig_quad_func_eg" title="Copy heading and permalink for Figure 1.2.36" aria-label="Copy heading and permalink for Figure 1.2.36">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 1.2.35.1"><a href="#eg_quad_complete_sq-3" title="Copy heading and permalink for Solution 1.2.35.1" aria-label="Copy heading and permalink for Solution 1.2.35.1">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.36<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(f(x)=-3x+7x-5\)</span><div class="autopermalink" data-description="Figure 1.2.36"><a href="#fig_quad_func_eg" title="Copy heading and permalink for Figure 1.2.36" aria-label="Copy heading and permalink for Figure 1.2.36">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 1.2.35.1"><a href="#eg_quad_complete_sq-3" title="Copy heading and permalink for Solution 1.2.35.1" aria-label="Copy heading and permalink for Solution 1.2.35.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Example 1.2.35: Completing the square"><a href="#eg_quad_complete_sq" title="Copy heading and permalink for Example 1.2.35: Completing the square" aria-label="Copy heading and permalink for Example 1.2.35: Completing the square">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Properties of quadratic functions"><a href="#ss_quad_func_props" title="Copy heading and permalink for Subsection: Properties of quadratic functions" aria-label="Copy heading and permalink for Subsection: Properties of quadratic functions">🔗</a></div></section><div class="autopermalink" data-description="Section 1.2: Linear and Quadratic Functions"><a href="#sec_linearandquadraticfunctions" title="Copy heading and permalink for Section 1.2: Linear and Quadratic Functions" aria-label="Copy heading and permalink for Section 1.2: Linear and Quadratic Functions">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Example 1.2.35: Completing the square"><a href="#eg_quad_complete_sq" title="Copy heading and permalink for Example 1.2.35: Completing the square" aria-label="Copy heading and permalink for Example 1.2.35: Completing the square">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Properties of quadratic functions"><a href="#ss_quad_func_props" title="Copy heading and permalink for Subsection: Properties of quadratic functions" aria-label="Copy heading and permalink for Subsection: Properties of quadratic functions">🔗</a></div></section><section class="exercises" id="ez-changing-quadratic"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ez-changing-linear-WW1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-1" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="1" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/Michigan/Chap1Sec2/Q05.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-1')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-1-1-1-1">A town has a population of <span class="process-math">\(1100\)</span> people at time <span class="process-math">\(t=0\text{.}\)</span> In each of the following cases, write a formula for the population <span class="process-math">\(P\text{,}\)</span> of the town as a function of year <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-1-1-1-2">
+<em class="alert">(a)</em> The population increases by <span class="process-math">\(90\)</span> people per year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-1-1-1-3">
+<span class="process-math">\(P=\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span> people<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-1-1-1-4">
+<em class="alert">(b)</em> The population increases by <span class="process-math">\(2\)</span> percent a year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-1-1-1-5">
+<span class="process-math">\(P=\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span> people<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-1-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-1-1-2-1">
+<span class="process-math">\(1100+90t\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#extracted-webwork-1-1-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><details id="extracted-webwork-1-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-1-1-3-1">
+<span class="process-math">\(1100\cdot 1.02^{t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.2"><a href="#extracted-webwork-1-1-3" title="Copy heading and permalink for Answer 1.2" aria-label="Copy heading and permalink for Answer 1.2">🔗</a></div>
+</div></details><details id="extracted-webwork-1-1-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<em class="alert">(a)</em><span class="process-math">\(1100\)</span><span class="process-math">\(90\text{,}\)</span><span class="process-math">\(P=1100 +90 t\text{.}\)</span><em class="alert">(b)</em><span class="process-math">\(1100\)</span><span class="process-math">\(2\)</span><span class="process-math">\(P=1100 (1.02)^t\text{.}\)</span><div class="autopermalink" data-description="Solution 1.1"><a href="#extracted-webwork-1-1-4" title="Copy heading and permalink for Solution 1.1" aria-label="Copy heading and permalink for Solution 1.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#ez-changing-linear-WW1" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-linear-WW2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-2" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="2" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap2Review/Q36.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-2')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="extracted-webwork-2-1-1-1">
+<div class="para">Let <span class="process-math">\(t\)</span> be time in seconds and let <span class="process-math">\(r(t)\)</span> be the rate, in gallons per second, that water enters a reservoir:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r(t)=700 - 30 t.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-2">(a) Evaluate the expression <span class="process-math">\(\ r(10) =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="extracted-webwork-2-1-1-3">
+<div class="para">(b) Which one of the statements below best describes the physical meaning of the value of <span class="process-math">\(r(10)\)</span> ?</div>
+<ul class="circle" id="extracted-webwork-2-1-1-3-2">
+<li id="extracted-webwork-2-1-1-3-2-1">
+<div class="para" id="extracted-webwork-2-1-1-3-2-1-1">The rate at which the rate of the water entering the reservoir is decreasing when 10 gallons remain in the reservoir.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-2-1-1-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-3-2-2">
+<div class="para" id="extracted-webwork-2-1-1-3-2-2-1">The rate, in gallons per second, at which the water is entering reservoir after 10 seconds.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-2-1-1-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-3-2-3">
+<div class="para" id="extracted-webwork-2-1-1-3-2-3-1">How many seconds until the water is entering to reservoir at a rate of 10 gallons per second.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-2-1-1-3-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-3-2-4">
+<div class="para" id="extracted-webwork-2-1-1-3-2-4-1">The total amount, in gallons, of water in the reservoir after 10 seconds.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-2-1-1-3-2-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-3-2-5">
+<div class="para" id="extracted-webwork-2-1-1-3-2-5-1">None of the above<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-3-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-2-1-1-3-2-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-4">(c) For each of the mathematical expressions below, match one of the statements A - E below which best explains its meaning in practical terms.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="extracted-webwork-2-1-1-5">
+<ol class="lower-alpha lower-alpha-level-1" id="extracted-webwork-2-1-1-5-1">
+<li id="extracted-webwork-2-1-1-5-1-1">
+<div class="para" id="extracted-webwork-2-1-1-5-1-1-1">The slope of the graph of <span class="process-math">\(r(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#extracted-webwork-2-1-1-5-1-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-5-1-2">
+<div class="para" id="extracted-webwork-2-1-1-5-1-2-1">The vertical intercept of the graph of <span class="process-math">\(r(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#extracted-webwork-2-1-1-5-1-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+</ol>
+<ol class="upper-alpha ol-marker-2" id="extracted-webwork-2-1-1-5-2">
+<li id="extracted-webwork-2-1-1-5-2-1">
+<div class="para" id="extracted-webwork-2-1-1-5-2-1-1">How many seconds it takes until there is no longer any water in the reservoir.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.A"><a href="#extracted-webwork-2-1-1-5-2-1" title="Copy heading and permalink for Item 2.A" aria-label="Copy heading and permalink for Item 2.A">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-5-2-2">
+<div class="para" id="extracted-webwork-2-1-1-5-2-2-1">The initial amount of water, in gallons, in the reservoir.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.B"><a href="#extracted-webwork-2-1-1-5-2-2" title="Copy heading and permalink for Item 2.B" aria-label="Copy heading and permalink for Item 2.B">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-5-2-3">
+<div class="para" id="extracted-webwork-2-1-1-5-2-3-1">The rate at which the rate of water entering the reservoir is decreasing in gallons per second squared.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.C"><a href="#extracted-webwork-2-1-1-5-2-3" title="Copy heading and permalink for Item 2.C" aria-label="Copy heading and permalink for Item 2.C">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-5-2-4">
+<div class="para" id="extracted-webwork-2-1-1-5-2-4-1">The average rate, in gallons per second, at which water is flowing out of the reservoir.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.D"><a href="#extracted-webwork-2-1-1-5-2-4" title="Copy heading and permalink for Item 2.D" aria-label="Copy heading and permalink for Item 2.D">🔗</a></div>
+</li>
+<li id="extracted-webwork-2-1-1-5-2-5">
+<div class="para" id="extracted-webwork-2-1-1-5-2-5-1">The rate, in gallons per second, at which the water is initially entering the reservoir.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.E"><a href="#extracted-webwork-2-1-1-5-2-5" title="Copy heading and permalink for Item 2.E" aria-label="Copy heading and permalink for Item 2.E">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-6">(d) For <span class="process-math">\(0 \leq t \leq 40\text{,}\)</span> when does the reservoir have the most water?<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-7">When <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> sec.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-8">(e) For <span class="process-math">\(0 \leq t \leq 40\text{,}\)</span> when does the reservoir have the least water?<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-9">When <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> sec.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-10">(f) If the domain of <span class="process-math">\(r(t)\)</span> is <span class="process-math">\(0 \leq t \leq 40\text{,}\)</span> what is the range of <span class="process-math">\(r(t)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-2-1-1-11">range = <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span> (enter your answer in interval notation, or an inequality in <span class="process-math">\(r\text{:}\)</span> )<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-1-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-2-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-2-1-2-1">
+<span class="process-math">\(400\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#extracted-webwork-2-1-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><details id="extracted-webwork-2-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-2-1-3-1">B<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.2"><a href="#extracted-webwork-2-1-3" title="Copy heading and permalink for Answer 2.2" aria-label="Copy heading and permalink for Answer 2.2">🔗</a></div>
+</div></details><details id="extracted-webwork-2-1-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-2-1-4-1">C<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.3"><a href="#extracted-webwork-2-1-4" title="Copy heading and permalink for Answer 2.3" aria-label="Copy heading and permalink for Answer 2.3">🔗</a></div>
+</div></details><details id="extracted-webwork-2-1-5" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">4</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-2-1-5-1">E<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.4"><a href="#extracted-webwork-2-1-5" title="Copy heading and permalink for Answer 2.4" aria-label="Copy heading and permalink for Answer 2.4">🔗</a></div>
+</div></details><details id="extracted-webwork-2-1-6" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<em class="alert">SOLUTION</em><span class="process-math">\(r(10) = 700 - 30(10)=400\text{.}\)</span><span class="process-math">\(r(10) = 400\)</span><span class="process-math">\(t = 10\)</span><span class="process-math">\(t = 0\)</span><span class="process-math">\(700/30 \approx 23.333\)</span><span class="process-math">\(-30\text{.}\)</span><span class="process-math">\(r(t)\text{,}\)</span><span class="process-math">\(t = 700/30\)</span><span class="process-math">\(t = 700/30\text{,}\)</span><span class="process-math">\(t= 700/30\)</span><span class="process-math">\(t= 40\text{,}\)</span><span class="process-math">\(t=0\)</span><span class="process-math">\(t=700/30\text{.}\)</span><span class="process-math">\(t=0\text{.}\)</span><span class="process-math">\(r(t)\)</span><span class="process-math">\(0 \leq t \leq 40\)</span><span class="process-math">\(t=0\)</span><span class="process-math">\(t=40\text{,}\)</span><span class="process-math">\(-500 \leq r(t) \leq 700\text{.}\)</span><span class="process-math">\(\lbrack -500, 700 \rbrack\)</span><div class="autopermalink" data-description="Solution 2.1"><a href="#extracted-webwork-2-1-6" title="Copy heading and permalink for Solution 2.1" aria-label="Copy heading and permalink for Solution 2.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#ez-changing-linear-WW2" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-linear-WW3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-3" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="3" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec3/Q25.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-3')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-3-1-1-1">A report by the US Geological Survey indicates that glaciers in Glacier National Park, Montana, are shrinking.  Recent estimates indicate the area covered by glaciers has decreased from over <span class="process-math">\(25.5 \ \mbox{km}^2\)</span> in 1850 to about <span class="process-math">\(16.5 \ \mbox{km}^2\)</span> in 1995.  Let <span class="process-math">\(A = f(t)\)</span> give the area (in square km) <span class="process-math">\(t\)</span> years after 2000, and assume <span class="process-math">\(f(t) = 16.2 - 0.062t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="extracted-webwork-3-1-1-2">
+<div class="para">a) Find and explain the meaning of the slope.  Which statement best explains its significance?</div>
+<ul class="circle" id="extracted-webwork-3-1-1-2-1">
+<li id="extracted-webwork-3-1-1-2-1-1">
+<div class="para" id="extracted-webwork-3-1-1-2-1-1-1">The area covered by glaciers is decreasing by <span class="process-math">\(62 \ \mbox{m}^2\)</span>   every year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-2-1-2">
+<div class="para" id="extracted-webwork-3-1-1-2-1-2-1">The area covered by glaciers is decreasing by <span class="process-math">\(16.2 \ \mbox{km}^2\)</span> every year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-2-1-3">
+<div class="para" id="extracted-webwork-3-1-1-2-1-3-1">The total area covered by glaciers is increasing by <span class="process-math">\(0.062 \ \mbox{km}^2\)</span> every year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-2-1-4">
+<div class="para" id="extracted-webwork-3-1-1-2-1-4-1">The area covered by glaciers is decreasing by <span class="process-math">\(62,000 \ \mbox{m}^2\)</span> every year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-2-1-5">
+<div class="para" id="extracted-webwork-3-1-1-2-1-5-1">The total area covered by glaciers decreased by <span class="process-math">\(16.2 \ \mbox{km}^2\)</span> from 1850 to 2000.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-2-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-2-1-6">
+<div class="para" id="extracted-webwork-3-1-1-2-1-6-1">None of the above<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-2-1-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="extracted-webwork-3-1-1-3">
+<div class="para">b) Find and explain the meaning of the <span class="process-math">\(A\)</span>-intercept. Which statement best explains its significance?</div>
+<ul class="circle" id="extracted-webwork-3-1-1-3-2">
+<li id="extracted-webwork-3-1-1-3-2-1">
+<div class="para" id="extracted-webwork-3-1-1-3-2-1-1">The area covered by glaciers in 2000 was <span class="process-math">\(16.2 \ \mbox{km}^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-3-2-2">
+<div class="para" id="extracted-webwork-3-1-1-3-2-2-1">The area covered by glaciers is decreasing by <span class="process-math">\(16.2 \ \mbox{km}^2\)</span> every year.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-3-2-3">
+<div class="para" id="extracted-webwork-3-1-1-3-2-3-1">The total area covered by glaciers will decrease by <span class="process-math">\(0.062 \ \mbox{km}^2\)</span>   from 2000 to 2001.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-3-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-3-2-4">
+<div class="para" id="extracted-webwork-3-1-1-3-2-4-1">The area covered by glaciers in 2000 was <span class="process-math">\(0.062 \ \mbox{km}^2\)</span> .<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-3-2-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-3-2-5">
+<div class="para" id="extracted-webwork-3-1-1-3-2-5-1">The total area covered by glaciers decreased by <span class="process-math">\(16.2 \ \mbox{km}^2\)</span> from 1850 to 2000.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-3-2-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-3-2-6">
+<div class="para" id="extracted-webwork-3-1-1-3-2-6-1">None of the above<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#extracted-webwork-3-1-1-3-2-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="extracted-webwork-3-1-1-4">
+<div class="para">c) For both expressions listed below, enter the letter A-E of the statement which best explains their practical meaning.  There are extra, unused statements.</div>
+<ol class="lower-alpha lower-alpha-level-1" id="extracted-webwork-3-1-1-4-1">
+<li id="extracted-webwork-3-1-1-4-1-1">
+<div class="para" id="extracted-webwork-3-1-1-4-1-1-1">If <span class="process-math">\(f(t) = 10\text{,}\)</span> then <span class="process-math">\(t\)</span> is<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.a"><a href="#extracted-webwork-3-1-1-4-1-1" title="Copy heading and permalink for Item 3.a" aria-label="Copy heading and permalink for Item 3.a">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-4-1-2">
+<div class="para" id="extracted-webwork-3-1-1-4-1-2-1">
+<span class="process-math">\(f( 10 )\)</span> is<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.b"><a href="#extracted-webwork-3-1-1-4-1-2" title="Copy heading and permalink for Item 3.b" aria-label="Copy heading and permalink for Item 3.b">🔗</a></div>
+</li>
+</ol>
+<ol class="upper-alpha ol-marker-2" id="extracted-webwork-3-1-1-4-2">
+<li id="extracted-webwork-3-1-1-4-2-1">
+<div class="para" id="extracted-webwork-3-1-1-4-2-1-1">How much area (in <span class="process-math">\(\mbox{km}^2\)</span>) will be covered by glaciers in  2010.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.A"><a href="#extracted-webwork-3-1-1-4-2-1" title="Copy heading and permalink for Item 3.A" aria-label="Copy heading and permalink for Item 3.A">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-4-2-2">
+<div class="para" id="extracted-webwork-3-1-1-4-2-2-1">The number of years after 2000 that the amount of glacier area that has disappeared is <span class="process-math">\(10 \ \mbox{km}^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.B"><a href="#extracted-webwork-3-1-1-4-2-2" title="Copy heading and permalink for Item 3.B" aria-label="Copy heading and permalink for Item 3.B">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-4-2-3">
+<div class="para" id="extracted-webwork-3-1-1-4-2-3-1">How much area (in <span class="process-math">\(\mbox{km}^2\)</span>) will be covered by glaciers in 10 years.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.C"><a href="#extracted-webwork-3-1-1-4-2-3" title="Copy heading and permalink for Item 3.C" aria-label="Copy heading and permalink for Item 3.C">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-4-2-4">
+<div class="para" id="extracted-webwork-3-1-1-4-2-4-1">The amount of glacier area (in <span class="process-math">\(\mbox{km}^2\)</span>) that disappears in 10 years.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.D"><a href="#extracted-webwork-3-1-1-4-2-4" title="Copy heading and permalink for Item 3.D" aria-label="Copy heading and permalink for Item 3.D">🔗</a></div>
+</li>
+<li id="extracted-webwork-3-1-1-4-2-5">
+<div class="para" id="extracted-webwork-3-1-1-4-2-5-1">The number of years after 2000 that the total area covered by glaciers will be <span class="process-math">\(10 \ \mbox{km}^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.E"><a href="#extracted-webwork-3-1-1-4-2-5" title="Copy heading and permalink for Item 3.E" aria-label="Copy heading and permalink for Item 3.E">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-3-1-1-5">d) Evaluate <span class="process-math">\(f( 10 ) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-3-1-1-6">e) How much glacier area disappears in 10 years? <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> <span class="process-math">\(\mbox{km}^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-3-1-1-7">f) Solve <span class="process-math">\(f(t) = 10\)</span> . <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (round your answer to one decimal place)<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-3-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-3-1-2-1">D<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#extracted-webwork-3-1-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><details id="extracted-webwork-3-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-3-1-3-1">A<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.2"><a href="#extracted-webwork-3-1-3" title="Copy heading and permalink for Answer 3.2" aria-label="Copy heading and permalink for Answer 3.2">🔗</a></div>
+</div></details><details id="extracted-webwork-3-1-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-3-1-4-1">E<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.3"><a href="#extracted-webwork-3-1-4" title="Copy heading and permalink for Answer 3.3" aria-label="Copy heading and permalink for Answer 3.3">🔗</a></div>
+</div></details><details id="extracted-webwork-3-1-5" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<em class="alert">SOLUTION</em><span class="process-math">\(m = 0.062\text{,}\)</span><span class="process-math">\(0.062 \ \mbox{km}^2\)</span><span class="process-math">\(1 \ \mbox{km}^2 = 1,000,000 \ \mbox{m}^2\text{.}\)</span><span class="process-math">\(62,000 \ \mbox{m}^2\)</span><span class="process-math">\(A\)</span><span class="process-math">\(b = 16.2\text{,}\)</span><span class="process-math">\(16.2 \ \mbox{km}^2\text{.}\)</span><span class="process-math">\(f( 10 )\)</span><span class="process-math">\(f(t) = 10\)</span><span class="process-math">\(10 \ \mbox{km}^2\text{.}\)</span><span class="process-math">\(f( 10 ) = 16.2 - 0.062( 10) = 15.58\)</span><span class="process-math">\(m = \frac{ \Delta A }{ \Delta t } = -0.062\text{.}\)</span><span class="process-math">\(\Delta t = 10\)</span><span class="process-math">\(\frac{ \Delta A }{ 10 } = -0.062\)</span><span class="process-math">\(\Delta A = - 0.62\text{.}\)</span><span class="process-math">\(\mbox{km}^2\)</span><span class="process-math">\(16.2 - 0.062 t = 10\text{,}\)</span><span class="process-math">\(- 0.062 t = -6.2\text{,}\)</span><span class="process-math">\(t \approx 100\text{.}\)</span><div class="autopermalink" data-description="Solution 3.1"><a href="#extracted-webwork-3-1-5" title="Copy heading and permalink for Solution 3.1" aria-label="Copy heading and permalink for Solution 3.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#ez-changing-linear-WW3" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-linear-WW4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div id="webwork-4" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="4" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec4/Q28.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-4')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-4-1-1-1">Find a formula for the linear equation graphed below. You can enlarge the graph by clicking on it.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="generated/webwork/images/webwork-4-image-1.png" class="contained"></div> <div class="para" id="extracted-webwork-4-1-1-3">
+<em class="emphasis">(click on the image to enlarge)</em><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-4-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-4-1-1-4">
+<span class="process-math">\(p = f(h) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-4-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-4-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-4-1-2-1">
+<span class="process-math">\(5000h+145000\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#extracted-webwork-4-1-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details><details id="extracted-webwork-4-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<em class="alert">SOLUTION</em><span class="process-math">\(p = b + mh\)</span><div class="displaymath process-math">
+\begin{equation*}
+m = \frac{ \Delta p}{\Delta h} = \frac{245000 - 195000}{20 - 10} = 5000
+\end{equation*}
+</div>
+<span class="process-math">\(b\text{,}\)</span><span class="process-math">\(p\)</span><div class="displaymath process-math">
+\begin{equation*}
+195000 = b + 5000 \cdot 10
+\end{equation*}
+</div>
+<span class="process-math">\(145000 = b\text{.}\)</span><span class="process-math">\(p = f(h) = 145000 + 5000 h\text{.}\)</span><div class="autopermalink" data-description="Solution 4.1"><a href="#extracted-webwork-4-1-3" title="Copy heading and permalink for Solution 4.1" aria-label="Copy heading and permalink for Solution 4.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#ez-changing-linear-WW4" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-linear-WW5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-5" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="5" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec4/Q35.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-5')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-5-1-1-1">Find the equation for the line <span class="process-math">\(L\)</span> (graphed in red) in the figure below.  Note the <span class="process-math">\(x\)</span>-coordinate of the point <span class="process-math">\(Q\)</span> is 3, <span class="process-math">\(y\)</span>-coordinate of the point <span class="process-math">\(P\)</span> is 27, and the parabola (graphed in blue) has equation <span class="process-math">\(y = x^2 + 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="generated/webwork/images/webwork-5-image-1.png" class="contained"></div> <div class="para" id="extracted-webwork-5-1-1-3">
+<em class="emphasis">(click on the image to enlarge)</em><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-5-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-5-1-1-4">
+<span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-5-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-5-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-5-1-2-1">
+<span class="process-math">\(\frac{15}{-\sqrt{24}-3}\mathopen{}\left(x-3\right)+12\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#extracted-webwork-5-1-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details><details id="extracted-webwork-5-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<em class="alert">SOLUTION</em><span class="process-math">\(P\)</span><span class="process-math">\(Q\)</span><span class="process-math">\(y = x^2 +3\)</span><span class="process-math">\(Q\)</span><span class="process-math">\(x\)</span><span class="process-math">\(y = 3^2 + 3 = 12\text{.}\)</span><span class="process-math">\(P\)</span><span class="process-math">\(y\)</span><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+27 \amp = x^2 + 3, \\
+x^2 \amp = 24, \quad\mbox{so} \\
+x \amp = \pm \sqrt{24}.
+\end{aligned}
+\end{equation*}
+</div>
+<span class="process-math">\(x = - \sqrt{24}\)</span><span class="process-math">\(x \lt  0\text{.}\)</span><span class="process-math">\(P\)</span><span class="process-math">\(Q\text{,}\)</span><div class="displaymath process-math">
+\begin{equation*}
+m = \frac{\Delta y}{\Delta x} = \frac{27-12}{- \sqrt{24} - 3} = \frac{15}{- \sqrt{24} - 3}.
+\end{equation*}
+</div>
+<span class="process-math">\(y = 12\)</span><span class="process-math">\(x = 3\text{,}\)</span><div class="displaymath process-math">
+\begin{equation*}
+y = \left( \frac{15}{- \sqrt{24} - 3} \right) (x-3) + 12.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Solution 5.1"><a href="#extracted-webwork-5-1-3" title="Copy heading and permalink for Solution 5.1" aria-label="Copy heading and permalink for Solution 5.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#ez-changing-linear-WW5" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-quadratic-WW6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-6" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="6" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/Rochester/setAlgebra20QuadraticFun/lh3-1_19-20.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-6')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-6-1-1-1">Consider the Quadratic function <span class="process-math">\(f(x)= x^2  -    2 x  -   24\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-6-1-1-2">Its vertex is (<span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>, <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>).<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-6-1-1-3">Its <span class="process-math">\(x\)</span>-intercepts are <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-6-1-1-4">
+<em class="alert">Note:</em> If there is more than one answer enter them separated by commas.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-6-1-1-5">Its <span class="process-math">\(y\)</span>-intercept is <span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-6-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-6-1-2-1">
+<span class="process-math">\(1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#extracted-webwork-6-1-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details><details id="extracted-webwork-6-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-6-1-3-1">
+<span class="process-math">\(-25\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.2"><a href="#extracted-webwork-6-1-3" title="Copy heading and permalink for Answer 6.2" aria-label="Copy heading and permalink for Answer 6.2">🔗</a></div>
+</div></details><details id="extracted-webwork-6-1-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-6-1-4-1">
+<span class="process-math">\(-4, 6\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.3"><a href="#extracted-webwork-6-1-4" title="Copy heading and permalink for Answer 6.3" aria-label="Copy heading and permalink for Answer 6.3">🔗</a></div>
+</div></details><details id="extracted-webwork-6-1-5" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">4</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-6-1-5-1">
+<span class="process-math">\(-24\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-6-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.4"><a href="#extracted-webwork-6-1-5" title="Copy heading and permalink for Answer 6.4" aria-label="Copy heading and permalink for Answer 6.4">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#ez-changing-quadratic-WW6" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-quadratic-WW7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div id="webwork-7" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="7" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/Rochester/setAlgebra20QuadraticFun/lh3-1_1-3.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-7')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-7-1-1-1">
+<em class="alert">Attention:</em> you are allowed to submit your answer two times only for this problem!<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="generated/webwork/images/webwork-7-image-1.png" class="contained"></div> <div class="para" id="extracted-webwork-7-1-1-3">Identify the graphs A (blue), B (red) and C (green):<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-7-1-1-4">
+<span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span> is the graph of the function <span class="process-math">\(f(x)=(x-3)^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-7-1-1-5">
+<span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span> is the graph of the function <span class="process-math">\(g(x)=(x+6)^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-7-1-1-6">
+<span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span> is the graph of the function <span class="process-math">\(h(x)=x^2-3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-7-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-7-1-2-1">C<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#extracted-webwork-7-1-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details><details id="extracted-webwork-7-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-7-1-3-1">B<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.2"><a href="#extracted-webwork-7-1-3" title="Copy heading and permalink for Answer 7.2" aria-label="Copy heading and permalink for Answer 7.2">🔗</a></div>
+</div></details><details id="extracted-webwork-7-1-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-7-1-4-1">A<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-7-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.3"><a href="#extracted-webwork-7-1-4" title="Copy heading and permalink for Answer 7.3" aria-label="Copy heading and permalink for Answer 7.3">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#ez-changing-quadratic-WW7" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-quadratic-WW8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div id="webwork-8" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="8" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap2Sec6/Q22a.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-8')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-8-1-1-1">Find the zeros, if any, of the function <span class="process-math">\(y = 5\mathopen{}\left(x-8\right)^{2}-10\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-8-1-1-2">Enter your answer as a comma separated list.  If no zeros exist, enter <em class="alert">NONE</em>.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-8-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-8-1-1-3">The zeros are <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-8-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-8-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-8-1-2-1">
+<span class="process-math">\(9.41421, 6.58579\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#extracted-webwork-8-1-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details><details id="extracted-webwork-8-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="extracted-webwork-8-1-3-1">
+<em class="alert">SOLUTION</em><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-8-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="extracted-webwork-8-1-3-2">
+<div class="para">We can solve the equation <span class="process-math">\(5\mathopen{}\left(x-8\right)^{2}-10 = 0\)</span> algebraically.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{rcl}
+5\mathopen{}\left(x-8\right)^{2}-10 \amp  = \amp  0 \\
+5(x - 8)^2 \amp  = \amp   + 10 \\
+(x - 8)^2 \amp  = \amp   + 2 \\
+x - 8 \amp  = \amp  \pm \sqrt{ + 2} \\
+x \amp  = \amp   + 8 \pm \sqrt{ + 2}.
+\end{array}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-8-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 8.1"><a href="#extracted-webwork-8-1-3" title="Copy heading and permalink for Solution 8.1" aria-label="Copy heading and permalink for Solution 8.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 8"><a href="#ez-changing-quadratic-WW8" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-quadratic-WW9"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div id="webwork-9" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="9" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap2Sec6/Q14.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-9')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-9-1-1-1">Find the zero(s) (if any) of the function <span class="process-math">\(y = x^2 - 15 x + 50\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-9-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-9-1-1-2">Enter your answer as a comma separated list.  If no real zeros exist, enter <em class="alert">NONE</em>.<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-9-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-9-1-1-3">The zero(s) is/are <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-9-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-9-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-9-1-2-1">
+<span class="process-math">\(10, 5\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-9-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.1"><a href="#extracted-webwork-9-1-2" title="Copy heading and permalink for Answer 9.1" aria-label="Copy heading and permalink for Answer 9.1">🔗</a></div>
+</div></details><details id="extracted-webwork-9-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<em class="alert">SOLUTION</em><span class="process-math">\(0 = x^2 - 15 x + 50\)</span><span class="process-math">\(y = (x - 10)(x - 5)\text{.}\)</span><span class="process-math">\(x= 10\)</span><span class="process-math">\(x= 5\text{.}\)</span><div class="autopermalink" data-description="Solution 9.1"><a href="#extracted-webwork-9-1-3" title="Copy heading and permalink for Solution 9.1" aria-label="Copy heading and permalink for Solution 9.1">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 9"><a href="#ez-changing-quadratic-WW9" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="ez-changing-quadratic-WW10"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div id="webwork-10" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="10" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-localize-hint="Hint" data-localize-solution="Solution" data-sourceFilePath="Library/ASU-topics/setRateChange/s1_1_5.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-10')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="extracted-webwork-10-1-1-1">If a ball is thrown straight up into the air with an initial velocity of <span class="process-math">\(45\)</span> ft/s, its height in feet after <span class="process-math">\(t\)</span> second is given by <span class="process-math">\(y = {45}t - 16t^2\text{.}\)</span>  Find the average velocity (include units, ) for the time period begining when <span class="process-math">\(t = 2\)</span> seconds and lasting<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-2">(i) <span class="process-math">\(0.5\)</span> seconds<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-3">Average velocity:<span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-4">(ii) <span class="process-math">\(0.1\)</span> seconds<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-5">Average velocity:<span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-6">(iii) <span class="process-math">\(0.01\)</span> seconds<div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-7">Average velocity: <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-8">Finally based on the above results, guess what the instantaneous velocity of the ball is when <span class="process-math">\(t =2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="extracted-webwork-10-1-1-9">Average velocity: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-1-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="extracted-webwork-10-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-10-1-2-1">
+<span class="process-math">\(-27\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.1"><a href="#extracted-webwork-10-1-2" title="Copy heading and permalink for Answer 10.1" aria-label="Copy heading and permalink for Answer 10.1">🔗</a></div>
+</div></details><details id="extracted-webwork-10-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-10-1-3-1">
+<span class="process-math">\(-20.6\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.2"><a href="#extracted-webwork-10-1-3" title="Copy heading and permalink for Answer 10.2" aria-label="Copy heading and permalink for Answer 10.2">🔗</a></div>
+</div></details><details id="extracted-webwork-10-1-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">3</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-10-1-4-1">
+<span class="process-math">\(-19.16\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.3"><a href="#extracted-webwork-10-1-4" title="Copy heading and permalink for Answer 10.3" aria-label="Copy heading and permalink for Answer 10.3">🔗</a></div>
+</div></details><details id="extracted-webwork-10-1-5" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="space"> </span><span class="codenumber">4</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="extracted-webwork-10-1-5-1">
+<span class="process-math">\(-19\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#extracted-webwork-10-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.4"><a href="#extracted-webwork-10-1-5" title="Copy heading and permalink for Answer 10.4" aria-label="Copy heading and permalink for Answer 10.4">🔗</a></div>
+</div></details>
+</div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#ez-changing-quadratic-WW10" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><div class="autopermalink" data-description="Exercises"><a href="#ez-changing-quadratic" title="Copy heading and permalink for Exercises" aria-label="Copy heading and permalink for Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 1.2: Linear and Quadratic Functions"><a href="#sec_linearandquadraticfunctions" title="Copy heading and permalink for Section 1.2: Linear and Quadratic Functions" aria-label="Copy heading and permalink for Section 1.2: Linear and Quadratic Functions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="s_func.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_linearandquadraticmodeling.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

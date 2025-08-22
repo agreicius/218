@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Power, polynomial, rational functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_linearandquadraticmodeling.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_power_alg.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\range}{range}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a Function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">The Definition of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical Line Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Properties of quadratic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ez-changing-quadratic" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Power, polynomial, rational functions</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_power_alg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Power Functions and Other Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-4" class="internal"><span class="title">Review of Exponent Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-5" class="internal"><span class="title">Definitions of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-6" class="internal"><span class="title">Integer Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-7" class="internal"><span class="title">Power Functions with Rational Powers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-8" class="internal"><span class="title">Using Square Roots to Find Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-9" class="internal"><span class="title">A Summary of Algebraic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-10" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Solving Inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Rules for Inequalities and Solving Linear Inequalities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="title">Solving Inequalities That Involve Quadratics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5-3" class="internal"><span class="title">Application: Rewriting a Piecewise-Defined Function by Solving an Inequality</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6" class="internal"><span class="title">Solving Inequalities That Involve Products and Quotients</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6-3" class="internal"><span class="title">Application: Finding the Domain of a Function with an Even Root</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-7" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Composition of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Definition of Composition of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Domain of Compositions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-7" class="internal"><span class="title">Function Composition and Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Transformations and Symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Application: The Vertex Form of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-7" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_algebraic_func"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.4</span><span class="space"> </span><span class="title">Power, polynomial, rational functions</span>
+</h2>
+<section class="introduction" id="sec_algebraic_func-2"><div class="para" id="sec_algebraic_func-2-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_algebraic_func-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="subsection" id="sec_algebraic_func-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Learning Goals</span>
+</h3>
+<div class="para logical" id="sec_algebraic_func-3-2">
+<ul class="disc" id="sec_algebraic_func-3-2-1">
+<li id="sec_algebraic_func-3-2-1-1">
+<div class="para" id="sec_algebraic_func-3-2-1-1-1">Learn the definition of power, polynomial and rational functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_algebraic_func-3-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_algebraic_func-3-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec_algebraic_func-3-2-1-2">
+<div class="para" id="sec_algebraic_func-3-2-1-2-1">Review the algebraic rules for fractions and exponents.<div class="autopermalink" data-description="Paragraph"><a href="#sec_algebraic_func-3-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_algebraic_func-3-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec_algebraic_func-3-2-1-3">
+<div class="para" id="sec_algebraic_func-3-2-1-3-1">Learn to distinguish between power, polynomial, and rational functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_algebraic_func-3-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_algebraic_func-3-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_algebraic_func-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_algebraic_func-3" title="Copy heading and permalink for Subsection: Learning Goals" aria-label="Copy heading and permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="ss_power"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Power functions</span>
+</h3>
+<div class="para" id="ss_power-2">Our current repertoire of functions is rather limited, consisting as it does only of constant, linear, and quadratic functions. In this section we will significantly expand this to include <em class="emphasis">power</em>, <em class="emphasis">polynomial</em>, and <em class="emphasis">rational</em> functions. In the process we will take a moment to review some algebra related to exponents and fractions.<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ss_power-3">
+<div class="para">We will begin with power functions. In its most general form, a power function is a function of the form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_power_general.html" id="eq_power_general">
+\begin{equation}
+f(x)=cx^r\text{,}\tag{1.31}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(c\)</span> and <span class="process-math">\(r\)</span> are real constants. The important defining detail here is that in the formula <a href="sec_algebraic_func.html#eq_power_general" class="xref" data-knowl="./knowl/xref/eq_power_general.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.31">(1.31)</a> the input variable <span class="process-math">\(x\)</span> is <em class="emphasis">raised to a some fixed power</em>: that is, in a power function, the input variable <span class="process-math">\(x\)</span> appears as the base in the power expression, and not the exponent. Later we will introduce <em class="emphasis">exponential functions</em>, which are also defined via a power expression, but where the input variable appears as the exponent, as opposed to the base.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ss_power-4">As familiar as the function formula <a href="sec_algebraic_func.html#eq_power_general" class="xref" data-knowl="./knowl/xref/eq_power_general.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.31">(1.31)</a> may seem, it takes significant meaning to give meaning to this for an aritrary power <span class="process-math">\(r\text{.}\)</span> For now we will settle for a a definition for <em class="emphasis">rational</em> powers <span class="process-math">\(r\text{:}\)</span> i.e., for real numbers <span class="process-math">\(r\)</span> that can we written as <span class="process-math">\(r=m/n\text{,}\)</span> where <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are integers. In other words, <a href="sec_algebraic_func.html#d_power_rational" class="xref" data-knowl="./knowl/xref/d_power_rational.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.2: Power functions: rational power">Definition 1.4.2</a> will give meaning to functions of the form <span class="process-math">\(f(x)=\sqrt{2}x^{-11/7}\text{,}\)</span> but not to functions of the form <span class="process-math">\(f(x)=x^{\sqrt{2}}\text{,}\)</span> or <span class="process-math">\(f(x)=3x^\pi\text{,}\)</span> since <span class="process-math">\(\sqrt{2}\)</span> and <span class="process-math">\(\pi\)</span> (famously) are not rational numbers. We will eventually extend our definition of power functions to include such <em class="emphasis">irrational</em> powers, but to do so we will need the help of calculus.<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_rational_numbers"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Rational numbers.</span>
+</h4>
+<div class="para logical" id="d_rational_numbers-3-1">
+<div class="para">A real number <span class="process-math">\(r\in \R\)</span> is <dfn class="terminology">rational</dfn> if it can be written as a quotient of two integers: i.e., we have</div>
+<div class="displaymath process-math" id="eq_rational_number">
+\begin{equation}
+r=\frac{m}{n}\tag{1.32}
+\end{equation}
+</div>
+<div class="para">for some integers <span class="process-math">\(m,n\in \Z\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_rational_numbers-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="d_rational_numbers-3-2">
+<div class="para">We denote by <span class="process-math">\(\Q\)</span> the set of all rational numbers: i.e.,</div>
+<div class="displaymath process-math" id="eq_rational_numbers">
+\begin{equation}
+\Q=\{r\in \R\mid r \text{ is rational}\}=\{\tfrac{m}{n}\mid m,n\in \Z \text{ and } n\ne 0\}\text{.}\tag{1.33}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_rational_numbers-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.4.1: Rational numbers"><a href="#d_rational_numbers" title="Copy heading and permalink for Definition 1.4.1: Rational numbers" aria-label="Copy heading and permalink for Definition 1.4.1: Rational numbers">🔗</a></div></article><article class="definition definition-like" id="d_power_rational"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Power functions: rational power.</span>
+</h4>
+<div class="para logical" id="d_power_rational-2-1">
+<div class="para">A <dfn class="terminology">power function (with rational power)</dfn> is any function of the form <span class="process-math">\(f(x)=cx^q\text{,}\)</span> where <span class="process-math">\(c\ne 0\)</span> and <span class="process-math">\(q\in \Q\text{,}\)</span> and where the expression <span class="process-math">\(x^q\)</span> is defined below in a case-wise manner.</div>
+<ul class="disc cols2" id="d_power_rational-2-1-6">
+<li id="d_power_rational-2-1-6-1">
+<span class="heading"><span class="title">Zero power.</span></span><div class="para" id="d_power_rational-2-1-6-1-2">We define <span class="process-math">\(x^0=1\)</span> for all <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Zero power"><a href="#d_power_rational-2-1-6-1" title="Copy heading and permalink for Item: Zero power" aria-label="Copy heading and permalink for Item: Zero power">🔗</a></div>
+</li>
+<li id="d_power_rational-2-1-6-2">
+<span class="heading"><span class="title">Positive integer.</span></span><div class="para logical" id="d_power_rational-2-1-6-2-2">
+<div class="para">If <span class="process-math">\(n\)</span> is a positive integer, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^n=\underset{n \text{ times}}{\underbrace{x\cdot x\cdots x}}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Positive integer"><a href="#d_power_rational-2-1-6-2" title="Copy heading and permalink for Item: Positive integer" aria-label="Copy heading and permalink for Item: Positive integer">🔗</a></div>
+</li>
+<li id="d_power_rational-2-1-6-3">
+<span class="heading"><span class="title">Odd <span class="process-math">\(n\)</span>-th root.</span></span><div class="para logical" id="d_power_rational-2-1-6-3-2">
+<div class="para">If <span class="process-math">\(n\)</span> is a positive odd integer, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^{1/n}=\sqrt[n]{x}\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\sqrt[n]{x}\)</span> is the unique real <span class="process-math">\(n\)</span>-th root of <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1-6-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Odd n-th root"><a href="#d_power_rational-2-1-6-3" title="Copy heading and permalink for Item: Odd n-th root" aria-label="Copy heading and permalink for Item: Odd n-th root">🔗</a></div>
+</li>
+<li id="d_power_rational-2-1-6-4">
+<span class="heading"><span class="title">Even <span class="process-math">\(n\)</span>-th root.</span></span><div class="para logical" id="d_power_rational-2-1-6-4-2">
+<div class="para">If <span class="process-math">\(n\)</span> is a positive even integer, and <span class="process-math">\(x\geq 0\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^{1/n}=\sqrt[n]{x}\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\sqrt[n]{x}\)</span> is the unique <em class="emphasis">positive</em> <span class="process-math">\(n\)</span>-th root of <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1-6-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Even n-th root"><a href="#d_power_rational-2-1-6-4" title="Copy heading and permalink for Item: Even n-th root" aria-label="Copy heading and permalink for Item: Even n-th root">🔗</a></div>
+</li>
+<li id="d_power_rational-2-1-6-5">
+<span class="heading"><span class="title">Positive rational.</span></span><div class="para logical" id="d_power_rational-2-1-6-5-2">
+<div class="para">If <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are relatively prime positive integers<details class="ptx-footnote" aria-live="polite" id="d_power_rational-2-1-6-5-2-3"><summary class="ptx-footnote__number" title="Footnote 1.13"><sup> 13 </sup></summary><div class="ptx-footnote__contents" id="d_power_rational-2-1-6-5-2-3">Integers are relatively prime if they share no integer factors besides <span class="process-math">\(\pm 1\text{.}\)</span> This technical condition is here to ensure the definition is well defined.</div></details>, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^{m/n}=(x^{1/n})^m=(x^m)^{1/n}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1-6-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Positive rational"><a href="#d_power_rational-2-1-6-5" title="Copy heading and permalink for Item: Positive rational" aria-label="Copy heading and permalink for Item: Positive rational">🔗</a></div>
+</li>
+<li id="d_power_rational-2-1-6-6">
+<span class="heading"><span class="title">Negative rational.</span></span><div class="para logical" id="d_power_rational-2-1-6-6-2">
+<div class="para">If <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are relatively prime positive integers, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^{-m/n}=\left(x^{m/n}\right)^{-1}=\frac{1}{x^{m/n}}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1-6-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Negative rational"><a href="#d_power_rational-2-1-6-6" title="Copy heading and permalink for Item: Negative rational" aria-label="Copy heading and permalink for Item: Negative rational">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_power_rational-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.4.2: Power functions: rational power"><a href="#d_power_rational" title="Copy heading and permalink for Definition 1.4.2: Power functions: rational power" aria-label="Copy heading and permalink for Definition 1.4.2: Power functions: rational power">🔗</a></div></article><div class="para logical" id="ss_power-7">
+<div class="para">Looking carefully at the various cases that define <span class="process-math">\(x^q\)</span> for a rational power <span class="process-math">\(q\text{,}\)</span> we see that some restrictions on what <span class="process-math">\(x\)</span> can be have been snuck in. Namely, when <span class="process-math">\(n\)</span> is a positive even integer, we see that <span class="process-math">\(x^{1/n}=\sqrt[n]{x}\)</span> is only defined for nonnegative values of <span class="process-math">\(x\text{.}\)</span> Additionally, for negative rational powers <span class="process-math">\(q=-m/n\text{,}\)</span> since by definition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^{-m/n}=\frac{1}{x^{m/n}}\text{,}
+\end{equation*}
+</div>
+<div class="para">we see that this expression is defined if and only if <span class="process-math">\(x^{m/n}\)</span> is defined and nonzero. As a consequence of these restrictions, we need to take care when computing the implied domain of a power function <span class="process-math">\(f(x)=cx^q\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_power_implied_domain"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Power functions: implied domain.</span>
+</h4>
+<div class="para logical" id="eg_power_implied_domain-2-1">
+<div class="para">Determine the implied domain of the given power function.</div>
+<ol class="decimal" id="eg_power_implied_domain-2-1-1">
+<li id="eg_power_implied_domain-2-1-1-1">
+<div class="para" id="eg_power_implied_domain-2-1-1-1-1">
+<span class="process-math">\(\displaystyle f(x)=20x^{-5}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_power_implied_domain-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_power_implied_domain-2-1-1-2">
+<div class="para" id="eg_power_implied_domain-2-1-1-2-1">
+<span class="process-math">\(\displaystyle f(x)=7x^{1/12}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_power_implied_domain-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_power_implied_domain-2-1-1-3">
+<div class="para" id="eg_power_implied_domain-2-1-1-3-1">
+<span class="process-math">\(\displaystyle f(x)=\pi\, x^{4/5}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_power_implied_domain-2-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_power_implied_domain-2-1-1-4">
+<div class="para" id="eg_power_implied_domain-2-1-1-4-1">
+<span class="process-math">\(\displaystyle f(x)=x^{-3/2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_power_implied_domain-2-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_power_implied_domain-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_power_implied_domain-3-1">
+<ol class="decimal" id="eg_power_implied_domain-3-1-1">
+<li id="eg_power_implied_domain-3-1-1-1">
+<div class="para logical" id="eg_power_implied_domain-3-1-1-1-1">
+<div class="para">By definition, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x)=20x^{-5}=20\cdot \frac{1}{x^5}=\frac{20}{x^5}\text{.}
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(x^5\)</span> is defined for all <span class="process-math">\(x\)</span> and equal to 0 exactly when <span class="process-math">\(x=0\text{,}\)</span> we see that the implied domain of <span class="process-math">\(f\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D=\{x\in \R\mid x\ne 0\}=(-\infty, 0)\cup (0,\infty)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_power_implied_domain-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_power_implied_domain-3-1-1-2">
+<div class="para logical" id="eg_power_implied_domain-3-1-1-2-1">
+<div class="para">Since <span class="process-math">\(12\)</span> is an even positive integer, the expression <span class="process-math">\(x^{1/12}=\sqrt[12]{x}\)</span> is defined only on <span class="process-math">\([0,\infty)\text{.}\)</span> It follows that the implied domain of <span class="process-math">\(f\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D=[0,\infty)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_power_implied_domain-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_power_implied_domain-3-1-1-3">
+<div class="para logical" id="eg_power_implied_domain-3-1-1-3-1">
+<div class="para">By definition, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x)=\pi\, x^{4/5}=\pi(x^4)^{1/5}\text{.}
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(x^4\)</span> is defined for all <span class="process-math">\(x\text{,}\)</span> and <span class="process-math">\(t^{1/5}\)</span> is defined for all <span class="process-math">\(t\text{,}\)</span> it follows that <span class="process-math">\(x^{4/5}\)</span> is defined for all <span class="process-math">\(x\text{.}\)</span> We conclude that the implied domain of <span class="process-math">\(f\)</span> is <span class="process-math">\(D=\R\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_power_implied_domain-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_power_implied_domain-3-1-1-4">
+<div class="para logical" id="eg_power_implied_domain-3-1-1-4-1">
+<div class="para">By definition, we have</div>
+<div class="displaymath process-math" id="eg_power_implied_domain-3-1-1-4-1-1">
+\begin{align*}
+f(x) \amp =x^{-3/2}\\
+\amp = \frac{1}{x^{3/2}}\\
+\amp = \frac{1}{(x^3)^{1/2}}\\
+\amp =\frac{1}{\sqrt{x^3}}\text{.}
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(\sqrt{t}\)</span> is defined if and only if <span class="process-math">\(t\geq 0\text{,}\)</span> and since <span class="process-math">\(x^3\geq 0\)</span> if and only if <span class="process-math">\(x\geq 0\text{,}\)</span> we see that <span class="process-math">\(x^{3/2}=\sqrt{x^3}\)</span> is defined if and only if <span class="process-math">\(x\geq 0\text{.}\)</span> For the expression <span class="process-math">\(f(x)\)</span> to be defined, we need further that <span class="process-math">\(x^{3/2}=\sqrt{x^3}\)</span> is nonzero. This adds the additional restraint that <span class="process-math">\(x\ne 0\text{.}\)</span> We conclude that the implied domain of <span class="process-math">\(f\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D=\{x\in \R\mid x\geq 0 \text{ and } x\ne 0\}=(0,\infty)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_power_implied_domain-3-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_implied_domain-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.4.3.1"><a href="#eg_power_implied_domain-3" title="Copy heading and permalink for Solution 1.4.3.1" aria-label="Copy heading and permalink for Solution 1.4.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.4.3: Power functions: implied domain"><a href="#eg_power_implied_domain" title="Copy heading and permalink for Example 1.4.3: Power functions: implied domain" aria-label="Copy heading and permalink for Example 1.4.3: Power functions: implied domain">🔗</a></div></article><div class="para" id="ss_power-9">To evaluate a power function at an input, we must make our way through the various cases in the definition of a power expression <span class="process-math">\(x^q\text{.}\)</span> Depending on the complexity of <span class="process-math">\(q\text{,}\)</span> we may at some point have to compute a reciprocal and/or an <span class="process-math">\(n\)</span>-th root. Our ability to write down a nice <span class="process-math">\(n\)</span>-th root of some given value determines how “nicely” our computed value is expressed in the end.<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_power_evaluate"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Evaluating power functions.</span>
+</h4>
+<div class="para logical" id="eg_power_evaluate-2-1">
+<div class="para">Evaluate the given power function <span class="process-math">\(f\)</span> at the given input <span class="process-math">\(x\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_power_evaluate-2-1-3">
+<li id="eg_power_evaluate-2-1-3-1">
+<div class="para" id="eg_power_evaluate-2-1-3-1-1">
+<span class="process-math">\(f(x)=17x^{2/3}\text{,}\)</span> <span class="process-math">\(x=-8\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_power_evaluate-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_power_evaluate-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_power_evaluate-2-1-3-2">
+<div class="para" id="eg_power_evaluate-2-1-3-2-1">
+<span class="process-math">\(f(x)=x^{-1/2}\text{,}\)</span> <span class="process-math">\(x=27\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_power_evaluate-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_power_evaluate-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_evaluate-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_power_evaluate-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_power_evaluate-3-1">
+<ol class="decimal" id="eg_power_evaluate-3-1-1">
+<li id="eg_power_evaluate-3-1-1-1">
+<div class="para logical" id="eg_power_evaluate-3-1-1-1-1">
+<div class="para">We compute</div>
+<div class="displaymath process-math" id="eg_power_evaluate-3-1-1-1-1-1">
+\begin{align*}
+f(-8) \amp =17(-8)^{2/3}\\
+\amp =17\sqrt[3]{(-8)^2}\\
+\amp =17\sqrt[3]{64}\\
+\amp =17\sqrt[3]{4^3}\\
+\amp =17\cdot 4\\
+\amp = 68\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_evaluate-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_power_evaluate-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_power_evaluate-3-1-1-2">
+<div class="para logical" id="eg_power_evaluate-3-1-1-2-1">
+<div class="para">We compute</div>
+<div class="displaymath process-math" id="eg_power_evaluate-3-1-1-2-1-1">
+\begin{align*}
+f(27) \amp =(27)^{-1/2}\\
+\amp = \frac{1}{27^{1/2}}\\
+\amp = \frac{1}{\sqrt{3^3}}\\
+\amp =\frac{1}{\sqrt{3}\sqrt{3^2}}\\
+\amp =\frac{1}{3\sqrt{3}} \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_evaluate-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_power_evaluate-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_evaluate-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.4.4.1"><a href="#eg_power_evaluate-3" title="Copy heading and permalink for Solution 1.4.4.1" aria-label="Copy heading and permalink for Solution 1.4.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.4.4: Evaluating power functions"><a href="#eg_power_evaluate" title="Copy heading and permalink for Example 1.4.4: Evaluating power functions" aria-label="Copy heading and permalink for Example 1.4.4: Evaluating power functions">🔗</a></div></article><div class="para" id="ss_power-11">As we combine power functions with other functions, we will want to be able to simplify expressions wherever possible. The following power identities will come in handy in this respect.<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_power_identities"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Power identities.</span>
+</h4>
+<div class="para logical" id="th_power_identities-2-1">
+<ol class="decimal" id="th_power_identities-2-1-1">
+<li id="th_power_identities-2-1-1-1">
+<div class="para logical" id="th_power_identities-2-1-1-1-1">
+<div class="para">Each equality below is true for all real numbers <span class="process-math">\(a\text{,}\)</span><span class="process-math">\(b\text{,}\)</span><span class="process-math">\(c\)</span> for which the expressions involved are defined.</div>
+<div class="displaymath process-math" id="th_power_identities-2-1-1-1-1-4">
+\begin{align}
+a^b\,a^c \amp =a^{b+c}\amp \frac{a^b}{a^c}\amp=a^{b-c} \amp (\text{common base})\tag{1.34}\\
+(ab)^c \amp =a^c\, b^c \amp \left(\frac{a}{b}\right)^c\amp =\frac{a^c}{b^c} \amp (\text{common exponent})\tag{1.35}\\
+a^{-b} \amp =(a^b)^{-1}=\frac{1}{a^b}\amp \amp \amp (\text{reciprocal})\tag{1.36}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_power_identities-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_power_identities-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_power_identities-2-1-1-2">
+<div class="para logical" id="th_power_identities-2-1-1-2-1">
+<div class="para">Assume <span class="process-math">\(a\geq 0\text{.}\)</span> The following equality is true for all real numbers <span class="process-math">\(b\)</span> and <span class="process-math">\(c\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="th_power_identities-2-1-1-2-1-4">
+\begin{align}
+(a^b)^c \amp =a^{bc} \amp (\text{iterated powers})\text{.}\tag{1.37}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_power_identities-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_power_identities-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_power_identities-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.4.5: Power identities"><a href="#th_power_identities" title="Copy heading and permalink for Theorem 1.4.5: Power identities" aria-label="Copy heading and permalink for Theorem 1.4.5: Power identities">🔗</a></div></article><article class="remark remark-like" id="ss_power-13"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.4.6</span><span class="period">.</span><span class="space"> </span><span class="title">Iterated powers.</span>
+</h4>
+<div class="para logical" id="ss_power-13-2">
+<div class="para">The restriction <span class="process-math">\(a\geq 0\)</span> is indeed a necessary one for the identity <span class="process-math">\((a^b)^c=a^{bc}\text{.}\)</span> For example consider the choices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/d_power_rational.html" id="ss_power-13-2-3">
+\begin{align*}
+a \amp = -1 \amp b\amp=2 \amp c=\frac{1}{2}\text{.}
+\end{align*}
+</div>
+<div class="para">Using <a href="sec_algebraic_func.html#d_power_rational" class="xref" data-knowl="./knowl/xref/d_power_rational.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.2: Power functions: rational power">Definition 1.4.2</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/d_power_rational.html" id="ss_power-13-2-5">
+\begin{align*}
+(a^b)^c \amp = ((-1)^2)^{1/2}\\
+\amp = \sqrt{1}\\
+\amp = 1\\
+a^{bc} \amp =(-1)^{2\cdot \tfrac{1}{2}}\\
+\amp = (-1)^1\\
+\amp =-1 \text{.}
+\end{align*}
+</div>
+<div class="para">Thus <span class="process-math">\((a^b)^c\ne a^{bc}\)</span> in this case. This counterexample illustrates again the subtleties of our definition of a power expression <span class="process-math">\(x^q\text{:}\)</span> specifically, that when <span class="process-math">\(q=1/n\)</span> for <span class="process-math">\(n\)</span> a positive <em class="emphasis">even</em> integer, <span class="process-math">\(x^{1/n}=\sqrt[n]{x}\)</span> is defined as the <em class="emphasis">positive</em> square root of <span class="process-math">\(x\)</span> (assuming <span class="process-math">\(x\geq 0\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ss_power-13-3">
+<div class="para">Put another way, the failure of the identity <span class="process-math">\((a^b)^c=a^{bc}\)</span> to hold in the example is a consequence of the fact that the equality</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{x^2}=x
+\end{equation*}
+</div>
+<div class="para">does not hold for all <span class="process-math">\(x\in \R\text{;}\)</span> it is only true for <span class="process-math">\(x\in [0,\infty)\text{.}\)</span> After we officially introduce the absolute value, we will prove an improved version of this identity that does hold for all real numbers: namely,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{x^2}=\abs{x}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-13-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.4.6: Iterated powers"><a href="#ss_power-13" title="Copy heading and permalink for Remark 1.4.6: Iterated powers" aria-label="Copy heading and permalink for Remark 1.4.6: Iterated powers">🔗</a></div></article><article class="exercise exercise-like" id="ss_power-14"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.4.7</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="ss_power-14-1-1">
+<div class="para">Simplify each expression to one involving only positive exponents. Exponents in <a href="sec_algebraic_func.html#th_power_identities" class="xref" data-knowl="./knowl/xref/th_power_identities.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.4.5: Power identities">Theorem 1.4.5</a>. You may assume all the identities of <a href="sec_algebraic_func.html#th_power_identities" class="xref" data-knowl="./knowl/xref/th_power_identities.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.4.5: Power identities">Theorem 1.4.5</a> apply in each case.</div>
+<ol class="decimal" id="ss_power-14-1-1-3">
+<li id="ss_power-14-1-1-3-1">
+<div class="para" id="ss_power-14-1-1-3-1-1">
+<span class="process-math">\(\displaystyle 2k^4\cdot 3k^5\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_power-14-1-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.4.7.1"><a href="#ss_power-14-1-1-3-1" title="Copy heading and permalink for Item 1.4.7.1" aria-label="Copy heading and permalink for Item 1.4.7.1">🔗</a></div>
+</li>
+<li id="ss_power-14-1-1-3-2">
+<div class="para" id="ss_power-14-1-1-3-2-1">
+<span class="process-math">\(\displaystyle 4a^3b^{-2}\cdot 3a^{-4}b^3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_power-14-1-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.4.7.2"><a href="#ss_power-14-1-1-3-2" title="Copy heading and permalink for Item 1.4.7.2" aria-label="Copy heading and permalink for Item 1.4.7.2">🔗</a></div>
+</li>
+<li id="ss_power-14-1-1-3-3">
+<div class="para" id="ss_power-14-1-1-3-3-1">
+<span class="process-math">\(\displaystyle (7x^3y)^{-2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_power-14-1-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.4.7.3"><a href="#ss_power-14-1-1-3-3" title="Copy heading and permalink for Item 1.4.7.3" aria-label="Copy heading and permalink for Item 1.4.7.3">🔗</a></div>
+</li>
+<li id="ss_power-14-1-1-3-4">
+<div class="para" id="ss_power-14-1-1-3-4-1">
+<span class="process-math">\(\displaystyle \dfrac{2h^3j^{-3}k^4}{3j\sqrt{k}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_power-14-1-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.4.7.4"><a href="#ss_power-14-1-1-3-4" title="Copy heading and permalink for Item 1.4.7.4" aria-label="Copy heading and permalink for Item 1.4.7.4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.4.7"><a href="#ss_power-14" title="Copy heading and permalink for Checkpoint 1.4.7" aria-label="Copy heading and permalink for Checkpoint 1.4.7">🔗</a></div></article><div class="para logical" id="ss_power-15">
+<div class="para">The identities in <a href="sec_algebraic_func.html#th_power_identities" class="xref" data-knowl="./knowl/xref/th_power_identities.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.4.5: Power identities">Theorem 1.4.5</a> are a convenient way to recall some identities involving radicals. As an example, below we translate certain instances of the identities from <a href="sec_algebraic_func.html#th_power_identities" class="xref" data-knowl="./knowl/xref/th_power_identities.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.4.5: Power identities">Theorem 1.4.5</a> into radical notation using the definition <span class="process-math">\(a^{1/n}=\sqrt[n]{a}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_power_identities.html ./knowl/xref/th_power_identities.html ./knowl/xref/cor_power_identities_radical.html" id="ss_power-15-4">
+\begin{align*}
+(ab)^{1/n} \amp =a^{1/n}\,b^{1/n} \amp \sqrt[n]{ab} \amp =\sqrt[n]{a}\cdot\sqrt[n]{b}\\
+\left( \frac{a}{b}\right)^{1/n}\amp = \frac{a^{1/n}}{b^{1/n}}  \amp \sqrt[n]{\frac{a}{b}} \amp =\frac{\sqrt[n]{a}}{\sqrt[n]{b}}\\
+a^{m/n} \amp = (a^m)^{1/n}=(a^{1/n})^m \amp a^{m/n}\amp=\sqrt[n]{a^m} =(\sqrt[n]{a})^m\text{.}
+\end{align*}
+</div>
+<div class="para">We make this observation official in <a href="sec_algebraic_func.html#cor_power_identities_radical" class="xref" data-knowl="./knowl/xref/cor_power_identities_radical.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.4.8: Radical identities">Corollary 1.4.8</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_power-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="cor_power_identities_radical"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">1.4.8</span><span class="period">.</span><span class="space"> </span><span class="title">Radical identities.</span>
+</h4>
+<div class="para logical" id="cor_power_identities_radical-2-1">
+<div class="para">Assume <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are nonnegative. The following equalities hold for all positive integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="cor_power_identities_radical-2-1-5">
+\begin{align}
+\sqrt[n]{ab} \amp =\sqrt[n]{a}\cdot\sqrt[n]{b}\tag{1.38}\\
+\sqrt[n]{\frac{a}{b}} \amp =\frac{\sqrt[n]{a}}{\sqrt[n]{b}} \tag{1.39}\\
+\sqrt[n]{a^m} \amp =(\sqrt[n]{a})^m=a^{m/n} \text{.}\tag{1.40}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_power_identities_radical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.4.8: Radical identities"><a href="#cor_power_identities_radical" title="Copy heading and permalink for Corollary 1.4.8: Radical identities" aria-label="Copy heading and permalink for Corollary 1.4.8: Radical identities">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Power functions"><a href="#ss_power" title="Copy heading and permalink for Subsection: Power functions" aria-label="Copy heading and permalink for Subsection: Power functions">🔗</a></div></section><section class="subsection" id="ss_poly"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Polynomial functions</span>
+</h3>
+<div class="para logical" id="ss_poly-2">
+<div class="para">Before giving the formal definition of a polynomial, let’s take a look at some examples of what we will call polynomial functions:</div>
+<div class="displaymath process-math" id="ss_poly-2-1">
+\begin{align*}
+f(x) \amp =1-5x\\
+f(x) \amp =x^3\\
+f(x) \amp =3\\
+f(x) \amp =2x^4+1\\
+f(x) \amp =x^7+x^6+x^5+x^4+x^3+x^2+x+1\\
+f(x) \amp = 4.23x^{517}-\sqrt{2}x^{24}+x^{6}-\pi\text{.}
+\end{align*}
+</div>
+<div class="para">We next make a list of some common features of these functions.</div>
+<ul class="disc" id="ss_poly-2-2">
+<li id="ss_poly-2-2-1">
+<div class="para" id="ss_poly-2-2-1-1">In contrast to linear and quadratic functions, these polynomials are seen to be sums of an unlimited (but finite) number of terms.<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ss_poly-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ss_poly-2-2-2">
+<div class="para" id="ss_poly-2-2-2-1">Each term is either constant or a number times a power of <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ss_poly-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ss_poly-2-2-3">
+<div class="para" id="ss_poly-2-2-3-1">The power of <span class="process-math">\(x\)</span> is always a positive whole number, though the constant in front may be any real number whatsoever.<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ss_poly-2-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Lastly, we synthesize these observations in a formal definition.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_polynomialfunction"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Polynomials.</span>
+</h4>
+<div class="para logical" id="d_polynomialfunction-2-1">
+<div class="para">A <dfn class="terminology">polynomial</dfn> is a function <span class="process-math">\(f\)</span> that can be written in the form</div>
+<div class="displaymath process-math" id="eq_poly">
+\begin{equation}
+f(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots+a_2x^2+a_1x+a_0\tag{1.41}
+\end{equation}
+</div>
+<div class="para">for some integer <span class="process-math">\(n\geq 0\)</span> and real numbers <span class="process-math">\(a_0, a_1, \dots a_n\text{.}\)</span> For each <span class="process-math">\(0\leq k\leq n\text{,}\)</span> <span class="process-math">\(a_kx^k\)</span> is called the <dfn class="terminology"><span class="process-math">\(k\)</span>-th term</dfn> of <span class="process-math">\(f\)</span> and <span class="process-math">\(a_k\)</span> is called its <dfn class="terminology"><span class="process-math">\(k\)</span>-th coefficient</dfn>; <span class="process-math">\(a_0\)</span> is called the <dfn class="terminology">constant term</dfn> of <span class="process-math">\(f\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_polynomialfunction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_polynomialfunction-2-2">Furthermore, if <span class="process-math">\(a_n\ne 0\text{,}\)</span> then <span class="process-math">\(a_nx^n\)</span> is called the <dfn class="terminology">leading term</dfn> of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(a_n\)</span> its <dfn class="terminology">leading coefficient</dfn>, and <span class="process-math">\(n\)</span> its <dfn class="terminology">degree</dfn>, denoted <span class="process-math">\(\deg f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_polynomialfunction-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.4.9: Polynomials"><a href="#d_polynomialfunction" title="Copy heading and permalink for Definition 1.4.9: Polynomials" aria-label="Copy heading and permalink for Definition 1.4.9: Polynomials">🔗</a></div></article><article class="remark remark-like" id="rm_cons_lin_quad"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.4.10</span><span class="period">.</span><span class="space"> </span><span class="title">Constant, linear, quadratic functions.</span>
+</h4>
+<div class="para" id="rm_cons_lin_quad-2">Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the <span class="process-math">\(n\)</span> appearing in <a href="sec_algebraic_func.html#d_polynomialfunction" class="xref" data-knowl="./knowl/xref/d_polynomialfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.9: Polynomials">Definition 1.4.9</a> is equal to <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> or <span class="process-math">\(2\text{,}\)</span> as illustrated in <a href="sec_algebraic_func.html#table_cons_lin_quad" class="xref" data-knowl="./knowl/xref/table_cons_lin_quad.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.4.11: Small degree polynomials">Table 1.4.11</a>.<div class="autopermalink" data-description="Paragraph"><a href="#rm_cons_lin_quad-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table_cons_lin_quad"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.4.11<span class="period">.</span></span><span class="space"> </span>Small degree polynomials<div class="autopermalink" data-description="Table 1.4.11: Small degree polynomials"><a href="#table_cons_lin_quad" title="Copy heading and permalink for Table 1.4.11: Small degree polynomials" aria-label="Copy heading and permalink for Table 1.4.11: Small degree polynomials">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Type</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Formula</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">Constant</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)=a_0\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">Linear</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)=a_1x+a_0\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">2</td>
+<td class="c m b0 r0 l0 t0 lines">Quadratic</td>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(f(x)=a_2x^2+a_1x+a_0\text{,}\)</span>  <span class="process-math">\(a_2\ne 0\)</span>
+</td>
+</tr>
+</table></div></figure><div class="para logical" id="rm_cons_lin_quad-4">
+<div class="para">In this sense <a href="sec_algebraic_func.html#d_polynomialfunction" class="xref" data-knowl="./knowl/xref/d_polynomialfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.9: Polynomials">Definition 1.4.9</a> is a generalization of these earlier definitions. As such our <em class="emphasis">parametric</em> manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients <span class="process-math">\(a_0,a_1,\dots, a_n\)</span> appearing in the general formula</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/d_polynomialfunction.html">
+\begin{equation*}
+f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1+a_0
+\end{equation*}
+</div>
+<div class="para">function as parameters: by varying our choice of the coefficients <span class="process-math">\(a_k\text{,}\)</span> we get an infinite family of polynomials.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_cons_lin_quad-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.4.10: Constant, linear, quadratic functions"><a href="#rm_cons_lin_quad" title="Copy heading and permalink for Remark 1.4.10: Constant, linear, quadratic functions" aria-label="Copy heading and permalink for Remark 1.4.10: Constant, linear, quadratic functions">🔗</a></div></article><article class="remark remark-like" id="rm_zero_poly"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.4.12</span><span class="period">.</span><span class="space"> </span><span class="title">Zero function and zero polynomial.</span>
+</h4>
+<div class="para logical" id="rm_zero_poly-2">
+<div class="para">A function <span class="process-math">\(f\colon D\rightarrow \R\)</span> is called a <dfn class="terminology">zero function</dfn> if <span class="process-math">\(f(x)=0\)</span> for all <span class="process-math">\(x\in D\text{.}\)</span> Observe that a zero function is also a polynomial according to <a href="sec_algebraic_func.html#d_polynomialfunction" class="xref" data-knowl="./knowl/xref/d_polynomialfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.9: Polynomials">Definition 1.4.9</a>. Indeed we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/d_polynomialfunction.html">
+\begin{equation*}
+f(x)=a_0
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(a_0=0\text{.}\)</span> Because of this, zero functions are also called <dfn class="terminology">zero polynomials</dfn>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_zero_poly-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="rm_zero_poly-3">Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in <a href="sec_algebraic_func.html#d_polynomialfunction" class="xref" data-knowl="./knowl/xref/d_polynomialfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.9: Polynomials">Definition 1.4.9</a> does not apply: i.e., technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be <span class="process-math">\(-\infty\text{!}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#rm_zero_poly-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.4.12: Zero function and zero polynomial"><a href="#rm_zero_poly" title="Copy heading and permalink for Remark 1.4.12: Zero function and zero polynomial" aria-label="Copy heading and permalink for Remark 1.4.12: Zero function and zero polynomial">🔗</a></div></article><article class="remark remark-like" id="ss_poly-6"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.4.13</span><span class="period">.</span><span class="space"> </span><span class="title">Larger degree polynomials.</span>
+</h4>
+<div class="para" id="ss_poly-6-2">Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials <span class="process-math">\(f\)</span> of higher degree.<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="ss_poly-6-3"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.4.14<span class="period">.</span></span><span class="space"> </span>Polynomials of higher degree<div class="autopermalink" data-description="Table 1.4.14: Polynomials of higher degree"><a href="#ss_poly-6-3" title="Copy heading and permalink for Table 1.4.14: Polynomials of higher degree" aria-label="Copy heading and permalink for Table 1.4.14: Polynomials of higher degree">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Formula</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Degree</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Type</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)=a_2x^2+a_1x+a_0, a_2\ne 0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\deg f=2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">Quadratic</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)=a_3x^3+a_2x^2+a_1x+a_0, a_3\ne 0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\deg f=3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">Cubic</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)=a_4x^4+a_3x^3+\cdots +a_0, a_4\ne 0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\deg f=4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">Quartic</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)=a_5x^5+a_4x^4+\cdots +a_0, a_5\ne 0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\deg f=5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">Quintic</td>
+</tr>
+</table></div></figure><div class="autopermalink" data-description="Remark 1.4.13: Larger degree polynomials"><a href="#ss_poly-6" title="Copy heading and permalink for Remark 1.4.13: Larger degree polynomials" aria-label="Copy heading and permalink for Remark 1.4.13: Larger degree polynomials">🔗</a></div></article><article class="example example-like" id="ss_poly-7"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.15</span><span class="period">.</span><span class="space"> </span><span class="title">Polynomials.</span>
+</h4>
+<div class="para logical" id="ss_poly-7-2-1">
+<div class="para">Determine if the given function <span class="process-math">\(f\colon \R\rightarrow\R\)</span> is a polynomial. If yes, determine the constant term of <span class="process-math">\(f\text{,}\)</span> and if applicable, the leading term, leading coefficient, and degree.</div>
+<ol class="decimal" id="ss_poly-7-2-1-3">
+<li id="ss_poly-7-2-1-3-1">
+<div class="para" id="ss_poly-7-2-1-3-1-1">
+<span class="process-math">\(\displaystyle f(x)=-\sqrt{2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ss_poly-7-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ss_poly-7-2-1-3-2">
+<div class="para" id="ss_poly-7-2-1-3-2-1">
+<span class="process-math">\(\displaystyle f(x)=0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ss_poly-7-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ss_poly-7-2-1-3-3">
+<div class="para" id="ss_poly-7-2-1-3-3-1">
+<span class="process-math">\(\displaystyle f(x)=x(3x+1)(x-2)^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ss_poly-7-2-1-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ss_poly-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ss_poly-7-3-1">
+<ol class="decimal" id="ss_poly-7-3-1-1">
+<li id="ss_poly-7-3-1-1-1">
+<div class="para" id="ss_poly-7-3-1-1-1-1">As discussed in <a href="sec_algebraic_func.html#rm_cons_lin_quad" class="xref" data-knowl="./knowl/xref/rm_cons_lin_quad.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 1.4.10: Constant, linear, quadratic functions">Remark 1.4.10</a>, all constant functions are polynomials (corresponding to the choice <span class="process-math">\(n=0\)</span>). In this case the constant term of <span class="process-math">\(f\)</span> is <span class="process-math">\(\sqrt{2}\text{.}\)</span> Since <span class="process-math">\(\sqrt{2}\ne 0\text{,}\)</span> this is also the leading term and leading coefficient of <span class="process-math">\(f\text{,}\)</span> and we have <span class="process-math">\(\deg f=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ss_poly-7-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ss_poly-7-3-1-1-2">
+<div class="para" id="ss_poly-7-3-1-1-2-1">As discussed in <a href="sec_algebraic_func.html#rm_zero_poly" class="xref" data-knowl="./knowl/xref/rm_zero_poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 1.4.12: Zero function and zero polynomial">Remark 1.4.12</a>, the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ss_poly-7-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ss_poly-7-3-1-1-3">
+<div class="para logical" id="ss_poly-7-3-1-1-3-1">
+<div class="para">The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form <a href="sec_algebraic_func.html#eq_poly" class="xref" data-knowl="./knowl/xref/eq_poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.41">(1.41)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_poly.html" id="ss_poly-7-3-1-1-3-1-2">
+\begin{align*}
+f(x) \amp = x(3x+1)(x-2)^2\\
+\amp = (3x^2+x)(x^2-4x+4) \\
+\amp = 3 x^4 - 11 x^3 + 8 x^2 + 4 x+0\text{.}
+\end{align*}
+</div>
+<div class="para">Once in this form, we see that the constant term of <span class="process-math">\(f\)</span> is <span class="process-math">\(0\text{,}\)</span> its leading term is <span class="process-math">\(3x^4\text{,}\)</span> its leading coefficient is <span class="process-math">\(3\text{,}\)</span> and its degree is <span class="process-math">\(4\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ss_poly-7-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.4.15.1"><a href="#ss_poly-7-3" title="Copy heading and permalink for Solution 1.4.15.1" aria-label="Copy heading and permalink for Solution 1.4.15.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.4.15: Polynomials"><a href="#ss_poly-7" title="Copy heading and permalink for Example 1.4.15: Polynomials" aria-label="Copy heading and permalink for Example 1.4.15: Polynomials">🔗</a></div></article><article class="exercise exercise-like" id="ss_poly-8"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.4.16</span><span class="period">.</span>
+</h4>
+<div class="para" id="ss_poly-8-1-1">For the polynomial <span class="process-math">\(g(x) = x^5(1-2x)(1-x^3)\text{,}\)</span> determine the leading coefficient, leading term, degree, constant term, and coefficients <span class="process-math">\(a_1\)</span> and <span class="process-math">\(a_5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_poly-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 1.4.16"><a href="#ss_poly-8" title="Copy heading and permalink for Checkpoint 1.4.16" aria-label="Copy heading and permalink for Checkpoint 1.4.16">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Polynomial functions"><a href="#ss_poly" title="Copy heading and permalink for Subsection: Polynomial functions" aria-label="Copy heading and permalink for Subsection: Polynomial functions">🔗</a></div></section><div class="autopermalink" data-description="Section 1.4: Power, polynomial, rational functions"><a href="#sec_algebraic_func" title="Copy heading and permalink for Section 1.4: Power, polynomial, rational functions" aria-label="Copy heading and permalink for Section 1.4: Power, polynomial, rational functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_linearandquadraticmodeling.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_power_alg.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

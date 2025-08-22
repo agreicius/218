@@ -47,7 +47,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -111,7 +128,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="changeme" class="pretext book ignore-math">
@@ -136,6 +153,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\R}{\mathbb R}
 \DeclareMathOperator{\range}{range}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -194,6 +212,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Properties of quadratic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ez-changing-quadratic" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -208,15 +227,11 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Polynomial and rational functions</span></a></div>
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Power, polynomial, rational functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="title">Polynomial functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="title">Rules for Fractions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="title">Definition of Rational Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -294,12 +309,12 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_problemsolving"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How to Problem-Solve</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">0.2</span><span class="space"> </span><span class="title">How to Problem-Solve</span>
 </h2>
 <section class="introduction" id="sec_problemsolving-2"><div class="para" id="sec_problemsolving-2-1">
 <em class="emphasis">Attribution:</em> The framework and contents of this section were developed by Dr. Juliana Belding for the course MATH1100 Calculus I at Boston College, reproduced here with permission.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section><section class="subsection" id="sec_problemsolving-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Learning Goals</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Learning Goals</span>
 </h3>
 <ul class="disc" id="sec_problemsolving-3-2">
 <li id="sec_problemsolving-3-2-1">
@@ -319,7 +334,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 <div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_problemsolving-3" title="Copy heading and permalink for Subsection: Learning Goals" aria-label="Copy heading and permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="sec_problemsolving-4"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why Problem Solving?</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Why Problem Solving?</span>
 </h3>
 <div class="para" id="sec_problemsolving-4-2">
 <em class="emphasis">Problem-solving</em> can mean many things. One way to describe it is as the ability to take an unfamiliar problem, make sense of the problem and come up with a way to solve it.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -327,7 +342,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec_problemsolving-4-3">We’ll work with both word problems and other problems. In particular, word problems are a training ground for the skill of “mathematizing” a situation that has words and numbers. We’re not pretending these are necessarily realistic word problems but the point is for you to further develop your skills in more simplified situations and build your confidence. The hope is that this helps you become more comfortable looking at situations in a mathematical way, as you encounter more complicated ones.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_problemsolving-4-4">
-<div class="para">Here we share a framework<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-4-4-1"><summary class="ptx-footnote__number" title="Footnote 0.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-4-4-1">This framework is modified from that generated by George Polya, with credit also to Gizem Kaarali, Darly Cooper, Walter and Brown.</div></details> to help you approach problems in an organized way. We’ll explain it below and give examples of how you might use it.</div>
+<div class="para">Here we share a framework<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-4-4-1"><summary class="ptx-footnote__number" title="Footnote 0.22"><sup> 22 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-4-4-1">This framework is modified from that generated by George Polya, with credit also to Gizem Kaarali, Darly Cooper, Walter and Brown.</div></details> to help you approach problems in an organized way. We’ll explain it below and give examples of how you might use it.</div>
 <ol class="decimal" id="sec_problemsolving-4-4-2">
 <li id="sec_problemsolving-4-4-2-1">
 <div class="para" id="sec_problemsolving-4-4-2-1-1">Meet the Problem (Understanding the Problem)<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-4-4-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -395,12 +410,12 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection: Why Problem Solving?"><a href="#sec_problemsolving-4" title="Copy heading and permalink for Subsection: Why Problem Solving?" aria-label="Copy heading and permalink for Subsection: Why Problem Solving?">🔗</a></div></section><section class="subsection" id="sec_problemsolving-5"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Problem-Solving Framework</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Problem-Solving Framework</span>
 </h3>
 <div class="para" id="sec_problemsolving-5-2">Here’s the framework. Warning! It can be overwhelming to read all at once. Instead we recommend you try an example problem alongside. Keep track of the things you do, and then come back to the framework, and see how it might help with solving the problem.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="ex_frameworkexample1"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An Example Problem.</span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">0.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">An Example Problem.</span>
 </h4>
 <div class="para" id="ex_frameworkexample1-2-1">A swimming pool is 2 m deep, 5 m wide and 60 m long. Water is pumped into it at the constant rate of 100 liters per minute. How long does it take to fill the pool?<div class="autopermalink" data-description="Paragraph"><a href="#ex_frameworkexample1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="ex_frameworkexample1-2-2">(Source: Cooper, 3.1.6)<div class="autopermalink" data-description="Paragraph"><a href="#ex_frameworkexample1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -568,7 +583,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection: Problem-Solving Framework"><a href="#sec_problemsolving-5" title="Copy heading and permalink for Subsection: Problem-Solving Framework" aria-label="Copy heading and permalink for Subsection: Problem-Solving Framework">🔗</a></div></section><section class="subsection" id="sec_problemsolving-6"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Some Myths of Problem-Solving</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Some Myths of Problem-Solving</span>
 </h3>
 <div class="para logical" id="sec_problemsolving-6-2">
 <ul class="disc" id="sec_problemsolving-6-2-1">
@@ -591,13 +606,13 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection: Some Myths of Problem-Solving"><a href="#sec_problemsolving-6" title="Copy heading and permalink for Subsection: Some Myths of Problem-Solving" aria-label="Copy heading and permalink for Subsection: Some Myths of Problem-Solving">🔗</a></div></section><section class="subsection" id="sec_problemsolving-7"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Examples of Worked Problems</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Examples of Worked Problems</span>
 </h3>
 <div class="para" id="sec_problemsolving-7-2">This section contains a few examples to help you understand the framework. Try the problems first using the framework, then see the examples here.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_problemsolving-7-3">You’ll notice that there is NOT one way to use the framework. You might have written more or less than here. The author here included some side thoughts, too, in parentheses. As you solve problems, you should feel free to add your personality and make it your own!<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sec_problemsolving-7-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<details id="sec_problemsolving-7-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="sec_problemsolving-7-4-1">Here is a worked solution to Example <a href="sec_problemsolving.html#ex_frameworkexample1" class="xref" data-knowl="./knowl/xref/ex_frameworkexample1.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 0.2.1: An Example Problem">Checkpoint 0.2.1</a>. Remember: there are many ways to apply this framework! Your process may vary substantially to what is shown below.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="sec_problemsolving-7-4-2">
@@ -617,7 +632,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li id="sec_problemsolving-7-4-2-1-2-3">
 <div class="para" id="sec_problemsolving-7-4-2-1-2-3-1">The pool is a rectangular box and volume of a box is <span class="process-math">\(l \cdot w \cdot h\text{.}\)</span> It looks like this: <figure class="figure figure-like" id="fig_probsolvingpic1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/ProbSolvingPic1.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The pool is a rectangular box and volume of a box is <span class="process-math">\(l \cdot w \cdot h\text{.}\)</span><div class="autopermalink" data-description="Figure 0.2.2"><a href="#fig_probsolvingpic1" title="Copy heading and permalink for Figure 0.2.2" aria-label="Copy heading and permalink for Figure 0.2.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-4-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.2.2<span class="period">.</span></span><span class="space"> </span>The pool is a rectangular box and volume of a box is <span class="process-math">\(l \cdot w \cdot h\text{.}\)</span><div class="autopermalink" data-description="Figure 0.2.2"><a href="#fig_probsolvingpic1" title="Copy heading and permalink for Figure 0.2.2" aria-label="Copy heading and permalink for Figure 0.2.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-4-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-7-4-2-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
@@ -650,7 +665,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-7-4-2-2-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="sec_problemsolving-7-4-2-2-1-2-3">
-<div class="para" id="sec_problemsolving-7-4-2-2-1-2-3-1">The dimensions of the pool are in meters but the rate is in liters per minute. So we’ll have to find a conversion before dividing or change units afterwards. We can use that 1 m<span class="process-math">\(^3\)</span> <span class="process-math">\(=\)</span> 1,000 liters.<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-7-4-2-2-1-2-3-1-3"><summary class="ptx-footnote__number" title="Footnote 0.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-7-4-2-2-1-2-3-1-3">A quick Google search will tell you this.</div></details>  We have a choice: cubic meters to liters or from liters to cubic meters? Let’s do the first one<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-7-4-2-2-1-2-3-1-4"><summary class="ptx-footnote__number" title="Footnote 0.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-7-4-2-2-1-2-3-1-4">An alternate plan: Convert the rate 100 L/min to a rate with units cubic meters per minute. You get a rate of 0.1 cubic meters per minute.</div></details>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-4-2-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_problemsolving-7-4-2-2-1-2-3-1">The dimensions of the pool are in meters but the rate is in liters per minute. So we’ll have to find a conversion before dividing or change units afterwards. We can use that 1 m<span class="process-math">\(^3\)</span> <span class="process-math">\(=\)</span> 1,000 liters.<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-7-4-2-2-1-2-3-1-3"><summary class="ptx-footnote__number" title="Footnote 0.23"><sup> 23 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-7-4-2-2-1-2-3-1-3">A quick Google search will tell you this.</div></details>  We have a choice: cubic meters to liters or from liters to cubic meters? Let’s do the first one<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-7-4-2-2-1-2-3-1-4"><summary class="ptx-footnote__number" title="Footnote 0.24"><sup> 24 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-7-4-2-2-1-2-3-1-4">An alternate plan: Convert the rate 100 L/min to a rate with units cubic meters per minute. You get a rate of 0.1 cubic meters per minute.</div></details>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-4-2-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-7-4-2-2-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
@@ -752,13 +767,13 @@ r = V/r = 600,000/100 =  6000 \text{ minutes }\text{.}
 </ul>
 <div class="autopermalink" data-description="Solution 1"><a href="#sec_problemsolving-7-4" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><article class="exercise exercise-like" id="sec_problemsolving-7-5"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">0.2.3</span><span class="period">.</span>
 </h4>
 <div class="para" id="sec_problemsolving-7-5-1-1">The circumference of the Earth is approximately 40,000 kilometers, and someone has just made a metal band that circles the Earth, touching the ground at all locations. You come along at night, as a practical joke, and add 10 m to its length. The band is now sits magically just above the ground at all locations creating a gap.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sec_problemsolving-7-5-1-2">How far is the new band above the ground: could a flea, a rabbit or even a person pass underneath it?<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sec_problemsolving-7-5-1-3">(Source: Band around the Earth Puzzle)<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-5-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_problemsolving-7-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="sec_problemsolving-7-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="sec_problemsolving-7-5-2-1">Here we work through all steps of the framework. Note: your work might look different or occur in different steps!<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="sec_problemsolving-7-5-2-2">
@@ -783,7 +798,7 @@ r = V/r = 600,000/100 =  6000 \text{ minutes }\text{.}
 </li>
 <li id="sec_problemsolving-7-5-2-2-1-2-4">
 <div class="para" id="sec_problemsolving-7-5-2-2-1-2-4-1">Here a picture is worth a lot: <figure class="figure figure-like" id="fig_probsolvingpic2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/ProbSolvingPic2.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A band around the Earth that has been lengthened by 10 m.<div class="autopermalink" data-description="Figure 0.2.4"><a href="#fig_probsolvingpic2" title="Copy heading and permalink for Figure 0.2.4" aria-label="Copy heading and permalink for Figure 0.2.4">🔗</a></div></figcaption></figure> From the picture, we see the space we want is the difference in the radius of the bands. We have the original radius <span class="process-math">\(r\)</span> and the new radius <span class="process-math">\(r_{new}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-5-2-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">0.2.4<span class="period">.</span></span><span class="space"> </span>A band around the Earth that has been lengthened by 10 m.<div class="autopermalink" data-description="Figure 0.2.4"><a href="#fig_probsolvingpic2" title="Copy heading and permalink for Figure 0.2.4" aria-label="Copy heading and permalink for Figure 0.2.4">🔗</a></div></figcaption></figure> From the picture, we see the space we want is the difference in the radius of the bands. We have the original radius <span class="process-math">\(r\)</span> and the new radius <span class="process-math">\(r_{new}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-5-2-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-7-5-2-2-1-2-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
@@ -916,12 +931,12 @@ r = V/r = 600,000/100 =  6000 \text{ minutes }\text{.}
 <div class="autopermalink" data-description="Solution 0.2.3.1"><a href="#sec_problemsolving-7-5-2" title="Copy heading and permalink for Solution 0.2.3.1" aria-label="Copy heading and permalink for Solution 0.2.3.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Checkpoint 0.2.3"><a href="#sec_problemsolving-7-5" title="Copy heading and permalink for Checkpoint 0.2.3" aria-label="Copy heading and permalink for Checkpoint 0.2.3">🔗</a></div></article><article class="exercise exercise-like" id="sec_problemsolving-7-6"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">0.2.5</span><span class="period">.</span>
 </h4>
 <div class="para" id="sec_problemsolving-7-6-1-1">The Northeast Regular train leaves NY for Boston at noon going a constant rate of 55 mph. The Northeast Acela train leaves NY for Boston at 1 pm going a constant rate of 70 mph. They travel on parallel tracks. Does the Acela pass the Regular? If so, when? If not, why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sec_problemsolving-7-6-1-2">Source: (Cooper, 3.1.5 modified)<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_problemsolving-7-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="sec_problemsolving-7-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="sec_problemsolving-7-6-2-1">Here we work through the first three steps of the framework. Note: your work might look different or occur in different steps!<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="sec_problemsolving-7-6-2-2">
@@ -967,7 +982,7 @@ r = V/r = 600,000/100 =  6000 \text{ minutes }\text{.}
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-7-6-2-2-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="sec_problemsolving-7-6-2-2-2-1-1-3">
-<div class="para" id="sec_problemsolving-7-6-2-2-2-1-1-3-1">We need to find out how many miles the train trip is<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-7-6-2-2-2-1-1-3-1-1"><summary class="ptx-footnote__number" title="Footnote 0.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-7-6-2-2-2-1-1-3-1-1">A quick Google search says that it is 216 miles.</div></details> to see if the Regular train gets there before the Acela.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-6-2-2-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_problemsolving-7-6-2-2-2-1-1-3-1">We need to find out how many miles the train trip is<details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-7-6-2-2-2-1-1-3-1-1"><summary class="ptx-footnote__number" title="Footnote 0.25"><sup> 25 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-7-6-2-2-2-1-1-3-1-1">A quick Google search says that it is 216 miles.</div></details> to see if the Regular train gets there before the Acela.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-6-2-2-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-7-6-2-2-2-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
@@ -995,12 +1010,12 @@ r = V/r = 600,000/100 =  6000 \text{ minutes }\text{.}
 <div class="autopermalink" data-description="Solution 0.2.5.1"><a href="#sec_problemsolving-7-6-2" title="Copy heading and permalink for Solution 0.2.5.1" aria-label="Copy heading and permalink for Solution 0.2.5.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Checkpoint 0.2.5"><a href="#sec_problemsolving-7-6" title="Copy heading and permalink for Checkpoint 0.2.5" aria-label="Copy heading and permalink for Checkpoint 0.2.5">🔗</a></div></article><article class="exercise exercise-like" id="sec_problemsolving-7-7"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">0.2.6</span><span class="period">.</span>
 </h4>
 <div class="para" id="sec_problemsolving-7-7-1-1">In 2020, a forest of 5 million trees was invaded by insects. 40% of the forests’ original trees were susceptible to the insects, and of these, two-thirds die off. After that, each year, two-thirds of the remaining susceptible trees die off. Assuming no new trees grow in the forest and no other trees are harmed, how many trees are in the forest at the start of 2030? What happens to the forest in the far future?<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sec_problemsolving-7-7-1-2">(Source: Kaarali, modified)<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_problemsolving-7-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="sec_problemsolving-7-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="sec_problemsolving-7-7-2-1">Here we work through the first three steps of the framework. Note: your work might look different or occur in different steps!<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="sec_problemsolving-7-7-2-2">
@@ -1064,7 +1079,7 @@ r = V/r = 600,000/100 =  6000 \text{ minutes }\text{.}
 <li id="sec_problemsolving-7-7-2-2-3">
 <div class="para" id="sec_problemsolving-7-7-2-2-3-1">Carry out Your Plan  You might have some trial and error as you decide which quantities to track.<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-7-7-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_ProbSolving4"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year<div class="autopermalink" data-description="Table 0.2.7: A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year"><a href="#tab_ProbSolving4" title="Copy heading and permalink for Table 0.2.7: A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year" aria-label="Copy heading and permalink for Table 0.2.7: A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_ProbSolving4"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">0.2.7<span class="period">.</span></span><span class="space"> </span>A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year<div class="autopermalink" data-description="Table 0.2.7: A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year"><a href="#tab_ProbSolving4" title="Copy heading and permalink for Table 0.2.7: A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year" aria-label="Copy heading and permalink for Table 0.2.7: A table of values of the number of trees, non-susceptible trees,  susceptible trees, and susceptible trees that survive the year">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b1 r0 l0 t0 lines"></td>
 <td class="l m b1 r0 l0 t0 lines"></td>
@@ -1148,19 +1163,19 @@ T(t) = (0.6)(5) + (\frac{1}{3})^t (0.4)(5)\text{.}
 <div class="autopermalink" data-description="Solution 0.2.6.1"><a href="#sec_problemsolving-7-7-2" title="Copy heading and permalink for Solution 0.2.6.1" aria-label="Copy heading and permalink for Solution 0.2.6.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Checkpoint 0.2.6"><a href="#sec_problemsolving-7-7" title="Copy heading and permalink for Checkpoint 0.2.6" aria-label="Copy heading and permalink for Checkpoint 0.2.6">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Examples of Worked Problems"><a href="#sec_problemsolving-7" title="Copy heading and permalink for Subsection: Examples of Worked Problems" aria-label="Copy heading and permalink for Subsection: Examples of Worked Problems">🔗</a></div></section><section class="subsection" id="sec_problemsolving-8"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">References and Notes:</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">References and Notes:</span>
 </h3>
 <div class="para logical" id="sec_problemsolving-8-2">
 <ul class="disc" id="sec_problemsolving-8-2-1">
 <li id="sec_problemsolving-8-2-1-1">
 <div class="para" id="sec_problemsolving-8-2-1-1-1">
-<a class="external" href="https://www.maa.org/press/maa-reviews/curriculum-foundations-project-voices-of-the-partner-disciplines" target="_blank">Curriculum Foundations Project: Voices of the Partner Disciplines | Mathematical Association of America</a><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<a class="external" href="https://www.maa.org/press/maa-reviews/curriculum-foundations-project-voices-of-the-partner-disciplines" target="_blank">Curriculum Foundations Project: Voices of the Partner Disciplines | Mathematical Association of America</a><details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-8-2-1-1-1-2"><summary class="ptx-footnote__number" title="Footnote 0.26"><sup> 26 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-8-2-1-1-1-2"><code class="code-inline tex2jax_ignore">www.maa.org/press/maa-reviews/curriculum-foundations-project-voices-of-the-partner-disciplines</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-8-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="sec_problemsolving-8-2-1-2">
 <div class="para" id="sec_problemsolving-8-2-1-2-1">
-<a class="external" href="https://digitalcommons.usf.edu/cgi/viewcontent.cgi?article=1014&amp;amp;context=numeracy" target="_blank">Word Problems: Reflections on Embedding Quantitative Literacy in a Calculus Course</a>, Gizem Kaarali<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<a class="external" href="https://digitalcommons.usf.edu/cgi/viewcontent.cgi?article=1014&amp;amp;context=numeracy" target="_blank">Word Problems: Reflections on Embedding Quantitative Literacy in a Calculus Course</a><details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-8-2-1-2-1-2"><summary class="ptx-footnote__number" title="Footnote 0.27"><sup> 27 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-8-2-1-2-1-2"><code class="code-inline tex2jax_ignore">digitalcommons.usf.edu/cgi/viewcontent.cgi?article=1014&amp;amp;context=numeracy</code></div></details>, Gizem Kaarali<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-8-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
@@ -1171,7 +1186,7 @@ T(t) = (0.6)(5) + (\frac{1}{3})^t (0.4)(5)\text{.}
 </li>
 <li id="sec_problemsolving-8-2-1-4">
 <div class="para" id="sec_problemsolving-8-2-1-4-1">
-<a class="external" href="http://www.math.utah.edu/~pa/math/polya.html" target="_blank">G. Polya, How to Solve It.</a><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<a class="external" href="http://www.math.utah.edu/~pa/math/polya.html" target="_blank">G. Polya, How to Solve It.</a><details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-8-2-1-4-1-2"><summary class="ptx-footnote__number" title="Footnote 0.28"><sup> 28 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-8-2-1-4-1-2"><code class="code-inline tex2jax_ignore">www.math.utah.edu/~pa/math/polya.html</code></div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-8-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
@@ -1181,7 +1196,7 @@ T(t) = (0.6)(5) + (\frac{1}{3})^t (0.4)(5)\text{.}
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-8-2-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="sec_problemsolving-8-2-1-6">
-<div class="para" id="sec_problemsolving-8-2-1-6-1">Steen, Lynn, <a class="external" href="http://www.steen-frost.org/Steen/Papers/01case-for-ql.pdf" target="_blank">http://www.steen-frost.org/Steen/Papers/01case-for-ql.pdf</a> (p. 8-9)<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_problemsolving-8-2-1-6-1">Steen, Lynn, <a class="external" href="http://www.steen-frost.org/Steen/Papers/01case-for-ql.pdf" target="_blank">http://www.steen-frost.org/Steen/Papers/01case-for-ql.pdf</a><details class="ptx-footnote" aria-live="polite" id="sec_problemsolving-8-2-1-6-1-2"><summary class="ptx-footnote__number" title="Footnote 0.29"><sup> 29 </sup></summary><div class="ptx-footnote__contents" id="sec_problemsolving-8-2-1-6-1-2"><code class="code-inline tex2jax_ignore">www.steen-frost.org/Steen/Papers/01case-for-ql.pdf</code></div></details> (p. 8-9)<div class="autopermalink" data-description="Paragraph"><a href="#sec_problemsolving-8-2-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item"><a href="#sec_problemsolving-8-2-1-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
