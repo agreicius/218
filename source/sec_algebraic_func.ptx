@@ -334,11 +334,10 @@
         </p>
         
     </remark>
-    <exercise>
+    <example>
       <statement>
         <p>
-          Simplify each expression to one involving only positive exponents. Exponents in <xref ref="th_power_identities"/>.
-          You may assume all the identities of <xref ref="th_power_identities"/> apply in each case. 
+          Simplify each expression to one involving only positive exponents. You may assume all the identities of <xref ref="th_power_identities"/> apply in each case. 
           <ol >
             <li>
               <p>
@@ -357,13 +356,60 @@
             </li>
             <li>
               <p>
-                <m>\dfrac{2h^3j^{-3}k^4}{3j\sqrt{k}}</m>
+                <m>\dfrac{2h^3j^{-3}k^4}{3jk^{1/2}}</m>
               </p>
             </li>
           </ol>
         </p>
       </statement>
-    </exercise>
+      <solution>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        We compute
+                        <md>
+                            <mrow> 2k^4\cdot 3k^5  \amp =2\cdot 3\, k^4\cdot k^5 </mrow>
+                            <mrow> \amp = 6k^9 \amp (\text{common base})</mrow>
+                        </md>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We compute
+                        <md>
+                            <mrow> 4a^3b^{-2}\cdot 3a^{-4}b^3 \amp =4\cdot 3\, a^3\cdot a^{-4}b^{-2}b^3 </mrow>
+                            <mrow>\amp =12a^{-1}b^1 \amp (\text{common base}) </mrow>
+                            <mrow>\amp =\frac{12b}{a} \amp </mrow>
+                        </md>
+                    </p>
+                </li>
+                
+            <li>
+              <p>
+                We compute 
+                <md>
+                    <mrow> (7x^3y)^{-2} \amp =7^{-2}(x^3)^{-2}y^{-2} \amp (\text{common exp.}) </mrow>
+                    <mrow> \amp =7^{-2}x^{-6}y^{-2} \amp (\text{iter. powers})</mrow>
+                    <mrow> \amp = \frac{1}{7^2x^6y^2} \amp (\text{reciprocal})</mrow>
+                    <mrow> \amp =\frac{1}{49x^6y^2}</mrow>
+                </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We compute 
+                <md>
+                    <mrow>\frac{2\,h^3\,j^{-3}\,k^4}{3\,j\,k^{1/2}} \amp =\frac{2}{3}\, h^3j^{-3-1}\,k^{4-1/2} </mrow>
+                    <mrow> \amp =\frac{2}{3}h^3j^{-4}k^{7/2}</mrow>
+                    <mrow> \amp = \frac{2h^3k^{7/2}}{3j^4}</mrow>
+                </md>.
+              </p>
+            </li>
+            </ol>
+        </p>
+      </solution>
+    </example>
     <p>
     The identities in <xref ref="th_power_identities"/> are a convenient way to recall some identities involving radicals. As an example, below we translate certain instances of the identities from <xref ref="th_power_identities"/> into radical notation using the definition <m>a^{1/n}=\sqrt[n]{a}</m>:
     <md>
@@ -386,7 +432,36 @@
             </p>
         </statement>
     </corollary>
-   
+    <p>
+      Notice that we say a function <m>f</m> is a power function if it <em>can</em>
+      be written in the form <m>f(x) = Ax^k</m> for some constants <m>A</m> and <m>k</m>;
+      it may not start out written that way.
+      Sometimes it can take a great deal of algebra to determine whether or not a function is a power function "in disguise."
+    </p>
+    <example>
+      <statement>
+        <p>
+          For example, is the function
+          <me>
+            f(x) = \frac{(2x)^3+8x^{17/5}}{x^{2/5}+1}
+          </me>
+          a power function?
+          If so, what are the numbers <m>A</m> and <m>k</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can expand, factor,
+          and then make a lucky cancellation to write this expression in the form <m>Ax^k</m>:
+          <me>
+            f(x) = \frac{(2x)^3+8x^{17/5}}{x^{2/5}+1} = \frac{8x^3+8x^{17/5}}{x^{2/5}+1} = \frac{8x^3(1+x^{17/5-3})}{x^{2/5}+1} = \frac{8x^3(1+x^{2/5})}{x^{2/5}+1} = 8x^3
+          </me>
+        </p>
+      </solution>
+    </example>
+   <exercise xml:id="inline_ex_rad">
+    <webwork source="Library/Rochester/setAlgebra02ExponentsRadicals/srw1_2_88-sol.pg"/>
+   </exercise>
     
 
 </subsection>
@@ -574,5 +649,340 @@
       </statement>
     </exercise>
   </subsection>
+  <subsection xml:id="ss_rational">
+  <title>Rational functions</title>
+  <p>
+    Just as rational numbers are defined as quotients of integers, a <em>rational function</em> is defined as a quotient of polynomials.
+  </p>
+  <definition xml:id="d_rational_function">
+  <title>Rational function</title>
+  <statement>
+  <p>
+  A function <m>f</m> is a <term>rational function</term> if it can be expressed as a quotient of two polynomials: <ie/>, <m>f</m> is rational if there are polynomials <m>p(x)=\anpoly</m> and <m>q(x)=\bmpoly</m> satisfying 
+  <me>
+    f(x)=\frac{p(x)}{q(x)}=\frac{\anpoly}{\bmpoly}
+  </me>
+  for all <m>x</m> in the domain of <m>f</m>.
+  </p>
+  </statement>
+  </definition>
+  <remark>
+    <title>Implied domain of rational function</title>
+    <p>
+        Suppose <m>f(x)=p(x)/q(x)</m> is a rational function, where 
+        <md>
+            <mrow>p(x) \amp = \anpoly \amp q(x)\amp= \bmpoly</mrow>
+        </md>.
+        Since <m>p(x)</m> and <m>q(x)</m> are defined for all <m>x\in \R</m>, we see that the expression defining <m>f(x)</m> is defined as long as <m>q(x)\ne 0</m>. Thus the implied domain of <m>f</m> is 
+        <me>
+            D=\{x\in \R\mid q(x)\ne 0\}
+        </me>.
+        To compute <m>D</m>, we need to be able to find the zeros of the denominator polynomial <m>q(x)</m>. It turns out that this is not always an easy task, especially if the degree of <m>q</m> is large. We will provide techniques for doing this in the next section.
+    </p>
+  </remark>
+<p>
+      Just like our previous definitions for functions,
+      the key realization is that a rational function <em>can</em>
+      be written in such a form.
+      It does not have to begin that way.
+    </p>
+    <example xml:base="eg_rational_ver">
+        <title>Rational function: like denominators</title>
+      <statement>
+        <p>
+          Verify that <m>f(x) = x-1+\frac{1}{2x+1}</m> is a rational function by writing it as <m>f(x)=p(x)/q(x)</m>, where <m>p</m> and <m>q</m> are polynomials. 
+        </p>
+      </statement>
+      <solution>
+        <p>
+        To express <m>f</m> as a quotient of polynomials, we will convert the given formula of <m>f</m> into a single quotient using the technique of <em>like denominators</em>. 
+            <md>
+                <mrow> x-1+\frac{1}{2x+1}  \amp = (x-1)\cdot\frac{2x+1}{2x+1}+\frac{1}{2x+1}</mrow>
+                <mrow> \amp = \frac{(x-1)(2x+1)}{2x+1}+\frac{1}{2x+1} </mrow>
+                <mrow> \amp = \frac{(x-1)(2x+1)+1}{2x+1}</mrow>
+                <mrow> \amp =  \frac{(2x^2-x-2x-1)+1}{2x+1}</mrow>
+                <mrow> \amp =  \frac{2x^2-3x}{2x+1}</mrow>
+            </md>.
+        </p>
+      </solution>
+    </example>
+    <example xml:base="eg_rational_func_ver2">
+        <title>Rational function: clear denominators</title>
+      <statement>
+        <p>
+          Verify that
+          <me>
+            f(x) = \frac{\frac{3}{x+2}-\frac{1}{x}}{x-1}
+          </me>
+          is a rational function by writing it as <m>f(x)=p(x)/q(x)</m>, where <m>p</m> and <m>q</m> are polynomials. 
+        </p>
+      </statement>
+      <solution>
+        <p>
+            We use the algebraic technique of <em>clearing denominators</em>:
+            <md>
+                <mrow> f(x) \amp = \frac{\frac{3}{x+2}-\frac{1}{x}}{x-1} \amp </mrow>
+                
+                <mrow> \amp = \frac{x(x+2)}{x(x+2)}\cdot \frac{\frac{3}{x+2}-\frac{1}{x}}{x-1} </mrow>
+                <mrow> \amp = \frac{x(x+2)\cdot \frac{3}{x+2}-x(x+2)\cdot \frac{1}{x}}{x(x+2)(x-1)}</mrow>
+                <mrow> \amp = \frac{3x-(x+2)}{x(x+2)(x-1)} </mrow>
+                <mrow> \amp = \frac{2x-2}{x^3+x^2-x}</mrow>
+            </md>.
+        </p>
+      </solution>
+    </example>
+    <remark>
+        <title>Fraction arithmetic</title>
+    <p>
+        The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized. 
+        <table xml:id="table_frac_arith">
+            <title>Fraction arithmetic</title>
+            <tabular>
+                <row>
+                    <cell>Fraction multiplication</cell> <cell><m>\frac{a}{b}\cdot \frac{c}{d}=\frac{ac}{bd}</m></cell>
+                </row>
+                <row>
+                    <cell>Multiplying by <m>1=c/c</m></cell> <cell><m>\frac{a}{b}=\frac{c}{c}\cdot \frac{a}{b}=\frac{ca}{cb}</m></cell>
+                </row>
+                <row>
+                    <cell>Fraction addition with like denominators</cell> <cell><m>\frac{a}{c}+\frac{b}{c}=\frac{a+b}{c}</m></cell>
+                </row>
+                <row>
+                    <cell>Fraction addition via like denominators</cell><cell><m>\frac{a}{b}+\frac{c}{d}=\frac{ad}{bd}+\frac{bc}{bd}=\frac{ad+bc}{bd}</m></cell>
+                </row>
+            </tabular>
+        </table>
+    </p>        
+    </remark>
+  </subsection>
+  <subsection>
+    <title>Algebraic functions</title>
+    <p>
+      A function is <term>algebraic</term>
+      if it can be expressed in terms of constants and a variable <m>x</m> by using only arithmetic operations <m>(+, -, \times</m>,
+      and <m>\div)</m> and rational constant powers of the variables.
+      For example,
+      <me>
+        f(x) = \frac{3x^2-5}{1-x}  \text{ and }  g(x) = (\sqrt{x}+\sqrt[3]{x})^{7/2}
+      </me>
+      are algebraic functions. 
+    </p>
+    <p>
+      There are four basic types of algebraic functions,
+      which we have already investigated:
+      linear functions, polynomial functions,
+      rational functions, and power functions.
+      More complicated algebraic functions can be constructed by using sums (<m>+</m>),
+      differences (<m>-</m>), products (<times/>),
+      and quotients (<m>\div</m>) of these four basic types.
+      <xref ref="tab_liboffunctions" autoname="yes"/> gives a general form and examples for each type:
+    </p>
+    <table xml:id="tab_liboffunctions">
+      <title>A summary of algebraic functions</title>
+      <tabular>
+        <row header="yes">
+          <cell>
+            Type</cell>
+          <cell>General form</cell>
+          <cell>Examples</cell>
+        </row>
+        <row>
+          <cell>
+            Linear</cell>
+          <cell><m>f(x) = mx+b</m></cell>
+          <cell><m>f(x) = 2x-1</m>, <m>f(x) = 1.4x</m></cell>
+        </row>
+        <row>
+          <cell>Polynomial</cell>
+          <cell><m>f(x) =\anpoly</m></cell>
+          <cell><m>f(x) = 3x^5-2x^3+x-6</m></cell>
+        </row>
+        <row>
+          <cell>Rational</cell>
+          <cell><m>f(x) = \frac{\anpoly}{\bmpoly}</m></cell>
+          <cell><m>f(x) = \dfrac{3x^2-1}{x^5+x^3+1}</m></cell>
+        </row>
+        <row>
+          <cell>Power</cell>
+          <cell><m>f(x) = cx^q</m>, <m>q\in \Q</m></cell>
+          <cell><m>f(x) = 3x^3, f(x) = 1.7x^{-1.5}</m></cell>
+        </row>
+        <row>
+          <cell>Other</cell>
+          <cell>Arithmetic comb. of previous types</cell>
+          <cell><m>f(x) = \frac{1+\sqrt{x}}{1+x}</m>, <m>f(x) = x^{2/3}+5</m></cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      There is a certain amount of overlap among the types listed in the table;
+      for example,
+      <m>f(x) = x^2</m> is both a power function and a polynomial function,
+      and <m>f(x) = \frac{1}{x} = x^{-1}</m> is both a power function and a rational function.
+    </p>
+    <p>
+      Functions that are not algebraic are called
+      <term>transcendental</term> functions.
+      In later chapters of this book,
+      we will investigate four basic types of transcendental functions:
+      exponential, logarithmic,
+      trigonometric, and inverse trigonometric functions.
+      We will not go into their definitions or general forms right now.
+      However, <xref ref="tab_transdencentalfunctions"/> provides some examples.
+    </p>
+    <table xml:id="tab_transdencentalfunctions">
+      <title>A summary of transcendental functions</title>
+      <tabular>
+        <row header="yes">
+          <cell>Type</cell>
+          <cell>Examples</cell>
+        </row>
+        <row>
+          <cell >Exponential</cell>
+          <cell><m>f(x) = 2^x, f(x) = 3e^{4x}, f(x) = 1.2(3.4)^x</m></cell>
+        </row>
+        <row>
+          <cell>Logarithmic</cell>
+          <cell><m>f(x) = \log_{10}x, f(x) = \ln x, f(x) = \log_2 x</m></cell>
+        </row>
+        <row>
+          <cell>Trigonometric</cell>
+          <cell><m>f(x) = \sin x,  f(x) = \cos x, f(x) = \cot x</m></cell>
+        </row>
+        <row>
+          <cell>Inverse Trigonometric</cell>
+          <cell><m>f(x) = \arcsin x, f(x) = \cos^{-1} x, f(x) = \arctan x</m></cell>
+        </row>
+        <row>
+          <cell>Other</cell>
+          <cell><m>f(x) = x+\sin x, f(x) = \ln(\sqrt{x}+12), f(x) = 2^x\arctan x</m></cell>
+        </row>
+      </tabular>
+    </table>
+    <example>
+      <title>Identifying algebraic function types</title>
+      <statement>
+        <p>
+          For each function listed, determine whether it is a linear, power,
+          polynomial, rational, algebraic or transcendental function.
+          Some functions may satisfy more than one classification.
+          <ol>
+            <li>
+              <p>
+                <m>f(x) = x^{-2}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>g(x) = 3x^2+2^x+1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x) = \frac{\sqrt{x}}{1+x}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>k(x) = (x-1)^2-x^2</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                <m>f(x) = x^{-2}</m> is a power function of the form <m>Ax^k</m> with real-number coefficient <m>A=1</m> and rational-number exponent <m>k=-2</m>.
+                Since <m>x^{-2}=\frac{1}{x^2}</m>,
+                <m>f</m> is also a rational function of the form <m>\frac{p(x)}{q(x)}</m> with the polynomials
+                <m>p(x) = 1</m> and <m>q(x) = x^2</m>.
+                Thus <m>f</m> is an algebraic function that is both a power function and a rational function.
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>2^x</m> is not algebraic,
+                because it involves a nonconstant exponent.
+                Therefore the function <m>g(x) = 3x^2+2^x+1</m> also fails to be algebraic and thus is transcendental.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(x) = \frac{\sqrt{x}}{1+x}</m> is a quotient of algebraic functions,
+                but not a quotient of <em>polynomials</em>,
+                since <m>\sqrt{x}</m> is not a polynomial.
+                Therefore <m>h(x)</m> is an algebraic function,
+                but not a rational function.
+              </p>
+            </li>
+            <li>
+              <p>
+                This function can be simplified:
+                <m>k(x) = (x-1)^2-x^2 = x^2-2x+1-x^2 = -2x+1</m>.
+                After the last simplification it is easy to see that <m>k(x)</m> is also a polynomial function,
+                with degree <m>n=1</m>,
+                and coefficients <m>a_1 = -2</m> and <m>a_0 = 1</m>.
+                Furthermore, since we can write <m>-2x+1 = \frac{-2x+1}{1}</m>,
+                <m>k(x)</m> is a rational function as well,
+                with <m>p(x) = -2x+1</m> and <m>q(x) = 1</m>.
+                Therefore <m>k(x)</m> is an algebraic function that is linear,
+                polynomial,
+                and rational.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <exercise>
+      <statement>
+        <p>
+          What is an example of a single algebraic function that is linear,
+          polynomial, rational, <em>and</em> a power function
+          (all of these at once).
+          You have seen several<ellipsis/>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+
+  <exercises xml:id="exs_algebraic_func">
+   <exercise>
+    <webwork source="Library/Rochester/setAlgebra02ExponentsRadicals/srw1_2_26.pg" />
+   </exercise>
+    
+   <exercise>
+    <webwork source="Library/Mizzou/Algebra/exponents_rational/conv_exp_to_exp_two_term_div_04.pg" />
+   </exercise>
+
+    <exercise>
+        <webwork source="Library/Rochester/setAlgebra02ExponentsRadicals/srw1_2_91.pg" />
+    </exercise>
+    <exercise>
+        <webwork source="Library/UMN/algebraKaufmannSchwitters/ks_5_4_52.pg" />
+    </exercise>
+   
+    <exercise xml:id="">
+    <webwork source="Library/FortLewis/Algebra/4-2-Functions-and-expressions/MCH1-4-2-14-Functions-and-expressions.pg"/>
+    </exercise>
+
+    
+    
+    <exercise>
+    <webwork source="Library/PCC/BasicAlgebra/PolynomialBasics/PolyAddSubtract11.pg"/>
+    </exercise>
+    
+    
+    <exercise>
+    <webwork source="Library/Rochester/setAlgebra32EqnSystems/modelling.pg"/>
+    </exercise>
+    
+    
+    
+
+  </exercises>
 
 </section>
