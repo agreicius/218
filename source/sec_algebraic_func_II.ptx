@@ -417,7 +417,7 @@
                 </li>
                 <li>
                     <p>
-                        A real number <m>a</m> is a root of the polynomial <m>f(x)</m> if and only if the remainder upon dividing <m>f(x)</m> by <m>x-a</m> is <m>r(x)=0</m>. 
+                        A real number <m>a</m> is a root of the polynomial <m>f(x)</m> if and only if the remainder upon dividing <m>f(x)</m> by <m>x-a</m> is the zero polynomial. In this case we have <m>r(x)=0</m> and <m>f(x)=(x-a)q(x)</m>. 
                     </p>
                 </li>
             </ol>
@@ -433,14 +433,14 @@
     </statement>
     <solution>
     <p>
-You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively, where at each step we multiply <m>g</m> by a monomial <m>cx^m</m> in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in <xref ref="table_poly_div"/>. Consider that display as the bookkeeping involved in the process described below.
+You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively, where at each step we multiply <m>g</m> by a monomial <m>cx^m</m> in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in <xref ref="table_poly_div"/>, and indeed that is the way you should perform this operation. Consider the following as just an in-depth description of what we are actually doing in that process. 
     <ul>
         <li>
             <p>
                 Multiply <m>g</m> by a monomial <m>cx^n</m> so that the leading terms of <m>f</m> and <m>(cx^n)g(x)</m> match. In this case we choose the monomial <m>3x^2</m>.
             </p>
             <p>
-                Set our temporary <m>q(x)</m> as <m>3x^2</m> and our temporary <m>r(x)</m> as 
+                Set our <em>temporary quotient</em> <m>q(x)</m> as <m>3x^2</m> and our <em>temporary remainder</em> <m>r(x)</m> as 
                 <md>
                     <mrow>r(x) \amp = f(x)-3x^2\cdot g(x)</mrow>
                     <mrow> \amp =f(x)-3x^2(x^2+x+1)</mrow>
@@ -450,10 +450,10 @@ You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively
         </li>
         <li>
             <p>
-               If <m>\deg r</m> is not less than <m>\deg g</m> for our temporary remainder  <m>r(x)</m>, repeat Step 1 with <m>g(x)</m> and <m>r(x)</m>, updating <m>q(x)</m> in the process by adding the relevant monomial. 
+               If <m>\deg r</m> is not less than <m>\deg g</m> for our temporary remainder  <m>r(x)</m>, repeat Step 1 with <m>g(x)</m> and <m>r(x)</m> (instead of <m>g(x)</m> and <m>f(x)</m>). <em>Update</em> our temporary quotient <m>q(x)</m> by adding to it the relevant monomial <m>cx^m</m>, and <em>update</em> our temporary remainder <m>r(x)</m> by subtracting <m>(cx^m)g(x)</m> from it. 
             </p>
             <p>
-                In our case, since 
+                In the present case, since 
                 <me>
                     \deg r(x)=\deg -3x^3-x^2+7x-3\geq \deg f=2 
                 </me>,
@@ -521,6 +521,263 @@ You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively
             </row>
         </tabular>
     </table>
+    <example xml:id="eg_poly_root_check">
+    <title>Polynomial root check</title>
+    <statement>
+    <p>
+    Let <m>f(x)=x^3+4x^2+4x+3</m>. For each <m>a\in \R</m>, decide whether <m>a</m> is a root by computing <m>f(a)</m>, then verify your answer using <xref ref="proc_poly_division"/>.
+    <ol>
+        <li>
+            <p>
+                <m>a=-1</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>a=-3</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                Since
+                <me>
+                    f(-1)=-1+4-4+3=2
+                </me>,
+                we see that <m>a=-1</m> is not a root of <m>f</m>. According to <xref ref="proc_poly_division"/> this means that dividing <m>f(x)</m> by <m>x+1</m> should result in a <em>nonzero</em> remainder polynomial <m>r(x)</m>. We verify by performing longdivision:
+            </p>
+            <tabular>
+            <col halign="right"/><col halign="right" /><col halign="right" /><col halign="right" /><col halign="right" />
+            
+            <row>
+                <cell></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+3x</m></cell><cell bottom="medium"><m>+1</m></cell>
+            </row>
+            <row>
+                <cell><m>x+1)</m></cell><cell ><m>\phantom{-(}x^3</m></cell><cell ><m>+4x^2</m></cell><cell ><m>+4x</m></cell><cell><m>+3</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell bottom="medium"><m>-(x^3</m></cell ><cell bottom="medium"><m>+x^2)</m></cell><cell ><m></m></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell ><m></m></cell ><cell ><m>\phantom{-(}3x^2</m></cell><cell ><m>+4x</m></cell><cell>+3</cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell bottom="medium" ><m>-(3x^2</m></cell><cell bottom="medium" ><m>+3x)</m></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell></cell><cell ><m>\phantom{-(}x</m></cell><cell  ><m>+3</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell></cell><cell bottom="medium" ><m>-(x</m></cell><cell bottom="medium" ><m>+1)</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell></cell><cell></cell><cell>2</cell>
+            </row>
+        </tabular>
+            <p>    
+                Thus diving <m>f</m> by <m>x+1</m> yields a quotient of <m>q(x)=x^2+3x+1</m> and remainder of <m>r(x)=2</m>: <ie/>, 
+                <me>
+                    x^3+4x^2+4x+3=(x+1)\underset{q(x)}{(x^2+3x+1)}+\underset{r(x)}{2}
+                </me>.
+                Since <m>r(x)=2</m> is not the zero polynomial we conclude (again) that <m>a=-1</m> is not a root.
+            </p>
+        </li>
+        <li>
+            <p>
+                Similarly, we compute 
+                <me>
+                    f(-3)=-27+36-12+3=0
+                </me>,
+                showing that <m>a=-3</m> is a root of <m>f</m>. Now perform longdivision of <m>f</m> by <m>x+3</m>:
+            </p>
+            <tabular>
+            <col halign="right"/><col halign="right" /><col halign="right" /><col halign="right" /><col halign="right" />
+            
+            <row>
+                <cell></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+x</m></cell><cell bottom="medium"><m>+1</m></cell>
+            </row>
+            <row>
+                <cell><m>x+3)</m></cell><cell ><m>\phantom{-(}x^3</m></cell><cell ><m>+4x^2</m></cell><cell ><m>+4x</m></cell><cell><m>+3</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell bottom="medium"><m>-(x^3</m></cell ><cell bottom="medium"><m>+3x^2)</m></cell><cell ><m></m></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell ><m></m></cell ><cell ><m>\phantom{-(}x^2</m></cell><cell ><m>+4x</m></cell><cell>+3</cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell bottom="medium" ><m>-(x^2</m></cell><cell bottom="medium" ><m>+3x)</m></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell></cell><cell ><m>\phantom{-(}x</m></cell><cell  ><m>+3</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell></cell><cell bottom="medium" ><m>-(x</m></cell><cell bottom="medium" ><m>+3)</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell><m></m></cell ><cell></cell><cell></cell><cell>0</cell>
+            </row>
+        </tabular>
+        <p>
+            Since <m>r(x)=0</m> is the zero polynomial, we conclude (again) that <m>a=-3</m> is a root, and furthermore the quotient <m>q(x)=x^2+x+1</m> yields the factorization 
+        <me>
+            x^3+4x^2+4x+1=(x+3)(x^2+x+1)
+        </me>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+        You may have noticed that the two candidate roots of the polynomial in <xref ref="eg_poly_root_check"/> were integer factors of its constant term. As it turns out, given a polynomial with <em>integer coefficients</em>, any <em>integer root</em> of that polynomial must be a factor of its constant term. 
+    </p>
+    <theorem xml:id="th_int_root">
+    <title>Integer root theorem</title>
+    <statement>
+    <p>
+    Let <me>f(x)=\anpoly</me> and assume that all the coefficients of <m>f</m> are integers: <ie/>, <m>a_k\in \Z</m> for all <m>0\leq k\leq n</m>. Any integer root of <m>f</m> must be a factor of <m>a_0</m>: <ie/>, if <m>f(c)=0</m> and <m>c\in \Z</m>, then <m>c</m> is a factor of <m>a_0</m>.
+    </p>
+    </statement>
+    </theorem>
+    <p>
+        Note the crucial detail in <xref ref="th_int_root"/>: an <em>integer</em> root of a polynomial with integer coefficients must divide the constant term. The theorem says nothing about possible non-integer roots, as the next example illustrates. 
+    </p>
+    <example xml:id="eg_no_integer_roots">
+    <title>Integer roots</title>
+    <statement>
+    <p>
+    Let <m>f(x)=x^2-2</m>. 
+    <ol>
+        <li>
+            <p>
+                Find all <em>integer</em> roots of <m>f</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Find all roots of <m>f</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                Since <m>f</m> has integer coefficents, if <m>c</m> is an integer root of <m>f</m>, then it must be a factor of its constant term <m>-2</m>, according to <xref ref="th_int_root"/>. Thus the only possible <em>integer</em> roots of <m>f</m> are <m>\pm 1, \pm 2</m>. But <m>f(\pm 1)=-1</m> and <m>f(\pm 2)=2</m>. Thus none of these candidates is a root, showing <m>f</m> has no integer roots. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Since <m>f</m> is a quadratic function, it is easy to determine its roots. As usual, there are multiple ways of doing this, but in this case the easiest method would be to proceed as follows:
+                <md>
+                    <mrow>f(x) \amp =0</mrow>
+                    <mrow>x^2-2 \amp =0</mrow>
+                    <mrow>x^2 \amp =2</mrow>
+                    <mrow>x \amp =\pm \sqrt{2}</mrow>
+                </md>.
+                Thus, although <m>f</m> has no <em>integer</em> roots, its has the two real roots <m>\pm \sqrt{2}</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+        Once we find a root <m>x=a</m> of a polynomial <m>f(x)</m>, the resulting factorization <m>f(x)=(x-a)q(x)</m> allows us to find all further roots by continuiung the process on <m>q(x)</m>, as the next example illustrates. 
+    </p>
+    <example xml:id="eg_poly_roots">
+    <title>Polynomial roots</title>
+    <statement>
+    <p>
+    Find all roots of <m>f(x)=x^3+4x^2+4x+3</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    From <xref ref="eg_poly_root_check"/>, we know that <m>f</m> factors as 
+    <me>
+        f(x)=(x+3)(x^2+x+1)
+    </me>, 
+    and thus that <m>-3</m> is a root of <m>f</m>. Are there any other roots? Suppose <m>a\ne -3</m>. Evaluating <m>f</m> at <m>a</m> yields 
+    <me>
+        f(a)=(a+3)(a^2+a+1)
+    </me>.
+    Since <m>a\ne -3</m>, <m>a+3\ne 0</m>. By <xref ref="th_zero_divisors"/>, we have <m>f(a)=0</m> if and only if <m>a^2+a+1=0</m>. Thus, <m>a\ne -3</m> is a root of <m>f</m> if and only if it is a root of <m>g(x)=x^2+x+1</m>. But using <xref ref="th_quadratic_formula"/>, we see that the quadratic function <m>g(x)</m> has not roots! We conclude that <m>-3</m> is the only root of <m>f</m>. 
+    </p>
+    </solution>
+    </example>
+    <p>
+        Let's make official the method and reasoning in this last example. 
+    </p>
+    <algorithm xml:id="proc_fact_roots">
+        <title>Factoring polynomials and finding roots</title>
+        <statement>
+            <p>
+            To find all roots of a polynomial <m>f</m>, you may proceed as follows. 
+            <ol>
+                <li>
+                    <p>
+                        Factor <m>f(x)</m> as best you can as a product of polynomials of smaller degree:
+                        <men xml:id="eq_f_factored">
+                            f(x)=f_1(x)f_2(x)\cdots f_r(x)
+                        </men>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A real number <m>a</m> is a root of <m>f</m> if and only if it is a root of one of the polynomials <m>f_k(x)</m>. Thus by finding all roots of each polynomial <m>f_k(x)</m>, we find all roots of <m>f</m>. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+        </statement>
+    </algorithm>
+    <p>
+        Note that the success <xref ref="proc_fact_roots"/> depends on our ability to find all the roots of the factor polynomials <m>f_k(x)</m>. Accordingly, the smaller the degree of the <m>f_k</m>, the more likely we are in being able to find all roots of <m>f</m>. In particular, we will be home free if we are able to factor <m>f</m> far enough so that all factor polynomials are of degree one or two. 
+    </p>
+    <example xml:id="eg_roots_quartic">
+    <title>Roots of a quartic</title>
+    <statement>
+    <p>
+    Find all roots of <m>f(x)=x^4-4x^3+5x^2-4x+4</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Since the coefficients of <m>f</m> are integers, we first try and find an integer root of <m>f</m> using <xref ref="th_int_root"/>. Evaluating <m>f(a)</m> for <m>a=\pm 1, \pm 2, \pm 4</m> (the factors of the constant term of <m>f</m>), we see that <m>f(2)=0</m>, and thus that <m>(x-2)</m> is a factor of <m>f</m>. Using polynomial longdivision (we skip the steps here), we see that 
+    <me>
+        f(x)=(x-2)(x^3-2x^2+x-2)
+    </me>.
+    Now continue the process by factoring <m>g(x)=x^3-2x^2+x-2</m>. Again using <xref ref="th_int_root"/>, we try <m>\pm 1, \pm 2</m> as potential roots. It turns out that <m>g(2)=0</m>, and thus <m>x-2</m> can be factored out (again). Using polynomial longdivision (again we omit the steps), we find that 
+    <me>
+        g(x)=(x-2)(x^2+1)
+    </me>,
+    and thus that 
+    <me>
+        f(x)=(x-2)g(x)=(x-2)(x-2)(x^2+1)
+    </me>.
+    Lastly, we apply <xref ref="th_quadratic_formula"/> to the remaining factor <m>x^2+1</m>, concluding that it has no roots. By <xref ref="proc_fact_roots"/>, we conclude that the only root of <m>f</m> is <m>2</m>. 
+    </p>
+    </solution>
+    </example>
+    <remark>
+        <title>Multiplicity</title>
+        
+        <p>
+            
+        </p>
+    </remark>
+    
+    
     
     </subsection>
 </section>
