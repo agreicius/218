@@ -1194,8 +1194,8 @@ var ptx_lunr_docs = [
   "url": "sec_algebraic_func.html",
   "type": "Section",
   "number": "1.4",
-  "title": "Power, polynomial, rational functions",
-  "body": " Power, polynomial, rational functions    Functions Polynomial Functions  Functions Quadratic Functions     Learning Goals     Learn the definition of power, polynomial and rational functions.    Review the algebraic rules for fractions and exponents.    Learn to distinguish between power, polynomial, and rational functions.       Power functions  Our current repertoire of functions is rather limited, consisting as it does only of constant, linear, and quadratic functions. In this section we will significantly expand this to include power , polynomial , and rational functions. In the process we will take a moment to review some algebra related to exponents and fractions.  We will begin with power functions. In its most general form, a power function is a function of the form , where and are real constants. The important defining detail here is that in the formula the input variable is raised to a some fixed power : that is, in a power function, the input variable appears as the base in the power expression, and not the exponent. Later we will introduce exponential functions , which are also defined via a power expression, but where the input variable appears as the exponent, as opposed to the base.  As familiar as the function formula may seem, it takes significant meaning to give meaning to this for an aritrary power . For now we will settle for a a definition for rational powers : , for real numbers that can we written as , where and are integers. In other words, will give meaning to functions of the form , but not to functions of the form , or , since and (famously) are not rational numbers. We will eventually extend our definition of power functions to include such irrational powers, but to do so we will need the help of calculus.   Rational numbers    rational numbers    A real number is rational if it can be written as a quotient of two integers: , we have for some integers .  We denote by the set of all rational numbers: , .     Power functions: rational power   A power function (with rational power) is any function of the form , where and , and where the expression is defined below in a case-wise manner.   Zero power  We define for all .    Positive integer  If is a positive integer, then .    Odd -th root  If is a positive odd integer, then , where is the unique real -th root of .    Even -th root  If is a positive even integer, and then , where is the unique positive  -th root of .    Positive rational  If and are relatively prime positive integers Integers are relatively prime if they share no integer factors besides . This technical condition is here to ensure the definition is well defined. , then .    Negative rational  If and are relatively prime positive integers, then .       Looking carefully at the various cases that define for a rational power , we see that some restrictions on what can be have been snuck in. Namely, when is a positive even integer, we see that is only defined for nonnegative values of . Additionally, for negative rational powers , since by definition , we see that this expression is defined if and only if is defined and nonzero. As a consequence of these restrictions, we need to take care when computing the implied domain of a power function .   Power functions: implied domain   Determine the implied domain of the given power function.                             By definition, we have . Since is defined for all and equal to 0 exactly when , we see that the implied domain of is .    Since is an even positive integer, the expression is defined only on . It follows that the implied domain of is .    By definition, we have . Since is defined for all , and is defined for all , it follows that is defined for all . We conclude that the implied domain of is .    By definition, we have . Since is defined if and only if , and since if and only if , we see that is defined if and only if . For the expression to be defined, we need further that is nonzero. This adds the additional restraint that . We conclude that the implied domain of is .       To evaluate a power function at an input, we must make our way through the various cases in the definition of a power expression . Depending on the complexity of , we may at some point have to compute a reciprocal and\/or an -th root. Our ability to write down a nice -th root of some given value determines how nicely our computed value is expressed in the end.   Evaluating power functions   Evaluate the given power function at the given input .    ,      ,           We compute .    We compute .       As we combine power functions with other functions, we will want to be able to simplify expressions wherever possible. The following power identities will come in handy in this respect.   Power identities      Each equality below is true for all real numbers , , for which the expressions involved are defined.     Assume . The following equality is true for all real numbers and : .        Iterated powers  The restriction is indeed a necessary one for the identity . For example consider the choices . Using , we have . Thus in this case. This counterexample illustrates again the subtleties of our definition of a power expression : specifically, that when for a positive even integer, is defined as the positive square root of (assuming ).  Put another way, the failure of the identity to hold in the example is a consequence of the fact that the equality does not hold for all ; it is only true for . After we officially introduce the absolute value, we will prove an improved version of this identity that does hold for all real numbers: namely, .     Simplify each expression to one involving only positive exponents. You may assume all the identities of apply in each case.                             We compute .    We compute     We compute .    We compute .       The identities in are a convenient way to recall some identities involving radicals. As an example, below we translate certain instances of the identities from into radical notation using the definition : . We make this observation official in .   Radical identities   Assume and are nonnegative. The following equalities hold for all positive integers and . .    Notice that we say a function is a power function if it can be written in the form for some constants and ; it may not start out written that way. Sometimes it can take a great deal of algebra to determine whether or not a function is a power function \"in disguise.\"    For example, is the function a power function? If so, what are the numbers and ?    We can expand, factor, and then make a lucky cancellation to write this expression in the form :        The expression equals  where , the exponent of , is:  and , the exponent of , is:              Therefore and .          Polynomial functions  Before giving the formal definition of a polynomial, let's take a look at some examples of what we will call polynomial functions: . We next make a list of some common features of these functions.   In contrast to linear and quadratic functions, these polynomials are seen to be sums of an unlimited (but finite) number of terms.    Each term is either constant or a number times a power of .    The power of is always a positive whole number, though the constant in front may be any real number whatsoever.   Lastly, we synthesize these observations in a formal definition.   Polynomials   A polynomial is a function that can be written in the form for some integer and real numbers . For each , is called the -th term of and is called its -th coefficient ; is called the constant term of .  Furthermore, if , then is called the leading term of , its leading coefficient , and its degree , denoted .     Constant, linear, quadratic functions  Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the appearing in is equal to , , or , as illustrated in .   Small degree polynomials     Type Formula    0 Constant    1 Linear    2 Quadratic ,     In this sense is a generalization of these earlier definitions. As such our parametric manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients appearing in the general formula function as parameters: by varying our choice of the coefficients , we get an infinite family of polynomials.    Zero function and zero polynomial  A function is called a zero function if for all . Observe that a zero function is also a polynomial according to . Indeed we have where . Because of this, zero functions are also called zero polynomials .  Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in does not apply: , technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be !    Larger degree polynomials  Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials of higher degree.   Polynomials of higher degree     Formula Degree Type     Quadratic     Cubic     Quartic     Quintic       Polynomials   Determine if the given function is a polynomial. If yes, determine the constant term of , and if applicable, the leading term, leading coefficient, and degree.                        As discussed in , all constant functions are polynomials (corresponding to the choice ). In this case the constant term of is . Since , this is also the leading term and leading coefficient of , and we have .    As discussed in , the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.    The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form : . Once in this form, we see that the constant term of is , its leading term is , its leading coefficient is , and its degree is .         For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .      Rational functions  Just as rational numbers are defined as quotients of integers, a rational function is defined as a quotient of polynomials.   Rational function   A function is a rational function if it can be expressed as a quotient of two polynomials: , is rational if there are polynomials and satisfying for all in the domain of .     Implied domain of rational function  Suppose is a rational function, where . Since and are defined for all , we see that the expression defining is defined as long as . Thus the implied domain of is . To compute , we need to be able to find the zeros of the denominator polynomial . It turns out that this is not always an easy task, especially if the degree of is large. We will provide techniques for doing this in the next section.   Just like our previous definitions for functions, the key realization is that a rational function can be written in such a form. It does not have to begin that way.   Rational function: like denominators   Verify that is a rational function by writing it as , where and are polynomials.    To express as a quotient of polynomials, we will convert the given formula of into a single quotient using the technique of like denominators . .     Rational function: clear denominators   Verify that is a rational function by writing it as , where and are polynomials.    We use the algebraic technique of clearing denominators : .     Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.  Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators         Algebraic functions  A function is algebraic if it can be expressed in terms of constants and a variable by using only arithmetic operations , and and rational constant powers of the variables. For example, are algebraic functions.  There are four basic types of algebraic functions, which we have already investigated: linear functions, polynomial functions, rational functions, and power functions. More complicated algebraic functions can be constructed by using sums ( ), differences ( ), products ( ), and quotients ( ) of these four basic types. gives a general form and examples for each type:   A summary of algebraic functions    Type  General form  Examples    Linear   ,    Polynomial      Rational      Power  ,     Other  Arithmetic comb. of previous types  ,     There is a certain amount of overlap among the types listed in the table; for example, is both a power function and a polynomial function, and is both a power function and a rational function.  Functions that are not algebraic are called transcendental functions. In later chapters of this book, we will investigate four basic types of transcendental functions: exponential, logarithmic, trigonometric, and inverse trigonometric functions. We will not go into their definitions or general forms right now. However, provides some examples.   A summary of transcendental functions    Type  Examples    Exponential     Logarithmic     Trigonometric     Inverse Trigonometric     Other       Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.         What is an example of a single algebraic function that is linear, polynomial, rational, and a power function (all of these at once). You have seen several          Evaluate the expression .  Your answer must be an exact integer or rational number, not a decimal or algebraic expression.  =                  Simplify and write the following as a product of rational powers of and .  If then  and                        The expression equals  where , the leading coefficient, is:  and , the exponent of , is:                       Simplify the expression and express your answer in the simplest radical form where  and are integers.  Answer:  ,  , and                           Part 1 of 2:  Expand and simplify .  =                Is the following expression a monomial, binomial, or trinomial?    monomial   binomial   trinomial   What is the degree of the expression?             This polynomial has three terms , , . Since there are three terms, and the variable in each term has a different exponent, this is a tri nomial.  The variable is raised to the powers 5, 9 and 4 in this polynomial. The degree of the polynomial is the greatest of these powers, degree = 9.  People often expect the terms of a polynomial to be ordered so the exponents appear in descending order (largest to smallest). This convention often makes the polynomial easier to read and avoids confusion. On the right side of the next equation the terms of our polynomial are re-ordered so the exponents appear in descending order. You may agree that the version on the right side is a little easier to read.           Given the table below, find a cubic equation in standard form for .    x  3  6  9  5    g(x)  159  1203  3939  707     .   .             "
+  "title": "Algebraic functions",
+  "body": " Algebraic functions   Our current repertoire of functions is rather limited, consisting as it does only of constant, linear, and quadratic functions. In this section we will significantly expand this to include power , polynomial , and rational functions. These function types can then be further combined using arithmetic operations to form an even larger family of functions: algebraic functions .    Learning Goals     Learn the definition of power, polynomial and rational functions.    Review the algebraic rules for fractions and exponents.    Learn to distinguish between power, polynomial, and rational functions.       Power functions  We will begin with power functions. In its most general form, a power function is a function of the form , where and are real constants. The important defining detail here is that in the formula the input variable is raised to some fixed power : that is, in a power function, the input variable appears as the base in the power expression, and not the exponent. Later we will introduce exponential functions , which are also defined via a power expression, but where the input variable appears as the exponent, as opposed to the base.  As familiar as the function formula may seem, it takes significant meaning to give meaning to this for an aritrary power . For now we will settle for a a definition for rational powers : , for real numbers that can we written as , where and are integers. In other words, will give meaning to functions of the form , but not to functions of the form , or , since and (famously) are not rational numbers. We will eventually extend our definition of power functions to include such irrational powers, but to do so we will need the help of calculus.   Rational numbers    rational numbers    A real number is rational if it can be written as a quotient of two integers: , we have for some integers .  We denote by the set of all rational numbers: , .     Power functions: rational power   A power function (with rational power) is any function of the form , where and , and where the expression is defined below in a case-wise manner.   Zero power  We define for all .    Positive integer  If is a positive integer, then .    Odd -th root  If is a positive odd integer, then , where is the unique real -th root of .    Even -th root  If is a positive even integer, and then , where is the unique positive  -th root of .    Positive rational  If and are relatively prime positive integers Integers are relatively prime if they share no integer factors besides . This technical condition is here to ensure the definition is well defined. , then .    Negative rational  If and are relatively prime positive integers, then .       Looking carefully at the various cases that define for a rational power , we see that some restrictions on what can be have been snuck in. Namely, when is a positive even integer, we see that is only defined for nonnegative values of . Additionally, for negative rational powers , since by definition , we see that this expression is defined if and only if is defined and nonzero. As a consequence of these restrictions, we need to take care when computing the implied domain of a power function .   Power functions: implied domain   Determine the implied domain of the given power function.                             By definition, we have . Since is defined for all and equal to 0 exactly when , we see that the implied domain of is .    Since is an even positive integer, the expression is defined only on . It follows that the implied domain of is .    By definition, we have . Since is defined for all , and is defined for all , it follows that is defined for all . We conclude that the implied domain of is .    By definition, we have . Since is defined if and only if , and since if and only if , we see that is defined if and only if . For the expression to be defined, we need further that is nonzero. This adds the additional restraint that . We conclude that the implied domain of is .       To evaluate a power function at an input, we must make our way through the various cases in the definition of a power expression . Depending on the complexity of , we may at some point have to compute a reciprocal and\/or an -th root. Our ability to write down a nice -th root of some given value determines how nicely our computed value is expressed in the end.   Evaluating power functions   Evaluate the given power function at the given input .    ,      ,           We compute .    We compute .       As we combine power functions with other functions, we will want to be able to simplify expressions wherever possible. The following power identities will come in handy in this respect.   Power identities      Each equality below is true for all real numbers , , for which the expressions involved are defined.     Assume . The following equality is true for all real numbers and : .        Iterated powers  The restriction is indeed a necessary one for the identity . For example consider the choices . Using , we have . Thus in this case. This counterexample illustrates again the subtleties of our definition of a power expression : specifically, that when for a positive even integer, is defined as the positive square root of (assuming ).  Put another way, the failure of the identity to hold in the example is a consequence of the fact that the equality does not hold for all ; it is only true for . After we officially introduce the absolute value, we will prove an improved version of this identity that does hold for all real numbers: namely, .     Simplify each expression to one involving only positive exponents. You may assume all the identities of apply in each case.                             We compute .    We compute     We compute .    We compute .       The identities in are a convenient way to recall some identities involving radicals. As an example, below we translate certain instances of the identities from into radical notation using the definition : . We make this observation official in .   Radical identities   Assume and are nonnegative. The following equalities hold for all positive integers and . .    Notice that we say a function is a power function if it can be written in the form for some constants and ; it may not start out written that way. Sometimes it can take a great deal of algebra to determine whether or not a function is a power function \"in disguise.\"    For example, is the function a power function? If so, what are the numbers and ?    We can expand, factor, and then make a lucky cancellation to write this expression in the form :        The expression equals  where , the exponent of , is:  and , the exponent of , is:              Therefore and .          Polynomial functions  Before giving the formal definition of a polynomial, let's take a look at some examples of what we will call polynomial functions: . We next make a list of some common features of these functions.   In contrast to linear and quadratic functions, these polynomials are seen to be sums of an unlimited (but finite) number of terms.    Each term is either constant or a number times a power of .    The power of is always a positive whole number, though the constant in front may be any real number whatsoever.   Lastly, we synthesize these observations in a formal definition.   Polynomials   A polynomial is a function that can be written in the form for some integer and real numbers . For each , is called the -th term of and is called its -th coefficient ; is called the constant term of .  Furthermore, if , then is called the leading term of , its leading coefficient , and its degree , denoted .     Constant, linear, quadratic functions  Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the appearing in is equal to , , or , as illustrated in .   Small degree polynomials     Type Formula    0 Constant    1 Linear    2 Quadratic ,     In this sense is a generalization of these earlier definitions. As such our parametric manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients appearing in the general formula function as parameters: by varying our choice of the coefficients , we get an infinite family of polynomials.    Zero function and zero polynomial  A function is called a zero function if for all . Observe that a zero function is also a polynomial according to . Indeed we have where . Because of this, zero functions are also called zero polynomials .  Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in does not apply: , technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be !    Larger degree polynomials  Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials of higher degree.   Polynomials of higher degree     Formula Degree Type     Quadratic     Cubic     Quartic     Quintic       Polynomials   Determine if the given function is a polynomial. If yes, determine the constant term of , and if applicable, the leading term, leading coefficient, and degree.                        As discussed in , all constant functions are polynomials (corresponding to the choice ). In this case the constant term of is . Since , this is also the leading term and leading coefficient of , and we have .    As discussed in , the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.    The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form : . Once in this form, we see that the constant term of is , its leading term is , its leading coefficient is , and its degree is .         For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .      Rational functions  Just as rational numbers are defined as quotients of integers, a rational function is defined as a quotient of polynomials.   Rational function   A function is a rational function if it can be expressed as a quotient of two polynomials: , is rational if there are polynomials and satisfying for all in the domain of .     Implied domain of rational function  Suppose is a rational function, where . Since and are defined for all , we see that the expression defining is defined as long as . Thus the implied domain of is . To compute , we need to be able to find the zeros of the denominator polynomial . It turns out that this is not always an easy task, especially if the degree of is large. We will provide techniques for doing this in the next section.   Just like our previous definitions for functions, the key realization is that a rational function can be written in such a form. It does not have to begin that way.   Rational function: like denominators   Verify that is a rational function by writing it as , where and are polynomials.    To express as a quotient of polynomials, we will convert the given formula of into a single quotient using the technique of like denominators . .     Rational function: clear denominators   Verify that is a rational function by writing it as , where and are polynomials.    We use the algebraic technique of clearing denominators : .     Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.   Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators        Algebraic functions  A function is algebraic if it can be expressed in terms of constants and a variable by using only arithmetic operations , and and rational constant powers of the variables. For example, are algebraic functions.  There are four basic types of algebraic functions, which we have already investigated: linear functions, polynomial functions, rational functions, and power functions. More complicated algebraic functions can be constructed by using sums ( ), differences ( ), products ( ), and quotients ( ) of these four basic types. gives a general form and examples for each type:   A summary of algebraic functions    Type  General form  Examples    Linear   ,    Polynomial      Rational      Power  ,     Other  Arithmetic comb. of previous types  ,     There is a certain amount of overlap among the types listed in the table; for example, is both a power function and a polynomial function, and is both a power function and a rational function.  Functions that are not algebraic are called transcendental functions. In later chapters of this book, we will investigate four basic types of transcendental functions: exponential, logarithmic, trigonometric, and inverse trigonometric functions. We will not go into their definitions or general forms right now. However, provides some examples.   A summary of transcendental functions    Type  Examples    Exponential     Logarithmic     Trigonometric     Inverse Trigonometric     Other       Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.         What is an example of a single algebraic function that is linear, polynomial, rational, and a power function (all of these at once). You have seen several          Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Evaluate the expression .  Your answer must be an exact integer or rational number, not a decimal or algebraic expression.  =                  Simplify and write the following as a product of rational powers of and .  If then  and                        The expression equals  where , the leading coefficient, is:  and , the exponent of , is:                       Simplify the expression and express your answer in the simplest radical form where  and are integers.  Answer:  ,  , and                           Part 1 of 2:  Expand and simplify .  =                Is the following expression a monomial, binomial, or trinomial?    monomial   binomial   trinomial   What is the degree of the expression?             This polynomial has three terms , , . Since there are three terms, and the variable in each term has a different exponent, this is a tri nomial.  The variable is raised to the powers 4, 8 and 1 in this polynomial. The degree of the polynomial is the greatest of these powers, degree = 8.  People often expect the terms of a polynomial to be ordered so the exponents appear in descending order (largest to smallest). This convention often makes the polynomial easier to read and avoids confusion. On the right side of the next equation the terms of our polynomial are re-ordered so the exponents appear in descending order. You may agree that the version on the right side is a little easier to read.           Given the table below, find a cubic equation in standard form for .    x  2  6  -3  -2    g(x)  -3  -191  7  -7     .   .               Is the function below a rational function? If it is, write it in reduced form as a ratio of polynomials . If it is not, enter NONE in both blanks. Do not leave any blanks empty.                      SOLUTION This is not a rational function, as we cannot put it in the form of one polynomial divided by another, since is not a polynomial.          Is the function below a rational function? If it is, write it in reduced form as a ratio of polynomials . If it is not, enter NONE in both blanks. Do not leave any blanks empty.                    SOLUTION This is a rational function, as we can put it in the form of one polynomial divided by another:         "
 },
 {
   "id": "d_rational_numbers",
@@ -1243,18 +1243,18 @@ var ptx_lunr_docs = [
   "body": " Power identities      Each equality below is true for all real numbers , , for which the expressions involved are defined.     Assume . The following equality is true for all real numbers and : .      "
 },
 {
-  "id": "ss_power-13",
+  "id": "ss_power-12",
   "level": "2",
-  "url": "sec_algebraic_func.html#ss_power-13",
+  "url": "sec_algebraic_func.html#ss_power-12",
   "type": "Remark",
   "number": "1.4.6",
   "title": "Iterated powers.",
   "body": " Iterated powers  The restriction is indeed a necessary one for the identity . For example consider the choices . Using , we have . Thus in this case. This counterexample illustrates again the subtleties of our definition of a power expression : specifically, that when for a positive even integer, is defined as the positive square root of (assuming ).  Put another way, the failure of the identity to hold in the example is a consequence of the fact that the equality does not hold for all ; it is only true for . After we officially introduce the absolute value, we will prove an improved version of this identity that does hold for all real numbers: namely, .  "
 },
 {
-  "id": "ss_power-14",
+  "id": "ss_power-13",
   "level": "2",
-  "url": "sec_algebraic_func.html#ss_power-14",
+  "url": "sec_algebraic_func.html#ss_power-13",
   "type": "Example",
   "number": "1.4.7",
   "title": "",
@@ -1270,9 +1270,9 @@ var ptx_lunr_docs = [
   "body": " Radical identities   Assume and are nonnegative. The following equalities hold for all positive integers and . .   "
 },
 {
-  "id": "ss_power-18",
+  "id": "ss_power-17",
   "level": "2",
-  "url": "sec_algebraic_func.html#ss_power-18",
+  "url": "sec_algebraic_func.html#ss_power-17",
   "type": "Example",
   "number": "1.4.9",
   "title": "",
@@ -1384,7 +1384,7 @@ var ptx_lunr_docs = [
   "type": "Remark",
   "number": "1.4.23",
   "title": "Fraction arithmetic.",
-  "body": " Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.  Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators      "
+  "body": " Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.   Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators     "
 },
 {
   "id": "sec_algebraic_func-7-2",
@@ -1447,7 +1447,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1",
   "title": "",
-  "body": "   Evaluate the expression .  Your answer must be an exact integer or rational number, not a decimal or algebraic expression.  =              "
+  "body": "   Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and       "
 },
 {
   "id": "exs_algebraic_func-2",
@@ -1456,7 +1456,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "2",
   "title": "",
-  "body": "   Simplify and write the following as a product of rational powers of and .  If then  and                    "
+  "body": "   Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and       "
 },
 {
   "id": "exs_algebraic_func-3",
@@ -1465,7 +1465,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "3",
   "title": "",
-  "body": "   The expression equals  where , the leading coefficient, is:  and , the exponent of , is:                   "
+  "body": "   Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and       "
 },
 {
   "id": "exs_algebraic_func-4",
@@ -1474,16 +1474,16 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "4",
   "title": "",
-  "body": "   Simplify the expression and express your answer in the simplest radical form where  and are integers.  Answer:  ,  , and                       "
+  "body": "   Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and       "
 },
 {
-  "id": "",
+  "id": "exs_algebraic_func-5",
   "level": "2",
-  "url": "sec_algebraic_func.html#",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-5",
   "type": "Exercise",
   "number": "5",
   "title": "",
-  "body": "   Part 1 of 2:  Expand and simplify .  =            "
+  "body": "   Evaluate the expression .  Your answer must be an exact integer or rational number, not a decimal or algebraic expression.  =              "
 },
 {
   "id": "exs_algebraic_func-6",
@@ -1492,7 +1492,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "6",
   "title": "",
-  "body": "   Is the following expression a monomial, binomial, or trinomial?    monomial   binomial   trinomial   What is the degree of the expression?             This polynomial has three terms , , . Since there are three terms, and the variable in each term has a different exponent, this is a tri nomial.  The variable is raised to the powers 5, 9 and 4 in this polynomial. The degree of the polynomial is the greatest of these powers, degree = 9.  People often expect the terms of a polynomial to be ordered so the exponents appear in descending order (largest to smallest). This convention often makes the polynomial easier to read and avoids confusion. On the right side of the next equation the terms of our polynomial are re-ordered so the exponents appear in descending order. You may agree that the version on the right side is a little easier to read.       "
+  "body": "   Simplify and write the following as a product of rational powers of and .  If then  and                    "
 },
 {
   "id": "exs_algebraic_func-7",
@@ -1501,286 +1501,178 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "7",
   "title": "",
-  "body": "   Given the table below, find a cubic equation in standard form for .    x  3  6  9  5    g(x)  159  1203  3939  707     .   .           "
+  "body": "   The expression equals  where , the leading coefficient, is:  and , the exponent of , is:                   "
 },
 {
-  "id": "sec_power_alg",
+  "id": "exs_algebraic_func-8",
+  "level": "2",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-8",
+  "type": "Exercise",
+  "number": "8",
+  "title": "",
+  "body": "   Simplify the expression and express your answer in the simplest radical form where  and are integers.  Answer:  ,  , and                       "
+},
+{
+  "id": "",
+  "level": "2",
+  "url": "sec_algebraic_func.html#",
+  "type": "Exercise",
+  "number": "9",
+  "title": "",
+  "body": "   Part 1 of 2:  Expand and simplify .  =            "
+},
+{
+  "id": "exs_algebraic_func-10",
+  "level": "2",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-10",
+  "type": "Exercise",
+  "number": "10",
+  "title": "",
+  "body": "   Is the following expression a monomial, binomial, or trinomial?    monomial   binomial   trinomial   What is the degree of the expression?             This polynomial has three terms , , . Since there are three terms, and the variable in each term has a different exponent, this is a tri nomial.  The variable is raised to the powers 4, 8 and 1 in this polynomial. The degree of the polynomial is the greatest of these powers, degree = 8.  People often expect the terms of a polynomial to be ordered so the exponents appear in descending order (largest to smallest). This convention often makes the polynomial easier to read and avoids confusion. On the right side of the next equation the terms of our polynomial are re-ordered so the exponents appear in descending order. You may agree that the version on the right side is a little easier to read.       "
+},
+{
+  "id": "exs_algebraic_func-11",
+  "level": "2",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-11",
+  "type": "Exercise",
+  "number": "11",
+  "title": "",
+  "body": "   Given the table below, find a cubic equation in standard form for .    x  2  6  -3  -2    g(x)  -3  -191  7  -7     .   .           "
+},
+{
+  "id": "exs_algebraic_func-12",
+  "level": "2",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-12",
+  "type": "Exercise",
+  "number": "12",
+  "title": "",
+  "body": "   Is the function below a rational function? If it is, write it in reduced form as a ratio of polynomials . If it is not, enter NONE in both blanks. Do not leave any blanks empty.                      SOLUTION This is not a rational function, as we cannot put it in the form of one polynomial divided by another, since is not a polynomial.      "
+},
+{
+  "id": "exs_algebraic_func-13",
+  "level": "2",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-13",
+  "type": "Exercise",
+  "number": "13",
+  "title": "",
+  "body": "   Is the function below a rational function? If it is, write it in reduced form as a ratio of polynomials . If it is not, enter NONE in both blanks. Do not leave any blanks empty.                    SOLUTION This is a rational function, as we can put it in the form of one polynomial divided by another:       "
+},
+{
+  "id": "sec_algebraic_func_II",
   "level": "1",
-  "url": "sec_power_alg.html",
+  "url": "sec_algebraic_func_II.html",
   "type": "Section",
   "number": "1.5",
-  "title": "Power Functions and Other Algebraic Functions",
-  "body": " Power Functions and Other Algebraic Functions    Functions Power Functions     Learning Goals    Strengthen algebraic skills: working with exponents    Learn the definition of power functions and algebraic functions    Recognize the graphs of integer and rational power functions    Classify algebraic functions as linear, polynomial, rational, power, or other    Expand your understanding of distance via algebraic functions      Review of Exponent Rules  Before we begin discussing power functions, let's review some basic rules for manipulating expressions with exponents:   Rules for Exponents   For any numbers , and for which the expressions that follow are defined,                                                     Simplify the following expressions using the Rules for Exponents in Theorem . Your final answer should include only positive exponents.                            Definitions of Power Functions    A power function is a function that can be written in the form for some nonzero real number and some rational number .    For example, , , and are all power functions. Note that can be rewritten in the form , which is why it is a power function (with and ).  In this definition, the constant is called the power or exponent , and the constant is called the coefficient . Note that the exponent must be a rational number . A rational number is a real number that can be written as a quotient of the form for some integers and with . The variable must be in the base; this means that, for example, and are not considered power functions.   Identifying power functions   Which of the following are power functions?                               Recall that power functions can be written in the form . can be any nonzero real number, while must be a rational number, meaning a fraction or finite\/repeating decimal.    is a power function with and .     is not a power function since the power is not rational. As a decimal, never repeats or ends, and we cannot write as a fraction.     is a power function with and .     is a power function with and . Remember that is allowed to be any real number, not just integers or rational numbers.     is not a power function because the variable is in the exponent, instead of the base. This is an example of a transcendental function, and we will learn about those next semester.       Notice that we say a function is a power function if it can be written in the form for some constants and ; it may not start out written that way. Sometimes it can take a great deal of algebra to determine whether or not a function is a power function \"in disguise.\"    For example, is the function a power function? If so, what are the numbers and ?    We can expand, factor, and then make a lucky cancellation to write this expression in the form :       Write the function in the form to see that it is a power function. What is the value of ? What is the value of ?      Integer Power Functions   Four Shapes of Integer Power Functions: The simplest power functions are those whose exponents are integers. It turns out that we can classify power functions with integer exponents into four types, depending on whether is even or odd, and also positive or negative. The next theorem illustrates these types for when . The graphs for are reflected over the -axis.   Integer Power Functions   If is an integer with and , then the graph of has the following shape, domain, range, and zeros, depending on whether is even or odd, and positive or negative:   is even. \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ is odd.} \\end{subfigure} \\caption{A power function with an integer and .}   is even. \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ is odd.} \\end{subfigure} \\caption{A power function with an integer and .}    For example, the first graph could be the graph of or . The second graph could be the graph of or . The third and fourth graphs could be the graphs of and , respectively.  Recalling Definition from the previous section, polynomial functions are sums of power functions with positive integer exponents , along with an additional constant term. Power functions with negative integer exponents are examples of rational functions.    Using the graphs from Theorem as a guide, determine the domain and range of if:    is even?     is odd?     is even?     is odd?     Instead of trying to memorize these, see if you can figure out why the domains and ranges of these functions are what they are.     The Size of Affects the Steepness: While the sign and parity (whether it's even or odd) of the integer power together determine the general shape of a power function , the size of determines the steepness of the curve.  For example, in below, , and all have the same basic \"U\" shape, but the red graph of is steeper on the ends and flatter in the middle than the blue graph of , and the green graph of is steeper and flatter still. In each of the following figures, the largest value of has the steepest and flattest curve.   , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Power functions with an integer and .}   , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Power functions with an integer and .}  Note that each of the four graphs shown in and goes through the point , because if , then regardless of the sign or the parity of the power . This means that none of the graphs are a vertical or horizontal stretch of one another. For example, the graph of is not a vertical or horizontal stretch of the graph of .   The Coefficient Stretches and Compresses: Multiplying by a positive constant produces a vertical stretch, multiplying by causes a vertical compression of , and multiplying by a negative number will in addition reflect the graph over the -axis. In each figure that follows we see the graphs of , and for some value of . In each case the graph of is the blue middle graph, the graph of is the green graph with heights doubled, and the graph of is the red graph whose heights are halved.   , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Vertical stretching and compressing of and .}   , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Vertical stretching and compressing of and .}    Power Functions with Rational Powers  Things get a little more complicated when we consider graphs of power functions where is a reduced rational number , meaning that is a fraction that cannot be simplified. For example, when is even, will be undefined for negative values of , since we cannot take an even root of a negative number. A concrete example of this is when and , so that , and we know that the domain of is .  For positive rational powers there are six possible types of graphs that a power function can have:   Power Functions with Positive Rational Powers   If is a positive reduced rational number, then the graph of has the following shape, domain, range, and roots, depending on the parity of and and whether is greater than or less than 1:   If , then has one of the following three types of graphs:  with between 0 and 1.       If , then has one of the following three types of graphs:  with larger than 1.        Note that since is assumed to be reduced, we cannot have both even and even. Thus in the cases when is even, we must have that is odd.      For example, the graphs in could be the graphs of , and , from left to right, since , and are all between 0 and 1. Additionally, has even and odd. has odd and odd. has odd and even.  The graphs in could be , and , from left to right, since , and are all greater than 1. has even and odd. has odd and odd. has odd and even.    \\fbox{The point is not to memorize these graphs, but rather to think about what kind of shape they should have based on the power!  For example, when is even and is odd, the graph must be above the -axis because for , after taking the th root, we are raising to an even power of , which will make the function greater than or equal to zero.  On the other hand, when and are both odd, will be negative when is negative, and positive when is positive, since raising to an odd power will preserve whether the expression is positive or negative.  In the cases where the denominator of the power is even, requires us to take the root first. Always remember that we cannot take even roots of negative numbers, hence the domain is restricted to . }}  So far, we have examined power functions where is positive. What happens when the power is negative? By properties of exponents, we have and thus the function is the reciprocal of the function . This means that the height of at any point is simply the reciprocal of the height of at that point . For example, whenever is equal to 1, will also equal . Whenever is large, will be small; and whenever is small, will be large. Finally, if is zero, then will have a vertical asymptote, and vice versa, as illustrated in the following three figures.   Graphs of and their reciprocals      In the graphs in , do the blue graphs or the red graphs correspond to the functions with the negative exponents? Feel free to use a graphing calculator or Desmos. Then think about how you can tell from the formula. As a hint: what happens when ? What does the negative exponent mean?      Finding domains of power functions   Find the domains of the following power functions:                        If we rewrite the power function as a fraction with positive powers, the calculation of the domain is more clear: is defined everywhere but at , so its domain is . Note that the power of is not being applied to the coefficient , only to the .    Again, it's helpful to rewrite the function so that we can see roots and powers clearly. The function is defined everywhere except , because of the even root, so its domain is . Again, note that the coefficient 2 is not affected by the exponent.    Start by rewriting again. This time we must first rewrite as a fraction with positive exponents and then using integer roots and powers. is defined for all , because we can take odd roots of negative numbers but we cannot divide by 0, so its domain is .         Find the domain of .     Modeling graphs with power functions   Find power functions that could have the following graphs:          From the shape of the first graph , we know that if is a power function, then must be an even negative integer by in Theorem . Let's try the simplest possible case: . Then and imply that     For the middle graph , we need a power function of the form where is odd, is odd, and by looking at the middle picture of of Theorem . Since the graph here is reflected over the -axis, we need to be negative. The simplest power that satisfies these conditions is . Since , we have          By Theorem , the graph below belongs to a power function where is rational with even, odd, and .       Which part of Theorem matches this shape?    Assuming that (since this is the simplest possibility) so that , determine the value of by using the labeled point .        Using Square Roots to Find Distance  Power functions are extremely useful because square roots are used in many practical calculations. We have already seen the square root used when applying the quadratic formula to find the -intercepts of quadratic functions. Another use of square roots is in calculating distance.   Distance Between Two Real Numbers   The distance between two real numbers and is .      For example, we know that the distance between 5 and 3 is 2. Using the above formula:   Note that it doesn't matter whether we compute or : since once we square or , they are both equal to positive 4.    The above formula is a one-dimensional version of the more familiar formula for the distance between two points in the Cartesian plane: The Cartesian plane was named after the philosopher-mathematician René Descartes, who is credited as the father of analytic geometry and whose work formed the basis for the development of calculus. https:\/\/en.wikipedia.org\/wiki\/René_Descartes#Mathematical_legacy     Distance Between Two Points in the Plane   The distance between two points and in the plane is given by the distance formula :     Here is a basic example of how to use this formula:    Plot the points and on a set of axes, and sketch the line segment connecting these two points. Use the distance formula to find the length of this line segment.    The points and and the line segment between them are shown in :   The points and and the line segment between them.    The distance between and is     Here is an example of how this formula might be used in a real-world problem:    Suppose a straight road runs past a monument. If we create a set of axes that puts the monument at the origin (the point ), the road is described by the function , where is measured in hundreds of feet. Find a function that gives the distance from a point on the road to the monument.    If we call the monument , we have and . If we call a point on the road , then we have and , since any point on the road has coordinates . Since , we have that .  The distance is then     Let's take a moment to think about the function we created in the previous example and the properties it should have based on the context from which it was developed.    Let's consider the domain of the function , the distance (in hundreds of feet) between the monument and a point on the road with location .  Intuitively, if we consider the problem of finding the distance between a road and a monument, we should be able to find a distance for any point on the road. So in our model , the domain should be all real numbers.  Algebraically, note that since there is a square root involved, we need the quantity within the square root to be non-negative. The quantity in the square root is . This is a quadratic expression with discriminant , and so the expression is never zero. Plugging in, for example , we see that , and so the quadratic expression is always positive. In other words, the quadratic has no zeros and there is a point above the -axis, so we know it is always above the -axis. In other-other words, the expression is always positive! So the quantity under the square root is never negative, meaning that the function is defined for all .  We are relieved that our algebra and our intuition match. It bodes well that we did not make a mistake in developing our model.  We could also ask whether has any zeros and whether it is increasing and\/or decreasing. This would correspond to whether the road passes through the monument (it doesn't) and whether we get closer or farther away from the monument as we travel along the road (intuitively, we should first get closer and then as we pass the monument, we get farther). A graph of confirms both of these facts:   The graph of is never zero and first decreases, then increases.    Here is another thing we can see from the graph: the closest point on the road to the monument is at the location with . We will learn to determine all of these properties algebraically using calculus later in the course.    Another application of calculating the distance between points is the method of Least Squares Regression, which finds the line of best fit given a collection of data points:  https:\/\/www.mathsisfun.com\/data\/least-squares-regression.html . This method works by making the square of the errors between the points and the line as small as possible. These \"errors\" are precisely distances between points and the line that is being found. Least Squares Regression is a common method used for Statistical analysis in many different fields, from finance and economics to politics and sociology.    A Summary of Algebraic Functions  A function is algebraic if it can be expressed in terms of constants and a variable by using only arithmetic operations , and and rational constant powers of the variables. For example are algebraic functions, but and are not.  There are four basic types of algebraic functions, which we have already investigated: linear functions, polynomial functions, rational functions, and power functions. More complicated algebraic functions can be constructed by using sums ( ), differences ( ), products ( ), and quotients ( ) of these four basic types. gives a general form and examples for each type:   A summary of algebraic functions    \\toprule Type  General Form  Examples    \\midrule Linear  where and are any real numbers  ,         Polynomial  , where is a nonnegative integer and each is a real number          Rational  where and are polynomials          Power  where is real and is rational          Other  sums ( ), differences ( ), products ( ), and quotients ( ) of linear, polynomial, rational, and power functions  ,    \\bottomrule     There is a certain amount of overlap among the types listed in the table; for example, is both a power function and a polynomial function, and is both a power function and a rational function.  Functions that are not algebraic are called transcendental functions. In later chapters of this book, we will investigate four basic types of transcendental functions: exponential, logarithmic, trigonometric, and inverse trigonometric functions. We will not go into their definitions or general forms right now; however, provides some examples:   A summary of transcendental functions    Type  Examples        Exponential         Logarithmic         Trigonometric         Inverse Trigonometric         Other       Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.         What is an example of a single algebraic function that is linear, polynomial, rational, and a power function (all of these at once). You have seen several       Summary  The following terms and formulas were introduced in this section: power function, power, exponent, coefficient, rational number; distance between two real numbers, distance between two points in the plane; algebraic and transcendental functions  Key ideas: Just like linear and quadratic functions, power functions have predictable shapes. There are too many of them to memorize, but we can remember some of them based on the size and parity of the exponent, the domain, and whether the function is always positive or not. Power functions are used to find the distance between points. We have now learned about all of the different types of algebraic functions and will learn about transcendental functions later.   Other ideas introduced: The coefficient of a power function affects the shape of the graph by vertical stretching or compression, and reflects it over the -axis if . An expression under an even root must be non-negative in order for the root to be defined.  \\fbox{\\fbox{ End of Section 1.6}}  \\rule{1.1\\textwidth}{2pt}   "
+  "title": "Algebraic functions: continued",
+  "body": " Algebraic functions: continued   We now deepen our acquaintance with the different families of functions introduced in , treating questions of implied domain, range, and graph properties.    Learning objectives     Determine the implied domain of power, polynomial and rational functions.    Explore graph properties of power, polynomial, and rational functions    Factoring polynomials and finding roots       Power functions  The properties of power functions are nicely summarized by their graphs. Let's look first at the graphs of power functions of the form , where is an integer.   Power functions: positive integer power       Graph of x squared        Graph of x cubed        Graph of x to the fourth        Graph of x to the fifth         Power functions: negative integer power       Graph of x to minus 2        Graph of x to minus 3        Graph of x to minus 4        Graph of x to minus 5        The eight graphs in and nicely illustrate how the precise nature of the power involved affects the properties of and its graph. In particular, we see that the general shape of the graph is determined by whether is positive or negative (the sign of ), and whether is even or odd (the parity of ). summarizes some observations about these power functions that are strongly suggested by our graphs. The claims there about domain are easily verified using the definition of power functions (see ). The claims about range can be shown to be true using , as illustrates.   Properties of ,     Sign of Parity of Domain of range of    even    odd    even    odd      Power function: range   Let , where is a positive even integer. Show that .    Since for some integer , we have , where the last inequality follows from the observation that the square of any real number is nonnegative. Since the outputs of are all nonnegative, we conclude . We now set about proving the reverse inclusion: . To this end, take any . Since , the number is well defined. (In this case, since is even, by definition is the unique nonnegative -th root of .) Setting , we have . This shows that is an output of , and thus that , as desired. We conclude that .    Power functions of the form , where is positive, also exhibit some easy to identify distinctive properties. We call these functions -th root functions .   Power functions: -th roots       Square-root function graph        Cube-root function graph          Fourth-root function graph        Fifth-root function graph        Again, we summarize some properties of these functions that the graphs make evident. In this case, since is always positive, it is only the parity (even\/odd) of that governs the general shape of the graph.   Properties of     Parity of Domain of Range of    Even    Odd      Modeling with power functions   Each graph in is the graph of a function of the form , is given. Find .   Modeling with power functions      Mystery graph of power function        Mystery graph of power function         Although not strictly necessary for solving this exercise, looking at , we see that the function graphed in (a) should be of the form , where is a positive odd numer, and the function graphed in (b) should be of the form , where is a positive even number.   Our function satisfies for all and . This implies that . Later, once we introduce logarithmic functions, we will have a systematic way of solving for . Instead, using our observation at the top that for some positive odd number , and doing some guess-and-check, we see that works. Thus .    Now our function satisfies and : , . Again, being guided by our observation at the top that for some positive even integer , and trying out the choices , we see that works. We conclude that .         Polynomials  In contrast to the simple power functions considered above, the behavior of polynomials can be quite complicated, and as a general rule becomes more and more complicated as the degree of the polynomial increases. This is illustrated in .   Polynomials of increasing degree.       Graph of cubic        Graph of quartic          Graph of quintic        We see that as the degree of the polynomials increases, the graphs of the functions tend to have more turning points (what we will later define as local maxima and local minimima ). Furthermore, it is not clear from these examples how the range of a polynomial is determined by its degree and\/or coefficients. Once again, calculus will provide us with the theoretical tools to answer questions related to these issues. For now, we will address another important question: how do we find the roots of a polynomial? Looking at the -intercepts of the graphs in , it appears that the number of roots of a polynomial has something to do with its degree. The following theorem gives a precise (if somewhat incomplete) articulation of this relationship.   Roots of polynomials   Let be a polynomial of positive degree .    has at most distinct roots.    A real number is a root of if and only if factors as for some polynomial .       Statement (1) of tells us that the degree of a polynomial bounds the number of possible real roots, and thus also the number of possible -intercepts. Thus, a quadratic polynomial has at most two roots, a cubic polynomial has at most three roots, a quartic polynomial has at most four roots, . Note that the theorem does not claim that a degree- polynomial must have roots. Indeed we have seen already examples of quadratic polynomials (degree-2) that have no (real) roots!   If we move from to the larger number system of complex numbers, then we can strengthen (1) of : namely, every polynomial of positive degree has  roots (counting multiplicity). This is the content of the fundamental theorem of algebra . The crucial detail here is the modifier complex in complex root .   Statement (2) of makes the connection between roots of polynomials and factorization. As a result, the more we are able to factor a polynomial, the more we can say about its roots; conversely, every time we find a root of polynomial , we can make progress on the factorization of by factoring out that root. Factoring polynomials is thus an important skill, and we gather here some techniques for doing this.   Polynomial long division     Let and be polynomials of positive degree. There are unique polynomials and satisfying . We call and the quotient and remainder upon division of by .  The process of computing and is called polynomial longdivision of by . We illustrate this process in . See also     A real number is a root of the polynomial if and only if the remainder upon dividing by is .        Polynomial long division   Find the quotient and remainder upon dividing by .    You may remember that long division of by proceeds iteratively, where at each step we multiply by a monomial in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in . Consider that display as the bookkeeping involved in the process described below.   Multiply by a monomial so that the leading terms of and match. In this case we choose the monomial .  Set our temporary as and our temporary as .    If is not less than for our temporary remainder , repeat Step 1 with and , updating in the process by adding the relevant monomial.  In our case, since , we multiply by the monomial in order to match the leading term of , and update our and as follows:     Continue this updating process until .  In our case, we need to do one more iteration. To match the leading terms, we multiply by the monomial . Updating our and yields . Since , we are done. We conclude that , where .        Polynomial long division                                "
 },
 {
-  "id": "thm_rulesforexponents",
+  "id": "fig_power_positive_integer_powers",
   "level": "2",
-  "url": "sec_power_alg.html#thm_rulesforexponents",
-  "type": "Theorem",
+  "url": "sec_algebraic_func_II.html#fig_power_positive_integer_powers",
+  "type": "Figure",
   "number": "1.5.1",
-  "title": "Rules for Exponents.",
-  "body": " Rules for Exponents   For any numbers , and for which the expressions that follow are defined,                                                  "
+  "title": "",
+  "body": " Power functions: positive integer power       Graph of x squared        Graph of x cubed        Graph of x to the fourth        Graph of x to the fifth       "
 },
 {
-  "id": "sec_power_alg-4-4",
+  "id": "fig_power_neg_integer_powers",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-4-4",
-  "type": "Checkpoint",
+  "url": "sec_algebraic_func_II.html#fig_power_neg_integer_powers",
+  "type": "Figure",
   "number": "1.5.2",
   "title": "",
-  "body": "  Simplify the following expressions using the Rules for Exponents in Theorem . Your final answer should include only positive exponents.                         "
+  "body": " Power functions: negative integer power       Graph of x to minus 2        Graph of x to minus 3        Graph of x to minus 4        Graph of x to minus 5       "
 },
 {
-  "id": "sec_power_alg-5-2",
+  "id": "table_power_integers",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-5-2",
-  "type": "Definition",
+  "url": "sec_algebraic_func_II.html#table_power_integers",
+  "type": "Table",
   "number": "1.5.3",
-  "title": "",
-  "body": "  A power function is a function that can be written in the form for some nonzero real number and some rational number .   "
+  "title": "Properties of <span class=\"process-math\">\\(f(x)=x^n\\text{,}\\)<\/span> <span class=\"process-math\">\\(n\\in \\Z\\)<\/span>",
+  "body": " Properties of ,     Sign of Parity of Domain of range of    even    odd    even    odd    "
 },
 {
-  "id": "sec_power_alg-5-5",
+  "id": "eg_power_func_range",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-5-5",
+  "url": "sec_algebraic_func_II.html#eg_power_func_range",
   "type": "Example",
   "number": "1.5.4",
-  "title": "Identifying power functions.",
-  "body": " Identifying power functions   Which of the following are power functions?                               Recall that power functions can be written in the form . can be any nonzero real number, while must be a rational number, meaning a fraction or finite\/repeating decimal.    is a power function with and .     is not a power function since the power is not rational. As a decimal, never repeats or ends, and we cannot write as a fraction.     is a power function with and .     is a power function with and . Remember that is allowed to be any real number, not just integers or rational numbers.     is not a power function because the variable is in the exponent, instead of the base. This is an example of a transcendental function, and we will learn about those next semester.      "
+  "title": "Power function: range.",
+  "body": " Power function: range   Let , where is a positive even integer. Show that .    Since for some integer , we have , where the last inequality follows from the observation that the square of any real number is nonnegative. Since the outputs of are all nonnegative, we conclude . We now set about proving the reverse inclusion: . To this end, take any . Since , the number is well defined. (In this case, since is even, by definition is the unique nonnegative -th root of .) Setting , we have . This shows that is an output of , and thus that , as desired. We conclude that .   "
 },
 {
-  "id": "sec_power_alg-5-7",
+  "id": "fig_nth_roots",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-5-7",
-  "type": "Example",
+  "url": "sec_algebraic_func_II.html#fig_nth_roots",
+  "type": "Figure",
   "number": "1.5.5",
   "title": "",
-  "body": "  For example, is the function a power function? If so, what are the numbers and ?    We can expand, factor, and then make a lucky cancellation to write this expression in the form :    "
+  "body": " Power functions: -th roots       Square-root function graph        Cube-root function graph          Fourth-root function graph        Fifth-root function graph       "
 },
 {
-  "id": "sec_power_alg-5-8",
+  "id": "ss_power_func_II-11",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-5-8",
-  "type": "Checkpoint",
+  "url": "sec_algebraic_func_II.html#ss_power_func_II-11",
+  "type": "Table",
   "number": "1.5.6",
-  "title": "",
-  "body": "  Write the function in the form to see that it is a power function. What is the value of ? What is the value of ?   "
+  "title": "Properties of <span class=\"process-math\">\\(f(x)=x^{1\/n}=\\sqrt[n]{x}\\)<\/span>",
+  "body": " Properties of     Parity of Domain of Range of    Even    Odd    "
 },
 {
-  "id": "thm_intpowerfunc",
+  "id": "eg_modeling_power",
   "level": "2",
-  "url": "sec_power_alg.html#thm_intpowerfunc",
-  "type": "Theorem",
+  "url": "sec_algebraic_func_II.html#eg_modeling_power",
+  "type": "Example",
   "number": "1.5.7",
-  "title": "Integer Power Functions.",
-  "body": " Integer Power Functions   If is an integer with and , then the graph of has the following shape, domain, range, and zeros, depending on whether is even or odd, and positive or negative:   is even. \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ is odd.} \\end{subfigure} \\caption{A power function with an integer and .}   is even. \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ is odd.} \\end{subfigure} \\caption{A power function with an integer and .}   "
+  "title": "Modeling with power functions.",
+  "body": " Modeling with power functions   Each graph in is the graph of a function of the form , is given. Find .   Modeling with power functions      Mystery graph of power function        Mystery graph of power function         Although not strictly necessary for solving this exercise, looking at , we see that the function graphed in (a) should be of the form , where is a positive odd numer, and the function graphed in (b) should be of the form , where is a positive even number.   Our function satisfies for all and . This implies that . Later, once we introduce logarithmic functions, we will have a systematic way of solving for . Instead, using our observation at the top that for some positive odd number , and doing some guess-and-check, we see that works. Thus .    Now our function satisfies and : , . Again, being guided by our observation at the top that for some positive even integer , and trying out the choices , we see that works. We conclude that .      "
 },
 {
-  "id": "sec_power_alg-6-6",
+  "id": "fig_polynomials",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-6-6",
-  "type": "Checkpoint",
-  "number": "1.5.10",
-  "title": "",
-  "body": "  Using the graphs from Theorem as a guide, determine the domain and range of if:    is even?     is odd?     is even?     is odd?     Instead of trying to memorize these, see if you can figure out why the domains and ranges of these functions are what they are.   "
-},
-{
-  "id": "fig_TaalmanPage303a-1",
-  "level": "2",
-  "url": "sec_power_alg.html#fig_TaalmanPage303a-1",
+  "url": "sec_algebraic_func_II.html#fig_polynomials",
   "type": "Figure",
-  "number": "1.5.11",
+  "number": "1.5.9",
   "title": "",
-  "body": " , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Power functions with an integer and .} "
+  "body": " Polynomials of increasing degree.       Graph of cubic        Graph of quartic          Graph of quintic       "
 },
 {
-  "id": "fig_TaalmanPage303a-3",
+  "id": "th_poly_roots",
   "level": "2",
-  "url": "sec_power_alg.html#fig_TaalmanPage303a-3",
-  "type": "Figure",
-  "number": "1.5.12",
-  "title": "",
-  "body": " , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Power functions with an integer and .} "
-},
-{
-  "id": "fig_TaalmanPage303b-1",
-  "level": "2",
-  "url": "sec_power_alg.html#fig_TaalmanPage303b-1",
-  "type": "Figure",
-  "number": "1.5.13",
-  "title": "",
-  "body": " , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Vertical stretching and compressing of and .} "
-},
-{
-  "id": "fig_TaalmanPage303b-3",
-  "level": "2",
-  "url": "sec_power_alg.html#fig_TaalmanPage303b-3",
-  "type": "Figure",
-  "number": "1.5.14",
-  "title": "",
-  "body": " , and . \\begin{subfigure}[H]{0.325\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.325\\textwidth} \\caption{ , and .} \\end{subfigure} \\caption{Vertical stretching and compressing of and .} "
-},
-{
-  "id": "thm_ratpowerfunc",
-  "level": "2",
-  "url": "sec_power_alg.html#thm_ratpowerfunc",
+  "url": "sec_algebraic_func_II.html#th_poly_roots",
   "type": "Theorem",
-  "number": "1.5.15",
-  "title": "Power Functions with Positive Rational Powers.",
-  "body": " Power Functions with Positive Rational Powers   If is a positive reduced rational number, then the graph of has the following shape, domain, range, and roots, depending on the parity of and and whether is greater than or less than 1:   If , then has one of the following three types of graphs:  with between 0 and 1.       If , then has one of the following three types of graphs:  with larger than 1.        Note that since is assumed to be reduced, we cannot have both even and even. Thus in the cases when is even, we must have that is odd.   "
+  "number": "1.5.10",
+  "title": "Roots of polynomials.",
+  "body": " Roots of polynomials   Let be a polynomial of positive degree .    has at most distinct roots.    A real number is a root of if and only if factors as for some polynomial .      "
 },
 {
-  "id": "sec_power_alg-7-5",
+  "id": "proc_poly_division",
   "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-7-5",
+  "url": "sec_algebraic_func_II.html#proc_poly_division",
+  "type": "Procedure",
+  "number": "1.5.11",
+  "title": "Polynomial long division.",
+  "body": " Polynomial long division     Let and be polynomials of positive degree. There are unique polynomials and satisfying . We call and the quotient and remainder upon division of by .  The process of computing and is called polynomial longdivision of by . We illustrate this process in . See also     A real number is a root of the polynomial if and only if the remainder upon dividing by is .      "
+},
+{
+  "id": "eg_poly_long_div",
+  "level": "2",
+  "url": "sec_algebraic_func_II.html#eg_poly_long_div",
   "type": "Example",
-  "number": "1.5.18",
-  "title": "",
-  "body": "  For example, the graphs in could be the graphs of , and , from left to right, since , and are all between 0 and 1. Additionally, has even and odd. has odd and odd. has odd and even.  The graphs in could be , and , from left to right, since , and are all greater than 1. has even and odd. has odd and odd. has odd and even.   "
+  "number": "1.5.12",
+  "title": "Polynomial long division.",
+  "body": " Polynomial long division   Find the quotient and remainder upon dividing by .    You may remember that long division of by proceeds iteratively, where at each step we multiply by a monomial in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in . Consider that display as the bookkeeping involved in the process described below.   Multiply by a monomial so that the leading terms of and match. In this case we choose the monomial .  Set our temporary as and our temporary as .    If is not less than for our temporary remainder , repeat Step 1 with and , updating in the process by adding the relevant monomial.  In our case, since , we multiply by the monomial in order to match the leading term of , and update our and as follows:     Continue this updating process until .  In our case, we need to do one more iteration. To match the leading terms, we multiply by the monomial . Updating our and yields . Since , we are done. We conclude that , where .      "
 },
 {
-  "id": "fig_TaalmanPage304b",
+  "id": "table_poly_div",
   "level": "2",
-  "url": "sec_power_alg.html#fig_TaalmanPage304b",
-  "type": "Figure",
-  "number": "1.5.19",
-  "title": "",
-  "body": " Graphs of and their reciprocals   "
-},
-{
-  "id": "sec_power_alg-7-12",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-7-12",
-  "type": "Checkpoint",
-  "number": "1.5.20",
-  "title": "",
-  "body": "  In the graphs in , do the blue graphs or the red graphs correspond to the functions with the negative exponents? Feel free to use a graphing calculator or Desmos. Then think about how you can tell from the formula. As a hint: what happens when ? What does the negative exponent mean?    "
-},
-{
-  "id": "sec_power_alg-7-13",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-7-13",
-  "type": "Example",
-  "number": "1.5.21",
-  "title": "Finding domains of power functions.",
-  "body": " Finding domains of power functions   Find the domains of the following power functions:                        If we rewrite the power function as a fraction with positive powers, the calculation of the domain is more clear: is defined everywhere but at , so its domain is . Note that the power of is not being applied to the coefficient , only to the .    Again, it's helpful to rewrite the function so that we can see roots and powers clearly. The function is defined everywhere except , because of the even root, so its domain is . Again, note that the coefficient 2 is not affected by the exponent.    Start by rewriting again. This time we must first rewrite as a fraction with positive exponents and then using integer roots and powers. is defined for all , because we can take odd roots of negative numbers but we cannot divide by 0, so its domain is .      "
-},
-{
-  "id": "sec_power_alg-7-14",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-7-14",
-  "type": "Checkpoint",
-  "number": "1.5.22",
-  "title": "",
-  "body": "  Find the domain of .   "
-},
-{
-  "id": "sec_power_alg-7-15",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-7-15",
-  "type": "Example",
-  "number": "1.5.23",
-  "title": "Modeling graphs with power functions.",
-  "body": " Modeling graphs with power functions   Find power functions that could have the following graphs:          From the shape of the first graph , we know that if is a power function, then must be an even negative integer by in Theorem . Let's try the simplest possible case: . Then and imply that     For the middle graph , we need a power function of the form where is odd, is odd, and by looking at the middle picture of of Theorem . Since the graph here is reflected over the -axis, we need to be negative. The simplest power that satisfies these conditions is . Since , we have       "
-},
-{
-  "id": "sec_power_alg-7-16",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-7-16",
-  "type": "Checkpoint",
-  "number": "1.5.25",
-  "title": "",
-  "body": "  By Theorem , the graph below belongs to a power function where is rational with even, odd, and .       Which part of Theorem matches this shape?    Assuming that (since this is the simplest possibility) so that , determine the value of by using the labeled point .     "
-},
-{
-  "id": "d_distwithsquareroot",
-  "level": "2",
-  "url": "sec_power_alg.html#d_distwithsquareroot",
-  "type": "Definition",
-  "number": "1.5.27",
-  "title": "Distance Between Two Real Numbers.",
-  "body": " Distance Between Two Real Numbers   The distance between two real numbers and is .   "
-},
-{
-  "id": "sec_power_alg-8-4",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-8-4",
-  "type": "Example",
-  "number": "1.5.28",
-  "title": "",
-  "body": "  For example, we know that the distance between 5 and 3 is 2. Using the above formula:   Note that it doesn't matter whether we compute or : since once we square or , they are both equal to positive 4.   "
-},
-{
-  "id": "sec_power_alg-8-6",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-8-6",
-  "type": "Definition",
-  "number": "1.5.29",
-  "title": "Distance Between Two Points in the Plane.",
-  "body": " Distance Between Two Points in the Plane   The distance between two points and in the plane is given by the distance formula :    "
-},
-{
-  "id": "sec_power_alg-8-8",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-8-8",
-  "type": "Example",
-  "number": "1.5.30",
-  "title": "",
-  "body": "  Plot the points and on a set of axes, and sketch the line segment connecting these two points. Use the distance formula to find the length of this line segment.    The points and and the line segment between them are shown in :   The points and and the line segment between them.    The distance between and is    "
-},
-{
-  "id": "sec_power_alg-8-10",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-8-10",
-  "type": "Example",
-  "number": "1.5.32",
-  "title": "",
-  "body": "  Suppose a straight road runs past a monument. If we create a set of axes that puts the monument at the origin (the point ), the road is described by the function , where is measured in hundreds of feet. Find a function that gives the distance from a point on the road to the monument.    If we call the monument , we have and . If we call a point on the road , then we have and , since any point on the road has coordinates . Since , we have that .  The distance is then    "
-},
-{
-  "id": "sec_power_alg-8-12",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-8-12",
-  "type": "Example",
-  "number": "1.5.33",
-  "title": "",
-  "body": "  Let's consider the domain of the function , the distance (in hundreds of feet) between the monument and a point on the road with location .  Intuitively, if we consider the problem of finding the distance between a road and a monument, we should be able to find a distance for any point on the road. So in our model , the domain should be all real numbers.  Algebraically, note that since there is a square root involved, we need the quantity within the square root to be non-negative. The quantity in the square root is . This is a quadratic expression with discriminant , and so the expression is never zero. Plugging in, for example , we see that , and so the quadratic expression is always positive. In other words, the quadratic has no zeros and there is a point above the -axis, so we know it is always above the -axis. In other-other words, the expression is always positive! So the quantity under the square root is never negative, meaning that the function is defined for all .  We are relieved that our algebra and our intuition match. It bodes well that we did not make a mistake in developing our model.  We could also ask whether has any zeros and whether it is increasing and\/or decreasing. This would correspond to whether the road passes through the monument (it doesn't) and whether we get closer or farther away from the monument as we travel along the road (intuitively, we should first get closer and then as we pass the monument, we get farther). A graph of confirms both of these facts:   The graph of is never zero and first decreases, then increases.    Here is another thing we can see from the graph: the closest point on the road to the monument is at the location with . We will learn to determine all of these properties algebraically using calculus later in the course.   "
-},
-{
-  "id": "tab_liboffunctions",
-  "level": "2",
-  "url": "sec_power_alg.html#tab_liboffunctions",
+  "url": "sec_algebraic_func_II.html#table_poly_div",
   "type": "Table",
-  "number": "1.5.35",
-  "title": "A summary of algebraic functions",
-  "body": " A summary of algebraic functions    \\toprule Type  General Form  Examples    \\midrule Linear  where and are any real numbers  ,         Polynomial  , where is a nonnegative integer and each is a real number          Rational  where and are polynomials          Power  where is real and is rational          Other  sums ( ), differences ( ), products ( ), and quotients ( ) of linear, polynomial, rational, and power functions  ,    \\bottomrule    "
-},
-{
-  "id": "tab_transdencentalfunctions",
-  "level": "2",
-  "url": "sec_power_alg.html#tab_transdencentalfunctions",
-  "type": "Table",
-  "number": "1.5.36",
-  "title": "A summary of transcendental functions",
-  "body": " A summary of transcendental functions    Type  Examples        Exponential         Logarithmic         Trigonometric         Inverse Trigonometric         Other     "
-},
-{
-  "id": "sec_power_alg-9-8",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-9-8",
-  "type": "Example",
-  "number": "1.5.37",
-  "title": "Identifying algebraic function types.",
-  "body": " Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.      "
-},
-{
-  "id": "sec_power_alg-9-9",
-  "level": "2",
-  "url": "sec_power_alg.html#sec_power_alg-9-9",
-  "type": "Checkpoint",
-  "number": "1.5.38",
-  "title": "",
-  "body": "  What is an example of a single algebraic function that is linear, polynomial, rational, and a power function (all of these at once). You have seen several    "
+  "number": "1.5.13",
+  "title": "Polynomial long division",
+  "body": " Polynomial long division                              "
 },
 {
   "id": "appendix-notation",
