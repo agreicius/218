@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_algebraic_func_II" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Algebraic functions: continued</title>
+    <introduction>
+        <p>
+            We now deepen our acquaintance with the different families of functions introduced in <xref ref="sec_algebraic_func"/>, treating questions of implied domain, range, and graph properties. 
+        </p>
+    </introduction>
+    <subsection xml:id="ss_lo_alg">
+    <title>Learning objectives</title>
+    <p>
+        <ul>
+            <li>
+                <p>
+                    Determine the implied domain of power, polynomial and rational functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Explore graph properties of power, polynomial, and rational functions
+                </p>
+            </li>
+            <li>
+                <p>
+                    Factoring polynomials and finding roots
+                </p>
+            </li>
+        </ul>
+    </p>
+    </subsection>
+    <subsection xml:id="ss_power_func_II">
+    <title>Power functions</title>
+    <p>
+        The properties of power functions are nicely summarized by their graphs. Let's look first at the graphs of power functions of the form <m>f(x)=x^{n}</m>, where <m>n\in \Z</m> is an integer. 
+    </p>
+    <figure xml:id="fig_power_positive_integer_powers">
+        <caption>Power functions: positive integer power</caption>
+        <sbsgroup width="22%">
+            <sidebyside>
+                <figure xml:id="fig_power_2">
+                    <caption><m>f(x)=x^2</m></caption>
+                    <image>
+                        <shortdescription>Graph of x squared</shortdescription>
+                        <sageplot>
+                        f(x)=x^2
+                        plot(f(x),x,-3,3, thickness=2)
+                        </sageplot>
+                    </image>
+
+                </figure>
+                <figure xml:id="fig_power_3">
+                    <caption><m>f(x)=x^3</m></caption>
+                    <image>
+                        <shortdescription>Graph of x cubed</shortdescription>
+                        <sageplot>
+                        f(x)=x^3
+                        plot(f(x),x,-3,3,thickness=2)
+                        </sageplot>
+                    </image>
+
+                </figure>
+                <figure xml:id="fig_power_4">
+                    <caption><m>f(x)=x^4</m></caption>
+                    <image>
+                        <shortdescription>Graph of x to the fourth</shortdescription>
+                        <sageplot>
+                        f(x)=x^4
+                        plot(f(x),x,-3,3,thickness=2)
+                        </sageplot>
+                    </image>
+
+                </figure>
+                <figure xml:id="fig_power_5">
+                    <caption><m>f(x)=x^5</m></caption>
+                    <image>
+                        <shortdescription>Graph of x to the fifth</shortdescription>
+                        <sageplot>
+                        f(x)=x^5
+                        plot(f(x),x,-3,3,thickness=2)
+                        </sageplot>
+                    </image>
+
+                </figure>
+            </sidebyside>
+        </sbsgroup>
+    </figure>
+    <figure xml:id="fig_power_neg_integer_powers">
+        <caption>Power functions: negative integer power</caption>
+       
+        <sbsgroup width="22%">
+            <sidebyside>
+                <figure xml:id="fig_power_neg2">
+                    <caption><m>f(x)=x^{-2}</m></caption>
+                    <image>
+                        <shortdescription>Graph of x to minus 2</shortdescription>
+                        <sageplot>
+                        f(x)=x^-2
+                        plot(f(x),x,-3,3, thickness=2,ymin=0,ymax=10,detect_poles=show)
+                        </sageplot>
+                    </image>
+
+                </figure>
+                <figure xml:id="fig_power_neg3">
+                    <caption><m>f(x)=x^{-3}</m></caption>
+                    <image>
+                        <shortdescription>Graph of x to minus 3</shortdescription>
+                        <sageplot>
+                        f(x)=x^-3
+                        plot(f(x),x,-3,3,thickness=2,ymin=-20,ymax=20,detect_poles=show)
+                        </sageplot>
+                    </image>
+
+                </figure>
+                <figure xml:id="fig_power_neg4">
+                    <caption><m>f(x)=x^{-4}</m></caption>
+                    <image>
+                        <shortdescription>Graph of x to minus 4</shortdescription>
+                        <sageplot>
+                        f(x)=x^-4
+                        plot(f(x),x,-3,3,thickness=2,ymin=0,ymax=10,detect_poles=show)
+                        </sageplot>
+                    </image>
+
+                </figure>
+                <figure xml:id="fig_power_neg5">
+                    <caption><m>f(x)=x^{-5}</m></caption>
+                    <image>
+                        <shortdescription>Graph of x to minus 5</shortdescription>
+                        <sageplot>
+                        f(x)=x^-5
+                        plot(f(x),x,-3,3,thickness=2,ymin=-200,ymax=200,detect_poles=show)
+                        </sageplot>
+                    </image>
+
+                </figure>
+            </sidebyside>
+        </sbsgroup>
+    </figure>
+    <p>
+      The eight graphs in <xref ref="fig_power_positive_integer_powers"/> and <xref ref="fig_power_neg_integer_powers"/> nicely illustrate how the precise nature of the power <m>n</m> involved affects the properties of <m>f(x)=x^n</m> and its graph. In particular, we see that the general shape of the graph is determined by whether <m>n</m> is positive or negative (the <em>sign</em> of <m>n</m>), and whether <m>n</m> is even or odd (the <em>parity</em> of <m>n</m>). <xref ref="table_power_integers"/> summarizes some observations about these power functions that are strongly suggested by our graphs. The claims there about domain are easily verified using the definition of power functions (see <xref ref="eg_power_implied_domain"/>). The claims about range can be shown to be true using <xref ref="th_power_identities"/>, as <xref ref="eg_power_func_range"/> illustrates. 
+    </p>
+    <table xml:id="table_power_integers">
+        <title>Properties of <m>f(x)=x^n</m>, <m>n\in \Z</m></title>
+        <tabular>
+            <col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/>
+            <row header="yes">
+                <cell>Sign of <m>n</m></cell><cell>Parity of <m>n</m></cell><cell>Domain of <m>f</m></cell><cell>range of <m>f</m></cell>
+            </row>
+            <row>
+                <cell><m>+</m></cell><cell>even</cell><cell><m>\R</m></cell><cell><m>[0,\infty)</m></cell>
+            </row>
+            <row>
+                <cell><m>+</m></cell><cell>odd</cell><cell><m>\R</m></cell><cell><m>\R</m></cell>
+            </row>
+            <row>
+                <cell><m>-</m></cell><cell>even</cell><cell><m>\R-\{0\}</m></cell><cell><m>(0,\infty)</m></cell>
+            </row>
+            <row>
+                <cell><m>-</m></cell><cell>odd</cell><cell><m>\R-\{0\}</m></cell><cell><m>\R-\{0\}</m></cell>
+            </row>
+        </tabular>
+    </table>
+    <example xml:id="eg_power_func_range">
+    <title>Power function: range</title>
+    <statement>
+    <p>
+    Let <m>f(x)=x^n</m>, where <m>n</m> is a positive even integer. Show that <m>\range f=[0,\infty)</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Since <m>n=2k</m> for some integer <m>k</m>, we have 
+    <md>
+        <mrow>f(x) \amp =x^{2k}</mrow>
+        <mrow> \amp =(x^k)^2 \amp (\text{iter. powers})
+        </mrow>
+        <mrow> \amp \geq 0 </mrow>
+    </md>,
+    where the last inequality follows from the observation that the square of any real number is nonnegative. Since the outputs of <m>f</m> are all nonnegative, we conclude <me>\range f\subseteq [0,\infty)</me>. 
+    We now set about proving the reverse inclusion: <m>[0,\infty)\subseteq \range f</m>. To this end, take any <m>b\in [0,\infty)</m>. Since <m>r\geq 0</m>, the number <m>r^{1/n}=\sqrt[n]{r}</m> is well defined. (In this case, since <m>n</m> is even, <m>r^{1/n}</m> by definition is the unique nonnegative <m>n</m>-th root of <m>r</m>.) Setting <m>a=r^{1/n}</m>, we have 
+    <md>
+        <mrow>f(a) \amp =a^{n}</mrow>
+        <mrow> \amp =\left(r ^{1/n}\right)^n</mrow>
+        <mrow> \amp = r^{\tfrac{1}{n}\cdot n} \amp (\text{iterated powers})</mrow>
+        <mrow> \amp =r^1</mrow>
+        <mrow> \amp =r</mrow>
+    </md>.
+    This shows that <m>r</m> is an output of <m>f</m>, and thus that <m>r\in \range f</m>, as desired. We conclude that <m>\range f=[0,\infty)</m>. 
+    </p>
+    </solution>
+    </example>
+    <p>
+        Power functions of the form <m>f(x)=x^{1/n}=\sqrt[n]{x}</m>, where <m>n</m> is positive, also exhibit some easy to identify distinctive properties. We call these functions <em><m>n</m>-th root functions</em>.
+    </p>
+    <figure xml:id="fig_nth_roots">
+        <caption>Power functions: <m>n</m>-th roots</caption>
+        <sbsgroup width="45%">
+            <sidebyside>
+                <figure xml:id="fig_square_root">
+                    <caption><m>f(x)=x^{1/2}=\sqrt{x}</m></caption>
+                    <image>
+                        <shortdescription>Square-root function graph</shortdescription>
+                        <sageplot>
+                        f(x)=sqrt(x)
+                        plot(f(x),x,0,10,thickness=2,ymin=0, ymax=3.5)
+                        </sageplot>
+                    </image>
+                </figure>
+                <figure xml:id="fig_third_root">
+                    <caption><m>f(x)=x^{1/3}=\sqrt[3]{x}</m></caption>
+                    <image>
+                        <shortdescription>Cube-root function graph</shortdescription>
+                        <sageplot>
+                        f(x)=real_nth_root(x, 3)
+                        plot(f(x),x,-10,10,thickness=2,ymin=-3, ymax=3)
+                        </sageplot>
+                    </image>
+                </figure>
+                </sidebyside>
+            
+               <sidebyside>
+                 <figure xml:id="fig_fourth_root">
+                    <caption><m>f(x)=x^{1/4}=\sqrt[4]{x}</m></caption>
+                    <image>
+                        <shortdescription>Fourth-root function graph</shortdescription>
+                        <sageplot>
+                        f(x)=real_nth_root(x, 4)
+                        plot(f(x),x,0,10,thickness=2,ymin=0, ymax=3.5)
+                        </sageplot>
+                    </image>
+                </figure>
+                <figure xml:id="fig_fifth_root">
+                    <caption><m>f(x)=x^{1/5}=\sqrt[5]{x}</m></caption>
+                    <image>
+                        <shortdescription>Fifth-root function graph</shortdescription>
+                        <sageplot>
+                        f(x)=real_nth_root(x, 5)
+                        plot(f(x),x,-10,10,thickness=2, ymin=-3, ymax=3)
+                        </sageplot>
+                    </image>
+                </figure>
+            </sidebyside>
+        </sbsgroup>
+    </figure>
+    <p>
+        Again, we summarize some properties of these functions that the graphs make evident. In this case, since <m>n</m> is always positive, it is only the parity (even/odd) of <m>n</m> that governs the general shape of the graph. 
+    </p>
+    <table>
+        <title>Properties of <m>f(x)=x^{1/n}=\sqrt[n]{x}</m></title>
+        <tabular>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <row header="yes">
+                <cell>Parity of <m>n</m></cell><cell>Domain of <m>f</m></cell><cell>Range of <m>f</m></cell>
+            </row>
+            <row>
+                <cell>Even</cell><cell><m>[0,\infty)</m></cell><cell><m>[0,\infty)</m></cell>
+            </row>
+            <row>
+                <cell>Odd</cell><cell><m>\R</m></cell><cell><m>\R</m></cell>
+            </row>
+
+        </tabular>
+    </table>
+    <example xml:id="eg_modeling_power">
+    <title>Modeling with power functions</title>
+    <statement>
+    <p>
+        Each graph in <xref ref="fig_eg_model_power"/> is the graph of a function <m>f</m> of the form <m>f(x)=x^q</m>, <m>q\in \Q</m> is given. Find <m>q</m>.
+    </p>
+    <figure xml:id="fig_eg_model_power">
+        <caption>Modeling with power functions</caption>
+    <sidebyside>
+        <figure>
+            <caption></caption>
+            <image>
+                <shortdescription>Mystery graph of power function</shortdescription>
+               <sageplot>
+               plot(real_nth_root(x,5), (x, -40, 40),gridlines=([32],[2]),thickness=2) + point((32, 2), size=50, color='red')
+               </sageplot> 
+            </image>
+        </figure>
+        <figure>
+            <caption></caption>
+            <image>
+                <shortdescription>Mystery graph of power function</shortdescription>
+               <sageplot>
+               plot(x^-2, (x, -2,2),ymax=6,gridlines=([-1/2],[4]),thickness=2) + point((-1/2, 4), size=50, color='red')
+               </sageplot> 
+            </image>
+        </figure>
+    </sidebyside>
+    </figure>
+    </statement>
+    <solution>
+    <p>
+        Although not strictly necessary for solving this exercise, looking at <xref first="fig_power_positive_integer_powers" last="fig_nth_roots"/>, we see that the function graphed in (a) should be of the form <m>f(x)=x^{1/n}</m>, where <m>n</m> is a positive odd numer, and the function graphed in (b) should be of the form <m>f(x)=x^{-n}</m>, where <m>n</m> is a positive even number. 
+    <ol marker="(a)">
+        <li>
+            <p>
+                Our function <m>f</m> satisfies <m>f(x)=x^q</m> for all <m>x</m> and <m>f(32)=2</m>. This implies that 
+                <me>
+                    32^q=2
+                </me>.
+                Later, once we introduce logarithmic functions, we will have a systematic way of solving for <m>q</m>. Instead, using our observation at the top that <m>q=1/n</m> for some positive odd number <m>n</m>, and doing some guess-and-check, we see that <m>q=1/5</m> works. Thus <m>f(x)=x^{1/5}</m>. 
+            </p>
+        </li>
+        <li>          
+            <p>
+            Now our function <m>f</m> satisfies <m>f(x)=x^q</m> and <m>f(-1/2)=4</m>: <ie/>, <m>(-1/2)^q=4</m>. Again, being guided by our observation at the top that <m>q=-n</m> for some positive even integer <m>n</m>, and trying out the choices <m>n=2,4,\dots</m>, we see that <m>q=2</m> works. We conclude that <m>f(x)=x^{-2}</m>.  
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    
+    </subsection>
+    <subsection xml:id="ss_polynomials">
+    <title>Polynomials</title>
+    <p>
+    In contrast to the simple power functions considered above, the behavior of polynomials can be quite complicated, and as a general rule becomes more and more complicated as the degree of the polynomial increases. This is illustrated in <xref ref="fig_polynomials"/>. 
+    </p>
+    <figure xml:id="fig_polynomials">
+          <caption>Polynomials of increasing degree.</caption>
+            <sbsgroup width="40%">
+              <sidebyside>
+            <figure xml:id="fig_cubic">
+              <caption><m>f(x)=x^3+x^2-2x</m></caption>
+              <image>
+                <shortdescription>Graph of cubic</shortdescription>
+                <sageplot>
+                f(x)=x^3+x^2-2*x
+                plot(f(x),-3,3,thickness=2,ymin=-6,ymax=10)
+                </sageplot>
+              </image>
+            </figure>
+                <figure xml:id="fig_quart">
+              <caption><m>f(x)=x^4+x^3-2x^2</m></caption>
+              <image>
+                <shortdescription>Graph of quartic</shortdescription>
+                <sageplot>
+                f(x)=x^4+x^3-2*x^2
+                plot(f(x),-3,3,thickness=2,ymin=-6,ymax=10)
+                </sageplot>
+              </image>
+            </figure>
+            </sidebyside>
+            <sidebyside>
+              <figure xml:id="fig_quint">
+              <caption><m>f(x)=x^5-x^4-4x^3+4x^2</m></caption>
+              <image>
+                <shortdescription>Graph of quintic</shortdescription>
+                <sageplot>
+                f(x)=x^5-x^4-4*x^3+4*x^2
+                plot(f(x),-3,3,thickness=2,ymin=-6,ymax=10)
+                </sageplot>
+              </image>
+            </figure>
+          </sidebyside>
+        </sbsgroup>
+        </figure>
+    <p>
+        We see that as the degree of the polynomials increases, the graphs of the functions tend to have more <q>turning points</q> (what we will later define as <em>local maxima</em> and <em>local minimima</em>). Furthermore, it is not clear from these examples how the range of a polynomial <m>f(x)=\anpoly</m> is determined by its degree and/or coefficients. Once again, calculus will provide us with the theoretical tools to answer questions related to these issues. For now, we will address another important question: how do we find the roots of a polynomial? Looking at the <m>x</m>-intercepts of the graphs in <xref ref="fig_polynomials"/>, it appears that the number of roots of a polynomial has something to do with its degree. The following theorem gives a precise (if somewhat incomplete) articulation of this relationship. 
+    </p>
+    <theorem xml:id="th_poly_roots">
+    <title>Roots of polynomials</title>
+    <statement>
+    <p>
+    Let <m>f(x)</m> be a polynomial of positive degree <m>n</m>. 
+    <ol>
+        <li>
+            <p>
+                <m>f</m> has at most <m>n</m> distinct roots. 
+            </p>
+        </li>
+        <li>
+            <p>
+                A real number <m>a\in \R</m> is a root of <m>f</m> if and only if <m>f</m> factors as 
+                <me>
+                    f(x)=(x-a)g(x)
+                </me>
+                for some polynomial <m>g(x)</m>.
+            </p>
+        </li>
+        
+    </ol>
+    </p>
+    </statement>
+    </theorem>
+    <p>
+       Statement (1) of <xref ref="th_poly_roots"/> tells us that the degree of a polynomial bounds the number of possible real roots, and thus also the number of possible <m>x</m>-intercepts. Thus, a quadratic polynomial has at most two roots, a cubic polynomial has at most three roots, a quartic polynomial has at most four roots, <etc/>. Note that the theorem does <em>not</em> claim that a degree-<m>n</m> polynomial must have <m>n</m> roots. Indeed we have seen already examples of quadratic polynomials (degree-2) that have no (real) roots!  
+    </p>
+    <aside>
+        <p>
+            If we move from <m>\R</m> to the larger number system <m>\C</m> of complex numbers, then we can strengthen (1) of <xref ref="th_poly_roots"/>: namely, every polynomial of positive degree <m>n</m> has <m>n</m> <em> roots</em> (counting multiplicity).  This is the content of the <em>fundamental theorem of algebra</em>. The crucial detail here is the modifier <q>complex</q> in <q>complex root</q>.
+        </p>
+    </aside> 
+    <p>
+        Statement (2) of <xref ref="th_poly_roots"/> makes the connection between roots of polynomials and factorization. As a result, the more we are able to factor a polynomial, the more we can say about its roots; conversely, every time we find a root of polynomial <m>f</m>, we can make progress on the factorization of <m>f</m> by <q>factoring out</q> that root. Factoring polynomials is thus an important skill, and we gather here some techniques for doing this. 
+    </p>
+    <algorithm xml:id="proc_poly_division">
+        <title>Polynomial long division</title>
+        <statement>
+            <p>
+                <ol><li>
+                    <p>
+                Let <m>f</m> and <m>g</m> be polynomials of positive degree. There are unique polynomials <m>q(x)</m> and <m>r(x)</m> satisfying 
+                <mdn>
+                    <mrow xml:id="eq_div_alg"> f(x)\amp = g(x)q(x)+r(x) \amp \deg r(x)&lt; \deg g </mrow>
+                </mdn>. 
+                We call <m>q</m> and <m>r</m> the <term>quotient</term> and <term>remainder</term> upon division of <m>f</m> by <m>g</m>. 
+            </p>
+            <p>
+                The process of computing <m>q(x)</m> and <m>r(x)</m> is called <term>polynomial longdivision</term> of <m>f</m> by <m>g</m>. We illustrate this process in <xref ref="eg_poly_long_div"/>. See also <xref ref="table_poly_div"/>
+            </p>
+                </li>
+                <li>
+                    <p>
+                        A real number <m>a</m> is a root of the polynomial <m>f(x)</m> if and only if the remainder upon dividing <m>f(x)</m> by <m>x-a</m> is <m>r(x)=0</m>. 
+                    </p>
+                </li>
+            </ol>
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_poly_long_div">
+    <title>Polynomial long division</title>
+    <statement>
+    <p>
+    Find the quotient <m>q(x)</m> and remainder <m>r(x)</m> upon dividing <m>f(x)=3x^4+2x^2+7x+1</m> by <m>g(x)=x^2+x+1</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively, where at each step we multiply <m>g</m> by a monomial <m>cx^m</m> in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in <xref ref="table_poly_div"/>. Consider that display as the bookkeeping involved in the process described below.
+    <ul>
+        <li>
+            <p>
+                Multiply <m>g</m> by a monomial <m>cx^n</m> so that the leading terms of <m>f</m> and <m>(cx^n)g(x)</m> match. In this case we choose the monomial <m>3x^2</m>.
+            </p>
+            <p>
+                Set our temporary <m>q(x)</m> as <m>3x^2</m> and our temporary <m>r(x)</m> as 
+                <md>
+                    <mrow>r(x) \amp = f(x)-3x^2\cdot g(x)</mrow>
+                    <mrow> \amp =f(x)-3x^2(x^2+x+1)</mrow>
+                    <mrow> \amp =-3x^3-x^2+7x</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+               If <m>\deg r</m> is not less than <m>\deg g</m> for our temporary remainder  <m>r(x)</m>, repeat Step 1 with <m>g(x)</m> and <m>r(x)</m>, updating <m>q(x)</m> in the process by adding the relevant monomial. 
+            </p>
+            <p>
+                In our case, since 
+                <me>
+                    \deg r(x)=\deg -3x^3-x^2+7x-3\geq \deg f=2 
+                </me>,
+                we multiply <m>g(x)</m> by the monomial <m>-3x</m> in order to match the leading term of <m>-3x^3-x^2+7x-3</m>, and update our <m>q(x)</m> and <m>r(x)</m> as follows: 
+                <md>
+                    <mrow>q(x) \amp = 3x^2-3x</mrow>
+                    <mrow>r(x) \amp = -3x^3-x^2+7x-3-(-3x)g(x)</mrow>
+                    <mrow> \amp =-3x^3-x^2+7x-3-(-3x)(x^2+x+1) </mrow>
+                    <mrow> \amp = 2x^2+10x+1</mrow>
+                </md>
+            </p>
+        </li>
+        <li>
+            <p>
+                Continue this updating process until <m>\deg r&lt; \deg g(x)</m>. 
+            </p>
+            <p>
+                In our case, we need to do one more iteration. To match the leading terms, we multiply <m>g(x)</m> by the monomial <m>2</m>. Updating our <m>q(x)</m> and <m>r(x)</m> yields
+                <md>
+                    <mrow>q(x) \amp =3x^2-3x+2</mrow>
+                    <mrow>r(x) \amp = 2x^2+10x+1-2g(x)</mrow>
+                    <mrow> \amp = 2x^2+10x+1-2(x^2+x+1)</mrow>
+                    <mrow> \amp = 8x-1</mrow>
+                </md>.
+                Since <m>\deg 8x-1=1&lt; \deg g=2</m>, we are done. We conclude that <m>f(x)=g(x)q(x)+r(x)</m>, where 
+                <md>
+                    <mrow>q(x) \amp =3x^2-3x+2</mrow>
+                    <mrow>r(x) \amp =8x-1</mrow>
+                </md>.
+            </p>
+        </li>
+    </ul>
+    </p>
+    </solution>
+    </example>
+    
+    <table xml:id="table_poly_div">
+        <title>Polynomial long division</title>
+        <tabular>
+            <col halign="right"/><col halign="left" /><col halign="left" /><col halign="left" /><col halign="left" />
+            <col halign="left" />
+            <row>
+                <cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>3x^2</m></cell><cell bottom="medium"><m>-3x</m></cell><cell bottom="medium"><m>+2</m></cell>
+            </row>
+            <row>
+                <cell><m>x^2+x+1)</m></cell><cell ><m>\phantom{-(}3x^4</m></cell><cell ></cell><cell ><m>+2x^2</m></cell><cell><m>+7x</m></cell><cell><m>+1</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell bottom="medium"><m>-(3x^4</m></cell ><cell bottom="medium"><m>+3x^3</m></cell><cell bottom="medium"><m>+3x^2)</m></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell></cell><cell><m>\phantom{-(}-3x^3</m></cell><cell><m>-x^2</m></cell><cell><m>+7x</m></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell></cell><cell bottom="medium"><m>-(-3x^3</m></cell><cell bottom="medium"><m>-3x^2</m></cell><cell bottom="medium"><m>-3x)</m></cell><cell></cell>
+            </row>
+            <row>
+                <cell></cell><cell></cell><cell></cell><cell><m>\phantom{-(}2x^2</m></cell><cell><m>+10x</m></cell><cell><m>+1</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell></cell><cell></cell><cell bottom="medium"><m>-(2x^2</m></cell><cell bottom="medium"><m>+2x</m></cell><cell bottom="medium"><m>+2)</m></cell>
+            </row>
+            <row>
+                <cell></cell><cell></cell><cell></cell><cell></cell><cell><m>8x</m></cell><cell><m>-1</m></cell>
+            </row>
+        </tabular>
+    </table>
+    
+    </subsection>
+</section>
