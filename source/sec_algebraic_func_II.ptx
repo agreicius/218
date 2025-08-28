@@ -763,21 +763,377 @@ You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively
     </me>,
     and thus that 
     <me>
-        f(x)=(x-2)g(x)=(x-2)(x-2)(x^2+1)
+        f(x)=(x-2)g(x)=(x-2)(x-2)(x^2+1)=(x-2)^2(x^2+1)
     </me>.
     Lastly, we apply <xref ref="th_quadratic_formula"/> to the remaining factor <m>x^2+1</m>, concluding that it has no roots. By <xref ref="proc_fact_roots"/>, we conclude that the only root of <m>f</m> is <m>2</m>. 
     </p>
     </solution>
     </example>
     <remark>
-        <title>Multiplicity</title>
-        
+        <title>Multiplicity of a root</title>
         <p>
-            
+            The factorization 
+            <me>
+              f(x)=(x-2)^2(x^2+1)
+            </me>
+            from <xref ref="eg_roots_quartic"/> tells us that <m>2</m> is a <em>repeated root</em> of <m>f</m> of <em>multiplicity</em> two. In general, if a polynomial <m>f</m> factors as
+            <me>
+                f(x)=(x-a)^mq(x)
+            </me>,
+            where <m>a</m> is not a root of <m>q</m> (<ie/>, <m>q(a)\ne 0</m>), then <m>a</m> is called a <term>root of multiplicity <m>m</m></term>. For example, the polynomial
+            <me>
+                f(x)=x^2(x+1)(x-6)^4(x^2+1)
+            </me>
+            has a double root (<ie/>, root of multipicity two) at <m>x=0</m>, a simple root (<ie/>, root of multiplicity one) at <m>x=-1</m>, and a quadruple root at <m>x=6</m>. From the factorization, we know further that <m>f</m> has no additional roots, since <m>x^2+1</m> has not roots. 
+        </p>
+        <p>
+            As we will see later in the course, the multiplicity of a root provides further nuanced information about how a polynomial <m>f</m> behaves near a the root. 
         </p>
     </remark>
-    
-    
-    
+    <p>
+        Although we have been focusing on factoring polynomials by finding roots, this is not always the easiest way to proceed. Indeed, there are polynomials that can be factored nontrivially and yet have no roots. For example, the polynomial <m>f(x)=x^4+2x^2+1</m> factors as 
+        <me>
+            x^4+2x^2+1=(x^2+1)(x^2+1)
+        </me>.
+        <xref ref="th_factoring_tools"/> provides a couple of tricks for factoring polynomials that sometimes come in handy when we cannot easily find roots. The factorization above can be thought of an instance of (2) of <xref ref="th_factoring_tools"/>. We have 
+        <me>
+            x^4+2x^2+1=(x^2)^2+2(x^2)+1=g(x^2)
+        </me>,
+        where <m>g(x)=x^2+2x+1</m>. Since <m>g(x)</m> factors as
+        <me>
+            g(x)=(x+1)(x+1)
+        </me>,
+        we see that <m>f(x)=g(x^2)</m> factors as 
+        <me>
+            f(x)=g(x^2)=(x^2+1)(x^2+1)
+        </me>.
+    </p>
+    <theorem xml:id="th_factoring_tools">
+    <title>Factoring tools</title>
+    <statement>
+    <p>
+    <ul>
+        <li>
+            <title>Difference of powers</title>
+            <p>
+                For all <m>a,b\in \R</m>, and all integers <m>n\geq 2</m>, we have 
+                <men xml:id="eq_diff_powers">
+                    a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1})
+                </men>.
+                In particular, we have
+                <md>
+                    <mrow>a^2-b^2 \amp =(a-b)(a+b) </mrow>
+                    <mrow>a^3-b^3 \amp =(a-b)(a^2+ab+b^2)</mrow>
+                    <mrow>a^4-b^4 \amp =(a-b)(a^3+a^2b+ab^2+b^2)</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <title>Polynomial expression of <m>x^m</m></title>
+            <p>
+                If we can write a polynnomial <m>f(x)</m> as 
+                <me>
+                    f(x)=g(x^m)
+                </me>
+                for some polynomial <m>g</m>, then a factorization 
+                <me>
+                    g(x)=p(x)q(x)
+                </me>
+                of <m>g</m> gives rise to the factorization 
+                <me>
+                    f(x)=p(x^m)q(x^m)
+                </me>.
+            </p>
+        </li>
+    </ul>
+    </p>
+    </statement>
+    </theorem>
+    <p>
+        Factoring polynomials turns out to be our main tool for solving general polynomial equations, as we detail in <xref ref="proc_solve_poly"/>. 
+    </p>
+    <algorithm xml:id="proc_solve_poly">
+        <title>Solving polynomial equations</title>
+        <statement>
+            <p>
+                Consider a polynomial equation of the form 
+                <men xml:id="eq_solve_poly_orig">
+                    \anpoly =b
+                </men>.
+                To solve this equation for <m>x</m>, proceed as follows. 
+                <ol>
+                    <li>
+                        <p>
+                            Use algebra to bring all terms to the left side (using addition/subtraction), obtaining an equation of the form 
+                            <men xml:id="eq_solve_poly">
+                                a_nx^n+a_{n-1}x^{n-1}+\cdots +(a_0-b)=0
+                            </men>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Factor the polynomial on the left side of <xref ref="eq_solve_poly"/> as much as possible to obtain an equation of the form
+                            <men xml:id="eq_solve_poly_factor">
+                                f_1(x)f_2(x)\cdots f_r(x)=0
+                            </men>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The solutions of the original equation <xref ref="eq_solve_poly_orig"/> are precisely the roots of the polynomials <m>f_1,f_2,\dots, f_r</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_solve_poly">
+    <title>Solving a polynomial equation</title>
+    <statement>
+    <p>
+    Find all solutions to the equation 
+    <me>
+        x^3-2x+3=x+1
+    </me>.
+    Follow <xref ref="proc_solve_poly"/>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    First bring the equation in to the form <xref ref="eq_solve_poly"/>:
+    <md>
+        <mrow> x^3-2x+3\amp =x+1\amp </mrow>
+        <mrow>x^3-3x+2 \amp = 0 </mrow>
+    </md>.
+    Luckily, <xref ref="th_int_root"/> helps us find an easy integer root of the polynomial on the left, allowing us to factor (in two steps) as 
+    <me>
+        x^3-3x+2=(x-1)(x^2+x-2)=(x-1)(x-1)(x+2)
+    </me>.
+    From the factored equation 
+    <me>
+        (x-1)(x-1)(x+2)=0
+    </me>
+    we conclude that the solutions to the original equation are <m>x=1</m> (a repeated root here) and <m>x=-2</m>.
+    </p>
+    </solution>
+    </example>
+    </subsection>
+    <subsection xml:id="ss_rational_funcs">
+    <title>Rational functions</title>
+    <p>
+        Equipped now with some machinery for factoring polynomials, we can take a closer look at rational functions, which you will recall are just quotients of polynomials. In this section we will be interested only in determining the implied domain and zeros of a rational function. Before treating this specific family of functions, we first make official a simple observation about the domain and zeros of any function defined as a quotient of two functions.
+    </p>
+        <theorem xml:id="th_quot_func">
+        <title>Quotients of functions</title>
+        <statement>
+        <p>
+        Assume <m>f</m> is a function of the form 
+        <me>
+            f(x)=\frac{g(x)}{h(x)}
+        </me>,
+        where <m>g</m> and <m>h</m> are functions. 
+        <ol>
+            <li>
+                <p>
+                    The implied domain <m>D</m> of <m>f</m> is the set of <m>x\in \R</m> for which (a) <m>g(x)</m> and <m>h(x)</m> are both defined, and (b) <m>h(x)\ne 0</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The set <m>Z</m> of zeros of <m>f</m> is the set of zeros of <m>g</m> that lie in <m>D</m>: <ie/>,
+                    <me>
+                        Z=\{x\in D\mid g(x)=0\}
+                    </me>.
+                    Equivalently, using logical shorthand:  
+                    <men xml:id="eq_zeros_quot">
+                        f(x)=0 \iff g(x)=0 \text{ and } h(x)\ne 0
+                    </men>.
+                </p>
+            </li>
+        </ol>
+        </p>
+        </statement>
+        </theorem>
+        <p>
+            In the special case where <m>f(x)=p(x)/q(x)</m> is a quotient of two <em>polynomials</em>, the statements of <xref ref="th_quot_func"/> are simplified by the fact that <m>p(x)</m> and <m>q(x)</m> are defined everywhere, and have finitely many zeros.
+        </p>
+        <corollary xml:id="cor_rational_domain_zeros">
+            <title>Domain and zeros of rational functions</title>
+            <statement>
+                <p>
+                    Let <m>f(x)=p(x)/q(x)</m>, where <m>p</m> and <m>q</m> are polynomials. 
+                    <ol>
+                        <li>
+                            <p>
+                                The implied domain <m>D</m> of <m>f</m> is 
+                                <me>
+                                    D=\{x\in \R\mid q(x)\ne 0\}
+                                </me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                The set <m>Z</m> of zeros of <m>f</m> is the set of zeros of <m>p</m> that are not zeros of <m>q</m>: <ie/>, 
+                                <me>
+                                    Z=\{x\in \R\mid p(x)=0 \text{ and } q(x)\ne 0\}
+                                </me>.
+                                Equivalently, using logical shorthand: 
+                                <men xml:id="eq_zeros_rational">
+                                    f(x)=0 \iff p(x)=0 \text{ and } q(x)\ne 0
+                                </men>.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+        </corollary>
+    <p>
+        Since the domain and zeros of a rational function <m>f(x)=p(x)/q(x)</m> are determined by the zeros of <m>p</m> and <m>q</m>, and since by <xref ref="th_poly_roots"/> nonzero polynomials have only finitely many zeros (bounded in number by the polynomial's degree), it follows that <m>f</m> is defined everywhere except for the finitely many zeros of <m>q</m>, and <m>f</m> has finitely many zeros. 
+    </p>
+    <example xml:id="eg_rational_domain_zeros">
+    <title>Rational functions: domain and zeros</title>
+    <statement>
+    <p>
+    Compute the implied domain <m>D</m> and set of zeros <m>Z</m> for the given rational function. 
+    <ol>
+        <li>
+            <p>
+                <m>f(x)=\frac{x-3}{x^2-4x+3}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>g(x)=\frac{x^2-1}{x^2-4x+3}</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    We have <m>f(x)=p(x)/q(x)</m>, where 
+                    <md>
+                        <mrow>p(x) \amp = x-3 \amp q(x)\amp =x^2-4x-3=(x-1)(x-3)</mrow>
+                    </md>.
+                    Since the zeros of <m>q</m> are <m>1</m> and <m>3</m>, the implied domain <m>D</m> of <m>f</m> is 
+                    <me>
+                        D=\R-\{1,3\}=(-\infty,1)\cup (1,3)\cup (3,\infty)
+                    </me>.
+                    The set of zeros <m>Z</m> of <m>f</m> is the set of <m>x</m> where <m>p(x)=0</m> and <m>q(x)\ne 0</m>. Since <m>p</m> is zero only at <m>x=3</m>, and since <m>3</m> is a zero of <m>q</m>, we conclude that <m>f</m> has no zeros: <ie/>, 
+                    <me>
+                        Z=\{\}=\emptyset
+                    </me>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have <m>g(x)=p(x)/q(x)</m>, where 
+                    <md>
+                        <mrow>p(x) \amp = x^2-1=(x-1)(x+1) \amp q(x)\amp =x^2-4x-3=(x-1)(x-3)</mrow>
+                    </md>.
+                    Since the zeros of <m>q</m> are <m>1</m> and <m>3</m>, the implied domain <m>D</m> of <m>g</m> is 
+                    <me>
+                        D=\R-\{1,3\}=(-\infty,1)\cup (1,3)\cup (3,\infty)
+                    </me>,
+                    as above.
+                    The set of zeros <m>Z</m> of <m>f</m> is the set of <m>x</m> where <m>p(x)=0</m> and <m>q(x)\ne 0</m>. Since <m>p</m> is zero at <m>1</m> and <m>-1</m>, and since <m>1</m> is a zero of <m>q</m>, we conclude that 1 is the only zero of <m>f</m>. 
+                </p>
+            </li>
+        </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+        In <xref ref="fig_rational_zeros_domain"/> you find graphs of the functions <m>f</m> and <m>g</m> from <xref ref="eg_rational_domain_zeros"/>. Consistent with our work in that example, the graphs indicate that <m>f</m> has no zeros and <m>g</m> has exactly one zero, at <m>x=-1</m>. 
+    </p>
+    <figure xml:id="fig_rational_zeros_domain">
+        <caption>Graphs of rational functions</caption>
+        <sidebyside valign="middle">
+            <figure xml:id="fig_rational_func_a">
+                <caption>Graph of <m>f(x)=\tfrac{x-3}{(x-1)(x-3)}</m></caption>
+                <image>
+            <shortdescription>Graph of rational function</shortdescription>
+            <sageplot>
+            f1=plot((x-3)/(x^2-4*x+3),x,-2,2.9, ymin=-4, ymax=4, detect_poles="yes")
+            f2=plot((x-3)/(x^2-4*x+3),x,3.1,4, ymin=-4, ymax=4, detect_poles="yes")
+            C=circle((3,1/2),.1)
+            L=line(((1,-5),(1,5)),linestyle="dotted", color="red")
+            f1+C+f2+L
+            </sageplot>
+        </image>
+            </figure>
+            <figure xml:id="fig_rational_func_b">
+                <caption>Graph of <m>g(x)=\tfrac{(x-1)(x+1)}{(x-1)(x-3)}</m></caption>
+                <image>
+            <shortdescription>Graph of rational function</shortdescription>
+            <sageplot>
+            f1=plot((x^2-1)/(x^2-4*x+3),x,-2,.9, ymin=-6, ymax=6, detect_poles="yes")
+            f2=plot((x^2-1)/(x^2-4*x+3),x,3.1,8, ymin=-6, ymax=6, detect_poles="yes")
+            f3=plot((x^2-1)/(x^2-4*x+3),x,1.1,2.9, ymin=-5, ymax=5, detect_poles="yes")
+            C=circle((1,-1),.1)
+            P=point((-1,0),color="red",size=50)
+            L=line(((3,-5),(3,5)),linestyle="dotted", color="red")
+            f1+C+f2+L+f3+P
+            </sageplot>
+        </image>
+            </figure>
+        </sidebyside>
+    </figure>
+    <p>
+        Furthermore, we saw in <xref ref="eg_rational_domain_zeros"/> that both functions have <m>D=\R-\{1,3\}</m> as their implied domain. Interestingly, the two graphs indicate that <m>1</m> and <m>3</m> are excluded from the domain in slightly different ways. 
+        <ul>
+            <li>
+                <p>
+                    The graph of <m>f</m> has what we will eventually call a <em>vertical asymptote</em> at <m>x=1</m>, and a <em>hole</em> at <m>x=3</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The graph of <m>f</m> has a hole at <m>x=1</m> and a vertical asymptote at <m>x=3</m>. 
+                </p>
+            </li>
+        </ul>
+    The vertical asymptote behavior of the two graphs is something we will discuss in great detail later. For now we content ourselves to an explanation of the holes appearing in these graphs. Let's look only at 
+    <me>
+        f(x)=\frac{x-3}{x^2-4x+3}=\frac{x-3}{(x-3)(x-1)}
+    </me>.
+    Our analyis is somewhat involved, so we will break it up into a few steps. 
+    <ul>
+        <li>
+            <p>
+                Technically, <m>3</m> is not in the domain of <m>f</m>, and thus there should be no plotted point on the graph of <m>f</m> over <m>x=3</m>.
+            </p>
+        </li>
+        <li>
+            <p>However, for any <m>x\ne 3</m>, we may cancel the nonzero terms <m>x-3</m> in our expression above to get the simpler expression <m>1/(x-1)</m>. That is, we have 
+            <me>
+            x\ne 3 \implies f(x)=\frac{\cancel{x-3}}{\cancel{(x-3)}(x-1)}=\frac{1}{x-1}
+            </me>.   
+            </p>
+        </li>
+        <li>
+            <p>
+                Let <m>h(x)=\frac{1}{x-1}</m>. Technically <m>f</m> and <m>h</m> are not equal as functions, as is reflected in the fact that <m>f</m> has domain <m>\R-\{1,3\}</m> and <m>h</m> has domain <m>\R-\{1\}</m>. However, for all <m>x\ne 3</m>, we have <m>f(x)=h(x)</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                 Since <m>h(3)=1/2</m>, the point <m>P=(3,1/2)</m> appears on the graph of <m>h</m>. Furthermore, if we graph <m>h</m>, we see that points <m>(x,h(x))</m> on its graph approach <m>P=(3,1/2)</m> as <m>x</m> gets closer and closer to <m>3</m>. (As we will see later, this is a result of <m>h</m> being <em>continuous</em> at <m>x=3</m>.)  
+            </p>
+        </li>
+        <li>
+            <p>
+                Lastly, since the graph of <m>f</m> agrees with the graph of <m>h</m> for all <m>x\ne 3</m>, points <m>(x,f(x))</m> on its graph <em>also</em> approach <m>(3,1/2)</m> as <m>x</m> gets closer and closer to <m>3</m>. As a result, the graph of <m>f</m> appears to approach the point <m>P=(3,1/2)</m>, but without this point being included on the graph itself. Hence the hole! 
+            </p>
+        </li>
+    </ul>
+    Well, that was a bit long winded! One amazing feature of calculus is its ability to express such cumbersome arguments in a much more economical manner. For example, using the language of <em>limits</em> (to be introduced soon),  our discussion above can be beautifully compressed into the following simple statement: 
+    <me>
+        \lim_{x\to 3}f(x)=h(3)=\frac{1}{2}
+    </me>. 
+    </p>
     </subsection>
 </section>
