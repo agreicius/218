@@ -1801,6 +1801,186 @@ var ptx_lunr_docs = [
   "body": " Graphs of rational functions    Graph of   Graph of rational function      Graph of   Graph of rational function      "
 },
 {
+  "id": "sec_func_transf",
+  "level": "1",
+  "url": "sec_func_transf.html",
+  "type": "Section",
+  "number": "1.6",
+  "title": "Transformations and Symmetry",
+  "body": " Transformations and Symmetry    Functions Transformations of Functions  Functions Symmetry     Learning Goals     Learn about transformations of functions and how they influence the shape of a graph.    Understand how the definitions of even and odd functions correspond to certain types of symmetry in the graph of a function.    Determine algebraically whether a function is even, odd, or neither.    Application: the vertex form of a quadratic function arises from a series of transformations of the function .       Transformations  Having become more or less acquainted with a few families of functions (linear functions, power functions, polynomials, rational functions, ), we now try to extend our knowledge to various arithmetic combinations of these basic types.  In this section we will focus on a particularly simple case of such combinations. Namely, we will consider the following types of function operations, called function transformations : , where is a constant. In each case above, the function above is the result of a shifting or scaling by the constant ; and furthermore, this shifting\/scaling is applied either to the output  (the outside of the function), or to the input  (the inside of the function). What exactly is the result of this shifting and scaling, and what difference does it make to do so on the inside versus the outside of the function?   Desmos: function transformations   The Desmos interactive in allows you to explore the graphical relationship between an original function and four different type of transformations of : . Articulate what effect these operations have on the graph of .   Desmos interactive : graphical effect of function transformations       Vertical Translation   Transforming to adds\/subtracts units to every output of . This means that the graph of shifts up or down vertically units everywhere, to become the graph of or , as illustrated by the red and green graphs, respectively, shown in below.   shifts up two units. shifts down two units.       Horizontal Translation   If we instead add or subtract a constant to the independent variable and transform to , the graph shifts left or right horizontally by units, as illustrated in the green and red graphs shown in below.   shifts left five units. shifts right five units.    Note that the shift to the left for and to the right for might be the opposite of what we might initially expect.     Vertical Stretch or Shrink   If we instead transform by multiplication to , then the graph of expands or contracts vertically by a factor of to become the graph of , as shown in the red and green graphs in .   stretches vertically by 2. compresses vertically by 2.       Horizontal Stretch or Shrink   In contrast, if we do the same transformation to the independent variable and transform to , this contracts or expands the graph of by a factor of in the horizontal direction, as illustrated in the red and green graphs in .   compresses horizontally by 2. stretches horizontally by 2.       Reflections: Note that in Examples and , the values of and used were positive. What happens if we multiply or by a negative number? We can answer that question just by looking at what happens when we multiply by .   Vertical and Horizontal Reflection   Changing to transforms all positive outputs into negative outputs, and vice versa. The graph of is then reflected across the -axis to become the graph of , as shown in the red graph in .  If we instead multiply the independent variable by , then we obtain a reflection across the -axis, as shown in the graph graph in .   reflects across the -axis (red). reflects across the -axis (green).      Now if we want to transform to , for example, we can transform first to and then by reflection to .  The table that follows summarizes the graphical and algebraic effects of the transformations just discussed.          Transformation  Graphical Result  Algebraic Result          shifts left units if      shifts right units if           shifts up units if      shifts down units if           horizontal compression by if      horizontal stretch by if           vertical stretch by if      vertical compression by if           graph reflects across the -axis           graph reflects across the -axis             Consider the function given in below. Describe in words how the function is the result of three transformations of . Does the order in which these transformations occur matter? Why or why not?   The function .      There are three basic transformations involved: a vertical shift of 1 unit down, a horizontal shift of 1 unit left, and a vertical stretch by a factor of 2. To understand the order in which these transformations are applied, it's essential to remember that a function is a process that converts inputs to outputs.  By the algebraic rule for , . In words, this means that given an input for , we do the following processes in this particular order:   add 1 to and then apply the function to the quantity ;    multiply the output of by 2;    subtract 1 from the output of .     These three steps correspond to three basic transformations:   shift the graph of to the left by 1 unit;    stretch the resulting graph vertically by a factor of 2;    shift the resulting graph vertically by units.     We can see the graphical impact of these algebraic steps by taking them one at a time. Note that in each of the following figures, we track the point from the original function.   In , we see the function that results from a shift of 1 unit left of the function in . The tracked point first moves left 1 unit to . (Each time we take an additional step, we will de-emphasize the preceding function by having it appear in lighter color and dashed.)  The function .       Continuing, we now consider the function , which results in a vertical stretch away from the -axis by a factor of 2, as seen in . The tracked point is stretched vertically by a factor of 2 away from the -axis to .  The function .       Finally, we arrive at by subtracting 1 from the previous graph; this of course is a vertical shift of units, and produces the graph of shown in red in . The tracked point is shifted 1 unit down to the point .  The function .        While there are some transformations that can be executed in either order (such as the combination of a horizontal translation and a vertical translation, in other situations order matters. In this example, we have to apply the vertical stretch before applying the vertical shift, Algebraically, this is because . The quantity multiplies the function by 2 first (the stretch) and then the vertical shift follows; the quantity shifts the function down 1 unit first, and then executes a vertical stretch by a factor of 2. In the latter scenario, the point that lies on gets transformed first to and then to , which is not the same as the point that lies on .     Vertical and horizontal translations, stretches, and reflections   The figure that follows shows a piece of the graph of a parabola with five marked points. Sketch graphs for each of the given transformations. On each graph, mark the new coordinates of the five marked points        , and      , and      and         Symmetry  Some graphs do not change under certain transformations. For example, the graph of shown in below remains the same if we reflect it across the -axis. We say that this function has -axis symmetry .   is preserved under reflection across the -axis.    As another example, the graph of shown in below remains the same if we reflect it first across the -axis and then across the -axis. This double-reflection across the - and -axis is equivalent to rotation around the origin by . Take a moment to experiment with this: on a piece of scrap paper, draw a smiley face or some other picture. Flip the paper vertically and then horizontally (or horizontally and then vertically). This gives you the same result as rotating the paper by 180 degrees. A function that is preserved under the transformation of rotation is said to have  rotational symmetry .   is preserved under rotation about the origin.    These types of symmetries are also called even symmetry and odd symmetry , since power functions with even powers all have -axis symmetry and power functions with odd powers all have rotational symmetry. Because graphical reflections correspond to multiplication by , we can describe functions with even and odd symmetry algebraically as follows:   Even and Odd Functions   Even functions have -axis symmetry while odd functions have rotational symmetry:   A function is an even function if for all in the domain of .    A function is an odd function if for all in the domain of .       For example, the function is even because for all we have . In contrast, the function is odd because for all we have   Note that many functions are neither even nor odd. In fact, it is quite hard for a function to be either even or odd, since this would require the graph to have one of these two specific symmetries.     is neither even nor odd. and so we can see that , thus is not even. Similarly, since , we can also see that , thus is not odd. Consequently, the function has neither -axis symmetry nor rotational symmetry. Confirm this for yourself by graphing using Desmos or a graphing calculator.      Sketch a graph that has neither -axis symmetry nor rotational symmetry. Congratulations! You have drawn the graph of a function that is neither even nor odd.     Testing if functions are even or odd   Determine whether each of the following function is even, odd, or neither.                     We first determine algebraically whether each function satisfies the definition of even or odd (or if it does not) and then verify graphically.   To determine whether is even or odd (or neither) we must calculate and determine if it is equal to , or neither. If , it is even, and if , it is odd. We have , so is an odd function since it satisfies .    We follow the same procedure to determine whether is even, odd, or neither. If , it is even, if , it is odd, and if neither of those two things is true, then it is neither even nor odd. Well , so is an even function.    Following the same line of reasoning, we must examine to determine if it is equal to either or , or neither. . This does not appear to be equal to either or . Indeed, . Hence the function is neither even nor odd.     The graphs of , and appear below in :   is an odd function. \\begin{subfigure}[H]{0.3\\textwidth} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.3\\textwidth} \\caption{ is an even function.} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.3\\textwidth} \\caption{ is neither even nor odd.} \\end{subfigure} \\caption{The graphs of , and confirm whether the functions are even, odd, or neither.}  We can see in that has rotational symmetry about the origin, which confirms that is an odd function. In , we see that has reflectional symmetry across the -axis, confirming that is an even function. Lastly, in , we see that has neither type of symmetry, confirming that is neither even nor odd.      Application: The Vertex Form of a Quadratic Function  There is another \"standard\" form in which you may see a quadratic function, called the vertex form :   Vertex form of a quadratic function   A quadratic function with vertex may be written in the form . The constant may be determined from one other point on the graph of the function.    This form arises from taking the parabola and applying appropriate transformations to obtain any other parabola as follows:   First, shift horizontally via . If the parabola must shift to the right, use a positive value for . If the parabola must shift to the left, use a negative value for .    Next, stretch the parabola vertically via . If the parabola must shrink, use a value of that is between and . If the parabola must be reflected across the -axis, use a negative value of .    Finally, shift the parabola vertically via . If the parabola must shift up, use a positive value for . If the parabola must shift down, use a negative value for .       We can reason graphically via transformations of to determine whether the parabola has 0, 1, or 2 -intercepts.  The vertex of the parabola has shifted left by one unit ( ) and up by nine units ( ) from the graph of , so the vertex of is in the second quadrant at the point . The coefficient of has reflected the graph over the -axis, so opens downward. Thus we know that must have 2 -intercepts. See if you can find them algebraically.      Simplify the vertex form of a quadratic function by combining like terms in order to determine formulas for the parameters , and such that . These will be in terms of the letters , and . (Hint: the formula for is .)  Recall from Exercise that we explored how the parameters , and impact the graph of . Experiment with the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  if you do not remember. We see in this exercise how the values of , and are obtained based on the location of the vertex and width of the parabola.     "
+},
+{
+  "id": "sec_func_transf-4-3",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "function transformations "
+},
+{
+  "id": "eg_desmos_transf",
+  "level": "2",
+  "url": "sec_func_transf.html#eg_desmos_transf",
+  "type": "Example",
+  "number": "1.6.1",
+  "title": "Desmos: function transformations.",
+  "body": " Desmos: function transformations   The Desmos interactive in allows you to explore the graphical relationship between an original function and four different type of transformations of : . Articulate what effect these operations have on the graph of .   Desmos interactive : graphical effect of function transformations     "
+},
+{
+  "id": "sec_func_transf-4-5",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-5",
+  "type": "Example",
+  "number": "1.6.3",
+  "title": "Vertical Translation.",
+  "body": " Vertical Translation   Transforming to adds\/subtracts units to every output of . This means that the graph of shifts up or down vertically units everywhere, to become the graph of or , as illustrated by the red and green graphs, respectively, shown in below.   shifts up two units. shifts down two units.     "
+},
+{
+  "id": "sec_func_transf-4-6",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-6",
+  "type": "Example",
+  "number": "1.6.5",
+  "title": "Horizontal Translation.",
+  "body": " Horizontal Translation   If we instead add or subtract a constant to the independent variable and transform to , the graph shifts left or right horizontally by units, as illustrated in the green and red graphs shown in below.   shifts left five units. shifts right five units.    Note that the shift to the left for and to the right for might be the opposite of what we might initially expect.   "
+},
+{
+  "id": "ex_vstretch",
+  "level": "2",
+  "url": "sec_func_transf.html#ex_vstretch",
+  "type": "Example",
+  "number": "1.6.7",
+  "title": "Vertical Stretch or Shrink.",
+  "body": " Vertical Stretch or Shrink   If we instead transform by multiplication to , then the graph of expands or contracts vertically by a factor of to become the graph of , as shown in the red and green graphs in .   stretches vertically by 2. compresses vertically by 2.     "
+},
+{
+  "id": "ex_hstretch",
+  "level": "2",
+  "url": "sec_func_transf.html#ex_hstretch",
+  "type": "Example",
+  "number": "1.6.9",
+  "title": "Horizontal Stretch or Shrink.",
+  "body": " Horizontal Stretch or Shrink   In contrast, if we do the same transformation to the independent variable and transform to , this contracts or expands the graph of by a factor of in the horizontal direction, as illustrated in the red and green graphs in .   compresses horizontally by 2. stretches horizontally by 2.     "
+},
+{
+  "id": "sec_func_transf-4-10",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-10",
+  "type": "Example",
+  "number": "1.6.11",
+  "title": "Vertical and Horizontal Reflection.",
+  "body": " Vertical and Horizontal Reflection   Changing to transforms all positive outputs into negative outputs, and vice versa. The graph of is then reflected across the -axis to become the graph of , as shown in the red graph in .  If we instead multiply the independent variable by , then we obtain a reflection across the -axis, as shown in the graph graph in .   reflects across the -axis (red). reflects across the -axis (green).     "
+},
+{
+  "id": "sec_func_transf-4-13",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-13",
+  "type": "Table",
+  "number": "1.6.13",
+  "title": "",
+  "body": "        Transformation  Graphical Result  Algebraic Result          shifts left units if      shifts right units if           shifts up units if      shifts down units if           horizontal compression by if      horizontal stretch by if           vertical stretch by if      vertical compression by if           graph reflects across the -axis           graph reflects across the -axis          "
+},
+{
+  "id": "sec_func_transf-4-14",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-14",
+  "type": "Example",
+  "number": "1.6.14",
+  "title": "",
+  "body": "  Consider the function given in below. Describe in words how the function is the result of three transformations of . Does the order in which these transformations occur matter? Why or why not?   The function .      There are three basic transformations involved: a vertical shift of 1 unit down, a horizontal shift of 1 unit left, and a vertical stretch by a factor of 2. To understand the order in which these transformations are applied, it's essential to remember that a function is a process that converts inputs to outputs.  By the algebraic rule for , . In words, this means that given an input for , we do the following processes in this particular order:   add 1 to and then apply the function to the quantity ;    multiply the output of by 2;    subtract 1 from the output of .     These three steps correspond to three basic transformations:   shift the graph of to the left by 1 unit;    stretch the resulting graph vertically by a factor of 2;    shift the resulting graph vertically by units.     We can see the graphical impact of these algebraic steps by taking them one at a time. Note that in each of the following figures, we track the point from the original function.   In , we see the function that results from a shift of 1 unit left of the function in . The tracked point first moves left 1 unit to . (Each time we take an additional step, we will de-emphasize the preceding function by having it appear in lighter color and dashed.)  The function .       Continuing, we now consider the function , which results in a vertical stretch away from the -axis by a factor of 2, as seen in . The tracked point is stretched vertically by a factor of 2 away from the -axis to .  The function .       Finally, we arrive at by subtracting 1 from the previous graph; this of course is a vertical shift of units, and produces the graph of shown in red in . The tracked point is shifted 1 unit down to the point .  The function .        While there are some transformations that can be executed in either order (such as the combination of a horizontal translation and a vertical translation, in other situations order matters. In this example, we have to apply the vertical stretch before applying the vertical shift, Algebraically, this is because . The quantity multiplies the function by 2 first (the stretch) and then the vertical shift follows; the quantity shifts the function down 1 unit first, and then executes a vertical stretch by a factor of 2. In the latter scenario, the point that lies on gets transformed first to and then to , which is not the same as the point that lies on .   "
+},
+{
+  "id": "sec_func_transf-4-15",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-4-15",
+  "type": "Checkpoint",
+  "number": "1.6.19",
+  "title": "Vertical and horizontal translations, stretches, and reflections.",
+  "body": " Vertical and horizontal translations, stretches, and reflections   The figure that follows shows a piece of the graph of a parabola with five marked points. Sketch graphs for each of the given transformations. On each graph, mark the new coordinates of the five marked points        , and      , and      and      "
+},
+{
+  "id": "fig_taalmanpage66a",
+  "level": "2",
+  "url": "sec_func_transf.html#fig_taalmanpage66a",
+  "type": "Figure",
+  "number": "1.6.21",
+  "title": "",
+  "body": " is preserved under reflection across the -axis.   "
+},
+{
+  "id": "fig_taalmanpage66b",
+  "level": "2",
+  "url": "sec_func_transf.html#fig_taalmanpage66b",
+  "type": "Figure",
+  "number": "1.6.22",
+  "title": "",
+  "body": " is preserved under rotation about the origin.   "
+},
+{
+  "id": "sec_symmetry-7",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_symmetry-7",
+  "type": "Definition",
+  "number": "1.6.23",
+  "title": "Even and Odd Functions.",
+  "body": " Even and Odd Functions   Even functions have -axis symmetry while odd functions have rotational symmetry:   A function is an even function if for all in the domain of .    A function is an odd function if for all in the domain of .      "
+},
+{
+  "id": "sec_symmetry-10",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_symmetry-10",
+  "type": "Example",
+  "number": "1.6.24",
+  "title": "",
+  "body": "   is neither even nor odd. and so we can see that , thus is not even. Similarly, since , we can also see that , thus is not odd. Consequently, the function has neither -axis symmetry nor rotational symmetry. Confirm this for yourself by graphing using Desmos or a graphing calculator.   "
+},
+{
+  "id": "sec_symmetry-11",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_symmetry-11",
+  "type": "Checkpoint",
+  "number": "1.6.25",
+  "title": "",
+  "body": "  Sketch a graph that has neither -axis symmetry nor rotational symmetry. Congratulations! You have drawn the graph of a function that is neither even nor odd.   "
+},
+{
+  "id": "sec_symmetry-12",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_symmetry-12",
+  "type": "Example",
+  "number": "1.6.26",
+  "title": "Testing if functions are even or odd.",
+  "body": " Testing if functions are even or odd   Determine whether each of the following function is even, odd, or neither.                     We first determine algebraically whether each function satisfies the definition of even or odd (or if it does not) and then verify graphically.   To determine whether is even or odd (or neither) we must calculate and determine if it is equal to , or neither. If , it is even, and if , it is odd. We have , so is an odd function since it satisfies .    We follow the same procedure to determine whether is even, odd, or neither. If , it is even, if , it is odd, and if neither of those two things is true, then it is neither even nor odd. Well , so is an even function.    Following the same line of reasoning, we must examine to determine if it is equal to either or , or neither. . This does not appear to be equal to either or . Indeed, . Hence the function is neither even nor odd.     The graphs of , and appear below in :   is an odd function. \\begin{subfigure}[H]{0.3\\textwidth} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.3\\textwidth} \\caption{ is an even function.} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.3\\textwidth} \\caption{ is neither even nor odd.} \\end{subfigure} \\caption{The graphs of , and confirm whether the functions are even, odd, or neither.}  We can see in that has rotational symmetry about the origin, which confirms that is an odd function. In , we see that has reflectional symmetry across the -axis, confirming that is an even function. Lastly, in , we see that has neither type of symmetry, confirming that is neither even nor odd.   "
+},
+{
+  "id": "sec_func_transf-6-3",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-6-3",
+  "type": "Definition",
+  "number": "1.6.28",
+  "title": "Vertex form of a quadratic function.",
+  "body": " Vertex form of a quadratic function   A quadratic function with vertex may be written in the form . The constant may be determined from one other point on the graph of the function.   "
+},
+{
+  "id": "sec_func_transf-6-5",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-6-5",
+  "type": "Example",
+  "number": "1.6.29",
+  "title": "",
+  "body": "  We can reason graphically via transformations of to determine whether the parabola has 0, 1, or 2 -intercepts.  The vertex of the parabola has shifted left by one unit ( ) and up by nine units ( ) from the graph of , so the vertex of is in the second quadrant at the point . The coefficient of has reflected the graph over the -axis, so opens downward. Thus we know that must have 2 -intercepts. See if you can find them algebraically.   "
+},
+{
+  "id": "sec_func_transf-6-6",
+  "level": "2",
+  "url": "sec_func_transf.html#sec_func_transf-6-6",
+  "type": "Checkpoint",
+  "number": "1.6.30",
+  "title": "",
+  "body": "  Simplify the vertex form of a quadratic function by combining like terms in order to determine formulas for the parameters , and such that . These will be in terms of the letters , and . (Hint: the formula for is .)  Recall from Exercise that we explored how the parameters , and impact the graph of . Experiment with the Desmos graph at  https:\/\/www.desmos.com\/calculator\/yayrd6etuz  if you do not remember. We see in this exercise how the values of , and are obtained based on the location of the vertex and width of the parabola.   "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",
