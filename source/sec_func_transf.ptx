@@ -1,5 +1,5 @@
 <section xml:id="sec_func_transf">
-  <title>Transformations and Symmetry</title>
+  <title>Transformations and symmetry</title>
   <introduction>
     <p>
           <idx><h>Functions</h><h>Transformations of Functions</h></idx>
@@ -71,16 +71,38 @@
     </figure>
     </statement>
     </example>
+    <p>
+      Hopefully, the Desmos interactive strongly suggests a graphical interpretation of each of the four different types of transformations. Our next two examples take on the two <em>additive</em> transformations: 
+      <md>
+        <mrow>f(x) \amp \longmapsto g(x)=f(x)+c</mrow>
+        <mrow>f(x) \amp \longmapsto g(x)=f(x+c) </mrow>
+      </md>.
+    </p>
     <example>
-      <title>Vertical Translation</title>
+      <title>Vertical shift</title>
       <statement>
         <p>
-          Transforming <m>f(x)</m> to
-          <m>f(x)\pm b</m> adds/subtracts <m>b</m> units to every output of <m>f(x)</m>.
-          This means that the graph of <m>y=f(x)</m> shifts up or down vertically <m>b</m> units everywhere,
-          to become the graph of <m>y=f(x)+b</m> or <m>y=f(x)-b</m>,
-          as illustrated by the red and green graphs, respectively,
-          shown in <xref ref="fig_taalmanpage64a" /> below.
+          The key to understanding the graphical effect of the transformation 
+          <me>
+            f(x)\longmapsto g(x)=f(x)+c
+          </me>
+          is the observation that a point <m>P=(x,y)</m> lies on the graph of <m>f</m> if and only if the point <m>Q=(x,y+c)</m> lies on the graph of <m>g</m>. This is because 
+          <me>
+            f(x)=y \iff f(x)+c=y+c \iff g(x)=y+c
+          </me>.
+          As a result, the graph of <m>g(x)=f(x)+c</m> is obtained from the graph of <m>f</m> by <q>shifting</q> it a <em>directed distance</em> of <m>c</m> units. The modifier <q>directed</q> is used here to take notice of the sign of <m>c</m>. More directly, assuming <m>c\geq 0</m>, we have the following graphical interpretation: 
+          <ul>
+            <li>
+              <p>
+                the graph of <m>g(x)=f(x)+c</m> is obtained from the graph of <m>f</m> by shifting <em>up</em> <m>c</m> units; 
+              </p>
+            </li>
+            <li>
+              <p>
+                the graph of <m>g(x)=f(x)-c</m> is obtained from the graph of <m>f</m> by shifting <em>down</em> <m>c</m> units.
+              </p>
+            </li>
+          </ul>
         </p>
         <figure xml:id="fig_taalmanpage64a">
           <caption><m>y=f(x)+2</m> shifts <m>f(x)</m> up two units. <m>y=f(x)-2</m> shifts <m>f(x)</m> down two units.</caption>
@@ -89,48 +111,93 @@
       </statement>
     </example>
     <example>
-      <title>Horizontal Translation</title>
+      <title>Horizontal shift</title>
       <statement>
         <p>
-          If we instead add or subtract a constant to the independent variable and transform <m>f(x)</m> to <m>f(x\pm a)</m>,
-          the graph shifts left or right horizontally by <m>a</m> units,
-          as illustrated in the green and red graphs shown in <xref ref="fig_taalmanpage64b" /> below.
+          Similarly, to understand the graphical effect of the transformation 
+          <me>
+            f(x)\longmapsto g(x)=f(x+c)
+          </me>
+          we observe that a point <m>P=(x,y)</m> lies on the graph of <m>f</m> if and only if the point <m>Q=(x-c, y)</m> lies on the graph of <m>g</m>. This is because 
+          <me>
+            f(x)=y \iff f((x-c)+c)=y\iff g(x-c)=y
+          </me>.
+          As a result, we obtain the graph of <m>g(x)=f(x+c)</m> by  <q>shifting</q> the graph of <m>f</m> by the directed distance <m>-c</m>. More directly, assuming <m>c\geq 0</m>, we conclude:
+          <ul>
+            <li>
+              <p>
+                the graph of <m>g(x)=f(x+c)</m> is obtained from the graph of <m>f</m> by shifting <m>c</m> units <em>to the left</em>;
+              </p>
+            </li>
+            <li>
+              <p>
+                the graph of <m>g(x)=f(x-c)</m> is obtained from the graph of <m>f</m> by shifting <m>c</m> units <em>to the right</em>.
+              </p>
+            </li>
+          </ul>
         </p>
         <figure xml:id="fig_taalmanpage64b">
           <caption><m>y=f(x+5)</m> shifts <m>f(x)</m> left five units. <m>y=f(x-5)</m> shifts <m>f(x)</m> right five units.</caption>
           <image width="46%" source="TaalmanPage64b.png"/>
         </figure>
-        <p>
-          Note that the shift to the left for <m>f(x+5)</m> and to the right for <m>f(x-5)</m> might be the opposite of what we might initially expect.
-        </p>
       </statement>
     </example>
+    <p>
+      Our next two examples take a closer look at our <em>multiplicative transformations</em> 
+      <md>
+        <mrow>f(x) \amp \longmapsto g(x)=cf(x)</mrow>
+        <mrow>f(x) \amp \longmapsto g(x)=f(cx)</mrow>
+      </md>.
+      For these transformations, both the sign and size of the constant <m>c</m> have a significant effect on the resulting graphical transformation. Our next examples consider the case where <m>c&gt; 0</m>. 
+    </p>
     <example xml:id="ex_vstretch">
-      <title>Vertical Stretch or Shrink</title>
+      <title>Vertical scaling</title>
       <statement>
         <p>
-          If we instead transform <m>f(x)</m> by multiplication to <m>df(x)</m>,
-          then the graph of <m>y=f(x)</m> expands or contracts vertically by a factor of <m>d</m> to become the graph of <m>y=df(x)</m>,
-          as shown in the red and green graphs in <xref ref="fig_taalmanpage65a" />.
+          Assume <m>c&gt; 0</m> and consider the transformation 
+          <me>
+            f(x)\longmapsto g(x)=cf(x)
+          </me>.
+          A point <m>P=(x,y)</m> lies on the graph of <m>f</m> if and only the point <m>Q=(x,cy)</m> lies on the graph of <m>g</m>. This is because 
+          <me>
+            f(x)=y \iff cf(x)=cy \iff g(x)=cy
+          </me>.
+          As a result, the graph of <m>g</m> is obtained by taking points on the graph of <m>f</m> and <q>scaling</q> their <m>y</m>-coordinates by the constant <m>c</m>. This has the graphical effect of vertically stretching (if <m>c&gt; 1</m>) or vertically shrinking (if <m>c&lt; 1</m>) the graph of <m>f</m>.
         </p>
         <figure xml:id="fig_taalmanpage65a">
-          <caption><m>y=2f(x)</m> stretches <m>f(x)</m> vertically by 2. <m>y=\frac{1}{2}f(x)</m> compresses <m>f(x)</m> vertically by 2.</caption>
+          <caption><m>y=2f(x)</m> stretches <m>f(x)</m> vertically by 2. <m>y=\frac{1}{2}f(x)</m> shrinks <m>f(x)</m> vertically by 2.</caption>
           <image width="46%" source="TaalmanPage65a.png"/>
         </figure>
       </statement>
     </example>
     <example xml:id="ex_hstretch">
-      <title>Horizontal Stretch or Shrink</title>
+      <title>Horizontal scaling</title>
       <statement>
         <p>
-          In contrast,
-          if we do the same transformation to the independent variable and transform <m>f(x)</m> to <m>f(cx)</m>,
-          this contracts or expands the graph of <m>y=f(x)</m> by a factor of <m>c</m> in the horizontal direction,
-          as illustrated in the red and green graphs in <xref ref="fig_taalmanpage65b" />.
+           Assume <m>c&gt; 0</m> and now consider the transformation 
+          <me>
+            f(x)\longmapsto g(x)=f(cx)
+          </me>.
+          A point <m>P=(x,y)</m> lies on the graph of <m>f</m> if and only the point <m>Q=(x,\tfrac{1}{c}\,y)</m> lies on the graph of <m>g</m>. This is because 
+          <me>
+            f(x)=y \iff f(c(x/c))=y \iff g(x/c)=y
+          </me>.
+          As a result, the graph of <m>g</m> is obtained by taking points on the graph of <m>f</m> and <q>scaling</q> their <m>x</m>-coordinates by the constant <m>1/c</m>. This has the graphical effect of horizontally stretching (if <m>c&lt; 1</m>) or vertically shrinking (if <m>c&gt; 1</m>) the graph of <m>f</m>.
         </p>
         <figure xml:id="fig_taalmanpage65b">
           <caption><m>y=f(2x)</m> compresses <m>f(x)</m> horizontally by 2. <m>y=f\left(\frac{1}{2}x\right)</m> stretches <m>f(x)</m> horizontally by 2.</caption>
-          <image width="46%" source="TaalmanPage65b.png"/>
+          <image>
+            <shortdescription>Horiztontal scaling of graphs</shortdescription>
+            <sageplot>
+            f=plot(x^2-4, x,-6,6, ymin=-6.25, ymax=6.25)
+            g=plot((2*x)^2-4, x,-6,6, ymin=-6.25, ymax=6.25, color="green")
+            h=plot((x/2)^2-4, x,-6,6, ymin=-6.25, ymax=6.25, color="red")
+            t1=text("$f(x)$",(2.3,4), color="black", fontsize=16)
+            t2=text("$f(2x)$",(.75,4), color="black", fontsize=16)
+            t3=text("$f(x/2)$",(5,4), color="black", fontsize=16)
+            f+g+h+t1+t2+t3
+            </sageplot>
+          </image>
         </figure>
       </statement>
     </example>
