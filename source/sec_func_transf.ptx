@@ -194,32 +194,39 @@
             h=plot((x/2)^2-4, x,-6,6, ymin=-6.25, ymax=6.25, color="red")
             t1=text("$f(x)$",(2.3,4), color="black", fontsize=16)
             t2=text("$f(2x)$",(.75,4), color="black", fontsize=16)
-            t3=text("$f(x/2)$",(5,4), color="black", fontsize=16)
+            t3=text("$f(x/2)$",(4.75,4), color="black", fontsize=16)
             f+g+h+t1+t2+t3
             </sageplot>
           </image>
         </figure>
       </statement>
     </example>
+    <remark>
+      <title>Transformations: vertical versus horizontal effects</title>
+      <p>
+        A clear pattern emerges from the four types of transformations we have considered. Transformations that affect the <em>output</em> <m>f(x)</m> (the <q>outside</q> of the function) have a <em>vertical</em> effect on the graph of the function, while transformations that affect the <em>input</em> <m>x</m> (the <q>inside</q> of the function) have a <em>horizontal</em> effect on the graph of the function. Furthermore, for both types of transformations, additive changes (<m>+c</m>) result in shifts, while multiplicative changes (<m>\cdot c</m>) result in stretches or shrinks.
+      </p>
+      <p>
+        Note also that the transformations involving the input give rise to a graphical effect that is the reverse of what you might have initially expected. For example, the transformation <m>f(x)\longmapsto f(x+3)</m> shifts the graph of <m>f</m> to the <em>left</em> by 3 units, not to the <em>right</em>. Similarly, the transformation <m>f(x)\longmapsto f(2x)</m> shrinks the graph of <m>f</m> horizontally by a factor of 2, rather than stretching it. 
+      </p>
+    </remark>
     <p>
-      <em>Reflections:</em> Note that in Examples <xref ref="ex_vstretch" /> and <xref ref="ex_hstretch" />,
-      the values of <m>c</m> and <m>d</m> used were positive.
-      What happens if we multiply <m>x</m> or <m>f(x)</m> by a negative number?
+      It remains only to consider our scaling transformations
+      <md>
+        <mrow>f(x) \amp \longmapsto g(x)=cf(x)</mrow>
+        <mrow>f(x) \amp \longmapsto g(x)=f(cx)</mrow>
+      </md>
+      for a <em>negative</em> constant <m>c</m>. 
       We can answer that question just by looking at what happens when we multiply by <m>-1</m>.
     </p>
     <example>
-      <title>Vertical and Horizontal Reflection</title>
+      <title>Vertical and horizontal reflection</title>
       <statement>
         <p>
-          Changing <m>f(x)</m> to <m>-f(x)</m> transforms all positive outputs into negative outputs,
-          and vice versa.
-          The graph of <m>y=f(x)</m> is then reflected across the <m>x</m>-axis to become the graph of <m>y=-f(x)</m>,
-          as shown in the red graph in <xref ref="fig_taalmanpage65c" />.
+          Following the same chain of logic as in the examples above we observe that a point <m>P=(x,y)</m> lies on the graph of <m>f</m> if and only if the point <m>Q=(x,-y)</m> lies on the graph of <m>g(x)=-f(x)</m>. Graphically, this means that the graph of <m>g=-f(x)</m> is obtained by reflecting the graph of <m>f</m> across the <m>x</m>-axis. 
         </p>
         <p>
-          If we instead multiply the independent variable by <m>-1</m>,
-          then we obtain a reflection across the <m>y</m>-axis,
-          as shown in the graph graph in <xref ref="fig_taalmanpage65c" />.
+          Similarly, a point <m>P=(x,y)</m> lies on the graph of <m>f</m> if and only if the point <m>Q=(-x,y)</m> lies on the graph of <m>g(x)=f(-x)</m>. Graphically, this means that the graph of <m>g=f(-x)</m> is obtained by reflecting the graph of <m>f</m> across the <m>y</m>-axis.
         </p>
         <figure xml:id="fig_taalmanpage65c">
           <caption><m>y=f(-x)</m> reflects across the <m>y</m>-axis (red). <m>y=-f(x)</m> reflects across the <m>x</m>-axis (green).</caption>
@@ -228,24 +235,36 @@
       </statement>
     </example>
     <p>
-      Now if we want to transform <m>f(x)</m> to <m>f(-2x)</m>,
-      for example,
-      we can transform <m>f(x)</m> first to <m>f(2x)</m> and then by reflection to <m>f(-2x)</m>.
+      So how do we understand a transformation like 
+      <me>
+        f(x)\longmapsto g(x)=f(-2x)
+      </me>?
+      The key is to think of this as a <em>sequence</em> of two transformations: 
+      <me>
+        f(x)\xmapsto{\phantom{xx}\text{reflect}\phantom{xx}} f(-x)\xmapsto{\phantom{xx}\text{scale}\phantom{xx}} f(-2x)
+      </me>.
+      The first transformation reflects the graph of <m>f</m> across the <m>y</m>-axis; the second shrinks the resulting graph by a factor of two. Combined, we see that the transformation 
+      <me>
+        f(x)\longmapsto g(x)=f(-2x)
+      </me>
+      reflects the graph of <m>f</m> across the <m>y</m>-axis and then shrinks it horizontally by a factor of two. 
     </p>
     <p>
-      The table that follows summarizes the graphical and algebraic effects of the transformations just discussed.
+      Let's make official the results of our analysis of the four types of function transformations.
     </p>
-    <table>
+    <theorem xml:id="th_func_transf">
+    <title>Function transformations</title>
+    <statement>
+    <p>
+    The graphical effect of the various types of functions transformations is summarized in <xref ref="table_funct_transf"/>
+    </p>
+    <table xml:id="table_funct_transf">
+      <title>Function transformations</title>
       <tabular>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
-        <row>
-          <cell><em>Transformation</em></cell>
-          <cell><em>Graphical Result</em></cell>
-          <cell><em>Algebraic Result</em></cell>
+        <row header="yes">
+          <cell>Transformation</cell>
+          <cell>Graphical Result</cell>
+          <cell>Algebraic Result</cell>
         </row>
         <row bottom="medium">
           <cell></cell>
@@ -253,13 +272,13 @@
           <cell></cell>
         </row>
         <row>
-          <cell  ><m>f(x+a)</m></cell>
-          <cell>shifts left <m>a</m> units if <m>a>0</m></cell>
-          <cell><m>(x,y)\rightarrow (x-a,y)</m></cell>
+          <cell  ><m>f(x+c)</m></cell>
+          <cell>shifts left <m>c</m> units if <m>a&gt; 0</m></cell>
+          <cell><m>(x,y)\rightarrow (x-c,y)</m></cell>
         </row>
         <row>
           <cell></cell>
-          <cell>shifts right <m>a</m> units if <m>a\lt 0</m></cell>
+          <cell>shifts right <m>c</m> units if <m>c\lt 0</m></cell>
           <cell></cell>
         </row>
         <row bottom="minor">
@@ -268,13 +287,13 @@
           <cell></cell>
         </row>
         <row>
-          <cell><m>f(x)+b</m></cell>
-          <cell>shifts up <m>b</m> units if <m>b>0</m></cell>
-          <cell><m>(x,y)\rightarrow (x,y+b)</m></cell>
+          <cell><m>f(x)+c</m></cell>
+          <cell>shifts up <m>c</m> units if <m>c&gt; 0</m></cell>
+          <cell><m>(x,y)\rightarrow (x,y+c)</m></cell>
         </row>
         <row>
           <cell></cell>
-          <cell>shifts down <m>b</m> units if <m>b\lt 0</m></cell>
+          <cell>shifts down <m>c</m> units if <m>c\lt 0</m></cell>
           <cell></cell>
         </row>
         <row bottom="minor">
@@ -284,7 +303,7 @@
         </row>
         <row>
           <cell><m>f(cx)</m></cell>
-          <cell>horizontal compression by <m>c</m> if <m>c>1</m></cell>
+          <cell>horizontal shrink by <m>c</m> if <m>c&gt; 1</m></cell>
           <cell><m>(x,y)\rightarrow\left(\frac{1}{c} x,y\right)</m></cell>
         </row>
         <row>
@@ -298,13 +317,13 @@
           <cell></cell>
         </row>
         <row>
-          <cell><m>df(x)</m></cell>
-          <cell>vertical stretch by <m>d</m> if <m>d>1</m></cell>
-          <cell><m>(x,y)\rightarrow (x,dx)</m></cell>
+          <cell><m>cf(x)</m></cell>
+          <cell>vertical stretch by <m>c</m> if <m>c&gt;1</m></cell>
+          <cell><m>(x,y)\rightarrow (x,cx)</m></cell>
         </row>
         <row>
           <cell></cell>
-          <cell>vertical compression by <m>d</m> if <m>0\lt d\lt 1</m></cell>
+          <cell>vertical shrink by <m>c</m> if <m>0\lt c\lt 1</m></cell>
           <cell></cell>
         </row>
         <row bottom="minor">
@@ -334,7 +353,13 @@
         </row>
       </tabular>
     </table>
-    <example>
+    </statement>
+    </theorem>
+    
+    <example xml:id="eg_transf_order">
+      <title>Transformations</title>
+      
+      
       <statement>
         <p>
           Consider the function <m>r</m> given in <xref ref="fig_APCfigure1-8-13" /> below.
@@ -412,22 +437,24 @@
                 The tracked point first moves left 1 unit to <m>(1,-1)</m>.
                 (Each time we take an additional step,
                 we will de-emphasize the preceding function by having it appear in lighter color and dashed.)
-                <figure xml:id="fig_APCfigure1-8-14">
+                
+              </p>
+              <figure xml:id="fig_APCfigure1-8-14">
                   <caption>The function <m>y=r(x+1)</m>.</caption>
                   <image width="37%" source="APCFigure1-8-14.png"/>
                 </figure>
-              </p>
             </li>
             <li>
               <p>
                 Continuing, we now consider the function <m>y=2r(x+1)</m>,
                 which results in a vertical stretch away from the <m>x</m>-axis by a factor of 2, as seen in <xref ref="fig_APCfigure1-8-15" />.
                 The tracked point is stretched vertically by a factor of 2 away from the <m>x</m>-axis to <m>(1,-2)</m>.
-                <figure xml:id="fig_APCfigure1-8-15">
+                
+              </p>
+              <figure xml:id="fig_APCfigure1-8-15">
                   <caption>The function <m>y=2r(x+1)</m>.</caption>
                   <image width="37%" source="APCFigure1-8-15.png"/>
                 </figure>
-              </p>
             </li>
             <li>
               <p>
@@ -435,11 +462,12 @@
                 this of course is a vertical shift of <m>-1</m> units,
                 and produces the graph of <m>m</m> shown in red in <xref ref="fig_APCfigure1-8-16" />.
                 The tracked point is shifted 1 unit down to the point <m>(1,-3)</m>.
-                <figure xml:id="fig_APCfigure1-8-16">
+                
+              </p>
+              <figure xml:id="fig_APCfigure1-8-16">
                   <caption>The function <m>m(x)=2r(x+1)-1</m>.</caption>
                   <image width="37%" source="APCFigure1-8-16.png"/>
                 </figure>
-              </p>
             </li>
           </ol>
         </p>
@@ -471,9 +499,7 @@
           Sketch graphs for each of the given transformations.
           On each graph, mark the new coordinates of the five marked points
         </p>
-        <figure>
-          <image width="37%" source="TaalmanPage69.png"/>
-        </figure>
+        <image width="37%" source="TaalmanPage69.png"/>
         <ol >
           <li>
             <p>
@@ -501,7 +527,7 @@
       Some graphs do not change under certain transformations.
       For example,
       the graph of <m>f(x) = x^2</m> shown in <xref ref="fig_taalmanpage66a" /> below remains the same if we reflect it across the <m>y</m>-axis.
-      We say that this function has <em><m>y</m>-axis symmetry</em>.
+      We say that this function has <em><m>y</m>-axis reflectional symmetry</em>.
     </p>
     <figure xml:id="fig_taalmanpage66a">
       <caption><m>y=x^2</m> is preserved under reflection across the <m>y</m>-axis.</caption>
@@ -527,66 +553,130 @@
     <p>
       These types of symmetries are also called <em>even symmetry</em>
       and <em>odd symmetry</em>,
-      since power functions with even powers all have <m>y</m>-axis symmetry and power functions with odd powers all have rotational symmetry.
-      Because graphical reflections correspond to multiplication by <m>-1</m>,
-      we can describe functions with even and odd symmetry algebraically as follows:
+      since power functions with even powers all have <m>y</m>-axis symmetry and power functions with odd powers all have rotational symmetry. Let's try to understand algebraically what makes the graph of a function <m>f</m> have even or odd symmetry. The graph has even symmetry when the following equivalence holds: 
+      <me>
+        (x,y) \text{ is on the graph of } f \iff (-x,y) \text{ is on the graph of } f
+      </me>.
+      Since a point <m>(x,y)</m> is on the graph of <m>f</m> if and only if <m>x</m> is in the domain of <m>f</m> and <m>f(x)=y</m>, we see that the above equivalence is equivalent to the algebraic statement 
+      <me>
+        f(-x)=f(x)
+      </me>
+      for all <m>x</m> in the domain of <m>f</m>. Similarly, the graph of <m>f</m> has odd symmetry if and only if <m>f(x)=-f(x)</m> for all <m>x</m> in its domain. This is the motivation for the following definition and table. 
     </p>
-    <definition>
-      <title>Even and Odd Functions</title>
+    <definition xml:id="d_even_odd">
+      <title>Even and odd functions</title>
       <statement>
         <p>
-          Even functions have <m>y</m>-axis symmetry while odd functions have rotational symmetry:
+          Let <m>f</m> be a function whose domain <m>D</m> satisfies the following property: if <m>x\in D</m>, then <m>-x\in D</m>. 
           <ul>
             <li>
               <p>
-                A function <m>f</m> is an <em>even function</em>
-                if <m>f(-x)=f(x)</m> for all <m>x</m> in the domain of <m>f</m>.
+                <m>f</m> is <term>even</term> if 
+                <men xml:id="eq_even">
+            f(-x)=f(x)
+          </men>
+          for all <m>x\in D</m>. 
               </p>
             </li>
             <li>
               <p>
-                A function <m>f</m> is an <em>odd function</em>
-                if <m>f(-x)=-f(x)</m> for all <m>x</m> in the domain of <m>f</m>.
+                <m>f</m> is <term>odd</term> if 
+                <men xml:id="eq_odd">
+            f(-x)=-f(x)
+          </men>
+          for all <m>x\in D</m>. 
               </p>
             </li>
-          </ul>
+          </ul> 
         </p>
       </statement>
     </definition>
+    <table xml:id="table_even_odd">
+      <title>Even and odd symmetry</title>
+      <tabular>
+        <row header="yes" bottom="medium">
+          <cell>Symmetry name</cell>
+          <cell>Alg. definition</cell>
+          <cell>Graphical symmetry</cell>
+        </row>
+        <row>
+          <cell>Even</cell><cell><m>f(-x)=f(x)</m></cell><cell><m>y</m>-axis reflectional symmetry</cell>
+        </row>
+        <row>
+          <cell>Odd</cell><cell><m>f(-x)=-f(x)</m></cell><cell><m>180^\circ</m> rotational symmetry</cell>
+        </row>
+      </tabular>
+    </table>
+    <remark>
+      <title>Even/odd: domain</title>
+      <p>
+        Observe the technical restriction placed on the domain of a function in <xref ref="d_even_odd"/>. Namely, we do not even ask whether a function <m>f\colon D\rightarrow \R</m> is even or odd, if its domain <m>D</m> does not satisfy the property
+        <me>
+          x\in D\implies -x\in D
+        </me>.
+        For example, <m>n</m>-th root functions <m>f(x)=\sqrt[n]{x}</m> for <m>n</m> even are not possible candidates for evenness or oddness, since their domain <m>D=[0,\infty)</m> does not satisfy this property: <eg/>, <m>1\in D</m>, but <m>-1\notin D</m>.
+      </p>
+    </remark>
+    <example xml:id="eg_even_odd">
+    <title>Even/odd power functions</title>
+    <statement>
     <p>
-      For example,
-      the function <m>f(x) = x^2</m> is even because for all <m>x</m> we have
-      <me>
-        f(-x) = (-x)^2 = (-1)^2(x)^2 = x^2 = f(x)
-      </me>.
-      In contrast,
-      the function <m>g(x) = x^3</m> is odd because for all <m>x</m> we have
-      <me>
-        g(-x) = (-x)^3 = (-1)^3(x)^3 = -x^3 = -g(x)
-      </me>
+    Let <m>f(x)=x^n</m>, where <m>n\ne 0</m> is a nonzero integer. Show that <m>f</m> is even if <m>n</m> is even, and odd if <m>n</m> is odd. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    First consider the case where <m>n=2k</m> is even. For any <m>x</m> in the domain of <m>f</m>, we have 
+    <md>
+      <mrow>f(-x) \amp = (-x)^{2k}</mrow>
+      <mrow> \amp =((-1)x)^{2k}</mrow>
+      <mrow> \amp =(-1)^{2k}x^{2k} \amp (\text{common exp.})</mrow>
+      <mrow> \amp =x^{2k} \amp ((-1)^{2k}=1)</mrow>
+      <mrow> \amp =f(x)</mrow>
+    </md>.
+    Thus <m>f</m> is even in this case, as claimed. 
     </p>
     <p>
-      Note that many functions are neither even nor odd.
-      In fact, it is quite hard for a function to be either even or odd,
-      since this would require the graph to have one of these two specific symmetries.
+      Now assume <m>n=2k+1</m> is odd. Now we have 
+      <md>
+      <mrow>f(-x) \amp = (-x)^{2k+1}</mrow>
+      <mrow> \amp =((-1)x)^{2k+1}</mrow>
+      <mrow> \amp =(-1)^{2k}x^{2k+1} \amp (\text{common exp.})</mrow>
+      <mrow> \amp =-x^{2k+1} \amp ((-1)^{2k+1}=-1)</mrow>
+      <mrow> \amp =-f(x)</mrow>
+    </md>
+    for all <m>x</m>, showing <m>f</m> to be odd. 
+    </p>
+    </solution>
+    </example>
+    <p>
+      It should be noted that being even or odd is a special property not enjoyed by all functions. In fact, chances are, if you write down a random algebraic function, it will be neither even nor odd.
+    </p>
+    <p>
+      The argument used to show that a function is not even (or not odd), is qualitatively very different than for showing the function is even (or is odd). Namely, to show the property in question does <em>not</em> hold, it suffices to find a single explicit counterexample. The next example illustrates this. 
     </p>
     <example>
       <statement>
         <p>
-          <m>h(x) = x^2+x</m> is neither even nor odd.
-          <me>
-            h(-x) = (-x)^2+(-x) = x^2-x
-          </me>
-          and so we can see that <m>h(-x)\neq h(x)</m>,
-          thus <m>h(x)</m> is not even.
-          Similarly, since <m>-h(x) = -x^2-x</m>,
-          we can also see that <m>h(-x)\neq -h(x)</m>,
-          thus <m>h(x)</m> is not odd.
-          Consequently, the function
-          <m>h(x) = x^2+x</m> has neither <m>y</m>-axis symmetry nor rotational symmetry.
-          Confirm this for yourself by graphing <m>h(x)</m> using Desmos or a graphing calculator.
+          Show that the function 
+          <m>f(x) = x^2+x</m> is neither even nor odd.
         </p>
       </statement>
+      <solution>
+        <p>
+          First observe that the implied domain of <m>h</m> is <m>\R</m>, since <m>f</m> is a polynomial.
+          To show <m>f</m> is not even, it suffices to show that <m>f(-x)\ne f(x)</m> for <em>some</em> element <m>x\in \R </m>. This is easy: we have 
+          <md>
+            <mrow>f(1) \amp = 2</mrow>
+            <mrow>f(-1) \amp = (-1)^2+(-1)=0</mrow>
+          </md>, 
+          and thus <m>f(1)\ne f(-1)</m>. We conclude that <m>h</m> is not even. 
+        </p>
+        <p>
+          Similarly, to show <m>f</m> is not odd, we need only find an iput <m>x</m> satisfying <m>f(-x)\ne -f(x)</m>. The same input <m>x=1</m> works in this case as well, since 
+          <m>f(-1)\ne -f(1) </m>.
+        </p>
+      </solution>
     </example>
     <exercise>
       <statement>
@@ -597,12 +687,34 @@
         </p>
       </statement>
     </exercise>
-    <example>
-      <title>Testing if functions are even or odd</title>
+    <p>
+      <xref ref="eg_even_odd"/> illustrates the important role played by the <q>for all</q> quantifier in <xref ref="d_even_odd"/>. A function is even (or odd) if it satisfies the relevant equation <em>for all</em> elements in its domain; and it is not even (or not odd) if it fails to satisfy the relevant equation <em>for some</em> element in its domain. In essence, being even or odd is a function equality statement involving the two functions <m>f(x)</m> and <m>g(x)=f(-x)</m>: <m>f</m> is even if <m>f=g</m> (as functions); and <m>f</m> is odd if <m>f=-g</m> (as functions). (See <xref ref="d_function_equality"/>.) 
+    </p>
+    <p>
+      Consider the example <m>f(x)=x^2+x</m> again. In deciding whether <m>f</m> is even or odd, we really are comparing it with the function 
+      <me>
+        g(x)=f(-x)=(-x)^2+(-x)=x^2-x
+      </me>.
+      Comparing the formulas for <m>f</m> and <m>g</m>, it seems clear that these two functions are not equal, and hence that <m>f</m> is not even. But we need to be careful here! As we have seen before, different formulas can sometimes be seen to define the same function after some algebra. The surefire way of showing two functions are not equal is find a single instance of an input where their outputs differ. This is exactly what we did in the solution to <xref ref="eg_even_odd"/>. 
+    </p>
+    <p>
+      In this particular case, however, we are aided by the fact that all the functions involved are <em>polynomials</em>, and that polynomial equality is equivalent to having like coefficients. (See <xref ref="cor_poly_equality"/>.) That is, we can immediately see that the three functions 
+      <md>
+        <mrow>f(x) \amp =x^2+x</mrow>
+        <mrow>g(x) \amp =x^2-x</mrow>
+        <mrow>-g(x) \amp =-x^2+x</mrow>
+      </md>
+      are distinct simply by comparing their coefficients. It follows that <m>f</m> is not even (since <m>f(-x)\ne f(x)</m>) and <m>f</m> is not odd (since <m>-f(-x)\ne f(x)</m>). 
+    </p>
+    <p>
+      Of course, not all functions are polynomials, and so things are not always this straightforward. When in doubt, to definitely show a function is not even (or not odd), provide an explicit counterexample. 
+    </p>
+    <example xml:id="eg_even_odd_neither">
+      <title>Even/odd/neither</title>
       <statement>
         <p>
-          Determine whether each of the following function is even, odd,
-          or neither.
+          Determine algebraically whether the given function is even, odd,
+          or neither. Confirm your answer graphically using <xref ref="fig_even_odd_neither"/>. 
           <ol>
             <li>
               <p>
@@ -621,145 +733,160 @@
             </li>
           </ol>
         </p>
+        <figure xml:id="fig_even_odd_neither">
+          <caption>Graphs of example functions</caption>
+          <sidebyside>
+            <figure xml:id="fig_eg_even">
+              <caption><m>f(x)=\tfrac{1}{x}</m></caption>
+              <image>
+                <sageplot>
+              f(x)=1/x
+              plot(f(x),(x,-5,5), ymin=-5, ymax=5, color='blue')
+              </sageplot>
+            </image>
+            </figure>
+            <figure xml:id="fig_eg_odd">
+              <caption><m>g(x)=x^4-x^2</m></caption>
+              <image><sageplot>
+              g(x)=x^4-x^2
+              plot(g(x),(x,-2,2), ymin=-1, ymax=3, color='blue')
+              </sageplot></image>
+            </figure>
+            <figure xml:id="fig_eg_neither">
+              <caption><m>h(x)=\frac{2+x}{1+x^2}</m></caption>
+              <image>
+                <shortdescription>Sageplot of function h</shortdescription>
+              <sageplot>
+              h(x)=(2+x)/(1+x^2)
+              plot(h(x),(x,-5,5), ymin=-1, ymax=3, color='blue')
+              </sageplot>
+              </image>
+            </figure>
+          </sidebyside>
+        </figure>
       </statement>
       <solution>
         <p>
           We first determine algebraically whether each function satisfies the definition of even or odd
           (or if it does not)
           and then verify graphically.
-          <ol marker="labeltextbfalphitemsep10pttopsep5pt">
+          <ol>
             <li>
               <p>
-                To determine whether <m>f</m> is even or odd
-                (or neither)
-                we must calculate <m>f(-x)</m> and determine if it is equal to <m>f(x), -f(x)</m>,
-                or neither.
-                If <m>f(-x)=f(x)</m>, it is even,
-                and if <m>f(-x)=-f(x)</m>, it is odd.
-                We have
+                First observe that the domain of <m>f</m> is <m>D=\R-\{0\}</m>. 
+                Since
                 <me>
                   f(-x) = \frac{1}{-x} = -\frac{1}{x}  = -f(x)
-                </me>,
-                so <m>f(x) = \frac{1}{x}</m> is an odd function since it satisfies <m>f(-x)=-f(x)</m>.
+                </me>
+                for all <m>x\in D</m>, we see that <m>f</m> is odd. Looking at the formulas, it seems clear that <m>f(-x)\ne f(x)</m> for all <m>x\in D</m>, and hence that <m>f</m> is not even. To be sure, however, we provide a counterexample: we have <m>f(1)=1/1=1</m> and <m>f(-1)=1/(-1)=-1</m>. Since <m>f(1)\ne f(-1)</m>, we conclude that <m>f</m> is not even. 
               </p>
             </li>
             <li>
               <p>
-                We follow the same procedure to determine whether <m>g(x)</m> is even, odd,
-                or neither.
-                If <m>g(-x)=g(x)</m>, it is even,
-                if <m>g(-x)=-g(x)</m>, it is odd,
-                and if neither of those two things is true,
-                then it is neither even nor odd.
-                Well
+                In this case the implied domain of <m>g</m> is <m>\R</m>. Since 
                 <me>
                   g(-x) = (-x)^4-(-x)^2  = x^4-x^2 = g(x)
-                </me>,
-                so <m>g(x)</m> is an even function.
+                </me>
+                for all <m>x\in \R</m>, we conclude that <m>g</m> is even. 
+              </p>
+              <p>
+                Is <m>g</m> odd? In this case since <m>g(x)=x^4-x^2</m> and <m>-g(-x)=-x^4+x^2</m> are both polynomials, we see that the two functions are not equal simply by comparing coefficients. Thus <m>g</m> is not odd.  
               </p>
             </li>
             <li>
               <p>
-                Following the same line of reasoning,
-                we must examine <m>h(-x)</m> to determine if it is equal to either <m>h(x)</m> or <m>-h(x)</m>,
-                or neither.
+               The implied domain of <m>h</m> is <m>\R</m>, since <m>1+x^2\ne 0</m> for all <m>x\in \R</m>. We have 
                 <me>
                   h(-x) = \frac{2+(-x)}{1+(-x)^2} = \frac{2-x}{1+x^2}
-                </me>.
-                This does not appear to be equal to either <m>h(x)</m> or <m>-h(x)</m>.
-                Indeed,
-                <me>
-                  -h(x) = -\frac{2+x}{1+x^2} = \frac{-2-x}{1+x^2}\neq h(-x) =  \frac{2-x}{1+x^2}
-                </me>.
-                Hence the function <m>h(x)</m> is neither even nor odd.
+                </me>
+                for all <m>x\in \R</m>. 
+                Looking just at the formulas, it seems that the function <m>h(-x)</m> is equal neither to <m>h(x)</m> nor <m>-h(x)</m>. To be sure, however, we provide explicit counterexamples to both evenness and oddness. 
+              </p>
+              <p>
+                Note that <m>h(1)=3/2</m> and <m>h(-1)=1/2</m>. Since <m>h(1)\ne h(-1)</m>, we conclude that <m>h</m> is not even. Furthermore, since <m>h(1)\ne -h(-1)</m>, we conclude that <m>h</m> is not odd. 
               </p>
             </li>
           </ol>
-        </p>
-        <p>
-          The graphs of <m>f(x), g(x)</m>,
-          and <m>h(x)</m> appear below in <xref ref="fig_taalmanpage72a-c" />:
-        </p>
-        <figure xml:id="fig_taalmanpage72a">
-          <caption><m>f(x) =  \frac{1}{x}</m> is an odd function.</caption>
-          \begin{subfigure}[H]{0.3\textwidth}
-          <image width="70%" source="TaalmanPage72a.png"/>
-          \end{subfigure}
-          \hspace{.25in}
-          \begin{subfigure}[H]{0.3\textwidth}
-          <image width="70%" source="TaalmanPage72b.png"/>
-          \caption{<m>g(x) =  x^4+x^2</m> is an even function.} \end{subfigure}
-          \hspace{.25in}
-          \begin{subfigure}[H]{0.3\textwidth}
-          <image width="70%" source="TaalmanPage72c.png"/>
-          \caption{<m>h(x) = \frac{2+x}{1+x^2}</m> is neither even nor odd.} \end{subfigure}
-          \caption{The graphs of <m>f(x), g(x)</m>, and <m>h(x)</m> confirm whether the functions are even, odd, or neither.}
-        </figure>
-        <p>
-          We can see in <xref ref="fig_taalmanpage72a" /> that <m>f(x) = \frac{1}{x}</m> has
-          <m>180^\circ</m> rotational symmetry about the origin,
-          which confirms that <m>f(x)</m> is an odd function.
-          In <xref ref="fig_taalmanpage72b" />,
-          we see that <m>g(x) = x^4+x^2</m> has reflectional symmetry across the <m>y</m>-axis,
-          confirming that <m>g(x)</m> is an even function.
-          Lastly, in <xref ref="fig_taalmanpage72c" />,
-          we see that <m>h(x) = \frac{2+x}{1+x^2}</m> has neither type of symmetry,
-          confirming that <m>h(x)</m> is neither even nor odd.
+        Looking at the graphs of <m>f</m>,  <m>g</m>, and <m>h</m>, in <xref ref="fig_even_odd_neither"/>, we can confirm our conclusions above immediately: the graph of <m>f</m> exhibits <m>180^\circ</m> rotational symmetry, but not <m>y</m>-axis reflectional symmetry; the graph of <m>g</m> exhibits <m>y</m>-axis reflectional symmetry, but not <m>180^\circ</m> rotational symmetry; and the graph of <m>h</m> exhibits neither type of symmetry.
         </p>
       </solution>
     </example>
   </subsection>
   <subsection>
-    <title>Application: The Vertex Form of a Quadratic Function</title>
+    <title>Vertex form of a quadratic function</title>
     <p>
-      There is another "standard" form in which you may see a quadratic function,
-      called the <em>vertex form</em>:
+      Recall that every quadratic function <m>g(x)=ax^2+bx+c</m> can be expressed in <em>vertex</em> form as <m>g(x)=a(x+d)^2+e</m> for some constants <m>d</m> and <m>e</m>. This result, along with our newfound understanding of function transformations, allows us to relate the graph of <m>g(x)=a(x+d)^2+e</m> to the graph of the simple power function <m>f(x)=x^2</m>. Indeed, applying the sequence of transformations 
+      <me>
+        f(x)\xmapsto{\text{horiz. shift}} f(x+d)\xmapsto{\text{vert. scale}}af(x+d)\xmapsto{\text{vert. shift}}af(x+d)+e
+      </me>
+      yields the sequence of functions 
+      <me>
+        f(x)=x^2\mapsto p(x)=(x+d)^2\mapsto q(x)=a(x+d)^2\mapsto g(x)=a(x+d)^2+e
+      </me>.
+      As a result, the graph of an arbitrary quadratic function can be obtained from the graph of <m>f(x)=x^2</m> by performing a horizontal shift, followed by a vertical scaling, followed by a vertical shift. <xref ref="fig_vertex_form"/> illustrates this process for the function <m>g(x)=-2(x-1)+3</m>.
     </p>
-    <definition>
-      <title>Vertex form of a quadratic function</title>
-      <statement>
-        <p>
-          A quadratic function with vertex <m>(h,k)</m> may be written in the form
-          <me>
-            y=a(x-h)^2+k
-          </me>.
-          The constant <m>a</m> may be determined from one other point on the graph of the function.
-        </p>
-      </statement>
-    </definition>
+    <figure xml:id="fig_vertex_form">
+      <caption>Transformations and vertex form</caption>
+      <sbsgroup widths="43% 43%">
+        <sidebyside>
+          <figure xml:id="vertex_form_orig">
+            <caption><m>f(x)=x^2</m></caption>
+            <image>
+              <shortdescription>Graph of x squared</shortdescription>
+              <sageplot>
+              f(x)=x^2
+              plot(f(x),(x,-3,3), ymin=-1, ymax=9, color='blue')
+              </sageplot>
+            </image>
+          </figure>
+          <figure xml:id="vertex_form_second">
+            <caption><m>p(x)=(x-1)^2</m></caption>
+            <image>
+              <shortdescription>Shift original function</shortdescription>
+              <sageplot>
+              p(x)=(x-1)^2
+              plot(p(x),(x,-2,4), ymin=-1, ymax=9, color='blue')
+              </sageplot>
+            </image>
+          </figure>
+        </sidebyside>
+        <sidebyside>
+          <figure xml:id="vertex_form_third">
+            <caption><m>q(x)=-2(x-1)^2</m></caption>
+            <image>
+              <shortdescription>Scaling the shift</shortdescription>
+              <sageplot>
+              f(x)=-2*(x-1)^2
+              plot(f(x),(x,-2,4), ymin=-20, ymax=2, color='blue')
+              </sageplot>
+            </image>
+          </figure>
+          <figure xml:id="vertex_form_last">
+            <caption><m>g(x)=-2(x-1)^2+3</m></caption>
+            <image>
+              <shortdescription>The final function</shortdescription>
+              <sageplot>
+              p(x)=-2*(x-1)^2+3
+              plot(p(x),(x,-2,4), ymin=-20, ymax=5, color='blue')
+              </sageplot>
+            </image>
+          </figure>
+        </sidebyside>
+      </sbsgroup>
+    </figure>
+    <theorem xml:id="th_vertex_form">
+    <title>Vertex form</title>
+    <statement>
     <p>
-      This form arises from taking the parabola
-      <m>f(x)=x^2</m> and applying appropriate transformations to obtain any other parabola as follows:
-      <ul>
-        <li>
-          <p>
-            First, shift <m>f(x)=x^2</m> horizontally via <m>f(x-h)</m>.
-            If the parabola must shift to the right,
-            use a positive value for <m>h</m>.
-            If the parabola must shift to the left,
-            use a negative value for <m>h</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Next, stretch the parabola vertically via <m>af(x-h)</m>.
-            If the parabola must shrink,
-            use a value of <m>a</m> that is between <m>-1</m> and <m>1</m>.
-            If the parabola must be reflected across the <m>x</m>-axis,
-            use a negative value of <m>a</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Finally, shift the parabola vertically via <m>af(x-h)+k</m>.
-            If the parabola must shift up,
-            use a positive value for <m>k</m>.
-            If the parabola must shift down,
-            use a negative value for <m>k</m>.
-          </p>
-        </li>
-      </ul>
+    Let <m>f(x)=a(x-b)^2+c</m>, where <m>a\ne 0</m>. The graph of <m>f</m> is a parabola with vertex at the point 
+    <me>
+      (b,f(b))=(b,c)
+    </me>.
+    The graph of <m>f</m> extends upwards if <m>a&gt; 0</m> and downwards if <m>a&lt; 0</m>. 
     </p>
+    </statement>
+    </theorem>
+    
     <example>
       <statement>
         <p>

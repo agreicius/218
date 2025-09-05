@@ -396,6 +396,7 @@
             If we move from <m>\R</m> to the larger number system <m>\C</m> of complex numbers, then we can strengthen (1) of <xref ref="th_poly_roots"/>: namely, every polynomial of positive degree <m>n</m> has <m>n</m> <em> roots</em> (counting multiplicity).  This is the content of the <em>fundamental theorem of algebra</em>. The crucial detail here is the modifier <q>complex</q> in <q>complex root</q>.
         </p>
     </aside> 
+    
     <p>
         Statement (2) of <xref ref="th_poly_roots"/> makes the connection between roots of polynomials and factorization. As a result, the more we are able to factor a polynomial, the more we can say about its roots; conversely, every time we find a root of polynomial <m>f</m>, we can make progress on the factorization of <m>f</m> by <q>factoring out</q> that root. Factoring polynomials is thus an important skill, and we gather here some techniques for doing this. 
     </p>
@@ -917,6 +918,65 @@ You may remember that long division of <m>f</m> by <m>g</m> proceeds iteratively
     </p>
     </solution>
     </example>
+    <p>
+        Another important consequence of <xref ref="th_poly_roots"/> that we will make use of later in the course has to do with when two polynomials are equal (as functions), as articulated in <xref ref="cor_poly_equality"/>. In order to make sense of that result, we need to first make clear what we mean by two functions being equal. Recall our original intuitive idea of a function as a <em>rule</em> (or <em>assignment</em>) that assigns to each element of a specified input set (the domain) a unique output. When should we consider two such things to be the same? For one thing, they should have the same specified set of inputs (<ie/>, the same domain): this is condition (1) of <xref ref="d_function_equality"/>. Moreover, in order to represent the same rule (or assignment), each input should be assigned to the same output: this is condition (2) of <xref ref="d_function_equality"/>. 
+    </p>
+    <definition xml:id="d_function_equality">
+    <title>Function equality</title>
+    <statement>
+    <p>
+    Functions <m>f</m> and <m>g</m> are <term>equal</term>, denoted <m>f=g</m> if the following conditions hold: 
+    <ol>
+        <li>
+            <p>
+                <m>f</m> and <m>g</m> have the same domain <m>D</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>f(x)=g(x)</m> for all <m>x\in D</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    </definition>
+    <remark>
+        <title>Function equality</title>
+        <p>
+            Note well the all important <q>for all</q> quantifier appearing in condition (2) of <xref ref="d_function_equality"/>. That detail makes the notion of <em>function equality</em> more nuanced than a simple <em>numeric equality</em> (like <m>5=2^2+1</m>).   Given two functions <m>f</m> and <m>g</m> with common domain <m>D</m>, the statement <m>f=g</m> is in fact a claim that a whole bunch of numeric equalities hold: namely, we have <m>f(x)=g(x)</m> for every <m>x\in D</m>. That's one equality for each <m>x\in D</m>. Since <m>D</m> is most often an infinite set (like an interval) for us, this means that <m>f=g</m> typically asserts that infinitely many numeric equalities hold. In this sense a function equality is very similar to the notion of an <em>identity</em> (like <m>(x+1)^2=x^2+2x+1</m>), which you may have encountered before.  
+        </p>
+    </remark>
+    <p>
+        Having made clear what we mean in general by function equality, we now look at the specific case of polynomial functions. <xref ref="cor_poly_equality"/> can be shown to be a consequence of <xref ref="th_poly_roots"/>, though we will omit that argument. 
+    </p>
+    <corollary xml:id="cor_poly_equality">
+        <title>Polynomial equality</title>
+        <statement>
+            <p>
+               Let 
+               <md>
+                <mrow>f(x) \amp =\anpoly \amp </mrow>
+                <mrow>g(x) \amp =\bmpoly</mrow>
+               </md> 
+               be polynomials defined on a common infinite domain <m>D</m>, and assume <m>a_n</m> and <m>b_m</m> are both nonzero. We have <m>f=g</m> if and only if the following conditions hold: 
+               <ol>
+                <li>
+                    <p>
+                        <m>\deg f=\deg g</m> (<ie/>, <m>n=m</m>);
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>a_k=b_k</m> for all <m>0\leq k\leq n</m>. 
+                   </p>
+                </li>
+               </ol>
+               In other words, two polynomials are equal as functions if and only if they have the same degree and coefficients. 
+            </p>
+        
+        </statement>
+    </corollary>
     </subsection>
     <subsection xml:id="ss_rational_funcs">
     <title>Rational functions</title>
