@@ -10,7 +10,10 @@
 
 sub latexImagePreamble {
 return <<'END_LATEX_IMAGE_PREAMBLE'
-\usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows} \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings}
+\usepackage{tikz, pgfplots} 
+\usetikzlibrary{positioning,matrix,arrows} 
+\usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} 
+\usepackage{polynom}
 
 END_LATEX_IMAGE_PREAMBLE
 }

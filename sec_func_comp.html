@@ -47,24 +47,7 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-                var display = !!node.type.match(/; *mode=display/);
-                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                var text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = {node: text, delim: '', n: 0};
-                math.end = {node: text, delim: '', n: 0};
-                doc.math.push(math);
-            });
-        },
-        ""
-      ]
-    }
+    "processHtmlClass": "process-math"
   },
   "chtml": {
     "scale": 0.98,
@@ -128,7 +111,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="changeme" class="pretext book ignore-math">
@@ -153,7 +136,6 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\R}{\mathbb R}
 \DeclareMathOperator{\range}{range}
-\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -212,7 +194,6 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Properties of quadratic functions</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ez-changing-quadratic" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -227,11 +208,15 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Power, polynomial, rational functions</span></a></div>
+<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Polynomial and rational functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="title">Rules for Fractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="title">Definition of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="title">Summary</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -487,7 +472,7 @@ h(t) = f(g(x))\text{.}
 </h4>
 <div class="para logical" id="sec_func_comp-5-8-1-1">
 <div class="para">For <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> as in Example <a href="sec_func_comp.html#ex_compositionbytables" class="xref" data-knowl="./knowl/xref/ex_compositionbytables.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.8.6">Example 1.8.6</a>, compute each of the following quantities or explain why they are not defined.</div>
-<ol class="lower-alpha ol-marker-12" id="sec_func_comp-5-8-1-1-4">
+<ol class="lower-alpha ol-marker-2" id="sec_func_comp-5-8-1-1-4">
 <li id="sec_func_comp-5-8-1-1-4-1">
 <div class="para" id="sec_func_comp-5-8-1-1-4-1-1">
 <span class="process-math">\(\displaystyle (g\circ f)(3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-8-1-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -522,7 +507,7 @@ h(t) = f(g(x))\text{.}
 </h4>
 <div class="para logical" id="sec_func_comp-5-10-1-1">
 <div class="para">For <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> as in Example <a href="sec_func_comp.html#ex_compositionbygraphs" class="xref" data-knowl="./knowl/xref/ex_compositionbygraphs.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.8.8">Example 1.8.8</a>, compute each of the following quantities or explain why they are not defined.</div>
-<ol class="lower-alpha ol-marker-12" id="sec_func_comp-5-10-1-1-4">
+<ol class="lower-alpha ol-marker-2" id="sec_func_comp-5-10-1-1-4">
 <li id="sec_func_comp-5-10-1-1-4-1">
 <div class="para" id="sec_func_comp-5-10-1-1-4-1-1">
 <span class="process-math">\(\displaystyle (q\circ p)(0)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-10-1-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -617,7 +602,7 @@ g(?) = 3(?)-\frac{4}{?}
 <div class="para logical" id="ex_compositionbyformulas2-1-1">
 <div class="para">Let <span class="process-math">\(p(x) = \frac{1}{x+4}\)</span> and <span class="process-math">\(q(x) = x^2-4\text{.}\)</span>
 </div>
-<ol class="lower-alpha ol-marker-12" id="ex_compositionbyformulas2-1-1-3">
+<ol class="lower-alpha ol-marker-2" id="ex_compositionbyformulas2-1-1-3">
 <li id="ex_compositionbyformulas2-1-1-3-1">
 <div class="para" id="ex_compositionbyformulas2-1-1-3-1-1">Find and simplify (as much as is reasonable) a formula for <span class="process-math">\(p\circ q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_compositionbyformulas2-1-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
