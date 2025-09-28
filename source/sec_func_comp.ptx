@@ -1,5 +1,5 @@
 <section xml:id="sec_func_comp">
-  <title>Composition of Functions</title>
+  <title>Function composition</title>
   <introduction>
     <p>
           <idx><h>Functions</h><h>Composition of Functions</h></idx>
@@ -7,7 +7,8 @@
   </introduction>
   <subsection>
     <title>Learning Goals</title>
-    <ul>
+    <p>
+      <ul>
       <li>
         <p>
           Understand what it means to compose two functions
@@ -35,6 +36,7 @@
         </p>
       </li>
     </ul>
+  </p>
   </subsection>
   <subsection>
     <title>Motivation and Examples</title>
@@ -46,7 +48,7 @@
       and then apply the second process to the result.
     </p>
     <p>
-      Recall Dolbear's function, <m>F=D(N)=40+0.25N</m>,
+      Recall Dolbear's function, <m>F=f(N)=40+0.25N</m>,
       from Example <xref ref="ex_DolbearTake1" /> that relates the number <m>N</m> of chirps per minute from a snowy cricket to the Fahrenheit temperature,
       <m>F</m>.
     </p>
@@ -54,23 +56,24 @@
       The Celsius and Fahrenheit temperature scales are connected by a linear function.
       Indeed, the function that converts Fahrenheit to Celsius is
       <me>
-        C = G(F) = \frac{5}{9}(F-32)
+        C = g(F) = \frac{5}{9}(F-32)
       </me>
     </p>
     <p>
       For instance,
-      a Fahrenheit temperature of 32 degrees corresponds to <m>C=G(32) = 0</m> degrees Celsius.
+      a Fahrenheit temperature of 32 degrees corresponds to <m>C=g(32) = 0</m> degrees Celsius.
     </p>
     <p>
       If we are given a number of chirps, <m>N</m>,
-      we can combine the two processes given by Dolbear's function and the conversion from Fahrenheit to Celsius to obtain a new function <m>C=H(N)</m> that takes as input the number of chirps per minute and gives as output the temperature in degrees Celsius.
+      we can combine the two processes given by Dolbear's function and the conversion from Fahrenheit to Celsius to obtain a new function <m>C=h(N)</m> that takes as input the number of chirps per minute and gives as output the temperature in degrees Celsius.
     </p>
     <example>
       <statement>
         <p>
-          Suppose that we observe 80 chirps per minute.
-          What is the temperature in degrees Celsius?
+          Using Dolbear's model, what is the temperature in degrees Celsius assuming we observe crickets chirping at 80 chirps per minute? 
         </p>
+      </statement>
+      <solution>
         <p>
           First, we compute that the temperature in degrees Fahrenheit is
           <me>
@@ -78,49 +81,47 @@
           </me>.
         </p>
         <p>
-          Then, we compute that the temperature in degrees Celsius is
+          It remains only to convert this Fahrenheit temperature to degrees Celsius:
           <me>
             C = G(60) = \frac{5}{9}(60-32) = \frac{140}{9} =15\frac{5}{9}^\circ C
-          </me>
+          </me>.
+          Thus, if crickets chirp at 80 chirps per minute, Dolbear's model predicts the temperature is <m>9^\circ C</m>.
         </p>
-      </statement>
+      </solution>
     </example>
-    <p>
-      We could do this individually for each value of <m>N</m>,
-      but it would be more convenient to have a single formula that can go directly from number of chirps per minute to degrees Celsius.
-      In the above example,
-      we took the output <m>F=D(80)</m> and used it as the input for the temperature conversion <m>C=G(F)</m> from Fahrenheit to Celsius.
-      We can do the same thing using the variable <m>N</m> instead of the explicit input <m>N=80</m>:
-    </p>
+    
     <example>
       <statement>
         <p>
-          Determine a formula for the new function <m>C=H(N)</m> that takes as input the number <m>N</m> of cricket chirps per minute and gives as output the temperature <m>C</m> in degrees Celsius.
+          Determine a formula for the new function <m>C=h(N)</m> that takes as input the number <m>N</m> of cricket chirps per minute and gives as output the temperature <m>C</m> in degrees Celsius.
         </p>
+        
+      </statement>
+      <solution>
         <p>
-          Using <m>F=D(N)</m> as the input for the function <m>C=G(F)</m>,
+          Using <m>F=f(N)</m> as the input for the function <m>C=g(F)</m>,
           we simplify to find a formula directly from <m>N</m> to <m>C</m> that does not involve the variable <m>F</m>:
           <me>
-            \begin{aligned}C \amp = G(F)\\ \amp = G(D(N))\\ \amp = \frac{5}{9}(D(N)-32)\\ \amp = \frac{5}{9}((40+0.25N)-32)\\ \amp =\frac{5}{9}(8+0.25N) \end{aligned}
+            \begin{aligned}C \amp = g(F)\\ \amp = g(f(N))\\ \amp = \frac{5}{9}(f(N)-32)\\ \amp = \frac{5}{9}((40+0.25N)-32)\\ \amp =\frac{5}{9}(8+0.25N) \end{aligned}
           </me>
         </p>
         <p>
-          So the function <m>C=H(N)</m> is given by
+          So the function <m>C=h(N)</m> is given by
           <me>
             C = \frac{5}{9}(8+0.25N)
-          </me>
+          </me>.
         </p>
-      </statement>
+      </solution>
     </example>
-    <p>
+    <!-- <p>
       There is, of course,
-      a shorthand notation for this process of using the output of <m>D</m> as the input of <m>G</m>:
+      a shorthand notation for this process of using the output of <m>f</m> as the input of <m>g</m>:
       <me>
-        H=G\circ D
-      </me>
+        h=g\circ f
+      </me>.
     </p>
     <p>
-      <m>G\circ D</m> is the function that first applies the process given by the function <m>D</m> and then applies the process given by the function <m>G</m>.
+      <m>g\circ f</m> is the function that first applies the process given by the function <m>D</m> and then applies the process given by the function <m>G</m>.
       Two natural questions we could begin by asking are:
     </p>
     "What is the domain of <m>H = G\circ D</m>?" <nbsp/><nbsp/> and <nbsp/><nbsp/> "What is the range of <m>H=G\circ D</m>?"
@@ -153,34 +154,29 @@
           and is <m>[10,29\frac{4}{9}]</m>.
         </p>
       </statement>
-    </example>
+    </example> -->
   </subsection>
   <subsection>
-    <title>Definition of Composition of Functions</title>
-    <p>
-      Suppose we have two function, <m>g</m> and <m>f</m>.
-      <m>g</m> has domain <m>A</m> and range <m>B</m>,
-      while <m>f</m> has domain <m>B</m> and range <m>C</m>.
-      We write <m>g</m> and <m>f</m> along with their domains and ranges as <m>g:A\to B</m> and <m>f:B\to C</m>.
-      As long as the range of <m>g</m> matches the domain of <m>f</m>,
-      it is possible to link the two processes together to create a new process that we call the
-      <em>composition of <m>f</m> and <m>g</m></em>.
+    <title>Function composition</title><p>
+      The function <m>h</m> explored in the examples above is called the <em>composition</em> of <m>f</m> and <m>g</m>, denoted <m>h=g\circ f</m>. Let's make this definition official. 
     </p>
-    <definition>
-      <title>The Composition of Two Functions</title>
+    <definition xml:id="d_func_comp">
+      <title>Function composition</title>
       <statement>
         <p>
-          If <m>f</m> and <m>g</m> are functions such that <m>g:A\to B</m> and <m>f:B\to C</m>,
-          we define the <em>composition of <m>f</m> and <m>g</m></em>
-          to be the new function <m>h:A\to C</m> given by
-          <me>
-            h(t) = f(g(x))
-          </me>.
-          We also sometimes use the notation <m>h = f\circ g</m>,
-          where <m>f\circ g</m> is the single function defined by
-          <me>
-            (f\circ g)(x) = f(g(x))
-          </me>
+          Given functions 
+          <md>
+            <mrow>g\colon A  \amp \rightarrow B \amp f\colon B \amp \rightarrow  C</mrow>
+          </md>
+          satisfying <m>\range f\subseteq B</m>, their <term>composition</term> <m>h=f\circ g</m> is the function 
+          <m>
+            h\colon A\rightarrow C
+          </m>
+          defined as 
+          <men xml:id="eq_func_comp">
+            h(a)=f(g(a))
+          </men>
+          for all <m>a\in A</m>. 
         </p>
       </statement>
     </definition>
@@ -188,319 +184,449 @@
       <caption>The composition <m>(f\circ g)(x) = f(g(x))</m> uses the outputs <m>g(x)</m> as the inputs of <m>f</m>.</caption>
       <image width="93%" source="CompositionOfFunctions.png"/>
     </figure>
+    <remark>
+      <title>Function composition</title>
+      <p>
+        Observe the important condition in the setup of a composition of two functions <m>f</m> and <m>g</m>: we need the range of <m>g</m> to be a subset of the domain of <m>f</m>. Let's think through why this must be the case. 
+      </p>
+      <p>
+        By definition the composition function <m>h=f\circ g</m> takes an input <m>x</m> and maps it to the output 
+        <me>
+          h(x)=f(g(x))
+        </me>.
+        In order this to make sense, we need <m>g(x)</m> to be in the domain of <m>f</m>. In other words, the outputs of <m>g</m> must lie in the domain of <m>f</m>: this is equivalent to saying that the range of <m>g</m> is a subset of the domain of <m>f</m>.
+      </p>
+    </remark>
+    <warning>
+      <title>Composition is not multiplication</title>
+      <p>
+        The notation <m>f\circ g</m> for function composition is similar looking to the notation <m>f\cdot g</m> for function multiplication. Do not conflate these two operations! Indeed, comparing <m>f\circ g\, (x)</m> and <m>f\cdot g\, (x)</m> at an arbitrary input, we see that 
+        <md>
+          <mrow>f\circ g\, (x) \amp =f(g(x))</mrow>
+          <mrow>f\cdot g\, (x) \amp =f(x)g(x)</mrow>
+        </md>,
+        which are by no means the same thing.
+      </p>
+    </warning>
+    <example xml:id="eg_comp_evaluation_form">
+    <title>Composition: evaluation and formulas</title>
+    <statement>
     <p>
-      We sometimes call <m>g</m> the
-      <q>inner function</q>
-      and <m>f</m> the
-      <q>outer function</q>. It is important to note that the inner function is actually the first function that gets applied to a given input,
-      and then outer function is applied to the output of the inner function.
-      In addition, in order for a composite function to make sense,
-      we need to ensure that the range of the inner function lies within the domain of the outer function so that the resulting composite function is defined at every possible input.
+    Let <m>f(x)=1/x</m> and <m>g(x)=1/(x^2+1)</m>. Define <m>h=f\circ g</m>. 
+    <ol>
+      <li>
+        <p>
+          Compute <m>h(-3)</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Find a formula for <m>h(x)</m>. 
+        </p>
+      </li>
+    </ol>
     </p>
+    </statement>
+    <solution>
     <p>
-      In the following examples,
-      we consider compositions of functions given by tables,
-      then by graphs, and finally by formulas.
+    <ol>
+      <li>
+        <p>
+          By definition, we have 
+          <md>
+            <mrow>h(-3) \amp =f(g(-3))</mrow>
+            <mrow> \amp =f\left(\frac{1}{10}\right)\amp g(-3)=\frac{1}{(-3)^2+1}=\frac{1}{10}</mrow>
+            <mrow> \amp =\frac{1}{\frac{1}{10}}</mrow>
+            <mrow> \amp = 10</mrow>
+          </md>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          The formula for <m>h</m> is computed in much the same way as above, replacing <m>-3</m> with the variable <m>x</m>:
+          <md>
+            <mrow>h(x) \amp =f(g(x))</mrow>
+            <mrow> \amp =f\left(\frac{1}{x^2+1}\right)</mrow>
+            <mrow> \amp =\frac{1}{\frac{1}{x^2+1}}</mrow>
+            <mrow> \amp =x^2+1</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The implied domain of <m>h</m> is the set of <m>x\in \R</m> for which <m>g</m> is defined at <m>x</m> and <m>f</m> is defined at <m>g(x)</m>. The function <m>g</m> is defined at <m>x</m> as long as <m>x^2+1</m> is nonzero; but this is true for all <m>x</m>, since <m>x^2+1\geq 1</m> for all <m>x</m>. Similarly, the expression <m>f(g(x))=1/g(x)</m> is defined as long as <m>g(x)</m> is nonzero. As already observed, this is true for all <m>x</m>. Thus the implied domain of <m>h</m> is <m>\R</m>.  
+        </p>
+      </li>
+    </ol>
     </p>
-    <example xml:id="ex_compositionbytables">
+    </solution>
+    </example>
+    <example xml:id="eg_func_comp_order">
+    <title>Composition: order matters</title>
+    <statement>
+    <p>
+    Define 
+    <md>
+      <mrow>f\colon \R \amp \rightarrow \R \amp g\colon \R\amp \rightarrow \R</mrow>
+    </md>
+    as <m>f(x)=x^2+1</m> and <m>g(x)=-2x+1</m>.
+    <ol>
+      <li>
+        <p>
+          Compute formulas for <m>f\circ g</m> and <m>g\circ f</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+         Do we have <m>f\circ g=g\circ f</m>? 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+        <p>
+          We compute 
+          <md>
+            <mrow>f\circ g\, (x) \amp =f(g(x))</mrow>
+            <mrow> \amp = f(-2x+1)</mrow>
+            <mrow> \amp = (-2x+1)^2+1 </mrow>
+            <mrow> \amp = 4x^2-4x+2</mrow>
+            <mrow>g\circ f\, (x) \amp =g(f(x))</mrow>
+            <mrow> \amp = g(x^2+1)</mrow>
+            <mrow> \amp = -2(x^2+1)+1 </mrow>
+            <mrow> \amp = -2x^2-1</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <p>
+          From the above we see that <m>f\circ g</m> and <m>g\circ f</m> are both quadratic polynomials. Recall that two polynomials of the same degree are equal as functions if and only if their coefficients are all equal. (See <xref ref="cor_poly_equality"/>.) Comparing coefficients above, we see easily that <m>f\circ g\ne g\circ f</m>. 
+        </p>
+        <p>
+          Moral of the story: the order of composition matters! That is, the function <m>f\circ g</m> is not necessarily the same as <m>g\circ f</m>. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <remark>
+      <title>Inner/outer function</title>
+      <p>
+        The function <m>g</m> in a composition <m>h=f\circ g</m> is often called the <q>inner function</q> of the composition, and <m>f</m> is called the <q>outer function</q>. This terminology derives naturally from the definition
+        <men xml:id="eq_inner_outer">
+          h(x)=\overset{\text{outer}}{\overbrace{f(\underset{\text{inner}}{\underbrace{g(x)}})}}
+        </men>.
+         Alternatively, we can use sequential language when describing the roles of <m>f</m> and <m>g</m> in the composition <m>f\circ g</m>. That is, when computing <m>h(x)</m> using definition <xref ref="eq_inner_outer"/>, we <em>first</em> evaluate <m>g</m> at <m>x</m> to produce the output <m>g(x)</m>, and <em>then</em> evaluate <m>f</m> at <m>g(x)</m> to produce the output <m>f(g(x))</m>. 
+      </p>
+      <p>
+        This sequential way of looking at composition is especially helpful when trying to describe a given function <m>h</m> as a composition <m>h=f\circ g</m> of two functions.    
+      </p>
+    </remark>
+    <example xml:id="eg_h_comp">
+    <title>Expressing functions as compositions</title>
+    <statement>
+    <p>
+    Express the given function <m>h</m> as a composition <m>h=f\circ g</m>. Give explicit formulas for your choice of <m>f</m> and <m>g</m>. 
+    <ol>
+      <li>
+        <p>
+          <m>h(x)=\sqrt{x^2+x+1}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>h(x)=\frac{1}{3x-7}</m>
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+        <p>
+          The particular form of the of the formula here strongly suggests the the <q>outer function</q> <m>f</m> should be <m>f(x)=\sqrt{x}</m>, and the <q>inner function</q> <m>g</m> should be <m>g(x)=x^2+x+1</m>. Let confirm that <m>h=f\circ g</m>: for all <m>x</m>, we have 
+          <md>
+            <mrow>f(g(x)) \amp =\sqrt{g(x)} \amp (f(x)=\sqrt{x})</mrow>
+            <mrow> \amp =\sqrt{x^2+x+1} \amp (g(x)=x^2+x+1)</mrow>
+            <mrow> \amp =h(x)</mrow>
+          </md>
+          for all <m>x\in \R</m>. This proves <m>h=f\circ g</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          In this example the <q>inner function</q> and <q>outer function</q> is less obvious. Let's use the sequential description of function composition to help us out. Looking at the formula for <m>h</m>, we see that to evaluate <m>h</m> at a given <m>x</m>, we must <em>first</em> compute <m>3x-7</m>, and <em>then</em> compute the reciprocal of this expression <m>1/(3x-7)</m>. Thus suggests that we should set <m>g(x)=3x-7</m> and <m>f(x)=1/x</m>. Let's check that our choice of <m>f</m> and <m>g</m> work: we have 
+          <md>
+            <mrow>f(g(x)) \amp =f(3x-7) \amp (g(x)=3x-7)</mrow>
+            <mrow> \amp =\frac{1}{3x-7} \amo (f(x)=1/x)</mrow>
+            <mrow> \amp =h(x)</mrow>
+          </md>
+          for all <m>x</m> in the implied domain of <m>h</m>. Thus <m>h=f\circ g</m>. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+      The next two examples illustrate how to compute values of a composition of functions when the function information is provided by tables or graphs. 
+    </p>
+    <example xml:id="eg_func_comp_tables">
+      <title>Composition: using tables</title>
       <statement>
         <p>
           Suppose that <m>f</m> and <m>g</m> are given by the table
         </p>
-        <p>
           <image width="28%" source="APCTable1-6-3.png"/>
-        </p>
         <p>
-          This means, for example, that <m>f(0)=6</m>, <m>f(1)=4</m>,
-          <m>f(2) = 3</m>, etc., and that <m>g(0)=1, g(1)=3, g(2)=0</m>, etc.
-        </p>
-        <p>
-          We can calculate <m>(f\circ g)(2) = f(g(2))</m>.
-          Since <m>g(2) = 0</m> and <m>f(0) = 6</m>,
-          <m>f(g(2)) = f(0) = 6</m>.
-        </p>
-        <p>
-          We can also calculate <m>(g\circ f)(2) = g(f(2))</m>.
-          Since <m>f(2) = 3</m> and <m>g(3)=4</m>, <m>g(f(2)) = 4</m>.
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          For <m>f</m> and <m>g</m> as in Example <xref ref="ex_compositionbytables" />,
-          compute each of the following quantities or explain why they are not defined.
-          <ol marker="labelalph">
+          <ol>
             <li>
               <p>
-                <m>(g\circ f)(3)</m>
+                Compute the given expression or else explain why the tables do not provide enough information. 
+                <ol cols="3">
+                  <li>
+                    <p>
+                      <m>f\circ g\, (2)</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>g\circ f\, (2)</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>g\circ f\, (0)</m>
+                    </p>
+                  </li>
+                </ol>
               </p>
             </li>
             <li>
               <p>
-                <m>g(f(0))</m>
+                Find all solutions to <m>f\circ g\, (x)=6</m> lying in the set <m>\{0,1,2,3,4\}</m>.
               </p>
             </li>
             <li>
               <p>
-                For what value(s) of <m>x</m> is <m>f(g(x))=4</m>?
+                Find all solutions to <m>g\circ f\, (x)=2</m> lying in the set <m>\{0,1,2,3,4\}</m>.
               </p>
             </li>
           </ol>
-        </p>
-      </statement>
-    </exercise>
-    <example xml:id="ex_compositionbygraphs">
-      <statement>
-        <p>
-          If <m>p</m> and <m>q</m> are given by the graphs
-        </p>
-        <p>
-          <image width="50%" source="APCFigure1-6-4.png"/>
-        </p>
-        <p>
-          then <m>(p\circ q)(0) = p(q(0))</m>.
-          Since <m>q(0) = 2</m> and <m>p(2) = 2</m>,
-          <m>p(q(0)) = p(2) = 2</m>.
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          For <m>p</m> and <m>q</m> as in Example <xref ref="ex_compositionbygraphs" />,
-          compute each of the following quantities or explain why they are not defined.
-          <ol marker="labelalph">
-            <li>
-              <p>
-                <m>(q\circ p)(0)</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>(p\circ p)(-1.5)</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>(q\circ p)(2)</m>
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
-    <example xml:id="ex_compositionbyformulas">
-      <statement>
-        <p>
-          Suppose that
-          <me>
-            f(x) = x^2-1
-          </me>
-          and that
-          <me>
-            g(x) = 3x-\frac{4}{x}
-          </me>
-        </p>
-        <p>
-          The composition <m>f\circ g</m> means that we use <m>g(x)</m> as the inputs for the function <m>f</m>.
-          Think of <m>f</m> as the process that squares its input,
-          then subtracts 1:
-          <me>
-            f(?) = (?)^2-1
-          </me>
-        </p>
-        <p>
-          If the input is <m>g(x) = 3x-\frac{4}{x}</m>, we can simplify:
-          <me>
-            \begin{aligned}(f\circ g)(x) \amp = f(g(x))\\ \amp = (g(x))^2-1\\ \amp = \left(3x-\frac{4}{x}\right)^2-1 \end{aligned}
-          </me>
-        </p>
-        <p>
-          We could simplify this further if we wanted to,
-          thought it isn't really necessary:
-          <me>
-            \begin{aligned}(f\circ g)(x) \amp = \left(3x-\frac{4}{x}\right)^2-1\\ \amp = \left(9x^2-24+\frac{16}{x^2}\right)-1\\ \amp = 9x^2+\frac{16}{x^2}-25 \end{aligned}
-          </me>
-        </p>
-        <p>
-          We could also compose the other direction.
-          The composition <m>g\circ f</m> means that we use <m>f(x)</m> as the inputs for the function <m>g</m>.
-          Think of <m>g</m> as the function that multiplies 3 times its input,
-          divides 4 by its input, then subtracts the latter from the former:
-          <me>
-            g(?) = 3(?)-\frac{4}{?}
-          </me>
-        </p>
-        <p>
-          If the input is <m>f(x) = x^2-1</m>,
-          <me>
-            \begin{aligned}(g\circ f)(x) \amp = g(f(x))\\ \amp = 3(f(x))-\frac{4}{f(x)}\\ \amp = 3(x^2-1)-\frac{4}{x^2-1} \end{aligned}
-          </me>
-        </p>
-        <p>
-          We could simplify a littler further if we wanted to by distributing the 3, but anything farther would be a waste of time (like writing it as a single fraction over a common denominator):
-          <me>
-            \begin{aligned}(g\circ f)(x) \amp = 3(x^2-1)-\frac{4}{x^2-1}\\ \amp = 3x^2-3-\frac{4}{x^2-1} \end{aligned}
-          </me>
-        </p>
-      </statement>
-    </example>
-    <exercise xml:id="ex_compositionbyformulas2">
-      <statement>
-        <p>
-          Let <m>p(x) = \frac{1}{x+4}</m> and <m>q(x) = x^2-4</m>.
-          <ol marker="labelalph">
-            <li>
-              <p>
-                Find and simplify
-                (as much as is reasonable)
-                a formula for <m>p\circ q</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Find and simplify
-                (as much as is reasonable)
-                a formula for <m>q\circ p</m>.
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
-    <example>
-      <statement>
-        <p>
-          Suppose that <m>h(x) = \sqrt{2x^2+5}</m>.
-          Determine formulas for two related functions,
-          <m>f(x)</m> and <m>g(x)</m>, so that <m>h(x) = f(g(x))</m>.
         </p>
       </statement>
       <solution>
         <p>
-          One possibility is that <m>f(x) = \sqrt{x}</m> and <m>g(x) = 2x^2+5</m>.
-        </p>
-        <p>
-          Another possibility is that
-          <m>f(x) = \sqrt{2x+5}</m> and <m>g(x) = x^2</m>.
-        </p>
-        <p>
-          Do you see any additional possibilities?
+          <ol>
+            <li>
+              <p>
+                We compute 
+                <md>
+                  <mrow>f\circ g\, (2) \amp =f(g(2))</mrow>
+                  <mrow> \amp = f(0) \amp (g(2)=0)</mrow>
+                  <mrow> \amp = 6</mrow>
+                </md>
+                and 
+                <md>
+                  <mrow>g\circ f\, (2) \amp = g(f(2))</mrow>
+                  <mrow> \amp =g(3) \amp (f(2)=3)</mrow>
+                  <mrow> \amp = 4</mrow>
+                </md>.
+                On the other hand, we do not have enough information from the table to compute <m>g\circ f\, (6)</m> since <m>f(0)=6</m> and the table does not indicate what <m>g(6)</m> is. 
+              </p>
+            </li>
+            <li>
+              <p>
+                First observe that <m>f(x)=6</m> for <m>x=0,4</m>. Thus for <m>f(g(x))=6</m> for <m>x\in \{0,1,2,3,4\}</m>, we need to find the <m>x</m> in this set such that <m>g(x)=0</m> or <m>g(x)=4</m>. From the table we see that <m>g(2)=0</m> and <m>g(3)=4</m>. Thus <m>x=2,3</m> are the two solutions to the equation <m>f\circ g\, (x)=6</m> lying in the set <m>\{0,1,2,3,4\}</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Our reasoning is similar to the previous part. Since <m>g(x)=4</m> for <m>x=4</m> and since the solutions to <m>f(x)=4</m> for <m>x\in \{0,1,2,3,4\}</m> are <m>x=1</m> and <m>x=3</m>, these are the solutions to <m>g\circ f\, (x)=2</m> lying in <m>\{0,1,2,3,4\}</m>. 
+              </p>
+            </li>
+          </ol>
         </p>
       </solution>
     </example>
-    <p>
-      \fbox{ <em>Important!</em> Function composition is
-      <em>not at all</em> like multiplication.
-      As we have seen in Example <xref ref="ex_compositionbyformulas" /> and Exercise <xref ref="ex_compositionbyformulas2" />,
-      it is not necessarily true that
-      <m>f\circ g = g\circ f</m> or that <m>p\circ q = q\circ p</m>.
-      In fact, that is usually not true at all. }
-    </p>
+    
+    <example xml:id="eg_comp_graphs">
+      <title>Composition: using graphs</title>
+      <statement>
+        <p>
+          The graphs of functions <m>p</m> and <m>q</m> are given below. 
+        </p>
+          <image width="50%" source="APCFigure1-6-4.png"/>
+        <p>
+          Compute the following function values.
+        <ol>
+          <li>
+            <p>
+            <m>p\circ q\, (0)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>q\circ p\, (0)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>p\circ p \, (-3/2)</m>
+            </p>
+          </li>
+        </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                We have 
+                <md>
+                  <mrow>p\circ q\, (0) \amp = p(q(0))</mrow>
+                  <mrow> \amp = p(2)</mrow>
+                  <mrow> \amp = 2</mrow>
+                </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We have 
+                <md>
+                  <mrow>q\circ p\, (0) \amp = q(p(0))</mrow>
+                  <mrow> \amp = q(-1/2)</mrow>
+                  <mrow> \amp = 2 </mrow>
+                </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We have 
+                <md>
+                  <mrow>p\circ p\, (-3/2) \amp = p(p(-3/2))</mrow>
+                  <mrow> \amp = p(0)</mrow>
+                  <mrow> \amp = -1/2</mrow>
+                </md>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+
   </subsection>
   <subsection>
-    <title>Domain of Compositions</title>
+    <title>Implied domain of compositions</title>
     <p>
-      Suppose we have two functions,
-      <m>y=f(x)</m> and <m>x=g(t)</m>.
-      The domain of <m>f\circ g</m> is the set of all <m>t</m> in the domain of <m>g</m> such that <m>x=g(t)</m> is in the domain of <m>f</m>.
-      In other words,
-      <m>(f\circ g)(t)</m> is defined whenever both <m>g(t)</m> and <m>f(g(t))</m> are defined.
-    </p>
-    <example>
+        How do we determine the implied domain of a composition <m>f\circ g</m> of two functions? For <m>f(g(x))</m> to be defined at <m>x</m>, we need <em>two</em> conditions to hold:
+        <ol>
+          <li>
+            <p>
+              <m>g</m> is defined at <m>x</m>; 
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f</m> is defined at <m>g(x)</m>.
+            </p>
+          </li>
+        </ol>
+        Thus the implied domain <m>D</m> of <m>f\circ g</m> is the set of <m>x\in \R</m> for which both <m>g(x)</m> and <m>f(g(x))</m> are defined. Using set intersection notation (see <xref ref="d_union_intersection"/>), we have 
+        <me>
+          D=\{x\in \R \mid g \text{ defined at } x\}\cap \{x\in \R \mid f \text{ defined at } g(x)\}
+        </me>.
+        Let's compute some simple examples. After we develop techniques for solving inequalities, we will consider more complicated examples. 
+      </p>
+    <example xml:id="eg_comp_implied_domain">
+      <title>Composition: implied domain</title>
       <statement>
         <p>
-          For <m>y=f(x) = \frac{1}{x}</m> and <m>x=g(t) = \sqrt{t+1}</m>,
-          we find the domain of <m>f\circ g</m>.
-        </p>
-        <p>
-          For a value <m>t</m> to be in the domain of <m>f\circ g</m>,
-          it must first be in the domain <m>[-1,\infty)</m> of <m>g</m>.
-          Then the value of <m>g(t) = \sqrt{t+1}</m> must be in the domain of <m>f</m>,
-          so we must have <m>\sqrt{t+1}\neq 0</m>,
-          or in other words, <m>t\neq 1</m>.
-          Therefore the domain of <m>f\circ g</m> is <m>(-1,\infty)</m>.
-        </p>
-        <p>
-          For values of <m>t</m> in this domain, we have
-          <me>
-            (f\circ g)(t) = f(g(t)) = f(\sqrt{t+1}) = \frac{1}{\sqrt{t+1}}
-          </me>.
-          Notice that this equation is consistent with our calculation of the domain.
+          Let <m>f(x)=1/x</m> and <m>g(x)=\sqrt{x+1}</m>. 
+          Find the implied domain of <m>f\circ g</m>. 
         </p>
       </statement>
+      <solution>
+        <p>
+          The implied domain of <m>f\circ g</m> is the set of <m>x</m> where <m>g(x)=\sqrt{x+1}</m> is defined <em>and</em> where <m>f(g(x))=1/\sqrt{x+1}</m> is defined. 
+        </p>
+        <p>
+          For <m>g(x)=\sqrt{x+1}</m> to be defined, we need <m>x+1\geq 0</m>, or equivalently <m>x\geq -1</m>. 
+        </p>
+        <p>
+          For <m>f(g(x))=1/\sqrt{x+1}</m> to be defined, we need further that <m>\sqrt{x+1}\ne 0</m>, or equivalently, <m>x\ne -1</m>. 
+        </p>
+        <p>
+          Thus both conditions are satisfied if and only if <m>x\in [-1,\infty)</m> and <m>x\ne -1</m>. In other words, the implied domain of <m>f\circ g</m> is <m>(-1,\infty)</m>. 
+        </p>
+      </solution>
     </example>
-    <exercise>
+    
+    <example xml:id="eg_comp_implied_domain_2">
+      <title>Composition: implied domain</title>
       <statement>
         <p>
-          For <m>y=g(x) =\sqrt{x+1}</m> and <m>x=f(t) = \dfrac{1}{t}</m>,
-          find the domain of <m>g\circ f</m>.
+          Let <m>f(x)=x^2-1</m> and <m>g(x)=3x-\tfrac{4}{x}</m>. 
+          <ol>
+            <li>
+              <p>
+                Find the implied domain of <m>f\circ g</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the implied domain of <m>g\circ f</m>.
+              </p>
+            </li>
+          </ol>
         </p>
       </statement>
-    </exercise>
-    <example>
-      <statement>
+      <solution>
         <p>
-          Recall the functions <m>f(x) = x^2-1</m> and
-          <m>g(x) = 3x-\frac{4}{x}</m> from Example <xref ref="ex_compositionbyformulas" />.
-          Let's find the domains of <m>f\circ g</m> and <m>g\circ f</m>.
+          <ol>
+            <li>
+              <p>
+                The function <m>g</m> is defined for all <m>x\ne 0</m>. Since <m>f</m> is defined everywhere, there is not further constraint. Thus the implied domain is 
+                <me>
+                  \{x\in \R\mid x\ne 0\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For <m>g\circ f</m> to be defined at <m>x</m> we need <m>f</m> to be defined at <m>x</m> and <m>g</m> to be defined at <m>f(x)</m>. As mentioned above, <m>f</m> is defined everywhere, so the first condition creates no restriction. Since <m>g</m> is defined only when the input is nonzero, we need <m>f(x)\ne 0</m> for <m>g</m> to be defined at <m>f(x)</m>. The usual algebra shows that <m>f(x)=0</m> if and only if <m>x=\pm 1</m>. We conclude that the domain of <m>g\circ f</m> is 
+                <me>
+                  \{x\in \R\mid x\ne \pm 1\}=(-\infty, -1)\cup (-1,1)\cup (1,\infty)
+                </me>.
+              </p>
+            </li>
+          </ol>
         </p>
-        <p>
-          The domain of <m>g(x)</m> is <m>x\neq 0</m>.
-          The domain of <m>f(x)</m> is all real numbers,
-          so there is no need to limit the outputs of <m>g</m>.
-          Hence the domain is <m>(-\infty,0)\cup (0,\infty)</m>.
-          We found a simplified formula of
-          <me>
-            (f\circ g)(x) = 9x^2+\frac{16}{x^2}-25
-          </me>,
-          which agrees with our previous analysis.
-        </p>
-        <p>
-          In the other direction,
-          the domain of <m>f(x) = x^2-1</m> has no restrictions,
-          but when we plug <m>f(x)</m> into <m>g(x) = 3x-\frac{4}{x}</m>,
-          we notice that this requires the input to be nonzero because of the <m>x</m> in the denominator,
-          hence we must have <m>f(x) = x^2-1\neq 0</m> in order for <m>g(f(x))</m> to be defined.
-          Thus the domain for <m>g\circ f</m> should be <m>x\neq \pm1</m>.
-          Indeed, we found a simplified formula of
-          <me>
-            (g\circ f)(x) = 3x^2-3-\frac{4}{x^2-1}
-          </me>
-        </p>
-        <p>
-          Since <m>x^2-1</m> is in the denominator,
-          we cannot have <m>x=1</m> or <m>x=-1</m>.
-          Thus the domain is indeed <m>(-\infty,-1)\cup(-1,1)\cup(1,\infty)</m>.
-        </p>
-      </statement>
+      </solution>
     </example>
-    <example>
-      <title>A Cautionary Example</title>
-      <statement>
-        <p>
-          Let's consider the functions
-          <m>f(x) =g(x) = \frac{1}{x}</m> and look at the domain of <m>f\circ g</m>.
-          If we view <m>g(x)</m> as the first function applied to <m>x</m>,
-          we know that we must have <m>x\neq 0</m>.
-        </p>
-        <p>
-          However, if we first simplify the formula for the composition:
-          <me>
-            \begin{aligned}(f\circ g)(x) \amp = f(g(x))\\ \amp = \frac{1}{g(x)}\\ \amp =\frac{1}{1/x}\\ \amp = x \end{aligned}
-          </me>
-          we might think that the domain is all real numbers, which would be incorrect!
-        </p>
-      </statement>
-    </example>
-    <p>
-      \fbox{ <em>Remember!</em> The domain of
-      <m>(f\circ g)(x)</m> is the values of <m>x</m> in the domain of <m>g</m> so that the output of <m>g(x)</m> is <em>also</em>
-      in the domain of <m>f</m>. }
-    </p>
-  </subsection>
-  <subsection>
+    <warning>
+      <title>Composition: implied domain</title>
+      <p>
+       When computing the formula for a composition <m>f\circ g</m>, there is always the danger of overlooking what the implied domain is. Consider the example where we take <m>f(x)=g(x)=1/x</m>. Our usual implied domain analysis yields that the implied domain of <m>h=f\circ g</m> is the set of all <m>x\ne 0</m>. However, if computing a formula for <m>h</m>, we see that 
+       <md>
+        <mrow>h(x) \amp =f(g(x))</mrow> 
+        <mrow> \amp =f(1/x)</mrow>
+        <mrow> \amp =1/(1/x))</mrow>
+        <mrow> \amp = x</mrow>
+       </md>,
+       suggesting that the implied domain of <m>h=f\circ g</m> should be <m>\R</m>. How do we reconcile these two different conclusions? Here's how: the steps in the algebra above used to compute the formula for <m>h</m> are only valid for inputs <m>x</m> where <m>f</m> and <m>g</m> are defined in the first place! In other words, our identity <m>h(x)=x</m> is itself only true for <m>x\ne 0</m>, and this is consistent with our determination of the implied domain. 
+      </p>
+    </warning>
+  </subsection> 
+  <!-- <subsection>
     <title>Function Composition and Average Rate of Change</title>
     <p>
       In this section,
@@ -636,5 +762,5 @@
     <p>
       \rule{1.1\textwidth}{2pt}
     </p>
-  </subsection>
+  </subsection> -->
 </section>
