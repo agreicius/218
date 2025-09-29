@@ -973,146 +973,11 @@ var ptx_lunr_docs = [
   "body": "   Find the zero(s) (if any) of the function  Enter your answer as a comma separated list. If no real zeros exist, enter NONE .  The zero(s) is\/are         SOLUTION To find the zeros, we solve the equation . We see that this is factorable, as . Therefore, the zeros occur where and .      "
 },
 {
-  "id": "sec_avgchange",
-  "level": "1",
-  "url": "sec_avgchange.html",
-  "type": "Section",
-  "number": "1.3",
-  "title": "Average Rate of Change",
-  "body": " Average Rate of Change    Functions Average Rate of Change     Learning Goals    Learn the formula for average rate of change and be able to use it to calculate the average rate of change of a function on an interval.    Visualize average rate of change on the graph of a function.    See how the idea of average rate of change can be useful in some applied contexts.    Understand the units for average rate of change in the context of a mathematical model.    Compare the average rate of change of a linear function and a quadratic function.    Revisit the idea of concavity in terms of average rate of change.      Definition of Average Rate of Change of a Function  In the previous section, we looked at linear and quadratic functions in some depth. We now know that each type of function has a predictable shape. In particular, linear function have a constant slope, while quadratic functions do not. Another way to say this is that linear functions change at a constant rate. In this section, we learn one way to describe how functions change when they do not increase or decrease at a constant rate.     below shows the height of the winning pole vault at the Olympics  The World Almanac and Book of Facts, 2005 ,p. 866 (New York). As found in Applied Calculus by Hughes Hallet et al. during the 1960s and more recently. Find the rate of change of the winning height between 1960 and 1968, and between 2008 and 2016. In which of these two periods did the height increase faster?   Winning height in men's Olympic pole vault (approximate)    \\toprule Year  1960  1964  1968  \\ldots  2008  2012  2016    \\midrule Height (cm)  470  510  540  \\ldots  596  597  603    \\bottomrule       To compare the 1960s and the more recent period, we calculate the average change over each time period, similar to how we calculate the slope of a line as :    Thus, on average, the height was increasing more quickly during the 1960s.    The data in does not have a constant rate of change (it is not linear). However, we can compute an average rate of change over any interval. The word average is used because the rate of change may vary within the interval.  In general, given a function that models a certain phenomenon, it's natural to ask such questions as \"how is the function changing on a given interval\" or \"on which interval is the function changing more rapidly?\" The concept of average rate of change enables us to make these questions more mathematically precise.  We use the symbol (the Greek letter capital delta) to mean \"change in,\" so means \"change in and means \"change in y.\" The average rate of change of a dependent quantity is then expressed as a fraction of the change in the dependent variable divided by the amount of change in the independent variable:   Average Rate of Change   If is a function of , so , then . The units of average rate of change of a function are units of per units of .  We will often abbreviate the average rate of change on the interval as     The quantity is called a difference quotient because it is the quotient of two differences. This formula may look familiar to you; it resembles the formula we use in to compute the slope of the line between two points. As we will explore later, the average rate of change of a function on an interval can be visualized as the slope of the line from to .    For example, the function graphed below in is increasing until , decreasing from to , increasing again from until , and then decreasing after .   A function that both increases and decreases.    The function is not linear and so has no \"slope.\" In order to discuss how much it increases or decreases, we can look at each interval separately.  On the interval , we calculate the average rate of change of between and . First, we observe that and in order to use these quantities in the formula for Average Rate of Change with and : and so we see that, on average, the function is changing by units of per unit of between and . We could also say that the function is decreasing by 2 units of per unit of , which matches what we see in the picture.  Similarly, we calculate the average rate of change of on the interval . Observe that and will be used in the formula for Average Rate of Change, using and : so, on average, the function is increasing by 1 unit of per unit of between and .  We can also measure average rate of change over intervals where the function both increases and decreases. For example, on the interval the function first decreases and then increases. Note that and . Computing the average rate of change from to : so, on average, the function is decreasing by 1 (or changing by ) unit of per unit of between and .  As another example, the average rate of change on the interval is where we observe that since and , the function has not changed on average from to .      What is another interval where the function pictured above in has an average rate of change of 0?      Average Change of a Linear Function  Let's examine the average change of linear functions using the function . Before we begin and without doing any calculations, think about what the average change of a line should be.  Now let's compute the average change of on three different, random intervals: , , and . Before reading the calculations below, you should evaluate the values of at each of the endpoints of the intervals ( , and ) to make following it less confusing. .    We notice that we have gotten the same average change of for all three intervals. We wonder if this is a coincidence. In order to confirm that this is not a coincidence, we calculate the average change of on any interval :   So now we have confirmed that the average rate of change of on any interval is , which is the same as the slope .  There was nothing special about this function. The average change of any linear function on any interval is the slope of the function. In fact, we may take this to be the definition of a linear function, if we want:   Alternate Definition of a Linear Function   A function is linear provided that its average rate of change is constant on every choice of interval in its domain.      Let be given by the data in the table     Determine , and for the function . Could be a linear function?      Visualizing Average Rate of Change  So far we have practiced using the formula for average rate of change from a graph, function, and table. We also established that the average rate of change of a line is its slope. In this section, we connect these two ideas: \\fbox{The average rate of change of a function on an interval can be visualized as the slope of the line between the points and . }  Visualizing Average Rate of Change as Slope   Calculate the average rate of change of the function (a) on the interval and (b) on the interval . Then (c) illustrate these average rates of change graphically.       To find the average change on , first we compute and . Now using the formula, we have .    To find the average change on , let's first compute that and . Using the formula again, we have .    Graphically, the two average rates we found can be represented as slopes of line segments, as follows:  The slope between and is 2. \\begin{subfigure}[H]{0.4\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The slope between and is .} \\end{subfigure} \\caption{The average rate of change can be visualized as slope.}          Copy the graph from Example on to your paper and visualize the average change on , and as the slope of the line between the endpoints of each interval (one line for each interval). Make sure these appear to be reasonable based on the calculated average rates of change in Example .   The graph from Example \\xautoref{ex_avgchange1}.        Average Change in Context  Let's now return to the question of describing the rate of change of a quantity in context, paying special attention to the units and interpretation for these calculations.    Let the height function for a ball tossed vertically be given by , where is measured in seconds since the ball was thrown and is measured in feet above the ground.  Plotting the function using Desmos in , it looks like the ball is thrown from a height of 48 feet, reaches its maximum height of 64 feet after 1 second, and hits the ground after 3 seconds:   The function graphed with key points labeled.    The average rate of change of on the interval is calculated below, using the fact that and :   According to Definition , the units for the average rate of change of should be \"units of per units of .\" Since the units of are feet and the units of are seconds, the units for are \"feet per second.\" In the context of the ball, this means that from 1.5 seconds to 2.5 seconds after the ball is thrown, it falls at an average speed of 32 feet per second toward the ground.  We can visualize the quantity as the slope of the line connecting the points and on the graph of :       In the context of a function that measures height or position of a moving object at a given time, such as in Example , the meaning of the average rate of change of the function on a given interval is the average velocity of the moving object because it is the ratio of change in position to change in time:   For example, in Exercise , the units on are \"feet per second\" since the units on the numerator are \"feet\" and on the denominator \"seconds.\" The fact that the average rate of change is negative in this example indicates that the ball is falling. In every situation, the units on the average rate of change help us interpret its meaning, and those units are always \"units of output per unit of input.\"  Here is another context in which we consider an average rate of change:    According to the US census, the populations of Kent and Ottawa Counties in Michigan from 1960 to 2010, measured in -year intervals are given in the following tables.  Kent County population data.   Ottawa county population data.   Let represent the population of Kent County in year and the population of Ottawa County in year .   Compute for both and .    What are the units on each of the quantities you computed in part a?    Write a careful sentence that explains the meaning of the average rate of change of the Ottawa county population on the time interval . Your sentence should begin something like ``In an average year between 1990 and 2010, the population of Ottawa County was ...\"    Which county had a greater average rate of change during the time interval ? Were there any intervals in which one of the counties had a negative average rate of change?    Using the given data, what do you predict will be the population of Ottawa County in 2018? Why?       If you have time, attempt the questions yourself, then read the solutions below.   For , we have . For , we have .    Population is measured in people, time here is measured in years. So, the units are people per year.    In an average year between 1990 and 2010, the population of Ottawa County was increasing by about people per year.    Between 2000 and 2010, the Kent County population increased by about people per year, and the Ottawa County population increased by about people per year. So, Kent county had a greater average rate of change. Since the populations always increase from one decade to the next, neither county has an interval with a negative average rate of change.    The average rate of change between and in Ottawa county is people per year; if we assume this holds over the next years, then in the total population will be: people years people per year people.       The average rate of change of a function on an interval gives us an excellent way to describe how the function behaves, on average. For instance, if we compute for Kent County, we find that , which tells us that in an average year from 1970 to 2000, the population of Kent County increased by about 5443 people. Said differently, we could also say that from 1970 to 2000, Kent County was growing at an average rate of 5443 people per year. These ideas also afford the opportunity to make comparisons over time. Since , we can not only say that Kent County's population increased by about 7370 in an average year between 1990 and 2000, but also that the population was growing faster from 1990 to 2000 than it did from 1970 to 2000.  Finally, we can even use the average rate of change of a function to predict future behavior. Since the population was changing on average by 7370.5 people per year from 1990 to 2000, we can estimate that the population in 2002 is .  This of course assumes that the average increase in population during the next two years remains the same as it has been in the past 10 years.    Concavity and Average Change of a Quadratic Function  In contrast to linear functions, quadratic functions do not have a constant rate of change. Instead, their rates of change follow a different pattern. We'll begin to see this pattern by looking at the graphs of functions whose rates of change are increasing throughout an interval or decreasing throughout an interval.   below shows graphs that are concave up: they are bending upward because the rate of change of the function is increasing.   An increasing, concave up function. \\begin{subfigure}[H]{0.2\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.2\\textwidth} \\caption{A decreasing, concave up function.} \\end{subfigure} \\caption{Graphs that are concave up. Their rates of change are increasing.}  On the other hand, below shows graphs that are concave down: they are bending downward because the rate of change of the function is decreasing.   An increasing, concave down function. \\begin{subfigure}[H]{0.2\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.2\\textwidth} \\caption{A decreasing, concave down function.} \\end{subfigure} \\caption{Graphs that are concave down. Their rates of change are decreasing.}  We know that quadratic functions are always either concave up or concave down, so we can expect their rates of change to increase (if the quadratic function in concave up) or for them to decrease (if the quadratic function is concave down). Note that a line is neither concave up nor concave down, and its rate of change is constant.  Here is an example in the context of a falling object to help us look even further into what pattern rates of change of quadratic functions follow:    Suppose a water balloon is tossed vertically from a fifth story window. Its height, , in meters, at time , in seconds, is modeled by the function .  Below is a table for values of average rates of change for on select intervals. Can you spot a pattern?   Average rates of change for on several unit-length intervals        \\midrule  m\/s     m\/s     m\/s     m\/s     m\/s     In Table we see an interesting pattern in the average velocities of the ball: they decrease by exactly 10 m\/s on each subsequent unit-length interval. Indeed, if we remove the endpoint of each interval and focus on the starting value of each interval, viewing the resulting average rate of change as a function of the starting value, we may consider the related table, Table seen below:   Data from Table , recast with average velocity as a function of the starting point of the interval        \\midrule  m\/s     m\/s     m\/s     m\/s     m\/s     We observe that the average rate of change of is decreasing by 10 m\/s for each second that passes. It is itself changing in a way that seems to be represented by a linear function. Thus it appears that the average rate of change is a linear function of . Moreover, we can also visualize the concave down quadratic function and its decreasing average rates of change. The picture below graphs these average rates of change as slope on each interval, and we can see that the slopes of the lines on each interval are getting more and more negative (from to , then , etc.).       While it takes key ideas from calculus to formalize this observation, for now we will simply note that for a quadratic function, there seems to be a related linear function that tells us something about how the quadratic function changes.    Summarize the difference between average rates of change for linear and quadratic functions.      Summary  The following terms, symbols, and formulas were introduced in this section:  meaning \"change in,\" average rate of change of a function on an interval, difference quotient, average velocity.  Key ideas: The average rate of change of a function on an intervals describes how much, on average, that function is increasing or decreasing on the interval. Linear functions have constant average rate of change. Quadratic functions do not have a constant average rate of change. Average rate of change can be visualized as slope between points on the graph. The units for average rate of change are units of output per unit of input.   Other ideas introduced: Functions that are concave up have increasing rates of change while functions that are concave down have decreasing rates of change. Quadratic functions have rates of change that appear to be changing linearly.  \\fbox{\\fbox{ End of Section 1.3}}  \\rule{1.1\\textwidth}{2pt}   "
-},
-{
-  "id": "sec_avgchange-4-3",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-4-3",
-  "type": "Example",
-  "number": "1.3.1",
-  "title": "",
-  "body": "   below shows the height of the winning pole vault at the Olympics  The World Almanac and Book of Facts, 2005 ,p. 866 (New York). As found in Applied Calculus by Hughes Hallet et al. during the 1960s and more recently. Find the rate of change of the winning height between 1960 and 1968, and between 2008 and 2016. In which of these two periods did the height increase faster?   Winning height in men's Olympic pole vault (approximate)    \\toprule Year  1960  1964  1968  \\ldots  2008  2012  2016    \\midrule Height (cm)  470  510  540  \\ldots  596  597  603    \\bottomrule       To compare the 1960s and the more recent period, we calculate the average change over each time period, similar to how we calculate the slope of a line as :    Thus, on average, the height was increasing more quickly during the 1960s.   "
-},
-{
-  "id": "d_averagerateofchange",
-  "level": "2",
-  "url": "sec_avgchange.html#d_averagerateofchange",
-  "type": "Definition",
-  "number": "1.3.3",
-  "title": "Average Rate of Change.",
-  "body": " Average Rate of Change   If is a function of , so , then . The units of average rate of change of a function are units of per units of .  We will often abbreviate the average rate of change on the interval as    "
-},
-{
-  "id": "ex_avgchange1",
-  "level": "2",
-  "url": "sec_avgchange.html#ex_avgchange1",
-  "type": "Example",
-  "number": "1.3.4",
-  "title": "",
-  "body": "  For example, the function graphed below in is increasing until , decreasing from to , increasing again from until , and then decreasing after .   A function that both increases and decreases.    The function is not linear and so has no \"slope.\" In order to discuss how much it increases or decreases, we can look at each interval separately.  On the interval , we calculate the average rate of change of between and . First, we observe that and in order to use these quantities in the formula for Average Rate of Change with and : and so we see that, on average, the function is changing by units of per unit of between and . We could also say that the function is decreasing by 2 units of per unit of , which matches what we see in the picture.  Similarly, we calculate the average rate of change of on the interval . Observe that and will be used in the formula for Average Rate of Change, using and : so, on average, the function is increasing by 1 unit of per unit of between and .  We can also measure average rate of change over intervals where the function both increases and decreases. For example, on the interval the function first decreases and then increases. Note that and . Computing the average rate of change from to : so, on average, the function is decreasing by 1 (or changing by ) unit of per unit of between and .  As another example, the average rate of change on the interval is where we observe that since and , the function has not changed on average from to .   "
-},
-{
-  "id": "sec_avgchange-4-10",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-4-10",
-  "type": "Checkpoint",
-  "number": "1.3.6",
-  "title": "",
-  "body": "  What is another interval where the function pictured above in has an average rate of change of 0?   "
-},
-{
-  "id": "sec_avgchange-5-7",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-5-7",
-  "type": "Definition",
-  "number": "1.3.7",
-  "title": "Alternate Definition of a Linear Function.",
-  "body": " Alternate Definition of a Linear Function   A function is linear provided that its average rate of change is constant on every choice of interval in its domain.   "
-},
-{
-  "id": "sec_avgchange-5-8",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-5-8",
-  "type": "Checkpoint",
-  "number": "1.3.8",
-  "title": "",
-  "body": "  Let be given by the data in the table     Determine , and for the function . Could be a linear function?   "
-},
-{
-  "id": "sec_avgchange-6-7",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-6-7",
-  "type": "Example",
-  "number": "1.3.9",
-  "title": "Visualizing Average Rate of Change as Slope.",
-  "body": " Visualizing Average Rate of Change as Slope   Calculate the average rate of change of the function (a) on the interval and (b) on the interval . Then (c) illustrate these average rates of change graphically.       To find the average change on , first we compute and . Now using the formula, we have .    To find the average change on , let's first compute that and . Using the formula again, we have .    Graphically, the two average rates we found can be represented as slopes of line segments, as follows:  The slope between and is 2. \\begin{subfigure}[H]{0.4\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The slope between and is .} \\end{subfigure} \\caption{The average rate of change can be visualized as slope.}       "
-},
-{
-  "id": "sec_avgchange-6-8",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-6-8",
-  "type": "Checkpoint",
-  "number": "1.3.11",
-  "title": "",
-  "body": "  Copy the graph from Example on to your paper and visualize the average change on , and as the slope of the line between the endpoints of each interval (one line for each interval). Make sure these appear to be reasonable based on the calculated average rates of change in Example .   The graph from Example \\xautoref{ex_avgchange1}.     "
-},
-{
-  "id": "ex_avgchangefallingball",
-  "level": "2",
-  "url": "sec_avgchange.html#ex_avgchangefallingball",
-  "type": "Example",
-  "number": "1.3.13",
-  "title": "",
-  "body": "  Let the height function for a ball tossed vertically be given by , where is measured in seconds since the ball was thrown and is measured in feet above the ground.  Plotting the function using Desmos in , it looks like the ball is thrown from a height of 48 feet, reaches its maximum height of 64 feet after 1 second, and hits the ground after 3 seconds:   The function graphed with key points labeled.    The average rate of change of on the interval is calculated below, using the fact that and :   According to Definition , the units for the average rate of change of should be \"units of per units of .\" Since the units of are feet and the units of are seconds, the units for are \"feet per second.\" In the context of the ball, this means that from 1.5 seconds to 2.5 seconds after the ball is thrown, it falls at an average speed of 32 feet per second toward the ground.  We can visualize the quantity as the slope of the line connecting the points and on the graph of :      "
-},
-{
-  "id": "sec_avgchange-7-7",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-7-7",
-  "type": "Example",
-  "number": "1.3.15",
-  "title": "",
-  "body": "  According to the US census, the populations of Kent and Ottawa Counties in Michigan from 1960 to 2010, measured in -year intervals are given in the following tables.  Kent County population data.   Ottawa county population data.   Let represent the population of Kent County in year and the population of Ottawa County in year .   Compute for both and .    What are the units on each of the quantities you computed in part a?    Write a careful sentence that explains the meaning of the average rate of change of the Ottawa county population on the time interval . Your sentence should begin something like ``In an average year between 1990 and 2010, the population of Ottawa County was ...\"    Which county had a greater average rate of change during the time interval ? Were there any intervals in which one of the counties had a negative average rate of change?    Using the given data, what do you predict will be the population of Ottawa County in 2018? Why?       If you have time, attempt the questions yourself, then read the solutions below.   For , we have . For , we have .    Population is measured in people, time here is measured in years. So, the units are people per year.    In an average year between 1990 and 2010, the population of Ottawa County was increasing by about people per year.    Between 2000 and 2010, the Kent County population increased by about people per year, and the Ottawa County population increased by about people per year. So, Kent county had a greater average rate of change. Since the populations always increase from one decade to the next, neither county has an interval with a negative average rate of change.    The average rate of change between and in Ottawa county is people per year; if we assume this holds over the next years, then in the total population will be: people years people per year people.      "
-},
-{
-  "id": "fig_TaalmanPage250ICU",
-  "level": "2",
-  "url": "sec_avgchange.html#fig_TaalmanPage250ICU",
-  "type": "Figure",
-  "number": "1.3.16",
-  "title": "",
-  "body": " An increasing, concave up function. \\begin{subfigure}[H]{0.2\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.2\\textwidth} \\caption{A decreasing, concave up function.} \\end{subfigure} \\caption{Graphs that are concave up. Their rates of change are increasing.} "
-},
-{
-  "id": "fig_TaalmanPage250ICUX",
-  "level": "2",
-  "url": "sec_avgchange.html#fig_TaalmanPage250ICUX",
-  "type": "Figure",
-  "number": "1.3.17",
-  "title": "",
-  "body": " An increasing, concave down function. \\begin{subfigure}[H]{0.2\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.2\\textwidth} \\caption{A decreasing, concave down function.} \\end{subfigure} \\caption{Graphs that are concave down. Their rates of change are decreasing.} "
-},
-{
-  "id": "ex_APC1-5-3",
-  "level": "2",
-  "url": "sec_avgchange.html#ex_APC1-5-3",
-  "type": "Example",
-  "number": "1.3.18",
-  "title": "",
-  "body": "  Suppose a water balloon is tossed vertically from a fifth story window. Its height, , in meters, at time , in seconds, is modeled by the function .  Below is a table for values of average rates of change for on select intervals. Can you spot a pattern?   Average rates of change for on several unit-length intervals        \\midrule  m\/s     m\/s     m\/s     m\/s     m\/s     In Table we see an interesting pattern in the average velocities of the ball: they decrease by exactly 10 m\/s on each subsequent unit-length interval. Indeed, if we remove the endpoint of each interval and focus on the starting value of each interval, viewing the resulting average rate of change as a function of the starting value, we may consider the related table, Table seen below:   Data from Table , recast with average velocity as a function of the starting point of the interval        \\midrule  m\/s     m\/s     m\/s     m\/s     m\/s     We observe that the average rate of change of is decreasing by 10 m\/s for each second that passes. It is itself changing in a way that seems to be represented by a linear function. Thus it appears that the average rate of change is a linear function of . Moreover, we can also visualize the concave down quadratic function and its decreasing average rates of change. The picture below graphs these average rates of change as slope on each interval, and we can see that the slopes of the lines on each interval are getting more and more negative (from to , then , etc.).      "
-},
-{
-  "id": "sec_avgchange-8-11",
-  "level": "2",
-  "url": "sec_avgchange.html#sec_avgchange-8-11",
-  "type": "Checkpoint",
-  "number": "1.3.21",
-  "title": "",
-  "body": "  Summarize the difference between average rates of change for linear and quadratic functions.   "
-},
-{
   "id": "sec_linearandquadraticmodeling",
   "level": "1",
   "url": "sec_linearandquadraticmodeling.html",
   "type": "Section",
-  "number": "1.4",
+  "number": "1.3",
   "title": "Modeling with Linear and Quadratic Functions",
   "body": " Modeling with Linear and Quadratic Functions    Functions Modeling     Learning Goals     Examine the mathematical modeling cycle.    Use linear and quadratic functions to describe real-world problems.    Practice translating back and forth between the context and mathematical calculations in a problem.    Revisit ideas of domain and range, increasing and decreasing, intercepts, and average rate of change in a context that gives these concepts a practical meaning.       The Mathematical Modeling Process  A mathematical model is a mathematical description (often by means of a function or an equation) of a real-world phenomenon such as the size of a population, the demand for a product, the speed of a falling object, the concentration of a product in a chemical reaction, the life expectancy of a person at birth, or the cost of emission reductions. The purpose of the model is to understand the phenomenon and perhaps to make predictions about future behavior.   below illustrates the process of mathematical modeling.   The modeling cycle. Graphic from www.educationaldesigner.org .    Given a real-world problem, our first task is to formulate a mathematical problem by   identifying and naming the independent and dependent variables    making assumptions that simplify the problem so it is easy enough to describe with mathematics    using knowledge of the physical situation to brainstorm relevant equations, formulas, and theorems, possibly working from data or a graph    obtaining equations that relate the variables     The second step is to apply the mathematics that we know (such as the calculus that we will be developing over the year) to the mathematical equations that we have formulated in order to derive a mathematical solution.  In the third step, we take those mathematical conclusions and interpret them as information about the original real-world phenomenon by way of offering explanations or making predictions. The final step is to test our predictions by checking against new real data. If the predictions don't compare well with reality, we need to refine our model or formulate a new model and start the cycle over again.  This is similar to the framework for problem-solving described in , except that in a truly real-world problem, the actual question may not be stated explicitly or formulated in a way that can be answered without further refinement of the question (getting more information, simplifying more assumptions, building more theory). Since we are working in the context of a calculus course, all of our \"real-world\" questions will be very well-behaved and tractable.  A mathematical model is never a completely accurate representation of a physical situation. Instead, it is an idealization or an approximation . A good model simplifies reality enough to permit mathematical calculations but is accurate enough to provide valuable conclusions. It is important to realize the limitations of the model.    Average rate of change  In this section we will treat examples of modeling that use linear and quadratic functions. Important in this context is the question of why one of these types of functions would be more appropriate than the other in a given setting. One important difference between the two families of functions lies in the shape of their graphs: linear functions have linear graphs, whereas quadratic functions do not. (In fact the graph of a quadratic function is a parabola, as we will discuss later.)  The notion of the average rate of change of a function provides us with a convenient algebraic way of articulating this difference between linear and quadratic functions.   Average rate of change   Assume the function is defined on the interval . The average rate of change from to (or over the interval ) is defined as .     Average rate of change  Some remarks are in order.   It is absolutely essential to note that the average rate of change of a function depends on the given interval. A function can possibly have one average rate of change on the interval and a different average rate of change on the interval .    Let be the dependent variable for a function , so that for all in the domain of . The average rate of change over an interval is a measure of how how quickly the the -values of change as we let the input vary over . Writing and , to evoke change in - and -values respectively, we sometimes use the shorthand . This notation effectively evokes the concept of a rate of change. Note, however, that some important information is hidden in the notation, since the specific interval in question is not indicated in the notation.    In a modeling situation, the independent and dependent variables and usually have units attached to them. Using some units algebra , the units of the average rate of change over an interval are given as , usually read as unit per unit . Making clear the units of an average rate of change often helps us understand the physical meaning of this measure in a modeling situation.    The average rate of change of a function over the interval is a somewhat coarse measure of how outputs of change with respect to inputs as it only makes use of the information provided by the outputs and at the endpoints of this interval. This measure remains silent about what happens in between: , it provides now information about how the function behaves on the open interval .      The notion of average rate of change gives us an alternative characterization of a linear function: namely, a function is linear if and only if its average rate of change is the same for any interval. We summarize this by saying that a linear function has a constant rate of change .   Linear function equivalence   Let be a function. The following statements are equivalent.    is linear.     has a constant rate of change ( , the average rate of change of is the same for any interval).   Moreover, given a linear function , where and are constants, the slope is the average rate of change of over any interval . In other words, is the (constant) rate of change of .    Since we are proving the logical equivalence (1) (2), we must show that (1) (2) and (2) (1). We show each implication separately.   Implication: (1) (2)  Assume is linear. By definition this means there are constants such that for all . We claim that is the average rate of change of over any given interval. This means in particular that the average rate of change of is constant over any interval. To prove the claim we take any interval , and compute the average rate of change of over as , as desired.    Implication: (2) (1)  Now assume that is a function whose average rate of change over any interval is always the same. Let be the value of this constant average rate of change. Furthermore, let . We claim that for all , and hence that is linear. To prove the claim, let be any positive real number and consider the interval . Since the average rate of change of over is equal to the constant , we have . Solving the equation above for , we conclude that . Similarly, if is any negative real number, then applying the same argument to the interval , we conclude again that . Lastly, since , we see that for all . This proves is linear.      Average rate of change: linear functions   Decide from the given information whether the function is linear. If so, provide a formula for . (Assume the domain of is .)    Table of values for    x -3 -1 1 3    f(x) 10 7 4 1        Table of values for    x 2 3 5 7    f(x) -5 -4 -3 -2             From the given information we see that the rate of change of is constant over any interval, and equal to . From we conclude that is linear and of the form for some . To determine , we can evaluate at any of the provided inputs and then solve for . Using the input , for example, we have . We conclude that . Note that although we were not asked to do so, we can easily check our answer by verifying that .    The function is not linear! Be careful, there was a slight trick involved here in that the -values included in the table are not incremented by a constant amount. That is pretty unconventional for a table, but not expressly prohibited. Computing the average rate of change of over the two intervals and we get . Since these average rates of change are not the same, we conclude that is not linear.         Using Linear Functions as Models  The new characterization of linear functions in makes clear the role of linear functions in modeling: we should chose a linear function as our model, when the output quantity changes at a constant rate with respect to the input quantity.   Dolbear's law   Dolbear's law relates the chirping of crickets to temperature.  You can read more in the Wikipedia entry for Dolbear's Law, which has proven to be remarkably accurate for the behavior of snowy tree crickets. For even more of the story, including a reference to this phenomenon on the popular show The Big Bang Theory, see this article .  In the late 1800s, the physicist Amos Dolbear was listening to crickets chirp and noticed a pattern: how frequently the crickets chirped seemed to be connected to the outside temperature. If we let represent the temperature in degrees Fahrenheit and the number of chirps per minute, we can summarize Dolbear's observations in the following table.   Data for Dolbear's observations     (chirps\/min)  40  80  120  160     ( F)         For a mathematical model, we often seek an algebraic formula that captures observed behavior accurately and can be used to predict behavior not yet observed. When we graph the data, we can see a pattern that tells us what kind of formula to use.   Graph of Dolbear's data relating rate of chirps (chirps\/min) and temperature ( F).   Graph of Dolbear's data     The data appear to fit a line, suggesting that can be modeled as a linear function of : , we have for some constants . According to , can be computed as the average rate of change of over any interval of our choosing. The points Using the points and on our graph allow us to compute the average rate of change of over as . Thus we have . Now evaluate this equation with any input\/output pair you like in order to solve for . Taking , for example we see that: .  Before we attempt any further calculations, we may want to check that our model accurately represents the collected data. Let's check that the point is indeed on the line. For , we have   Success! We conclude that Dolbear's function  models the relationship between the number of cricket chirps per minute and the temperature in degrees Fahrenheit.      Now that we have a model for Dolbear's observations, let's use it to make some predictions.   If we hear snowy tree crickets chirping at a rate of 92 chirps per minute, what does Dolbear's model suggest should be the outside temperature?    If the outside temperature is F, how many chirps per minute should we expect to hear?    Suppose that in the morning an observer hears 65 chirps per minute, and several hours later hears 75 chirps per minute. How much has the temperature risen between observations?        Dolbear's law: continued   Let's continue to explore the limits of our model for Dolber's observations. Suppose we wish to know the number of chirps we should hear when the outside temperature is F. There is no point on the graph with and so we solve numerically for to determine the number of chirps one should hear when the outside temperature is F.   In context, this means that when it's outside, we should hear chirps per minute. A negative number of chirps per minute does not make sense, and so we can see that the model is not valid when the outside temperature is F.  At this point in the modeling process, a scientist would need to revisit the physical situation and make further observations. Indeed, Dolbear observed that temperatures below F are too cold for the crickets and temperatures above F are too hot for the crickets, so the model is only accurate for temperatures between F and F. Recalling that here we are modeling temperature as a function of the rate of chirping , we see that for our model to be meaningful, we want (set of outputs ) to lie in . Since our function is linear, this means we must restrict the domain (possible inputs) accordingly. First let's solve the equations and for : . Since is an increasing function of , it follows that if we want , we need to pick the domain of to be .     Domains of modeling functions  When working with a model, it is common to have to restrict the domain of a function based on real-world conditions, rather than algebraic requirements, so that the model makes sense in the context it is meant to represent.   Here is another physical phenomenon where a linear function provides an appropriate model: measuring the area of a glacier over time. Remember: linear functions have constant average rates of change, so are ideal for modeling quantities that change at a constant rate.   Modeling Glacier Areas   The summit of Africa's largest peak, Mt. Kilimanjaro, has two main ice fields and a glacier at its peak. Geologists measured the ice cover in the year 2000 ( ) to be approximately m ; in the year 2007, the ice cover measured m .   Suppose that the amount of ice cover at the peak of Mt. Kilimanjaro is changing at a constant average rate from year to year. Find a linear model whose output is the area, in square meters in year (where is the number of years after 2000).    What do the slope and -intercept mean in the model you found in (a)? In particular, what are the units on the slope?    Compute . What does this quantity measure? Write a complete sentence to explain.    If the model holds further into the future, when do we predict the ice cover will vanish?    In light of your work above, what is a reasonable domain to use for the model ? What is the corresponding range?          We are told that the ice cover starts at , so the point lies on the graph of the function. We are also given the point . The slope is then The linear model is then .    The slope is the rate at which the glacier is losing ice each year, measured in m \/year. The -intercept is the area of the ice at (in 2000).     . In 2017, the ice cover on the glacier is approximately 989.2857 m .    The ice cover will vanish when . Solving for , we have . The ice cover will vanish toward the end of May of 2034.    A reasonable domain for the model is . The corresponding range is , meaning the ice cover will take on values between 1951 m and 0 m . (Note that we still write this interval as 0 to 1951 when using interval notation, even though the ice cover is vanishing.)         What is a quantity or phenomenon that you observe to have a constant rate of change? Assign names to the independent and dependent variables and create a linear model of this phenomenon. If relevant, include an appropriate domain and\/or range. Is your model an increasing or decreasing linear function?      Modeling with quadratic functions: falling objects  One of the reasons that quadratic functions are so important is because of a physical fact of the universe we inhabit: for an object only being influenced by gravity, acceleration due to gravity is constant . If we measure time in seconds and a rising or falling object's height in feet, the gravitational constant is feet per second per second, where the negative sign signifies that gravity is pulling \"down,\" meaning toward the ground.  One of the fantastic consequences of calculus which, like the realization that acceleration due to gravity is constant, is largely due to Sir Isaac Newton in the late 1600s is that the height of a falling object at time is modeled by a quadratic function.   Height of falling object   For an object tossed vertically from an initial height of feet with a velocity of feet per second, the object's height at time (in seconds) is given by the formula and corresponds to a gravitational constant of ft\/s .  If height is measured instead in meters and velocity in meters per second, the gravitational constant is m\/s and the function has form .    We will see where this formula comes from later in the course!   Water ballon   A water balloon is tossed vertically from a dorm room window at an initial height of 37 feet with an initial velocity of 41 feet per second.   Find a formula for the height of the ballon seconds after it is tossed.    When does the balloon hit the ground?    Use technology to produce a graph of , and use this to estimate the maximum height reached by the water balloon during its flight.          We can use Theorem to model the height of the water balloon. First, we notice that since the information is given in feet and seconds, we should use the formula corresponding to a gravitational constant of ft\/s . Next, we determine the constants in the formula. The initial height in the problem is given as 37 feet, so we have .  The initial velocity is given as 41 feet per second. Note the units! This is the rate of change of position. Thus we have .  Thus our model is where is measured in seconds, denotes the time at which the water balloon is thrown, and is measured in feet.    The balloon hitting corresponds to a time when . Thus, we wish to solve for , noting that we would like to have a positive time since our model only becomes valid after . That quadratic equation does not look like it will factor nicely, so we will immediately use the quadratic formula:   Since we are looking for a time after the balloon is thrown, the answer we are looking for is . This implies a domain for our model since the balloon cannot pass through the ground: the model gives the height of the water balloon seconds after it is thrown until it hits the ground, so for .    Lastly, let's graph our function and use that to estimate the time the water balloon reaches its highest point, along with its height at that time. This will give us the range of our model, as well.   The function that models the height of the water balloon for .    From the Desmos graph, we can see that the quadratic function reaches its maximum at approximately the point , and that the range of our modeling function is . Interpreting this information back into the context of the balloon, we can say that the balloon reaches its highest point approximately second after it is thrown, and that its height is feet at that time.  Note that we can verify these claims algebraically by computing a completed square form of our quadratic function. We have . From , we conclude that has a maximum at and its maximum value there is .         Use the model developed in Example to answer the following questions.   Compute the average rate of change of on the interval . What are the units for the number you computed?    Copy the graph of from to your notes. Draw an appropriate line on the graph whose slope is the value of the average rate of change in part (a).    You should have computed in part (a) and be able to see in part (b) that the average rate of change of on the interval is negative. Does this mean that the balloon is falling between and ?    Compute the average rate of change of on the interval . Is the balloon speeding up or slowing down as it approaches the ground?         Cost, Revenue, and Profit  In the business world the quantities of cost, revenue, and profit related to production of a good are of great importance. These quantities are often modeled as functions of the amount of the good produced.   Cost function   The cost function  gives the total cost of producing a quantity of some good.    What sort of function do you expect to be? The more goods that are made, the higher the total cost, so is an increasing function. Costs of production can be separated into two parts: the fixed costs, which are incurred even if nothing is produced, and the variable costs, which depend on how many units are produced.   Radio production: cost function   Let's consider a company that makes radios. The factory and machinery needed to begin production are fixed costs, which are incurred even if no radios are made. The costs of labor and raw materials are variable costs since these quantities depend on how many radios are made. The fixed costs for this company are $24,000 and the variable costs are $7 per radio. Then so, if is the number of radios produced, .    The variable cost for one additional unit is called the marginal cost . For a linear cost function, the marginal cost is the rate of change, or slope, of the cost function.    In each case, draw a graph of a linear cost function satisfying the given conditions:   Fixed costs are large but marginal cost is small.    There are no fixed costs but marginal cost is high.        Revenue Function   The revenue function , , gives the total revenue resulting from the production of a quantity of some good.    Let's assume that the price of our good is itself a function of the quantity of the good produced. Assuming further that the quantity of goods sold is equal to the quantity produced (not always a good assumption!), we conclude that revenue function is computed as . In the simplest case, the price is a constant, independent of the quantity of goods produced, in which case formula reduces to , modeling revenue as a linear function of . In this case, the graph of is a line passing through the origin with slope .   Radio production: revenue   If radios sell for $15 each, then the manufacturer's revenue function is      Radio production: cost and revenue   Graph the cost function and the revenue function on the same axes. For what values of does the company make money?    The company makes money whenever revenues are greater than costs, so we find the values of for which the graph of lies above the graph of :   We find the point at which the graph of and cross:   The company makes a profit if it produces and sells more than 3000 radios. The company loses money if it produces and sells fewer than 3000 radios.    This difference between the revenue and cost is called profit , and many decisions are made based on this quantity, rather than cost or revenue alone:   Profit function   Assume the production of a certain good has associated cost and revenue functions and , where is the quantity of good produced. The profit function , denoted is defined as . In other words, is the net profit (revenue minus cost) resulting from producing a quantity of the good.  The break-even point is the level of production resulting in a profit of zero: equivalently, this is the level of production where revenue equals cost.     Radio production: break-even point and fixed cost   For our radio manufacturer, a formula for the profit function is   Notice that in terms of the graph of , the fixed cost corresponds to the -intercept, and the break-even point corresponds to the -intercept.   Profit for the radio manufacturer.        If cost, , and revenue, , are given by the graph below, what is the break-even point for the company? For what production quantities does the firm make a profit?       Just as we used the term marginal cost to mean the rate of change, or slope, of a linear cost function, we use the terms marginal revenue and marginal profit to mean the rate of change, or slope, of linear revenue and profit functions, respectively. The term marginal is used because we are looking at how the cost, revenue, or profit change \"at the margin,\" that is, by the addition of one more unit.    For example, for the radio manufacturer, the marginal cost is 7 dollars\/item (the additional cost of producing one more item is $7), the marginal revenue is 15 dollars\/item (the additional revenue from selling one more item is $15), and the marginal profit is 8 dollars\/item (the additional profit from selling one more item is $8).      How is the idea of a \"marginal\" cost, revenue, or profit similar to the idea of the average rate of change of a function?         A town has a population of people at time . In each of the following cases, write a formula for the population , of the town as a function of year .  (a) The population increases by people per year.   people  (b) The population increases by percent a year.   people             (a) The function is linear with initial population of people and slope of , so . (b) This function is exponential with inital population of and growth rate of percent, so .          Let be time in seconds and let be the rate, in gallons per second, that water enters a reservoir:  (a) Evaluate the expression   (b) Which one of the statements below best describes the physical meaning of the value of ?   The rate, in gallons per second, at which the water is entering reservoir after 10 seconds.    The total amount, in gallons, of water in the reservoir after 10 seconds.    How many seconds until the water is entering to reservoir at a rate of 10 gallons per second.    The rate at which the rate of the water entering the reservoir is decreasing when 10 gallons remain in the reservoir.    None of the above    (c) For each of the mathematical expressions below, match one of the statements A - E below which best explains its meaning in practical terms.    The slope of the graph of .    The vertical intercept of the graph of .      The rate at which the rate of water entering the reservoir is decreasing in gallons per second squared.    After how many seconds the water stops flowing into the reservoir and starts to drain out.    The rate, in gallons per second, at which the water is initially entering the reservoir.    The initial amount of water, in gallons, in the reservoir.    The average rate, in gallons per second, at which water is flowing out of the reservoir.    (d) For , when does the reservoir have the most water?  When  sec.  (e) For , when does the reservoir have the least water?  When  sec.  (f) If the domain of is , what is the range of ?  range = (enter your answer in interval notation, or an inequality in : )         A    A    C   SOLUTION (a) . (b) means water is entering the reservoir at 250 gallons per second at time seconds. (c) The vertical intercept first tells us that at time seconds, the water is initially flowing in at the rate of 600 gallons per second. The horizontal intercept tells us that at seconds, the flow has stopped. The slope is . This means that the rate at which water enters the reservoir decreases by 35 gallons per second each second. The water is flowing in at a decreasing rate. (d) The reservoir has more and more water when the rate, , is positive because water is being added. Water is being added until seconds later when it starts flowing out. This means at , the most water is in the reservoir. (e) The reservoir has water draining out between and , but this amount is not as much as the water that entered between and . Thus, the reservoir had the least amount of water at the beginning when . Remember the function gives the rate of flow, not the amount of water in the reservoir. (f) If the domain is specified as , then the rate varies from 600 gallons per second at to -275 gallons per second at , so the range is . In interval notation we express the range as .          A report by the US Geological Survey indicates that glaciers in Glacier National Park, Montana, are shrinking. Recent estimates indicate the area covered by glaciers has decreased from over in 1850 to about in 1995. Let give the area (in square km) years after 2000, and assume .  a) Find and explain the meaning of the slope. Which statement best explains its significance?   The total area covered by glaciers decreased by from 1850 to 2000.    The area covered by glaciers is decreasing by every year.    The area covered by glaciers is decreasing by every year.    The area covered by glaciers is decreasing by every year.    The total area covered by glaciers is increasing by every year.    None of the above    b) Find and explain the meaning of the -intercept. Which statement best explains its significance?   The area covered by glaciers is decreasing by every year.    The area covered by glaciers in 2000 was .    The total area covered by glaciers decreased by from 1850 to 2000.    The area covered by glaciers in 2000 was .    The total area covered by glaciers will decrease by from 2000 to 2001.    None of the above    c) For both expressions listed below, enter the letter A-E of the statement which best explains their practical meaning. There are extra, unused statements.   is    If , then is      The number of years after 2000 that the amount of glacier area that has disappeared is .    The amount of glacier area (in ) that disappears in 12 years.    How much area (in ) will be covered by glaciers in 2012.    How much area (in ) will be covered by glaciers in 12 years.    The number of years after 2000 that the total area covered by glaciers will be .    d) Evaluate   e) How much glacier area disappears in 12 years?   f) Solve .  (round your answer to one decimal place)    B    B    C   SOLUTION a) The slope is , which tells us that the glacier area in the park goes down by per year. Since 1 km = 1,000 m, it follows that . Equivalently, the slope tells us that the glacier area in the park goes down by per year. b) The -intercept is , which tells us that in the year 2000, the area was . c) is the amount of area in the park covered by glaciers in 2012 (12 years after 2000). signifies how many years after 2000 will the area covered by glaciers be . d) We have e) . Letting we have , and therefore . So about 0.744 disappear in 12 years. f) We have , so that , and finally .          If a ball is thrown straight up into the air with an initial velocity of ft\/s, its height in feet after second is given by . Find the average velocity (include units, ) for the time period begining when seconds and lasting  (i) seconds  Average velocity:  (ii) seconds  Average velocity:  (iii) seconds  Average velocity:  Finally based on the above results, guess what the instantaneous velocity of the ball is when .  Average velocity:                             "
 },
@@ -1121,7 +986,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#fig_modeling_cycle",
   "type": "Figure",
-  "number": "1.4.1",
+  "number": "1.3.1",
   "title": "",
   "body": " The modeling cycle. Graphic from www.educationaldesigner.org .   "
 },
@@ -1130,7 +995,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#d_avg_rate_change",
   "type": "Definition",
-  "number": "1.4.2",
+  "number": "1.3.2",
   "title": "Average rate of change.",
   "body": " Average rate of change   Assume the function is defined on the interval . The average rate of change from to (or over the interval ) is defined as .   "
 },
@@ -1139,7 +1004,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#rm_avg_rate_change",
   "type": "Remark",
-  "number": "1.4.3",
+  "number": "1.3.3",
   "title": "Average rate of change.",
   "body": " Average rate of change  Some remarks are in order.   It is absolutely essential to note that the average rate of change of a function depends on the given interval. A function can possibly have one average rate of change on the interval and a different average rate of change on the interval .    Let be the dependent variable for a function , so that for all in the domain of . The average rate of change over an interval is a measure of how how quickly the the -values of change as we let the input vary over . Writing and , to evoke change in - and -values respectively, we sometimes use the shorthand . This notation effectively evokes the concept of a rate of change. Note, however, that some important information is hidden in the notation, since the specific interval in question is not indicated in the notation.    In a modeling situation, the independent and dependent variables and usually have units attached to them. Using some units algebra , the units of the average rate of change over an interval are given as , usually read as unit per unit . Making clear the units of an average rate of change often helps us understand the physical meaning of this measure in a modeling situation.    The average rate of change of a function over the interval is a somewhat coarse measure of how outputs of change with respect to inputs as it only makes use of the information provided by the outputs and at the endpoints of this interval. This measure remains silent about what happens in between: , it provides now information about how the function behaves on the open interval .     "
 },
@@ -1157,7 +1022,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#th_linear_func_equiv",
   "type": "Theorem",
-  "number": "1.4.4",
+  "number": "1.3.4",
   "title": "Linear function equivalence.",
   "body": " Linear function equivalence   Let be a function. The following statements are equivalent.    is linear.     has a constant rate of change ( , the average rate of change of is the same for any interval).   Moreover, given a linear function , where and are constants, the slope is the average rate of change of over any interval . In other words, is the (constant) rate of change of .    Since we are proving the logical equivalence (1) (2), we must show that (1) (2) and (2) (1). We show each implication separately.   Implication: (1) (2)  Assume is linear. By definition this means there are constants such that for all . We claim that is the average rate of change of over any given interval. This means in particular that the average rate of change of is constant over any interval. To prove the claim we take any interval , and compute the average rate of change of over as , as desired.    Implication: (2) (1)  Now assume that is a function whose average rate of change over any interval is always the same. Let be the value of this constant average rate of change. Furthermore, let . We claim that for all , and hence that is linear. To prove the claim, let be any positive real number and consider the interval . Since the average rate of change of over is equal to the constant , we have . Solving the equation above for , we conclude that . Similarly, if is any negative real number, then applying the same argument to the interval , we conclude again that . Lastly, since , we see that for all . This proves is linear.    "
 },
@@ -1166,7 +1031,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#eg_avg_rate_change",
   "type": "Example",
-  "number": "1.4.5",
+  "number": "1.3.5",
   "title": "Average rate of change: linear functions.",
   "body": " Average rate of change: linear functions   Decide from the given information whether the function is linear. If so, provide a formula for . (Assume the domain of is .)    Table of values for    x -3 -1 1 3    f(x) 10 7 4 1        Table of values for    x 2 3 5 7    f(x) -5 -4 -3 -2             From the given information we see that the rate of change of is constant over any interval, and equal to . From we conclude that is linear and of the form for some . To determine , we can evaluate at any of the provided inputs and then solve for . Using the input , for example, we have . We conclude that . Note that although we were not asked to do so, we can easily check our answer by verifying that .    The function is not linear! Be careful, there was a slight trick involved here in that the -values included in the table are not incremented by a constant amount. That is pretty unconventional for a table, but not expressly prohibited. Computing the average rate of change of over the two intervals and we get . Since these average rates of change are not the same, we conclude that is not linear.      "
 },
@@ -1175,7 +1040,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#ex_DolbearTake1",
   "type": "Example",
-  "number": "1.4.8",
+  "number": "1.3.8",
   "title": "Dolbear’s law.",
   "body": " Dolbear's law   Dolbear's law relates the chirping of crickets to temperature.  You can read more in the Wikipedia entry for Dolbear's Law, which has proven to be remarkably accurate for the behavior of snowy tree crickets. For even more of the story, including a reference to this phenomenon on the popular show The Big Bang Theory, see this article .  In the late 1800s, the physicist Amos Dolbear was listening to crickets chirp and noticed a pattern: how frequently the crickets chirped seemed to be connected to the outside temperature. If we let represent the temperature in degrees Fahrenheit and the number of chirps per minute, we can summarize Dolbear's observations in the following table.   Data for Dolbear's observations     (chirps\/min)  40  80  120  160     ( F)         For a mathematical model, we often seek an algebraic formula that captures observed behavior accurately and can be used to predict behavior not yet observed. When we graph the data, we can see a pattern that tells us what kind of formula to use.   Graph of Dolbear's data relating rate of chirps (chirps\/min) and temperature ( F).   Graph of Dolbear's data     The data appear to fit a line, suggesting that can be modeled as a linear function of : , we have for some constants . According to , can be computed as the average rate of change of over any interval of our choosing. The points Using the points and on our graph allow us to compute the average rate of change of over as . Thus we have . Now evaluate this equation with any input\/output pair you like in order to solve for . Taking , for example we see that: .  Before we attempt any further calculations, we may want to check that our model accurately represents the collected data. Let's check that the point is indeed on the line. For , we have   Success! We conclude that Dolbear's function  models the relationship between the number of cricket chirps per minute and the temperature in degrees Fahrenheit.   "
 },
@@ -1184,7 +1049,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#ex_dolbear1",
   "type": "Checkpoint",
-  "number": "1.4.11",
+  "number": "1.3.11",
   "title": "",
   "body": "  Now that we have a model for Dolbear's observations, let's use it to make some predictions.   If we hear snowy tree crickets chirping at a rate of 92 chirps per minute, what does Dolbear's model suggest should be the outside temperature?    If the outside temperature is F, how many chirps per minute should we expect to hear?    Suppose that in the morning an observer hears 65 chirps per minute, and several hours later hears 75 chirps per minute. How much has the temperature risen between observations?      "
 },
@@ -1193,7 +1058,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#ex_DolbearTake2",
   "type": "Example",
-  "number": "1.4.12",
+  "number": "1.3.12",
   "title": "Dolbear’s law: continued.",
   "body": " Dolbear's law: continued   Let's continue to explore the limits of our model for Dolber's observations. Suppose we wish to know the number of chirps we should hear when the outside temperature is F. There is no point on the graph with and so we solve numerically for to determine the number of chirps one should hear when the outside temperature is F.   In context, this means that when it's outside, we should hear chirps per minute. A negative number of chirps per minute does not make sense, and so we can see that the model is not valid when the outside temperature is F.  At this point in the modeling process, a scientist would need to revisit the physical situation and make further observations. Indeed, Dolbear observed that temperatures below F are too cold for the crickets and temperatures above F are too hot for the crickets, so the model is only accurate for temperatures between F and F. Recalling that here we are modeling temperature as a function of the rate of chirping , we see that for our model to be meaningful, we want (set of outputs ) to lie in . Since our function is linear, this means we must restrict the domain (possible inputs) accordingly. First let's solve the equations and for : . Since is an increasing function of , it follows that if we want , we need to pick the domain of to be .   "
 },
@@ -1202,7 +1067,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6-6",
   "type": "Remark",
-  "number": "1.4.13",
+  "number": "1.3.13",
   "title": "Domains of modeling functions.",
   "body": " Domains of modeling functions  When working with a model, it is common to have to restrict the domain of a function based on real-world conditions, rather than algebraic requirements, so that the model makes sense in the context it is meant to represent.  "
 },
@@ -1211,7 +1076,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6-8",
   "type": "Example",
-  "number": "1.4.14",
+  "number": "1.3.14",
   "title": "Modeling Glacier Areas.",
   "body": " Modeling Glacier Areas   The summit of Africa's largest peak, Mt. Kilimanjaro, has two main ice fields and a glacier at its peak. Geologists measured the ice cover in the year 2000 ( ) to be approximately m ; in the year 2007, the ice cover measured m .   Suppose that the amount of ice cover at the peak of Mt. Kilimanjaro is changing at a constant average rate from year to year. Find a linear model whose output is the area, in square meters in year (where is the number of years after 2000).    What do the slope and -intercept mean in the model you found in (a)? In particular, what are the units on the slope?    Compute . What does this quantity measure? Write a complete sentence to explain.    If the model holds further into the future, when do we predict the ice cover will vanish?    In light of your work above, what is a reasonable domain to use for the model ? What is the corresponding range?          We are told that the ice cover starts at , so the point lies on the graph of the function. We are also given the point . The slope is then The linear model is then .    The slope is the rate at which the glacier is losing ice each year, measured in m \/year. The -intercept is the area of the ice at (in 2000).     . In 2017, the ice cover on the glacier is approximately 989.2857 m .    The ice cover will vanish when . Solving for , we have . The ice cover will vanish toward the end of May of 2034.    A reasonable domain for the model is . The corresponding range is , meaning the ice cover will take on values between 1951 m and 0 m . (Note that we still write this interval as 0 to 1951 when using interval notation, even though the ice cover is vanishing.)      "
 },
@@ -1220,7 +1085,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6-9",
   "type": "Checkpoint",
-  "number": "1.4.15",
+  "number": "1.3.15",
   "title": "",
   "body": "  What is a quantity or phenomenon that you observe to have a constant rate of change? Assign names to the independent and dependent variables and create a linear model of this phenomenon. If relevant, include an appropriate domain and\/or range. Is your model an increasing or decreasing linear function?   "
 },
@@ -1229,7 +1094,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#thm_fallingobject",
   "type": "Theorem",
-  "number": "1.4.16",
+  "number": "1.3.16",
   "title": "Height of falling object.",
   "body": " Height of falling object   For an object tossed vertically from an initial height of feet with a velocity of feet per second, the object's height at time (in seconds) is given by the formula and corresponds to a gravitational constant of ft\/s .  If height is measured instead in meters and velocity in meters per second, the gravitational constant is m\/s and the function has form .   "
 },
@@ -1238,7 +1103,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#ex_APC1-5-4",
   "type": "Example",
-  "number": "1.4.17",
+  "number": "1.3.17",
   "title": "Water ballon.",
   "body": " Water ballon   A water balloon is tossed vertically from a dorm room window at an initial height of 37 feet with an initial velocity of 41 feet per second.   Find a formula for the height of the ballon seconds after it is tossed.    When does the balloon hit the ground?    Use technology to produce a graph of , and use this to estimate the maximum height reached by the water balloon during its flight.          We can use Theorem to model the height of the water balloon. First, we notice that since the information is given in feet and seconds, we should use the formula corresponding to a gravitational constant of ft\/s . Next, we determine the constants in the formula. The initial height in the problem is given as 37 feet, so we have .  The initial velocity is given as 41 feet per second. Note the units! This is the rate of change of position. Thus we have .  Thus our model is where is measured in seconds, denotes the time at which the water balloon is thrown, and is measured in feet.    The balloon hitting corresponds to a time when . Thus, we wish to solve for , noting that we would like to have a positive time since our model only becomes valid after . That quadratic equation does not look like it will factor nicely, so we will immediately use the quadratic formula:   Since we are looking for a time after the balloon is thrown, the answer we are looking for is . This implies a domain for our model since the balloon cannot pass through the ground: the model gives the height of the water balloon seconds after it is thrown until it hits the ground, so for .    Lastly, let's graph our function and use that to estimate the time the water balloon reaches its highest point, along with its height at that time. This will give us the range of our model, as well.   The function that models the height of the water balloon for .    From the Desmos graph, we can see that the quadratic function reaches its maximum at approximately the point , and that the range of our modeling function is . Interpreting this information back into the context of the balloon, we can say that the balloon reaches its highest point approximately second after it is thrown, and that its height is feet at that time.  Note that we can verify these claims algebraically by computing a completed square form of our quadratic function. We have . From , we conclude that has a maximum at and its maximum value there is .      "
 },
@@ -1247,7 +1112,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7-7",
   "type": "Checkpoint",
-  "number": "1.4.19",
+  "number": "1.3.19",
   "title": "",
   "body": "  Use the model developed in Example to answer the following questions.   Compute the average rate of change of on the interval . What are the units for the number you computed?    Copy the graph of from to your notes. Draw an appropriate line on the graph whose slope is the value of the average rate of change in part (a).    You should have computed in part (a) and be able to see in part (b) that the average rate of change of on the interval is negative. Does this mean that the balloon is falling between and ?    Compute the average rate of change of on the interval . Is the balloon speeding up or slowing down as it approaches the ground?      "
 },
@@ -1256,7 +1121,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-3",
   "type": "Definition",
-  "number": "1.4.20",
+  "number": "1.3.20",
   "title": "Cost function.",
   "body": " Cost function   The cost function  gives the total cost of producing a quantity of some good.   "
 },
@@ -1265,7 +1130,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-5",
   "type": "Example",
-  "number": "1.4.21",
+  "number": "1.3.21",
   "title": "Radio production: cost function.",
   "body": " Radio production: cost function   Let's consider a company that makes radios. The factory and machinery needed to begin production are fixed costs, which are incurred even if no radios are made. The costs of labor and raw materials are variable costs since these quantities depend on how many radios are made. The fixed costs for this company are $24,000 and the variable costs are $7 per radio. Then so, if is the number of radios produced, .   "
 },
@@ -1274,7 +1139,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-7",
   "type": "Checkpoint",
-  "number": "1.4.22",
+  "number": "1.3.22",
   "title": "",
   "body": "  In each case, draw a graph of a linear cost function satisfying the given conditions:   Fixed costs are large but marginal cost is small.    There are no fixed costs but marginal cost is high.      "
 },
@@ -1283,7 +1148,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-8",
   "type": "Definition",
-  "number": "1.4.23",
+  "number": "1.3.23",
   "title": "Revenue Function.",
   "body": " Revenue Function   The revenue function , , gives the total revenue resulting from the production of a quantity of some good.   "
 },
@@ -1292,7 +1157,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-10",
   "type": "Example",
-  "number": "1.4.24",
+  "number": "1.3.24",
   "title": "Radio production: revenue.",
   "body": " Radio production: revenue   If radios sell for $15 each, then the manufacturer's revenue function is    "
 },
@@ -1301,7 +1166,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-11",
   "type": "Example",
-  "number": "1.4.25",
+  "number": "1.3.25",
   "title": "Radio production: cost and revenue.",
   "body": " Radio production: cost and revenue   Graph the cost function and the revenue function on the same axes. For what values of does the company make money?    The company makes money whenever revenues are greater than costs, so we find the values of for which the graph of lies above the graph of :   We find the point at which the graph of and cross:   The company makes a profit if it produces and sells more than 3000 radios. The company loses money if it produces and sells fewer than 3000 radios.   "
 },
@@ -1310,7 +1175,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-13",
   "type": "Definition",
-  "number": "1.4.26",
+  "number": "1.3.26",
   "title": "Profit function.",
   "body": " Profit function   Assume the production of a certain good has associated cost and revenue functions and , where is the quantity of good produced. The profit function , denoted is defined as . In other words, is the net profit (revenue minus cost) resulting from producing a quantity of the good.  The break-even point is the level of production resulting in a profit of zero: equivalently, this is the level of production where revenue equals cost.   "
 },
@@ -1319,7 +1184,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-14",
   "type": "Example",
-  "number": "1.4.27",
+  "number": "1.3.27",
   "title": "Radio production: break-even point and fixed cost.",
   "body": " Radio production: break-even point and fixed cost   For our radio manufacturer, a formula for the profit function is   Notice that in terms of the graph of , the fixed cost corresponds to the -intercept, and the break-even point corresponds to the -intercept.   Profit for the radio manufacturer.     "
 },
@@ -1328,7 +1193,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-15",
   "type": "Checkpoint",
-  "number": "1.4.29",
+  "number": "1.3.29",
   "title": "",
   "body": "  If cost, , and revenue, , are given by the graph below, what is the break-even point for the company? For what production quantities does the firm make a profit?      "
 },
@@ -1337,7 +1202,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-17",
   "type": "Example",
-  "number": "1.4.30",
+  "number": "1.3.30",
   "title": "",
   "body": "  For example, for the radio manufacturer, the marginal cost is 7 dollars\/item (the additional cost of producing one more item is $7), the marginal revenue is 15 dollars\/item (the additional revenue from selling one more item is $15), and the marginal profit is 8 dollars\/item (the additional profit from selling one more item is $8).   "
 },
@@ -1346,7 +1211,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1-18",
   "type": "Checkpoint",
-  "number": "1.4.31",
+  "number": "1.3.31",
   "title": "",
   "body": "  How is the idea of a \"marginal\" cost, revenue, or profit similar to the idea of the average rate of change of a function?   "
 },
@@ -1391,7 +1256,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec_algebraic_func.html",
   "type": "Section",
-  "number": "1.5",
+  "number": "1.4",
   "title": "Algebraic functions",
   "body": " Algebraic functions   Our current repertoire of functions is rather limited, consisting as it does only of constant, linear, and quadratic functions. In this section we will significantly expand this to include power , polynomial , and rational functions. These function types can then be further combined using arithmetic operations to form an even larger family of functions: algebraic functions .    Learning Goals     Learn the definition of power, polynomial and rational functions.    Review the algebraic rules for fractions and exponents.    Learn to distinguish between power, polynomial, and rational functions.       Power functions  We will begin with power functions. In its most general form, a power function is a function of the form , where and are real constants. The important defining detail here is that in the formula the input variable is raised to some fixed power : that is, in a power function, the input variable appears as the base in the power expression, and not the exponent. Later we will introduce exponential functions , which are also defined via a power expression, but where the input variable appears as the exponent, as opposed to the base.  As familiar as the function formula may seem, it takes significant meaning to give meaning to this for an aritrary power . For now we will settle for a a definition for rational powers : , for real numbers that can we written as , where and are integers. In other words, will give meaning to functions of the form , but not to functions of the form , or , since and (famously) are not rational numbers. We will eventually extend our definition of power functions to include such irrational powers, but to do so we will need the help of calculus.   Rational numbers    rational numbers    A real number is rational if it can be written as a quotient of two integers: , we have for some integers .  We denote by the set of all rational numbers: , .     Power functions: rational power   A power function (with rational power) is any function of the form , where and , and where the expression is defined below in a case-wise manner.   Zero power  We define for all .    Positive integer  If is a positive integer, then .    Odd -th root  If is a positive odd integer, then , where is the unique real -th root of .    Even -th root  If is a positive even integer, and then , where is the unique positive  -th root of .    Positive rational  If and are relatively prime positive integers Integers are relatively prime if they share no integer factors besides . This technical condition is here to ensure the definition is well defined. , then .    Negative rational  If and are relatively prime positive integers, then .       Looking carefully at the various cases that define for a rational power , we see that some restrictions on what can be have been snuck in. Namely, when is a positive even integer, we see that is only defined for nonnegative values of . Additionally, for negative rational powers , since by definition , we see that this expression is defined if and only if is defined and nonzero. As a consequence of these restrictions, we need to take care when computing the implied domain of a power function .   Power functions: implied domain   Determine the implied domain of the given power function.                             By definition, we have . Since is defined for all and equal to 0 exactly when , we see that the implied domain of is .    Since is an even positive integer, the expression is defined only on . It follows that the implied domain of is .    By definition, we have . Since is defined for all , and is defined for all , it follows that is defined for all . We conclude that the implied domain of is .    By definition, we have . Since is defined if and only if , and since if and only if , we see that is defined if and only if . For the expression to be defined, we need further that is nonzero. This adds the additional restraint that . We conclude that the implied domain of is .       To evaluate a power function at an input, we must make our way through the various cases in the definition of a power expression . Depending on the complexity of , we may at some point have to compute a reciprocal and\/or an -th root. Our ability to write down a nice -th root of some given value determines how nicely our computed value is expressed in the end.   Evaluating power functions   Evaluate the given power function at the given input .    ,      ,           We compute .    We compute .       As we combine power functions with other functions, we will want to be able to simplify expressions wherever possible. The following power identities will come in handy in this respect.   Power identities      Each equality below is true for all real numbers , , for which the expressions involved are defined.     Assume . The following equality is true for all real numbers and : .        Iterated powers  The restriction is indeed a necessary one for the identity . For example consider the choices . Using , we have . Thus in this case. This counterexample illustrates again the subtleties of our definition of a power expression : specifically, that when for a positive even integer, is defined as the positive square root of (assuming ).  Put another way, the failure of the identity to hold in the example is a consequence of the fact that the equality does not hold for all ; it is only true for . After we officially introduce the absolute value, we will prove an improved version of this identity that does hold for all real numbers: namely, .     Simplify each expression to one involving only positive exponents. You may assume all the identities of apply in each case.                             We compute .    We compute     We compute .    We compute .       The identities in are a convenient way to recall some identities involving radicals. As an example, below we translate certain instances of the identities from into radical notation using the definition : . We make this observation official in .   Radical identities   Assume and are nonnegative. The following equalities hold for all positive integers and . .    Notice that we say a function is a power function if it can be written in the form for some constants and ; it may not start out written that way. Sometimes it can take a great deal of algebra to determine whether or not a function is a power function \"in disguise.\"    For example, is the function a power function? If so, what are the numbers and ?    We can expand, factor, and then make a lucky cancellation to write this expression in the form :        The expression equals  where , the exponent of , is:  and , the exponent of , is:              Therefore and .          Polynomial functions  Before giving the formal definition of a polynomial, let's take a look at some examples of what we will call polynomial functions: . We next make a list of some common features of these functions.   In contrast to linear and quadratic functions, these polynomials are seen to be sums of an unlimited (but finite) number of terms.    Each term is either constant or a number times a power of .    The power of is always a positive whole number, though the constant in front may be any real number whatsoever.   Lastly, we synthesize these observations in a formal definition.   Polynomials   A polynomial is a function that can be written in the form for some integer and real numbers . For each , is called the -th term of and is called its -th coefficient ; is called the constant term of .  Furthermore, if , then is called the leading term of , its leading coefficient , and its degree , denoted .     Constant, linear, quadratic functions  Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the appearing in is equal to , , or , as illustrated in .   Small degree polynomials     Type Formula    0 Constant    1 Linear    2 Quadratic ,     In this sense is a generalization of these earlier definitions. As such our parametric manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients appearing in the general formula function as parameters: by varying our choice of the coefficients , we get an infinite family of polynomials.    Zero function and zero polynomial  A function is called a zero function if for all . Observe that a zero function is also a polynomial according to . Indeed we have where . Because of this, zero functions are also called zero polynomials .  Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in does not apply: , technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be !    Larger degree polynomials  Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials of higher degree.   Polynomials of higher degree     Formula Degree Type     Quadratic     Cubic     Quartic     Quintic       Polynomials   Determine if the given function is a polynomial. If yes, determine the constant term of , and if applicable, the leading term, leading coefficient, and degree.                        As discussed in , all constant functions are polynomials (corresponding to the choice ). In this case the constant term of is . Since , this is also the leading term and leading coefficient of , and we have .    As discussed in , the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.    The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form : . Once in this form, we see that the constant term of is , its leading term is , its leading coefficient is , and its degree is .         For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .      Rational functions  Just as rational numbers are defined as quotients of integers, a rational function is defined as a quotient of polynomials.   Rational function   A function is a rational function if it can be expressed as a quotient of two polynomials: , is rational if there are polynomials and satisfying for all in the domain of .     Implied domain of rational function  Suppose is a rational function, where . Since and are defined for all , we see that the expression defining is defined as long as . Thus the implied domain of is . To compute , we need to be able to find the zeros of the denominator polynomial . It turns out that this is not always an easy task, especially if the degree of is large. We will provide techniques for doing this in the next section.   Just like our previous definitions for functions, the key realization is that a rational function can be written in such a form. It does not have to begin that way.   Rational function: like denominators   Verify that is a rational function by writing it as , where and are polynomials.    To express as a quotient of polynomials, we will convert the given formula of into a single quotient using the technique of like denominators . .     Rational function: clear denominators   Verify that is a rational function by writing it as , where and are polynomials.    We use the algebraic technique of clearing denominators : .     Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.   Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators        Algebraic functions  A function is algebraic if it can be expressed in terms of constants and a variable by using only arithmetic operations , and and rational constant powers of the variables. For example, are algebraic functions.  There are four basic types of algebraic functions, which we have already investigated: linear functions, polynomial functions, rational functions, and power functions. More complicated algebraic functions can be constructed by using sums ( ), differences ( ), products ( ), and quotients ( ) of these four basic types. gives a general form and examples for each type:   A summary of algebraic functions    Type  General form  Examples    Linear   ,    Polynomial      Rational      Power  ,     Other  Arithmetic comb. of previous types  ,     There is a certain amount of overlap among the types listed in the table; for example, is both a power function and a polynomial function, and is both a power function and a rational function.  Functions that are not algebraic are called transcendental functions. In later chapters of this book, we will investigate four basic types of transcendental functions: exponential, logarithmic, trigonometric, and inverse trigonometric functions. We will not go into their definitions or general forms right now. However, provides some examples.   A summary of transcendental functions    Type  Examples    Exponential     Logarithmic     Trigonometric     Inverse Trigonometric     Other       Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.         What is an example of a single algebraic function that is linear, polynomial, rational, and a power function (all of these at once). You have seen several          Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Is the function a power function? If it is, write it in the form and enter exact values for and . If it is not a power function, enter NONE in both blanks. Do not leave any blanks empty.                 SOLUTION Yes. Writing the function as Thus we have and           Evaluate the expression .  Your answer must be an exact integer or rational number, not a decimal or algebraic expression.  =                  Simplify and write the following as a product of rational powers of and .  If then  and                        The expression equals  where , the leading coefficient, is:  and , the exponent of , is:                       Simplify the expression and express your answer in the simplest radical form where  and are integers.  Answer:  ,  , and                           Part 1 of 2:  Expand and simplify .  =                Are the functions below polynomials? If they are, enter their degree. If not, enter NONE.  has degree  has degree             SOLUTION  is not a polynomial because the term is exponential, not polynomial. is a polynomial of degree 9, since the highest power of is .          Are the functions below polynomials? If they are, enter their degree. If not, enter NONE.  has degree  has degree  has degree                  SOLUTION  is not a polynomial because polynomials cannot have a decimal power of . is a polynomial of degree 3, since the highest power of is . is not a polynomial because polynomials cannot have a negative power of .          Is the following expression a monomial, binomial, or trinomial?    monomial   binomial   trinomial   What is the degree of the expression?             This polynomial has three terms , , . Since there are three terms, and the variable in each term has a different exponent, this is a tri nomial.  The variable is raised to the powers 4, 8 and 3 in this polynomial. The degree of the polynomial is the greatest of these powers, degree = 8.  People often expect the terms of a polynomial to be ordered so the exponents appear in descending order (largest to smallest). This convention often makes the polynomial easier to read and avoids confusion. On the right side of the next equation the terms of our polynomial are re-ordered so the exponents appear in descending order. You may agree that the version on the right side is a little easier to read.           Given the table below, find a cubic equation in standard form for .    x  6  -8  3  9    g(x)  -374  1180  -41  -1319     .   .               Is the function below a rational function? If it is, write it in reduced form as a ratio of polynomials . If it is not, enter NONE in both blanks. Do not leave any blanks empty.                      SOLUTION This is not a rational function, as we cannot put it in the form of one polynomial divided by another, since is not a polynomial.          Is the function below a rational function? If it is, write it in reduced form as a ratio of polynomials . If it is not, enter NONE in both blanks. Do not leave any blanks empty.                    SOLUTION This is a rational function, as we can put it in the form of one polynomial divided by another:         "
 },
@@ -1400,7 +1265,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#d_rational_numbers",
   "type": "Definition",
-  "number": "1.5.1",
+  "number": "1.4.1",
   "title": "Rational numbers.",
   "body": " Rational numbers    rational numbers    A real number is rational if it can be written as a quotient of two integers: , we have for some integers .  We denote by the set of all rational numbers: , .   "
 },
@@ -1409,7 +1274,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#d_power_rational",
   "type": "Definition",
-  "number": "1.5.2",
+  "number": "1.4.2",
   "title": "Power functions: rational power.",
   "body": " Power functions: rational power   A power function (with rational power) is any function of the form , where and , and where the expression is defined below in a case-wise manner.   Zero power  We define for all .    Positive integer  If is a positive integer, then .    Odd -th root  If is a positive odd integer, then , where is the unique real -th root of .    Even -th root  If is a positive even integer, and then , where is the unique positive  -th root of .    Positive rational  If and are relatively prime positive integers Integers are relatively prime if they share no integer factors besides . This technical condition is here to ensure the definition is well defined. , then .    Negative rational  If and are relatively prime positive integers, then .      "
 },
@@ -1418,7 +1283,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#eg_power_implied_domain",
   "type": "Example",
-  "number": "1.5.3",
+  "number": "1.4.3",
   "title": "Power functions: implied domain.",
   "body": " Power functions: implied domain   Determine the implied domain of the given power function.                             By definition, we have . Since is defined for all and equal to 0 exactly when , we see that the implied domain of is .    Since is an even positive integer, the expression is defined only on . It follows that the implied domain of is .    By definition, we have . Since is defined for all , and is defined for all , it follows that is defined for all . We conclude that the implied domain of is .    By definition, we have . Since is defined if and only if , and since if and only if , we see that is defined if and only if . For the expression to be defined, we need further that is nonzero. This adds the additional restraint that . We conclude that the implied domain of is .      "
 },
@@ -1427,7 +1292,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#eg_power_evaluate",
   "type": "Example",
-  "number": "1.5.4",
+  "number": "1.4.4",
   "title": "Evaluating power functions.",
   "body": " Evaluating power functions   Evaluate the given power function at the given input .    ,      ,           We compute .    We compute .      "
 },
@@ -1436,7 +1301,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#th_power_identities",
   "type": "Theorem",
-  "number": "1.5.5",
+  "number": "1.4.5",
   "title": "Power identities.",
   "body": " Power identities      Each equality below is true for all real numbers , , for which the expressions involved are defined.     Assume . The following equality is true for all real numbers and : .      "
 },
@@ -1445,7 +1310,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_power-12",
   "type": "Remark",
-  "number": "1.5.6",
+  "number": "1.4.6",
   "title": "Iterated powers.",
   "body": " Iterated powers  The restriction is indeed a necessary one for the identity . For example consider the choices . Using , we have . Thus in this case. This counterexample illustrates again the subtleties of our definition of a power expression : specifically, that when for a positive even integer, is defined as the positive square root of (assuming ).  Put another way, the failure of the identity to hold in the example is a consequence of the fact that the equality does not hold for all ; it is only true for . After we officially introduce the absolute value, we will prove an improved version of this identity that does hold for all real numbers: namely, .  "
 },
@@ -1454,7 +1319,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_power-13",
   "type": "Example",
-  "number": "1.5.7",
+  "number": "1.4.7",
   "title": "",
   "body": "  Simplify each expression to one involving only positive exponents. You may assume all the identities of apply in each case.                             We compute .    We compute     We compute .    We compute .      "
 },
@@ -1463,7 +1328,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#cor_power_identities_radical",
   "type": "Corollary",
-  "number": "1.5.8",
+  "number": "1.4.8",
   "title": "Radical identities.",
   "body": " Radical identities   Assume and are nonnegative. The following equalities hold for all positive integers and . .   "
 },
@@ -1472,7 +1337,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_power-17",
   "type": "Example",
-  "number": "1.5.9",
+  "number": "1.4.9",
   "title": "",
   "body": "  For example, is the function a power function? If so, what are the numbers and ?    We can expand, factor, and then make a lucky cancellation to write this expression in the form :    "
 },
@@ -1481,7 +1346,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#inline_ex_rad",
   "type": "Checkpoint",
-  "number": "1.5.10",
+  "number": "1.4.10",
   "title": "",
   "body": "   The expression equals  where , the exponent of , is:  and , the exponent of , is:              Therefore and .       "
 },
@@ -1490,7 +1355,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#d_polynomialfunction",
   "type": "Definition",
-  "number": "1.5.11",
+  "number": "1.4.11",
   "title": "Polynomials.",
   "body": " Polynomials   A polynomial is a function that can be written in the form for some integer and real numbers . For each , is called the -th term of and is called its -th coefficient ; is called the constant term of .  Furthermore, if , then is called the leading term of , its leading coefficient , and its degree , denoted .   "
 },
@@ -1499,7 +1364,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#rm_cons_lin_quad",
   "type": "Remark",
-  "number": "1.5.12",
+  "number": "1.4.12",
   "title": "Constant, linear, quadratic functions.",
   "body": " Constant, linear, quadratic functions  Observe that constant, linear, and quadratic functions are each members of the larger family of polynomials. In more detail, they are polynomials for which the appearing in is equal to , , or , as illustrated in .   Small degree polynomials     Type Formula    0 Constant    1 Linear    2 Quadratic ,     In this sense is a generalization of these earlier definitions. As such our parametric manner of understanding linear and quadratic (and constant) functions applies more generally to polynomials. In this more general setting, the coefficients appearing in the general formula function as parameters: by varying our choice of the coefficients , we get an infinite family of polynomials.  "
 },
@@ -1508,7 +1373,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#rm_zero_poly",
   "type": "Remark",
-  "number": "1.5.14",
+  "number": "1.4.14",
   "title": "Zero function and zero polynomial.",
   "body": " Zero function and zero polynomial  A function is called a zero function if for all . Observe that a zero function is also a polynomial according to . Indeed we have where . Because of this, zero functions are also called zero polynomials .  Since the formula for the zero polynomial has no nonzero coefficients, the notion of degree given in does not apply: , technically for us the zero polynomial does not have a degree. There is not a fast and fixed convention on this point in the mathematics literature: some texts declare the degree of the zero polynomial to be undefined; still others declare the degree of the zero polynomial to be !  "
 },
@@ -1517,7 +1382,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_poly-6",
   "type": "Remark",
-  "number": "1.5.15",
+  "number": "1.4.15",
   "title": "Larger degree polynomials.",
   "body": " Larger degree polynomials  Using the new language of degree, we see that quadratic functions are just polynomials of degree 2. We have similar names for polynomials of higher degree.   Polynomials of higher degree     Formula Degree Type     Quadratic     Cubic     Quartic     Quintic     "
 },
@@ -1526,7 +1391,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_poly-7",
   "type": "Example",
-  "number": "1.5.17",
+  "number": "1.4.17",
   "title": "Polynomials.",
   "body": " Polynomials   Determine if the given function is a polynomial. If yes, determine the constant term of , and if applicable, the leading term, leading coefficient, and degree.                        As discussed in , all constant functions are polynomials (corresponding to the choice ). In this case the constant term of is . Since , this is also the leading term and leading coefficient of , and we have .    As discussed in , the zero function (or zero polynomial) is indeed a polynomial. However, since no nonzero coefficients appear in its formula, the notions of leading term, leading coefficient, and degree do not apply.    The given function is indeed a polynomial, though we need to do some algebra to recognize that it has a formula of the form : . Once in this form, we see that the constant term of is , its leading term is , its leading coefficient is , and its degree is .      "
 },
@@ -1535,7 +1400,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_poly-8",
   "type": "Checkpoint",
-  "number": "1.5.18",
+  "number": "1.4.18",
   "title": "",
   "body": "  For the polynomial , determine the leading coefficient, leading term, degree, constant term, and coefficients and .   "
 },
@@ -1544,7 +1409,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#d_rational_function",
   "type": "Definition",
-  "number": "1.5.19",
+  "number": "1.4.19",
   "title": "Rational function.",
   "body": " Rational function   A function is a rational function if it can be expressed as a quotient of two polynomials: , is rational if there are polynomials and satisfying for all in the domain of .   "
 },
@@ -1553,7 +1418,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_rational-4",
   "type": "Remark",
-  "number": "1.5.20",
+  "number": "1.4.20",
   "title": "Implied domain of rational function.",
   "body": " Implied domain of rational function  Suppose is a rational function, where . Since and are defined for all , we see that the expression defining is defined as long as . Thus the implied domain of is . To compute , we need to be able to find the zeros of the denominator polynomial . It turns out that this is not always an easy task, especially if the degree of is large. We will provide techniques for doing this in the next section.  "
 },
@@ -1562,7 +1427,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_rational-6",
   "type": "Example",
-  "number": "1.5.21",
+  "number": "1.4.21",
   "title": "Rational function: like denominators.",
   "body": " Rational function: like denominators   Verify that is a rational function by writing it as , where and are polynomials.    To express as a quotient of polynomials, we will convert the given formula of into a single quotient using the technique of like denominators . .   "
 },
@@ -1571,7 +1436,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_rational-7",
   "type": "Example",
-  "number": "1.5.22",
+  "number": "1.4.22",
   "title": "Rational function: clear denominators.",
   "body": " Rational function: clear denominators   Verify that is a rational function by writing it as , where and are polynomials.    We use the algebraic technique of clearing denominators : .   "
 },
@@ -1580,7 +1445,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#ss_rational-8",
   "type": "Remark",
-  "number": "1.5.23",
+  "number": "1.4.23",
   "title": "Fraction arithmetic.",
   "body": " Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.   Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators     "
 },
@@ -1598,7 +1463,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#tab_liboffunctions",
   "type": "Table",
-  "number": "1.5.25",
+  "number": "1.4.25",
   "title": "A summary of algebraic functions",
   "body": " A summary of algebraic functions    Type  General form  Examples    Linear   ,    Polynomial      Rational      Power  ,     Other  Arithmetic comb. of previous types  ,    "
 },
@@ -1616,7 +1481,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#tab_transdencentalfunctions",
   "type": "Table",
-  "number": "1.5.26",
+  "number": "1.4.26",
   "title": "A summary of transcendental functions",
   "body": " A summary of transcendental functions    Type  Examples    Exponential     Logarithmic     Trigonometric     Inverse Trigonometric     Other     "
 },
@@ -1625,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#sec_algebraic_func-7-8",
   "type": "Example",
-  "number": "1.5.27",
+  "number": "1.4.27",
   "title": "Identifying algebraic function types.",
   "body": " Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.      "
 },
@@ -1634,7 +1499,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func.html#sec_algebraic_func-7-9",
   "type": "Checkpoint",
-  "number": "1.5.28",
+  "number": "1.4.28",
   "title": "",
   "body": "  What is an example of a single algebraic function that is linear, polynomial, rational, and a power function (all of these at once). You have seen several    "
 },
@@ -1778,7 +1643,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec_algebraic_func_II.html",
   "type": "Section",
-  "number": "1.6",
+  "number": "1.5",
   "title": "Algebraic functions: continued",
   "body": " Algebraic functions: continued   We now deepen our acquaintance with the different families of functions introduced in , treating questions of implied domain, range, and graph properties.    Learning objectives     Determine the implied domain of power, polynomial and rational functions.    Explore graph properties of power, polynomial, and rational functions    Factoring polynomials and finding roots       Power functions  The properties of power functions are nicely summarized by their graphs. Let's look first at the graphs of power functions of the form , where is an integer.   Power functions: positive integer power       Graph of x squared        Graph of x cubed        Graph of x to the fourth        Graph of x to the fifth         Power functions: negative integer power       Graph of x to minus 2        Graph of x to minus 3        Graph of x to minus 4        Graph of x to minus 5        The eight graphs in and nicely illustrate how the precise nature of the power involved affects the properties of and its graph. In particular, we see that the general shape of the graph is determined by whether is positive or negative (the sign of ), and whether is even or odd (the parity of ). summarizes some observations about these power functions that are strongly suggested by our graphs. The claims there about domain are easily verified using the definition of power functions (see ). The claims about range can be shown to be true using , as illustrates.   Properties of ,     Sign of Parity of Domain of range of    even    odd    even    odd      Power function: range   Let , where is a positive even integer. Show that .    Since for some integer , we have , where the last inequality follows from the observation that the square of any real number is nonnegative. Since the outputs of are all nonnegative, we conclude . We now set about proving the reverse inclusion: . To this end, take any . Since , the number is well defined. (In this case, since is even, by definition is the unique nonnegative -th root of .) Setting , we have . This shows that is an output of , and thus that , as desired. We conclude that .    Power functions of the form , where is positive, also exhibit some easy to identify distinctive properties. We call these functions -th root functions .   Power functions: -th roots       Square-root function graph        Cube-root function graph          Fourth-root function graph        Fifth-root function graph        Again, we summarize some properties of these functions that the graphs make evident. In this case, since is always positive, it is only the parity (even\/odd) of that governs the general shape of the graph.   Properties of     Parity of Domain of Range of    Even    Odd      Modeling with power functions   Each graph in is the graph of a function of the form , is given. Find .   Modeling with power functions      Mystery graph of power function        Mystery graph of power function         Although not strictly necessary for solving this exercise, looking at , we see that the function graphed in (a) should be of the form , where is a positive odd numer, and the function graphed in (b) should be of the form , where is a positive even number.   Our function satisfies for all and . This implies that . Later, once we introduce logarithmic functions, we will have a systematic way of solving for . Instead, using our observation at the top that for some positive odd number , and doing some guess-and-check, we see that works. Thus .    Now our function satisfies and : , . Again, being guided by our observation at the top that for some positive even integer , and trying out the choices , we see that works. We conclude that .         Polynomials  In contrast to the simple power functions considered above, the behavior of polynomials can be quite complicated, and as a general rule becomes more and more complicated as the degree of the polynomial increases. This is illustrated in .   Polynomials of increasing degree.       Graph of cubic        Graph of quartic          Graph of quintic        We see that as the degree of the polynomials increases, the graphs of the functions tend to have more turning points (what we will later define as local maxima and local minimima ). Furthermore, it is not clear from these examples how the range of a polynomial is determined by its degree and\/or coefficients. Once again, calculus will provide us with the theoretical tools to answer questions related to these issues. For now, we will address another important question: how do we find the roots of a polynomial? Looking at the -intercepts of the graphs in , it appears that the number of roots of a polynomial has something to do with its degree. The following theorem gives a precise (if somewhat incomplete) articulation of this relationship.   Roots of polynomials   Let be a polynomial of positive degree .    has at most distinct roots.    A real number is a root of if and only if factors as for some polynomial .       Statement (1) of tells us that the degree of a polynomial bounds the number of possible real roots, and thus also the number of possible -intercepts. Thus, a quadratic polynomial has at most two roots, a cubic polynomial has at most three roots, a quartic polynomial has at most four roots, . Note that the theorem does not claim that a degree- polynomial must have roots. Indeed we have seen already examples of quadratic polynomials (degree-2) that have no (real) roots!   If we move from to the larger number system of complex numbers, then we can strengthen (1) of : namely, every polynomial of positive degree has  roots (counting multiplicity). This is the content of the fundamental theorem of algebra . The crucial detail here is the modifier complex in complex root .   Statement (2) of makes the connection between roots of polynomials and factorization. As a result, the more we are able to factor a polynomial, the more we can say about its roots; conversely, every time we find a root of polynomial , we can make progress on the factorization of by factoring out that root. Factoring polynomials is thus an important skill, and we gather here some techniques for doing this.   Polynomial long division     Let and be polynomials of positive degree. There are unique polynomials and satisfying . We call and the quotient and remainder upon division of by .  The process of computing and is called polynomial longdivision of by . We illustrate this process in . See also     A real number is a root of the polynomial if and only if the remainder upon dividing by is the zero polynomial. In this case we have and .        Polynomial long division   Find the quotient and remainder upon dividing by .    You may remember that long division of by proceeds iteratively, where at each step we multiply by a monomial in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in , and indeed that is the way you should perform this operation. Consider the following as just an in-depth description of what we are actually doing in that process.   Multiply by a monomial so that the leading terms of and match. In this case we choose the monomial .  Set our temporary quotient  as and our temporary remainder  as .    If is not less than for our temporary remainder , repeat Step 1 with and (instead of and ). Update our temporary quotient by adding to it the relevant monomial , and update our temporary remainder by subtracting from it.  In the present case, since , we multiply by the monomial in order to match the leading term of , and update our and as follows:     Continue this updating process until .  In our case, we need to do one more iteration. To match the leading terms, we multiply by the monomial . Updating our and yields . Since , we are done. We conclude that , where .        Polynomial long division                                Polynomial root check   Let . For each , decide whether is a root by computing , then verify your answer using .                   Since , we see that is not a root of . According to this means that dividing by should result in a nonzero remainder polynomial . We verify by performing longdivision:              +3             2    Thus diving by yields a quotient of and remainder of : , . Since is not the zero polynomial we conclude (again) that is not a root.    Similarly, we compute , showing that is a root of . Now perform longdivision of by :              +3             0    Since is the zero polynomial, we conclude (again) that is a root, and furthermore the quotient yields the factorization .       You may have noticed that the two candidate roots of the polynomial in were integer factors of its constant term. As it turns out, given a polynomial with integer coefficients , any integer root of that polynomial must be a factor of its constant term.   Integer root theorem   Let and assume that all the coefficients of are integers: , for all . Any integer root of must be a factor of : , if and , then is a factor of .    Note the crucial detail in : an integer root of a polynomial with integer coefficients must divide the constant term. The theorem says nothing about possible non-integer roots, as the next example illustrates.   Integer roots   Let .   Find all integer roots of .    Find all roots of .          Since has integer coefficents, if is an integer root of , then it must be a factor of its constant term , according to . Thus the only possible integer roots of are . But and . Thus none of these candidates is a root, showing has no integer roots.    Since is a quadratic function, it is easy to determine its roots. As usual, there are multiple ways of doing this, but in this case the easiest method would be to proceed as follows: . Thus, although has no integer roots, its has the two real roots .       Once we find a root of a polynomial , the resulting factorization allows us to find all further roots by continuiung the process on , as the next example illustrates.   Polynomial roots   Find all roots of .    From , we know that factors as , and thus that is a root of . Are there any other roots? Suppose . Evaluating at yields . Since , . By , we have if and only if . Thus, is a root of if and only if it is a root of . But using , we see that the quadratic function has not roots! We conclude that is the only root of .    Let's make official the method and reasoning in this last example.   Factoring polynomials and finding roots   To find all roots of a polynomial , you may proceed as follows.   Factor as best you can as a product of polynomials of smaller degree: .    A real number is a root of if and only if it is a root of one of the polynomials . Thus by finding all roots of each polynomial , we find all roots of .       Note that the success depends on our ability to find all the roots of the factor polynomials . Accordingly, the smaller the degree of the , the more likely we are in being able to find all roots of . In particular, we will be home free if we are able to factor far enough so that all factor polynomials are of degree one or two.   Roots of a quartic   Find all roots of .    Since the coefficients of are integers, we first try and find an integer root of using . Evaluating for (the factors of the constant term of ), we see that , and thus that is a factor of . Using polynomial longdivision (we skip the steps here), we see that . Now continue the process by factoring . Again using , we try as potential roots. It turns out that , and thus can be factored out (again). Using polynomial longdivision (again we omit the steps), we find that , and thus that . Lastly, we apply to the remaining factor , concluding that it has no roots. By , we conclude that the only root of is .     Multiplicity of a root  The factorization from tells us that is a repeated root of of multiplicity two. In general, if a polynomial factors as , where is not a root of ( , ), then is called a root of multiplicity . For example, the polynomial has a double root ( , root of multipicity two) at , a simple root ( , root of multiplicity one) at , and a quadruple root at . From the factorization, we know further that has no additional roots, since has not roots.  As we will see later in the course, the multiplicity of a root provides further nuanced information about how a polynomial behaves near a the root.   Although we have been focusing on factoring polynomials by finding roots, this is not always the easiest way to proceed. Indeed, there are polynomials that can be factored nontrivially and yet have no roots. For example, the polynomial factors as . provides a couple of tricks for factoring polynomials that sometimes come in handy when we cannot easily find roots. The factorization above can be thought of an instance of (2) of . We have , where . Since factors as , we see that factors as .   Factoring tools      Difference of powers  For all , and all integers , we have . In particular, we have .    Polynomial expression of  If we can write a polynnomial as for some polynomial , then a factorization of gives rise to the factorization .       Factoring polynomials turns out to be our main tool for solving general polynomial equations, as we detail in .   Solving polynomial equations   Consider a polynomial equation of the form . To solve this equation for , proceed as follows.   Use algebra to bring all terms to the left side (using addition\/subtraction), obtaining an equation of the form .    Factor the polynomial on the left side of as much as possible to obtain an equation of the form .    The solutions of the original equation are precisely the roots of the polynomials .        Solving a polynomial equation   Find all solutions to the equation . Follow .    First bring the equation in to the form : . Luckily, helps us find an easy integer root of the polynomial on the left, allowing us to factor (in two steps) as . From the factored equation we conclude that the solutions to the original equation are (a repeated root here) and .    Another important consequence of that we will make use of later in the course has to do with when two polynomials are equal (as functions), as articulated in . In order to make sense of that result, we need to first make clear what we mean by two functions being equal. Recall our original intuitive idea of a function as a rule (or assignment ) that assigns to each element of a specified input set (the domain) a unique output. When should we consider two such things to be the same? For one thing, they should have the same specified set of inputs ( , the same domain): this is condition (1) of . Moreover, in order to represent the same rule (or assignment), each input should be assigned to the same output: this is condition (2) of .   Function equality   Functions and are equal , denoted if the following conditions hold:    and have the same domain .     for all .        Function equality  Note well the all important for all quantifier appearing in condition (2) of . That detail makes the notion of function equality more nuanced than a simple numeric equality (like ). Given two functions and with common domain , the statement is in fact a claim that a whole bunch of numeric equalities hold: namely, we have for every . That's one equality for each . Since is most often an infinite set (like an interval) for us, this means that typically asserts that infinitely many numeric equalities hold. In this sense a function equality is very similar to the notion of an identity (like ), which you may have encountered before.   Having made clear what we mean in general by function equality, we now look at the specific case of polynomial functions. can be shown to be a consequence of , though we will omit that argument.   Polynomial equality   Let be polynomials defined on a common infinite domain , and assume and are both nonzero. We have if and only if the following conditions hold:    ( , );     for all .   In other words, two polynomials are equal as functions if and only if they have the same degree and coefficients.      Rational functions  Equipped now with some machinery for factoring polynomials, we can take a closer look at rational functions, which you will recall are just quotients of polynomials. In this section we will be interested only in determining the implied domain and zeros of a rational function. Before treating this specific family of functions, we first make official a simple observation about the domain and zeros of any function defined as a quotient of two functions.   Quotients of functions   Assume is a function of the form , where and are functions.   The implied domain of is the set of for which (a) and are both defined, and (b) .    The set of zeros of is the set of zeros of that lie in : , . Equivalently, using logical shorthand: .       In the special case where is a quotient of two polynomials , the statements of are simplified by the fact that and are defined everywhere, and have finitely many zeros.   Domain and zeros of rational functions   Let , where and are polynomials.   The implied domain of is .    The set of zeros of is the set of zeros of that are not zeros of : , . Equivalently, using logical shorthand: .       Since the domain and zeros of a rational function are determined by the zeros of and , and since by nonzero polynomials have only finitely many zeros (bounded in number by the polynomial's degree), it follows that is defined everywhere except for the finitely many zeros of , and has finitely many zeros.   Rational functions: domain and zeros   Compute the implied domain and set of zeros for the given rational function.                   We have , where . Since the zeros of are and , the implied domain of is . The set of zeros of is the set of where and . Since is zero only at , and since is a zero of , we conclude that has no zeros: , .    We have , where . Since the zeros of are and , the implied domain of is , as above. The set of zeros of is the set of where and . Since is zero at and , and since is a zero of , we conclude that 1 is the only zero of .       In you find graphs of the functions and from . Consistent with our work in that example, the graphs indicate that has no zeros and has exactly one zero, at .   Graphs of rational functions    Graph of   Graph of rational function      Graph of   Graph of rational function       Furthermore, we saw in that both functions have as their implied domain. Interestingly, the two graphs indicate that and are excluded from the domain in slightly different ways.   The graph of has what we will eventually call a vertical asymptote at , and a hole at .    The graph of has a hole at and a vertical asymptote at .   The vertical asymptote behavior of the two graphs is something we will discuss in great detail later. For now we content ourselves to an explanation of the holes appearing in these graphs. Let's look only at . Our analyis is somewhat involved, so we will break it up into a few steps.   Technically, is not in the domain of , and thus there should be no plotted point on the graph of over .    However, for any , we may cancel the nonzero terms in our expression above to get the simpler expression . That is, we have .    Let . Technically and are not equal as functions, as is reflected in the fact that has domain and has domain . However, for all , we have .    Since , the point appears on the graph of . Furthermore, if we graph , we see that points on its graph approach as gets closer and closer to . (As we will see later, this is a result of being continuous at .)    Lastly, since the graph of agrees with the graph of for all , points on its graph also approach as gets closer and closer to . As a result, the graph of appears to approach the point , but without this point being included on the graph itself. Hence the hole!   Well, that was a bit long winded! One amazing feature of calculus is its ability to express such cumbersome arguments in a much more economical manner. For example, using the language of limits (to be introduced soon), our discussion above can be beautifully compressed into the following simple statement: .   "
 },
@@ -1787,7 +1652,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#fig_power_positive_integer_powers",
   "type": "Figure",
-  "number": "1.6.1",
+  "number": "1.5.1",
   "title": "",
   "body": " Power functions: positive integer power       Graph of x squared        Graph of x cubed        Graph of x to the fourth        Graph of x to the fifth       "
 },
@@ -1796,7 +1661,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#fig_power_neg_integer_powers",
   "type": "Figure",
-  "number": "1.6.2",
+  "number": "1.5.2",
   "title": "",
   "body": " Power functions: negative integer power       Graph of x to minus 2        Graph of x to minus 3        Graph of x to minus 4        Graph of x to minus 5       "
 },
@@ -1805,7 +1670,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#table_power_integers",
   "type": "Table",
-  "number": "1.6.3",
+  "number": "1.5.3",
   "title": "Properties of <span class=\"process-math\">\\(f(x)=x^n\\text{,}\\)<\/span> <span class=\"process-math\">\\(n\\in \\Z\\)<\/span>",
   "body": " Properties of ,     Sign of Parity of Domain of range of    even    odd    even    odd    "
 },
@@ -1814,7 +1679,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_power_func_range",
   "type": "Example",
-  "number": "1.6.4",
+  "number": "1.5.4",
   "title": "Power function: range.",
   "body": " Power function: range   Let , where is a positive even integer. Show that .    Since for some integer , we have , where the last inequality follows from the observation that the square of any real number is nonnegative. Since the outputs of are all nonnegative, we conclude . We now set about proving the reverse inclusion: . To this end, take any . Since , the number is well defined. (In this case, since is even, by definition is the unique nonnegative -th root of .) Setting , we have . This shows that is an output of , and thus that , as desired. We conclude that .   "
 },
@@ -1823,7 +1688,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#fig_nth_roots",
   "type": "Figure",
-  "number": "1.6.5",
+  "number": "1.5.5",
   "title": "",
   "body": " Power functions: -th roots       Square-root function graph        Cube-root function graph          Fourth-root function graph        Fifth-root function graph       "
 },
@@ -1832,7 +1697,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#ss_power_func_II-11",
   "type": "Table",
-  "number": "1.6.6",
+  "number": "1.5.6",
   "title": "Properties of <span class=\"process-math\">\\(f(x)=x^{1\/n}=\\sqrt[n]{x}\\)<\/span>",
   "body": " Properties of     Parity of Domain of Range of    Even    Odd    "
 },
@@ -1841,7 +1706,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_modeling_power",
   "type": "Example",
-  "number": "1.6.7",
+  "number": "1.5.7",
   "title": "Modeling with power functions.",
   "body": " Modeling with power functions   Each graph in is the graph of a function of the form , is given. Find .   Modeling with power functions      Mystery graph of power function        Mystery graph of power function         Although not strictly necessary for solving this exercise, looking at , we see that the function graphed in (a) should be of the form , where is a positive odd numer, and the function graphed in (b) should be of the form , where is a positive even number.   Our function satisfies for all and . This implies that . Later, once we introduce logarithmic functions, we will have a systematic way of solving for . Instead, using our observation at the top that for some positive odd number , and doing some guess-and-check, we see that works. Thus .    Now our function satisfies and : , . Again, being guided by our observation at the top that for some positive even integer , and trying out the choices , we see that works. We conclude that .      "
 },
@@ -1850,7 +1715,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#fig_polynomials",
   "type": "Figure",
-  "number": "1.6.9",
+  "number": "1.5.9",
   "title": "",
   "body": " Polynomials of increasing degree.       Graph of cubic        Graph of quartic          Graph of quintic       "
 },
@@ -1859,7 +1724,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#th_poly_roots",
   "type": "Theorem",
-  "number": "1.6.10",
+  "number": "1.5.10",
   "title": "Roots of polynomials.",
   "body": " Roots of polynomials   Let be a polynomial of positive degree .    has at most distinct roots.    A real number is a root of if and only if factors as for some polynomial .      "
 },
@@ -1868,7 +1733,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#proc_poly_division",
   "type": "Procedure",
-  "number": "1.6.11",
+  "number": "1.5.11",
   "title": "Polynomial long division.",
   "body": " Polynomial long division     Let and be polynomials of positive degree. There are unique polynomials and satisfying . We call and the quotient and remainder upon division of by .  The process of computing and is called polynomial longdivision of by . We illustrate this process in . See also     A real number is a root of the polynomial if and only if the remainder upon dividing by is the zero polynomial. In this case we have and .      "
 },
@@ -1877,7 +1742,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_poly_long_div",
   "type": "Example",
-  "number": "1.6.12",
+  "number": "1.5.12",
   "title": "Polynomial long division.",
   "body": " Polynomial long division   Find the quotient and remainder upon dividing by .    You may remember that long division of by proceeds iteratively, where at each step we multiply by a monomial in order to match the leading term of the polynomial being divided. We spell this out in more detail in the steps below, but you are probably more accustomed to steps in this process being shown as in , and indeed that is the way you should perform this operation. Consider the following as just an in-depth description of what we are actually doing in that process.   Multiply by a monomial so that the leading terms of and match. In this case we choose the monomial .  Set our temporary quotient  as and our temporary remainder  as .    If is not less than for our temporary remainder , repeat Step 1 with and (instead of and ). Update our temporary quotient by adding to it the relevant monomial , and update our temporary remainder by subtracting from it.  In the present case, since , we multiply by the monomial in order to match the leading term of , and update our and as follows:     Continue this updating process until .  In our case, we need to do one more iteration. To match the leading terms, we multiply by the monomial . Updating our and yields . Since , we are done. We conclude that , where .      "
 },
@@ -1886,7 +1751,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#table_poly_div",
   "type": "Table",
-  "number": "1.6.13",
+  "number": "1.5.13",
   "title": "Polynomial long division",
   "body": " Polynomial long division                              "
 },
@@ -1895,7 +1760,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_poly_root_check",
   "type": "Example",
-  "number": "1.6.14",
+  "number": "1.5.14",
   "title": "Polynomial root check.",
   "body": " Polynomial root check   Let . For each , decide whether is a root by computing , then verify your answer using .                   Since , we see that is not a root of . According to this means that dividing by should result in a nonzero remainder polynomial . We verify by performing longdivision:              +3             2    Thus diving by yields a quotient of and remainder of : , . Since is not the zero polynomial we conclude (again) that is not a root.    Similarly, we compute , showing that is a root of . Now perform longdivision of by :              +3             0    Since is the zero polynomial, we conclude (again) that is a root, and furthermore the quotient yields the factorization .      "
 },
@@ -1904,7 +1769,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#th_int_root",
   "type": "Theorem",
-  "number": "1.6.15",
+  "number": "1.5.15",
   "title": "Integer root theorem.",
   "body": " Integer root theorem   Let and assume that all the coefficients of are integers: , for all . Any integer root of must be a factor of : , if and , then is a factor of .   "
 },
@@ -1913,7 +1778,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_no_integer_roots",
   "type": "Example",
-  "number": "1.6.16",
+  "number": "1.5.16",
   "title": "Integer roots.",
   "body": " Integer roots   Let .   Find all integer roots of .    Find all roots of .          Since has integer coefficents, if is an integer root of , then it must be a factor of its constant term , according to . Thus the only possible integer roots of are . But and . Thus none of these candidates is a root, showing has no integer roots.    Since is a quadratic function, it is easy to determine its roots. As usual, there are multiple ways of doing this, but in this case the easiest method would be to proceed as follows: . Thus, although has no integer roots, its has the two real roots .      "
 },
@@ -1922,7 +1787,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_poly_roots",
   "type": "Example",
-  "number": "1.6.17",
+  "number": "1.5.17",
   "title": "Polynomial roots.",
   "body": " Polynomial roots   Find all roots of .    From , we know that factors as , and thus that is a root of . Are there any other roots? Suppose . Evaluating at yields . Since , . By , we have if and only if . Thus, is a root of if and only if it is a root of . But using , we see that the quadratic function has not roots! We conclude that is the only root of .   "
 },
@@ -1931,7 +1796,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#proc_fact_roots",
   "type": "Procedure",
-  "number": "1.6.18",
+  "number": "1.5.18",
   "title": "Factoring polynomials and finding roots.",
   "body": " Factoring polynomials and finding roots   To find all roots of a polynomial , you may proceed as follows.   Factor as best you can as a product of polynomials of smaller degree: .    A real number is a root of if and only if it is a root of one of the polynomials . Thus by finding all roots of each polynomial , we find all roots of .      "
 },
@@ -1940,7 +1805,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_roots_quartic",
   "type": "Example",
-  "number": "1.6.19",
+  "number": "1.5.19",
   "title": "Roots of a quartic.",
   "body": " Roots of a quartic   Find all roots of .    Since the coefficients of are integers, we first try and find an integer root of using . Evaluating for (the factors of the constant term of ), we see that , and thus that is a factor of . Using polynomial longdivision (we skip the steps here), we see that . Now continue the process by factoring . Again using , we try as potential roots. It turns out that , and thus can be factored out (again). Using polynomial longdivision (again we omit the steps), we find that , and thus that . Lastly, we apply to the remaining factor , concluding that it has no roots. By , we conclude that the only root of is .   "
 },
@@ -1949,7 +1814,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#ss_polynomials-23",
   "type": "Remark",
-  "number": "1.6.20",
+  "number": "1.5.20",
   "title": "Multiplicity of a root.",
   "body": " Multiplicity of a root  The factorization from tells us that is a repeated root of of multiplicity two. In general, if a polynomial factors as , where is not a root of ( , ), then is called a root of multiplicity . For example, the polynomial has a double root ( , root of multipicity two) at , a simple root ( , root of multiplicity one) at , and a quadruple root at . From the factorization, we know further that has no additional roots, since has not roots.  As we will see later in the course, the multiplicity of a root provides further nuanced information about how a polynomial behaves near a the root.  "
 },
@@ -1958,7 +1823,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#th_factoring_tools",
   "type": "Theorem",
-  "number": "1.6.21",
+  "number": "1.5.21",
   "title": "Factoring tools.",
   "body": " Factoring tools      Difference of powers  For all , and all integers , we have . In particular, we have .    Polynomial expression of  If we can write a polynnomial as for some polynomial , then a factorization of gives rise to the factorization .      "
 },
@@ -1967,7 +1832,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#proc_solve_poly",
   "type": "Procedure",
-  "number": "1.6.22",
+  "number": "1.5.22",
   "title": "Solving polynomial equations.",
   "body": " Solving polynomial equations   Consider a polynomial equation of the form . To solve this equation for , proceed as follows.   Use algebra to bring all terms to the left side (using addition\/subtraction), obtaining an equation of the form .    Factor the polynomial on the left side of as much as possible to obtain an equation of the form .    The solutions of the original equation are precisely the roots of the polynomials .      "
 },
@@ -1976,7 +1841,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_solve_poly",
   "type": "Example",
-  "number": "1.6.23",
+  "number": "1.5.23",
   "title": "Solving a polynomial equation.",
   "body": " Solving a polynomial equation   Find all solutions to the equation . Follow .    First bring the equation in to the form : . Luckily, helps us find an easy integer root of the polynomial on the left, allowing us to factor (in two steps) as . From the factored equation we conclude that the solutions to the original equation are (a repeated root here) and .   "
 },
@@ -1985,7 +1850,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#d_function_equality",
   "type": "Definition",
-  "number": "1.6.24",
+  "number": "1.5.24",
   "title": "Function equality.",
   "body": " Function equality   Functions and are equal , denoted if the following conditions hold:    and have the same domain .     for all .      "
 },
@@ -1994,7 +1859,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#ss_polynomials-31",
   "type": "Remark",
-  "number": "1.6.25",
+  "number": "1.5.25",
   "title": "Function equality.",
   "body": " Function equality  Note well the all important for all quantifier appearing in condition (2) of . That detail makes the notion of function equality more nuanced than a simple numeric equality (like ). Given two functions and with common domain , the statement is in fact a claim that a whole bunch of numeric equalities hold: namely, we have for every . That's one equality for each . Since is most often an infinite set (like an interval) for us, this means that typically asserts that infinitely many numeric equalities hold. In this sense a function equality is very similar to the notion of an identity (like ), which you may have encountered before.  "
 },
@@ -2003,7 +1868,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#cor_poly_equality",
   "type": "Corollary",
-  "number": "1.6.26",
+  "number": "1.5.26",
   "title": "Polynomial equality.",
   "body": " Polynomial equality   Let be polynomials defined on a common infinite domain , and assume and are both nonzero. We have if and only if the following conditions hold:    ( , );     for all .   In other words, two polynomials are equal as functions if and only if they have the same degree and coefficients.   "
 },
@@ -2012,7 +1877,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#th_quot_func",
   "type": "Theorem",
-  "number": "1.6.27",
+  "number": "1.5.27",
   "title": "Quotients of functions.",
   "body": " Quotients of functions   Assume is a function of the form , where and are functions.   The implied domain of is the set of for which (a) and are both defined, and (b) .    The set of zeros of is the set of zeros of that lie in : , . Equivalently, using logical shorthand: .      "
 },
@@ -2021,7 +1886,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#cor_rational_domain_zeros",
   "type": "Corollary",
-  "number": "1.6.28",
+  "number": "1.5.28",
   "title": "Domain and zeros of rational functions.",
   "body": " Domain and zeros of rational functions   Let , where and are polynomials.   The implied domain of is .    The set of zeros of is the set of zeros of that are not zeros of : , . Equivalently, using logical shorthand: .      "
 },
@@ -2030,7 +1895,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#eg_rational_domain_zeros",
   "type": "Example",
-  "number": "1.6.29",
+  "number": "1.5.29",
   "title": "Rational functions: domain and zeros.",
   "body": " Rational functions: domain and zeros   Compute the implied domain and set of zeros for the given rational function.                   We have , where . Since the zeros of are and , the implied domain of is . The set of zeros of is the set of where and . Since is zero only at , and since is a zero of , we conclude that has no zeros: , .    We have , where . Since the zeros of are and , the implied domain of is , as above. The set of zeros of is the set of where and . Since is zero at and , and since is a zero of , we conclude that 1 is the only zero of .      "
 },
@@ -2039,7 +1904,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_algebraic_func_II.html#fig_rational_zeros_domain",
   "type": "Figure",
-  "number": "1.6.30",
+  "number": "1.5.30",
   "title": "",
   "body": " Graphs of rational functions    Graph of   Graph of rational function      Graph of   Graph of rational function      "
 },
@@ -2048,7 +1913,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec_func_transf.html",
   "type": "Section",
-  "number": "1.7",
+  "number": "1.6",
   "title": "Transformations and symmetry",
   "body": " Transformations and symmetry    Functions Transformations of Functions  Functions Symmetry     Learning Goals     Learn about transformations of functions and how they influence the shape of a graph.    Understand how the definitions of even and odd functions correspond to certain types of symmetry in the graph of a function.    Determine algebraically whether a function is even, odd, or neither.    Application: the vertex form of a quadratic function arises from a series of transformations of the function .       Transformations  Having become more or less acquainted with a few families of functions (linear functions, power functions, polynomials, rational functions, ), we now try to extend our knowledge to various arithmetic combinations of these basic types.  In this section we will focus on a particularly simple case of such combinations. Namely, we will consider the following types of function operations, called function transformations : , where is a constant. In each case above, the function above is the result of a shifting or scaling by the constant ; and furthermore, this shifting\/scaling is applied either to the output  (the outside of the function), or to the input  (the inside of the function). What exactly is the result of this shifting and scaling, and what difference does it make to do so on the inside versus the outside of the function?   Desmos: function transformations   The Desmos interactive in allows you to explore the graphical relationship between an original function and four different type of transformations of : . Articulate what effect these operations have on the graph of .   Desmos interactive : graphical effect of function transformations      Hopefully, the Desmos interactive strongly suggests a graphical interpretation of each of the four different types of transformations. Our next two examples take on the two additive transformations: .   Vertical shift   The key to understanding the graphical effect of the transformation is the observation that a point lies on the graph of if and only if the point lies on the graph of . This is because . As a result, the graph of is obtained from the graph of by shifting it a directed distance of units. The modifier directed is used here to take notice of the sign of . More directly, assuming , we have the following graphical interpretation:   the graph of is obtained from the graph of by shifting up  units;    the graph of is obtained from the graph of by shifting down  units.      shifts up two units. shifts down two units.       Horizontal shift   Similarly, to understand the graphical effect of the transformation we observe that a point lies on the graph of if and only if the point lies on the graph of . This is because . As a result, we obtain the graph of by shifting the graph of by the directed distance . More directly, assuming , we conclude:   the graph of is obtained from the graph of by shifting units to the left ;    the graph of is obtained from the graph of by shifting units to the right .      shifts left five units. shifts right five units.      Our next two examples take a closer look at our multiplicative transformations  . For these transformations, both the sign and size of the constant have a significant effect on the resulting graphical transformation. Our next examples consider the case where .   Vertical scaling   Assume and consider the transformation . A point lies on the graph of if and only the point lies on the graph of . This is because . As a result, the graph of is obtained by taking points on the graph of and scaling their -coordinates by the constant . This has the graphical effect of vertically stretching (if ) or vertically shrinking (if ) the graph of .   stretches vertically by 2. shrinks vertically by 2.       Horizontal scaling   Assume and now consider the transformation . A point lies on the graph of if and only the point lies on the graph of . This is because . As a result, the graph of is obtained by taking points on the graph of and scaling their -coordinates by the constant . This has the graphical effect of horizontally stretching (if ) or vertically shrinking (if ) the graph of .   compresses horizontally by 2. stretches horizontally by 2.   Horizontal scaling of graphs        Transformations: vertical versus horizontal effects  A clear pattern emerges from the four types of transformations we have considered. Transformations that affect the output  (the outside of the function) have a vertical effect on the graph of the function, while transformations that affect the input  (the inside of the function) have a horizontal effect on the graph of the function. Furthermore, for both types of transformations, additive changes ( ) result in shifts, while multiplicative changes ( ) result in stretches or shrinks.  Note also that the transformations involving the input give rise to a graphical effect that is the reverse of what you might have initially expected. For example, the transformation shifts the graph of to the left by 3 units, not to the right . Similarly, the transformation shrinks the graph of horizontally by a factor of 2, rather than stretching it.   It remains only to consider our scaling transformations for a negative constant . We can answer that question just by looking at what happens when we multiply by .   Vertical and horizontal reflection   Following the same chain of logic as in the examples above we observe that a point lies on the graph of if and only if the point lies on the graph of . Graphically, this means that the graph of is obtained by reflecting the graph of across the -axis.  Similarly, a point lies on the graph of if and only if the point lies on the graph of . Graphically, this means that the graph of is obtained by reflecting the graph of across the -axis.   reflects across the -axis (red). reflects across the -axis (green).      So how do we understand a transformation like ? The key is to think of this as a sequence of two transformations: . The first transformation reflects the graph of across the -axis; the second shrinks the resulting graph by a factor of two. Combined, we see that the transformation reflects the graph of across the -axis and then shrinks it horizontally by a factor of two.  Let's make official the results of our analysis of the four types of function transformations.   Function transformations   The graphical effect of the various types of functions transformations is summarized in    Function transformations    Transformation  Graphical Result  Algebraic Result          shifts left units if      shifts right units if           shifts up units if      shifts down units if           horizontal shrink by if      horizontal stretch by if           vertical stretch by if      vertical shrink by if           graph reflects across the -axis           graph reflects across the -axis              Transformations   Consider the function given in below. Describe in words how the function is the result of three transformations of . Does the order in which these transformations occur matter? Why or why not?   The function .      There are three basic transformations involved: a vertical shift of 1 unit down, a horizontal shift of 1 unit left, and a vertical stretch by a factor of 2. To understand the order in which these transformations are applied, it's essential to remember that a function is a process that converts inputs to outputs.  By the algebraic rule for , . In words, this means that given an input for , we do the following processes in this particular order:   add 1 to and then apply the function to the quantity ;    multiply the output of by 2;    subtract 1 from the output of .     These three steps correspond to three basic transformations:   shift the graph of to the left by 1 unit;    stretch the resulting graph vertically by a factor of 2;    shift the resulting graph vertically by units.     We can see the graphical impact of these algebraic steps by taking them one at a time. Note that in each of the following figures, we track the point from the original function.   In , we see the function that results from a shift of 1 unit left of the function in . The tracked point first moves left 1 unit to . (Each time we take an additional step, we will de-emphasize the preceding function by having it appear in lighter color and dashed.)   The function .      Continuing, we now consider the function , which results in a vertical stretch away from the -axis by a factor of 2, as seen in . The tracked point is stretched vertically by a factor of 2 away from the -axis to .   The function .      Finally, we arrive at by subtracting 1 from the previous graph; this of course is a vertical shift of units, and produces the graph of shown in red in . The tracked point is shifted 1 unit down to the point .   The function .       While there are some transformations that can be executed in either order (such as the combination of a horizontal translation and a vertical translation, in other situations order matters. In this example, we have to apply the vertical stretch before applying the vertical shift, Algebraically, this is because . The quantity multiplies the function by 2 first (the stretch) and then the vertical shift follows; the quantity shifts the function down 1 unit first, and then executes a vertical stretch by a factor of 2. In the latter scenario, the point that lies on gets transformed first to and then to , which is not the same as the point that lies on .     Vertical and horizontal translations, stretches, and reflections   The figure that follows shows a piece of the graph of a parabola with five marked points. Sketch graphs for each of the given transformations. On each graph, mark the new coordinates of the five marked points      , and      , and      and         Symmetry  Some graphs do not change under certain transformations. For example, the graph of shown in below remains the same if we reflect it across the -axis. We say that this function has -axis reflectional symmetry .   is preserved under reflection across the -axis.    As another example, the graph of shown in below remains the same if we reflect it first across the -axis and then across the -axis. This double-reflection across the - and -axis is equivalent to rotation around the origin by . Take a moment to experiment with this: on a piece of scrap paper, draw a smiley face or some other picture. Flip the paper vertically and then horizontally (or horizontally and then vertically). This gives you the same result as rotating the paper by 180 degrees. A function that is preserved under the transformation of rotation is said to have  rotational symmetry .   is preserved under rotation about the origin.    These types of symmetries are also called even symmetry and odd symmetry , since power functions with even powers all have -axis symmetry and power functions with odd powers all have rotational symmetry. Let's try to understand algebraically what makes the graph of a function have even or odd symmetry. The graph has even symmetry when the following equivalence holds: . Since a point is on the graph of if and only if is in the domain of and , we see that the above equivalence is equivalent to the algebraic statement for all in the domain of . Similarly, the graph of has odd symmetry if and only if for all in its domain. This is the motivation for the following definition and table.   Even and odd functions   Let be a function whose domain satisfies the following property: if , then .    is even if for all .     is odd if for all .        Even and odd symmetry    Symmetry name  Alg. definition  Graphical symmetry    Even -axis reflectional symmetry    Odd rotational symmetry      Even\/odd: domain  Observe the technical restriction placed on the domain of a function in . Namely, we do not even ask whether a function is even or odd, if its domain does not satisfy the property . For example, -th root functions for even are not possible candidates for evenness or oddness, since their domain does not satisfy this property: , , but .    Even\/odd power functions   Let , where is a nonzero integer. Show that is even if is even, and odd if is odd.    First consider the case where is even. For any in the domain of , we have . Thus is even in this case, as claimed.  Now assume is odd. Now we have for all , showing to be odd.    It should be noted that being even or odd is a special property not enjoyed by all functions. In fact, chances are, if you write down a random algebraic function, it will be neither even nor odd.  The argument used to show that a function is not even (or not odd), is qualitatively very different than for showing the function is even (or is odd). Namely, to show the property in question does not hold, it suffices to find a single explicit counterexample. The next example illustrates this.    Show that the function is neither even nor odd.    First observe that the implied domain of is , since is a polynomial. To show is not even, it suffices to show that for some element . This is easy: we have , and thus . We conclude that is not even.  Similarly, to show is not odd, we need only find an iput satisfying . The same input works in this case as well, since .      Sketch a graph that has neither -axis symmetry nor rotational symmetry. Congratulations! You have drawn the graph of a function that is neither even nor odd.     illustrates the important role played by the for all quantifier in . A function is even (or odd) if it satisfies the relevant equation for all elements in its domain; and it is not even (or not odd) if it fails to satisfy the relevant equation for some element in its domain. In essence, being even or odd is a function equality statement involving the two functions and : is even if (as functions); and is odd if (as functions). (See .)  Consider the example again. In deciding whether is even or odd, we really are comparing it with the function . Comparing the formulas for and , it seems clear that these two functions are not equal, and hence that is not even. But we need to be careful here! As we have seen before, different formulas can sometimes be seen to define the same function after some algebra. The surefire way of showing two functions are not equal is find a single instance of an input where their outputs differ. This is exactly what we did in the solution to .  In this particular case, however, we are aided by the fact that all the functions involved are polynomials , and that polynomial equality is equivalent to having like coefficients. (See .) That is, we can immediately see that the three functions are distinct simply by comparing their coefficients. It follows that is not even (since ) and is not odd (since ).  Of course, not all functions are polynomials, and so things are not always this straightforward. When in doubt, to definitely show a function is not even (or not odd), provide an explicit counterexample.   Even\/odd\/neither   Determine algebraically whether the given function is even, odd, or neither. Confirm your answer graphically using .                    Graphs of example functions                Sageplot of function h         We first determine algebraically whether each function satisfies the definition of even or odd (or if it does not) and then verify graphically.   First observe that the domain of is . Since for all , we see that is odd. Looking at the formulas, it seems clear that for all , and hence that is not even. To be sure, however, we provide a counterexample: we have and . Since , we conclude that is not even.    In this case the implied domain of is . Since for all , we conclude that is even.  Is odd? In this case since and are both polynomials, we see that the two functions are not equal simply by comparing coefficients. Thus is not odd.    The implied domain of is , since for all . We have for all . Looking just at the formulas, it seems that the function is equal neither to nor . To be sure, however, we provide explicit counterexamples to both evenness and oddness.  Note that and . Since , we conclude that is not even. Furthermore, since , we conclude that is not odd.   Looking at the graphs of , , and , in , we can confirm our conclusions above immediately: the graph of exhibits rotational symmetry, but not -axis reflectional symmetry; the graph of exhibits -axis reflectional symmetry, but not rotational symmetry; and the graph of exhibits neither type of symmetry.      Vertex form of a quadratic function  Recall that every quadratic function can be expressed in vertex form as for some constants and . This result, along with our newfound understanding of function transformations, allows us to relate the graph of to the graph of the simple power function . Indeed, applying the sequence of transformations yields the sequence of functions . As a result, the graph of an arbitrary quadratic function can be obtained from the graph of by performing a horizontal shift, followed by a vertical scaling, followed by a vertical shift. illustrates this process for the function .   Transformations and vertex form       Graph of x squared        Shift original function          Scaling the shift        The final function         Vertex form   Let , where . The graph of is a parabola with vertex at the point . The graph of extends upwards if and downwards if .      Compute the vertex form for the given quadratic function , then provide a graph of .                   The vertex form of is computed as . The graph of is a downward-oriented parabola with vertex at .   Graph of a parabola      The vertex form of is computed as . The graph of is an upward-oriented parabola with vertex at .   Graph of a parabola             The graph of is given below:   Find a formula for each of the transformations whose graphs are given below.  a)     b)                        To obtain a new graph, stretch the graph of a function vertically by a factor of 7. Then shift the new graph 4 units to the right and 9 units up. The result is the graph of a function where , , are certain numbers. What are , , and ?   ,  ,                           Attention: you are allowed to submit your answer two times only for this problem!   Identify the graphs A (blue), B (red) and C (green):  is the graph of the function  is the graph of the function  is the graph of the function    C    B    A            The figure above is the graph of the function . Let , , and . Find the values of the following:  1.  = .  2.  = .  3.  = .  4.  = .  5.  = .  6.  = .                                 1. Since , we have . 2. Since , we have . 3. Since , we have . 4. Since , we have  5. Since , we have . 6. Since , we have .          The graph of contains the point . What point must be on each of the following transformed graphs? Enter points as including the parentheses.  (a) The graph of must contain the point  (b) The graph of must contain the point  (c) The graph of must contain the point                  SOLUTION (a) The translation moves the graph to the right 5 units. The -coordinate is not changed, but the -coordinate is , and the new point is therefore (-4, 4). (b) The translation moves the graph down 8 units. The -coordinate is not changed, but the -coordinate is , and the new point is therefore (-9, -4). (c) The translation moves the graph both to the left 4 units and up 3 units. Both coordinates will therefore change. The -coordinate is , the -coordinate is , and the new point is therefore (-13, 7).          The graph below is a vertical and\/or horizontal shift of (assume no reflections or compression\/expansions have been applied).   (a) The graph's equation can be written in the form for constants and . Based on the graph above, find the values for and .   and   (b) Now take your formula from part (a) and write it as the ratio of two linear polynomials of the form, for constants , , and . What are the values of , , and ?   ,  , and   (c) Complete the exact values of the coordinates of the intercepts of the graph.  -intercept:  -intercept:                                      SOLUTION (a) The graph shows shifted to the left 3 and up 6 units. Thus, is a choice for a formula. (b) The equation (c) We see that the graph has both an -and -intercept. If then , so . The -intercept is . When , so the -intercept is .         "
 },
@@ -2066,7 +1931,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#eg_desmos_transf",
   "type": "Example",
-  "number": "1.7.1",
+  "number": "1.6.1",
   "title": "Desmos: function transformations.",
   "body": " Desmos: function transformations   The Desmos interactive in allows you to explore the graphical relationship between an original function and four different type of transformations of : . Articulate what effect these operations have on the graph of .   Desmos interactive : graphical effect of function transformations     "
 },
@@ -2075,7 +1940,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_func_transf-4-6",
   "type": "Example",
-  "number": "1.7.3",
+  "number": "1.6.3",
   "title": "Vertical shift.",
   "body": " Vertical shift   The key to understanding the graphical effect of the transformation is the observation that a point lies on the graph of if and only if the point lies on the graph of . This is because . As a result, the graph of is obtained from the graph of by shifting it a directed distance of units. The modifier directed is used here to take notice of the sign of . More directly, assuming , we have the following graphical interpretation:   the graph of is obtained from the graph of by shifting up  units;    the graph of is obtained from the graph of by shifting down  units.      shifts up two units. shifts down two units.     "
 },
@@ -2084,7 +1949,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_func_transf-4-7",
   "type": "Example",
-  "number": "1.7.5",
+  "number": "1.6.5",
   "title": "Horizontal shift.",
   "body": " Horizontal shift   Similarly, to understand the graphical effect of the transformation we observe that a point lies on the graph of if and only if the point lies on the graph of . This is because . As a result, we obtain the graph of by shifting the graph of by the directed distance . More directly, assuming , we conclude:   the graph of is obtained from the graph of by shifting units to the left ;    the graph of is obtained from the graph of by shifting units to the right .      shifts left five units. shifts right five units.     "
 },
@@ -2093,7 +1958,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#ex_vstretch",
   "type": "Example",
-  "number": "1.7.7",
+  "number": "1.6.7",
   "title": "Vertical scaling.",
   "body": " Vertical scaling   Assume and consider the transformation . A point lies on the graph of if and only the point lies on the graph of . This is because . As a result, the graph of is obtained by taking points on the graph of and scaling their -coordinates by the constant . This has the graphical effect of vertically stretching (if ) or vertically shrinking (if ) the graph of .   stretches vertically by 2. shrinks vertically by 2.     "
 },
@@ -2102,7 +1967,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#ex_hstretch",
   "type": "Example",
-  "number": "1.7.9",
+  "number": "1.6.9",
   "title": "Horizontal scaling.",
   "body": " Horizontal scaling   Assume and now consider the transformation . A point lies on the graph of if and only the point lies on the graph of . This is because . As a result, the graph of is obtained by taking points on the graph of and scaling their -coordinates by the constant . This has the graphical effect of horizontally stretching (if ) or vertically shrinking (if ) the graph of .   compresses horizontally by 2. stretches horizontally by 2.   Horizontal scaling of graphs      "
 },
@@ -2111,7 +1976,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_func_transf-4-11",
   "type": "Remark",
-  "number": "1.7.11",
+  "number": "1.6.11",
   "title": "Transformations: vertical versus horizontal effects.",
   "body": " Transformations: vertical versus horizontal effects  A clear pattern emerges from the four types of transformations we have considered. Transformations that affect the output  (the outside of the function) have a vertical effect on the graph of the function, while transformations that affect the input  (the inside of the function) have a horizontal effect on the graph of the function. Furthermore, for both types of transformations, additive changes ( ) result in shifts, while multiplicative changes ( ) result in stretches or shrinks.  Note also that the transformations involving the input give rise to a graphical effect that is the reverse of what you might have initially expected. For example, the transformation shifts the graph of to the left by 3 units, not to the right . Similarly, the transformation shrinks the graph of horizontally by a factor of 2, rather than stretching it.  "
 },
@@ -2120,7 +1985,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_func_transf-4-13",
   "type": "Example",
-  "number": "1.7.12",
+  "number": "1.6.12",
   "title": "Vertical and horizontal reflection.",
   "body": " Vertical and horizontal reflection   Following the same chain of logic as in the examples above we observe that a point lies on the graph of if and only if the point lies on the graph of . Graphically, this means that the graph of is obtained by reflecting the graph of across the -axis.  Similarly, a point lies on the graph of if and only if the point lies on the graph of . Graphically, this means that the graph of is obtained by reflecting the graph of across the -axis.   reflects across the -axis (red). reflects across the -axis (green).     "
 },
@@ -2129,7 +1994,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#th_func_transf",
   "type": "Theorem",
-  "number": "1.7.14",
+  "number": "1.6.14",
   "title": "Function transformations.",
   "body": " Function transformations   The graphical effect of the various types of functions transformations is summarized in    Function transformations    Transformation  Graphical Result  Algebraic Result          shifts left units if      shifts right units if           shifts up units if      shifts down units if           horizontal shrink by if      horizontal stretch by if           vertical stretch by if      vertical shrink by if           graph reflects across the -axis           graph reflects across the -axis            "
 },
@@ -2138,7 +2003,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#eg_transf_order",
   "type": "Example",
-  "number": "1.7.16",
+  "number": "1.6.16",
   "title": "Transformations.",
   "body": " Transformations   Consider the function given in below. Describe in words how the function is the result of three transformations of . Does the order in which these transformations occur matter? Why or why not?   The function .      There are three basic transformations involved: a vertical shift of 1 unit down, a horizontal shift of 1 unit left, and a vertical stretch by a factor of 2. To understand the order in which these transformations are applied, it's essential to remember that a function is a process that converts inputs to outputs.  By the algebraic rule for , . In words, this means that given an input for , we do the following processes in this particular order:   add 1 to and then apply the function to the quantity ;    multiply the output of by 2;    subtract 1 from the output of .     These three steps correspond to three basic transformations:   shift the graph of to the left by 1 unit;    stretch the resulting graph vertically by a factor of 2;    shift the resulting graph vertically by units.     We can see the graphical impact of these algebraic steps by taking them one at a time. Note that in each of the following figures, we track the point from the original function.   In , we see the function that results from a shift of 1 unit left of the function in . The tracked point first moves left 1 unit to . (Each time we take an additional step, we will de-emphasize the preceding function by having it appear in lighter color and dashed.)   The function .      Continuing, we now consider the function , which results in a vertical stretch away from the -axis by a factor of 2, as seen in . The tracked point is stretched vertically by a factor of 2 away from the -axis to .   The function .      Finally, we arrive at by subtracting 1 from the previous graph; this of course is a vertical shift of units, and produces the graph of shown in red in . The tracked point is shifted 1 unit down to the point .   The function .       While there are some transformations that can be executed in either order (such as the combination of a horizontal translation and a vertical translation, in other situations order matters. In this example, we have to apply the vertical stretch before applying the vertical shift, Algebraically, this is because . The quantity multiplies the function by 2 first (the stretch) and then the vertical shift follows; the quantity shifts the function down 1 unit first, and then executes a vertical stretch by a factor of 2. In the latter scenario, the point that lies on gets transformed first to and then to , which is not the same as the point that lies on .   "
 },
@@ -2147,7 +2012,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_func_transf-4-18",
   "type": "Checkpoint",
-  "number": "1.7.21",
+  "number": "1.6.21",
   "title": "Vertical and horizontal translations, stretches, and reflections.",
   "body": " Vertical and horizontal translations, stretches, and reflections   The figure that follows shows a piece of the graph of a parabola with five marked points. Sketch graphs for each of the given transformations. On each graph, mark the new coordinates of the five marked points      , and      , and      and      "
 },
@@ -2156,7 +2021,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#fig_taalmanpage66a",
   "type": "Figure",
-  "number": "1.7.22",
+  "number": "1.6.22",
   "title": "",
   "body": " is preserved under reflection across the -axis.   "
 },
@@ -2165,7 +2030,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#fig_taalmanpage66b",
   "type": "Figure",
-  "number": "1.7.23",
+  "number": "1.6.23",
   "title": "",
   "body": " is preserved under rotation about the origin.   "
 },
@@ -2174,7 +2039,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#d_even_odd",
   "type": "Definition",
-  "number": "1.7.24",
+  "number": "1.6.24",
   "title": "Even and odd functions.",
   "body": " Even and odd functions   Let be a function whose domain satisfies the following property: if , then .    is even if for all .     is odd if for all .      "
 },
@@ -2183,7 +2048,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#table_even_odd",
   "type": "Table",
-  "number": "1.7.25",
+  "number": "1.6.25",
   "title": "Even and odd symmetry",
   "body": " Even and odd symmetry    Symmetry name  Alg. definition  Graphical symmetry    Even -axis reflectional symmetry    Odd rotational symmetry    "
 },
@@ -2192,7 +2057,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_symmetry-9",
   "type": "Remark",
-  "number": "1.7.26",
+  "number": "1.6.26",
   "title": "Even\/odd: domain.",
   "body": " Even\/odd: domain  Observe the technical restriction placed on the domain of a function in . Namely, we do not even ask whether a function is even or odd, if its domain does not satisfy the property . For example, -th root functions for even are not possible candidates for evenness or oddness, since their domain does not satisfy this property: , , but .  "
 },
@@ -2201,7 +2066,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#eg_even_odd",
   "type": "Example",
-  "number": "1.7.27",
+  "number": "1.6.27",
   "title": "Even\/odd power functions.",
   "body": " Even\/odd power functions   Let , where is a nonzero integer. Show that is even if is even, and odd if is odd.    First consider the case where is even. For any in the domain of , we have . Thus is even in this case, as claimed.  Now assume is odd. Now we have for all , showing to be odd.   "
 },
@@ -2210,7 +2075,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_symmetry-13",
   "type": "Example",
-  "number": "1.7.28",
+  "number": "1.6.28",
   "title": "",
   "body": "  Show that the function is neither even nor odd.    First observe that the implied domain of is , since is a polynomial. To show is not even, it suffices to show that for some element . This is easy: we have , and thus . We conclude that is not even.  Similarly, to show is not odd, we need only find an iput satisfying . The same input works in this case as well, since .   "
 },
@@ -2219,7 +2084,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_symmetry-14",
   "type": "Checkpoint",
-  "number": "1.7.29",
+  "number": "1.6.29",
   "title": "",
   "body": "  Sketch a graph that has neither -axis symmetry nor rotational symmetry. Congratulations! You have drawn the graph of a function that is neither even nor odd.   "
 },
@@ -2228,7 +2093,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#eg_even_odd_neither",
   "type": "Example",
-  "number": "1.7.30",
+  "number": "1.6.30",
   "title": "Even\/odd\/neither.",
   "body": " Even\/odd\/neither   Determine algebraically whether the given function is even, odd, or neither. Confirm your answer graphically using .                    Graphs of example functions                Sageplot of function h         We first determine algebraically whether each function satisfies the definition of even or odd (or if it does not) and then verify graphically.   First observe that the domain of is . Since for all , we see that is odd. Looking at the formulas, it seems clear that for all , and hence that is not even. To be sure, however, we provide a counterexample: we have and . Since , we conclude that is not even.    In this case the implied domain of is . Since for all , we conclude that is even.  Is odd? In this case since and are both polynomials, we see that the two functions are not equal simply by comparing coefficients. Thus is not odd.    The implied domain of is , since for all . We have for all . Looking just at the formulas, it seems that the function is equal neither to nor . To be sure, however, we provide explicit counterexamples to both evenness and oddness.  Note that and . Since , we conclude that is not even. Furthermore, since , we conclude that is not odd.   Looking at the graphs of , , and , in , we can confirm our conclusions above immediately: the graph of exhibits rotational symmetry, but not -axis reflectional symmetry; the graph of exhibits -axis reflectional symmetry, but not rotational symmetry; and the graph of exhibits neither type of symmetry.   "
 },
@@ -2237,7 +2102,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#fig_vertex_form",
   "type": "Figure",
-  "number": "1.7.32",
+  "number": "1.6.32",
   "title": "",
   "body": " Transformations and vertex form       Graph of x squared        Shift original function          Scaling the shift        The final function       "
 },
@@ -2246,7 +2111,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#th_vertex_form",
   "type": "Theorem",
-  "number": "1.7.33",
+  "number": "1.6.33",
   "title": "Vertex form.",
   "body": " Vertex form   Let , where . The graph of is a parabola with vertex at the point . The graph of extends upwards if and downwards if .   "
 },
@@ -2255,7 +2120,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_transf.html#sec_func_transf-6-5",
   "type": "Example",
-  "number": "1.7.34",
+  "number": "1.6.34",
   "title": "",
   "body": "  Compute the vertex form for the given quadratic function , then provide a graph of .                   The vertex form of is computed as . The graph of is a downward-oriented parabola with vertex at .   Graph of a parabola      The vertex form of is computed as . The graph of is an upward-oriented parabola with vertex at .   Graph of a parabola        "
 },
@@ -2318,7 +2183,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec_func_comp.html",
   "type": "Section",
-  "number": "1.8",
+  "number": "1.7",
   "title": "Function composition",
   "body": " Function composition    Functions Composition of Functions     Learning Goals     Understand what it means to compose two functions    Calculate values of compositions of functions given tables, graphs, or formulas    Simplify the formula for a composition of functions    Determine the domain of a composition of functions    See an example where composition of functions is vital to studying calculus       Motivation and Examples  Recall that a function, by definition, is a process that takes a collection of inputs and produces a corresponding collection of outputs in such a way that the process produces one and only one output value for any single input value. Because every function is a process, it makes sense to think that it may be possible to take two function processes and do one of the processes first, and then apply the second process to the result.  Recall Dolbear's function, , from Example that relates the number of chirps per minute from a snowy cricket to the Fahrenheit temperature, .  The Celsius and Fahrenheit temperature scales are connected by a linear function. Indeed, the function that converts Fahrenheit to Celsius is   For instance, a Fahrenheit temperature of 32 degrees corresponds to degrees Celsius.  If we are given a number of chirps, , we can combine the two processes given by Dolbear's function and the conversion from Fahrenheit to Celsius to obtain a new function that takes as input the number of chirps per minute and gives as output the temperature in degrees Celsius.    Using Dolbear's model, what is the temperature in degrees Celsius assuming we observe crickets chirping at 80 chirps per minute?    First, we compute that the temperature in degrees Fahrenheit is .  It remains only to convert this Fahrenheit temperature to degrees Celsius: . Thus, if crickets chirp at 80 chirps per minute, Dolbear's model predicts the temperature is .      Determine a formula for the new function that takes as input the number of cricket chirps per minute and gives as output the temperature in degrees Celsius.    Using as the input for the function , we simplify to find a formula directly from to that does not involve the variable :   So the function is given by .       Function composition The function explored in the examples above is called the composition of and , denoted . Let's make this definition official.   Function composition   Given functions satisfying , their composition  is the function defined as for all .     The composition uses the outputs as the inputs of .     Function composition  Observe the important condition in the setup of a composition of two functions and : we need the range of to be a subset of the domain of . Let's think through why this must be the case.  By definition the composition function takes an input and maps it to the output . In order this to make sense, we need to be in the domain of . In other words, the outputs of must lie in the domain of : this is equivalent to saying that the range of is a subset of the domain of .    Composition is not multiplication  The notation for function composition is similar looking to the notation for function multiplication. Do not conflate these two operations! Indeed, comparing and at an arbitrary input, we see that , which are by no means the same thing.    Composition: evaluation and formulas   Let and . Define .   Compute .    Find a formula for .          By definition, we have .    The formula for is computed in much the same way as above, replacing with the variable : .    The implied domain of is the set of for which is defined at and is defined at . The function is defined at as long as is nonzero; but this is true for all , since for all . Similarly, the expression is defined as long as is nonzero. As already observed, this is true for all . Thus the implied domain of is .        Composition: order matters   Define as and .   Compute formulas for and .    Do we have ?          We compute .    From the above we see that and are both quadratic polynomials. Recall that two polynomials of the same degree are equal as functions if and only if their coefficients are all equal. (See .) Comparing coefficients above, we see easily that .  Moral of the story: the order of composition matters! That is, the function is not necessarily the same as .        Inner\/outer function  The function in a composition is often called the inner function of the composition, and is called the outer function . This terminology derives naturally from the definition . Alternatively, we can use sequential language when describing the roles of and in the composition . That is, when computing using definition , we first evaluate at to produce the output , and then evaluate at to produce the output .  This sequential way of looking at composition is especially helpful when trying to describe a given function as a composition of two functions.    Expressing functions as compositions   Express the given function as a composition . Give explicit formulas for your choice of and .                   The particular form of the of the formula here strongly suggests the the outer function  should be , and the inner function  should be . Let confirm that : for all , we have for all . This proves .    In this example the inner function and outer function is less obvious. Let's use the sequential description of function composition to help us out. Looking at the formula for , we see that to evaluate at a given , we must first compute , and then compute the reciprocal of this expression . Thus suggests that we should set and . Let's check that our choice of and work: we have for all in the implied domain of . Thus .       The next two examples illustrate how to compute values of a composition of functions when the function information is provided by tables or graphs.   Composition: using tables   Suppose that and are given by the table      Compute the given expression or else explain why the tables do not provide enough information.                     Find all solutions to lying in the set .    Find all solutions to lying in the set .          We compute and . On the other hand, we do not have enough information from the table to compute since and the table does not indicate what is.    First observe that for . Thus for for , we need to find the in this set such that or . From the table we see that and . Thus are the two solutions to the equation lying in the set .    Our reasoning is similar to the previous part. Since for and since the solutions to for are and , these are the solutions to lying in .        Composition: using graphs   The graphs of functions and are given below.   Compute the following function values.    .                    We have .    We have .    We have .         Implied domain of compositions  How do we determine the implied domain of a composition of two functions? For to be defined at , we need two conditions to hold:    is defined at ;     is defined at .   Thus the implied domain of is the set of for which both and are defined. Using set intersection notation (see ), we have . Let's compute some simple examples. After we develop techniques for solving inequalities, we will consider more complicated examples.   Composition: implied domain   Let and . Find the implied domain of .    The implied domain of is the set of where is defined and where is defined.  For to be defined, we need , or equivalently .  For to be defined, we need further that , or equivalently, .  Thus both conditions are satisfied if and only if and . In other words, the implied domain of is .     Composition: implied domain   Let and .   Find the implied domain of .    Find the implied domain of .          The function is defined for all . Since is defined everywhere, there is not further constraint. Thus the implied domain is .    For to be defined at we need to be defined at and to be defined at . As mentioned above, is defined everywhere, so the first condition creates no restriction. Since is defined only when the input is nonzero, we need for to be defined at . The usual algebra shows that if and only if . We conclude that the domain of is .        Composition: implied domain  When computing the formula for a composition , there is always the danger of overlooking what the implied domain is. Consider the example where we take . Our usual implied domain analysis yields that the implied domain of is the set of all . However, if computing a formula for , we see that , suggesting that the implied domain of should be . How do we reconcile these two different conclusions? Here's how: the steps in the algebra above used to compute the formula for are only valid for inputs where and are defined in the first place! In other words, our identity is itself only true for , and this is consistent with our determination of the implied domain.     "
 },
@@ -2327,7 +2192,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#sec_func_comp-4-7",
   "type": "Example",
-  "number": "1.8.1",
+  "number": "1.7.1",
   "title": "",
   "body": "  Using Dolbear's model, what is the temperature in degrees Celsius assuming we observe crickets chirping at 80 chirps per minute?    First, we compute that the temperature in degrees Fahrenheit is .  It remains only to convert this Fahrenheit temperature to degrees Celsius: . Thus, if crickets chirp at 80 chirps per minute, Dolbear's model predicts the temperature is .   "
 },
@@ -2336,7 +2201,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#sec_func_comp-4-8",
   "type": "Example",
-  "number": "1.8.2",
+  "number": "1.7.2",
   "title": "",
   "body": "  Determine a formula for the new function that takes as input the number of cricket chirps per minute and gives as output the temperature in degrees Celsius.    Using as the input for the function , we simplify to find a formula directly from to that does not involve the variable :   So the function is given by .   "
 },
@@ -2345,7 +2210,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#d_func_comp",
   "type": "Definition",
-  "number": "1.8.3",
+  "number": "1.7.3",
   "title": "Function composition.",
   "body": " Function composition   Given functions satisfying , their composition  is the function defined as for all .   "
 },
@@ -2354,7 +2219,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#fig_comositionoffunctions",
   "type": "Figure",
-  "number": "1.8.4",
+  "number": "1.7.4",
   "title": "",
   "body": " The composition uses the outputs as the inputs of .   "
 },
@@ -2363,7 +2228,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#sec_func_comp-5-5",
   "type": "Remark",
-  "number": "1.8.5",
+  "number": "1.7.5",
   "title": "Function composition.",
   "body": " Function composition  Observe the important condition in the setup of a composition of two functions and : we need the range of to be a subset of the domain of . Let's think through why this must be the case.  By definition the composition function takes an input and maps it to the output . In order this to make sense, we need to be in the domain of . In other words, the outputs of must lie in the domain of : this is equivalent to saying that the range of is a subset of the domain of .  "
 },
@@ -2372,7 +2237,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#sec_func_comp-5-6",
   "type": "Warning",
-  "number": "1.8.6",
+  "number": "1.7.6",
   "title": "Composition is not multiplication.",
   "body": " Composition is not multiplication  The notation for function composition is similar looking to the notation for function multiplication. Do not conflate these two operations! Indeed, comparing and at an arbitrary input, we see that , which are by no means the same thing.  "
 },
@@ -2381,7 +2246,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_comp_evaluation_form",
   "type": "Example",
-  "number": "1.8.7",
+  "number": "1.7.7",
   "title": "Composition: evaluation and formulas.",
   "body": " Composition: evaluation and formulas   Let and . Define .   Compute .    Find a formula for .          By definition, we have .    The formula for is computed in much the same way as above, replacing with the variable : .    The implied domain of is the set of for which is defined at and is defined at . The function is defined at as long as is nonzero; but this is true for all , since for all . Similarly, the expression is defined as long as is nonzero. As already observed, this is true for all . Thus the implied domain of is .      "
 },
@@ -2390,7 +2255,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_func_comp_order",
   "type": "Example",
-  "number": "1.8.8",
+  "number": "1.7.8",
   "title": "Composition: order matters.",
   "body": " Composition: order matters   Define as and .   Compute formulas for and .    Do we have ?          We compute .    From the above we see that and are both quadratic polynomials. Recall that two polynomials of the same degree are equal as functions if and only if their coefficients are all equal. (See .) Comparing coefficients above, we see easily that .  Moral of the story: the order of composition matters! That is, the function is not necessarily the same as .      "
 },
@@ -2399,7 +2264,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#sec_func_comp-5-9",
   "type": "Remark",
-  "number": "1.8.9",
+  "number": "1.7.9",
   "title": "Inner\/outer function.",
   "body": " Inner\/outer function  The function in a composition is often called the inner function of the composition, and is called the outer function . This terminology derives naturally from the definition . Alternatively, we can use sequential language when describing the roles of and in the composition . That is, when computing using definition , we first evaluate at to produce the output , and then evaluate at to produce the output .  This sequential way of looking at composition is especially helpful when trying to describe a given function as a composition of two functions.  "
 },
@@ -2408,7 +2273,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_h_comp",
   "type": "Example",
-  "number": "1.8.10",
+  "number": "1.7.10",
   "title": "Expressing functions as compositions.",
   "body": " Expressing functions as compositions   Express the given function as a composition . Give explicit formulas for your choice of and .                   The particular form of the of the formula here strongly suggests the the outer function  should be , and the inner function  should be . Let confirm that : for all , we have for all . This proves .    In this example the inner function and outer function is less obvious. Let's use the sequential description of function composition to help us out. Looking at the formula for , we see that to evaluate at a given , we must first compute , and then compute the reciprocal of this expression . Thus suggests that we should set and . Let's check that our choice of and work: we have for all in the implied domain of . Thus .      "
 },
@@ -2417,7 +2282,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_func_comp_tables",
   "type": "Example",
-  "number": "1.8.11",
+  "number": "1.7.11",
   "title": "Composition: using tables.",
   "body": " Composition: using tables   Suppose that and are given by the table      Compute the given expression or else explain why the tables do not provide enough information.                     Find all solutions to lying in the set .    Find all solutions to lying in the set .          We compute and . On the other hand, we do not have enough information from the table to compute since and the table does not indicate what is.    First observe that for . Thus for for , we need to find the in this set such that or . From the table we see that and . Thus are the two solutions to the equation lying in the set .    Our reasoning is similar to the previous part. Since for and since the solutions to for are and , these are the solutions to lying in .      "
 },
@@ -2426,7 +2291,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_comp_graphs",
   "type": "Example",
-  "number": "1.8.12",
+  "number": "1.7.12",
   "title": "Composition: using graphs.",
   "body": " Composition: using graphs   The graphs of functions and are given below.   Compute the following function values.    .                    We have .    We have .    We have .      "
 },
@@ -2435,7 +2300,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_comp_implied_domain",
   "type": "Example",
-  "number": "1.8.13",
+  "number": "1.7.13",
   "title": "Composition: implied domain.",
   "body": " Composition: implied domain   Let and . Find the implied domain of .    The implied domain of is the set of where is defined and where is defined.  For to be defined, we need , or equivalently .  For to be defined, we need further that , or equivalently, .  Thus both conditions are satisfied if and only if and . In other words, the implied domain of is .   "
 },
@@ -2444,7 +2309,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#eg_comp_implied_domain_2",
   "type": "Example",
-  "number": "1.8.14",
+  "number": "1.7.14",
   "title": "Composition: implied domain.",
   "body": " Composition: implied domain   Let and .   Find the implied domain of .    Find the implied domain of .          The function is defined for all . Since is defined everywhere, there is not further constraint. Thus the implied domain is .    For to be defined at we need to be defined at and to be defined at . As mentioned above, is defined everywhere, so the first condition creates no restriction. Since is defined only when the input is nonzero, we need for to be defined at . The usual algebra shows that if and only if . We conclude that the domain of is .      "
 },
@@ -2453,9 +2318,207 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_func_comp.html#sec_func_comp-6-5",
   "type": "Warning",
-  "number": "1.8.15",
+  "number": "1.7.15",
   "title": "Composition: implied domain.",
   "body": " Composition: implied domain  When computing the formula for a composition , there is always the danger of overlooking what the implied domain is. Consider the example where we take . Our usual implied domain analysis yields that the implied domain of is the set of all . However, if computing a formula for , we see that , suggesting that the implied domain of should be . How do we reconcile these two different conclusions? Here's how: the steps in the algebra above used to compute the formula for are only valid for inputs where and are defined in the first place! In other words, our identity is itself only true for , and this is consistent with our determination of the implied domain.  "
+},
+{
+  "id": "sec_solvinginequalities",
+  "level": "1",
+  "url": "sec_solvinginequalities.html",
+  "type": "Section",
+  "number": "1.8",
+  "title": "Solving Inequalities",
+  "body": " Solving Inequalities    Solving Inequalities     Learning Goals    Learn how to solve inequalities involving linear, quadratic, polynomial, and rational expressions    Solve an inequality to determine when a function is positive and negative    Solve an inequality to rewrite an absolute value    Solve an inequality to determine the domain of a function      Rules for Inequalities and Solving Linear Inequalities  As we have seen over the last few sections, in order to determine when a function is positive and negative, find the domain of a function involving an even root, and rewrite an absolute value, we will need to be able to work with inequalities. We will need to solve inequalities in order to explore functions in general and answer many interesting questions, and so we summarize the relevant rules and develop the necessary techniques for solving inequalities. Let's begin by defining what we mean by an \"inequality.\"  An inequality consists of two mathematical expressions related by a greater-than , less-than , greater-than-or-equal-to , or less-than-or-equal-to sign. The solution set of an inequality is the set of all values that make the inequality true. Wheres the solution set of an equation often consists of a finite number of points, the solution set of an inequality is often an interval of real numbers.    For example, the solution to is the single number . The solution to is the interval of numbers , or, written using interval notation, . This means that if we take any number greater than one and subtract one, the result will be positive (meaning greater than 0).    The next theorem describes what happens to inequalities when they are inverted or multiplied by a nonzero constant.   Algebraic Rules for Inequalities   Suppose , and are nonzero real numbers.   If , then . In other words, adding a number to both sides of an inequality does not reverse the inequality.    If and , then . In other words, multiplying both sides of an inequality by a positive number does not reverse the inequality.    If and , then . In other words, multiplying both sides of an inequality by a negative number reverses the inequality .    If , then . In other words, taking reciprocals of two positive numbers reverses the inequality between the numbers.       In particular, notice that part (c) implies that multiplying an inequality by a negative number \"flips\" the inequality; for example, if , then . Part (a) illustrates that we may add any number to, or subtract any number from, both sides of an inequality without changing the direction of the inequality. Theorem is written in terms of strict inequalities  and , but similar results apply for the inequalities and .     Generate Examples: Create your own examples for parts (a)-(d) of Theorem by picking explicit, nonzero number for , and . Note that for part (b), must be positive and for part (c), must be negative (so you will need to pick different values of to illustrate those two parts). For part (d), and must both be positive.    We can use the rules in Theorem to solve linear inequalities in almost the same way that we solve equalities. The only exception is multiplying (or dividing) by negative numbers, or taking reciprocals.   Solving a simple inequality   Find the solution set of the inequality .    First, we can use part (a) of Theorem to add to both sides, which is the same as subtracting from both sides:   Next, we can use part (c) of Theorem to multiply both sides by , which is the same as dividing both sides by . Remember that this requires flipping the inequality!   Therefore the solution set of the original inequality is .     Checking the Answer   You can check the solution we just found by graphing (in red) and (in green), as shown in . The values of for which the line described by has -coordinate greater than are those to the left of .   is above for .        Consider the problem:  Determine where the function is positive.  Translate the phrase \" is positive\" into an inequality. Solve the inequality and then check your answer by graphing on Desmos or another graphing calculator.    \\fbox{ Important Note! Since multiplying both sides of an inequality by a negative number \"flips\" the inequality, you cannot multiply both sides of an inequality by a quantity whose sign you do not know. The following example illustrates a calculation where you must be especially careful about the algebraic steps you follow for precisely this reason. }    Suppose we wish to solve . You cannot multiply both sides of the inequality by , because may be positive or negative. Therefore, you do not know whether or not multiplying both sides of an inequality by will change the direction of the inequality. We will look at how to solve such an inequality later in this section.      Solving Inequalities That Involve Quadratics   If we want to know where a quadratic function is positive and negative, we need to be able to solve the inequalities and . However, this comes with significantly more complication than solving a quadratic equality, which we see in the next example.    If we try to solve the inequality by adding to both sides, we get . We may be tempted to divide by here, but remember, we do not know whether is positive or negative, so we do not know whether to flip the inequality! We must use an alternate method for this problem, which is motivated by Theorem below.    Solving quadratic inequalities is best accomplished by factoring and using a key property of the real numbers: a product of two real numbers is positive if the numbers have the same sign and negative if the numbers have opposite signs. This property is stated carefully in the following theorem:   The Sign of a Product depends on the Signs of Its Factors   If and are any real expressions, then    if and only if both and are positive ( and ) or both and are negative ( and ).     if and only if is positive and is negative ( and ) or is negative and is positive ( and ).       An easy corollary (meaning an immediate logical consequence that is interesting on its own) of this theorem is that if and only if either and have the same sign or one of and is zero.   Theorem reduces the problem of solving a factored inequality to the problem of solving a collection of related simpler inequalities.    For example, the expression in the inequality factors as . The product of and is negative exactly when and have opposite signs. It's difficult to recognize exactly which values of satisfies this condition, but it looks like it depends on whether is below 0, between 0 and 1, or above 1. (Note that when , and when .) In other words, the zeros of seem to break up the intervals where could be positive or negative.  In , we look at the sign of each factor of on the intervals between its zeros in order to determine the sign of the product. If we plug in a sample value of on each of these intervals, it becomes easier to determine the signs:   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     For example, on the interval , we can plug in a sample value of . Then is positive, is negative, so the product is negative. From this we conclude that is negative on the entire interval . We will see in a later section why we can use a sample value on this interval to draw a conclusion about the sign on the entire interval. The theorem that tells us this is called the Intermediate Value Theorem.   We can summarize the information from Table in a sign chart on a number line by making tick marks at each -value that made the expression zero and writing (for positive) or (for negative) above each interval we tested, as shown in Figure . Note that we include tick marks only at the potential sign-changing points.   A sign analysis of , represented on a number line.      From our sign analysis, we see that is positive for and , and negative for . We wished to find the solution to the inequality and so we see that the solution is values of on the interval , which we write using interval notation as     In Example above, we can see that the quadratic function { changes sign} at and , where it is equal to zero. Visually, this is where the graph fully crosses the -axis:     As a rule, quadratic functions (and polynomials in general) are only able to change sign only where their graph crosses the -axis:   When Can a Polynomial Change Sign?   A polynomial can change sign only at values where it is equal to zero.    This theorem is a special case of the Intermediate Value Theorem, which we will explore in Chapter 2.   Important! Just because a polynomial can change sign does not mean that it does change sign. The following example illustrates this fact.    The quadratic function factors as and so has a single zero at where it can change sign. We test points above and below to determine the sign of the expression by determining the sign of each factor:   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      We see that despite having an -intercept at , does not change sign at . is positive (meaning ) on the intervals , is zero at , and is never negative. You should graph to confirm.       Method for solving quadratic inequalities: Follow the steps below to determine the intervals where is positive and negative.   Factor to see that it is equal to zero at and .    Copy the table below to your notes and fill it in, picking suitable values of on each interval to test the signs of the linear factors of : and .    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule        Summarize your table on a number line, marking where is equal to zero with a tick mark and a 0, positive with a , and negative with a .    On what interval(s) is positive? On what interval(s) is negative?    Suppose you wanted to find where is positive and negative, but you discover that has no solutions. What should you conclude?       \\fbox{ Note: The method outlined in Exercise will be used throughout this course! With enough practice, you will eventually be able to complete a sign analysis with only a number line to keep track of details and will not have to write out the entire table. In fact, by the end of the course, you will likely be able to carry out the majority of Exercise in your head, and in only a fraction of the amount of time it now takes. However, we will continue to provide the full table, along with the sign charts on number lines, throughout the rest of this section while you continue to develop your skills at this method. }    Application: Rewriting a Piecewise-Defined Function by Solving an Inequality  In this subsection we see how to use inequalities to rewrite functions involving absolute values as piecewise-defined functions.    We wish to write from Exercise as a piecewise-defined function without needing to rely on a graph of .  When is positive or zero, its absolute value will remain . When is negative, its absolute value will be . Therefore we have   Thus we need to determine where is positive and negative. For this, we factor and complete a sign analysis:  Since when , we test the sign of for , and :   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      We see that is positive on and negative on . Thus we have        Solving Inequalities That Involve Products and Quotients   Recall Theorem : The Sign of a Product Depends on the Signs of its Factors. This theorem also holds for quotients: is greater than zero if and have the same sign and is less than zero if and have opposite signs. We can also generalize this theorem to products with more than two factors:   The Sign of a Product or Quotient Depends on the Number of Its Negative Factors   A product or quotient of nonzero real numbers is positive if and only if it has an even number of negative factors and is negative if and only if it has an odd number of negative factors.    For example, the product is negative because it has an odd number of negative factors. In contrast, is positive because it has an even number of negative factors.    As an illustration of the power of Theorem , consider the problem of solving the inequality .  Applying Theorem , the expression is zero only when and . (Note that is never zero; it is irreducible.) Therefore, these are the only two -values at which the expression can change sign. That means that the expression has the same sign on the entire interval , and the same sign on all of , and the same sign on all of . Applying Theorem , we can test the sign of each factor and multiply to find the sign of the entire product:   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of  Sign of                  e.g.                      e.g.                      e.g.        \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      From this, we can conclude that is less than zero exactly when , and we have solved the inequality.    There is also a version of Theorem that holds for rational functions:   When Can a Quotient of Polynomials Change Sign?   A quotient of polynomials can change sign only at values where its numerator or denominator is equal to zero.    The next example applies this theorem to solving an inequality involving a rational function.    Determine where is positive and negative.    The expression can change sign only when either the numerator or denominator is equal to zero, by Theorem . and .  Thus we perform a sign analysis on the intervals , , and , testing the sign of each factor in the numerator and denominator and combining to determine the sign of the quotient according to Theorem .   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      So we see that is positive on and negative on .    In the next example, we see how to solve an inequality where neither side is 0: we must rewrite the inequality so that one side is 0 and then perform a sign analysis. This requires further simplifying the nonzero expression to be a quotient of fully factored expressions.    Solve the inequality     Although it is tempting, recall that we can't multiply both sides of the inequality by because may be positive or may be negative (depending on the value of ). Instead, we will use some algebra to turn this inequality into one that involves a product or quotient of factors on one side and zero on the other:   Note that none of the above steps has changed the values of that can satisfy the inequalities. In other words, the inequality has the same solution set as the inequality .  Notice that the latter inequality is now a problem we have already solved! In Example , we found that the function is positive for . Additionally, the fraction is equal to zero when its numerator is zero, so for . Thus . Remembering that the two inequalities have the same solution sets, we realize that we have now solved the original problem, and conclude       Why is the square bracket used for the endpoint in Example but not the endpoint ?      Application: Finding the Domain of a Function with an Even Root    Find the domain of the algebraic function     To find the domain of , we ask which values of can be plugged into the equation that defines and produce a real number when the expression is simplified. In order for the value of to be defined for a real number , that value of must make the expression underneath the square-root sign nonnegative (meaning ) and the denominator appearing in nonzero (meaning ). Thus the domain of is the set of real numbers that satisfy:   In order to tackle the inequality, we need to rewrite the left-hand side as a single fraction:   The fraction can change sign when the numerator is zero: or when the denominator is zero: .  Performing a sign analysis for :   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      Thus is positive on , and we know that it is equal to zero at ; it is undefined at . The equivalent inequality thus has solution . Note that the second condition, , on the domain is also satisfied.  Hence overall we have found the domain of the function by determining that and on the interval        Summary  The following terms and methods were introduced in this section: inequality, solution set, sign analysis of products and quotients.  Key ideas: The solutions of inequalities are intervals of numbers. Multiplying or dividing an inequality by a negative number requires flipping the inequality. The sign of a product or quotient depends on the number of its negative factors. A polynomial can only change sign where it is equal to zero. A quotient of polynomials can only change sign where its numerator or denominator is equal to zero. In order to solve an inequality involving a product or quotient, algebraically manipulate the inequality so that one side is 0, then perform a sign analysis on the nonzero side.   Other ideas reinforced: Finding the domain of a function with an even root can involve solving an inequality. Writing a function involving an absolute value as a piecewise-defined function can involve solving an inequality.  \\fbox{\\fbox{ End of Section 1.8}}  \\rule{1.1\\textwidth}{2pt}   "
+},
+{
+  "id": "sec_solvinginequalities-4-4",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-4-4",
+  "type": "Example",
+  "number": "1.8.1",
+  "title": "",
+  "body": "  For example, the solution to is the single number . The solution to is the interval of numbers , or, written using interval notation, . This means that if we take any number greater than one and subtract one, the result will be positive (meaning greater than 0).   "
+},
+{
+  "id": "thm_algrulesineq",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#thm_algrulesineq",
+  "type": "Theorem",
+  "number": "1.8.2",
+  "title": "Algebraic Rules for Inequalities.",
+  "body": " Algebraic Rules for Inequalities   Suppose , and are nonzero real numbers.   If , then . In other words, adding a number to both sides of an inequality does not reverse the inequality.    If and , then . In other words, multiplying both sides of an inequality by a positive number does not reverse the inequality.    If and , then . In other words, multiplying both sides of an inequality by a negative number reverses the inequality .    If , then . In other words, taking reciprocals of two positive numbers reverses the inequality between the numbers.      "
+},
+{
+  "id": "sec_solvinginequalities-4-8",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-4-8",
+  "type": "Checkpoint",
+  "number": "1.8.3",
+  "title": "",
+  "body": "   Generate Examples: Create your own examples for parts (a)-(d) of Theorem by picking explicit, nonzero number for , and . Note that for part (b), must be positive and for part (c), must be negative (so you will need to pick different values of to illustrate those two parts). For part (d), and must both be positive.   "
+},
+{
+  "id": "sec_solvinginequalities-4-10",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-4-10",
+  "type": "Example",
+  "number": "1.8.4",
+  "title": "Solving a simple inequality.",
+  "body": " Solving a simple inequality   Find the solution set of the inequality .    First, we can use part (a) of Theorem to add to both sides, which is the same as subtracting from both sides:   Next, we can use part (c) of Theorem to multiply both sides by , which is the same as dividing both sides by . Remember that this requires flipping the inequality!   Therefore the solution set of the original inequality is .   "
+},
+{
+  "id": "sec_solvinginequalities-4-11",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-4-11",
+  "type": "Example",
+  "number": "1.8.5",
+  "title": "Checking the Answer.",
+  "body": " Checking the Answer   You can check the solution we just found by graphing (in red) and (in green), as shown in . The values of for which the line described by has -coordinate greater than are those to the left of .   is above for .     "
+},
+{
+  "id": "sec_solvinginequalities-4-12",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-4-12",
+  "type": "Checkpoint",
+  "number": "1.8.7",
+  "title": "",
+  "body": "  Consider the problem:  Determine where the function is positive.  Translate the phrase \" is positive\" into an inequality. Solve the inequality and then check your answer by graphing on Desmos or another graphing calculator.   "
+},
+{
+  "id": "sec_solvinginequalities-4-14",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-4-14",
+  "type": "Example",
+  "number": "1.8.8",
+  "title": "",
+  "body": "  Suppose we wish to solve . You cannot multiply both sides of the inequality by , because may be positive or negative. Therefore, you do not know whether or not multiplying both sides of an inequality by will change the direction of the inequality. We will look at how to solve such an inequality later in this section.   "
+},
+{
+  "id": "sec_solvinginequalities-5-2-2",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-5-2-2",
+  "type": "Example",
+  "number": "1.8.9",
+  "title": "",
+  "body": "  If we try to solve the inequality by adding to both sides, we get . We may be tempted to divide by here, but remember, we do not know whether is positive or negative, so we do not know whether to flip the inequality! We must use an alternate method for this problem, which is motivated by Theorem below.   "
+},
+{
+  "id": "thm_signofproducts",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#thm_signofproducts",
+  "type": "Theorem",
+  "number": "1.8.10",
+  "title": "The Sign of a Product depends on the Signs of Its Factors.",
+  "body": " The Sign of a Product depends on the Signs of Its Factors   If and are any real expressions, then    if and only if both and are positive ( and ) or both and are negative ( and ).     if and only if is positive and is negative ( and ) or is negative and is positive ( and ).      "
+},
+{
+  "id": "ex_quadsignanalysis",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#ex_quadsignanalysis",
+  "type": "Example",
+  "number": "1.8.11",
+  "title": "",
+  "body": "  For example, the expression in the inequality factors as . The product of and is negative exactly when and have opposite signs. It's difficult to recognize exactly which values of satisfies this condition, but it looks like it depends on whether is below 0, between 0 and 1, or above 1. (Note that when , and when .) In other words, the zeros of seem to break up the intervals where could be positive or negative.  In , we look at the sign of each factor of on the intervals between its zeros in order to determine the sign of the product. If we plug in a sample value of on each of these intervals, it becomes easier to determine the signs:   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     For example, on the interval , we can plug in a sample value of . Then is positive, is negative, so the product is negative. From this we conclude that is negative on the entire interval . We will see in a later section why we can use a sample value on this interval to draw a conclusion about the sign on the entire interval. The theorem that tells us this is called the Intermediate Value Theorem.   We can summarize the information from Table in a sign chart on a number line by making tick marks at each -value that made the expression zero and writing (for positive) or (for negative) above each interval we tested, as shown in Figure . Note that we include tick marks only at the potential sign-changing points.   A sign analysis of , represented on a number line.      From our sign analysis, we see that is positive for and , and negative for . We wished to find the solution to the inequality and so we see that the solution is values of on the interval , which we write using interval notation as    "
+},
+{
+  "id": "thm_polynomialchangesign",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#thm_polynomialchangesign",
+  "type": "Theorem",
+  "number": "1.8.14",
+  "title": "When Can a Polynomial Change Sign?",
+  "body": " When Can a Polynomial Change Sign?   A polynomial can change sign only at values where it is equal to zero.   "
+},
+{
+  "id": "sec_solvinginequalities-5-2-14",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-5-2-14",
+  "type": "Example",
+  "number": "1.8.15",
+  "title": "",
+  "body": "  The quadratic function factors as and so has a single zero at where it can change sign. We test points above and below to determine the sign of the expression by determining the sign of each factor:   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      We see that despite having an -intercept at , does not change sign at . is positive (meaning ) on the intervals , is zero at , and is never negative. You should graph to confirm.   "
+},
+{
+  "id": "ex_quadineqmethod",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#ex_quadineqmethod",
+  "type": "Checkpoint",
+  "number": "[STRUCT].17",
+  "title": "",
+  "body": "   Method for solving quadratic inequalities: Follow the steps below to determine the intervals where is positive and negative.   Factor to see that it is equal to zero at and .    Copy the table below to your notes and fill it in, picking suitable values of on each interval to test the signs of the linear factors of : and .    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule        Summarize your table on a number line, marking where is equal to zero with a tick mark and a 0, positive with a , and negative with a .    On what interval(s) is positive? On what interval(s) is negative?    Suppose you wanted to find where is positive and negative, but you discover that has no solutions. What should you conclude?      "
+},
+{
+  "id": "sec_solvinginequalities-5-3-3",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-5-3-3",
+  "type": "Example",
+  "number": "1.8.19",
+  "title": "",
+  "body": "  We wish to write from Exercise as a piecewise-defined function without needing to rely on a graph of .  When is positive or zero, its absolute value will remain . When is negative, its absolute value will be . Therefore we have   Thus we need to determine where is positive and negative. For this, we factor and complete a sign analysis:  Since when , we test the sign of for , and :   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      We see that is positive on and negative on . Thus we have    "
+},
+{
+  "id": "thm_gensignofproduct",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#thm_gensignofproduct",
+  "type": "Theorem",
+  "number": "1.8.22",
+  "title": "The Sign of a Product or Quotient Depends on the Number of Its Negative Factors.",
+  "body": " The Sign of a Product or Quotient Depends on the Number of Its Negative Factors   A product or quotient of nonzero real numbers is positive if and only if it has an even number of negative factors and is negative if and only if it has an odd number of negative factors.   "
+},
+{
+  "id": "sec_solvinginequalities-6-2-4",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-6-2-4",
+  "type": "Example",
+  "number": "1.8.23",
+  "title": "",
+  "body": "  As an illustration of the power of Theorem , consider the problem of solving the inequality .  Applying Theorem , the expression is zero only when and . (Note that is never zero; it is irreducible.) Therefore, these are the only two -values at which the expression can change sign. That means that the expression has the same sign on the entire interval , and the same sign on all of , and the same sign on all of . Applying Theorem , we can test the sign of each factor and multiply to find the sign of the entire product:   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of  Sign of                  e.g.                      e.g.                      e.g.        \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      From this, we can conclude that is less than zero exactly when , and we have solved the inequality.   "
+},
+{
+  "id": "thm_quotientchangesign",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#thm_quotientchangesign",
+  "type": "Theorem",
+  "number": "1.8.26",
+  "title": "When Can a Quotient of Polynomials Change Sign?",
+  "body": " When Can a Quotient of Polynomials Change Sign?   A quotient of polynomials can change sign only at values where its numerator or denominator is equal to zero.   "
+},
+{
+  "id": "ex_signofquotient",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#ex_signofquotient",
+  "type": "Example",
+  "number": "1.8.27",
+  "title": "",
+  "body": "  Determine where is positive and negative.    The expression can change sign only when either the numerator or denominator is equal to zero, by Theorem . and .  Thus we perform a sign analysis on the intervals , , and , testing the sign of each factor in the numerator and denominator and combining to determine the sign of the quotient according to Theorem .   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      So we see that is positive on and negative on .   "
+},
+{
+  "id": "ex_nonzeroineq",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#ex_nonzeroineq",
+  "type": "Example",
+  "number": "1.8.30",
+  "title": "",
+  "body": "  Solve the inequality     Although it is tempting, recall that we can't multiply both sides of the inequality by because may be positive or may be negative (depending on the value of ). Instead, we will use some algebra to turn this inequality into one that involves a product or quotient of factors on one side and zero on the other:   Note that none of the above steps has changed the values of that can satisfy the inequalities. In other words, the inequality has the same solution set as the inequality .  Notice that the latter inequality is now a problem we have already solved! In Example , we found that the function is positive for . Additionally, the fraction is equal to zero when its numerator is zero, so for . Thus . Remembering that the two inequalities have the same solution sets, we realize that we have now solved the original problem, and conclude    "
+},
+{
+  "id": "sec_solvinginequalities-6-2-11",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-6-2-11",
+  "type": "Checkpoint",
+  "number": "[STRUCT].30",
+  "title": "",
+  "body": "  Why is the square bracket used for the endpoint in Example but not the endpoint ?   "
+},
+{
+  "id": "sec_solvinginequalities-6-3-2",
+  "level": "2",
+  "url": "sec_solvinginequalities.html#sec_solvinginequalities-6-3-2",
+  "type": "Example",
+  "number": "1.8.31",
+  "title": "",
+  "body": "  Find the domain of the algebraic function     To find the domain of , we ask which values of can be plugged into the equation that defines and produce a real number when the expression is simplified. In order for the value of to be defined for a real number , that value of must make the expression underneath the square-root sign nonnegative (meaning ) and the denominator appearing in nonzero (meaning ). Thus the domain of is the set of real numbers that satisfy:   In order to tackle the inequality, we need to rewrite the left-hand side as a single fraction:   The fraction can change sign when the numerator is zero: or when the denominator is zero: .  Performing a sign analysis for :   A sign analysis of    \\toprule Interval  Sign of  Sign of  Sign of                e.g.                   e.g.                   e.g.       \\bottomrule     Summarizing this on a number line:   A sign analysis of , represented on a number line.      Thus is positive on , and we know that it is equal to zero at ; it is undefined at . The equivalent inequality thus has solution . Note that the second condition, , on the domain is also satisfied.  Hence overall we have found the domain of the function by determining that and on the interval    "
 },
 {
   "id": "appendix-notation",
