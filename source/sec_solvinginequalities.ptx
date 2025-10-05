@@ -142,7 +142,14 @@
                 
     </statement>
 </theorem>
-   <remark>
+  <remark>
+    <title>Elementary inequality rules</title>
+    <p>
+      The statements in <xref ref="th_inequalities"/> remain true if we place <m>&lt;</m> with <m>\leq</m>. Why? The relation <m>\leq</m> means less than <em>or equal to</em>. Since the statements above are true with respect to the relation <m>&lt;</m> (the content of the theorem) and to the relation <m>=</m>, it follows logically that they are true with respect to the relation <m>\leq</m>. 
+    </p>
+  </remark>
+   
+  <remark>
    <title>Visualizing inequalities</title>
    <p>
    The English phrases <q>less than</q> and <q>greater than</q> unfortunately obscure somewhat the meaning of the relations <m>&lt;</m> and <m>&gt;</m>. For example, we are tempted to translate the statement <m>x&lt; y</m> as <q><m>x</m> is smaller than <m>y</m></q>. But this is <em>not</em> what the <m>x&lt; y</m> means. Indeed, we have <m>-100&lt; 1</m>, and yet <m>-100</m> is not <em>smaller</em> than <m>1</m>. The correct way of understanding <m>x&lt; y</m> is as a statement about the relative position of <m>x</m> and <m>y</m> on the number line. That is, we have 
@@ -153,50 +160,68 @@
    </p>
    </remark>
    
-    <exercise>
-      <statement>
-        <p>
-          <em>Generate Examples:</em> Create your own examples for parts (a)-(d) of Theorem <xref ref="thm_algrulesineq" /> by picking explicit,
-          nonzero number for <m>a, b</m>, and <m>c</m>.
-          Note that for part (b),
-          <m>c</m> must be positive and for part (c), <m>c</m> must be negative
-          (so you will need to pick different values of <m>c</m> to illustrate those two parts).
-          For part (d), <m>a</m> and <m>b</m> must both be positive.
-        </p>
-      </statement>
-    </exercise>
-    <p>
-      We can use the rules in Theorem <xref ref="thm_algrulesineq" /> to solve linear inequalities in <em>almost</em>
-      the same way that we solve equalities.
-      The only exception is multiplying
-      (or dividing)
-      by negative numbers, or taking reciprocals.
-    </p>
+   <p>
+    Equipped with the inequality rules of <xref ref="th_inequalities"/>, we are able to solve elementary inequalities in much the same way we do equalities, but taking due care when multiplying by negative constants or taking reciprocals. 
+   </p>
     <example>
       <title>Solving a simple inequality</title>
       <statement>
         <p>
-          Find the solution set of the inequality <m>3-2x>7</m>.
+          Solve the given inequality. Express your answer using interval notation or set builder notation. 
+          <ol>
+            <li>
+              <p>
+                <m>3-2x&gt; 7</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\frac{5}{x+1}\leq 8</m>
+              </p>
+            </li>
+          </ol>
         </p>
       </statement>
       <solution>
         <p>
-          First, we can use part (a) of Theorem <xref ref="thm_algrulesineq" /> to add <m>-3</m> to both sides,
-          which is the same as subtracting <m>3</m> from both sides:
-          <me>
-            \begin{aligned}3-2x \amp >7\\ (3-2x)-3 \amp >7-3\\ -2x\amp >4 \end{aligned}
-          </me>
-        </p>
-        <p>
-          Next, we can use part (c) of Theorem <xref ref="thm_algrulesineq" /> to multiply both sides by <m>-\frac{1}{2}</m>,
-          which is the same as dividing both sides by <m>-2</m>.
-          Remember that this requires flipping the inequality!
-          <me>
-            \begin{aligned}-2x\amp >4\\ -\frac{1}{2}(-2x)\amp \lt -\frac{1}{2}(4) \\ x\amp \lt -2 \end{aligned}
-          </me>
-        </p>
-        <p>
-          Therefore the solution set of the original inequality is <m>(-\infty,-2)</m>.
+          <ol>
+          <li>
+            <p>
+              We solve 
+              <md>
+                <mrow>3-2x \amp &gt; 7</mrow>
+                <mrow>-2x \amp &gt; 4 \amp (\text{add } -3)</mrow>
+                <mrow>x \amp &lt; -2 \amp (\text{multiply by } -1/2)</mrow>
+              </md>.
+              Thus the set of solutions is the interval <m>(-\infty,-2)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Clearly, we want to use the reciprocal rule here, but we need to be careful since to do so, the signs of both sides of the inequality have to agree! We handle this by separately treating the cases where <m>5/(x+1)</m> is negative and positive. 
+            </p>
+            <p>
+              Note that <m>5/(x+1)&lt; 0</m> if and only if <m>x+1&lt; 0</m> if and only if <m>x&lt; -1</m>. In this case we certainly have <m>5/(x+1)\leq 8</m>. Thus the interval <m>(-\infty, -1)</m> is part of our solution. 
+            </p>
+            <p>
+              Now assume <m>x&gt; -1</m>. In this case <m>5/(x+1)</m> is positive, allowing us to use the reciprocal rule. We solve: 
+              <md>
+                <mrow> \frac{5}{x+1}\amp\leq 8 </mrow>
+                <mrow>\frac{1}{8} \amp \leq \frac{x+1}{5} \amp (\text{reciprocal rule})</mrow>
+                <mrow>\frac{5}{8} \amp \leq x+1 </mrow>
+                <mrow>-\frac{3}{8} \amp \leq x</mrow>
+              </md>.
+              Thus <m>[-3/8,\infty)</m> is the set of all <m>x</m> satisfying the inequality with <m>x\geq -1</m>. 
+            </p>
+            <p>
+              Combining our two cases, we conclude that the set of solutions to the inequality is 
+              <me>
+                (-\infty, -1)\cup [-3/8,\infty)
+              </me>.
+            </p>
+
+          </li>
+        </ol>
         </p>
       </solution>
     </example>
