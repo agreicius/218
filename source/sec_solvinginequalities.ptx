@@ -7,7 +7,8 @@
   </introduction>
   <subsection>
     <title>Learning Goals</title>
-    <ul>
+    <p>
+      <ul>
       <li>
         <p>
           Learn how to solve inequalities involving linear, quadratic,
@@ -30,6 +31,7 @@
         </p>
       </li>
     </ul>
+  </p>
   </subsection>
   <subsection>
     <title>Rules for Inequalities and Solving Linear Inequalities</title>
@@ -51,75 +53,106 @@
       The <em>solution set</em> of an inequality is the set of all values that make the inequality true.
       Wheres the solution set of an equation often consists of a finite number of points,
       the solution set of an inequality is often an
-      <em>interval</em> of real numbers.
+      <em>interval</em> of real numbers, or unions of intervals.
     </p>
-    <example>
-      <statement>
+
         <p>
-          For example,
-          the solution to <m>x-1=0</m> is the single number <m>x=1</m>.
-          The solution to <m>x-1>0</m> is the <em>interval</em>
-          of numbers <m>x>1</m>, or,
-          written using interval notation, <m>(1,\infty)</m>.
-          This means that if we take any number greater than one and subtract one,
-          the result will be positive
-          (meaning greater than 0).
+          For example, whereas 
+          the solution to <m>x-1=0</m> is the single number <m>x=1</m>,
+          the solution to <m>x-1&gt; 0</m> is the set 
+          <me>
+            \{x\in \R\mid x&gt; 0\}
+          </me>,
+           which we recognize as the interval <m>(1,\infty)</m>. 
         </p>
-      </statement>
-    </example>
+      
     <p>
-      The next theorem describes what happens to inequalities when they are inverted or multiplied by a nonzero constant.
+      The inequality in the last example was solved in much the same way the corresponding equality is solved:
+      <md>
+        <mrow>x-1 \amp &gt; 0</mrow>
+        <mrow>x-1+1 \amp &gt; 0+1 </mrow>
+        <mrow>x \amp &gt; 1</mrow>
+      </md>.
+      That is we isolated the <m>x</m> term by adding <m>1</m> to both sides of the inequality. The reason why this step is valid is that if <m>x&lt;  y</m>, then <m>x+a&lt;  y+a</m> for any <m>a\in \R</m>: <ie/>, adding a constant to two numbers <em>preserves the inequality relation</em> between them. 
     </p>
-    <theorem xml:id="thm_algrulesineq">
-      <title>Algebraic Rules for Inequalities</title>
-      <statement>
+    <p>
+      What about multiplying both sides of an equality by a nonzero constant? Is it true that if <m>x &lt; y</m>, then <m>ax&lt; ay</m> for any nonzero <m>a</m>? No! Consider the following example: <m>1&lt; 2</m>, but <m>(-2)1=-2\not &lt; -4=(-2)2</m>. We have (re)discovered the first nuance about solving inequalities: multiplying numbers by nonzero constants doesn't necessarily preserve their inequality relation: in fact, if the constant is negative, the relation is reversed! Below we make official this observation, along with some other elementary inequality rules. 
+    </p>
+    <theorem xml:id="th_inequalities">
+    <title>Inequality rules</title>
+    <statement>
         <p>
-          Suppose <m>a, b</m>, and <m>c</m> are nonzero real numbers.
-          <ol marker="labelalphitemsep5pttopsep5pt">
-            <li>
-              <p>
-                If <m>a\lt b</m>, then <m>a+c\lt b+c</m>.
-                In other words,
-                adding a number to both sides of an inequality does not reverse the inequality.
-              </p>
-            </li>
-            <li>
-              <p>
-                If <m>a\lt b</m> and <m>c>0</m>, then <m>ac\lt bc</m>.
-                In other words,
-                multiplying both sides of an inequality by a positive number does not reverse the inequality.
-              </p>
-            </li>
-            <li>
-              <p>
-                If <m>a\lt b</m> and <m>c\lt 0</m>, then <m>ac>bc</m>.
-                In other words,
-                multiplying both sides of an inequality by a negative number
-                <em>reverses the inequality</em>.
-              </p>
-            </li>
-            <li>
-              <p>
-                If <m>0\lt a\lt b</m>, then <m>\frac{1}{a}>\frac{1}{b}</m>.
-                In other words,
-                taking reciprocals of two positive numbers reverses the inequality between the numbers.
-              </p>
-            </li>
-          </ol>
+            <ol>
+              <li>
+                <title>Add constant</title>
+                <p>
+                  For any constant <m>a\in \R</m> and any <m>x,y\in \R</m>, we have 
+                  <men xml:id="eq_ineq_add">
+                    x&lt; y \iff x+a&lt; y
+                  </men>.
+                </p>
+              </li>
+                <li>
+                    <title>Multiply by constant</title>
+                    <p>
+                        Assume <m>a&gt; 0</m> is a positive constant and <m>b&lt; 0</m> is a negative one. For all <m>x,y\in \R</m> we have
+                        <md>
+                            <mrow>x&lt; y \amp \iff ax&lt; ay</mrow>
+                            <mrow>x&lt; y \amp \iff by&lt; bx</mrow>
+                        </md>.              
+                    </p>
+                </li>
+                <li>
+                  <title>Reciprocal</title>
+                  <p>
+                    For all <m>x,y\in \R</m>, we have 
+                    <mdn>
+                      <mrow xml:id="eq_ineq_recip">0&lt; x&lt; y \amp \iff 0&lt; \frac{1}{y}&lt; \frac{1}{x}</mrow>
+                      <mrow>x&lt; y &lt; 0 \amp \iff \frac{1}{y}&lt; \frac{1}{x}&lt; 0</mrow>
+                    </mdn>.
+                  </p>
+                </li>
+                <!-- <li>
+                    <title>Absolute value</title>
+                    <p>
+                        Assume <m>a\geq 0</m> is a nonnegative constant. For all <m>x\in \R</m>, we have 
+                        <md>
+                            <mrow>\abs{x}&lt; a \amp \iff -a&lt; x&lt; a</mrow>
+                            <mrow> \abs{x}&gt; a\amp \iff x&lt; -a \text{ or } a&gt; x</mrow>
+                        </md>.
+                    </p>
+                </li>
+                <li>
+                    <title>Squaring and square-rooting</title>
+                    <p>
+                        Assume <m>a\geq 0</m> is a nonnegative constant. For all <m>x\in \R</m>, we have 
+                        <md>
+                            <mrow>a&lt; x \amp \implies a^2\leq x^2</mrow>
+                <mrow>a&lt; x \amp \implies \sqrt{a}\leq \sqrt{x}</mrow>
+                </md>.
+            It follows that for all nonnegative <m>x\geq 0</m>, we have
+            <md>
+                <mrow>a&lt; x \amp \iff a^2\leq x^2</mrow>
+                <mrow>a&lt; x \amp \iff \sqrt{a}\leq \sqrt{x}</mrow>
+                </md>.
+                    </p>
+                </li> -->
+            </ol>
         </p>
-      </statement>
-    </theorem>
-    <p>
-      In particular,
-      notice that part (c) implies that multiplying an inequality by a negative number "flips" the inequality;
-      for example, if <m>a\lt b</m>, then <m>-a>-b</m>.
-      Part (a) illustrates that we may add any number to,
-      or subtract any number from,
-      both sides of an inequality without changing the direction of the inequality.
-      <xref ref="thm_algrulesineq">Theorem</xref>
-      is written in terms of <em>strict inequalities</em> <m>></m> and <m>\lt</m>,
-      but similar results apply for the inequalities <m>\geq</m> and <m>\leq</m>.
-    </p>
+                
+    </statement>
+</theorem>
+   <remark>
+   <title>Visualizing inequalities</title>
+   <p>
+   The English phrases <q>less than</q> and <q>greater than</q> unfortunately obscure somewhat the meaning of the relations <m>&lt;</m> and <m>&gt;</m>. For example, we are tempted to translate the statement <m>x&lt; y</m> as <q><m>x</m> is smaller than <m>y</m></q>. But this is <em>not</em> what the <m>x&lt; y</m> means. Indeed, we have <m>-100&lt; 1</m>, and yet <m>-100</m> is not <em>smaller</em> than <m>1</m>. The correct way of understanding <m>x&lt; y</m> is as a statement about the relative position of <m>x</m> and <m>y</m> on the number line. That is, we have 
+    <md>
+      <mrow>x&lt; y \amp \iff x \text{ is to the left of } y \text{ on the number line}</mrow>
+      <mrow>x&gt; y \amp \iff x \text{ is to the right of } y \text{ on the number line}</mrow>
+    </md>.
+   </p>
+   </remark>
+   
     <exercise>
       <statement>
         <p>
