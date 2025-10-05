@@ -1,12 +1,12 @@
 <section xml:id="sec_solvinginequalities">
-  <title>Solving Inequalities</title>
+  <title>Solving inequalities</title>
   <introduction>
     <p>
           <idx><h>Solving Inequalities</h></idx>
     </p>
   </introduction>
   <subsection>
-    <title>Learning Goals</title>
+    <title>Learning goals</title>
     <p>
       <ul>
       <li>
@@ -34,7 +34,7 @@
   </p>
   </subsection>
   <subsection>
-    <title>Rules for Inequalities and Solving Linear Inequalities</title>
+    <title>Elementary inequality rules</title>
     <p>
       As we have seen over the last few sections,
       in order to determine when a function is positive and negative,
@@ -79,7 +79,7 @@
       What about multiplying both sides of an equality by a nonzero constant? Is it true that if <m>x &lt; y</m>, then <m>ax&lt; ay</m> for any nonzero <m>a</m>? No! Consider the following example: <m>1&lt; 2</m>, but <m>(-2)1=-2\not &lt; -4=(-2)2</m>. We have (re)discovered the first nuance about solving inequalities: multiplying numbers by nonzero constants doesn't necessarily preserve their inequality relation: in fact, if the constant is negative, the relation is reversed! Below we make official this observation, along with some other elementary inequality rules. 
     </p>
     <theorem xml:id="th_inequalities">
-    <title>Inequality rules</title>
+    <title>Elementary inequality rules</title>
     <statement>
         <p>
             <ol>
@@ -249,177 +249,59 @@
     </remark>
   </subsection>
   <subsection>
-    <title>Solving Inequalities That Involve Quadratics</title>
-    <introduction>
-      <p>
-        If we want to know where a quadratic function
-        <m>f(x) = ax^2+bx+c</m> is positive and negative,
-        we need to be able to solve the inequalities
-        <m>ax^2+bx+c>0</m> and <m>ax^2+bx+c\lt 0</m>.
-        However, this comes with significantly more complication than solving a quadratic equality,
-        which we see in the next example.
-      </p>
-      <example>
-        <statement>
-          <p>
-            If we try to solve the inequality
-            <m>x^2-x\lt 0</m> by adding <m>x</m> to both sides, we get
-            <me>
-              x^2\lt x
-            </me>.
-            We may be tempted to divide by <m>x</m> here, but remember,
-            we do not know whether <m>x</m> is positive or negative,
-            so we do not know whether to flip the inequality!
-            We must use an alternate method for this problem,
-            which is motivated by <xref ref="thm_signofproducts">Theorem</xref> below.
-          </p>
-        </statement>
-      </example>
-      <p>
-        Solving quadratic inequalities is best accomplished by factoring and using a key property of the real numbers:
-        a product of two real numbers is positive if the numbers have the same sign and negative if the numbers have opposite signs.
-        This property is stated carefully in the following theorem:
-      </p>
-      <theorem xml:id="thm_signofproducts">
-        <title>The Sign of a Product depends on the Signs of Its Factors</title>
-        <statement>
-          <p>
-            If <m>A</m> and <m>B</m> are any real expressions, then
-            <ol marker="labelalphitemsep5pttopsep5pt">
-              <li>
-                <p>
-                  <m>AB>0</m> if and only if both <m>A</m> and <m>B</m> are positive (<m>A>0</m> and <m>B>0</m>) or both <m>A</m> and <m>B</m> are negative
-                  (<m>A\lt 0</m> and <m>B\lt 0</m>).
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>AB\lt 0</m> if and only if <m>A</m> is positive and <m>B</m> is negative (<m>A>0</m> and <m>B\lt 0</m>) or <m>A</m> is negative and <m>B</m> is positive
-                  (<m>A\lt 0</m> and <m>B>0</m>).
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </theorem>
-      <p>
-        An easy <em>corollary</em>
-        (meaning an immediate logical consequence that is interesting on its own)
-        of this theorem is that <m>AB\geq 0</m> if and only if either <m>A</m> and <m>B</m> have the same sign or one of <m>A</m> and <m>B</m> is zero.
-      </p>
-      <p>
-        <xref ref="thm_signofproducts">Theorem</xref>
-        reduces the problem of solving a factored inequality to the problem of solving a collection of related simpler inequalities.
-      </p>
-      <example xml:id="ex_quadsignanalysis">
-        <statement>
-          <p>
-            For example, the expression in the inequality
-            <m>x^2-x\lt 0</m> factors as <m>x(x-1)\lt 0</m>.
-            The product of <m>x</m> and <m>x-1</m> is negative exactly when <m>x</m> and <m>x-1</m> have opposite signs.
-            It's difficult to recognize exactly which values of <m>x</m> satisfies this condition,
-            but it looks like it depends on whether <m>x</m> is below 0, between 0 and 1, or above 1. (Note that <m>x-1\lt 0</m> when <m>x\lt 1</m>,
-            and <m>x-1>0</m> when <m>x>1</m>.) In other words,
-            the zeros of <m>x^2-x</m> seem to break up the intervals where <m>x^2-x</m> could be positive or negative.
-          </p>
-          <p>
-            In <xref ref="tab_quadsignanalysis" />,
-            we look at the sign of each factor of <m>x(x-1)</m> on the intervals between its zeros in order to determine the sign of the product.
-            If we plug in a sample value of <m>x</m> on each of these intervals,
-            it becomes easier to determine the signs:
-          </p>
-          <table xml:id="tab_quadsignanalysis">
-            <title>A sign analysis of <m>x^2-x = x(x-1)</m></title>
-            <tabular>
-              <row>
-                <cell>\toprule
-                  Interval</cell>
-                <cell>Sign of <m>x</m></cell>
-                <cell>Sign of <m>x-1</m></cell>
-                <cell>Sign of <m>x(x-1)</m></cell>
-              </row>
-              <row bottom="medium">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell  ><m>x\lt 0</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(-)(-)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=-1</m></cell>
-                <cell><m>-1</m></cell>
-                <cell><m>-1-1 = -2</m></cell>
-                <cell><m>(-1)(-2) = 2</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>0\lt x\lt 1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(+)(-)=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=0.5</m></cell>
-                <cell><m>0.5</m></cell>
-                <cell><m>0.5-1 = -0.5</m></cell>
-                <cell><m>(0.5)(-0.5) = -0.25</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x>1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>(+)(+)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=2</m></cell>
-                <cell><m>2</m></cell>
-                <cell><m>2-1 = 1</m></cell>
-                <cell><m>(2)(1) = 1</m></cell>
-              </row>
-              <row>
-                <cell>\bottomrule</cell>
-              </row>
-            </tabular>
-          </table>
-          <p>
-            For example, on the interval <m>0\lt x\lt 1</m>,
-            we can plug in a sample value of <m>x=0.5</m>.
-            Then <m>x=0.5</m> is positive,
-            <m>x-1 = 0.5-1 = -0.5</m> is negative,
-            so the product <m>x(x-1) = (0.5)(-0.5) = -0.25</m> is negative.
-            From this we conclude that <m>x(x-1)</m> is negative on the entire interval <m>0\lt x\lt 1</m>.
-            We will see in a later section <em>why</em>
-            we can use a sample value on this interval to draw a conclusion about the sign on the entire interval.<fn>
-            The theorem that tells us this is called the Intermediate Value Theorem.
-            </fn>
-          </p>
-          <p>
-            We can summarize the information from <xref ref="tab_quadsignanalysis">Table</xref> in a <em>sign chart</em>
-            on a number line by making tick marks at each <m>x</m>-value that made the expression zero and writing <m>+</m>
-            (for positive)
-            or <m>-</m>
-            (for negative)
-            above each interval we tested,
-            as shown in <xref ref="num_quadsignanalysis">Figure</xref>.
-            Note that we include tick marks <em>only</em>
-            at the potential sign-changing points.
-          </p>
+    <title>Sign diagram technique</title>
+    <p>
+     <xref ref="th_inequalities"/> allows us to solve a linear inequality <m>ax+b&lt; c</m> almost exactly as we would the corresponding linear equality <m>ax+b=c</m>; we just need to be careful about the sign when multiplying both sides by <m>1/a</m>. With anything more complicated, however, solving inequalities becomes much more subtle. 
+    </p>
+    <p>
+      Consider the <em>quadratic</em> inequality <m>x^2-x&lt; 0</m>. Since adding any constant to both sides preserves the inequality, we can add <m>x</m> to both sides to conclude 
+      <me>
+        x^2&lt; x
+      </me>.
+      We might be tempted to multiply both sides of the equation by <m>1/x</m> (we can exclude <m>x=0</m>, since the inequality clearly doesn't hold for this choice), however we need to remember that depending on whether <m>x</m> is negative or positive, the inequality might flip. This leads to two separate cases.
+    </p>
+    <p>
+      A slightly more streamlined approach would be to use factoring: 
+      <md>
+        <mrow>x^2-x \amp &lt; 0</mrow>
+        <mrow>x(x-1) \amp &lt; 0</mrow>
+      </md>.
+      Now use the fact that a product of two numbers is negative if and only if the two numbers have different signs: 
+      <md>
+        <mrow>x(x-1) \amp &lt; 0</mrow>
+        <mrow>(x&lt; 0 \text{ and } x-1&gt; 0) \amp \text{ or } (x&gt; 0 \text{ and } x-1&lt; 0) </mrow>
+       <mrow>(x&lt; 0 \text{ and } x&gt; 1) \amp \text{ or } (x&gt; 0 \text{ and } x&lt; 1) </mrow>
+       <mrow>0 \amp &lt; x &lt; 1</mrow>
+      </md>.
+      Note that the left side of our <q>or</q> statement was eventually discarded since there is no number <m>x</m> satisfying <m>x&lt; 0</m> and <m>x&gt; 1</m>. In all we conclude that the set of solutions to the inequality is the interval <m>(0,1)</m>.
+    </p>
+    <p>
+      We should make official at this point our observation about the sign of a product of numbers. 
+    </p>
+    <theorem xml:id="th_sign_prod">
+    <title>Sign of a product</title>
+    <statement>
+    <p>
+    Let <m>a</m> and <m>b</m> be nonzero real numbers. We have 
+    <m>ab&gt; 0</m> if and only if <m>a</m> and <m>b</m> have the same sign, and <m>ab&lt; 0</m> if and only if <m>a</m> and <m>b</m> have opposite signs. In other words: 
+    <md>
+      <mrow>ab&gt; 0 \amp \iff a,b&gt; 0 \text{ or } a,b&lt; 0</mrow>
+      <mrow>ab&lt; 0 \amp \iff a&lt; 0&lt; b \text{ or } b&lt; 0&lt; a</mrow>
+    </md>.
+    </p>
+    </statement>
+    </theorem>
+    <p>
+      A similar approach can be used for a more general quadratic inequality <m>ax^2+bx+c&lt; d</m>: namely, first make the right side of the inequality 0 (<m>ax^2+bx+(c-d)&lt; 0</m>); then try to factor the left side (<m>a(x-c_1)(x-c_2)&lt; 0</m>); then treat the different cases coming from <xref ref="th_sign_prod"/>. However, we are interested in one technique that works not only for quadratic inequalities, but also inequalities involving <em>any</em> algebraic function. This leads us to what we call a <em>sign diagram</em> technique.
+    </p>
+    <p>
+      Consider again the inequality <m>x^2-x&lt; 0</m>. We can interpret this as a statement about the function <m>f(x)=x^2-x</m>: namely, the set of solutions to the inequality is precisely the set of <m>x</m> where <m>f</m> is negative. This set is easily visualized by a graph of <m>f</m>. 
+    </p>
+    <figure xml:id="fig_graph_ineq">
+      <caption><m>f(x)=x^2-x</m></caption>
+      <image width="37%" source="QuadExample1.png"/>
+    </figure>
+    
           <figure xml:id="num_quadsignanalysis">
             <caption>A sign analysis of <m>x^2-x = x(x-1)</m>, represented on a number line.</caption>
             <image>
@@ -454,41 +336,11 @@
               x\in(0,1)
             </me>
           </p>
-        </statement>
-      </example>
-      <p>
-        In Example <xref ref="ex_quadsignanalysis" /> above,
-        we can see that the quadratic function
-        <m>q(x) = x^2-x</m> { changes sign} at <m>x=0</m> and <m>x=1</m>,
-        where it is equal to zero.
-        Visually, this is where the graph fully crosses the <m>x</m>-axis:
-      </p>
-      <p>
-        <image width="37%" source="QuadExample1.png"/>
-      </p>
-      <p>
-        As a rule, quadratic functions
-        (and polynomials in general)
-        are only able to change sign only where their graph crosses the <m>x</m>-axis:
-      </p>
-      <theorem xml:id="thm_polynomialchangesign">
-        <title>When Can a Polynomial Change Sign?</title>
-        <statement>
-          <p>
-            A polynomial can change sign only at values where it is equal to zero.
-          </p>
-        </statement>
-      </theorem>
-      <p>
-        This theorem is a special case of the Intermediate Value Theorem,
-        which we will explore in Chapter 2.
-      </p>
-      <p>
-        <em>Important!</em> Just because a polynomial <em>can</em>
-        change sign does not mean that it
-        <em>does</em> change sign.
-        The following example illustrates this fact.
-      </p>
+        
+
+      
+
+      
       <example>
         <statement>
           <p>
@@ -578,267 +430,10 @@
           </p>
         </statement>
       </example>
-      <exercise xml:id="ex_quadineqmethod">
-        <statement>
-          <p>
-            <em>Method for solving quadratic inequalities:</em>
-            Follow the steps below to determine the intervals where
-            <me>
-              f(x) = x^2-x-6
-            </me>
-            is positive and negative.
-            <ol marker="labelalphitemsep5pttopsep5pt">
-              <li>
-                <p>
-                  Factor <m>f(x)</m> to see that it is equal to zero at <m>x=-2</m> and <m>x=3</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Copy the table below to your notes and fill it in,
-                  picking suitable values of <m>x</m> on each interval to test the signs of the linear factors of <m>x^2-x-6</m>:
-                  <m>x+\rule[-.25em]{0.15in}{1pt}</m> and <m>x-\rule[-.25em]{0.15in}{1pt}</m>.
-                  <table>
-                    <tabular>
-                      <row>
-                        <cell>\toprule Interval</cell>
-                        <cell>Sign of <m>x-\rule[-.25em]{0.15in}{1pt}</m></cell>
-                        <cell>Sign of <m>x+\rule[-.25em]{0.15in}{1pt}</m></cell>
-                        <cell>Sign of <m>(x-\rule[-.25em]{0.15in}{1pt})(x+\rule[-.25em]{0.15in}{1pt})</m></cell>
-                      </row>
-                      <row bottom="minor">
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell><m>x\lt -2</m></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell>e.g. <m>x=\rule[-.25em]{0.15in}{1pt}</m></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row bottom="minor">
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell><m>-2\lt x\lt 3</m></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell>e.g. <m>x=\rule[-.25em]{0.15in}{1pt}</m></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row bottom="minor">
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell><m>x>3</m></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell>e.g. <m>x=\rule[-.25em]{0.15in}{1pt}</m></cell>
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell>\bottomrule</cell>
-                      </row>
-                    </tabular>
-                  </table>
-                </p>
-              </li>
-              <li>
-                <p>
-                  Summarize your table on a number line,
-                  marking where <m>f(x)=x^2-x-6</m> is equal to zero with a tick mark and a 0, positive with a <m>+</m>,
-                  and negative with a <m>-</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  On what interval(s) is <m>f(x)=x^2-x-6</m> positive?
-                  On what interval(s) is <m>f(x) = x^2-x-6</m> negative?
-                </p>
-              </li>
-              <li>
-                <p>
-                  Suppose you wanted to find where
-                  <m>g(x) = x^2+1</m> is positive and negative,
-                  but you discover that <m>x^2+1=0</m> has no solutions.
-                  What should you conclude?
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </exercise>
-      <p>
-        \fbox{ <em>Note:</em> The method outlined in <xref ref="ex_quadineqmethod">Exercise</xref>
-        will be used throughout this course!
-        With enough practice,
-        you will eventually be able to complete a sign analysis with only a number line to keep track of details and will not have to write out the entire table.
-        In fact, by the end of the course,
-        you will likely be able to carry out the majority of <xref ref="ex_quadineqmethod">Exercise</xref> in your head,
-        and in only a fraction of the amount of time it now takes.
-        However, we will continue to provide the full table,
-        along with the sign charts on number lines,
-        throughout the rest of this section while you continue to develop your skills at this method. }
-      </p>
-    </introduction>
-    <subsubsection>
-      <title>Application: Rewriting a Piecewise-Defined Function by Solving an Inequality</title>
-      <p>
-        In this subsection we see how to use inequalities to rewrite functions involving absolute values as piecewise-defined functions.
-      </p>
-      <example>
-        <statement>
-          <p>
-            We wish to write <m>f(x) = |x^2-1|</m> from <xref ref="ex_TaalmanSec0_5Ex4">Exercise</xref>
-            as a piecewise-defined function without needing to rely on a graph of <m>y=x^2-1</m>.
-          </p>
-          <p>
-            When <m>x^2-1</m> is positive or zero,
-            its absolute value will remain <m>x^2-1</m>.
-            When <m>x^2-1</m> is negative,
-            its absolute value will be <m>-(x^2-1)</m>.
-            Therefore we have
-            <me>
-              f(x) = |x^2-1| = \begin{cases}x^2-1, \amp  \text{ for all } x\text{ with } x^2-1\geq 0\\ -(x^2-1), \amp  \text{ for all } x\text{ with } x^2-1\lt  0 \end{cases}
-            </me>
-          </p>
-          <p>
-            Thus we need to determine where <m>y=x^2-1</m> is positive and negative.
-            For this, we factor and complete a sign analysis:
-          </p>
-          <p>
-            Since <m>x^2-1=(x+1)(x-1)=0</m> when <m>x=\pm1</m>,
-            we test the sign of <m>x^2-1</m> for <m>x\lt -1, -1\lt x\lt 1</m>,
-            and <m>x>1</m>:
-          </p>
-          <table xml:id="tab_absvalquadsignanalysis">
-            <title>A sign analysis of <m>x^2-1 = (x+1)(x-1)</m></title>
-            <tabular>
-              <row>
-                <cell>\toprule
-                  Interval</cell>
-                <cell>Sign of <m>x+1</m></cell>
-                <cell>Sign of <m>x-1</m></cell>
-                <cell>Sign of <m>(x+1)(x-1)</m></cell>
-              </row>
-              <row bottom="medium">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell  ><m>x\lt -1</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(-)(-)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=-2</m></cell>
-                <cell><m>-2+1=-1</m></cell>
-                <cell><m>-2-1 = -3</m></cell>
-                <cell><m>(-1)(-3) = 3</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>-1\lt x\lt 1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(+)(-)=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=0</m></cell>
-                <cell><m>0+1=1</m></cell>
-                <cell><m>0-1 = -1</m></cell>
-                <cell><m>(1)(-1) = -1</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x>1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>(+)(+)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=2</m></cell>
-                <cell><m>2+1=3</m></cell>
-                <cell><m>2-1 = 1</m></cell>
-                <cell><m>(3)(1) = 3</m></cell>
-              </row>
-              <row>
-                <cell>\bottomrule</cell>
-              </row>
-            </tabular>
-          </table>
-          <p>
-            Summarizing this on a number line:
-          </p>
-          <figure xml:id="num_absvalquadsignanalysis">
-            <caption>A sign analysis of <m>x^2-1 = (x+1)(x-1)</m>, represented on a number line.</caption>
-            <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) node[above left] {\((x+1)(x-1)\)}  -- (2.5,0) ;
-\foreach \x in  {-1,1}
-\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
-\foreach \x in  {-1,1}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2,0,2}
-\draw[shift={(\x,0)},color=black] (0pt,-5pt) -- (0pt,-5pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2,2}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
-\foreach \x in  {0}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
-</latex-image>
-            </image>
-          </figure>
-          <p>
-            We see that <m>x^2-1 = (x+1)(x-1)</m> is positive on
-            <m>(-\infty,-1)\cup(1,\infty)</m> and negative on <m>(-1,1)</m>.
-            Thus we have
-            <me>
-              f(x) = |x^2-1| = \begin{cases}x^2-1, \amp  \text{ if }  x\leq -1 \text{ or }  x\geq 1\\ -(x^2-1), \amp   \text{ if }  -1\lt x\lt 1 \end{cases}
-            </me>
-          </p>
-        </statement>
-      </example>
-    </subsubsection>
+      
+      
   </subsection>
+    
   <subsection>
     <title>Solving Inequalities That Involve Products and Quotients</title>
     <introduction>
@@ -1166,7 +761,7 @@
           <p>
             Notice that the latter inequality
             <m>\frac{1-2x}{x+1}\geq 0</m> is now a problem we have already solved!
-            In Example <xref ref="ex_signofquotient" />,
+            In Example <xref ref="ex_signofquotient" autoname="yes"/>,
             we found that the function
             <m>h(x) = \frac{1-2x}{x+1}</m> is positive for <m>x\in \left(-1,\frac{1}{2}\right)</m>.
             Additionally, the fraction
@@ -1189,7 +784,7 @@
         <statement>
           <p>
             Why is the square bracket used for the endpoint
-            <m>x=\frac{1}{2}</m> in Example <xref ref="ex_nonzeroineq" /> but not the endpoint <m>x=-1</m>?
+            <m>x=\frac{1}{2}</m> in Example <xref ref="ex_nonzeroineq" autoname="yes"/> but not the endpoint <m>x=-1</m>?
           </p>
         </statement>
       </exercise>
