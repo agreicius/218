@@ -331,7 +331,7 @@
 <title>Constancy of sign</title>
 <statement>
 <p>
-Let <m>f</m> be an algebraic function. If <m>I</m> is an interval containing no zeros of <m>f</m> and no points where <m>f</m> is undefined, then <m>f&gt; 0</m> or <m>f&lt; 0</m>. 
+Let <m>f</m> be an algebraic function. If <m>I</m> is an interval containing no zeros of <m>f</m> and no points where <m>f</m> is undefined, then <m>f&gt; 0</m> or <m>f&lt; 0</m> on <m>I</m>. 
 </p>
 </statement>
 </theorem>
@@ -351,7 +351,7 @@ Let <m>f</m> be an algebraic function. If <m>I</m> is an interval containing no 
           <p>
             Use <xref ref="th_inequalities"/> to express the inequality in one of the forms 
             <md>
-              <mrow>f(x)\amp &lt; 0 \amp f(x)\amp \leq; 0 \amp f(x)\amp &gt; 0 \amp f(x)\amp \geq 0 \amp </mrow>
+              <mrow>f(x)\amp &lt; 0 \amp f(x)\amp \leq 0 \amp f(x)\amp &gt; 0 \amp f(x)\amp \geq 0 \amp </mrow>
             </md>,
             where <m>f</m> is an algebraic function. 
           </p>
@@ -447,6 +447,69 @@ Since furthermore, <m>f(x)=0</m> at <m>x=-3/8</m>, we conclude that the set of s
 </p>
 </solution>
 </example>
+
+<example xml:id="eg_solve_ineq_simple_quadratic">
+<title>Solving <m>x^2&gt; a</m></title>
+<statement>
+<p>
+Fix a positive constant <m>a\in \R</m>. Use <xref ref="proc_solve_ineq"/> to solve the inequality
+<me>
+  x^2&gt; a
+</me>.
+</p>
+</statement>
+<solution>
+<p>
+We put the inequality in standard form and factor to find roots: 
+<md>
+  <mrow>x^2 \amp &gt; a</mrow>
+  <mrow>x^2-a \amp &gt; 0</mrow>
+  <mrow>(x-\sqrt{a})(x+\sqrt{a}) \amp &gt; 0</mrow>
+</md>.
+It is now easy to see that <m>f(x)=x^2-a=(x-\sqrt{a})(x+\sqrt{a})</m> has zeros at <m>\pm \sqrt{a}</m> and has the following sign diagram. 
+</p>
+<image width="50%">
+  <shortdescription>Sign diagram of quadratic</shortdescription>
+  <latex-image>\begin{tikzpicture}
+        \draw[latex-latex] (-2,0) -- (2,0);
+        \path foreach \X/\Y in 
+         {-1/{-\sqrt{a}}, 1/{\sqrt{a}}}
+            { (\X,0) node[circle,fill,blue, inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (-2,0.25) node {$f\colon$};
+            <!-- \draw (0,-.5) node{$f\colon $}; -->
+       \draw(-1.5,.25) node{$+$};
+       \draw(0,.25) node{$-$};
+       \draw(1.5,.25) node{$+$};
+        \end{tikzpicture}</latex-image>
+</image>
+<p>
+We conclude that the set of solutions to <m>f(x)&gt; 0</m>, and hence also <m>x^2&gt; a</m>, is <m>(-\infty, \sqrt{a})\cup (\sqrt{a},\infty)</m>. 
+</p>
+</solution>
+</example>
+<p>
+  Inequalities of the form <m>x^2&lt; a</m> or <m>x^2&gt; a</m> arise frequently enough to merit a corresponding inequality rule. 
+</p>
+<theorem xml:id="th_ineq_squaring">
+<title>Inequalities and squares</title>
+<statement>
+<p>
+Let <m>a</m> be a positive real number. 
+      We have 
+      <md>
+        <mrow>x^2&lt; a \amp \iff -\sqrt{a}\leq x\leq \sqrt{a}</mrow>
+        <mrow> \amp \iff x\in (-\sqrt{a}, \sqrt{a})</mrow>
+        <mrow>x^2&gt; a \amp \iff x&lt; -\sqrt{a} \text{ or } x&gt; \sqrt{a} </mrow>
+        <mrow> \amp \iff x\in (-\infty, -\sqrt{a})\cup (\sqrt{a}, \infty)</mrow>
+      </md>.
+    </p>
+
+</statement>
+
+</theorem>
+
+
 <example xml:id="eg_ineq_sign_cubic">
 <title>Sign diagram: quartic</title>
 <statement>
