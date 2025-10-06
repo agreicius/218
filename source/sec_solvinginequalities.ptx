@@ -299,684 +299,210 @@
     </p>
     <figure xml:id="fig_graph_ineq">
       <caption><m>f(x)=x^2-x</m></caption>
-      <image width="37%" source="QuadExample1.png"/>
+      <image width="65%" source="QuadExample1.png"/>
     </figure>
+    <p>
+      The graph confirms that <m>f(x)=x^2-x &lt; 0</m> if and only if <m>0&lt; x&lt; 1</m>, just as we had deduced above. It also brings to light another property that will be useful for solving inequalities: the sign of the function does not change until we reach a zero. In the example above, we have <m>f&gt; 0</m> on the entire interval <m>(-\infty, 0)</m>, <m>f&lt; 0</m> on <m>(0,1)</m>, and <m>f&gt; 0</m> on <m>(1,\infty)</m>. This is elegantly summarized by the sign diagram of <m>f</m> below. 
+    </p>
     
           <figure xml:id="num_quadsignanalysis">
-            <caption>A sign analysis of <m>x^2-x = x(x-1)</m>, represented on a number line.</caption>
-            <image>
+            <caption>Sign diagram of <m>f(x)=x^2-x</m>.</caption>
+            <image width="70%">
 <latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) node[above left] {\(x(x-1)\)} -- (2.5,0) ;
-\foreach \x in  {0,1}
-\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
-\foreach \x in  {0,1}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {-1,0.5, 2}
-\draw[shift={(\x,0)},color=black] (0pt,-5pt) -- (0pt,-5pt) node[below]
-{\(\x\)};
-\foreach \x in  {-1,2}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
-\foreach \x in  {0.5}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
+\begin{tikzpicture}
+        \draw[latex-latex] (-2,0) -- (3,0);
+        \path foreach \X in 
+         {0,1}
+            { (\X,0) node[circle,fill,blue, inner sep=0.5mm,
+               label=below:{$\X$}]  {}};
+            \draw (-2,0.25) node {$f\colon$};
+            <!-- \draw (0,-.5) node{$f\colon $}; -->
+       \draw(-1,.25) node{$+$};
+       \draw(.5,.25) node{$-$};
+       \draw(2,.25) node{$+$};
+        \end{tikzpicture}
 </latex-image>
-            </image>
-          </figure>
+</image>
+</figure>
+<p>
+  As it turns out, this constancy of sign exhibited by <m>f(x)=x^2-x</m> is enjoyed not just by all quadratic functions, but indeed by all algebraic functions. The property seems intuitively true: a function shouldn't be able to switch from positive to negative, or vice versa, without crossing the <m>x</m>-axis. However, to prove this property rigorously, we need some help from calculus: namely, the notion of a <em>continuous</em> function, as well as the <em>intermediate value</em> property that continuous functions enjoy. We will get to these in due time, at which point we will re-visit the discussion here. For now, we will take on faith this property of sign, that we articulate in the theorem below. 
+</p>        
+<theorem xml:id="th_constancy_sign">
+<title>Constancy of sign</title>
+<statement>
+<p>
+Let <m>f</m> be an algebraic function. If <m>I</m> is an interval containing no zeros of <m>f</m> and no points where <m>f</m> is undefined, then <m>f&gt; 0</m> or <m>f&lt; 0</m>. 
+</p>
+</statement>
+</theorem>
+<p>
+  <xref ref="th_constancy_sign"/> is the theoretical underpinning of the following procedure for solving inequalities. Although the procedure is stated for inequalities of the form <m>f(x)&lt; 0</m>, 
+</p>
+<algorithm xml:id="proc_solve_ineq">
+  <title>Sign diagram</title>
+  
+  
+  <statement>
+    <p>
+      To solve an inequality involving algebraic functions, proceed as follows. 
+      <ol>
+        <li>
+          <title>Standard form</title>
           <p>
-            From our sign analysis,
-            we see that <m>x(x-1)</m> is positive for <m>x\lt 0</m> and <m>x>1</m>,
-            and negative for <m>0\lt x\lt 1</m>.
-            We wished to find the solution to the inequality
-            <me>
-              x^2-x\lt 0\text{ meaning }  x(x-1)\lt 0
-            </me>
-            and so we see that the solution is values of <m>x</m> on the interval <m>0\lt x\lt 1</m>,
-            which we write using interval notation as
-            <me>
-              x\in(0,1)
-            </me>
+            Use <xref ref="th_inequalities"/> to express the inequality in one of the forms 
+            <md>
+              <mrow>f(x)\amp &lt; 0 \amp f(x)\amp \leq; 0 \amp f(x)\amp &gt; 0 \amp f(x)\amp \geq 0 \amp </mrow>
+            </md>,
+            where <m>f</m> is an algebraic function. 
           </p>
-        
+        </li>
+        <li>
+          <title>Number line diagram</title>
+          <p>
+            Produce a number line diagram that includes points for all zeros of <m>f</m>, as well as any individual points where <m>f</m> is not defined. 
+          </p>
+        </li>
+        <li>
+          <title>Sign diagram</title>
+          <p>
+            Identify the sign of <m>f</m> on the resulting open intervals that have the points in Step 2 as endpoints. This can be done by evaluating <m>f</m> at a test point in each of these intervals, or by using elementary inequality properties. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Solve the standard form inequality derived in Step 1 by identifying the relevant intervals in your sign diagram. 
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</algorithm>
 
-      
+<example xml:id="eg_ineq_sign_diag">
+<title>Sign diagram: rational function</title>
+<statement>
+<p>
+Use <xref ref="proc_solve_ineq"/> to provide another solution to the inequality 
+<men xml:id="eq_ineq_sign">
+  \frac{5}{x+1}\leq 8
+</men>.
+</p>
+</statement>
+<solution>
+<p>
+We first bring the inequality into a standard form: 
+<md>
+  <mrow> \frac{5}{x+1}\amp \leq 8\amp </mrow>
+  <mrow>\frac{5}{x+1}-8 \amp \leq 0</mrow>
+  <mrow>\frac{5-8(x+1)}{x+1} \amp\leq 0 </mrow>
+  <mrow>\frac{-8x-3}{x+1} \amp\leq 0 </mrow>
+</md>.
+The rational function <m>f(x)=(-8x-3)/(x+1)=-(8x+3)/(x+1)</m> is undefined at <m>x=-1</m> and has a zero at <m>x=-3/8</m>. Thus we begin with the number line diagram 
+</p>
+<image width="50%">
+  <shortdescription>Sign diagram of rational function</shortdescription>
+  <latex-image>
+\begin{tikzpicture}
+        \draw[latex-latex] (-2,0) -- (1,0);
+        \path foreach \X/\Y in 
+         {-1/-1, 0/{-\frac{3}{8}}}
+            { (\X,0) node[circle,fill,blue, inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            <!-- \draw (-1.5,0.25) node {$f\colon$}; -->
+            <!-- \draw (0,-.5) node{$f\colon $}; -->
+       <!-- \draw(-1,.25) node{$+$}; -->
+       <!-- \draw(.5,.25) node{$-$}; -->
+       <!-- \draw(2,.25) node{$+$}; -->
+        \end{tikzpicture}
+</latex-image>
+</image>
+<p>
+  Next we identify the sign of <m>f</m> on the three intervals <m>(-\infty, -1)</m>, <m>(-1,-3/8)</m>, <m>(-3.8,\infty)</m>. We can do this by using the following test points: 
+<md>
+  <mrow>f(-2) \amp = -\frac{-13}{-1}=-13&lt; 0</mrow>
+  <mrow>f(-1/2) \amp =-\frac{-1}{1/2}=2&gt; 0</mrow>
+  <mrow>f(0) \amp = -\frac{3}{1}=-3&lt; 0</mrow>
+</md>.
+From the constancy of sign theorem, we conclude that <m>f&lt; 0</m> on <m>(-\infty, -1)</m> and <m>(-3/8, \infty)</m> and <m>f&gt; 0</m> on <m>(-1, -3/8)</m>. This is summarized in the following sign diagram for <m>f</m>. 
+</p>
+<image width="50%">
+  <shortdescription>Sign diagram of rational function</shortdescription>
+  <latex-image>
+\begin{tikzpicture}
+        \draw[latex-latex] (-2,0) -- (1,0);
+        \path foreach \X/\Y in 
+         {-1/-1, 0/{-\frac{3}{8}}}
+            { (\X,0) node[circle,fill,blue, inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (-2,0.25) node {$f\colon$};
+            <!-- \draw (0,-.5) node{$f\colon $}; -->
+       \draw(-1.5,.25) node{$-$};
+       \draw(-.5,.25) node{$+$};
+       \draw(.5,.25) node{$-$};
+        \end{tikzpicture}
+</latex-image>
+</image>
+<p>
+Since furthermore, <m>f(x)=0</m> at <m>x=-3/8</m>, we conclude that the set of solutions to <m>f(x)\leq 0</m>, and hence to our original inequality <xref ref="eq_ineq_sign"/> is <m>(-\infty, -1)\cup [-3/8, \infty)</m>. 
+</p>
+</solution>
+</example>
+<example xml:id="eg_ineq_sign_cubic">
+<title>Sign diagram: quartic</title>
+<statement>
+<p>
+Use <xref ref="proc_solve_ineq"/> to solve the inequality 
+<men xml:id="eq_quart_ineq">
+  x^4+x^2&gt; 2
+</men>.
+</p>
+</statement>
+<solution>
+<p>
+First bring the inequality into the standard form 
+<me>
+  f(x)=x^4+x^2-2&gt; 0
+</me>.
+The quartic polynomial <m>f</m> has no points where it is undefined. We factor <m>f</m> to find its roots. We have 
+<md>
+  <mrow>f(x) \amp =x^4+x^2-2</mrow>
+  <mrow> \amp =u^2+u-2 \amp (u=x^2)</mrow>
+  <mrow> \amp =(u+2)(u-1)</mrow>
+  <mrow> \amp =(x^2+2)(x^2-1)</mrow>
+  <mrow> \amp =(x^2+2)(x-1)(x+1)</mrow>
+</md>.
+Since <m>x^2+2</m> is never equal to zero, we see that the roots of <m>f</m> are <m>x=-1, 1</m>. Using the test points 
+<md>
+  <mrow>f(-2) \amp = 18&gt; 0</mrow>
+  <mrow>f(0) \amp = -2&lt; 0 </mrow>
+  <mrow>f(2) \amp = 18&gt; 0 </mrow>
+</md>,
+we produce the following sign diagram.
+</p>
+<image width="70%">
+  <shortdescription>Sign diagram of quartic polynomial</shortdescription>
+  <latex-image>
+\begin{tikzpicture}
+        \draw[latex-latex] (-2,0) -- (2,0);
+        \path foreach \X/\Y in 
+         {-1/-1, 1/1}
+            { (\X,0) node[circle,fill,blue, inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (-2,0.25) node {$f\colon$};
+            <!-- \draw (-1.,-.5) node{$f\colon $}; -->
+       \draw(-1.5,.25) node{$+$};
+       \draw(0,.25) node{$-$};
+       \draw(1.5,.25) node{$+$};
+        \end{tikzpicture}
+</latex-image>
+</image>
+<p>
+  We conclude that the set of solutions to <m>f(x)&gt; 0</m>, and hence to the original inequality <xref ref="eq_quart_ineq"/> is <m>(-\infty, -1)\cup (1,\infty)</m>. 
+</p>
+</solution>
+</example>
 
-      
-      <example>
-        <statement>
-          <p>
-            The quadratic function <m>q(x) = x^2+2x+1</m> factors as
-            <m>(x+1)(x+1)</m> and so has a single zero at <m>x=-1</m> where it can change sign.
-            We test points above and below <m>x=-1</m> to determine the sign of the expression by determining the sign of each factor:
-          </p>
-          <table xml:id="tab_posquadsignanalysis">
-            <title>A sign analysis of <m>x^2+2x+1 = (x+1)(x+1)</m></title>
-            <tabular>
-              <row>
-                <cell>\toprule
-                  Interval</cell>
-                <cell>Sign of <m>x+1</m></cell>
-                <cell>Sign of <m>x+1</m></cell>
-                <cell>Sign of <m>(x+1)(x+1)</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x\lt -1</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(-)(-)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=-2</m></cell>
-                <cell><m>-2+1 = -1</m></cell>
-                <cell><m>-2+1 = -1</m></cell>
-                <cell><m>(-1)(-1) = 1</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x>-1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>(+)(+)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=2</m></cell>
-                <cell><m>2+1 = 3</m></cell>
-                <cell><m>2+1 = 3</m></cell>
-                <cell><m>(3)(3) = 9</m></cell>
-              </row>
-              <row>
-                <cell>\bottomrule</cell>
-              </row>
-            </tabular>
-          </table>
-          <p>
-            Summarizing this on a number line:
-          </p>
-          <figure xml:id="num_posquadsignanalysis">
-            <caption>A sign analysis of <m>x^2+2x+1 = (x+1)(x+1)</m>, represented on a number line.</caption>
-            <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) node[above left] {\((x+1)(x+1)\)} -- (2.5,0) ;
-\foreach \x in  {-1}
-\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
-\foreach \x in  {-1}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2,2}
-\draw[shift={(\x,0)},color=black] (0pt,-5pt) -- (0pt,-5pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2,2}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};\end{tikzpicture}]]>
-</latex-image>
-            </image>
-          </figure>
-          <p>
-            We see that despite having an <m>x</m>-intercept at <m>x=-1</m>,
-            <m>q(x)=x^2+2x+1</m> does not change sign at <m>x=-1</m>.
-            <m>q(x)</m> is positive (meaning
-            <m>q(x) = x^2+2x+1>0</m>) on the intervals <m>(-\infty,-1)\cup(-1,\infty)</m>,
-            is zero at <m>x=-1</m>, and is never negative.
-            You should graph <m>q(x)</m> to confirm.
-          </p>
-        </statement>
-      </example>
-      
-      
-  </subsection>
-    
-  <subsection>
-    <title>Solving Inequalities That Involve Products and Quotients</title>
-    <introduction>
-      <p>
-        Recall <xref ref="thm_signofproducts">Theorem</xref>: The Sign of a Product <m>AB</m> Depends on the Signs of its Factors.
-        This theorem also holds for quotients:
-        <m>\frac{A}{B}</m> is greater than zero if <m>A</m> and <m>B</m> have the same sign and is less than zero if <m>A</m> and <m>B</m> have opposite signs.
-        We can also generalize this theorem to products with more than two factors:
-      </p>
-      <theorem xml:id="thm_gensignofproduct">
-        <title>The Sign of a Product or Quotient Depends on the Number of Its Negative Factors</title>
-        <statement>
-          <p>
-            A product or quotient of nonzero real numbers is positive if and only if it has an even number of negative factors and is negative if and only if it has an odd number of negative factors.
-          </p>
-        </statement>
-      </theorem>
-      <p>
-        For example,
-        the product <m>(-2)(-1)(2)(-6)</m> is negative because it has an odd number of negative factors.
-        In contrast,
-        <m>\frac{(-3)(-2)(-8)}{(7)(-4)}</m> is positive because it has an even number of negative factors.
-      </p>
-      <example>
-        <statement>
-          <p>
-            As an illustration of the power of <xref ref="thm_gensignofproduct">Theorem</xref>,
-            consider the problem of solving the inequality
-            <me>
-              (x^2+2)(x+1)(x-1)\lt 0
-            </me>.
-          </p>
-          <p>
-            Applying <xref ref="thm_quotientchangesign">Theorem</xref>,
-            the expression <m>(x^2+2)(x+1)(x-1)</m> is zero only when <m>x=-1</m> and <m>x=1</m>.
-            (Note that <m>x^2+2</m> is never zero; it is irreducible.)
-            Therefore, these are the only two <m>x</m>-values at which the expression can change sign.
-            That means that the expression has the same sign on the entire interval <m>(-\infty, -1)</m>,
-            and the same sign on all of <m>(-1,1)</m>,
-            and the same sign on all of <m>(1,\infty)</m>.
-            Applying <xref ref="thm_gensignofproduct">Theorem</xref>,
-            we can test the sign of each factor and multiply to find the sign of the entire product:
-          </p>
-          <table xml:id="tab_quarticsignanalysis">
-            <title>A sign analysis of <m>(x^2+2)(x+1)(x-1)</m></title>
-            <tabular>
-              <row>
-                <cell>\toprule
-                  Interval</cell>
-                <cell>Sign of <m>x^2+2</m></cell>
-                <cell>Sign of <m>x+1</m></cell>
-                <cell>Sign of <m>x-1</m></cell>
-                <cell>Sign of <m>(x^2)(x+1)(x-1)</m></cell>
-              </row>
-              <row bottom="medium">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell  ><m>x\lt -1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(+)(-)(-)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=-2</m></cell>
-                <cell><m>(-2)^2+2=6</m></cell>
-                <cell><m>-2+1 = -1</m></cell>
-                <cell><m>-2-1 = -3</m></cell>
-                <cell><m>(6)(-1)(-3) = 18</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>-1\lt x\lt 1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>(+)(+)(-)=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=0</m></cell>
-                <cell><m>(0)^2+2=2</m></cell>
-                <cell><m>0+1 = 1</m></cell>
-                <cell><m>0-1 = -1</m></cell>
-                <cell><m>(2)(1)(-1) = -2</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x>1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>(+)(+)(+)=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=2</m></cell>
-                <cell><m>(2)^2+2=6</m></cell>
-                <cell><m>2+1 = 3</m></cell>
-                <cell><m>2-1 = 1</m></cell>
-                <cell><m>(6)(3)(1) = 18</m></cell>
-              </row>
-              <row>
-                <cell>\bottomrule</cell>
-              </row>
-            </tabular>
-          </table>
-          <p>
-            Summarizing this on a number line:
-          </p>
-          <figure xml:id="num_quarticsignanalysis">
-            <caption>A sign analysis of <m>(x^2+2)(x+1)(x-1)</m>, represented on a number line.</caption>
-            <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) node[above left] {\((x^2+2)(x+1)(x-1)\)} -- (2.5,0) ;
-\foreach \x in  {-1,1}
-\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
-\foreach \x in  {-1,1}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2, 0,2}
-\draw[shift={(\x,0)},color=black] (0pt,-5pt) -- (0pt,-5pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2,2}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
-\foreach \x in  {0}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
-</latex-image>
-            </image>
-          </figure>
-          <p>
-            From this, we can conclude that
-            <m>(x^2+2)(x+1)(x-1)</m> is less than zero exactly when <m>x\in(-1,1)</m>,
-            and we have solved the inequality.
-          </p>
-        </statement>
-      </example>
-      <p>
-        There is also a version of <xref ref="thm_polynomialchangesign">Theorem</xref>
-        that holds for rational functions:
-      </p>
-      <theorem xml:id="thm_quotientchangesign">
-        <title>When Can a Quotient of Polynomials Change Sign?</title>
-        <statement>
-          <p>
-            A quotient of polynomials can change sign only at values where its numerator or denominator is equal to zero.
-          </p>
-        </statement>
-      </theorem>
-      <p>
-        The next example applies this theorem to solving an inequality involving a rational function.
-      </p>
-      <example xml:id="ex_signofquotient">
-        <statement>
-          <p>
-            Determine where
-            <me>
-              h(x) = \frac{1-2x}{x+1}
-            </me>
-            is positive and negative.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            The expression <m>\frac{1-2x}{x+1}</m> can change sign only when either the numerator or denominator is equal to zero,
-            by <xref ref="thm_quotientchangesign">Theorem</xref>.
-            <me>
-              \text{ The numerator }  1-2x = 0\text{ when }  x=\frac{1}{2}
-            </me>
-            and
-            <me>
-              \text{ the denominator }  x+1 = 0\text{ when }  x=-1
-            </me>.
-          </p>
-          <p>
-            Thus we perform a sign analysis on the intervals <m>(-\infty,-1)</m>,
-            <m>\left(-1,\frac{1}{2}\right)</m>,
-            and <m>\left(\frac{1}{2},\infty\right)</m>,
-            testing the sign of each factor in the numerator and denominator and combining to determine the sign of the quotient according to <xref ref="thm_gensignofproduct">Theorem</xref>.
-          </p>
-          <table xml:id="tab_quotientsignanalysis">
-            <title>A sign analysis of <m>\frac{1-2x}{x+1}</m></title>
-            <tabular>
-              <row>
-                <cell>\toprule
-                  Interval</cell>
-                <cell>Sign of <m>1-2x</m></cell>
-                <cell>Sign of <m>x+1</m></cell>
-                <cell>Sign of <m>\frac{1-2x}{x+1}</m></cell>
-              </row>
-              <row bottom="medium">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell  ><m>x\lt -1</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>\dfrac{+}{-}=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=-2</m></cell>
-                <cell><m>1-2(-2)=5</m></cell>
-                <cell><m>-2+1 = -1</m></cell>
-                <cell><m>\frac{5}{-1}=-5</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>-1\lt x\lt \frac{1}{2}</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>\dfrac{+}{+}=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=0</m></cell>
-                <cell><m>1-2(0)=1</m></cell>
-                <cell><m>0+1 = 1</m></cell>
-                <cell><m>\frac{1}{1}=1</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x>\frac{1}{2}</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>\dfrac{-}{+}=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=2</m></cell>
-                <cell><m>1-2(2) =-3</m></cell>
-                <cell><m>2+1 = 3</m></cell>
-                <cell><m>\frac{-3}{3}=-1</m></cell>
-              </row>
-              <row>
-                <cell>\bottomrule</cell>
-              </row>
-            </tabular>
-          </table>
-          <p>
-            Summarizing this on a number line:
-          </p>
-          <figure xml:id="num_quotientsignanalysis">
-            <caption>A sign analysis of <m>\frac{1-2x}{x+1}</m>, represented on a number line.</caption>
-            <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) node[above left] {\(\frac{1-2x}{x+1}\)}  -- (2.5,0) ;
-\foreach \x in  {-1,0.5}
-\draw[shift={(\x,0)},color=black] (0pt,3pt)  node[above] {\(^0\)} -- (0pt,-3pt);
-\foreach \x in  {-1,1/2}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {-2,0,2}
-\draw[shift={(\x,0)},color=black] (0pt,-5pt) -- (0pt,-5pt) node[below]
-{\(\x\)};
-\foreach \x in  {0}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
-\foreach \x in  {-2,2}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
-</latex-image>
-            </image>
-          </figure>
-          <p>
-            So we see that <m>h(x) = \frac{1-2x}{x+1}</m> is positive on
-            <m>\left(-1,\frac{1}{2}\right)</m> and negative on <m>(-\infty,-1)\cup \left(\frac{1}{2},\infty\right)</m>.
-          </p>
-        </solution>
-      </example>
-      <p>
-        In the next example,
-        we see how to solve an inequality where neither side is 0:
-        we must rewrite the inequality so that one side <em>is</em>
-        0 and then perform a sign analysis.
-        This requires further simplifying the nonzero expression to be a quotient of fully factored expressions.
-      </p>
-      <example xml:id="ex_nonzeroineq">
-        <statement>
-          <p>
-            Solve the inequality
-            <me>
-              \frac{3}{x+1}\geq 2
-            </me>
-          </p>
-        </statement>
-        <solution>
-          <p>
-            Although it is tempting,
-            recall that we can't multiply both sides of the inequality by <m>x+1</m> because <m>x+1</m> may be positive or may be negative
-            (depending on the value of <m>x</m>).
-            Instead, we will use some algebra to turn this inequality into one that involves a product or quotient of factors on one side and zero on the other:
-            <me>
-              \begin{aligned}\frac{3}{x+1} \amp \geq2 \amp  \amp  \leftarrow \text{ original inequality } \\ \frac{3}{x+1}-2 \amp \geq 0 \amp  \amp  \leftarrow \text{ collect terms so 0 is on the right-hand side } \\ \frac{3}{x+1}-\frac{2(x+1)}{x+1}\amp \geq 0 \amp  \amp  \leftarrow \text{ find common denominator } \\ \frac{3-2(x+1)}{x+1}\amp \geq 0 \amp  \amp  \leftarrow \text{ combine fractions } \\ \frac{3-2x-2}{x+1}\amp \geq 0 \amp  \amp  \leftarrow \text{ simplify numerator } \\ \frac{1-2x}{x+1}\amp \geq 0 \amp  \amp  \leftarrow \text{ simplify numerator some more } \end{aligned}
-            </me>
-          </p>
-          <p>
-            Note that none of the above steps has changed the values of <m>x</m> that can satisfy the inequalities.
-            In other words, the inequality
-            <m>\frac{3}{x+1} \geq2</m> has the same solution set as the inequality <m>\frac{1-2x}{x+1}\geq 0</m>.
-          </p>
-          <p>
-            Notice that the latter inequality
-            <m>\frac{1-2x}{x+1}\geq 0</m> is now a problem we have already solved!
-            In Example <xref ref="ex_signofquotient" autoname="yes"/>,
-            we found that the function
-            <m>h(x) = \frac{1-2x}{x+1}</m> is positive for <m>x\in \left(-1,\frac{1}{2}\right)</m>.
-            Additionally, the fraction
-            <m>\frac{1-2x}{x+1}</m> is equal to zero when its numerator is zero,
-            so for <m>x = \frac{1}{2}</m>.
-            Thus
-            <me>
-              \frac{1-2x}{x+1}\geq 0 \text{ for }  x\in  \left(-1,\frac{1}{2}\right]
-            </me>.
-            Remembering that the two inequalities have the same solution sets,
-            we realize that we have now solved the original problem,
-            and conclude
-            <me>
-              \frac{3}{x+1}\geq 2\text{ for }  x\in  \left(-1,\frac{1}{2}\right]
-            </me>
-          </p>
-        </solution>
-      </example>
-      <exercise>
-        <statement>
-          <p>
-            Why is the square bracket used for the endpoint
-            <m>x=\frac{1}{2}</m> in Example <xref ref="ex_nonzeroineq" autoname="yes"/> but not the endpoint <m>x=-1</m>?
-          </p>
-        </statement>
-      </exercise>
-    </introduction>
-    <subsubsection>
-      <title>Application: Finding the Domain of a Function with an Even Root</title>
-      <example>
-        <statement>
-          <p>
-            Find the domain of the algebraic function
-            <me>
-              f(x) = \sqrt{\frac{3}{x}-2}
-            </me>
-          </p>
-        </statement>
-        <solution>
-          <p>
-            To find the domain of <m>f</m>,
-            we ask which values of <m>x</m> can be plugged into the equation that defines <m>f(x)</m> and produce a real number when the expression is simplified.
-            In order for the value of <m>f</m> to be defined for a real number <m>x</m>,
-            that value of <m>x</m> must make the expression underneath the square-root sign nonnegative
-            (meaning <m>\frac{3}{x}-2\geq 0</m>)
-            and the denominator appearing in <m>\frac{3}{x}</m> nonzero
-            (meaning <m>x\neq 0</m>).
-            Thus the domain of <m>f(x)</m> is the set of real numbers that satisfy:
-            <me>
-              \frac{3}{x}-2\geq 0\text{ and }  x\neq 0
-            </me>
-          </p>
-          <p>
-            In order to tackle the inequality,
-            we need to rewrite the left-hand side as a single fraction:
-            <me>
-              \begin{aligned}\frac{3}{x}-2 \amp \geq 0\amp  \amp  \leftarrow \text{ original inequality } \\ \frac{3}{x}-\frac{2x}{x} \amp \geq 0 \amp  \amp  \leftarrow \text{ find common denominator } \\ \frac{3-2x}{x}\amp \geq 0 \amp  \amp  \leftarrow \text{ combine fractions } \end{aligned}
-            </me>
-          </p>
-          <p>
-            The fraction can change sign when the numerator is zero:
-            <me>
-              3-2x=0\text{ when }  x=\frac{3}{2}
-            </me>
-            or when the denominator is zero:
-            <me>
-              x=0
-            </me>.
-          </p>
-          <p>
-            Performing a sign analysis for <m>\frac{3-2x}{x}</m>:
-          </p>
-          <table xml:id="tab_anotherquotientsignanalysis">
-            <title>A sign analysis of <m>\frac{3-2x}{x}</m></title>
-            <tabular>
-              <row>
-                <cell>\toprule
-                  Interval</cell>
-                <cell>Sign of <m>3-2x</m></cell>
-                <cell>Sign of <m>x</m></cell>
-                <cell>Sign of <m>\frac{3-2x}{x}</m></cell>
-              </row>
-              <row bottom="medium">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell  ><m>x\lt 0</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>\dfrac{+}{-}=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=-1</m></cell>
-                <cell><m>3-2(-1)=5</m></cell>
-                <cell><m>-1</m></cell>
-                <cell><m>\frac{5}{-1}=-5</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>0\lt x\lt \frac{3}{2}</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>\dfrac{+}{+}=+</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=1</m></cell>
-                <cell><m>3-2(1)=1</m></cell>
-                <cell><m>1</m></cell>
-                <cell><m>\frac{1}{1}=1</m></cell>
-              </row>
-              <row bottom="minor">
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-                <cell></cell>
-              </row>
-              <row>
-                <cell><m>x>\frac{3}{2}</m></cell>
-                <cell><m>-</m></cell>
-                <cell><m>+</m></cell>
-                <cell><m>\dfrac{-}{+}=-</m></cell>
-              </row>
-              <row>
-                <cell>e.g. <m>x=2</m></cell>
-                <cell><m>3-2(2)=-1</m></cell>
-                <cell><m>2</m></cell>
-                <cell><m>\frac{-1}{2}=-\frac{1}{2}</m></cell>
-              </row>
-              <row>
-                <cell>\bottomrule</cell>
-              </row>
-            </tabular>
-          </table>
-          <p>
-            Summarizing this on a number line:
-          </p>
-          <figure xml:id="num_anotherquotientsignanalysis">
-            <caption>A sign analysis of <m>\frac{3-2x}{x}</m>, represented on a number line.</caption>
-            <image>
-<latex-image>
-<![CDATA[\begin{tikzpicture}\draw[latex-latex] (-2.5,0) node[above left] {\(\frac{3-2x}{x}\)} -- (2.5,0) ;
-\foreach \x in  {0, 3/2}
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in  {0,3/2}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {0,3/2}
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{\(\x\)};
-\foreach \x in  {-1,1,2}
-\draw[shift={(\x,0)},color=black] (0pt,-5pt) -- (0pt,-5pt) node[below]
-{\(\x\)};
-\foreach \x in  {3/2}
-\draw[shift={(\x,3pt)}] node[above] {\(^0\)};
-\foreach \x in  {0}
-\draw[shift={(\x,3pt)}] node[above] {\(^\text{ DNE } \)};
-\foreach \x in  {1}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(+\)};
-\foreach \x in  {-1,2}
-\draw[shift={(\x,3pt)},color=red] node[above] {\(-\)};\end{tikzpicture}]]>
-</latex-image>
-            </image>
-          </figure>
-          <p>
-            Thus <m>\frac{3-2x}{x}</m> is positive on <m>\left(0,\frac{3}{2}\right)</m>,
-            and we know that it is equal to zero at <m>x=\frac{3}{2}</m>;
-            it is undefined at <m>x=0</m>.
-            The equivalent inequality <m>\frac{3}{x}-2\geq 0</m> thus has solution <m>\left(0,\frac{3}{2}\right]</m>.
-            Note that the second condition, <m>x\neq 0</m>,
-            on the domain is also satisfied.
-          </p>
-          <p>
-            Hence overall we have found the domain of the function <m>f(x) = \sqrt{\frac{3}{x}-2}</m> by determining that
-            <m>\frac{3}{x}-2\geq 0</m> and <m>x\neq 0</m> on the interval
-            <me>
-              \left(0,\frac{3}{2}\right]
-            </me>
-          </p>
-        </solution>
-      </example>
-    </subsubsection>
-  </subsection>
-  <subsection>
-    <title>Summary</title>
-    <p>
-      The following terms and methods were introduced in this section:
-    </p>
-    inequality, solution set, sign analysis of products and quotients.
-    <p>
-      <em>Key ideas:</em> The solutions of inequalities are intervals of numbers.
-      Multiplying or dividing an inequality by a negative number requires flipping the inequality.
-      The sign of a product or quotient depends on the number of its negative factors.
-      A polynomial can only change sign where it is equal to zero.
-      A quotient of polynomials can only change sign where its numerator or denominator is equal to zero.
-      In order to solve an inequality involving a product or quotient,
-      algebraically manipulate the inequality so that one side is 0, then perform a sign analysis on the nonzero side.
-    </p>
-    <p>
-      <em>Other ideas reinforced:</em>
-      Finding the domain of a function with an even root can involve solving an inequality.
-      Writing a function involving an absolute value as a piecewise-defined function can involve solving an inequality.
-    </p>
-    <p>
-      \fbox{\fbox{ End of Section 1.8}}
-    </p>
-    <p>
-      \rule{1.1\textwidth}{2pt}
-    </p>
+
+     
   </subsection>
 </section>
