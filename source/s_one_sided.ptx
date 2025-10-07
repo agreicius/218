@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_one_sided" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>One-sided limits</title>
+        <objectives>
+        <ol>
+            <li>
+                <p>
+                   Provide a rigorous definition of one-sided limits.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use one-sided limits to evaluate limits at a point. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use limit rules and formulas for one-sided limits.
+                </p>
+            </li>
+            <li>
+                <p>
+                   Use one-sided limits to evaluate the limit at a point.  
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    
+    <subsection xml:id="ss_def">
+        <title>Definition</title>
+        <p>
+            One-sided limits provide a convenient means of describing how a function <m>f</m> behaves as its inputs approach a value <m>a</m> from one side or the other. We go straight to their formal definitions, mainly to introduce the notation and terminology.  
+        </p>
+    <definition xml:id="d_one_sided_limits">
+        <title>One-sided limits</title>
+        <statement>
+            <p>
+                Let <m>f</m> be a function, and let <m>a\in \R</m>.  
+                <ol>
+                    <li>
+                        <title>Left-hand limit</title>
+                        <p>
+                            Assume <m>f</m> is defined on an open interval of the form <m>(c,a)</m>. We say the <term>left-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the left exists if there is a value <m>L</m> satisfying the following property: for all <m>\epsilon &gt; 0</m>, there exists a <m>\delta&gt; 0</m> such that if <m>a-\delta&lt; x&lt; a</m>, then <m>\abs{f(x)-L}&lt; \epsilon</m>.
+                        </p>
+                        <p> When this is the case we call <m>L</m> the <term>left-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the left, and write 
+                            <me>
+                                \lim_{x\to a^-}f(x)=L
+                            </me>.
+                        When no such <m>L</m> exists, we say that the left-hand limit <m>\lim\limits_{x\to a^-}f(x)</m> does not exist. 
+                        </p>
+                    </li>
+                    <li>
+                        <title>Right-hand limit</title>
+                        <p>
+                            Assume <m>f</m> is defined on an open interval of the form <m>(a,d)</m>. We say the <term>right-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the right exists if there is a value <m>L</m> satisfying the following property: for all <m>\epsilon &gt; 0</m>, there exists a <m>\delta&gt; 0</m> such that if <m>a&lt; x&lt; a+\delta</m>, then <m>\abs{f(x)-L}&lt; \epsilon</m>.
+                        </p>
+                        <p> When this is the case we call <m>L</m> the <term>right-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the right, and write 
+                            <me>
+                                \lim_{x\to a^+}f(x)=L
+                            </me>.
+                        When no such <m>L</m> exists, we say that the right-hand limit <m>\lim\limits_{x\to a^+}f(x)</m> does not exist. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </definition>
+    <p>
+        Informally we can describe left- and right-handed limits in much the same way as limits. We have <m>\lim\limits_{x\to a^-}f(x)=L</m> if we can make <m>f(x)</m> arbitrarily close to <m>L</m> for all <m>x</m> sufficiently close to, and lying to the left of <m>a</m>. An exactly analogous statement holds for the right-hand limit statement <m>\lim_{x\to a^+}=L</m>.  
+    </p>
+    <example xml:id="eg_one_sided_graph">
+        <title>Visualizing one-sided limits</title>
+        <statement>
+          <p>  Suppose <m>f</m> is the function whose graph is given below.
+          </p>
+    <figure xml:id="fig_limit_naive_one_sided">
+        <caption>Graph of function <m>f</m></caption>
+        <image width="70%">
+            <shortdescription>Graph of complicated function</shortdescription>
+        <latex-image>
+         \begin{tikzpicture}
+        %\draw[very thin,color=lightgray] (-3.2,-4.1) grid (6.2,4.1);
+        \draw[->] (-3.2,0) -- (4.2,0) node[right] {$x$};
+        \draw[->] (-2,-2.2) -- (-2,4.2) node[above] {$y$};
+        \draw[-,color=blue,smooth,domain=-3:-1.16] plot ({\x},{\x/(20*pow({\x+1},2))});
+        \draw[-,color=blue, smooth,domain=-0.86:0] plot ({\x},{\x/(20*pow({\x+1},2))});
+        \fill[color=blue] (0,0) circle (0.05cm);
+        \draw[color=blue] (0,1) circle (0.05cm);
+        \draw[-,color=blue,smooth,domain=0.02:1] plot ({\x},{2*sin(1.5708*\x r)+1});
+        \fill[color=blue] (1,3) circle (0.05cm);
+        \draw[-,color=blue,smooth,domain=1.05:1.95,samples=2000] plot ({\x},{3+sin(pow((1/(\x-1)),1.5) r)});
+        \draw[-,color=blue,smooth,domain=2.05:4.1,samples=2000] plot ({\x},{3+sin(pow((1/(\x-1)),1.5) r)});
+        \draw[color=blue] (2,{3+sin(pow((1/1),1.5) r)}) circle (0.05cm);
+        \draw[-] (-1,-0.1) -- (-1,0.1) node[above] {$a$};
+        \draw[dashed] (-1,0) -- (-1,-2);
+        \draw[-] (0,-0.1) node[below] {$b$} -- (0,0.1);
+        \draw[dashed] (0,0) -- (0,0.95);
+        \draw[dashed] (-2,2) node[left] {$B$} -- (0.3398,{2*sin(1.5708*0.3398 r)+1});
+        \draw[dashed] (-2,1) node[left] {$A$} -- (-0.05,1);
+        \draw[dashed] (0.3398,0) -- (0.3398,{2*sin(1.5708*0.3398 r)+1});
+        \draw[-] (0.3398,-0.1) node[below] {$c$} -- (0.3398,0.1) ;
+        \draw[-] (1,-0.1) -- (1,0.1) node[below] {$d$};
+        \draw[dashed] (-2,3) node[left] {$C$} -- (1,3);
+        \draw[dashed] (1,0) -- (1,3);
+        \draw[dashed] (-2,{3+sin(pow((1/1),1.5) r)}) node[left] {$D$} -- (1.95,{3+sin(pow((1/1),1.5) r)});
+        \draw[dashed,color=black] (2,0) -- (2,{2.95+sin(pow((1/1),1.5) r)});
+        \fill[color=blue] (2,{3.5+sin(pow((1/1),1.5) r)}) circle (0.05cm);
+        \draw[-] (2,-0.1) node[below] {$e$} -- (2,0.1);
+        \node at (3.5,2.6) {$y=f(x)$};
+    \end{tikzpicture}
+    </latex-image>
+</image>
+</figure>
+<p>
+    Describe the behavior of <m>f</m> near the inputs <m>a</m>, <m>b</m>, <m>d</m>, and <m>e</m> using one-sided limit notation. 
+</p>
+</statement>
+<solution>
+    <p>
+        <ul>
+        <li>
+            <p>
+        Neither <m>\lim\limits_{x\to a^-}f(x)</m> nor <m>\lim\limits_{x\to a^+}f(x)</m> exists, since the function values get arbitrarily large (and negative) as <m>x</m> approaches <m>a</m> from either side. 
+    </p>
+</li>
+    <li><p>
+        We have 
+        <md>
+            <mrow>\lim_{x\to b^-}f(x) \amp = 0 \amp \lim_{x\to b^+}f(x)\amp =A</mrow>
+        </md>.
+        Thus in this case the left- and right-handed limits of <m>f</m> both exist, but do not agree. 
+    </p></li>
+    <li><p>
+        We have <m>\lim\limits_{x\to d^-}f(x)=C</m>. By contrast, <m>\lim\limits_{x\to d^+}f(x)</m> does not exist as the values of <m>f</m> oscillate wildly as <m>x</m> approaches <m>d</m> from the right.
+    </p></li>
+    <li><p>
+        We have 
+        <me>\lim\limits_{x\to e^-}f(x)=\lim\limits_{x\to e^+}f(x)=D</me>.
+    </p></li>
+</ul>
+</p>
+</solution>
+</example>
+<remark>
+    <title>One-sided limit rules</title>
+    <p>
+        Since the definition of a one-sided limit differs from that of the limit, only in so far as we restrict our attention to inputs <m>x</m> lying to one side or the other of the <q>limit point</q> <m>a</m>, it should come as no surprise that all the limit rules (sum, quotient, sandwich, etc.) and formulas (polynomial evaluation, rational evaluation, etc.) discussed thus far apply with equal validity to one-sided limits. This means you may compute one-sided limits with these rules in exactly the same way as you do with normal limits.  
+    </p>
+</remark>
+<p>
+    Previously our definition of limit only applied to points <m>a\in \R</m> for which the function was defined for all <m>x\ne a</m> on an open interval <m>(c,d)</m> containing <m>a</m>. The language of one-sided limits allows us to extend this definition to <q>endpoints</q> of the domain, as the next definition makes clear. <xref ref="th_limit_left_right"/> guarantees that this definition is a consistent extension of <xref ref="d_lim_formal"/>.    
+</p>
+<definition xml:id="d_limit_extended">
+    <title>Limit at endpoints of domain</title>
+    <statement>
+        <p>
+            Let <m>f</m> be a function, and let <m>a\in \R</m>. 
+            <ol>
+                <li>
+                    <title>Right endpoint</title>
+                    <p>
+                        If <m>f</m> is defined for all <m>x</m> on an open interval <m>(c,a)</m>, but not for all <m>x\ne a</m> in a full open interval containing <m>a</m>, then we say the limit of <m>f</m> as <m>x</m> approaches <m>a</m> exists if <m>\lim\limits_{x\to a^-}f(x)</m> exists. When this is the case, we define 
+                        <me>
+                            \lim_{x\to a}f(x)=\lim_{x\to a^-}f(x)
+                        </me>. 
+                        
+                    </p>
+                </li>
+                <li>
+                    <title>Left endpoint</title>
+                    <p>
+                        If <m>f</m> is defined for all <m>x</m> on an open interval <m>(a,d)</m>, but not for all <m>x\ne a</m> in a full open interval containing <m>a</m>, then we say the limit of <m>f</m> as <m>x</m> approaches <m>a</m> exists if <m>\lim\limits_{x\to a^+}f(x)</m> exists. When this is the case, we define 
+                        <me>
+                            \lim_{x\to a}f(x)=\lim_{x\to a^+}f(x)
+                        </me>. 
+                        
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</definition>
+</subsection>
+<subsection xml:id="ss_one_sided_test">
+    <title>One-sided limits test</title>
+<p>
+    As was suggested by <xref ref="eg_one_sided_graph"/> and made official by the next theorem, <m>\lim_{x\to a}f(x)</m> exists if and only if both one-sided limits exist and are equal. 
+</p>
+<theorem xml:id="th_limit_left_right">
+    <title>One-sided limits test</title>
+    <statement>
+        <p>
+           Suppose <m>f</m> is a function defined everywhere on an open interval containing the point <m>a\in \R</m>, except possibly at <m>a</m> itself. The limit <m>\lim\limits_{x\to a}f(x)</m> exists if and only if the one-sided limits <m>\lim\limits_{x\to a^-}f(x)</m> and <m>\lim\limits_{x\to a^+}f(x)</m> exist and are equal. Using logical shorthand: 
+           <men xml:id="eq_one_sided_test">
+            \lim_{x\to a}f(x)=L \iff \lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=L
+           </men>.
+           As a consequence, if one of the one-sided limits does not exist, or if both one-sided limits exist but are not equal to one another, then the limit <m>\lim\limits_{x\to a}f(x)</m> does not exist. 
+        </p>
+    </statement>
+</theorem>
+<p>
+    <xref ref="th_limit_left_right"/> is particularly useful in that it gives us a means of potentially showing that a limit does <em>not</em> exist. The next classic example illustrates this nicely. 
+</p>
+<example xml:base="eg_limit_nonexistent_one_sided">
+    <title>The sign function</title>
+    <statement>
+        <p>
+            The <term>sign function</term> is the function <m>f</m> with domain <me>D=\R-\{0\}=\{x\in \R\colon x\ne 0\}</me>
+            defined as <m>f(x)=\frac{x}{\abs{x}}</m>. 
+        </p>
+        <p>
+            Use <xref ref="th_limit_left_right"/> to decide whether <m>\lim_{x\to 0}f(x)</m> exists. 
+        </p>
+    </statement>
+    <solution>
+        <p>
+            We compute the left and right limits of <m>f</m> at <m>0</m> separately. As you will see, the piecewise nature of the definition of <m>\abs{x}</m> will make these quite easy. 
+            <md>
+                <mrow>\lim_{x\to 0^+}\frac{x}{\abs{x}} \amp = \lim\limits_{x\to 0^+}\frac{x}{x} \amp (x\geq 0\implies \abs{x}=x) </mrow>
+                <mrow> \amp = \lim\limits_{x\to 0^+}1</mrow>
+                <mrow> \amp = 1</mrow>
+                <mrow>\lim_{x\to 0^-}\frac{x}{\abs{x}} \amp = \lim\limits_{x\to 0^-}\frac{x}{-x} \amp (x\leq 0\implies \abs{x}=-x) </mrow>
+                <mrow> \amp = \lim\limits_{x\to 0^+}-1</mrow>
+                <mrow> \amp = -1</mrow>
+            </md>.
+        We thus see that the two one-sided limits exist, but are not equal to one another. We conclude, using <xref ref="th_limit_left_right"/> that the limit of <m>f</m> at 0 does not exist. 
+        </p>
+    </solution>
+</example>
+
+</subsection>
+<subsection xml:id="ss_trig_lims">
+    <title>Classic trig limits</title>
+    <p>
+        The following classic limit formulas are proved using one-sided limits computed with the help of some lovely geometric arguments and the sandwich theorem.   
+    </p>
+    <theorem xml:id="th_trig_lims">
+        <title>Classic trig limits</title>
+        <statement>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            <m>\lim\limits_{\theta\to 0}\frac{\sin\theta}{\theta}=1</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\lim\limits_{\theta\to 0}\frac{\cos\theta-1}{\theta}=0</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                I will eventually give a proof here. For now, take a look at the proof in the text. 
+            </p>
+        </proof>
+    </theorem>
+    <example xml:id="eg_classic_trig">
+        <title>Classic trig limits</title>
+        <statement>
+            <p>
+                Compute <m>\lim\limits_{\theta\to 0}\frac{\sin(2\theta)}{\theta}</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We give two computations. The first uses the double-angle formula. 
+                <md>
+                    <mrow> \lim\limits_{\theta\to 0}\frac{\sin(2\theta)}{\theta} \amp
+                        = \frac{2\sin\theta\cos\theta}{\theta} \amp \text{(double-angle)} </mrow>
+                        <mrow> \amp =2\lim_{0\to \theta}\frac{\sin\theta}{\theta}\lim_{\theta\to 0}\cos\theta \amp \text{(scal. mult., prod.)}</mrow>
+                        <mrow> \amp = 2\cdot 1 \cdot 1 \amp (<xref ref="th_trig_lims" text="global"/>, \text{cos eval.})</mrow>
+                </md>.
+                The second uses a substitution technique that I call <em>affine substitution</em>. See <xref ref="rm_affine_sub"/> for a discussion of its legitimacy. 
+                <md>
+                    <mrow> \lim\limits_{\theta\to 0}\frac{\sin(2\theta)}{\theta}\amp 
+                        = \lim\limits_{\theta\to 0}\frac{2\sin(2\theta)}{2\theta}
+                    </mrow>
+                    <mrow> \amp = 2\lim\limits_{t\to 0}\frac{\sin(t)}{t} \amp (t=2\theta)</mrow>
+                    <mrow> \amp = 2 \amp (<xref ref="th_trig_lims" text="global"/>)</mrow>
+                </md>.
+            </p>
+        </solution>
+    </example>
+    <remark xml:id="rm_affine_sub">
+        <title>Affine substitution in limits</title>
+        <p>
+            Our second computation of the limit in <xref ref="eg_classic_trig"/> seemed to use a <q>substitution</q> rule of the following sort: that is, we computed a limit of the form <m>\lim_{x\rightarrow a}f(g(x))</m> by observing that <m>\lim_{x\to a}g(x)=b</m> and then computing, using the substitution <m>t=g(x)</m>,  that 
+            <me>
+                \lim\limits_{x\to a}f(g(x))=\lim_{t\to b}f(t)
+            </me>.
+            Intuitively this seems straightforward, since as <m>x</m> approaches <m>a</m>, <m>t=g(\theta)</m> approaches <m>b</m>. But in fact the claim is simply not true in general! Luckily for us, the approach does work when the <q>substitution function</q> is of the form <m>g(x)=cx+d</m>, a so-called <term>affine function</term>. As such we will use such methods without further comment.
+        </p>
+        
+    </remark>
+</subsection>
+</section>

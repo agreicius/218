@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_limit_sandwich" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Limits: algebraic technique and sandwich theorem</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Use algebraic techniques to help compute limits.        
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the sandwich theorem to compute limits. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Apply the sandwich theorem technique to limits involving absolute value, sine, and cosine. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    
+    <subsection xml:id="ss_alg_tech">
+        <title>Algebraic techniques</title>
+       <p>
+        As we saw in <xref ref="eg_lim_quot_fail"/>, there are limits to usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some algebraic techniques. 
+       </p> 
+       <example xml:id="eg_lim_factor">
+        <title>Algebraic limit technique: factoring</title>
+        <statement>
+            <p>
+              Compute 
+               <me>
+                \lim_{v\to 2}\frac{v^3-8}{v^4-16}
+               </me>.
+               Your answer should be a chain of equalities with steps justified. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Note that the limit of the denominator expression as <m>v\to 2</m> is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring.  
+                <md>
+                    <mrow>\lim_{v\to 2}\frac{v^3-8}{v^4-16} \amp=\lim_{v\to 2}\frac{(v-2)(v^2+2v+4)}{(v^2-4)(v^2+4)} </mrow>
+                    <mrow> \amp = \lim_{v\to 2}\frac{(v-2)(v^2+2v+4)}{(v-2)(v+2)(v^2+4)}</mrow>
+                    <mrow> \amp = \lim_{v\to 2}\frac{v^2+2v+4}{(v+2)(v^2+4)} \amp \text{(repl. rule)}</mrow>
+                    <mrow> \amp = \frac{2^2+2\cdot 2+4}{(2+2)(2^2+4)} \amp \text{(rational eval.)}</mrow>
+                    <mrow> \amp = \frac{12}{32}=\frac{3}{8}</mrow>
+                </md>.
+            </p>
+        </solution>
+       </example>
+       <example xml:id="eg_limit_clear_denom">
+        <title>Algebraic limit technique: clear denominator</title>
+        <statement>
+            <p>
+              Compute  
+               <me>
+                \lim\limits_{t\to 1}\frac{t-1}{\frac{t^2}{t+2}-\frac{1}{3}}
+               </me>.
+               Your answer should be a chain of equalities with steps justified.
+            </p>
+        </statement>
+        <solution>
+            <p>
+               Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra. 
+               <md>
+                <mrow>\lim\limits_{t\to 1}\frac{t-1}{\frac{t^2}{t+2}-\frac{1}{3}} \amp =
+                    \lim\limits_{t\to 1}\frac{t-1}{\frac{3t^2-t-2}{3(t+2)}} \amp \text{(like denominators)}</mrow>
+                <mrow> \amp =\lim\limits_{t\to 1}\frac{3(t-1)(t+2)}{3t^2-t-2}</mrow>
+                <mrow> \amp =\lim\limits_{t\to 1}\frac{3(t-1)(t+2)}{(3t+2)(t-1)} </mrow>
+                <mrow> \amp =\lim\limits_{t\to 1}\frac{3(t+2)}{3t+2} \amp \text{(repl. rule)}</mrow>
+                <mrow> \amp = \frac{9}{5} \amp \text{(rational eval.)}</mrow>
+               </md> 
+            </p>
+        </solution>
+       </example>
+       <example xml:id="eg_lim_radical">
+        <title>Algebraic limit technique: radicals</title>
+        <statement>
+            <p>
+              Compute 
+               <me>
+                \lim_{x\to 0}\frac{\sqrt{x^2+100}-10}{x^2}
+               </me>.
+               Your answer should be a chain of equalities with steps justified. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+               We use the technique of multiplying the numerator and denominator by a <q>conjugate radical</q> expression <m>\sqrt{x^2+100}+10</m>:
+               <md>
+                <mrow> \lim_{x\to 0}\frac{\sqrt{x^2+100}-10}{x^2}\amp =\lim_{x\to 0}\frac{\sqrt{x^2+100}-10}{x^2}\frac{\sqrt{x^2+100}+10}{\sqrt{x^2+100}+10} \amp \text{(repl. rule)}</mrow>
+                <mrow> \amp = \lim_{x\to 0}\frac{x^2+100-100}{x^2(\sqrt{x^2+100}+10)}</mrow>
+                <mrow> \amp = \lim_{x\to 0}\frac{1}{\sqrt{x^2+100}+10}</mrow>
+                <mrow> \amp = \frac{1}{\sqrt{\lim\limits_{x\to 0}(x^2+100)}+\lim\limits_{x\to 0}10}
+                    \amp \text{(quot., sum, root)}
+                </mrow>
+                <mrow> \amp = \frac{1}{\sqrt{100}+10} \amp \text{(poly. eval.)}</mrow>
+                <mrow> \amp = \frac{1}{20}</mrow>
+               </md>.
+            </p>
+        </solution>
+       </example>
+    </subsection>
+    <subsection xml:id="ss_sandwich">
+        <title>Sandwich theorem</title>
+        <p>
+            Another situation where our basic limit rules might not suffice to compute a given limit is when the function <m>f</m> in question is unreasonably complicated, making its behavior near a point difficult to pin down. The <xref ref="th_sandwich" text="custom">sandwich theorem</xref> potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function <m>f</m>, whose behavior is a mystery to us, with two simpler <q>bounding</q> functions <m>g</m> and <m>h</m>, whose behavior we understand. It is called the sandwich theorem as the necessary inequality <m>g(x)\leq f(x)\leq h(x)</m> has <m>f</m> <q>sandwiched</q> between the functions <m>g</m> and <m>h</m>.   
+        </p>
+        <theorem xml:id="th_sandwich">
+            <title>Sandwich theorem</title>
+            <statement>
+                <p>
+                Fix a point <m>a\in \R</m> and suppose that functions <m>f,g,h</m> satisfy <m>g(x)\leq f(x)\leq h(x)</m> for all <m>x\ne a</m> lying in an open interval containing <m>a</m>. If 
+                <me>
+                    \lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L
+                </me>,
+                then
+                <me>
+                    \lim_{x\to a}f(x)=L
+                </me>.
+                Using logical shorthand: 
+                <md>
+                    <mrow>\left(g(x)\leq f(x)\leq h(x) \text{ and }  \lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L\right)\amp\implies \lim_{x\to a}f(x)=L </mrow>
+                </md>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1! 
+                </p>
+            </proof>
+        </theorem>
+        <p>
+            Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner. 
+        </p>
+        <algorithm xml:id="proc_sandwich">
+            <title>Sandwich theorem</title>
+            <statement>
+                <p>
+                    To compute <m>\lim_{x\to a}f(x)</m> using the sandwich theorem, proceed as follows. 
+                    <ol>
+                        <li>
+                            <p>
+                                Find bounding functions <m>g</m> and <m>h</m> satisfying the two following conditions: 
+                                <ol>
+                                    <li>
+                                        <p>
+                                            <m>g(x)\leq f(x)\leq h(x)</m> for all <m>x\ne a</m> lying in an open interval containing <m>a</m>.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <m>\lim\limits_{x\to a}g(x)=\lim\limits_{x\to a}h(x)=L</m> for some <m>L\in \R</m>. 
+                                        </p>
+                                    </li>
+                                </ol>
+                            For your own convenience, make sure to <em>name</em> these functions, as opposed to just providing formulas for them. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Conclude (citing the sandwich theorem) that <m>\lim\limits_{x\to a}f(x)=L</m>
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+        </algorithm>
+    <remark xml:id="rm_sandwich">
+        <title>Sandwich theorem</title>
+        <p>
+        As the examples below will illustrate, the art of using <xref ref="proc_sandwich"/> lies in being able to find <em>useful</em> bounding functions <m>g</m> and <m>h</m>.  Use these examples as a model for your own use of <xref ref="proc_sandwich"/>. Note in particular how 
+        <ul>
+            <li>
+                <p>
+                    the explanations make explicit the two conditions that the bounding functions must satisfy;
+                </p>
+            </li>
+            <li>
+                <p>
+                    the explanations end with a concluding statement explicitly citing the sandwich theorem;
+                </p>
+            </li>
+            <li>
+                <p>
+                    giving the bounding functions <em>names</em> (<eg/>, <m>g</m> and <m>h</m>), as opposed to just providing formulas (<eg/>, <m>1-x^2/4</m>, <m>1+x^2/4</m>), makes these explanations more concise. 
+                </p>
+            </li>
+        </ul>
+    </p></remark>
+    <example xml:id="eg_sandwich_easy">
+        <title>Sandwich theorem: easy</title>
+        <statement>
+            <p>
+                Suppose the function <m>f(x)</m> satisfies 
+                <me>
+                    1-\frac{x^2}{4}\leq f(x)\leq 1+\frac{x^2}{4}
+                </me>
+                for all <m>x\ne 0</m> in the interval <m>(-1/3, 1/3)</m>. Compute <m>\lim_{x\to 0}f(x)</m>. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+            We follow the steps of <xref ref="proc_sandwich"/>. In this case our bounding functions <m>g(x)=1-x^2/4</m> and <m>h(x)=1+x^2/4</m> are provided for us, making life much easier. By assumption our mystery function <m>f</m> satisfies 
+            <men xml:id="eq_sand_easy">
+                g(x)\leq f(x)\leq h(x)
+            </men>
+            for all <m>x\ne 0\in (-1/3, 1/3)</m>. Next we compute 
+            <md>
+                <mrow>\lim_{x\to 0}g(x) \amp = 1-0^2/4 \amp \text{(poly. eval.)}</mrow>
+                <mrow> \amp =1</mrow>
+                <mrow>\lim_{x\to 0}h(x) \amp = 1+0^2/4 \amp \text{(poly. eval.)}</mrow>
+                <mrow> \amp =1</mrow>
+            </md>.
+            Since <xref ref="eq_sand_easy"/> holds for all <m>x\ne 0\in (-1/3,1/3)</m>, and since 
+            <me>
+                \lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=1
+            </me>,
+            we conclude that <m>\lim\limits_{x\to 0}f(x)=1</m>. 
+            </p>
+        </solution>
+    </example>
+    <example xml:base="eg_sandwich_harder">
+        <title>Sandwich theorem: less easy</title>
+        <statement>
+            <p>
+                Use the sandwich theorem to compute <m>\lim\limits_{x\to 0}x^2\cos(1/x)</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Here we make use of a well-known and important inequality for the cosine function: namely, that 
+                <me>
+                    -1\leq \cos t\leq 1
+                </me>
+                for all <m>t\in \R</m>. It follows that 
+                <men xml:id="eq_cos_ineq">
+                    -1\leq \cos(1/x)\leq 1
+                </men>
+                for all <m>x\ne 0</m>. Since <m>x^2\geq 0</m> for all <m>x</m>, the inequalities in <xref ref="eq_cos_ineq"/> still hold after multiplying each expression by <m>x^2</m>: that is 
+                <me>
+                    -x^2\leq x^2\cos(1/x)\leq x^2
+                </me>
+                for all <m>x\ne 0</m>. Thus, letting <m>g(x)=-x^2</m> and <m>h(x)=x^2</m>, we have 
+                <men xml:id="eq_harder">
+                    g(x)\leq f(x)\leq h(x)
+                </men>
+                for all <m>x\ne 0</m> in the open inteval <m>\R=(-\infty,\infty)</m>. Lastly, we compute 
+                <md>
+                    <mrow>\lim_{x\to 0}g(x) \amp = -0^2 \amp \text{(poly. eval.)}</mrow>
+                    <mrow> \amp = 0</mrow>
+                    <mrow>\lim_{x\to 0}h(x) \amp = 0^2 \amp \text{(poly. eval.)}</mrow>
+                    <mrow> \amp = 0</mrow>
+                </md>.
+                Since <xref ref="eq_harder"/> holds for all <m>x\ne 0</m> in <m>\R</m>, and since 
+                <me>
+                    \lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=0
+                </me>,
+                we conclude using the sandwich theorem that <m>\lim\limits_{x\to 0}f(x)=0</m>.
+            </p>
+        </solution>
+    </example>
+    <p>
+        Our next theorem concerns the absolute value, the definition of which we now recall. 
+    </p>
+    <definition xml:id="d_absolute_value">
+        <title>Absolute value</title>
+        <statement>
+            <p>
+              The <term>absolute value</term> of a real number <m>x</m>, denoted <m>\abs{x}</m>, is defined as 
+              <me>
+                \abs{x}=\begin{cases}x\amp \text{if } x\geq 0 \\
+                -x\amp \text{if } x&lt; 0
+                \end{cases}
+              </me>.  
+            </p>
+        </statement>
+    </definition>
+    <remark xml:id="rm_abs_val">
+        <title>Absolute value</title>
+    <p>
+        Below we gather some useful remarks and facts about the absolute value. 
+        <ul>
+            <li>
+                <p>
+                    We have 
+                    <md>
+                        <mrow>\abs{x} \amp \geq 0</mrow>
+                        <mrow>-\abs{x} \amp \leq x\leq \abs{x}</mrow>
+                    </md>
+                    for all <m>x\in \R</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Fix a nonnegative number <m>a\geq 0</m>. We have 
+                    <md>
+                        <mrow>\abs{x}=a \amp \iff x=\pm a</mrow>
+                        <mrow>\abs{x}\leq a \amp \iff -a\leq x\leq a</mrow>
+                    </md>
+                    for all <m>x\in \R</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have 
+                    <men xml:id="eq_abs_rad">
+                        \sqrt{x^2}=\abs{x}
+                    </men>
+                    for all <m>x\in \R</m>.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Fix a real number <m>a</m>. Geometrically speaking <m>\abs{x-a}</m> is the <em>distance</em> between <m>x</m> and <m>a</m> on the real line. In particular, taking <m>a=0</m>, we see that <m>\abs{x}=\abs{x-0}</m> is the distance between <m>x</m> and the origin <m>0</m> on the real line. 
+                </p>
+            </li>
+        </ul>
+    </p>
+    </remark>
+    <theorem xml:id="th_abs_lim">
+        <title>Limits and absolute value</title>
+        <statement>
+            <p>
+              <ol>
+                <li>
+                    <title>Absolute value evaluation</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\abs{x}=\abs{a}</m> for all <m>a\in \R</m>.
+                    </p>
+                </li>
+                <li>
+                    <title>Absolute value implication</title>
+                    <p>
+                        Fix <m>a\in \R</m>. If <m>\lim\limits_{x\to a}\abs{f(x)}=0</m>, then <m>\lim\limits_{x\to a}f(x)=0</m>. Using logical shorthand:
+                        <me>
+                            \lim_{x\to a}\abs{f(x)}=0\implies \lim_{x\to a}f(x)=0
+                        </me>.
+                    </p>
+                </li>
+              </ol>  
+            </p>
+        </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            Using the identity <m>\abs{x}=\sqrt{x^2}</m>, we see that 
+                            <md>
+                                <mrow>\lim_{x\to a}\abs{x} \amp = \lim_{x\to a}\sqrt{x^2} \amp <xref ref="eq_abs_rad"/></mrow>
+                                <mrow> \amp = \sqrt{\lim_{x\to a}x^2} \amp \text{(root rule)}</mrow>
+                                <mrow> \amp = \sqrt{a^2} \amp \text{(poly. eval.)}</mrow>
+                                <mrow> \amp = \abs{a} \amp <xref ref="eq_abs_rad"/></mrow>
+                            </md>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            To prove this implication (<ie/>, if-then statement), we <em>assume</em> that <m>\lim\limits_{x\to a}\abs{f(x)}=0</m> and <em>prove</em>  that <m>\lim\limits_{x\to a}f(x)=0  </m>. We do so using the sandwich theorem. Indeed, since 
+                            <me>
+                                -\abs{t}\leq t\leq \abs{t}
+                            </me>
+                            for all <m>t\in \R</m>, we have 
+                            <me>
+                                -\abs{f(x)}\leq f(x)\leq \abs{f(x)}
+                            </me>
+                            for all <m>x</m> in the domain of <m>f</m>. Thus, letting <m>g(x)=-\abs{f(x)}</m> and <m>h(x)=\abs{f(x)}</m>, we have 
+                            <me>
+                                g(x)\leq f(x)\leq h(x)
+                            </me>
+                            for all <m>x</m> in the domain of <m>f</m>, and 
+                            <md>
+                                <mrow>\lim_{x\to a}g(x) \amp = \lim_{x\to a}-\abs{f(x)}</mrow>
+                                <mrow> \amp = -\lim_{x\to a}\abs{f(x)} \amp \text{(scal. mult.)}</mrow>
+                                <mrow> \amp =0 \amp \text{(by assumption)}</mrow>
+                                <mrow>\lim_{x\to a}h(x) \amp = \lim_{x\to a}\abs{f(x)}</mrow>
+                                <mrow> \amp =0 \amp \text{(by assumption)}</mrow>
+                            </md>.
+                            It now follows from the sandwich theorem that <m>\lim\limits_{x\to a}f(x)=0</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </theorem>
+    <p>
+        Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero. 
+    </p>
+    <theorem xml:id="th_lim_sine_cos">
+        <title>Sine and cosine evaluation at zero</title>
+        <statement>
+            <p>
+            <ol>
+                    <li>
+                    <title>Sine evaluation at zero</title>
+                    <p>
+                        <m>
+                            \lim\limits_{\theta\to 0}\sin \theta=0
+                        </m>.
+                    </p>
+                </li>
+                <li>
+                    <title>Cosine evaluation at zero</title> 
+                    <p>
+                        <m>
+                            \lim\limits_{\theta\to 0}\cos \theta=1
+                        </m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely 
+                            <men xml:id="eq_sine_ineq">
+                                -\abs{\theta}\leq \sin \theta\leq \abs{\theta}
+                            </men>
+                            for all <m>\theta\in \R</m>. The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume <xref ref="eq_sine_ineq"/> holds for the purpose of this proof. 
+                            With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting <m>g(\theta)=-\abs{\theta}</m> and <m>h(\theta)=\abs{\theta}</m>, we have 
+                            <me>
+                                g(\theta)\leq \sin \theta\leq h(\theta)
+                            </me>
+                            for all <m>\theta</m>, by inequality <xref ref="eq_sine_ineq"/>, and 
+                            <me>
+                                \lim_{\theta\to 0}g(\theta)=\lim_{\theta\to 0}h(\theta)=0
+                            </me>,
+                            since <m>\lim_{\theta\to 0}\abs{\theta}=0</m>. The sandwich theorem now implies <m>\lim\limits_{\theta\to 0}\sin \theta=0</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            First note that for all <m>\theta\in (-\pi/2, \pi/2)</m>, we have <m>\cos \theta\geq 0</m>, and hence 
+                            <md>
+                                <mrow> \cos \theta  \amp = \abs{\cos \theta} \amp (\cos \theta\geq 0) </mrow>
+                                <mrow> \amp = \sqrt{\cos^2\theta} \amp <xref ref="eq_abs_rad"/></mrow>
+                                <mrow> \amp = \sqrt{1-\sin^2\theta}</mrow>
+                            </md>
+                            for all <m>\theta\in (-\pi/2, \pi,2)</m>. We then have 
+                            <md>
+                                <mrow>\lim_{\theta\to 0}\cos\theta \amp = \lim_{\theta\to 0}\sqrt{1-\sin^2\theta} \amp (\text{repl. rule})</mrow>
+                                <mrow> \amp = \sqrt{\lim_{\theta\to 0}1-(\lim_{\theta\to 0}\sin\theta)^2} \amp \text{(root, sum,power)}</mrow>
+                                <mrow> \amp = \sqrt{1-0^2} \amp \text{(sine eval.)}</mrow>
+                                <mrow> \amp = 1</mrow>
+                            </md>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </theorem>
+    <p>
+        As promised in the proof of <xref ref="th_lim_sine_cos"/>, we provide a proof of the inequality <m>-\abs{\theta}\leq \sin \theta\leq \abs{\theta}</m>, or equivalently, <m>\abs{\sin \theta}\leq \abs{\theta}</m> for all <m>\theta\in \R</m>. You are not responsible for understanding this proof, but you might find the argument instructive nonetheless. 
+    </p>
+    <proof>
+        <title>Proof of <m>\abs{\sin\theta}\leq \abs{\theta}</m></title>
+        <p>
+        We will prove that 
+        <men xml:id="eq_sine_ineq_abs">
+            \abs{\sin \theta}\leq \abs{\theta}
+        </men>
+        for all <m>\theta\in \R</m>. First, observer that since <m>\sin(-\theta)=-\sin\theta</m>, we have 
+        <me>
+            \abs{\sin (-\theta)}=\abs{-\sin \theta}=\abs{\sin \theta}
+        </me>. 
+        Thus the function <m>f(\theta)=\abs{\sin \theta}</m> is even. Since <m>g(\theta)=\abs{\theta}</m> is also even, it suffices to prove <xref ref="eq_sine_ineq_abs"/> for all <m>\theta\geq 0</m>. Furthermore, since 
+        <me>
+            \theta\geq \pi/2\implies \sin\theta\leq 1 \leq \pi/2 \leq \theta
+        </me>,
+        and since <m>\sin(0)=0</m>, it suffices to show <xref ref="eq_sine_ineq_abs"/> for all <m>\theta\in (0,\pi/2)</m>. To this end, take any <m>\theta\in (0,\pi/2)</m>. The triangle <m>T=\Delta\, PQR</m>, where <m>P=(0,0)</m>,<m>Q=(\cos\theta, \sin\theta)</m>, and <m>R=(1,0)</m> lies within the the sector <m>S</m> of the unit disc determined by <m>P, Q, R</m>. (Diagram to appear sometime soon.) Elementary trigonometry tells us that <m>\operatorname{area} T=\frac{1}{2}\sin \theta</m>; elementary geometry tells us that <m>\operatorname{area} S=\frac{pi}\cdot \frac{\theta}{2\pi}=\frac{\theta}{2}</m>. We conclude that 
+        <md>
+            <mrow>\frac{1}{2}\sin \theta \amp= \operatorname{area} T</mrow>
+            <mrow> \amp \leq \operatorname{area} S</mrow>
+            <mrow> \amp =\frac{\theta}{2}</mrow>
+        </md>,
+        or equivalently, 
+        <me>
+            \sin\theta\leq \theta
+        </me>
+        for all <m>\theta\in (0,\pi/2)</m>. Since furthermore <m>\sin\theta\geq 0</m> and <m>\theta\geq 0</m> for <m>\theta\in (0,\pi/2)</m>, we see that 
+        <me>
+            \abs{\sin\theta}\leq \abs{\theta}
+        </me>
+        for all <m>\theta\in (0,\pi/2)</m>, as desired. 
+        </p>
+    </proof>
+    </subsection>
+
+</section>

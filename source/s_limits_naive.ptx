@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_limits_naive" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Limits: informal definition</title>
+    <objectives>
+            <ol>
+                <li>
+                    <p>
+                        Give an informal definition of the limit of a function <m>f</m> at a given value. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Investigate the existence and/or value of a function graphically, by examining a a graph. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use rigorous limit laws to compute limits of functions <m>f</m> formed from other functions using common arithmetic operations. 
+                    </p>
+                </li>
+            </ol>
+    </objectives>
+    
+    <subsection xml:id="subsec-naive-definition-of-limit">
+        <title>Informal definition of the limit</title>
+        <p>
+            Many of the questions we will study in regard to functions revolve around how the output of a function <m>f</m> changes with respect to its input. As such we want to develop useful and precise language and tools for describing this relation. The <em>limit</em> of a function, defined informally here and rigorously later, is one such tool. Before getting to its informal definition, we illustrate with a graphical example the type of statements we wish to formalize with limit language. First, a reminder about what the graph of a function is. 
+        </p> 
+        <definition xml:id="d_function_graph">
+            <title>Graph of function</title>
+            <statement>
+                <p>
+                    Given a function <m>f\colon D\rightarrow \R</m>, where <m>D\subseteq \R</m>, its <term>graph</term> is the set 
+                    <me>
+                        \{(x,y)\in \R^2\colon x\in D \text{ and } y=f(x)\}
+                    </me>.
+                    In other words the graph of <m>f</m> is the set of all points <m>P</m> in the <m>xy</m>-plane of the form <m>P=(x,f(x))</m>, where <m>x\in D</m>. 
+                </p>
+            </statement>
+        </definition>
+        
+            <example xml:id="eg_function_behavior">
+                <title>Function behavior</title>
+                <statement>
+                  <p>  Suppose <m>f</m> is the function whose graph is given below.
+                  </p>
+            <figure xml:id="fig_limit_naive">
+                <caption>Graph of function <m>f</m></caption>
+                <image width="70%">
+                    <shortdescription>Graph of complicated function</shortdescription>
+                <latex-image>
+                 \begin{tikzpicture}
+                %\draw[very thin,color=lightgray] (-3.2,-4.1) grid (6.2,4.1);
+                \draw[->] (-3.2,0) -- (4.2,0) node[right] {$x$};
+                \draw[->] (-2,-2.2) -- (-2,4.2) node[above] {$y$};
+                \draw[-,color=blue,smooth,domain=-3:-1.16] plot ({\x},{\x/(20*pow({\x+1},2))});
+                \draw[-,color=blue, smooth,domain=-0.86:0] plot ({\x},{\x/(20*pow({\x+1},2))});
+                \fill[color=blue] (0,0) circle (0.05cm);
+                \draw[color=blue] (0,1) circle (0.05cm);
+                \draw[-,color=blue,smooth,domain=0.02:1] plot ({\x},{2*sin(1.5708*\x r)+1});
+                \fill[color=blue] (1,3) circle (0.05cm);
+                \draw[-,color=blue,smooth,domain=1.05:1.95,samples=2000] plot ({\x},{3+sin(pow((1/(\x-1)),1.5) r)});
+                \draw[-,color=blue,smooth,domain=2.05:4.1,samples=2000] plot ({\x},{3+sin(pow((1/(\x-1)),1.5) r)});
+                \draw[color=blue] (2,{3+sin(pow((1/1),1.5) r)}) circle (0.05cm);
+                \draw[-] (-1,-0.1) -- (-1,0.1) node[above] {$a$};
+                \draw[dashed] (-1,0) -- (-1,-2);
+                \draw[-] (0,-0.1) node[below] {$b$} -- (0,0.1);
+                \draw[dashed] (0,0) -- (0,0.95);
+                \draw[dashed] (-2,2) node[left] {$B$} -- (0.3398,{2*sin(1.5708*0.3398 r)+1});
+                \draw[dashed] (-2,1) node[left] {$A$} -- (-0.05,1);
+                \draw[dashed] (0.3398,0) -- (0.3398,{2*sin(1.5708*0.3398 r)+1});
+                \draw[-] (0.3398,-0.1) node[below] {$c$} -- (0.3398,0.1) ;
+                \draw[-] (1,-0.1) -- (1,0.1) node[below] {$d$};
+                \draw[dashed] (-2,3) node[left] {$C$} -- (1,3);
+                \draw[dashed] (1,0) -- (1,3);
+                \draw[dashed] (-2,{3+sin(pow((1/1),1.5) r)}) node[left] {$D$} -- (1.95,{3+sin(pow((1/1),1.5) r)});
+                \draw[dashed,color=black] (2,0) -- (2,{2.95+sin(pow((1/1),1.5) r)});
+                \fill[color=blue] (2,{3.5+sin(pow((1/1),1.5) r)}) circle (0.05cm);
+                \draw[-] (2,-0.1) node[below] {$e$} -- (2,0.1);
+                \node at (3.5,2.6) {$y=f(x)$};
+            \end{tikzpicture}
+            </latex-image>
+        </image>
+        </figure>
+        <p>Describe how the output <m>f(x)</m> behaves as the input <m>x</m> approaches each of the values <m>a,b,c,d,e</m>. For some of these values, you might consider how <m>x</m> approaches from the left and right separately. 
+        </p>
+        </statement>
+        <solution>
+            <p>
+                As <m>x</m> approaches <m>a</m>, either from the left or right, the values <m>f(x)</m> of the function get arbitrarily large and negative. 
+            </p>
+            <p>
+                As <m>x</m> approaches <m>b</m> from the left, the values <m>f(x)</m> of <m>f</m> get closer and closer to <m>0</m>. However, as <m>x</m> approaches <m>b</m> from the right, the values <m>f(x)</m> get closer and closer to <m>A</m>. 
+            </p>
+            <p>
+                As <m>x</m> approaches <m>c</m> from the left or right, the values <m>f(x)</m> of the function approach the real number <m>M</m>. We also happen to have <m>f(c)=B</m>: <ie/>, the value of <m>f</m> at <m>x=c</m> is equal to <m>B</m>.  
+            </p>
+            <p>
+                As <m>x</m> approaches <m>d</m> from the left, the values <m>f(x)</m> of the function approach <m>C</m>. However, as <m>x</m> approaches <m>d</m> from the right, the values <m>f(x)</m> oscillate wildly above and below <m>C</m> and do not seem to approach any single value.  
+            </p>
+            <p>
+                As <m>x</m> approaches <m>e</m> from the left or right, the values <m>f(x)</m> of the function approach <m>D</m>. Interestingly, however, the actual value of <m>f</m> at the input <m>x=e</m> is not equal to <m>D</m>. 
+            </p>
+        </solution>
+        </example>
+        <remark xml:id="rm_greater_less_large">
+            <title>Large and small, greater than and less than</title>
+            <title>Large and small, greater than and less than</title>
+            <p>
+                This is a good point to elucidate what we mean in mathematics when we talk about a number being large or small. Both these attributes refer to the <em>size</em> or <em>magnitude</em> of the number, and these in turn are defined as the <em>absolute value</em> of the number. Furthermore, geometrically, the absolute value <m>\abs{x}</m> measures the <em>distance</em> from <m>x</m> to the origin. Thus, we say a number <m>x\in \R</m> is large or small depending on whether its absolute value <m>\abs{x}</m> is large or small, which depends on whether <m>x</m> is far away from or close to <m>0</m> on the real line. As a result, we say that both of the following are sequences where the numbers get arbitrarily large:
+                <md>
+                    <mrow>1, 10, 100, 1000, 10000,\dots \amp  \amp -1, -10,-100, -1000,-10000,\dots \amp </mrow>
+                </md>.
+                In more detail we say that the first sequence gets arbitrarily large and positive, while the second sequence gets arbitrarily large and negative. 
+                        </p>
+                        <p>
+                Contrast this with the use of <q>greater than</q> and <q>less than</q>. These refer specifically to the ordering relation <m>&lt;</m> defined on <m>\R</m>: <ie/>, 
+                <md>
+                    <mrow>x \text{ is less than } y \amp \iff x&lt; y </mrow>
+                    <mrow>x \text{ is greater than } y \amp \iff x&gt; y </mrow>
+                </md>.
+                The <m>&lt;</m> relation is related to, but not completely determined by size of numbers. A good way of thinking of the <m>&lt;</m> relation geometrically is in terms of position on the real number line: we have <m>x&lt; y</m> if and only if <m>x</m> lies to the left of <m>y</m> as points on the number line.  Thus, the number <m>-100</m> is <em>less than</em> the number <m>1</m> (since  <m>-100 &lt; 1</m>), even though <m>1</m> is <em>smaller</em> than <m>-100</m> (since <m>\abs{1}&lt; \abs{100}</m>). 
+            </p>
+            
+        </remark>
+            
+        
+        <definition xml:id="d_defined_at">
+            <title>Function defined on set</title>
+            <statement>
+                <p>
+                Let <m>f</m> be a function with domain <m>D</m>. Given <m>a\in \R</m>, we say that <m>f</m> is <term>defined</term> at <m>a</m> if <m>a</m> is an element of the domain: <ie/>, <m>a\in D</m>. Similarly, given a subset <m>A\subseteq \R</m>, we say that <m>f</m> is defined on <m>A</m> if <m>A</m> is included in the domain: <ie/>, <m>A\subseteq D</m>. 
+                </p>
+            </statement>
+        </definition>
+        <definition xml:id="d_limit_informal">
+            <title>Limit (informal)</title>
+            <statement>
+                <p>
+                    Suppose <m>f</m> is a function defined everywhere on an open interval containing the point <m>a\in \R</m>, except possibly at <m>a</m> itself. We say that the <term>limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> exists if there is a value <m>L</m> such that the function value <m>f(x)</m> can be made arbitrarily close to <m>L</m> provided <m>x</m> is sufficiently close (but not equal) to <m>a</m>. 
+                </p>
+                <p>
+                    When this is the case, we call <m>L</m> the limit of <m>f</m> as <m>x</m> approaches <m>a</m> and write 
+                    <men xml:id="eq_limit_informal">
+                        \lim_{x\to a}f(x)=L
+                    </men>.
+                    When the limit does not exist we will say that <m>\lim\limits_{x\to a}f(x)</m> does not exist. 
+                </p>
+            </statement>
+        </definition>
+        <example>
+            <title>Limit description of graph</title>
+            <statement>
+                <p>
+                    Let <m>f</m> be the function with graph given in <xref ref="fig_limit_naive"/>. Use the language and notation of limits to describe the behavior of <m>f</m> for inputs <m>x</m> near the values <m>a,b,c,d,e</m>. 
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The limit <m>\lim\limits_{x\to a}f(x)</m> does not exist. There is no value <m>L</m> that <m>f(x)</m> approaches for inputs <m>x</m> sufficiently close to <m>a</m>. Indeed, as <m>x</m> gets arbitrarily close to <m>a</m>, <m>f(x)</m> becomes arbitrarily large and negative. 
+                </p>
+                <p>
+                    The limit <m>\lim\limits_{x\to b}f(x)</m> does not exist. If <m>x</m> is arbitrarily close to <m>b</m>, and less than <m>b</m> (to the left), then the values <m>f(x)</m> gets arbitrarily close to <m>0</m>; thus if the limit existed it would have to be equal to <m>0</m>. And yet for inputs <m>x</m> arbitrarily close to <m>b</m> but greater than <m>b</m> (to the right), the values <m>f(x)</m> are greater than <m>1</m>: <ie/>, they get no closer than a distance of <m>1</m> from the value <m>0</m>. This implies <m>0</m> is not the limit, and hence that no limit exists. 
+                </p>
+                <p>
+                    We have <m>\lim\limits_{x\to c}f(x)=B</m>. Since <m>B=f(c)</m>, we have <m>\lim\limits_{x\to c}f(x)=f(c)</m> in this case. 
+                </p>
+                <p>
+                    The limit <m>\lim\limits_{x\to d}f(x)</m> does not exist. See the explanation in <xref ref="eg_function_behavior"/>.
+                </p>
+                <p>
+                    We have <m>\lim\limits_{x\to e}f(x)=D</m>. Note that in this case <m>e</m> is an element of the domain and <m>\lim\limits_{x\to e}f(x)\ne f(e)</m>.
+                </p>
+            </solution>
+        </example>
+        <example>
+            <title>Limit as compared to value</title>
+            <statement>
+                <p>
+                Provide graphs of the following functions on their entire implied domain:
+                <md>
+                    <mrow>f(x) \amp =\frac{x^2-1}{x-1} \amp g(x)\amp=\begin{cases}
+                    x+1 \amp \text{if } x\ne 1\\
+                    1  \amp \text{if } x=1
+                    \end{cases}
+                    \amp h(x)\amp =x+1
+                    </mrow>
+                </md>.
+                For each function discuss the limit behavior at <m>x=1</m> as compared with the value of the function at <m>x=1</m>. 
+                </p>
+            </statement>
+            <solution>
+                <sidebyside>
+                <figure xml:id="fig_limit_f">
+                    <caption>Graph of <m>f</m></caption>
+                    <image>
+                        <shortdescription>Graph of f</shortdescription>
+                        <sageplot>
+                            f=plot((x^2-1)/(x-1), x,-1,.95)
+                            g=plot((x^2-1)/(x-1), x,1.05,2)
+                            P=circle((1,2),.05)
+                            f+g+P
+                        </sageplot>
+                    </image>
+                </figure>
+                <figure xml:id="fig_limit_g">
+                    <caption>Graph of <m>g</m></caption>
+                    <image>
+                        <shortdescription>Graph of g</shortdescription>
+                        <sageplot>
+                            f=plot((x^2-1)/(x-1), x,-1,.95)
+                            g=plot((x^2-1)/(x-1), x,1.05,2)
+                            P=circle((1,2),.05)
+                            Q=point((1,1), size=70)
+                            f+g+P+Q
+                        </sageplot>
+                    </image>
+                </figure>
+                <figure xml:id="fig_limit_h">
+                    <caption>Graph of <m>h</m></caption>
+                    <image>
+                        <shortdescription>Graph of h</shortdescription>
+                        <sageplot>
+                            f=plot((x^2-1)/(x-1), x,-1,.95)
+                            g=plot((x^2-1)/(x-1), x,1.05,2)
+                            P=circle((1,2),.05)
+                            Q=point((1,2), size=70)
+                            f+g+P+Q
+                        </sageplot>
+                    </image>
+                </figure>
+            </sidebyside>
+        </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="ss_limit_laws">
+        <title>Limit rules</title>
+    <p>
+        We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with. Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules. 
+    </p>
+    <p>
+        Our first theorem gives us <em>formulas</em> for computing the limits of particular types of functions: constant functions, and the identity function. 
+    </p>
+    <theorem xml:id="th_lim_const_id">
+    <title>Constant and identity functions</title>
+        <statement>
+            <p>
+            <ol>  
+                <li xml:id="th_lim_const">
+                    <title>Constant function</title>
+                    <p>
+                       Fix a real number <m>c\in \R</m> and let <m>h\colon \R\rightarrow \R</m> be the constant function defined as <m>h(x)=c</m> for all <m>x\in \R</m>. Given any <m>a\in \R</m> we have 
+                       <men xml:id="eq_limit_const">
+                        \lim_{x\to a}h(x)=\lim_{x\to a}c=c
+                       </men>.
+                    </p>
+                </li>
+                <li xml:id="th_lim_id">
+                    <title>Identity function</title>
+                    <p>
+                       Let <m>\id\colon \R\rightarrow \R</m> be the identity function defined as <m>\id(x)=x</m> for all <m>x\in \R</m>. Given any <m>a\in \R</m> we have 
+                       <men xml:id="eq_lim_id">
+                        \lim_{x\to a}\id(x)=\lim_{x\to a}x=a
+                       </men>.
+                    </p>
+                </li>
+            </ol> 
+            </p>
+        </statement>
+    </theorem>
+    <p>
+        In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various <em>function operations</em>. 
+    </p>
+    <theorem xml:id="th_lim_rules">
+        <title>Limit rules</title>
+        <statement>
+            <p>
+               Let <m>f</m> and <m>g</m> be functions, and suppose <m>\lim\limits_{x\to a}f(x)</m> and <m>\lim\limits_{x\to a}g(x)</m> exist for the real number <m>a\in \R</m>. 
+            <ol>
+                <li xml:id="th_lim_sum">
+                    <title>Sum rule</title>
+                    <p>
+                       <m>\lim\limits_{x\to a}
+                        \left(f(x)+g(x)\right)=\lim\limits_{x\to a}f(x)+\lim\limits_{x\to a}g(x)</m>.
+                    </p>
+                </li>
+                <li xml:id="th_lim_diff">
+                    <title>Difference rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\left(f(x)-g(x)\right)=\lim\limits_{x\to a}f(x)-\lim\limits_{x\to a}g(x)</m>.
+                    </p>
+                </li>
+                <li xml:id="th_scal_mult">
+                    <title>Scalar multiple rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\left(cf(x)\right)=c\lim\limits_{x\to a}f(x)</m> for all <m>c\in \R</m>. 
+                    </p>
+                </li>
+                <li xml:id="th_prod">
+                    <title>Product rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\left(f(x)g(x)\right)=\lim\limits_{x\to a}f(x)\, \lim\limits_{x\to a}g(x)</m>.
+                    </p>
+                </li>
+                <li xml:id="th_lim_quot">
+                    <title>Quotient rule</title>
+                    <p>
+                       If <m>\lim\limits_{x\to a}g(x)\ne 0</m>, then 
+                       <m>\displaystyle
+                        \lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{\lim\limits_{x\to a}f(x)}{\lim\limits_{x\to a}g(x)}
+                       </m>.
+                    </p>
+                </li>
+                <li xml:base="th_lim_power">
+                    <title>Power rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}[f(x)]^n=\left[\lim\limits_{x\to a}f(x)\right]^n</m> for all positive integers <m>n</m>. 
+                    </p>
+                </li>
+                <li xml:base="th_lim_root">
+                    <title>Root rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\sqrt[n]{f(x)}=\sqrt[n]{\lim\limits_{x\to a}f(x)}</m> for all positive integers <m>n</m>, where we must assume <m>\lim\limits_{x\to a}f(x)</m> is positive if <m>n</m> is even. 
+                    </p>
+                </li>
+                <li xml:id="th_lim_repl">
+                    <title>Replacement rule</title>
+                    <p>
+                        If <m>h</m> is a function satisfying <m>h(x)=f(x)</m> for all <m>x\ne a</m> in an open interval about <m>a</m>, then <m>\lim\limits_{x\to a}f(x)=\lim\limits_{x\to a}h(x)</m>.
+                    </p>
+                </li>
+            </ol>
+            </p>
+
+        </statement>
+    </theorem>
+    <remark>
+        <title>Limit rules</title>
+        <p>
+            It is useful to think of <xref ref="th_lim_rules"/> as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can <q>bring the limit into</q> various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions.
+            Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.
+        </p>
+        <p>
+            In fact most of the rules in <xref ref="th_lim_rules"/> can be nicely summarized in plain English (<eg/>, <q>the limit of a product is the product of the limits</q>, <q>the limit of an <m>n</m>-th power is the <m>n</m>-th power of the limit </q>), and these summaries are helpful for remembering how the limit interacts with function operations.
+        </p>
+    </remark>
+    <remark>
+        <title>Quotient rule</title>
+        <p>
+            Assume as in <xref ref="th_lim_rules"/> that <m>\lim_{x\to a}f(x)</m> and <m>\lim_{x\to a}g(x)</m> exist and consider the limit <m>\lim_{x\to a}\frac{f(x)}{g(x)}</m>. Mark well that we can only make use of the quotient rule if <m>\lim_{x\to a}g(x)\ne 0</m>, in which case we can conclude that the limit of the quotient is the quotient of the limits. 
+        </p>
+        <p>
+            Note further that in the case where <m>\lim_{x\to a}g(x)=0</m>, we cannot automatically conclude that the limit <m>\lim_{x\to a}\frac{f(x)}{g(x)}</m> does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See <xref ref="eg_lim_quot_fail"/>.
+        </p>
+    </remark>
+    <example xml:id="eg_lim_rules">
+        <title>Using limit rules</title>
+        <statement><p>
+            Compute the limit below. Your answer should be a <em>chain of equalities</em> with steps justified by limit rules. 
+            <me>
+                \lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}}
+            </me>
+            
+        </p></statement>
+        <solution>
+            <p>
+                <md>
+                    <mrow>\lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}} \amp = \frac{\lim\limits_{x\to -2}(x^3+x+1)}{\lim\limits_{x\to -2}\sqrt[3]{4x^2+11}}
+                        \amp \text{(quot. rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{(\lim\limits_{x\to -2}x)^3+\lim\limits_{x\to -2}x+\lim\limits_{x\to -2}1}{\sqrt[3]{\lim\limits_{x\to -2}(4x^2+11)}}
+                        \amp \text{(sum, power rule/root rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{(-2)^3-2+1}{\sqrt[3]{\lim_{x\to -2}(4x^2)+\lim\limits_{x\to -2}11}}
+                        \amp \text{(ident., const. rule/sum rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{-9}{\sqrt[3]{4(\lim\limits_{x\to -2}x)^2+11}}
+                        \amp \text{(scal. mult., power, const. rule)}
+                    </mrow>
+                    <mrow> \amp =-\frac{9}{\sqrt[3]{4(-2)^2+11}} \amp \text{(ident. rule)}</mrow>
+                    <mrow> \amp =-\frac{9}{\sqrt[3]{27}}=-3</mrow>
+                </md>.
+            </p>
+        </solution>
+    </example>
+    <corollary xml:id="cor_poly_rational">
+        <title>Evaluation (polynomials and rational functions)</title>
+        <statement>
+            <p>
+                <ol>
+                    <li>
+                        <title>Polynomial evaluation</title>
+                        <p>
+                            Let <m>f(x)=\anpoly</m> be a polynomial. Given any <m>a\in \R</m>, we have 
+                            <me>
+                                \lim\limits_{x\to a}f(x)=f(a)
+                            </me>.
+                        </p>
+                    </li>
+                    <li>
+                        <title>Rational evaluation</title>
+                        <p>
+                            Let <m>f</m> and <m>g</m> be polynomials. For any <m>a\in \R</m> satisfying <m>g(a)\ne 0</m>, we have 
+                            <me>
+                                \lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{f(a)}{g(a)}
+                            </me>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </corollary>
+    <example xml:id="eg_poly_eval">
+        <title>Polynomial evaluation</title>
+        <statement><p>
+            Give a simplified computation of the limit in <xref ref="eg_lim_rules"/> using <xref ref="cor_poly_rational"/>.
+        </p></statement>
+        <solution>
+            <p>
+                The polynomial evaluation formula allows us to skip a few steps in our computation from <xref ref="eg_lim_rules"/>:
+                <md>
+                    <mrow>\lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}} \amp = \frac{\lim\limits_{x\to -2}(x^3+x+1)}{\lim\limits_{x\to -2}\sqrt[3]{4x^2+11}}
+                        \amp \text{(quot. rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{(-2)^3+(-2)+1}{\sqrt[3]{\lim\limits_{x\to -2}(4x^2+11)}}
+                        \amp \text{(poly. eval./root rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{-9}{\sqrt[3]{4(-2)^2+11}}
+                        \amp \text{(poly eval.)}
+                    </mrow>
+                    <mrow> \amp =-\frac{9}{\sqrt[3]{27}}=-3</mrow>
+                </md>.
+            </p>
+        </solution>
+    </example>
+    <example xml:id="eg_lim_quot_fail">
+        <title>Quotient rule does not apply</title>
+        <statement><p>
+            Compute the limit below. Your answer should be a chain of equalities with each step justified. 
+            <me>
+                \lim_{x\to 1}\frac{x^2-1}{x-1}
+            </me>
+            
+        </p></statement>
+        <solution>
+            <p>
+                Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: 
+                <md>
+                    <mrow> \lim_{x\to 1}\frac{x^2-1}{x-1}\amp =\lim_{x\to 1}\frac{(x-1)(x+1)}{x-1} </mrow>
+                    <mrow> \amp = \lim_{x\to 1}x+1 \amp \text{(repl. rule)}</mrow>
+                    <mrow> \amp =2 \amp \text{(poly eval.)}</mrow>
+                </md>. 
+            </p>
+        </solution>
+    </example>
+    </subsection>
+
+</section>
