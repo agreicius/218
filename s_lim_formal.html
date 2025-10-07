@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Limits: formal definition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.a85e2f1fefeea635.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.a707b621c77f7e48.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_limit_sandwich.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Limits: informal definition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limit_sandwich.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Limits: algebraic technique and sandwich theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limit_sandwich.html#ss_alg_tech" class="internal"><span class="title">Algebraic techniques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limit_sandwich.html#ss_sandwich" class="internal"><span class="title">Sandwich theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limits: formal definition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_lim_formal"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits: formal definition</span>
+</h2>
+<article class="objectives goal-like" id="s_lim_formal-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_lim_formal-2-1">
+<li id="s_lim_formal-2-1-1">
+<div class="para" id="s_lim_formal-2-1-1-1">Provide a rigorous definition of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.12.1"><a href="#s_lim_formal-2-1-1" title="Copy heading and permalink for Objective 1.12.1" aria-label="Copy heading and permalink for Objective 1.12.1">🔗</a></div>
+</li>
+<li id="s_lim_formal-2-1-2">
+<div class="para" id="s_lim_formal-2-1-2-1">Understand the quantifier logic underlying the formal definition of a limit in a “challenge and response” manner.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.12.2"><a href="#s_lim_formal-2-1-2" title="Copy heading and permalink for Objective 1.12.2" aria-label="Copy heading and permalink for Objective 1.12.2">🔗</a></div>
+</li>
+<li id="s_lim_formal-2-1-3">
+<div class="para" id="s_lim_formal-2-1-3-1">Use the formal definition of the limit to compute a limit and/or decide whether a limit exists.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.12.3"><a href="#s_lim_formal-2-1-3" title="Copy heading and permalink for Objective 1.12.3" aria-label="Copy heading and permalink for Objective 1.12.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 1.12"><a href="#s_lim_formal-2" title="Copy heading and permalink for Objectives 1.12" aria-label="Copy heading and permalink for Objectives 1.12">🔗</a></div></article><div class="para" id="s_lim_formal-3">As mentioned before, what makes <a href="s_limits_naive.html#d_limit_informal" class="xref" data-knowl="./knowl/xref/d_limit_informal.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.10.6: Limit (informal)">Definition 1.10.6</a> less than rigorous is the use of the vague phrases “arbitrarily close” and “sufficiently close”. The “epsilon-delta” formulation given in <a href="s_lim_formal.html#d_lim_formal" class="xref" data-knowl="./knowl/xref/d_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.12.1: Limit (formal)">Definition 1.12.1</a> is a mathematically precise way of of capturing these notions.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_lim_formal"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit (formal).</span>
+</h3>
+<div class="para logical" id="d_lim_formal-2-1">
+<div class="para">Suppose <span class="process-math">\(f\)</span> is a function defined everywhere on an open interval containing the point <span class="process-math">\(a\in \R\text{,}\)</span> except possibly at <span class="process-math">\(a\)</span> itself. We say that the <dfn class="terminology">limit</dfn> of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\)</span> exists if there is a value <span class="process-math">\(L\)</span> satisfying the following property: for all <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists a <span class="process-math">\(\delta &gt; 0\)</span> such that if <span class="process-math">\(0&lt; \abs{x-a}&lt; \delta\text{,}\)</span> then <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\text{.}\)</span> Using logical shorthand:</div>
+<div class="displaymath process-math" id="eq_lim_formal">
+\begin{equation}
+\text{for all } \epsilon &gt; 0, \text{ there is } \delta&gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\text{.}\tag{1.68}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_lim_formal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.12.1: Limit (formal)"><a href="#d_lim_formal" title="Copy heading and permalink for Definition 1.12.1: Limit (formal)" aria-label="Copy heading and permalink for Definition 1.12.1: Limit (formal)">🔗</a></div></article><article class="remark remark-like" id="rm_def_anat"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Anatomy of a definition.</span>
+</h3>
+<div class="para logical" id="rm_def_anat-2">
+<div class="para">
+<a href="s_lim_formal.html#d_lim_formal" class="xref" data-knowl="./knowl/xref/d_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.12.1: Limit (formal)">Definition 1.12.1</a> can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.</div>
+<ul class="disc" id="rm_def_anat-2-2">
+<li id="rm_def_anat-2-2-1">
+<span class="heading li--heading"><span class="title li--heading-title">Absolute value.</span></span><div class="para" id="rm_def_anat-2-2-1-2">The absolute value expressions <span class="process-math">\(\abs{f(x)-L}\)</span> and <span class="process-math">\(\abs{x-a}\)</span> are measures of how close <span class="process-math">\(f(x)\)</span> is to <span class="process-math">\(L\)</span> and how close <span class="process-math">\(x\)</span> is to <span class="process-math">\(a\text{.}\)</span> To say <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\)</span> is to say <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{;}\)</span> similarly <span class="process-math">\(\abs{x-a}&lt; \delta\)</span> says <span class="process-math">\(x\)</span> is within a distance <span class="process-math">\(\delta\)</span> of <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#rm_def_anat-2-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Absolute value"><a href="#rm_def_anat-2-2-1" title="Copy heading and permalink for Item: Absolute value" aria-label="Copy heading and permalink for Item: Absolute value">🔗</a></div>
+</li>
+<li id="rm_def_anat-2-2-2">
+<span class="heading li--heading"><span class="title li--heading-title">Conditional.</span></span><div class="para logical" id="rm_def_anat-2-2-2-2">
+<div class="para">The <em class="emphasis">conditional</em> (or <em class="emphasis">if-then</em>) statement</div>
+<div class="displaymath process-math" id="eq_def_anat">
+\begin{equation}
+0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\tag{1.69}
+\end{equation}
+</div>
+<div class="para">asserts that <em class="emphasis">if</em> <span class="process-math">\(x\)</span> is within a distance <span class="process-math">\(\delta\)</span> of <span class="process-math">\(a\)</span> (but not equal to <span class="process-math">\(a\)</span>), <em class="emphasis">then</em> <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_def_anat-2-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Conditional"><a href="#rm_def_anat-2-2-2" title="Copy heading and permalink for Item: Conditional" aria-label="Copy heading and permalink for Item: Conditional">🔗</a></div>
+</li>
+<li id="rm_def_anat-2-2-3">
+<span class="heading li--heading"><span class="title li--heading-title">Existential quantifier.</span></span><div class="para logical" id="rm_def_anat-2-2-3-2">
+<div class="para">How does adding the <em class="emphasis">existential quantifier</em> “there exists a <span class="process-math">\(\delta\)</span>” change the meaning? Considering <span class="process-math">\(\epsilon\)</span> to be fixed for the moment, the statement</div>
+<div class="displaymath process-math" id="eq_def_anat_exists">
+\begin{equation}
+\text{ there is } \delta&gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\tag{1.70}
+\end{equation}
+</div>
+<div class="para">asserts that for all <span class="process-math">\(x\)</span> <em class="emphasis">sufficiently close</em> (but not equal) to <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span> Indeed, it provides a sort of “safety distance” <span class="process-math">\(\delta\)</span> and says that as long as <span class="process-math">\(x\)</span> is within this safety distance of <span class="process-math">\(a\)</span> (but not equal to <span class="process-math">\(a\)</span>), then <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_def_anat-2-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Existential quantifier"><a href="#rm_def_anat-2-2-3" title="Copy heading and permalink for Item: Existential quantifier" aria-label="Copy heading and permalink for Item: Existential quantifier">🔗</a></div>
+</li>
+<li id="rm_def_anat-2-2-4">
+<span class="heading li--heading"><span class="title li--heading-title">Universal quantifier.</span></span><div class="para logical" id="rm_def_anat-2-2-4-2">
+<div class="para">Lastly, consider what effect the <em class="emphasis">universal quantifier</em> “for all <span class="process-math">\(\epsilon\)</span>” has. The full statement</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{for all } \epsilon &gt; 0, \text{ there is } \delta &gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon
+\end{equation*}
+</div>
+<div class="para">asserts that <em class="emphasis">for any positive</em> <span class="process-math">\(\epsilon\text{,}\)</span> the value <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> for all <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span> In particular, choosing <span class="process-math">\(\epsilon\)</span> to be as small as you like, we have <span class="process-math">\(f(x)\)</span> within that small distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\)</span> for all <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span> In other words, we can make <span class="process-math">\(f(x)\)</span> <em class="emphasis">arbitrarily close</em> to <span class="process-math">\(L\)</span> for all <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_def_anat-2-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Universal quantifier"><a href="#rm_def_anat-2-2-4" title="Copy heading and permalink for Item: Universal quantifier" aria-label="Copy heading and permalink for Item: Universal quantifier">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_def_anat-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.12.2: Anatomy of a definition"><a href="#rm_def_anat" title="Copy heading and permalink for Remark 1.12.2: Anatomy of a definition" aria-label="Copy heading and permalink for Remark 1.12.2: Anatomy of a definition">🔗</a></div></article><article class="remark remark-like" id="s_lim_formal-6"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Challenge and response.</span>
+</h3>
+<div class="para logical" id="s_lim_formal-6-2">
+<div class="para">It is useful to think of the process of verifying <a href="s_lim_formal.html#d_lim_formal" class="xref" data-knowl="./knowl/xref/d_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.12.1: Limit (formal)">Definition 1.12.1</a> to establish a limit claim <span class="process-math">\(\lim_{x\to a}f(x)=L\)</span> as a <em class="emphasis">challenge and response</em> type of procedure:</div>
+<ul class="disc" id="s_lim_formal-6-2-4">
+<li id="s_lim_formal-6-2-4-1">
+<div class="para" id="s_lim_formal-6-2-4-1-1">for each positive <span class="process-math">\(\epsilon\text{,}\)</span> we are challenged to show that for <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-6-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_lim_formal-6-2-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_lim_formal-6-2-4-2">
+<div class="para" id="s_lim_formal-6-2-4-2-1">to meet this <span class="process-math">\(\epsilon\)</span>-challenge we respond by providing a <span class="process-math">\(\delta\)</span> for which <span class="process-math">\(0&lt; \abs{x-a}&lt; \delta\)</span> implies <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-6-2-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_lim_formal-6-2-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Note that the <span class="process-math">\(\delta\)</span> we provide in response to a particular <span class="process-math">\(\epsilon\)</span>-challenge will typically depend on <span class="process-math">\(\epsilon\text{:}\)</span> and indeed, we typically see that the smaller the <span class="process-math">\(\epsilon\text{,}\)</span> the smaller the <span class="process-math">\(\delta\text{.}\)</span> This is illustrated in the examples below.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.12.3: Challenge and response"><a href="#s_lim_formal-6" title="Copy heading and permalink for Remark 1.12.3: Challenge and response" aria-label="Copy heading and permalink for Remark 1.12.3: Challenge and response">🔗</a></div></article><article class="algorithm theorem-like" id="proc_epsilon_delta"><h3 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epsilon-delta proof for limits.</span>
+</h3>
+<div class="para logical" id="proc_epsilon_delta-2-1">
+<div class="para">To prove <span class="process-math">\(\lim_{x\to a}f(x)=L\)</span> for a function <span class="process-math">\(f\)</span> and real numbers <span class="process-math">\(a,L\in \R\text{,}\)</span> proceed as follows.</div>
+<ol class="decimal" id="proc_epsilon_delta-2-1-4">
+<li id="proc_epsilon_delta-2-1-4-1">
+<div class="para logical" id="proc_epsilon_delta-2-1-4-1-1">
+<div class="para">Treating <span class="process-math">\(\epsilon\)</span> as an arbitrary positive constant, solve the inequality</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_proc_lim_def.html" id="eq_proc_lim_def">
+\begin{equation}
+\abs{f(x)-L}&lt; \epsilon\tag{1.71}
+\end{equation}
+</div>
+<div class="para">for <span class="process-math">\(x\text{.}\)</span> That is, find the set <span class="process-math">\(S\)</span> of all <span class="process-math">\(x\)</span> satisfying <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.71">(1.71)</a>. This set is typically a union of one or more intervals.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#proc_epsilon_delta-2-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="proc_epsilon_delta-2-1-4-2">
+<div class="para" id="proc_epsilon_delta-2-1-4-2-1">Find a positive <span class="process-math">\(\delta\)</span> such that the set <span class="process-math">\(S\)</span> of solutions to <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.71">(1.71)</a> contains the interval <span class="process-math">\((a-\delta, a+\delta)\text{,}\)</span> with the possible exception of <span class="process-math">\(a\)</span> itself. The <span class="process-math">\(\delta\)</span> you provide will be expressed in terms of <span class="process-math">\(\epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#proc_epsilon_delta-2-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="proc_epsilon_delta-2-1-4-3">
+<div class="para" id="proc_epsilon_delta-2-1-4-3-1">It follows that <span class="process-math">\(0&lt; \abs{x-a}&lt; \delta \implies \abs{f(x)-L}&lt; \epsilon\text{.}\)</span> Since <span class="process-math">\(\epsilon\)</span> was arbitrary, conclude that <span class="process-math">\(\lim\limits_{x\to a}f(x)=L\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#proc_epsilon_delta-2-1-4-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 1.12.4: Epsilon-delta proof for limits"><a href="#proc_epsilon_delta" title="Copy heading and permalink for Procedure 1.12.4: Epsilon-delta proof for limits" aria-label="Copy heading and permalink for Procedure 1.12.4: Epsilon-delta proof for limits">🔗</a></div></article><div class="para" id="s_lim_formal-8">Our first example illustrating <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.71">(1.71)</a> treats a function of the form <span class="process-math">\(f(x)=ax+b\text{.}\)</span> Such functions are called <em class="emphasis">affine functions</em>.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_ep_delt_affine"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epsilon-delta: affine function.</span>
+</h3>
+<div class="para" id="eg_ep_delt_affine-2-1">Let <span class="process-math">\(f(x)=-4x+7\text{.}\)</span> Verify that <span class="process-math">\(\lim\limits_{x\to 1}f(x)=3\)</span> using the epsilon-delta definition of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_affine-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_ep_delt_affine-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="eg_ep_delt_affine-3-1">We follow <a href="s_lim_formal.html#proc_epsilon_delta" class="xref" data-knowl="./knowl/xref/proc_epsilon_delta.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.12.4: Epsilon-delta proof for limits">Procedure 1.12.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_affine-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="case" id="eg_ep_delt_affine-3-2"><h4 class="heading">Step 1.</h4>
+<div class="para logical" id="eg_ep_delt_affine-3-2-2">
+<div class="para">Treating <span class="process-math">\(\epsilon\)</span> as a fixed arbitrary constant we attempt to solve the inequality <span class="process-math">\(\abs{f(x)-3}&lt; \epsilon\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eg_ep_delt_affine-3-2-2-3">
+\begin{align*}
+\abs{f(x)-3}&lt; \epsilon\amp \iff \abs{-4x+7-3}&lt; \epsilon \\
+\amp \iff \abs{-4x+4}&lt; \epsilon\\
+\amp \iff \abs{-4(x-1)}&lt; \epsilon\\
+\amp \iff \abs{-4}\abs{x-1}&lt; \epsilon \amp \text{(abs. val. prop.)}\\
+\amp \iff 4\abs{x-1}&lt; \epsilon\\
+\amp \iff \abs{x-1}&lt; \frac{\epsilon}{4} \text{(abs. val. prop.)}\\
+\amp \iff -\frac{\epsilon}{4}&lt; x-1&lt; \frac{\epsilon}{4}\\
+\amp \iff 1-\frac{\epsilon}{4}&lt; x &lt; 1+\frac{\epsilon}{4}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_affine-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Step 1"><a href="#eg_ep_delt_affine-3-2" title="Copy heading and permalink for Case: Step 1" aria-label="Copy heading and permalink for Case: Step 1">🔗</a></div></article><article class="case" id="eg_ep_delt_affine-3-3"><h4 class="heading">Step 2.</h4>
+<div class="para" id="eg_ep_delt_affine-3-3-2">By step 1, we see that the solution <span class="process-math">\(S\)</span> to our starting inequality is the set of <span class="process-math">\(x\)</span> satisfying <span class="process-math">\(1-\frac{\epsilon}{4}&lt; x &lt; 1+\frac{\epsilon}{4}\text{.}\)</span> In other words, <span class="process-math">\(S=(1-\epsilon/4, 1+\epsilon/4)\text{.}\)</span> Thus <span class="process-math">\(S\)</span> itself is of the form <span class="process-math">\((1-\delta, 1+\delta)\text{,}\)</span> where <span class="process-math">\(\delta=\frac{\epsilon}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_affine-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Step 2"><a href="#eg_ep_delt_affine-3-3" title="Copy heading and permalink for Case: Step 2" aria-label="Copy heading and permalink for Case: Step 2">🔗</a></div></article><article class="case" id="eg_ep_delt_affine-3-4"><h4 class="heading">Step 3.</h4>
+<div class="para" id="eg_ep_delt_affine-3-4-2">Thus given any <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> setting <span class="process-math">\(\delta=\frac{\epsilon}{4}\text{,}\)</span> we have <span class="process-math">\(\abs{f(x)-3}&lt; \epsilon\)</span> for all <span class="process-math">\(x\)</span> satisfying <span class="process-math">\(\abs{x-1}&lt; \delta=\epsilon/4\text{.}\)</span> We conclude that <span class="process-math">\(\lim\limits_{x\to 1}f(x)=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_affine-3-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Step 3"><a href="#eg_ep_delt_affine-3-4" title="Copy heading and permalink for Case: Step 3" aria-label="Copy heading and permalink for Case: Step 3">🔗</a></div></article><div class="autopermalink" data-description="Solution 1.12.5.1"><a href="#eg_ep_delt_affine-3" title="Copy heading and permalink for Solution 1.12.5.1" aria-label="Copy heading and permalink for Solution 1.12.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.12.5: Epsilon-delta: affine function"><a href="#eg_ep_delt_affine" title="Copy heading and permalink for Example 1.12.5: Epsilon-delta: affine function" aria-label="Copy heading and permalink for Example 1.12.5: Epsilon-delta: affine function">🔗</a></div></article><article class="project project-like" id="s_lim_formal-10"><h3 class="heading">
+<span class="type">Project</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Visualizing epsilon-delta proofs.</span>
+</h3>
+<div class="para logical" id="s_lim_formal-10-2">
+<div class="para">The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim <span class="process-math">\(\lim\limits_{x\to a}f(x)=L\)</span> in terms of the graph of <span class="process-math">\(f\text{.}\)</span> (The window below is a bit narrow. Go to the <a class="external" href="https://www.geogebra.org/m/degz8kgk" target="_blank">Geogebra page</a> of the interactive for a larger rendition.) We elucidate how to parse this graphical representation.</div>
+<ul class="disc" id="s_lim_formal-10-2-4">
+<li id="s_lim_formal-10-2-4-1">
+<div class="para" id="s_lim_formal-10-2-4-1-1">The specific <span class="process-math">\(\epsilon\)</span>-challenge is indicated by a horizontal band centered about <span class="process-math">\(y=L\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-10-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_lim_formal-10-2-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_lim_formal-10-2-4-2">
+<div class="para" id="s_lim_formal-10-2-4-2-1">The <span class="process-math">\(\delta\)</span>-response is indicated by a vertical band centered about <span class="process-math">\(x=a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-10-2-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_lim_formal-10-2-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_lim_formal-10-2-4-3">
+<div class="para" id="s_lim_formal-10-2-4-3-1">The game is, given a specific <span class="process-math">\(\epsilon\)</span>-challenge, find an appropriate <span class="process-math">\(\delta\)</span> such that when <span class="process-math">\(x\)</span> is within <span class="process-math">\(\delta\)</span> of <span class="process-math">\(a\text{,}\)</span> the values <span class="process-math">\(f(x)\)</span> are within <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span> Visually, this is accomplished when all points <span class="process-math">\((x,f(x))\)</span> on the segment of the graph of <span class="process-math">\(f\)</span> lying in the vertical band about <span class="process-math">\(x=a\)</span> also lie within the horizontal band about <span class="process-math">\(y=L\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-10-2-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_lim_formal-10-2-4-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_vis_ep_delta"><iframe id="int_geo_ep_delta" width="600" height="450" src="int_geo_ep_delta-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Visualizing epsilon-delta proofs. Made with <a class="external" href="https://www.geogebra.org/m/degz8kgk" target="_blank">Geogebra</a><div class="autopermalink" data-description="Figure 1.12.6"><a href="#fig_vis_ep_delta" title="Copy heading and permalink for Figure 1.12.6" aria-label="Copy heading and permalink for Figure 1.12.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Project 1: Visualizing epsilon-delta proofs"><a href="#s_lim_formal-10" title="Copy heading and permalink for Project 1: Visualizing epsilon-delta proofs" aria-label="Copy heading and permalink for Project 1: Visualizing epsilon-delta proofs">🔗</a></div></article><article class="remark remark-like" id="rm_find_delta"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding <span class="process-math">\(\delta\)</span> such that <span class="process-math">\((a-\delta, a+\delta)\subseteq S\)</span>.</span>
+</h3>
+<div class="para logical" id="rm_find_delta-2">
+<div class="para">In the final step of applying <a href="s_lim_formal.html#proc_epsilon_delta" class="xref" data-knowl="./knowl/xref/proc_epsilon_delta.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.12.4: Epsilon-delta proof for limits">Procedure 1.12.4</a> to a limit statment <span class="process-math">\(\lim\limits_{x\to a}f(x)=L\text{,}\)</span> we usually have found an open interval <span class="process-math">\((c,d)\)</span> containing <span class="process-math">\(a\text{,}\)</span> and then must find a <span class="process-math">\(\delta\)</span> such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html">
+\begin{equation*}
+(a-\delta, a+\delta)\subseteq (c,d)\text{.}
+\end{equation*}
+</div>
+<div class="para">The following approach is useful in this regard. Observe that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html" id="rm_find_delta-2-7">
+\begin{align*}
+c \amp =a-(a-c)\\
+d \amp =a+(d-a)
+\end{align*}
+</div>
+<div class="para">and thus <span class="process-math">\((c,d)=(a-\delta_1, a+\delta_2)
+\text{,}\)</span> where</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html" id="rm_find_delta-2-9">
+\begin{align*}
+\delta_1 \amp = a-c\\
+\delta_2 \amp = d-a\text{,}
+\end{align*}
+</div>
+<div class="para">are the distances from <span class="process-math">\(a\)</span> to the left and right endpoints of the interval.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_find_delta-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_delta_interval"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/fig_delta_interval-2.svg" role="img" class="contained" alt="Visualizing distances to endpoints of interval"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Visualizing distances to endpoints of interval<div class="autopermalink" data-description="Figure 1.12.8"><a href="#fig_delta_interval" title="Copy heading and permalink for Figure 1.12.8" aria-label="Copy heading and permalink for Figure 1.12.8">🔗</a></div></figcaption></figure><div class="para logical" id="rm_find_delta-4">
+<div class="para">Setting <span class="process-math">\(\delta=\min\{\delta_1,\delta_2\}\)</span> as the minimum of these distances, we now have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(a-\delta, a+\delta)\subseteq (a-\delta_1,a+\delta_2)=(c,d)\text{,}
+\end{equation*}
+</div>
+<div class="para">as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_find_delta-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="rm_find_delta-5">Depending on the example, we can sometimes easily determine which of <span class="process-math">\(\delta_1\)</span> and <span class="process-math">\(\delta_2\)</span> is the minimum, giving us an explicit expression for <span class="process-math">\(\delta\text{.}\)</span> When things are too complicated, however, it is perfectly fine to set <span class="process-math">\(\delta=\min\{\delta_1,\delta_2\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#rm_find_delta-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.12.7: Finding \delta such that (a-\delta, a+\delta)\subseteq S"><a href="#rm_find_delta" title="Copy heading and permalink for Remark 1.12.7: Finding \delta such that (a-\delta, a+\delta)\subseteq S" aria-label="Copy heading and permalink for Remark 1.12.7: Finding \delta such that (a-\delta, a+\delta)\subseteq S">🔗</a></div></article><article class="example example-like" id="s_lim_formal-12"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epsilon-delta: radical function.</span>
+</h3>
+<div class="para" id="s_lim_formal-12-2-1">Let <span class="process-math">\(f(x)=\sqrt{x-2}\text{.}\)</span> Verify that <span class="process-math">\(\lim\limits_{x\to 3}f(x)=1\)</span> using the epsilon-delta definition of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="s_lim_formal-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="s_lim_formal-12-3-1">
+<div class="para">Following <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.71">(1.71)</a> we treat <span class="process-math">\(\epsilon\)</span> as an arbitrary positive constant and attempt to solve the inequality</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_proc_lim_def.html">
+\begin{equation*}
+\abs{f(x)-1}&lt; \epsilon\text{.}
+\end{equation*}
+</div>
+<div class="para">We have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_proc_lim_def.html" id="s_lim_formal-12-3-1-4">
+\begin{align*}
+\abs{f(x)-1}&lt; \epsilon\amp \iff -\epsilon &lt; f(x)-1 &lt; \epsilon\\
+\amp \iff -\epsilon &lt; \sqrt{x-2}-1 &lt; \epsilon\\
+\amp \iff 1-\epsilon &lt; \sqrt{x-2}&lt; \epsilon+1\text{.}
+\end{align*}
+</div>
+<div class="para">We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_proc_lim_def.html">
+\begin{equation*}
+a&lt; b \iff a^2&lt; b^2
+\end{equation*}
+</div>
+<div class="para">to apply, we need <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> to both be nonnegative. (Example: <span class="process-math">\(-3&lt; -1\text{,}\)</span> but <span class="process-math">\(9\not\lt 1\text{.}\)</span>) To deal with this, we will treat two separate cases: <span class="process-math">\(\epsilon\leq 1\)</span> and <span class="process-math">\(\epsilon&gt; 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="case" id="s_lim_formal-12-3-2"><h4 class="heading">Case: <span class="process-math">\(\epsilon \leq 1\)</span>.</h4>
+<div class="para logical" id="s_lim_formal-12-3-2-2">
+<div class="para">When <span class="process-math">\(\epsilon \leq 1\text{,}\)</span> all terms in the last inequality above are positive, and we may continue on to conclude</div>
+<div class="displaymath process-math" id="s_lim_formal-12-3-2-2-2">
+\begin{align*}
+\abs{f(x)-1}&lt; \epsilon\amp \iff 1-\epsilon &lt; \sqrt{x-2}&lt; \epsilon+1\\
+\amp \iff (1-\epsilon)^2 &lt; x-2 &lt; (\epsilon +1)^2\\
+\amp \iff 2+(1-\epsilon)^2 &lt; x &lt; 2+(\epsilon +1)^2\\
+\amp \iff 3-\epsilon(2-\epsilon)&lt; x &lt; 3+\epsilon(2 +\epsilon)\text{.}
+\end{align*}
+</div>
+<div class="para">Thus the set of solutions to our original inequality, assuming <span class="process-math">\(\epsilon\geq 1\text{,}\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S=(3-\epsilon(2-\epsilon), 3+\epsilon(2 +\epsilon))=(3-\delta_1, 3+\delta_2)\text{,}
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math" id="s_lim_formal-12-3-2-2-5">
+\begin{align*}
+\delta_1 \amp = \epsilon(2-\epsilon)\\
+\delta_2 \amp = \epsilon(2 +\epsilon)\text{.}
+\end{align*}
+</div>
+<div class="para">Note that since <span class="process-math">\(0&lt; \epsilon\leq 1\text{,}\)</span> both <span class="process-math">\(\delta_1\)</span> and <span class="process-math">\(\delta_2\)</span> are positive. It is clear that <span class="process-math">\(3\in S\text{.}\)</span> Setting <span class="process-math">\(\delta\)</span> to be the <em class="emphasis">minimum</em> of <span class="process-math">\(\delta_1, \delta_2\text{,}\)</span> guarantees that  <span class="process-math">\((3-\delta, 3+\delta)\subseteq S\text{.}\)</span> We conclude that for any positive <span class="process-math">\(\epsilon\leq 1\text{,}\)</span> setting <span class="process-math">\(\delta=\min\{(\delta_1, \delta_2\}\text{,}\)</span> we have <span class="process-math">\(\abs{f(x)-1}&lt; \epsilon\)</span> for all <span class="process-math">\(x\)</span> satisfying <span class="process-math">\(\abs{x-3}&lt; \delta\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-12-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="s_lim_formal-12-3-2-3">
+<div class="para">Note: in fact, it is not difficult to see in this case that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta_1=\epsilon(2-\epsilon)\leq \delta_2=\epsilon(2+\epsilon)
+\end{equation*}
+</div>
+<div class="para">and so we could have more explicitly set <span class="process-math">\(\delta=\epsilon(2-\epsilon)\)</span> in this case. Nonetheless, declaring <span class="process-math">\(\delta=\min\{\delta_1, \delta_2\}\)</span> works just as well here, as well as in other examples.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-12-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Case: \epsilon \leq 1"><a href="#s_lim_formal-12-3-2" title="Copy heading and permalink for Case: Case: \epsilon \leq 1" aria-label="Copy heading and permalink for Case: Case: \epsilon \leq 1">🔗</a></div></article><article class="case" id="s_lim_formal-12-3-3"><h4 class="heading">Case: <span class="process-math">\(\epsilon&gt; 1\)</span>.</h4>
+<div class="para logical" id="s_lim_formal-12-3-3-2">
+<div class="para">Now assume <span class="process-math">\(\epsilon\geq 1\text{.}\)</span> We need to find a <span class="process-math">\(\delta\)</span> such that <span class="process-math">\(0&lt; \abs{x-3}&lt; \delta\)</span> implies <span class="process-math">\(\abs{f(x)-1}&lt; \epsilon\text{.}\)</span> From the previous case (<span class="process-math">\(\epsilon\leq 1\)</span>), we know there is a <span class="process-math">\(\delta\)</span> such that <span class="process-math">\(0&lt; \abs{x-3}&lt; \delta\)</span> implies <span class="process-math">\(\abs{f(x)-1}&lt; 1\text{.}\)</span> But since <span class="process-math">\(\epsilon &gt; 1\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="s_lim_formal-12-3-3-2-10">
+\begin{align*}
+0&lt; \abs{x-3}&lt; \delta \amp\implies \abs{f(x)-1}&lt; 1  \\
+\amp \implies \abs{f(x)-1}&lt;  \epsilon\text{,}
+\end{align*}
+</div>
+<div class="para">as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-12-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Case: \epsilon&gt; 1"><a href="#s_lim_formal-12-3-3" title="Copy heading and permalink for Case: Case: \epsilon&gt; 1" aria-label="Copy heading and permalink for Case: Case: \epsilon&gt; 1">🔗</a></div></article><div class="para logical" id="s_lim_formal-12-3-4">
+<div class="para">Our two cases, taken together, show that for all <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists a <span class="process-math">\(\delta&gt; 0\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0 &lt;\abs{x-3}&lt; \delta\implies \abs{f(x)-1}&lt; \epsilon\text{.}
+\end{equation*}
+</div>
+<div class="para">Thus <span class="process-math">\(\lim\limits_{x\to 3}f(x)=1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-12-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.12.9.1"><a href="#s_lim_formal-12-3" title="Copy heading and permalink for Solution 1.12.9.1" aria-label="Copy heading and permalink for Solution 1.12.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.12.9: Epsilon-delta: radical function"><a href="#s_lim_formal-12" title="Copy heading and permalink for Example 1.12.9: Epsilon-delta: radical function" aria-label="Copy heading and permalink for Example 1.12.9: Epsilon-delta: radical function">🔗</a></div></article><div class="para" id="s_lim_formal-13">As the last example illustrates, as our function <span class="process-math">\(f\)</span> becomes more complicated, solving the relevant inequality <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.71">(1.71)</a> can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a <em class="emphasis">partial</em> proof: namely we will give you one specific <span class="process-math">\(\epsilon\)</span> as a challenge, and ask you to find a <span class="process-math">\(\delta\)</span> that satisfies <a href="s_lim_formal.html#eq_lim_formal" class="xref" data-knowl="./knowl/xref/eq_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.68">(1.68)</a> for this particular <span class="process-math">\(\epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_ep_delt_quad"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding <span class="process-math">\(\delta\)</span> for specific <span class="process-math">\(\epsilon\text{:}\)</span> quadratic function.</span>
+</h3>
+<div class="para" id="eg_ep_delt_quad-2-1">Let <span class="process-math">\(f(x)=1-3x^2\text{.}\)</span> It is a fact that <span class="process-math">\(\lim\limits_{x\to 1}f(x)=-2\text{.}\)</span> Verify the epsilon-delta definition for this limit statement for the specific epsilon <span class="process-math">\(\epsilon=\frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_quad-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_ep_delt_quad-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_ep_delt_quad-3-1">
+<div class="para">We wish to find <span class="process-math">\(\delta\)</span> satisfying</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html">
+\begin{equation*}
+0&lt; \abs{x-1}&lt; \delta \implies \abs{f(x)-(-2)}&lt; \frac{1}{2}\text{.}
+\end{equation*}
+</div>
+<div class="para">Proceeding as in <a href="s_lim_formal.html#proc_epsilon_delta" class="xref" data-knowl="./knowl/xref/proc_epsilon_delta.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.12.4: Epsilon-delta proof for limits">Procedure 1.12.4</a>, we first solve the inequality <span class="process-math">\(\abs{f(x)-(-2)}&lt; \frac{1}{2}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html" id="eg_ep_delt_quad-3-1-5">
+\begin{align*}
+\abs{f(x)-(-2)}&lt; \frac{1}{2} \amp \iff \abs{(1-3x^2)+2}&lt; \frac{1}{2} \\
+\amp \iff \abs{3-3x^2}&lt; \frac{1}{2}\\
+\amp \iff \abs{(-3)(x^2-1)}&lt; \frac{1}{2}\\
+\amp \iff 3\abs{x^2-1}&lt; \frac{1}{2}\\
+\amp \iff \abs{x^2-1}&lt; \frac{1}{6}\\
+\amp\iff -\frac{1}{6}&lt; x^2-1&lt; \frac{1}{6}\\
+\amp \iff\frac{5}{6}&lt; x^2&lt; \frac{7}{6}\\
+\amp \iff\sqrt{\frac{5}{6}}&lt; \abs{x}&lt; \sqrt{\frac{7}{6}} \amp \text{(rad. ineq. prop.)}\\
+\amp \iff -\sqrt{\frac{7}{6}}&lt; x &lt; -\sqrt{\frac{5}{6}} \text{ or } \sqrt{\frac{5}{6}}&lt; x &lt; \sqrt{\frac{7}{6}}\text{.}
+\end{align*}
+</div>
+<div class="para">Notice that in this case, the set of solutions <span class="process-math">\(S\)</span> to the inequality is a union of two intervals:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html">
+\begin{equation*}
+S=\left(-\sqrt{\frac{7}{6}},-\sqrt{\frac{5}{6}}\right)\cup \left(\sqrt{\frac{5}{6}},\sqrt{\frac{7}{6}}\right)\text{.}
+\end{equation*}
+</div>
+<div class="para">Notice further that our limit point <span class="process-math">\(1\)</span> is an element of the second interval, and that we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html">
+\begin{equation*}
+\left(\sqrt{\frac{5}{6}},\sqrt{\frac{7}{6}}\right)=(1-\delta_1,1+\delta_2) \text{,}
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html" id="eg_ep_delt_quad-3-1-10">
+\begin{align*}
+\delta_1 \amp = 1-\sqrt{\frac{5}{6}} \\
+\delta_2 \amp = \sqrt{\frac{7}{6}}-1\text{.}
+\end{align*}
+</div>
+<div class="para">Thus, setting <span class="process-math">\(\delta=\min\{\delta_1,\delta_2\}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html">
+\begin{equation*}
+(1-\delta, 1+\delta)\subseteq \left(\sqrt{\frac{5}{6}},\sqrt{\frac{7}{6}}\right)\subseteq S\text{.}
+\end{equation*}
+</div>
+<div class="para">It follows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_epsilon_delta.html">
+\begin{equation*}
+0&lt; \abs{x-1}&lt; \delta \implies \abs{f(x)-(-2)}&lt; \frac{1}{2}\text{,}
+\end{equation*}
+</div>
+<div class="para">as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_ep_delt_quad-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.12.10.1"><a href="#eg_ep_delt_quad-3" title="Copy heading and permalink for Solution 1.12.10.1" aria-label="Copy heading and permalink for Solution 1.12.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.12.10: Finding \delta for specific \epsilon quadratic function"><a href="#eg_ep_delt_quad" title="Copy heading and permalink for Example 1.12.10: Finding \delta for specific \epsilon quadratic function" aria-label="Copy heading and permalink for Example 1.12.10: Finding \delta for specific \epsilon quadratic function">🔗</a></div></article><div class="para" id="s_lim_formal-15">We gather here some inequality properties that came to light in the examples above. These are essential for solving inequalities, and thus for performing epsilon-delta proofs.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_ineqs"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inequality rules.</span>
+</h3>
+<div class="para logical" id="th_ineqs-2-1">
+<ol class="decimal" id="th_ineqs-2-1-1">
+<li id="th_ineqs-2-1-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Multiply by constant.</span></span><div class="para logical" id="th_ineqs-2-1-1-1-2">
+<div class="para">Assume <span class="process-math">\(a&gt; 0\)</span> is a positive constant and <span class="process-math">\(b&lt; 0\)</span> is a negative one. For all <span class="process-math">\(x,y\in \R\)</span> we have</div>
+<div class="displaymath process-math" id="th_ineqs-2-1-1-1-2-4">
+\begin{align*}
+x&lt; y \amp \iff ax&lt; ay\\
+x&lt; y \amp \iff by&lt; bx\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_ineqs-2-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Multiply by constant"><a href="#th_ineqs-2-1-1-1" title="Copy heading and permalink for Item 1: Multiply by constant" aria-label="Copy heading and permalink for Item 1: Multiply by constant">🔗</a></div>
+</li>
+<li id="th_ineqs-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Absolute value.</span></span><div class="para logical" id="th_ineqs-2-1-1-2-2">
+<div class="para">Assume <span class="process-math">\(a\geq 0\)</span> is a nonnegative constant. For all <span class="process-math">\(x\in \R\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="th_ineqs-2-1-1-2-2-3">
+\begin{align*}
+\abs{x}&lt; a \amp \iff -a&lt; x&lt; a\\
+\abs{x}&gt; a\amp \iff x&lt; -a \text{ or } a&gt; x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_ineqs-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Absolute value"><a href="#th_ineqs-2-1-1-2" title="Copy heading and permalink for Item 2: Absolute value" aria-label="Copy heading and permalink for Item 2: Absolute value">🔗</a></div>
+</li>
+<li id="th_ineqs-2-1-1-3">
+<span class="heading li--heading"><span class="title li--heading-title">Squaring and square-rooting.</span></span><div class="para logical" id="th_ineqs-2-1-1-3-2">
+<div class="para">Assume <span class="process-math">\(a\geq 0\)</span> is a nonnegative constant. For all <span class="process-math">\(x\in \R\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="th_ineqs-2-1-1-3-2-3">
+\begin{align*}
+a&lt; x \amp \implies a^2\leq x^2\\
+a&lt; x \amp \implies \sqrt{a}\leq \sqrt{x}\text{.}
+\end{align*}
+</div>
+<div class="para">It follows that for all nonnegative <span class="process-math">\(x\geq 0\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="th_ineqs-2-1-1-3-2-5">
+\begin{align*}
+a&lt; x \amp \iff a^2\leq x^2\\
+a&lt; x \amp \iff \sqrt{a}\leq \sqrt{x}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_ineqs-2-1-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3: Squaring and square-rooting"><a href="#th_ineqs-2-1-1-3" title="Copy heading and permalink for Item 3: Squaring and square-rooting" aria-label="Copy heading and permalink for Item 3: Squaring and square-rooting">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_ineqs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.12.11: Inequality rules"><a href="#th_ineqs" title="Copy heading and permalink for Theorem 1.12.11: Inequality rules" aria-label="Copy heading and permalink for Theorem 1.12.11: Inequality rules">🔗</a></div></article><div class="autopermalink" data-description="Section 1.12: Limits: formal definition"><a href="#s_lim_formal" title="Copy heading and permalink for Section 1.12: Limits: formal definition" aria-label="Copy heading and permalink for Section 1.12: Limits: formal definition">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_limit_sandwich.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

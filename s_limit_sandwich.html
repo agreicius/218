@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Limits: algebraic technique and sandwich theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.a85e2f1fefeea635.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.a707b621c77f7e48.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_limits_naive.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_lim_formal.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Limits: informal definition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="s_limit_sandwich.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Limits: algebraic technique and sandwich theorem</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limit_sandwich.html#ss_alg_tech" class="internal"><span class="title">Algebraic techniques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limit_sandwich.html#ss_sandwich" class="internal"><span class="title">Sandwich theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limits: formal definition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_limit_sandwich"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits: algebraic technique and sandwich theorem</span>
+</h2>
+<article class="objectives goal-like" id="s_limit_sandwich-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_limit_sandwich-2-1">
+<li id="s_limit_sandwich-2-1-1">
+<div class="para" id="s_limit_sandwich-2-1-1-1">Use algebraic techniques to help compute limits.<div class="autopermalink" data-description="Paragraph"><a href="#s_limit_sandwich-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.11.1"><a href="#s_limit_sandwich-2-1-1" title="Copy heading and permalink for Objective 1.11.1" aria-label="Copy heading and permalink for Objective 1.11.1">🔗</a></div>
+</li>
+<li id="s_limit_sandwich-2-1-2">
+<div class="para" id="s_limit_sandwich-2-1-2-1">Use the sandwich theorem to compute limits.<div class="autopermalink" data-description="Paragraph"><a href="#s_limit_sandwich-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.11.2"><a href="#s_limit_sandwich-2-1-2" title="Copy heading and permalink for Objective 1.11.2" aria-label="Copy heading and permalink for Objective 1.11.2">🔗</a></div>
+</li>
+<li id="s_limit_sandwich-2-1-3">
+<div class="para" id="s_limit_sandwich-2-1-3-1">Apply the sandwich theorem technique to limits involving absolute value, sine, and cosine.<div class="autopermalink" data-description="Paragraph"><a href="#s_limit_sandwich-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.11.3"><a href="#s_limit_sandwich-2-1-3" title="Copy heading and permalink for Objective 1.11.3" aria-label="Copy heading and permalink for Objective 1.11.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 1.11"><a href="#s_limit_sandwich-2" title="Copy heading and permalink for Objectives 1.11" aria-label="Copy heading and permalink for Objectives 1.11">🔗</a></div></article><section class="subsection" id="ss_alg_tech"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic techniques</span>
+</h3>
+<div class="para" id="ss_alg_tech-2">As we saw in <a href="s_limits_naive.html#eg_lim_quot_fail" class="xref" data-knowl="./knowl/xref/eg_lim_quot_fail.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.10.19: Quotient rule does not apply">Example 1.10.19</a>, there are limits to usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some algebraic techniques.<div class="autopermalink" data-description="Paragraph"><a href="#ss_alg_tech-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_lim_factor"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic limit technique: factoring.</span>
+</h4>
+<div class="para logical" id="eg_lim_factor-2-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{v\to 2}\frac{v^3-8}{v^4-16}\text{.}
+\end{equation*}
+</div>
+<div class="para">Your answer should be a chain of equalities with steps justified.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_factor-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_lim_factor-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_lim_factor-3-1">
+<div class="para">Note that the limit of the denominator expression as <span class="process-math">\(v\to 2\)</span> is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring.</div>
+<div class="displaymath process-math" id="eg_lim_factor-3-1-2">
+\begin{align*}
+\lim_{v\to 2}\frac{v^3-8}{v^4-16} \amp=\lim_{v\to 2}\frac{(v-2)(v^2+2v+4)}{(v^2-4)(v^2+4)} \\
+\amp = \lim_{v\to 2}\frac{(v-2)(v^2+2v+4)}{(v-2)(v+2)(v^2+4)}\\
+\amp = \lim_{v\to 2}\frac{v^2+2v+4}{(v+2)(v^2+4)} \amp \text{(repl. rule)}\\
+\amp = \frac{2^2+2\cdot 2+4}{(2+2)(2^2+4)} \amp \text{(rational eval.)}\\
+\amp = \frac{12}{32}=\frac{3}{8}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_factor-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.11.1.1"><a href="#eg_lim_factor-3" title="Copy heading and permalink for Solution 1.11.1.1" aria-label="Copy heading and permalink for Solution 1.11.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.11.1: Algebraic limit technique: factoring"><a href="#eg_lim_factor" title="Copy heading and permalink for Example 1.11.1: Algebraic limit technique: factoring" aria-label="Copy heading and permalink for Example 1.11.1: Algebraic limit technique: factoring">🔗</a></div></article><article class="example example-like" id="eg_limit_clear_denom"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic limit technique: clear denominator.</span>
+</h4>
+<div class="para logical" id="eg_limit_clear_denom-2-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim\limits_{t\to 1}\frac{t-1}{\frac{t^2}{t+2}-\frac{1}{3}}\text{.}
+\end{equation*}
+</div>
+<div class="para">Your answer should be a chain of equalities with steps justified.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_limit_clear_denom-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_limit_clear_denom-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_limit_clear_denom-3-1">
+<div class="para">Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.</div>
+<div class="displaymath process-math" id="eg_limit_clear_denom-3-1-1">
+\begin{align*}
+\lim\limits_{t\to 1}\frac{t-1}{\frac{t^2}{t+2}-\frac{1}{3}} \amp =
+\lim\limits_{t\to 1}\frac{t-1}{\frac{3t^2-t-2}{3(t+2)}} \amp \text{(like denominators)}\\
+\amp =\lim\limits_{t\to 1}\frac{3(t-1)(t+2)}{3t^2-t-2}\\
+\amp =\lim\limits_{t\to 1}\frac{3(t-1)(t+2)}{(3t+2)(t-1)} \\
+\amp =\lim\limits_{t\to 1}\frac{3(t+2)}{3t+2} \amp \text{(repl. rule)}\\
+\amp = \frac{9}{5} \amp \text{(rational eval.)}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_limit_clear_denom-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.11.2.1"><a href="#eg_limit_clear_denom-3" title="Copy heading and permalink for Solution 1.11.2.1" aria-label="Copy heading and permalink for Solution 1.11.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.11.2: Algebraic limit technique: clear denominator"><a href="#eg_limit_clear_denom" title="Copy heading and permalink for Example 1.11.2: Algebraic limit technique: clear denominator" aria-label="Copy heading and permalink for Example 1.11.2: Algebraic limit technique: clear denominator">🔗</a></div></article><article class="example example-like" id="eg_lim_radical"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic limit technique: radicals.</span>
+</h4>
+<div class="para logical" id="eg_lim_radical-2-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to 0}\frac{\sqrt{x^2+100}-10}{x^2}\text{.}
+\end{equation*}
+</div>
+<div class="para">Your answer should be a chain of equalities with steps justified.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_radical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_lim_radical-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_lim_radical-3-1">
+<div class="para">We use the technique of multiplying the numerator and denominator by a “conjugate radical” expression <span class="process-math">\(\sqrt{x^2+100}+10\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eg_lim_radical-3-1-3">
+\begin{align*}
+\lim_{x\to 0}\frac{\sqrt{x^2+100}-10}{x^2}\amp =\lim_{x\to 0}\frac{\sqrt{x^2+100}-10}{x^2}\frac{\sqrt{x^2+100}+10}{\sqrt{x^2+100}+10} \amp \text{(repl. rule)}\\
+\amp = \lim_{x\to 0}\frac{x^2+100-100}{x^2(\sqrt{x^2+100}+10)}\\
+\amp = \lim_{x\to 0}\frac{1}{\sqrt{x^2+100}+10}\\
+\amp = \frac{1}{\sqrt{\lim\limits_{x\to 0}(x^2+100)}+\lim\limits_{x\to 0}10}
+\amp \text{(quot., sum, root)}\\
+\amp = \frac{1}{\sqrt{100}+10} \amp \text{(poly. eval.)}\\
+\amp = \frac{1}{20}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_radical-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.11.3.1"><a href="#eg_lim_radical-3" title="Copy heading and permalink for Solution 1.11.3.1" aria-label="Copy heading and permalink for Solution 1.11.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.11.3: Algebraic limit technique: radicals"><a href="#eg_lim_radical" title="Copy heading and permalink for Example 1.11.3: Algebraic limit technique: radicals" aria-label="Copy heading and permalink for Example 1.11.3: Algebraic limit technique: radicals">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Algebraic techniques"><a href="#ss_alg_tech" title="Copy heading and permalink for Subsection: Algebraic techniques" aria-label="Copy heading and permalink for Subsection: Algebraic techniques">🔗</a></div></section><section class="subsection" id="ss_sandwich"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem</span>
+</h3>
+<div class="para" id="ss_sandwich-2">Another situation where our basic limit rules might not suffice to compute a given limit is when the function <span class="process-math">\(f\)</span> in question is unreasonably complicated, making its behavior near a point difficult to pin down. The <a href="s_limit_sandwich.html#th_sandwich" class="xref" data-knowl="./knowl/xref/th_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.11.4: Sandwich theorem">sandwich theorem</a> potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function <span class="process-math">\(f\text{,}\)</span> whose behavior is a mystery to us, with two simpler “bounding” functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\text{,}\)</span> whose behavior we understand. It is called the sandwich theorem as the necessary inequality <span class="process-math">\(g(x)\leq f(x)\leq h(x)\)</span> has <span class="process-math">\(f\)</span> “sandwiched” between the functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_sandwich"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem.</span>
+</h4>
+<div class="para logical" id="th_sandwich-2-1">
+<div class="para">Fix a point <span class="process-math">\(a\in \R\)</span> and suppose that functions <span class="process-math">\(f,g,h\)</span> satisfy <span class="process-math">\(g(x)\leq f(x)\leq h(x)\)</span> for all <span class="process-math">\(x\ne a\)</span> lying in an open interval containing <span class="process-math">\(a\text{.}\)</span> If</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L\text{,}
+\end{equation*}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to a}f(x)=L\text{.}
+\end{equation*}
+</div>
+<div class="para">Using logical shorthand:</div>
+<div class="displaymath process-math" id="th_sandwich-2-1-8">
+\begin{align*}
+\left(g(x)\leq f(x)\leq h(x) \text{ and }  \lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L\right)\amp\implies \lim_{x\to a}f(x)=L \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_sandwich-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.11.4: Sandwich theorem"><a href="#th_sandwich" title="Copy heading and permalink for Theorem 1.11.4: Sandwich theorem" aria-label="Copy heading and permalink for Theorem 1.11.4: Sandwich theorem">🔗</a></div></article><details id="th_sandwich-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="th_sandwich-3-1">As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!<div class="autopermalink" data-description="Paragraph"><a href="#th_sandwich-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.11.4.1"><a href="#th_sandwich-3" title="Copy heading and permalink for Proof 1.11.4.1" aria-label="Copy heading and permalink for Proof 1.11.4.1">🔗</a></div></article></details><div class="para" id="ss_sandwich-4">Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="proc_sandwich"><h4 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem.</span>
+</h4>
+<div class="para logical" id="proc_sandwich-2-1">
+<div class="para">To compute <span class="process-math">\(\lim_{x\to a}f(x)\)</span> using the sandwich theorem, proceed as follows.</div>
+<ol class="decimal" id="proc_sandwich-2-1-2">
+<li id="proc_sandwich-2-1-2-1">
+<div class="para logical" id="proc_sandwich-2-1-2-1-1">
+<div class="para">Find bounding functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\)</span> satisfying the two following conditions:</div>
+<ol class="lower-alpha lower-alpha-level-1" id="proc_sandwich-2-1-2-1-1-3">
+<li id="proc_sandwich-2-1-2-1-1-3-1">
+<div class="para" id="proc_sandwich-2-1-2-1-1-3-1-1">
+<span class="process-math">\(g(x)\leq f(x)\leq h(x)\)</span> for all <span class="process-math">\(x\ne a\)</span> lying in an open interval containing <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-1-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#proc_sandwich-2-1-2-1-1-3-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="proc_sandwich-2-1-2-1-1-3-2">
+<div class="para" id="proc_sandwich-2-1-2-1-1-3-2-1">
+<span class="process-math">\(\lim\limits_{x\to a}g(x)=\lim\limits_{x\to a}h(x)=L\)</span> for some <span class="process-math">\(L\in \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-1-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#proc_sandwich-2-1-2-1-1-3-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+</ol>
+<div class="para">For your own convenience, make sure to <em class="emphasis">name</em> these functions, as opposed to just providing formulas for them.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#proc_sandwich-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="proc_sandwich-2-1-2-2">
+<div class="para" id="proc_sandwich-2-1-2-2-1">Conclude (citing the sandwich theorem) that <span class="process-math">\(\lim\limits_{x\to a}f(x)=L\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#proc_sandwich-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 1.11.5: Sandwich theorem"><a href="#proc_sandwich" title="Copy heading and permalink for Procedure 1.11.5: Sandwich theorem" aria-label="Copy heading and permalink for Procedure 1.11.5: Sandwich theorem">🔗</a></div></article><article class="remark remark-like" id="rm_sandwich"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem.</span>
+</h4>
+<div class="para logical" id="rm_sandwich-2">
+<div class="para">As the examples below will illustrate, the art of using <a href="s_limit_sandwich.html#proc_sandwich" class="xref" data-knowl="./knowl/xref/proc_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.11.5: Sandwich theorem">Procedure 1.11.5</a> lies in being able to find <em class="emphasis">useful</em> bounding functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\text{.}\)</span>  Use these examples as a model for your own use of <a href="s_limit_sandwich.html#proc_sandwich" class="xref" data-knowl="./knowl/xref/proc_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.11.5: Sandwich theorem">Procedure 1.11.5</a>. Note in particular how</div>
+<ul class="disc" id="rm_sandwich-2-6">
+<li id="rm_sandwich-2-6-1">
+<div class="para" id="rm_sandwich-2-6-1-1">the explanations make explicit the two conditions that the bounding functions must satisfy;<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_sandwich-2-6-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_sandwich-2-6-2">
+<div class="para" id="rm_sandwich-2-6-2-1">the explanations end with a concluding statement explicitly citing the sandwich theorem;<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_sandwich-2-6-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_sandwich-2-6-3">
+<div class="para" id="rm_sandwich-2-6-3-1">giving the bounding functions <em class="emphasis">names</em> (e.g., <span class="process-math">\(g\)</span> and <span class="process-math">\(h\)</span>), as opposed to just providing formulas (e.g., <span class="process-math">\(1-x^2/4\text{,}\)</span> <span class="process-math">\(1+x^2/4\)</span>), makes these explanations more concise.<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_sandwich-2-6-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.11.6: Sandwich theorem"><a href="#rm_sandwich" title="Copy heading and permalink for Remark 1.11.6: Sandwich theorem" aria-label="Copy heading and permalink for Remark 1.11.6: Sandwich theorem">🔗</a></div></article><article class="example example-like" id="eg_sandwich_easy"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem: easy.</span>
+</h4>
+<div class="para logical" id="eg_sandwich_easy-2-1">
+<div class="para">Suppose the function <span class="process-math">\(f(x)\)</span> satisfies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1-\frac{x^2}{4}\leq f(x)\leq 1+\frac{x^2}{4}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\)</span> in the interval <span class="process-math">\((-1/3, 1/3)\text{.}\)</span> Compute <span class="process-math">\(\lim_{x\to 0}f(x)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_sandwich_easy-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_sandwich_easy-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_sandwich_easy-3-1">
+<div class="para">We follow the steps of <a href="s_limit_sandwich.html#proc_sandwich" class="xref" data-knowl="./knowl/xref/proc_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.11.5: Sandwich theorem">Procedure 1.11.5</a>. In this case our bounding functions <span class="process-math">\(g(x)=1-x^2/4\)</span> and <span class="process-math">\(h(x)=1+x^2/4\)</span> are provided for us, making life much easier. By assumption our mystery function <span class="process-math">\(f\)</span> satisfies</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_sandwich.html ./knowl/xref/eq_sand_easy.html" id="eq_sand_easy">
+\begin{equation}
+g(x)\leq f(x)\leq h(x)\tag{1.62}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\in (-1/3, 1/3)\text{.}\)</span> Next we compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_sandwich.html ./knowl/xref/eq_sand_easy.html" id="eg_sandwich_easy-3-1-7">
+\begin{align*}
+\lim_{x\to 0}g(x) \amp = 1-0^2/4 \amp \text{(poly. eval.)}\\
+\amp =1\\
+\lim_{x\to 0}h(x) \amp = 1+0^2/4 \amp \text{(poly. eval.)}\\
+\amp =1\text{.}
+\end{align*}
+</div>
+<div class="para">Since <a href="s_limit_sandwich.html#eq_sand_easy" class="xref" data-knowl="./knowl/xref/eq_sand_easy.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.62">(1.62)</a> holds for all <span class="process-math">\(x\ne 0\in (-1/3,1/3)\text{,}\)</span> and since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_sandwich.html ./knowl/xref/eq_sand_easy.html">
+\begin{equation*}
+\lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=1\text{,}
+\end{equation*}
+</div>
+<div class="para">we conclude that <span class="process-math">\(\lim\limits_{x\to 0}f(x)=1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_sandwich_easy-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.11.7.1"><a href="#eg_sandwich_easy-3" title="Copy heading and permalink for Solution 1.11.7.1" aria-label="Copy heading and permalink for Solution 1.11.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.11.7: Sandwich theorem: easy"><a href="#eg_sandwich_easy" title="Copy heading and permalink for Example 1.11.7: Sandwich theorem: easy" aria-label="Copy heading and permalink for Example 1.11.7: Sandwich theorem: easy">🔗</a></div></article><article class="example example-like" id="ss_sandwich-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem: less easy.</span>
+</h4>
+<div class="para" id="ss_sandwich-8-2-1">Use the sandwich theorem to compute <span class="process-math">\(\lim\limits_{x\to 0}x^2\cos(1/x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ss_sandwich-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ss_sandwich-8-3-1">
+<div class="para">Here we make use of a well-known and important inequality for the cosine function: namely, that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html">
+\begin{equation*}
+-1\leq \cos t\leq 1
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(t\in \R\text{.}\)</span> It follows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="eq_cos_ineq">
+\begin{equation}
+-1\leq \cos(1/x)\leq 1\tag{1.63}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\text{.}\)</span> Since <span class="process-math">\(x^2\geq 0\)</span> for all <span class="process-math">\(x\text{,}\)</span> the inequalities in <a href="s_limit_sandwich.html#eq_cos_ineq" class="xref" data-knowl="./knowl/xref/eq_cos_ineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.63">(1.63)</a> still hold after multiplying each expression by <span class="process-math">\(x^2\text{:}\)</span> that is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html">
+\begin{equation*}
+-x^2\leq x^2\cos(1/x)\leq x^2
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\text{.}\)</span> Thus, letting <span class="process-math">\(g(x)=-x^2\)</span> and <span class="process-math">\(h(x)=x^2\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="eq_harder">
+\begin{equation}
+g(x)\leq f(x)\leq h(x)\tag{1.64}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\)</span> in the open inteval <span class="process-math">\(\R=(-\infty,\infty)\text{.}\)</span> Lastly, we compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="ss_sandwich-8-3-1-16">
+\begin{align*}
+\lim_{x\to 0}g(x) \amp = -0^2 \amp \text{(poly. eval.)}\\
+\amp = 0\\
+\lim_{x\to 0}h(x) \amp = 0^2 \amp \text{(poly. eval.)}\\
+\amp = 0\text{.}
+\end{align*}
+</div>
+<div class="para">Since <a href="s_limit_sandwich.html#eq_harder" class="xref" data-knowl="./knowl/xref/eq_harder.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.64">(1.64)</a> holds for all <span class="process-math">\(x\ne 0\)</span> in <span class="process-math">\(\R\text{,}\)</span> and since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html">
+\begin{equation*}
+\lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=0\text{,}
+\end{equation*}
+</div>
+<div class="para">we conclude using the sandwich theorem that <span class="process-math">\(\lim\limits_{x\to 0}f(x)=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.11.8.1"><a href="#ss_sandwich-8-3" title="Copy heading and permalink for Solution 1.11.8.1" aria-label="Copy heading and permalink for Solution 1.11.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.11.8: Sandwich theorem: less easy"><a href="#ss_sandwich-8" title="Copy heading and permalink for Example 1.11.8: Sandwich theorem: less easy" aria-label="Copy heading and permalink for Example 1.11.8: Sandwich theorem: less easy">🔗</a></div></article><div class="para" id="ss_sandwich-9">Our next theorem concerns the absolute value, the definition of which we now recall.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_absolute_value"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absolute value.</span>
+</h4>
+<div class="para logical" id="d_absolute_value-2-1">
+<div class="para">The <dfn class="terminology">absolute value</dfn> of a real number <span class="process-math">\(x\text{,}\)</span> denoted <span class="process-math">\(\abs{x}\text{,}\)</span> is defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{x}=\begin{cases}x\amp \text{if } x\geq 0 \\
+-x\amp \text{if } x&lt; 0
+\end{cases}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_absolute_value-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.11.9: Absolute value"><a href="#d_absolute_value" title="Copy heading and permalink for Definition 1.11.9: Absolute value" aria-label="Copy heading and permalink for Definition 1.11.9: Absolute value">🔗</a></div></article><article class="remark remark-like" id="rm_abs_val"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absolute value.</span>
+</h4>
+<div class="para logical" id="rm_abs_val-2">
+<div class="para">Below we gather some useful remarks and facts about the absolute value.</div>
+<ul class="disc" id="rm_abs_val-2-1">
+<li id="rm_abs_val-2-1-1">
+<div class="para logical" id="rm_abs_val-2-1-1-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="rm_abs_val-2-1-1-1-1">
+\begin{align*}
+\abs{x} \amp \geq 0\\
+-\abs{x} \amp \leq x\leq \abs{x}
+\end{align*}
+</div>
+<div class="para">for all <span class="process-math">\(x\in \R\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_abs_val-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_abs_val-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_abs_val-2-1-2">
+<div class="para logical" id="rm_abs_val-2-1-2-1">
+<div class="para">Fix a nonnegative number <span class="process-math">\(a\geq 0\text{.}\)</span> We have</div>
+<div class="displaymath process-math" id="rm_abs_val-2-1-2-1-2">
+\begin{align*}
+\abs{x}=a \amp \iff x=\pm a\\
+\abs{x}\leq a \amp \iff -a\leq x\leq a
+\end{align*}
+</div>
+<div class="para">for all <span class="process-math">\(x\in \R\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_abs_val-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_abs_val-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_abs_val-2-1-3">
+<div class="para logical" id="rm_abs_val-2-1-3-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="eq_abs_rad">
+\begin{equation}
+\sqrt{x^2}=\abs{x}\tag{1.65}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\in \R\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_abs_val-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_abs_val-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_abs_val-2-1-4">
+<div class="para" id="rm_abs_val-2-1-4-1">Fix a real number <span class="process-math">\(a\text{.}\)</span> Geometrically speaking <span class="process-math">\(\abs{x-a}\)</span> is the <em class="emphasis">distance</em> between <span class="process-math">\(x\)</span> and <span class="process-math">\(a\)</span> on the real line. In particular, taking <span class="process-math">\(a=0\text{,}\)</span> we see that <span class="process-math">\(\abs{x}=\abs{x-0}\)</span> is the distance between <span class="process-math">\(x\)</span> and the origin <span class="process-math">\(0\)</span> on the real line.<div class="autopermalink" data-description="Paragraph"><a href="#rm_abs_val-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_abs_val-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_abs_val-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.11.10: Absolute value"><a href="#rm_abs_val" title="Copy heading and permalink for Remark 1.11.10: Absolute value" aria-label="Copy heading and permalink for Remark 1.11.10: Absolute value">🔗</a></div></article><article class="theorem theorem-like" id="th_abs_lim"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits and absolute value.</span>
+</h4>
+<div class="para logical" id="th_abs_lim-2-1">
+<ol class="decimal" id="th_abs_lim-2-1-1">
+<li id="th_abs_lim-2-1-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Absolute value evaluation.</span></span><div class="para" id="th_abs_lim-2-1-1-1-2">
+<span class="process-math">\(\lim\limits_{x\to a}\abs{x}=\abs{a}\)</span> for all <span class="process-math">\(a\in \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-2-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Absolute value evaluation"><a href="#th_abs_lim-2-1-1-1" title="Copy heading and permalink for Item 1: Absolute value evaluation" aria-label="Copy heading and permalink for Item 1: Absolute value evaluation">🔗</a></div>
+</li>
+<li id="th_abs_lim-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Absolute value implication.</span></span><div class="para logical" id="th_abs_lim-2-1-1-2-2">
+<div class="para">Fix <span class="process-math">\(a\in \R\text{.}\)</span> If <span class="process-math">\(\lim\limits_{x\to a}\abs{f(x)}=0\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\text{.}\)</span> Using logical shorthand:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to a}\abs{f(x)}=0\implies \lim_{x\to a}f(x)=0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Absolute value implication"><a href="#th_abs_lim-2-1-1-2" title="Copy heading and permalink for Item 2: Absolute value implication" aria-label="Copy heading and permalink for Item 2: Absolute value implication">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.11.11: Limits and absolute value"><a href="#th_abs_lim" title="Copy heading and permalink for Theorem 1.11.11: Limits and absolute value" aria-label="Copy heading and permalink for Theorem 1.11.11: Limits and absolute value">🔗</a></div></article><details id="th_abs_lim-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_abs_lim-3-1">
+<ol class="decimal" id="th_abs_lim-3-1-1">
+<li id="th_abs_lim-3-1-1-1">
+<div class="para logical" id="th_abs_lim-3-1-1-1-1">
+<div class="para">Using the identity <span class="process-math">\(\abs{x}=\sqrt{x^2}\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_abs_rad.html ./knowl/xref/eq_abs_rad.html" id="th_abs_lim-3-1-1-1-1-2">
+\begin{align*}
+\lim_{x\to a}\abs{x} \amp = \lim_{x\to a}\sqrt{x^2} \amp \knowl{./knowl/xref/eq_abs_rad.html}{\text{(1.65)}}\\
+\amp = \sqrt{\lim_{x\to a}x^2} \amp \text{(root rule)}\\
+\amp = \sqrt{a^2} \amp \text{(poly. eval.)}\\
+\amp = \abs{a} \amp \knowl{./knowl/xref/eq_abs_rad.html}{\text{(1.65)}}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_abs_lim-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_abs_lim-3-1-1-2">
+<div class="para logical" id="th_abs_lim-3-1-1-2-1">
+<div class="para">To prove this implication (i.e., if-then statement), we <em class="emphasis">assume</em> that <span class="process-math">\(\lim\limits_{x\to a}\abs{f(x)}=0\)</span> and <em class="emphasis">prove</em>  that <span class="process-math">\(\lim\limits_{x\to a}f(x)=0  \text{.}\)</span> We do so using the sandwich theorem. Indeed, since</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-\abs{t}\leq t\leq \abs{t}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(t\in \R\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-\abs{f(x)}\leq f(x)\leq \abs{f(x)}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span> Thus, letting <span class="process-math">\(g(x)=-\abs{f(x)}\)</span> and <span class="process-math">\(h(x)=\abs{f(x)}\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(x)\leq f(x)\leq h(x)
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="th_abs_lim-3-1-1-2-1-16">
+\begin{align*}
+\lim_{x\to a}g(x) \amp = \lim_{x\to a}-\abs{f(x)}\\
+\amp = -\lim_{x\to a}\abs{f(x)} \amp \text{(scal. mult.)}\\
+\amp =0 \amp \text{(by assumption)}\\
+\lim_{x\to a}h(x) \amp = \lim_{x\to a}\abs{f(x)}\\
+\amp =0 \amp \text{(by assumption)}\text{.}
+\end{align*}
+</div>
+<div class="para">It now follows from the sandwich theorem that <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_abs_lim-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.11.11.1"><a href="#th_abs_lim-3" title="Copy heading and permalink for Proof 1.11.11.1" aria-label="Copy heading and permalink for Proof 1.11.11.1">🔗</a></div></article></details><div class="para" id="ss_sandwich-13">Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_lim_sine_cos"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sine and cosine evaluation at zero.</span>
+</h4>
+<div class="para logical" id="th_lim_sine_cos-2-1">
+<ol class="decimal" id="th_lim_sine_cos-2-1-1">
+<li id="th_lim_sine_cos-2-1-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Sine evaluation at zero.</span></span><div class="para" id="th_lim_sine_cos-2-1-1-1-2">
+<span class="process-math">\(\lim\limits_{\theta\to 0}\sin \theta=0
+\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-2-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Sine evaluation at zero"><a href="#th_lim_sine_cos-2-1-1-1" title="Copy heading and permalink for Item 1: Sine evaluation at zero" aria-label="Copy heading and permalink for Item 1: Sine evaluation at zero">🔗</a></div>
+</li>
+<li id="th_lim_sine_cos-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Cosine evaluation at zero.</span></span><div class="para" id="th_lim_sine_cos-2-1-1-2-2">
+<span class="process-math">\(\lim\limits_{\theta\to 0}\cos \theta=1
+\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Cosine evaluation at zero"><a href="#th_lim_sine_cos-2-1-1-2" title="Copy heading and permalink for Item 2: Cosine evaluation at zero" aria-label="Copy heading and permalink for Item 2: Cosine evaluation at zero">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.11.12: Sine and cosine evaluation at zero"><a href="#th_lim_sine_cos" title="Copy heading and permalink for Theorem 1.11.12: Sine and cosine evaluation at zero" aria-label="Copy heading and permalink for Theorem 1.11.12: Sine and cosine evaluation at zero">🔗</a></div></article><details id="th_lim_sine_cos-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_lim_sine_cos-3-1">
+<ol class="decimal" id="th_lim_sine_cos-3-1-1">
+<li id="th_lim_sine_cos-3-1-1-1">
+<div class="para logical" id="th_lim_sine_cos-3-1-1-1-1">
+<div class="para">We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq.html ./knowl/xref/eq_sine_ineq.html" id="eq_sine_ineq">
+\begin{equation}
+-\abs{\theta}\leq \sin \theta\leq \abs{\theta}\tag{1.66}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in \R\text{.}\)</span> The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume <a href="s_limit_sandwich.html#eq_sine_ineq" class="xref" data-knowl="./knowl/xref/eq_sine_ineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.66">(1.66)</a> holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting <span class="process-math">\(g(\theta)=-\abs{\theta}\)</span> and <span class="process-math">\(h(\theta)=\abs{\theta}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq.html ./knowl/xref/eq_sine_ineq.html">
+\begin{equation*}
+g(\theta)\leq \sin \theta\leq h(\theta)
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\text{,}\)</span> by inequality <a href="s_limit_sandwich.html#eq_sine_ineq" class="xref" data-knowl="./knowl/xref/eq_sine_ineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.66">(1.66)</a>, and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq.html ./knowl/xref/eq_sine_ineq.html">
+\begin{equation*}
+\lim_{\theta\to 0}g(\theta)=\lim_{\theta\to 0}h(\theta)=0\text{,}
+\end{equation*}
+</div>
+<div class="para">since <span class="process-math">\(\lim_{\theta\to 0}\abs{\theta}=0\text{.}\)</span> The sandwich theorem now implies <span class="process-math">\(\lim\limits_{\theta\to 0}\sin \theta=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_lim_sine_cos-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_lim_sine_cos-3-1-1-2">
+<div class="para logical" id="th_lim_sine_cos-3-1-1-2-1">
+<div class="para">First note that for all <span class="process-math">\(\theta\in (-\pi/2, \pi/2)\text{,}\)</span> we have <span class="process-math">\(\cos \theta\geq 0\text{,}\)</span> and hence</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_abs_rad.html" id="th_lim_sine_cos-3-1-1-2-1-3">
+\begin{align*}
+\cos \theta  \amp = \abs{\cos \theta} \amp (\cos \theta\geq 0) \\
+\amp = \sqrt{\cos^2\theta} \amp \knowl{./knowl/xref/eq_abs_rad.html}{\text{(1.65)}}\\
+\amp = \sqrt{1-\sin^2\theta}
+\end{align*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in (-\pi/2, \pi,2)\text{.}\)</span> We then have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_abs_rad.html" id="th_lim_sine_cos-3-1-1-2-1-5">
+\begin{align*}
+\lim_{\theta\to 0}\cos\theta \amp = \lim_{\theta\to 0}\sqrt{1-\sin^2\theta} \amp (\text{repl. rule})\\
+\amp = \sqrt{\lim_{\theta\to 0}1-(\lim_{\theta\to 0}\sin\theta)^2} \amp \text{(root, sum,power)}\\
+\amp = \sqrt{1-0^2} \amp \text{(sine eval.)}\\
+\amp = 1\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_lim_sine_cos-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.11.12.1"><a href="#th_lim_sine_cos-3" title="Copy heading and permalink for Proof 1.11.12.1" aria-label="Copy heading and permalink for Proof 1.11.12.1">🔗</a></div></article></details><div class="para" id="ss_sandwich-15">As promised in the proof of <a href="s_limit_sandwich.html#th_lim_sine_cos" class="xref" data-knowl="./knowl/xref/th_lim_sine_cos.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.11.12: Sine and cosine evaluation at zero">Theorem 1.11.12</a>, we provide a proof of the inequality <span class="process-math">\(-\abs{\theta}\leq \sin \theta\leq \abs{\theta}\text{,}\)</span> or equivalently, <span class="process-math">\(\abs{\sin \theta}\leq \abs{\theta}\)</span> for all <span class="process-math">\(\theta\in \R\text{.}\)</span> You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ss_sandwich-16" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="title">Proof of <span class="process-math">\(\abs{\sin\theta}\leq \abs{\theta}\)</span>.</span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="ss_sandwich-16-2">
+<div class="para">We will prove that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html" id="eq_sine_ineq_abs">
+\begin{equation}
+\abs{\sin \theta}\leq \abs{\theta}\tag{1.67}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in \R\text{.}\)</span> First, observer that since <span class="process-math">\(\sin(-\theta)=-\sin\theta\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html">
+\begin{equation*}
+\abs{\sin (-\theta)}=\abs{-\sin \theta}=\abs{\sin \theta}\text{.}
+\end{equation*}
+</div>
+<div class="para">Thus the function <span class="process-math">\(f(\theta)=\abs{\sin \theta}\)</span> is even. Since <span class="process-math">\(g(\theta)=\abs{\theta}\)</span> is also even, it suffices to prove <a href="s_limit_sandwich.html#eq_sine_ineq_abs" class="xref" data-knowl="./knowl/xref/eq_sine_ineq_abs.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.67">(1.67)</a> for all <span class="process-math">\(\theta\geq 0\text{.}\)</span> Furthermore, since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html">
+\begin{equation*}
+\theta\geq \pi/2\implies \sin\theta\leq 1 \leq \pi/2 \leq \theta\text{,}
+\end{equation*}
+</div>
+<div class="para">and since <span class="process-math">\(\sin(0)=0\text{,}\)</span> it suffices to show <a href="s_limit_sandwich.html#eq_sine_ineq_abs" class="xref" data-knowl="./knowl/xref/eq_sine_ineq_abs.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.67">(1.67)</a> for all <span class="process-math">\(\theta\in (0,\pi/2)\text{.}\)</span> To this end, take any <span class="process-math">\(\theta\in (0,\pi/2)\text{.}\)</span> The triangle <span class="process-math">\(T=\Delta\, PQR\text{,}\)</span> where <span class="process-math">\(P=(0,0)\text{,}\)</span><span class="process-math">\(Q=(\cos\theta, \sin\theta)\text{,}\)</span> and <span class="process-math">\(R=(1,0)\)</span> lies within the the sector <span class="process-math">\(S\)</span> of the unit disc determined by <span class="process-math">\(P, Q, R\text{.}\)</span> (Diagram to appear sometime soon.) Elementary trigonometry tells us that <span class="process-math">\(\operatorname{area} T=\frac{1}{2}\sin \theta\text{;}\)</span> elementary geometry tells us that <span class="process-math">\(\operatorname{area} S=\frac{pi}\cdot \frac{\theta}{2\pi}=\frac{\theta}{2}\text{.}\)</span> We conclude that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html" id="ss_sandwich-16-2-22">
+\begin{align*}
+\frac{1}{2}\sin \theta \amp= \operatorname{area} T\\
+\amp \leq \operatorname{area} S\\
+\amp =\frac{\theta}{2}\text{,}
+\end{align*}
+</div>
+<div class="para">or equivalently,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html">
+\begin{equation*}
+\sin\theta\leq \theta
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in (0,\pi/2)\text{.}\)</span> Since furthermore <span class="process-math">\(\sin\theta\geq 0\)</span> and <span class="process-math">\(\theta\geq 0\)</span> for <span class="process-math">\(\theta\in (0,\pi/2)\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html">
+\begin{equation*}
+\abs{\sin\theta}\leq \abs{\theta}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in (0,\pi/2)\text{,}\)</span> as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_sandwich-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1: Proof of \abs{\sin\theta}\leq \abs{\theta}"><a href="#ss_sandwich-16" title="Copy heading and permalink for Proof 1: Proof of \abs{\sin\theta}\leq \abs{\theta}" aria-label="Copy heading and permalink for Proof 1: Proof of \abs{\sin\theta}\leq \abs{\theta}">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Sandwich theorem"><a href="#ss_sandwich" title="Copy heading and permalink for Subsection: Sandwich theorem" aria-label="Copy heading and permalink for Subsection: Sandwich theorem">🔗</a></div></section><div class="autopermalink" data-description="Section 1.11: Limits: algebraic technique and sandwich theorem"><a href="#s_limit_sandwich" title="Copy heading and permalink for Section 1.11: Limits: algebraic technique and sandwich theorem" aria-label="Copy heading and permalink for Section 1.11: Limits: algebraic technique and sandwich theorem">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_limits_naive.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_lim_formal.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
