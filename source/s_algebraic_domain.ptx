@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_comp_domain" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Domains of algebraic functions</title>
+   <objectives>
+    <ol>
+        <li>
+            <p>
+                Compute domains defined by inequalities.
+            </p>
+        </li>
+        <li>
+            <p>
+                Compute domains of compositions of functions. 
+            </p>
+        </li>
+
+    </ol>
+   </objectives>
+<p>
+   Recall that a function is algebraic if it can be expressed as a combination of polynomials, rational functions, and power functions using the arithmetic operations. The domain of such a function will depend on the domains of the functions it is built from. Inequalities often creep into the computation of this domain when <em>radical functions</em> (i.e. functions of the form <m>f(x)=x^{1/n}=\sqrt[n]{x}</m>) are in play, since for many of these functions, the domain is defined with an inequality. 
+</p>
+<example xml:id="eg_domain">
+<title>Domain of radical function</title>
+<statement>
+<p>
+Compute the domain of <m>f(x)=\frac{1}{\sqrt{1-3x}}</m>.
+</p>
+</statement>
+<solution>
+<p>
+    Let <m>g(x)=\sqrt{1-3x}</m>, so that <m>f(x)=1/g(x)</m>. In general, for such a function the domain is the set of <m>x</m> where <m>g(x)</m> is defined (<ie/>, <m>x</m> is in the domain of <m>g</m>) and furthermore <m>g(x)</m> is nonzero. To see where <m>g(x)=\sqrt{1-3x}</m> is defined, we solve the inequality <m>1-3x\geq 0</m>:
+<md>
+    <mrow>1-3x \amp \geq 0 </mrow>
+    <mrow>-3x \amp \geq -1</mrow>
+    <mrow>x \amp \leq \frac{1}{3}</mrow>
+</md>.
+Next, we need to find all <m>x</m> in the domain of <m>g</m> where <m>g(x)\ne 0</m>. To do so we solve <m>g(x)=0</m> and exlude these elements:
+<md>
+    <mrow>g(x) \amp = 0</mrow>
+    <mrow>\sqrt{1-3x} \amp = 0</mrow>
+    <mrow>1-3x \amp =0  \amp (\sqrt{a}=b \iff a=b^2)</mrow>
+    <mrow>1 \amp =3x</mrow>
+    <mrow>x \amp =\frac{1}{3}</mrow>
+</md>.
+We conclude that the domain <m>D</m> of <m>f</m> is the set of <m>x</m> satisfying <m>x\geq 1/3</m> and <m>x\ne 1/3</m>: <ie/>,  
+<me>
+    D=(1/3, \infty)
+</me>.
+</p>
+</solution>
+</example>
+<example xml:id="eg_domain_rad_quadratic">
+<title>Radical composed with quadratic</title>
+<statement>
+<p>
+Compute the domain of <m>f(x)=\sqrt{5-x^2-2x}</m>
+</p>
+</statement>
+<solution>
+<p>
+In this case, <m>f(x)</m> is defined as long as <m>5-x^2-2x\geq 0</m>.  Let's solve this inequality. First we take some preliminary steps to make the inequality look a little more familiar: 
+<md>
+    <mrow>5-x^2-2x \amp \geq 0</mrow>
+    <mrow>x^2+2x-5 \amp \geq 0</mrow>
+    <mrow> \amp </mrow>
+</md>
+We could now proceed using <xref ref="proc_solve_ineq"/>, finding the zeros of <m>g(x)=x^2+2x-5</m> and then constructing a sign diagram. Instead, we will show how vertex form could also be used here. We have 
+<md>
+    <mrow>x^2+2x-5 \amp \geq 0</mrow>
+    <mrow>(x+1)^2-6 \amp \geq 0 </mrow>
+    <mrow>(x+1)^2 \amp \geq 6</mrow>
+    <mrow>(x+1)\geq \sqrt{6}  \amp\text{ or } (x+1)\leq -\sqrt{6} \amp (<xref ref="th_ineq_squaring" text="global"/>) </mrow>
+    <mrow>x \amp \geq -1+\sqrt{6} \amp\text{ or } x \leq -1-\sqrt{6}</mrow>
+</md>.
+We conclude that the set of solutions to this inequality, and hence the domain of <m>f</m>, is 
+<me>
+    (-\infty, -1-\sqrt{6}]\cup [-1+\sqrt{6},\infty)
+</me>.
+As an extra exercise, try solving the inequality above using the sign diagram technique, and make sure that you get the same answer! No matter which technique you chose, observe that we can visualize graphically as the set of <m>x</m> where <m>g(x)=x^2+2x-5</m> is nonnegative. 
+</p>
+<image width="50%">
+    <shortdescription>Graph of quadratic function g</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+				axis lines = middle,
+				xmin=-5.5, xmax=4.5,
+				ymin=-6.6, ymax=2.5,
+				xtick={-5,...,5},
+				% xticklabel=\empty,
+				% yticklabel=\empty,
+				ylabel = {$y$},
+				domain=-5.5:5.5,
+				grid = major,
+				width=8cm, height=8cm,
+				samples=200
+				]
+				\addplot[blue, thick] {(x+1)^2-6};
+                \addplot[red, thick, domain=-5.5:{-1-6^(1/2)}] {0};
+                \addplot[red, thick, domain={-1+6^(1/2)}:4.5] {0};
+                \draw[thick, red, fill=red] (axis cs:{-1-6^(1/2)},0) circle (1mm);
+                \draw[thick, red, fill=red] (axis cs:{-1+6^(1/2)},0) circle (1mm);
+                \node at (axis cs:-2, .5) [text=black, font=\small] {$(-1-\sqrt{6},0)$};
+                \node at (axis cs:2.5, .5) [text=black, font=\small] {$(-1+\sqrt{6},0)$};
+			\end{axis}
+		\end{tikzpicture}  
+    </latex-image>
+</image>
+</solution>
+</example>
+
+
+
+</section>
