@@ -2467,11 +2467,47 @@ var ptx_lunr_docs = [
   "body": " Sign diagram: quartic   Use to solve the inequality .    First bring the inequality into the standard form . The quartic polynomial has no points where it is undefined. We factor to find its roots. We have . Since is never equal to zero, we see that the roots of are . Using the test points , we produce the following sign diagram.   Sign diagram of quartic polynomial    We conclude that the set of solutions to , and hence to the original inequality is .   "
 },
 {
+  "id": "s_comp_domain",
+  "level": "1",
+  "url": "s_comp_domain.html",
+  "type": "Section",
+  "number": "1.9",
+  "title": "Domains of algebraic functions",
+  "body": " Domains of algebraic functions     Compute domains defined by inequalities.    Compute domains of compositions of functions.     Recall that a function is algebraic if it can be expressed as a combination of polynomials, rational functions, and power functions using the arithmetic operations. The domain of such a function will depend on the domains of the functions it is built from. Inequalities often creep into the computation of this domain when radical functions (i.e. functions of the form ) are in play, since for many of these functions, the domain is defined with an inequality.   Domain of radical function   Compute the domain of .    Let , so that . In general, for such a function the domain is the set of where is defined ( , is in the domain of ) and furthermore is nonzero. To see where is defined, we solve the inequality : . Next, we need to find all in the domain of where . To do so we solve and exlude these elements: . We conclude that the domain of is the set of satisfying and : , .     Radical composed with quadratic   Compute the domain of     In this case, is defined as long as . Let's solve this inequality. First we take some preliminary steps to make the inequality look a little more familiar: We could now proceed using , finding the zeros of and then constructing a sign diagram. Instead, we will show how vertex form could also be used here. We have . We conclude that the set of solutions to this inequality, and hence the domain of , is . As an extra exercise, try solving the inequality above using the sign diagram technique, and make sure that you get the same answer! No matter which technique you chose, observe that we can visualize graphically as the set of where is nonnegative.   Graph of quadratic function g      "
+},
+{
+  "id": "s_comp_domain-2",
+  "level": "2",
+  "url": "s_comp_domain.html#s_comp_domain-2",
+  "type": "Objectives",
+  "number": "1.9",
+  "title": "",
+  "body": "   Compute domains defined by inequalities.    Compute domains of compositions of functions.    "
+},
+{
+  "id": "eg_domain",
+  "level": "2",
+  "url": "s_comp_domain.html#eg_domain",
+  "type": "Example",
+  "number": "1.9.1",
+  "title": "Domain of radical function.",
+  "body": " Domain of radical function   Compute the domain of .    Let , so that . In general, for such a function the domain is the set of where is defined ( , is in the domain of ) and furthermore is nonzero. To see where is defined, we solve the inequality : . Next, we need to find all in the domain of where . To do so we solve and exlude these elements: . We conclude that the domain of is the set of satisfying and : , .   "
+},
+{
+  "id": "eg_domain_rad_quadratic",
+  "level": "2",
+  "url": "s_comp_domain.html#eg_domain_rad_quadratic",
+  "type": "Example",
+  "number": "1.9.2",
+  "title": "Radical composed with quadratic.",
+  "body": " Radical composed with quadratic   Compute the domain of     In this case, is defined as long as . Let's solve this inequality. First we take some preliminary steps to make the inequality look a little more familiar: We could now proceed using , finding the zeros of and then constructing a sign diagram. Instead, we will show how vertex form could also be used here. We have . We conclude that the set of solutions to this inequality, and hence the domain of , is . As an extra exercise, try solving the inequality above using the sign diagram technique, and make sure that you get the same answer! No matter which technique you chose, observe that we can visualize graphically as the set of where is nonnegative.   Graph of quadratic function g     "
+},
+{
   "id": "sec_pdfuncsandabsval",
   "level": "1",
   "url": "sec_pdfuncsandabsval.html",
   "type": "Section",
-  "number": "1.9",
+  "number": "1.10",
   "title": "Piecewise-Defined Functions and Absolute Value",
   "body": " Piecewise-Defined Functions and Absolute Value    Functions Piecewise-Defined Functions  Functions Absolute Value     Learning Goals    Know the definition of piecewise-defined and absolute value functions    Calculate values of piecewise-defined and absolute value functions    Be able to graph piecewise-defined and absolute value functions    See a few applications where piecewise-defined and absolute value functions are useful      Definition of Piecewise-Defined Functions  So far, you have learned about the different types of algebraic functions. In this section we discuss functions that are NOT algebraic functions. Instead, they are pieced together by parts of algebraic functions.  A piecewise-defined function is a function that is defined in multiple pieces, with different formulas on different parts of its domain.    Let be the function defined piecewise by   This means that if we want to plug in an -value that is or less, we use the formula in the first row. If we want to plug in an -value that is greater than , we use the formula . So the domain for the function is still , but we use on and use on .  If we want to find the value , we observe that , and so we use the formula for this value of : .  If we want to find the value , we observe that , and so we use the formula for this value of : .  If we want to find the value , we observe that , because of the equal sign, and so we once again use the formula for this value of :   To graph , we begin by graphing the functions and that are used in the definition of , as shown in :   The graph of . \\begin{subfigure}[H]{0.4\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The graph of .} \\end{subfigure} \\caption{The graphs of and .}  To graph , we use the graph of on the interval and use on . Whether these intervals are open or closed is important. To find we used the first equation : . Note that when we sketch the graph of below, we use open and closed dots to represent the function values corresponding to the ends of open and closed intervals in the domain, respectively.   The graph of uses for and for .        For the piecewise-defined function calculate , and . Then sketch a graph of .      An Application of Piecewise-defined Functions  Piecewise-defined functions are useful for many real-word problems where the relationship between the quantities involved are different on different time-frames. For example, a person's salary changes when they get a raise, which changes the amount that they earn each year.    Suppose that in your first job after graduating from college you make $36,000 a year before taxes. After four years you get a raise of $2,500. Two years after that you change jobs and go to work for a company that pays you $49,000 a year.  We can construct a piecewise-defined function that describes your pretax income in the year that is years after you graduate from college as follows. Note that this is just the function that describes your income rate per year at a time (the units are dollars per year).   What may be more interesting is to describe that amount that you will have earned  years after graduating from college. During the first four years, you make $36,000 per year, and so the amount that you earn after years is . After four years, you have already earned $ . Then for the next two years, you earn $38,500 per year, so your additional income for is given by (because we have to measure in years since  ). Thus overall for , you have earned by time . Lastly, after 6 years you have earned $ , and for each additional year you earn $49,000, so by time you have earned when .  Summarizing this, the function for total earnings at time years since graduation is   If you continue at that pay rate, how long will it have taken you to earn a million dollars? Well, we know we did not make that much by , so we use the equation for and solve for :   So in your 22nd year after graduating you will have earned one million pretax dollars.      How much will you have earned five years after graduating, according to the model described in Example ? What is your salary in that year?      For another example, suppose a doctor charges a different amount of money based on the length of the appointment. Example from https:\/\/www.mathsisfun.com\/sets\/functions-piecewise.html , accessed Sept 15, 2022.    Up to 6 minutes costs $50    Over 6 and up to 15 minutes costs $80    Over 15 minutes costs $80 plus $5 per minute above 15 minutes     We can write the price of an office visit like this:       Absolute Value and Distance  The absolute value function measures the size of a quantity, disregarding whether it is positive or negative. For a number visualized on the real number line, this also describes the distance of that number from 0. Said in another way, the absolute value of a real number is the magnitude, or size, of and is denoted .    For example, and .    The absolute value of \"makes the number positive.\" More precisely, if is positive or zero, then taking the absolute value should do nothing: in this case . However, if is negative, then taking the absolute value should change the sign: in this case .    For example, .    To define the absolute value function rigorously, we must use a piecewise-defined function. As just discussed, for positive numbers and zero, we must apply one rule (do nothing), and for negative numbers, we must apply another rule (multiply by ). Here is the formal definition, which says precisely that.   Absolute Value   The absolute value of a real number is      The quantity is not necessarily negative; it depends on whether the number is positive or negative. For example, if , then is positive. In Definition , only if is negative, in which case is a positive number .   Absolute values distribute over products and quotients; for example, the absolute value of a product is simply the product of the absolute values.   Absolute Values Distribute over Products and Quotients   Given any real numbers and , and .      For example, is equal to .     Non-Example   Note that absolute values do not distribute over sums and differences. For example, is not equal to .    The absolute value of any real number is the distance between and 0 on the real number line. Geometrically, the distance between any two real numbers and is the length of the line segment from to on the number line. Algebraically, this distance is given by , regardless of the signs of and .    For example, the diagram that follows shows that the distance between and is 3 units. Algebraically, .     Distance Between Two Real Numbers   The distance between two real numbers and is .      For each of the values of and that follow, sketch and on the real number line and visually find the distance between and . Then calculate and verify that it is equal to the geometric distance.    and      and      and      and      and        You may remember that we gave a different definition for the distance between two real numbers in Definition . These two definitions are the same, because of the following alternate definition of the absolute value function:   Alternate Definition of Absolute Value   For any real number ,     When is positive, the square root of returns us to the original -value. When is negative, is positive and the square root denotes only the positive square root, so the square root of will give us . (Remember, if is negative, is positive!) So this different definition is exactly the same as , just stated in a different way.  This idea can help us in solving the following types of common equations:    Find the solution of .    If we take the square root of both sides, we have   The comes from the following logic: if the magnitude of is 5, is 5 units away from 0 on the number line to either the right or the left. So could be either positive or negative 5 units from 0, meaning that .  Alternately, we could solve via factoring. Approached in this way, we have   Thus using either method, we can see that both and are solutions to the equation . Verify this by plugging in both numbers!   Important! It is very common for students to forget to include the when taking the square root of a square. The main lesson to be learned from this example is that equations have two solutions: .    Let's reconcile the two definitions for the distance between real numbers. Definition tell us that while Definition combined with Definition tells us that . Hooray! The two definitions agree.    Which definition of distance do you prefer? or ? Why? You can use either one. As we showed, they agree with each other.       Graphs of Absolute Values  The graph of is a combination of the graph of on and the graph of on :   The graph of .    Of course, in general we might wish to take the absolute value of a more complicated expression. In the more general case, we do exactly the same thing: the absolute value will leave positive quantities untouched, but flip the sign of negative quantities.   The Absolute Value of a Function   The absolute value of a function  is       For example, consider the function and its absolute value . When is positive or zero (meaning when ), the absolute value remains . But when is negative (meaning when ) the absolute value of is . The graph of is a combination of the graphs of and , switching between graphs at as shown in .   The graph of . \\begin{subfigure}[H]{0.4\\textwidth} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The graph of .} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The graph of .} \\end{subfigure} \\caption{The graphs of , , and .}    Try applying the absolute value to a function in Exercise :    For , calculate , and .      Let's write from Exercise as a piecewise-defined function and then graph it.  When is positive or zero, its absolute value will remain . When is negative, its absolute value will be . Therefore we have   Although this is one way to write as a piecewise-defined function, it is difficult to work with. For example, to evaluate we would need to know whether or when . To simplify this piecewise-defined function, we need to rewrite the conditions as intervals of -values.  Here is the graph of . We will use it to determine where and :   The graph of .    So we see that for and , and that for . Rewriting the piecewise-defined function in terms of these intervals:  Thus we have   You should take a moment to use this formula to check your answers to Exercise .   contains the graph of . Note that the graph of is the same as the graph of on the intervals and . On the interval where was negative, the graph must be reflected above the -axis to make the values positive when applying the absolute value.   The graph of is found by reflecting the negative parts of the graph of up above the -axis.        For the graph shown below, sketch the graph of by reflecting the parts of the graph with negative values over the -axis.   The graph of .        Summary  The following terms were introduced in this section: piecewise-defined function, absolute value, distance between real numbers (again)  Key ideas: Piecewise-defined functions are not algebraic functions. They use different formulas on different intervals and their graphs are found by piecing together the graphs of the different formulas. Absolute value is an example of a piecewise-defined function and can be used to find distance. The graph of the absolute value of a function reflects the negative parts of the graph of the original function up over the horizontal axis.   Other ideas introduced: It would be great to have an algebraic way to determine when an expression is positive and negative, so we don't have to use a graph to find the absolute value of a function.  \\fbox{\\fbox{ End of Section 1.7}}  \\rule{1.1\\textwidth}{2pt}   "
 },
@@ -2480,7 +2516,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4-4",
   "type": "Example",
-  "number": "1.9.1",
+  "number": "1.10.1",
   "title": "",
   "body": "  Let be the function defined piecewise by   This means that if we want to plug in an -value that is or less, we use the formula in the first row. If we want to plug in an -value that is greater than , we use the formula . So the domain for the function is still , but we use on and use on .  If we want to find the value , we observe that , and so we use the formula for this value of : .  If we want to find the value , we observe that , and so we use the formula for this value of : .  If we want to find the value , we observe that , because of the equal sign, and so we once again use the formula for this value of :   To graph , we begin by graphing the functions and that are used in the definition of , as shown in :   The graph of . \\begin{subfigure}[H]{0.4\\textwidth} \\end{subfigure} \\hspace{.5in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The graph of .} \\end{subfigure} \\caption{The graphs of and .}  To graph , we use the graph of on the interval and use on . Whether these intervals are open or closed is important. To find we used the first equation : . Note that when we sketch the graph of below, we use open and closed dots to represent the function values corresponding to the ends of open and closed intervals in the domain, respectively.   The graph of uses for and for .     "
 },
@@ -2489,7 +2525,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4-5",
   "type": "Checkpoint",
-  "number": "1.9.4",
+  "number": "1.10.4",
   "title": "",
   "body": "  For the piecewise-defined function calculate , and . Then sketch a graph of .   "
 },
@@ -2498,7 +2534,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#ex_incomefunction",
   "type": "Example",
-  "number": "1.9.5",
+  "number": "1.10.5",
   "title": "",
   "body": "  Suppose that in your first job after graduating from college you make $36,000 a year before taxes. After four years you get a raise of $2,500. Two years after that you change jobs and go to work for a company that pays you $49,000 a year.  We can construct a piecewise-defined function that describes your pretax income in the year that is years after you graduate from college as follows. Note that this is just the function that describes your income rate per year at a time (the units are dollars per year).   What may be more interesting is to describe that amount that you will have earned  years after graduating from college. During the first four years, you make $36,000 per year, and so the amount that you earn after years is . After four years, you have already earned $ . Then for the next two years, you earn $38,500 per year, so your additional income for is given by (because we have to measure in years since  ). Thus overall for , you have earned by time . Lastly, after 6 years you have earned $ , and for each additional year you earn $49,000, so by time you have earned when .  Summarizing this, the function for total earnings at time years since graduation is   If you continue at that pay rate, how long will it have taken you to earn a million dollars? Well, we know we did not make that much by , so we use the equation for and solve for :   So in your 22nd year after graduating you will have earned one million pretax dollars.   "
 },
@@ -2507,7 +2543,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5-4",
   "type": "Checkpoint",
-  "number": "1.9.6",
+  "number": "1.10.6",
   "title": "",
   "body": "  How much will you have earned five years after graduating, according to the model described in Example ? What is your salary in that year?   "
 },
@@ -2516,7 +2552,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5-5",
   "type": "Example",
-  "number": "1.9.7",
+  "number": "1.10.7",
   "title": "",
   "body": "  For another example, suppose a doctor charges a different amount of money based on the length of the appointment. Example from https:\/\/www.mathsisfun.com\/sets\/functions-piecewise.html , accessed Sept 15, 2022.    Up to 6 minutes costs $50    Over 6 and up to 15 minutes costs $80    Over 15 minutes costs $80 plus $5 per minute above 15 minutes     We can write the price of an office visit like this:    "
 },
@@ -2525,7 +2561,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-3",
   "type": "Example",
-  "number": "1.9.8",
+  "number": "1.10.8",
   "title": "",
   "body": "  For example, and .   "
 },
@@ -2534,7 +2570,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-5",
   "type": "Example",
-  "number": "1.9.9",
+  "number": "1.10.9",
   "title": "",
   "body": "  For example, .   "
 },
@@ -2543,7 +2579,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#d_absval",
   "type": "Definition",
-  "number": "1.9.10",
+  "number": "1.10.10",
   "title": "Absolute Value.",
   "body": " Absolute Value   The absolute value of a real number is    "
 },
@@ -2552,7 +2588,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-8",
   "type": "Remark",
-  "number": "1.9.11",
+  "number": "1.10.11",
   "title": "",
   "body": " The quantity is not necessarily negative; it depends on whether the number is positive or negative. For example, if , then is positive. In Definition , only if is negative, in which case is a positive number .  "
 },
@@ -2561,7 +2597,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-10",
   "type": "Theorem",
-  "number": "1.9.12",
+  "number": "1.10.12",
   "title": "Absolute Values Distribute over Products and Quotients.",
   "body": " Absolute Values Distribute over Products and Quotients   Given any real numbers and , and .   "
 },
@@ -2570,7 +2606,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-11",
   "type": "Example",
-  "number": "1.9.13",
+  "number": "1.10.13",
   "title": "",
   "body": "  For example, is equal to .   "
 },
@@ -2579,7 +2615,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-12",
   "type": "Example",
-  "number": "1.9.14",
+  "number": "1.10.14",
   "title": "Non-Example.",
   "body": " Non-Example   Note that absolute values do not distribute over sums and differences. For example, is not equal to .   "
 },
@@ -2588,7 +2624,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-14",
   "type": "Example",
-  "number": "1.9.15",
+  "number": "1.10.15",
   "title": "",
   "body": "  For example, the diagram that follows shows that the distance between and is 3 units. Algebraically, .   "
 },
@@ -2597,7 +2633,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#d_distwithabsvals",
   "type": "Definition",
-  "number": "1.9.16",
+  "number": "1.10.16",
   "title": "Distance Between Two Real Numbers.",
   "body": " Distance Between Two Real Numbers   The distance between two real numbers and is .   "
 },
@@ -2606,7 +2642,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-16",
   "type": "Checkpoint",
-  "number": "1.9.17",
+  "number": "1.10.17",
   "title": "",
   "body": "  For each of the values of and that follow, sketch and on the real number line and visually find the distance between and . Then calculate and verify that it is equal to the geometric distance.    and      and      and      and      and       "
 },
@@ -2615,7 +2651,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#d_altdefabsval",
   "type": "Definition",
-  "number": "1.9.18",
+  "number": "1.10.18",
   "title": "Alternate Definition of Absolute Value.",
   "body": " Alternate Definition of Absolute Value   For any real number ,    "
 },
@@ -2624,7 +2660,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-21",
   "type": "Example",
-  "number": "1.9.19",
+  "number": "1.10.19",
   "title": "",
   "body": "  Find the solution of .    If we take the square root of both sides, we have   The comes from the following logic: if the magnitude of is 5, is 5 units away from 0 on the number line to either the right or the left. So could be either positive or negative 5 units from 0, meaning that .  Alternately, we could solve via factoring. Approached in this way, we have   Thus using either method, we can see that both and are solutions to the equation . Verify this by plugging in both numbers!   Important! It is very common for students to forget to include the when taking the square root of a square. The main lesson to be learned from this example is that equations have two solutions: .   "
 },
@@ -2633,7 +2669,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6-23",
   "type": "Checkpoint",
-  "number": "1.9.20",
+  "number": "1.10.20",
   "title": "",
   "body": "  Which definition of distance do you prefer? or ? Why? You can use either one. As we showed, they agree with each other.    "
 },
@@ -2642,7 +2678,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#fig_absval",
   "type": "Figure",
-  "number": "1.9.21",
+  "number": "1.10.21",
   "title": "",
   "body": " The graph of .   "
 },
@@ -2651,7 +2687,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7-5",
   "type": "Definition",
-  "number": "1.9.22",
+  "number": "1.10.22",
   "title": "The Absolute Value of a Function.",
   "body": " The Absolute Value of a Function   The absolute value of a function  is    "
 },
@@ -2660,7 +2696,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7-6",
   "type": "Example",
-  "number": "1.9.23",
+  "number": "1.10.23",
   "title": "",
   "body": "  For example, consider the function and its absolute value . When is positive or zero (meaning when ), the absolute value remains . But when is negative (meaning when ) the absolute value of is . The graph of is a combination of the graphs of and , switching between graphs at as shown in .   The graph of . \\begin{subfigure}[H]{0.4\\textwidth} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The graph of .} \\end{subfigure} \\hspace{.25in} \\begin{subfigure}[H]{0.4\\textwidth} \\caption{The graph of .} \\end{subfigure} \\caption{The graphs of , , and .}   "
 },
@@ -2669,7 +2705,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#ex_TaalmanSec0_5Ex4",
   "type": "Checkpoint",
-  "number": "1.9.25",
+  "number": "1.10.25",
   "title": "",
   "body": "  For , calculate , and .   "
 },
@@ -2678,7 +2714,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7-9",
   "type": "Example",
-  "number": "1.9.26",
+  "number": "1.10.26",
   "title": "",
   "body": "  Let's write from Exercise as a piecewise-defined function and then graph it.  When is positive or zero, its absolute value will remain . When is negative, its absolute value will be . Therefore we have   Although this is one way to write as a piecewise-defined function, it is difficult to work with. For example, to evaluate we would need to know whether or when . To simplify this piecewise-defined function, we need to rewrite the conditions as intervals of -values.  Here is the graph of . We will use it to determine where and :   The graph of .    So we see that for and , and that for . Rewriting the piecewise-defined function in terms of these intervals:  Thus we have   You should take a moment to use this formula to check your answers to Exercise .   contains the graph of . Note that the graph of is the same as the graph of on the intervals and . On the interval where was negative, the graph must be reflected above the -axis to make the values positive when applying the absolute value.   The graph of is found by reflecting the negative parts of the graph of up above the -axis.     "
 },
@@ -2687,7 +2723,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7-10",
   "type": "Checkpoint",
-  "number": "1.9.29",
+  "number": "1.10.29",
   "title": "",
   "body": "  For the graph shown below, sketch the graph of by reflecting the parts of the graph with negative values over the -axis.   The graph of .     "
 },
@@ -2696,7 +2732,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "s_limits_naive.html",
   "type": "Section",
-  "number": "1.10",
+  "number": "1.11",
   "title": "Limits: informal definition",
   "body": " Limits: informal definition     Give an informal definition of the limit of a function at a given value.    Investigate the existence and\/or value of a function graphically, by examining a a graph.    Use rigorous limit laws to compute limits of functions formed from other functions using common arithmetic operations.      Informal definition of the limit  Many of the questions we will study in regard to functions revolve around how the output of a function changes with respect to its input. As such we want to develop useful and precise language and tools for describing this relation. The limit of a function, defined informally here and rigorously later, is one such tool. Before getting to its informal definition, we illustrate with a graphical example the type of statements we wish to formalize with limit language. First, a reminder about what the graph of a function is.   Graph of function   Given a function , where , its graph is the set . In other words the graph of is the set of all points in the -plane of the form , where .     Function behavior   Suppose is the function whose graph is given below.   Graph of function   Graph of complicated function     Describe how the output behaves as the input approaches each of the values . For some of these values, you might consider how approaches from the left and right separately.    As approaches , either from the left or right, the values of the function get arbitrarily large and negative.  As approaches from the left, the values of get closer and closer to . However, as approaches from the right, the values get closer and closer to .  As approaches from the left or right, the values of the function approach the real number . We also happen to have : , the value of at is equal to .  As approaches from the left, the values of the function approach . However, as approaches from the right, the values oscillate wildly above and below and do not seem to approach any single value.  As approaches from the left or right, the values of the function approach . Interestingly, however, the actual value of at the input is not equal to .     Large and small, greater than and less than  Large and small, greater than and less than  This is a good point to elucidate what we mean in mathematics when we talk about a number being large or small. Both these attributes refer to the size or magnitude of the number, and these in turn are defined as the absolute value of the number. Furthermore, geometrically, the absolute value measures the distance from to the origin. Thus, we say a number is large or small depending on whether its absolute value is large or small, which depends on whether is far away from or close to on the real line. As a result, we say that both of the following are sequences where the numbers get arbitrarily large: . In more detail we say that the first sequence gets arbitrarily large and positive, while the second sequence gets arbitrarily large and negative.  Contrast this with the use of greater than and less than . These refer specifically to the ordering relation defined on : , . The relation is related to, but not completely determined by size of numbers. A good way of thinking of the relation geometrically is in terms of position on the real number line: we have if and only if lies to the left of as points on the number line. Thus, the number is less than the number (since ), even though is smaller than (since ).    Function defined on set   Let be a function with domain . Given , we say that is defined at if is an element of the domain: , . Similarly, given a subset , we say that is defined on if is included in the domain: , .     Limit (informal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value such that the function value can be made arbitrarily close to provided is sufficiently close (but not equal) to .  When this is the case, we call the limit of as approaches and write . When the limit does not exist we will say that does not exist.     Limit description of graph   Let be the function with graph given in . Use the language and notation of limits to describe the behavior of for inputs near the values .    The limit does not exist. There is no value that approaches for inputs sufficiently close to . Indeed, as gets arbitrarily close to , becomes arbitrarily large and negative.  The limit does not exist. If is arbitrarily close to , and less than (to the left), then the values gets arbitrarily close to ; thus if the limit existed it would have to be equal to . And yet for inputs arbitrarily close to but greater than (to the right), the values are greater than : , they get no closer than a distance of from the value . This implies is not the limit, and hence that no limit exists.  We have . Since , we have in this case.  The limit does not exist. See the explanation in .  We have . Note that in this case is an element of the domain and .     Limit as compared to value   Provide graphs of the following functions on their entire implied domain: . For each function discuss the limit behavior at as compared with the value of the function at .      Graph of   Graph of f      Graph of   Graph of g      Graph of   Graph of h          Limit rules  We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with. Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules.  Our first theorem gives us formulas for computing the limits of particular types of functions: constant functions, and the identity function.   Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .       In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various function operations .   Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .        Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.    Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .    Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .     Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .        Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .     Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .     "
 },
@@ -2705,7 +2741,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#s_limits_naive-2",
   "type": "Objectives",
-  "number": "1.10",
+  "number": "1.11",
   "title": "",
   "body": "   Give an informal definition of the limit of a function at a given value.    Investigate the existence and\/or value of a function graphically, by examining a a graph.    Use rigorous limit laws to compute limits of functions formed from other functions using common arithmetic operations.    "
 },
@@ -2714,7 +2750,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#d_function_graph",
   "type": "Definition",
-  "number": "1.10.1",
+  "number": "1.11.1",
   "title": "Graph of function.",
   "body": " Graph of function   Given a function , where , its graph is the set . In other words the graph of is the set of all points in the -plane of the form , where .   "
 },
@@ -2723,7 +2759,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#eg_function_behavior",
   "type": "Example",
-  "number": "1.10.2",
+  "number": "1.11.2",
   "title": "Function behavior.",
   "body": " Function behavior   Suppose is the function whose graph is given below.   Graph of function   Graph of complicated function     Describe how the output behaves as the input approaches each of the values . For some of these values, you might consider how approaches from the left and right separately.    As approaches , either from the left or right, the values of the function get arbitrarily large and negative.  As approaches from the left, the values of get closer and closer to . However, as approaches from the right, the values get closer and closer to .  As approaches from the left or right, the values of the function approach the real number . We also happen to have : , the value of at is equal to .  As approaches from the left, the values of the function approach . However, as approaches from the right, the values oscillate wildly above and below and do not seem to approach any single value.  As approaches from the left or right, the values of the function approach . Interestingly, however, the actual value of at the input is not equal to .   "
 },
@@ -2732,7 +2768,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#rm_greater_less_large",
   "type": "Remark",
-  "number": "1.10.4",
+  "number": "1.11.4",
   "title": "Large and small, greater than and less thanLarge and small, greater than and less than",
   "body": " Large and small, greater than and less than  Large and small, greater than and less than  This is a good point to elucidate what we mean in mathematics when we talk about a number being large or small. Both these attributes refer to the size or magnitude of the number, and these in turn are defined as the absolute value of the number. Furthermore, geometrically, the absolute value measures the distance from to the origin. Thus, we say a number is large or small depending on whether its absolute value is large or small, which depends on whether is far away from or close to on the real line. As a result, we say that both of the following are sequences where the numbers get arbitrarily large: . In more detail we say that the first sequence gets arbitrarily large and positive, while the second sequence gets arbitrarily large and negative.  Contrast this with the use of greater than and less than . These refer specifically to the ordering relation defined on : , . The relation is related to, but not completely determined by size of numbers. A good way of thinking of the relation geometrically is in terms of position on the real number line: we have if and only if lies to the left of as points on the number line. Thus, the number is less than the number (since ), even though is smaller than (since ).  "
 },
@@ -2741,7 +2777,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#d_defined_at",
   "type": "Definition",
-  "number": "1.10.5",
+  "number": "1.11.5",
   "title": "Function defined on set.",
   "body": " Function defined on set   Let be a function with domain . Given , we say that is defined at if is an element of the domain: , . Similarly, given a subset , we say that is defined on if is included in the domain: , .   "
 },
@@ -2750,7 +2786,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#d_limit_informal",
   "type": "Definition",
-  "number": "1.10.6",
+  "number": "1.11.6",
   "title": "Limit (informal).",
   "body": " Limit (informal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value such that the function value can be made arbitrarily close to provided is sufficiently close (but not equal) to .  When this is the case, we call the limit of as approaches and write . When the limit does not exist we will say that does not exist.   "
 },
@@ -2759,7 +2795,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#subsec-naive-definition-of-limit-8",
   "type": "Example",
-  "number": "1.10.7",
+  "number": "1.11.7",
   "title": "Limit description of graph.",
   "body": " Limit description of graph   Let be the function with graph given in . Use the language and notation of limits to describe the behavior of for inputs near the values .    The limit does not exist. There is no value that approaches for inputs sufficiently close to . Indeed, as gets arbitrarily close to , becomes arbitrarily large and negative.  The limit does not exist. If is arbitrarily close to , and less than (to the left), then the values gets arbitrarily close to ; thus if the limit existed it would have to be equal to . And yet for inputs arbitrarily close to but greater than (to the right), the values are greater than : , they get no closer than a distance of from the value . This implies is not the limit, and hence that no limit exists.  We have . Since , we have in this case.  The limit does not exist. See the explanation in .  We have . Note that in this case is an element of the domain and .   "
 },
@@ -2768,7 +2804,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#subsec-naive-definition-of-limit-9",
   "type": "Example",
-  "number": "1.10.8",
+  "number": "1.11.8",
   "title": "Limit as compared to value.",
   "body": " Limit as compared to value   Provide graphs of the following functions on their entire implied domain: . For each function discuss the limit behavior at as compared with the value of the function at .      Graph of   Graph of f      Graph of   Graph of g      Graph of   Graph of h       "
 },
@@ -2777,7 +2813,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#th_lim_const_id",
   "type": "Theorem",
-  "number": "1.10.12",
+  "number": "1.11.12",
   "title": "Constant and identity functions.",
   "body": " Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .      "
 },
@@ -2786,7 +2822,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#th_lim_rules",
   "type": "Theorem",
-  "number": "1.10.13",
+  "number": "1.11.13",
   "title": "Limit rules.",
   "body": " Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .      "
 },
@@ -2795,7 +2831,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#ss_limit_laws-7",
   "type": "Remark",
-  "number": "1.10.14",
+  "number": "1.11.14",
   "title": "Limit rules.",
   "body": " Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.  "
 },
@@ -2804,7 +2840,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#ss_limit_laws-8",
   "type": "Remark",
-  "number": "1.10.15",
+  "number": "1.11.15",
   "title": "Quotient rule.",
   "body": " Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .  "
 },
@@ -2813,7 +2849,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#eg_lim_rules",
   "type": "Example",
-  "number": "1.10.16",
+  "number": "1.11.16",
   "title": "Using limit rules.",
   "body": " Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .   "
 },
@@ -2822,7 +2858,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#cor_poly_rational",
   "type": "Corollary",
-  "number": "1.10.17",
+  "number": "1.11.17",
   "title": "Evaluation (polynomials and rational functions).",
   "body": " Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .      "
 },
@@ -2831,7 +2867,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#eg_poly_eval",
   "type": "Example",
-  "number": "1.10.18",
+  "number": "1.11.18",
   "title": "Polynomial evaluation.",
   "body": " Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .   "
 },
@@ -2840,7 +2876,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limits_naive.html#eg_lim_quot_fail",
   "type": "Example",
-  "number": "1.10.19",
+  "number": "1.11.19",
   "title": "Quotient rule does not apply.",
   "body": " Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .   "
 },
@@ -2849,7 +2885,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "s_limit_sandwich.html",
   "type": "Section",
-  "number": "1.11",
+  "number": "1.12",
   "title": "Limits: algebraic technique and sandwich theorem",
   "body": " Limits: algebraic technique and sandwich theorem     Use algebraic techniques to help compute limits.    Use the sandwich theorem to compute limits.    Apply the sandwich theorem technique to limits involving absolute value, sine, and cosine.      Algebraic techniques  As we saw in , there are limits to usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some algebraic techniques.   Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .     Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.      Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .      Sandwich theorem  Another situation where our basic limit rules might not suffice to compute a given limit is when the function in question is unreasonably complicated, making its behavior near a point difficult to pin down. The sandwich theorem potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function , whose behavior is a mystery to us, with two simpler bounding functions and , whose behavior we understand. It is called the sandwich theorem as the necessary inequality has  sandwiched between the functions and .   Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!    Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.   Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that         Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.      Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .     Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .    Our next theorem concerns the absolute value, the definition of which we now recall.   Absolute value   The absolute value of a real number , denoted , is defined as .     Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.       Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .       Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.   Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .       As promised in the proof of , we provide a proof of the inequality , or equivalently, for all . You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.   Proof of  We will prove that for all . First, observer that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any . The triangle , where , , and lies within the the sector of the unit disc determined by . (Diagram to appear sometime soon.) Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.    "
 },
@@ -2858,7 +2894,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#s_limit_sandwich-2",
   "type": "Objectives",
-  "number": "1.11",
+  "number": "1.12",
   "title": "",
   "body": "   Use algebraic techniques to help compute limits.    Use the sandwich theorem to compute limits.    Apply the sandwich theorem technique to limits involving absolute value, sine, and cosine.    "
 },
@@ -2867,7 +2903,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#eg_lim_factor",
   "type": "Example",
-  "number": "1.11.1",
+  "number": "1.12.1",
   "title": "Algebraic limit technique: factoring.",
   "body": " Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .   "
 },
@@ -2876,7 +2912,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#eg_limit_clear_denom",
   "type": "Example",
-  "number": "1.11.2",
+  "number": "1.12.2",
   "title": "Algebraic limit technique: clear denominator.",
   "body": " Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.    "
 },
@@ -2885,7 +2921,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#eg_lim_radical",
   "type": "Example",
-  "number": "1.11.3",
+  "number": "1.12.3",
   "title": "Algebraic limit technique: radicals.",
   "body": " Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .   "
 },
@@ -2894,7 +2930,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#th_sandwich",
   "type": "Theorem",
-  "number": "1.11.4",
+  "number": "1.12.4",
   "title": "Sandwich theorem.",
   "body": " Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!   "
 },
@@ -2903,7 +2939,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#proc_sandwich",
   "type": "Procedure",
-  "number": "1.11.5",
+  "number": "1.12.5",
   "title": "Sandwich theorem.",
   "body": " Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that       "
 },
@@ -2912,7 +2948,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#rm_sandwich",
   "type": "Remark",
-  "number": "1.11.6",
+  "number": "1.12.6",
   "title": "Sandwich theorem.",
   "body": " Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.    "
 },
@@ -2921,7 +2957,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#eg_sandwich_easy",
   "type": "Example",
-  "number": "1.11.7",
+  "number": "1.12.7",
   "title": "Sandwich theorem: easy.",
   "body": " Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .   "
 },
@@ -2930,7 +2966,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#ss_sandwich-8",
   "type": "Example",
-  "number": "1.11.8",
+  "number": "1.12.8",
   "title": "Sandwich theorem: less easy.",
   "body": " Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .   "
 },
@@ -2939,7 +2975,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#d_absolute_value",
   "type": "Definition",
-  "number": "1.11.9",
+  "number": "1.12.9",
   "title": "Absolute value.",
   "body": " Absolute value   The absolute value of a real number , denoted , is defined as .   "
 },
@@ -2948,7 +2984,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#rm_abs_val",
   "type": "Remark",
-  "number": "1.11.10",
+  "number": "1.12.10",
   "title": "Absolute value.",
   "body": " Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.     "
 },
@@ -2957,7 +2993,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#th_abs_lim",
   "type": "Theorem",
-  "number": "1.11.11",
+  "number": "1.12.11",
   "title": "Limits and absolute value.",
   "body": " Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .      "
 },
@@ -2966,7 +3002,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_limit_sandwich.html#th_lim_sine_cos",
   "type": "Theorem",
-  "number": "1.11.12",
+  "number": "1.12.12",
   "title": "Sine and cosine evaluation at zero.",
   "body": " Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .      "
 },
@@ -2984,7 +3020,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "s_lim_formal.html",
   "type": "Section",
-  "number": "1.12",
+  "number": "1.13",
   "title": "Limits: formal definition",
   "body": " Limits: formal definition     Provide a rigorous definition of the limit.    Understand the quantifier logic underlying the formal definition of a limit in a challenge and response manner.    Use the formal definition of the limit to compute a limit and\/or decide whether a limit exists.     As mentioned before, what makes less than rigorous is the use of the vague phrases arbitrarily close and sufficiently close . The epsilon-delta formulation given in is a mathematically precise way of of capturing these notions.   Limit (formal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: .     Anatomy of a definition   can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.   Absolute value  The absolute value expressions and are measures of how close is to and how close is to . To say is to say is within a distance of ; similarly says is within a distance of .    Conditional  The conditional (or if-then ) statement asserts that if  is within a distance of (but not equal to ), then  is within a distance of .    Existential quantifier  How does adding the existential quantifier  there exists a change the meaning? Considering to be fixed for the moment, the statement asserts that for all  sufficiently close (but not equal) to , is within a distance of . Indeed, it provides a sort of safety distance  and says that as long as is within this safety distance of (but not equal to ), then is within a distance of .    Universal quantifier  Lastly, consider what effect the universal quantifier  for all has. The full statement asserts that for any positive  , the value is within a distance for all sufficiently close to . In particular, choosing to be as small as you like, we have within that small distance of for all sufficiently close to . In other words, we can make  arbitrarily close to for all sufficiently close (but not equal) to .       Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure:   for each positive , we are challenged to show that for sufficiently close to , ;    to meet this -challenge we respond by providing a for which implies .   Note that the we provide in response to a particular -challenge will typically depend on : and indeed, we typically see that the smaller the , the smaller the . This is illustrated in the examples below.    Epsilon-delta proof for limits   To prove for a function and real numbers , proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .       Our first example illustrating treats a function of the form . Such functions are called affine functions .   Epsilon-delta: affine function   Let . Verify that using the epsilon-delta definition of the limit.    We follow .   Step 1  Treating as a fixed arbitrary constant we attempt to solve the inequality : .    Step 2  By step 1, we see that the solution to our starting inequality is the set of satisfying . In other words, . Thus itself is of the form , where .    Step 3  Thus given any , setting , we have for all satisfying . We conclude that .      Visualizing epsilon-delta proofs  The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim in terms of the graph of . (The window below is a bit narrow. Go to the Geogebra page of the interactive for a larger rendition.) We elucidate how to parse this graphical representation.   The specific -challenge is indicated by a horizontal band centered about .    The -response is indicated by a vertical band centered about .    The game is, given a specific -challenge, find an appropriate such that when is within of , the values are within of . Visually, this is accomplished when all points on the segment of the graph of lying in the vertical band about also lie within the horizontal band about .      Visualizing epsilon-delta proofs. Made with Geogebra      Finding such that  In the final step of applying to a limit statment , we usually have found an open interval containing , and then must find a such that . The following approach is useful in this regard. Observe that and thus , where , are the distances from to the left and right endpoints of the interval.   Visualizing distances to endpoints of interval   Visualizing distances to endpoints of interval     Setting as the minimum of these distances, we now have , as desired.  Depending on the example, we can sometimes easily determine which of and is the minimum, giving us an explicit expression for . When things are too complicated, however, it is perfectly fine to set .    Epsilon-delta: radical function   Let . Verify that using the epsilon-delta definition of the limit.    Following we treat as an arbitrary positive constant and attempt to solve the inequality . We have . We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule to apply, we need and to both be nonnegative. (Example: , but .) To deal with this, we will treat two separate cases: and .   Case:  When , all terms in the last inequality above are positive, and we may continue on to conclude . Thus the set of solutions to our original inequality, assuming , is , where . Note that since , both and are positive. It is clear that . Setting to be the minimum of , guarantees that . We conclude that for any positive , setting , we have for all satisfying .  Note: in fact, it is not difficult to see in this case that and so we could have more explicitly set in this case. Nonetheless, declaring works just as well here, as well as in other examples.    Case:  Now assume . We need to find a such that implies . From the previous case ( ), we know there is a such that implies . But since , we have , as desired.   Our two cases, taken together, show that for all , there exists a such that . Thus .    As the last example illustrates, as our function becomes more complicated, solving the relevant inequality can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a partial proof: namely we will give you one specific as a challenge, and ask you to find a that satisfies for this particular .   Finding for specific : quadratic function   Let . It is a fact that . Verify the epsilon-delta definition for this limit statement for the specific epsilon .    We wish to find satisfying . Proceeding as in , we first solve the inequality : . Notice that in this case, the set of solutions to the inequality is a union of two intervals: . Notice further that our limit point is an element of the second interval, and that we have , where . Thus, setting , we have . It follows that , as desired.    We gather here some inequality properties that came to light in the examples above. These are essential for solving inequalities, and thus for performing epsilon-delta proofs.   Inequality rules      Multiply by constant  Assume is a positive constant and is a negative one. For all we have .    Absolute value  Assume is a nonnegative constant. For all , we have .    Squaring and square-rooting  Assume is a nonnegative constant. For all , we have . It follows that for all nonnegative , we have .       "
 },
@@ -2993,7 +3029,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#s_lim_formal-2",
   "type": "Objectives",
-  "number": "1.12",
+  "number": "1.13",
   "title": "",
   "body": "   Provide a rigorous definition of the limit.    Understand the quantifier logic underlying the formal definition of a limit in a challenge and response manner.    Use the formal definition of the limit to compute a limit and\/or decide whether a limit exists.    "
 },
@@ -3002,7 +3038,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#d_lim_formal",
   "type": "Definition",
-  "number": "1.12.1",
+  "number": "1.13.1",
   "title": "Limit (formal).",
   "body": " Limit (formal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: .   "
 },
@@ -3011,7 +3047,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#rm_def_anat",
   "type": "Remark",
-  "number": "1.12.2",
+  "number": "1.13.2",
   "title": "Anatomy of a definition.",
   "body": " Anatomy of a definition   can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.   Absolute value  The absolute value expressions and are measures of how close is to and how close is to . To say is to say is within a distance of ; similarly says is within a distance of .    Conditional  The conditional (or if-then ) statement asserts that if  is within a distance of (but not equal to ), then  is within a distance of .    Existential quantifier  How does adding the existential quantifier  there exists a change the meaning? Considering to be fixed for the moment, the statement asserts that for all  sufficiently close (but not equal) to , is within a distance of . Indeed, it provides a sort of safety distance  and says that as long as is within this safety distance of (but not equal to ), then is within a distance of .    Universal quantifier  Lastly, consider what effect the universal quantifier  for all has. The full statement asserts that for any positive  , the value is within a distance for all sufficiently close to . In particular, choosing to be as small as you like, we have within that small distance of for all sufficiently close to . In other words, we can make  arbitrarily close to for all sufficiently close (but not equal) to .     "
 },
@@ -3020,7 +3056,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#s_lim_formal-6",
   "type": "Remark",
-  "number": "1.12.3",
+  "number": "1.13.3",
   "title": "Challenge and response.",
   "body": " Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure:   for each positive , we are challenged to show that for sufficiently close to , ;    to meet this -challenge we respond by providing a for which implies .   Note that the we provide in response to a particular -challenge will typically depend on : and indeed, we typically see that the smaller the , the smaller the . This is illustrated in the examples below.  "
 },
@@ -3029,7 +3065,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#proc_epsilon_delta",
   "type": "Procedure",
-  "number": "1.12.4",
+  "number": "1.13.4",
   "title": "Epsilon-delta proof for limits.",
   "body": " Epsilon-delta proof for limits   To prove for a function and real numbers , proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .      "
 },
@@ -3038,7 +3074,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#eg_ep_delt_affine",
   "type": "Example",
-  "number": "1.12.5",
+  "number": "1.13.5",
   "title": "Epsilon-delta: affine function.",
   "body": " Epsilon-delta: affine function   Let . Verify that using the epsilon-delta definition of the limit.    We follow .   Step 1  Treating as a fixed arbitrary constant we attempt to solve the inequality : .    Step 2  By step 1, we see that the solution to our starting inequality is the set of satisfying . In other words, . Thus itself is of the form , where .    Step 3  Thus given any , setting , we have for all satisfying . We conclude that .    "
 },
@@ -3056,7 +3092,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#rm_find_delta",
   "type": "Remark",
-  "number": "1.12.7",
+  "number": "1.13.7",
   "title": "Finding <span class=\"process-math\">\\(\\delta\\)<\/span> such that <span class=\"process-math\">\\((a-\\delta, a+\\delta)\\subseteq S\\)<\/span>.",
   "body": " Finding such that  In the final step of applying to a limit statment , we usually have found an open interval containing , and then must find a such that . The following approach is useful in this regard. Observe that and thus , where , are the distances from to the left and right endpoints of the interval.   Visualizing distances to endpoints of interval   Visualizing distances to endpoints of interval     Setting as the minimum of these distances, we now have , as desired.  Depending on the example, we can sometimes easily determine which of and is the minimum, giving us an explicit expression for . When things are too complicated, however, it is perfectly fine to set .  "
 },
@@ -3065,7 +3101,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#s_lim_formal-12",
   "type": "Example",
-  "number": "1.12.9",
+  "number": "1.13.9",
   "title": "Epsilon-delta: radical function.",
   "body": " Epsilon-delta: radical function   Let . Verify that using the epsilon-delta definition of the limit.    Following we treat as an arbitrary positive constant and attempt to solve the inequality . We have . We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule to apply, we need and to both be nonnegative. (Example: , but .) To deal with this, we will treat two separate cases: and .   Case:  When , all terms in the last inequality above are positive, and we may continue on to conclude . Thus the set of solutions to our original inequality, assuming , is , where . Note that since , both and are positive. It is clear that . Setting to be the minimum of , guarantees that . We conclude that for any positive , setting , we have for all satisfying .  Note: in fact, it is not difficult to see in this case that and so we could have more explicitly set in this case. Nonetheless, declaring works just as well here, as well as in other examples.    Case:  Now assume . We need to find a such that implies . From the previous case ( ), we know there is a such that implies . But since , we have , as desired.   Our two cases, taken together, show that for all , there exists a such that . Thus .   "
 },
@@ -3074,7 +3110,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#eg_ep_delt_quad",
   "type": "Example",
-  "number": "1.12.10",
+  "number": "1.13.10",
   "title": "Finding <span class=\"process-math\">\\(\\delta\\)<\/span> for specific <span class=\"process-math\">\\(\\epsilon\\text{:}\\)<\/span> quadratic function.",
   "body": " Finding for specific : quadratic function   Let . It is a fact that . Verify the epsilon-delta definition for this limit statement for the specific epsilon .    We wish to find satisfying . Proceeding as in , we first solve the inequality : . Notice that in this case, the set of solutions to the inequality is a union of two intervals: . Notice further that our limit point is an element of the second interval, and that we have , where . Thus, setting , we have . It follows that , as desired.   "
 },
@@ -3083,7 +3119,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#th_ineqs",
   "type": "Theorem",
-  "number": "1.12.11",
+  "number": "1.13.11",
   "title": "Inequality rules.",
   "body": " Inequality rules      Multiply by constant  Assume is a positive constant and is a negative one. For all we have .    Absolute value  Assume is a nonnegative constant. For all , we have .    Squaring and square-rooting  Assume is a nonnegative constant. For all , we have . It follows that for all nonnegative , we have .      "
 },
