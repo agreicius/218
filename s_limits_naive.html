@@ -155,6 +155,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
 \newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
 \newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
 \newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
@@ -285,14 +286,13 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="title">Summary</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
@@ -420,7 +420,7 @@ x \text{ is greater than } y \amp \iff x&gt; y \text{.}
 <div class="para">When this is the case, we call <span class="process-math">\(L\)</span> the limit of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\)</span> and write</div>
 <div class="displaymath process-math" id="eq_limit_informal">
 \begin{equation}
-\lim_{x\to a}f(x)=L\text{.}\tag{1.59}
+\lim_{x\to a}f(x)=L\text{.}\tag{1.60}
 \end{equation}
 </div>
 <div class="para">When the limit does not exist we will say that <span class="process-math">\(\lim\limits_{x\to a}f(x)\)</span> does not exist.</div>
@@ -487,7 +487,7 @@ x+1 \amp \text{if } x\ne 1\\
 <div class="para">Fix a real number <span class="process-math">\(c\in \R\)</span> and let <span class="process-math">\(h\colon \R\rightarrow \R\)</span> be the constant function defined as <span class="process-math">\(h(x)=c\)</span> for all <span class="process-math">\(x\in \R\text{.}\)</span> Given any <span class="process-math">\(a\in \R\)</span> we have</div>
 <div class="displaymath process-math" id="eq_limit_const">
 \begin{equation}
-\lim_{x\to a}h(x)=\lim_{x\to a}c=c\text{.}\tag{1.60}
+\lim_{x\to a}h(x)=\lim_{x\to a}c=c\text{.}\tag{1.61}
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_lim_const-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -499,7 +499,7 @@ x+1 \amp \text{if } x\ne 1\\
 <div class="para">Let <span class="process-math">\(\id\colon \R\rightarrow \R\)</span> be the identity function defined as <span class="process-math">\(\id(x)=x\)</span> for all <span class="process-math">\(x\in \R\text{.}\)</span> Given any <span class="process-math">\(a\in \R\)</span> we have</div>
 <div class="displaymath process-math" id="eq_lim_id">
 \begin{equation}
-\lim_{x\to a}\id(x)=\lim_{x\to a}x=a\text{.}\tag{1.61}
+\lim_{x\to a}\id(x)=\lim_{x\to a}x=a\text{.}\tag{1.62}
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_lim_id-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
