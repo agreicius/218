@@ -1,13 +1,6 @@
 <section xml:id="sec_pdfuncsandabsval">
-  <title>Piecewise-Defined Functions and Absolute Value</title>
-  <introduction>
-    <p>
-          <idx><h>Functions</h><h>Piecewise-Defined Functions</h></idx>
-          <idx><h>Functions</h><h>Absolute Value</h></idx>
-    </p>
-  </introduction>
-  <subsection>
-    <title>Learning Goals</title>
+  <title>Piecewise-defined functions and absolute value</title>
+    <objectives>
     <ul>
       <li>
         <p>
@@ -30,19 +23,79 @@
         </p>
       </li>
     </ul>
-  </subsection>
+    </objectives>
   <subsection>
-    <title>Definition of Piecewise-Defined Functions</title>
+    <title>Piecewise-defined functions</title>
     <p>
       So far, you have learned about the different types of algebraic functions.
       In this section we discuss functions that are NOT algebraic functions.
       Instead, they are pieced together by parts of algebraic functions.
     </p>
     <p>
-      A <em>piecewise-defined function</em>
+      A piecewise-defined function is 
       is a function that is defined in multiple pieces,
-      with different formulas on different parts of its domain.
+      with different formulas or rules for different parts of its domain. The <em>sign function</em> defined below is a natural first example in light of our recent work with sign diagrams. 
     </p>
+    <definition xml:id="d_sign">
+    <title>Sign function</title>
+    <notation>
+      <usage><m>\operatorname{sign}</m></usage>
+      <description>the sign function</description>
+    </notation>
+    <statement>
+    <p>
+    The <term>sign function</term>, <m>\sgn</m>, is the function <m>\sgn\colon \R\rightarrow \R</m> defined as 
+    <men xml:id="eq_sign_func">
+        \operatorname{sgn}(x) = \begin{cases}1, \amp \text{if } x&gt; 0\\ 0, \amp \text{if } x=0\\ -1, \amp \text{if } x&lt; 0. \end{cases}
+    </men>
+    In other words, <m>\sgn(x)</m> is 1 if <m>x</m> is positive, -1 if <m>x</m> is negative, and 0 otherwise. 
+    </p>
+    </statement>
+    </definition>
+    <p>
+      The notation in <xref ref="eq_sign_func"/> is our way of presenting the different rules that apply to the different subsets of the domain. In general if the domain of our piecewise-defined functionis broken up into subsets <m>D_1, D_2,\dots,</m>, then the notation 
+      <me>
+        f(x)=\begin{cases}
+        f_1(x)\amp \text{if } x\in D_1\\
+        f_2(x)\amp \text{if } x\in D_2\\
+        \vdots \\
+        \end{cases}
+      </me>
+      is understood as defining <m>f</m> to be the function that follows the rule (or formula) <m>f_1</m> on the ``domain piece" <m>D_1</m>, <m>f_2</m> on the ``domain piece" <m>D_2</m>, <etc/>. In the case of the sign function, the three different rules are particular simple: namely, the function outputs 1, 0, or -1 depending on whether the input is positive, zero, or negative.
+    </p>
+    <p>
+      Once you get used to the notation, you will see that working with piecewise-defined functions is done much the same as usual. However, because the a piecewise function is defined <em>in cases</em>, our computations involving these functions naturally break up into cases (or parts). 
+    </p>
+    <p>
+      For example, when graphing the <m>\sgn</m> function, we effectively make three separate graphs over the separate pieces of the domain: we graph the constant function <m>f(x)=1</m> on <m>(0,\infty)</m>, we graph the function <m>f_2(x)=-1</m> on <m>(-\infty, 0)</m>, and we add the single point <m>(0,0)</m> to complete the graph. 
+    </p>
+    <figure xml:id="fig_signfunc">
+      <caption>Graph of <m>y=\sgn(x)</m>.</caption>
+      <image width="50%">
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+              axis lines = middle,
+              ymin=-1.5, ymax=1.5,
+              xmin=-2.5, xmax=2.5,
+              xtick={-2,-1,0,1,2},
+              ytick={-1,-.5,.5,1},
+              grid=both,
+              width=6cm,
+              height=5cm,
+              domain=-5:5,
+              samples=100
+            ]
+            \addplot[domain=-2.5:-.1, thick, blue,&lt;-] {-1};
+            \addplot[domain=0.1:2.5, thick, blue,-&gt;] {1};
+            \addplot[only marks, blue, mark=*, mark size=2pt] coordinates {(0,0)};
+            \addplot[only marks, blue, mark=o, mark size=2pt] coordinates {(0,1)};
+            \addplot[only marks, blue, mark=o, mark size=2pt] coordinates {(0,-1)};
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+    </figure>
     <example>
       <statement>
         <p>
