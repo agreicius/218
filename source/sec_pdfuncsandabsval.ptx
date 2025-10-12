@@ -99,89 +99,19 @@
     <example>
       <statement>
         <p>
-          Let <m>f</m> be the function defined piecewise by
+          Let <m>f</m> be the function defined piecewise as
           <me>
-            f(x) = \begin{cases}x^2,\amp  \text{ if }  x\leq -1\\ 2x, \amp \text{ if } x>-1 \end{cases}
-          </me>
-        </p>
-        <p>
-          This means that if we want to plug in an <m>x</m>-value that is <m>-1</m> or less,
-          we use the formula <m>x^2</m> in the first row.
-          If we want to plug in an <m>x</m>-value that is greater than <m>-1</m>,
-          we use the formula <m>2x</m>.
-          So the domain for the function is still <m>(-\infty,\infty)</m>,
-          but we use <m>x^2</m> on <m>(-\infty,-1]</m> and use <m>2x</m> on <m>(-1,\infty)</m>.
-        </p>
-        <p>
-          If we want to find the value <m>f(-5)</m>,
-          we observe that <m>x=-5\leq -1</m>,
-          and so we use the formula <m>x^2</m> for this value of <m>x</m>:
-          <me>
-            f(-5) = (-5)^2 = 25
+            f(x) = \begin{cases}x^2\amp  \text{if }  x\leq -1\\ 2x \amp \text{if } x&gt; -1 \end{cases}
           </me>.
-        </p>
-        <p>
-          If we want to find the value <m>f(3)</m>,
-          we observe that <m>x=3>-1</m>,
-          and so we use the formula <m>2x</m> for this value of <m>x</m>:
-          <me>
-            f(3) = 2(3) = 6
-          </me>.
-        </p>
-        <p>
-          If we want to find the value <m>f(-1)</m>,
-          we observe that <m>x=-1\leq -1</m>,
-          because of the equal sign,
-          and so we once again use the formula <m>x^2</m> for this value of <m>x</m>:
-          <me>
-            f(-1) = (-1)^2 = 1
-          </me>
-        </p>
-        <p>
-          To graph <m>f</m>,
-          we begin by graphing the functions <m>y=x^2</m> and <m>y=2x</m> that are used in the definition of <m>f</m>,
-          as shown in <xref ref="fig_TaalmanPage46b" />:
-        </p>
-        <figure xml:id="fig_TaalmanPage46b-1">
-          <caption>The graph of <m>y=x^2</m>.</caption>
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="70%" source="TaalmanPage46b-1.png"/>
-          \end{subfigure}
-          \hspace{.5in}
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="70%" source="TaalmanPage46b-2.png"/>
-          \caption{The graph of <m>y=2x</m>.} \end{subfigure}
-          \caption{The graphs of <m>y=x^2</m> and <m>y=2x</m>.}
-        </figure>
-        <p>
-          To graph <m>f</m>, we use the graph of <m>y=x^2</m> on the interval
-          <m>(-\infty,-1]</m> and use <m>y=2x</m> on <m>(-1,\infty)</m>.
-          Whether these intervals are open or closed is important.
-          To find <m>f(-1)</m> we used the
-          <em>first</em> equation <m>y=x^2</m>:
-          <m>f(-1)=(-1)^2 = 1</m>.
-          Note that when we sketch the graph of <m>f</m> below,
-          we use open and closed dots to represent the function values corresponding to the ends of open and closed intervals in the domain,
-          respectively.
-        </p>
+          To graph <m>f</m> we graph the function <m>g(x)=x^2</m> on the domain <m>(-\infty, -1]</m> and the function <m>h(x)=2x</m> on the domain <m>(-1,\infty)</m>. Note that we must be careful about the value of <m>f</m> at the cutoff input <m>x=-1</m>. Since this value is included in the first case of the definition, we have <m>f(-1)=(-1)^2=1</m>, corresponding to the point <m>P=(-1,1)</m> on the graph below. 
+        </p> 
         <figure xml:id="fig_TaalmanPage46c">
-          <caption>The graph of <m>f(x)</m> uses <m>y=x^2</m> for <m>x\leq -1</m> and <m>y=2x</m> for <m>x>-1</m>.</caption>
-          <image width="46%" source="TaalmanPage46c.png"/>
+          <caption>Graph of <m>f(x)=\begin{cases}x^2\amp  \text{if }  x\leq -1\\ 2x \amp \text{if } x&gt; -1 \end{cases}</m></caption>
+          <image width="60%" source="TaalmanPage46c.png"/>
         </figure>
       </statement>
     </example>
-    <exercise>
-      <statement>
-        <p>
-          For the piecewise-defined function
-          <me>
-            f(x) = \begin{cases}3x+1, \amp \text{ if } x\leq 0\\ 4, \amp \text{ if } 0\lt x\leq 1\\ x^3, \amp \text{ if } x>1 \end{cases}
-          </me>
-          calculate <m>f(-1), f(0), f(1)</m>, and <m>f(2)</m>.
-          Then sketch a graph of <m>f</m>.
-        </p>
-      </statement>
-    </exercise>
+    
   </subsection>
   <subsection>
     <title>An Application of Piecewise-defined Functions</title>
@@ -499,263 +429,437 @@
         As the last example illustrates, despite the <m>-x</m> formula appearing in the second case of the piecewise definition of <m>\abs{x}</m>, the output is always nonnegative. This is because the second case only applies if the the input <m>x</m> is itself <em>negative</em>, in which case the output <m>-x</m> is <em>positive</em>!
       </p>
     </remark>
+    <p>
+      With two separate definitions of the absolute value in play, the question naturally arises whether they agree! The last example gives evidence to the fact that they do. Here is how to see this more generally. For any real number <m>x</m>, we can write <m>x=a</m> or <m>x=-a</m>, where <m>a</m> is a <em>nonnegative</em> number. Since <xref ref="d_absolute_value"/> defines <m>\abs{x}</m> in cases, it is natural to look at the two cases <m>x=a</m> and <m>x-a</m> separately.
+    </p>
+    <p>
+      If <m>x=a</m> for some nonnegative number <m>a</m>, then it lies a distance of <m>a</m> to the right of <m>0</m>, and hence we should have <m>\abs{x}=a</m> according to <xref ref="d_absolute_value_geometric"/>. Using <xref ref="d_absolute_value"/>, we have 
+      <md>
+        <mrow>\abs{x} \amp =\abs{a}</mrow>
+        <mrow> \amp =a \amp (\text{since } a\geq 0)</mrow>
+      </md>,
+      as desired. Thus we see that the two definitions agree in this case.
+    </p>
+    <p>
+      The other case is similar. Suppose <m>x=-a</m> for some nonnegative number <m>a</m>. In this case <m>x</m> lies a distance of <m>a</m> to the left of <m>0</m>, and hence has absolute value <m>\abs{x}=a</m> according to <xref ref="d_absolute_value_geometric"/>. We get the same result using <xref ref="d_absolute_value"/>, since 
+      <md>
+        <mrow>\abs{x} \amp =\abs{-a}</mrow>
+        <mrow> \amp =-(-a) \amp (\text{since } -a\leq 0)</mrow>
+        <mrow> \amp = a</mrow>
+      </md>.
+    </p>
+    <p>
+      This arguing by case can be seen at work in the proof of the next result, which among other things, shows that the absolute value function is in fact an algebraic function! 
+    </p>
+    <theorem xml:id="th_abs_value_alg">
+    <title>Absolute value function is algebraic</title>
+    <statement>
+    <p>
+    For all <m>x\in \R</m> we have 
+    <men xml:id="eq_abs_radical">
+      \sqrt{x^2}=\abs{x}
+    </men>.
+    It follows that the absolute value function <m>f(x)=\abs{x}</m> is algebraic. 
+    </p>
+    </statement>
+    <proof>
+    <p>
+      First observe that identity <xref ref="eq_abs_radical"/> implies that <m>f(x)=\abs{x}</m> is algebraic as it can written as a composition of two power functions.  We will use <xref ref="d_absolute_value"/> to prove the identity, and thus argue the two cases <m>x\geq 0</m> and <m>x&lt; 0</m> separately.  
+    </p>
+    <case>
+    <title>Case: <m>x\geq 0</m></title>
+    <p>
+    Assume <m>x\geq 0</m>. First observe that by definition <m>\sqrt{x^2}</m> is the unique <em>nonnegative</em> square-root of <m>x^2</m>. Since <m>x</m> is clearly a square-root of <m>x^2</m>, and since <m>x\geq 0</m>, we have 
+    <md>
+      <mrow>\sqrt{x^2} \amp =x </mrow>
+      <mrow> \amp =\abs{x} \amp (\text{since } x\geq 0)</mrow>
+    </md>,
+    as desired.
+    </p>
+    </case>
+    <case>
+    <title>Case: <m>x&lt; 0</m></title>
+    <p>
+    Now assume <m>x&lt; 0</m>. Since <m>-x</m> is a square-root of <m>x^2</m> and is positive, we have in this case
+    <md>
+      <mrow>\sqrt{x^2} \amp =-x</mrow>
+      <mrow> \amp =\abs{x} \amp (\text{since } x&lt; 0)</mrow>
+    </md>,
+    as desired. 
+    </p>
+    </case>
     
+    </proof>
+    </theorem>
+    <warning>
+      <title>Identities involving <m>\sqrt{x^2}</m> </title>
+      <p>
+        It is a very common error, among students and instructors alike, to omit the absolute value in the identity <xref ref="eq_abs_radical"/> and erroneously simplify the expression <m>\sqrt{x^2}</m> to <m>x</m>. To see why this is invalid, it is enough to consider the example <m>x=-1</m>: 
+        <me>
+          x=-1 \implies \sqrt{x^2}=\sqrt{1}=1\ne x
+        </me>.
+        The example also illustrates what exactly the issue is here: the principal square root function <m>\sqrt{\underline{\phantom{xx}}}</m> always picks out the <em>nonnegative</em> square root of its input. In particular, its output can never be negative. This alone guarantees that <m>\sqrt{(-1)^2}\ne -1</m>.
+      </p>
+      <p>
+        One explanation for the prevalence of this error is that in many cases it is tacitly assumed that <m>x</m> is nonnegative, in which case the identity holds without the absolute value since  
+        <m>\sqrt{x^2}=\abs{x}=x</m> for all <m>x\geq 0</m>. 
+      </p>
+      <p>
+        The moral of the story is that the validity of a given identity depends very much on the precise scope of its application. Put another way, the quantifier expression <q>for all <m>x</m> satisfying...</q> plays a very important role in the statement of the identity. Sometimes, when stating an identity, we will include this quantifier expression for clarity. For example, here are two correct identities involving a similar equality, but different scopes of application: 
+        <md>
+          <mrow>\sqrt{x^2} \amp =x \text{ for all } x\geq 0</mrow>
+          <mrow>\sqrt{x^2} \amp =\abs{x} \text{ for all } x\in \R</mrow>
+        </md>.
+      </p>
+    </warning>
     <p>
-      You may remember that we gave a different definition for the distance between two real numbers in <xref ref="d_distwithsquareroot">Definition</xref>.
-      These two definitions are the same,
-      because of the following alternate definition of the absolute value function:
+      The identity <m>\abs{x}=\sqrt{x^2}</m> allows us to derive many useful properties of the absolute value function from those of the principal square-root function. Furthermore, knowing now that <m>f(x)=\abs{x}</m>, we can make use of <xref ref="th_constancy_sign"/> and <xref ref="proc_solve_ineq"/> to deterimine solutions to inequalities involving the absolute value. We include these results here in one compendium result. We will spare you the details of a proof, but invite you to think on your own about how you would proves these facts. 
     </p>
-    <definition xml:id="d_altdefabsval">
-      <title>Alternate Definition of Absolute Value</title>
-      <statement>
-        <p>
-          For any real number <m>x</m>,
-          <me>
-            |x| = \sqrt{x^2}
-          </me>
-        </p>
-      </statement>
-    </definition>
+    <theorem xml:id="th_abs_value">
+    <title>Properties of absolute value</title>
+    <statement>
     <p>
-      When <m>x</m> is positive,
-      the square root of <m>x^2</m> returns us to the original <m>x</m>-value.
-      When <m>x</m> is negative,
-      <m>x^2</m> is positive and the square root denotes only the
-      <em>positive</em> square root,
-      so the square root of <m>x^2</m> will give us
-      <m>|x| = -(x)</m>. (Remember, if <m>x</m> is negative,
-      <m>-x</m> is positive!) So this different definition is exactly the same as <xref ref="d_absval" />, just stated in a different way.
+    <ol>
+      <li>
+        <p>
+          We have 
+          <men xml:id="eq_abs_prod">
+            \abs{xy}=\abs{x}\abs{y}
+          </men>
+          for all <m>x,y\in \R</m>, 
+          and 
+          <men xml:id="eq_abs_quot">
+            \abs{\frac{x}{y}}=\frac{\abs{x}}{\abs{y}}
+          </men>
+          for all <m>x,y\in \R</m> with <m>y\ne 0</m>. 
+        </p>
+        <p>
+          In plain English: the absolute value of a product is the product of the absolute values, and the absolute value of a quotient is the quotient of the absolute values.
+        </p>
+      </li>
+      <li>
+        <p>
+         For any <m>a\geq 0</m>, we have 
+         <mdn>
+          <mrow xml:id="eq_abs_equal"> \abs{x}= a \amp \iff x=a \text{ or } x=-a</mrow>
+          <mrow xml:id="eq_abs_lesser"> \abs{x}&lt; a\amp \iff -a&lt; x &lt; a </mrow>
+          <mrow xml:id="eq_abs_greater"> \abs{x}&gt; a \amp \iff x&gt; a \text{ or } x&lt; -a </mrow>
+         </mdn>.
+        </p>
+      </li>
+    </ol>
     </p>
+    </statement>
+    </theorem>
+    <example xml:id="eg_solve_abs">
+    <title>Absolute value algebra</title>
+    <statement>
     <p>
-      This idea can help us in solving the following types of common equations:
+    Solve the given equation or inequality.
+    <ol>
+      <li>
+        <p>
+          <m>\abs{2-x}=9</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\abs{x}&gt; \frac{3}{\abs{x-2}}</m>
+        </p>
+      </li>
+    </ol> 
     </p>
-    <example>
-      <statement>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
         <p>
-          Find the solution of <m>x^2=25</m>.
+          We use the property <xref ref="eq_abs_equal"/>:
+          <md>
+            <mrow>\abs{2-x} \amp =9</mrow>
+            <mrow>2-x=9 \amp \text{ or } 2-x=-9</mrow>
+            <mrow>x=-7 \amp \text{ or } x=11</mrow>
+          </md>.
         </p>
-      </statement>
-      <solution>
+      </li>
+      <li>
         <p>
-          If we take the square root of both sides, we have
-          <me>
-            \begin{aligned}x^2 \amp = 25\\ \sqrt{x^2} \amp =\sqrt{25}\\ |x| \amp = 5\\ x \amp =\pm 5 \end{aligned}
-          </me>
+          We solve as follows:
+         <md>
+          <mrow>\abs{x} \amp &gt; \frac{3}{\abs{x-2}}</mrow>
+          <mrow>\abs{x}\cdot\abs{x-2} \amp &gt; 3 \amp (\abs{x-2}&gt; 0)</mrow>
+          <mrow>\abs{x^2-2x} \amp &gt; 3 \amp <xref ref="eq_abs_prod"/></mrow>
+          <mrow>x^2-2x &gt; 3 \amp \text{ or } x^2-2x &lt; -3 \amp <xref ref="eq_abs_lesser"/> </mrow>
+          <mrow>x^2-2x-3&gt; 0 \amp \text{ or } x^2-2x+3&lt; 0</mrow>
+          <mrow>(x-3)(x+1)&gt; 0 \amp \text{ or } (x-1)^2+2&lt; 0 </mrow>
+          <mrow>x&gt; 3 \text{ or } x&lt; -1   \amp   </mrow>
+         </md>.
+         Here the last line follows from a sign analysis of <m>f(x)=(x-3)(x+1)</m> (or alternatively, by constructing a sign diagram) and the fact that <m>(x-1)^2+2\geq 2</m> for all <m>x</m>, and hence never satisfies <m>(x-1)^2+2&lt; 0</m>. 
+          We conclude that the solution set is <m>(-\infty, -1)\cup (3,\infty)</m>. 
         </p>
-        <p>
-          The <m>\pm</m> comes from the following logic:
-          if the magnitude of <m>x</m> is 5, <m>x</m> is 5 units away from 0 on the number line to either the right or the left.
-          So <m>x</m> could be either positive or negative 5 units from 0, meaning that <m>x=5, -5</m>.
-        </p>
-        <p>
-          Alternately, we could solve via factoring.
-          Approached in this way, we have
-          <me>
-            \begin{aligned}x^2 \amp = 25\\ x^2-25 \amp = 0\\ (x-5)(x+5) \amp =0\\ x-5 = 0 \amp  \text{ or }  \amp  x+5 = 0\\ x \amp = 5, -5 \end{aligned}
-          </me>
-        </p>
-        <p>
-          Thus using either method,
-          we can see that both <m>x=-5</m> and <m>x=5</m> are solutions to the equation <m>x^2=25</m>.
-          Verify this by plugging in both numbers!
-        </p>
-        <p>
-          <em>Important!</em> It is very common for students to forget to include the <m>\pm</m> when taking the square root of a square.
-          The main lesson to be learned from this example is that equations <m>x^2 = r^2</m> have <em>two</em>
-          solutions: <m>x=\pm r</m>.
-        </p>
-      </solution>
+      </li>
+    </ol>
+    </p>
+    </solution>
     </example>
     <p>
-      Let's reconcile the two definitions for the distance between real numbers.
-      Definition <xref ref="d_distwithsquareroot" /> tell us that
+      Before moving on to graphs of functions involving absolute value, we generalize our distance formula 
       <me>
-        \text{ dist } (a,b) = \sqrt{(b-a)^2}
+        \abs{x}=\text{distance between } x \text{ and } 0
       </me>
-      while Definition <xref ref="d_distwithabsvals" /> combined with Definition <xref ref="d_altdefabsval" /> tells us that
-      <me>
-        \text{ dist } (a,b) = |b-a| = \sqrt{(b-a)^2}
-      </me>.
-      Hooray!
-      The two definitions agree.
+      to a notion of distance between any two points on the real line.
     </p>
-    <exercise>
-      <statement>
-        <p>
-          Which definition of distance do you prefer?
-          <m>\text{ dist } (a,b) = \sqrt{(b-a)^2}</m> or <m>\text{ dist } (a,b) = |b-a|</m>?
-          Why?
-          <em>You can use either one.
-          As we showed, they agree with each other.</em>
-        </p>
-      </statement>
-    </exercise>
+    <definition xml:id="d_distance_real_line">
+    <title>Distance function on <m>\R</m></title>
+    <statement>
+    <p>
+    Let <m>a,b\in \R</m>. We define the <term>distance</term> <m>d(a,b)</m> between   <m>a</m> and <m>b</m> to be 
+    <men xml:id="eq_distance">
+      d(a,b)=\abs{a-b}=\abs{b-a}
+    </men>.
+    Geometrically, <m>d(a,b)</m> is the length of the line segment between <m>a</m> and <m>b</m>, considered as points on the real line.
+    </p>
+    </statement>
+    </definition>
+    <remark>
+    <title>Distance function on <m>\R</m></title>
+    <p>
+      The notion of distance <m>d(a,b)=\abs{a-b}=\abs{b-a}</m> between points on the real line will be used extensively in our development of calculus. This in turn is why a solid understanding of the absolute value function is so important. We content ourselves with a few short comments. 
+      <ol>
+        <li>
+          <p>
+            Note that our definition <xref ref="eq_distance"/> generalizes the distance to 0 formula, since for any <m>x\in \R</m> we have 
+            <me>
+              d(x,0)=\abs{x-0}=\abs{x}
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The fact that <m>d(a,b)</m> is the length of the line segment between <m>a</m> and <m>b</m> can be shown to follow from <xref ref="d_absolute_value_geometric"/> using a nice <q>shift argument</q>. By way of illustration, consider <m>a=-3</m> and <m>b=7</m>. Shifting these points to the right by three units yields new points <m>a'=0</m> and <m>b'=10</m>. Shifting the two points this way does not change the distance between them: <ie/>, <m>d(a,b)=d(a',b')</m>. It follows that
+            <md>
+              <mrow>d(a,b) \amp =d(a',b')</mrow>
+              <mrow> \amp = d(0,10)</mrow>
+              <mrow> \amp =\abs{10} \amp (<xref ref="d_absolute_value_geometric" text="global"/>) </mrow>
+              <mrow> \amp =\abs{10-3+3} </mrow>
+              <mrow> \amp =\abs{7-(-3)} </mrow>
+              <mrow> \amp =\abs{b-a}</mrow>
+            </md>,
+            as claimed.
+          </p>
+        </li>
+        <li>
+          <p>
+            Fix a point <m>a</m> on the real line. The closeness or farness of a variable point <m>x</m> to <m>a</m> is measured by its distance <m>d(x,a)=\abs{x-a}</m>. Thus we have 
+            <md>
+              <mrow>x \text{ close to } a \amp \iff \abs{x-a} \text{ is small (i.e. close to zero)}</mrow>
+              <mrow>x \text{ far from } a \amp \iff \abs{x-a} \text{ is large}</mrow>
+            </md>.
+          </p>
+        </li>
+      </ol>
+    
+    </p>
+    </remark>
+    
   </subsection>
   <subsection>
-    <title>Graphs of Absolute Values</title>
+    <title>Graphs of absolute values</title>
     <p>
-      The graph of <m>y=|x|</m> is a combination of the graph of <m>y=x</m> on
-      <m>[0,\infty)</m> and the graph of <m>y=-x</m> on <m>(-\infty,0)</m>:
+      It remains only to consider the graph of <m>f(x)=\abs{x}</m>, and more generally, graphs of functions involving absolute value. Using the piecewise definition of <m>f(x)=\abs{x}</m>, we can produce its graph very easily by looking at the two cases <m>x\geq 0</m> and <m>x&lt; 0</m> separately. We have 
+      <md>
+        <mrow>x\geq 0 \amp \implies \abs{x}=x \implies f(x)=x</mrow>
+        <mrow>x&lt; 0 \amp \implies \abs{x}=-x\implies f(x)=-x</mrow>
+      </md>.
+      Thus the graph of <m>f</m> is given by the graph of the line <m>y=x</m> for all <m>x\geq 0</m> and the line <m>y=-x</m> for all <m>x&lt; 0</m>. This gives rise to the vee-shaped graph in <xref ref="fig_abs_val_graph"/>. 
     </p>
-    <figure xml:id="fig_absval">
-      <caption>The graph of <m>y=|x|</m>.</caption>
-      <image width="46%" source="TaalmanPage55a.png"/>
+    <figure xml:id="fig_abs_val_graph">
+      <caption>Graph of <m>f(x)=\abs{x}</m></caption>
+      <image width="60%">
+        <shortdescription>Graph of absolute value function</shortdescription>
+        <latex-image>
+         \begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+%    xlabel = $x$,
+%    ylabel = {$f(x)$},
+    xtick={-4,-3,-2,-1,1,2,3,4},
+    ytick={1,2,3,4},
+    ymin=-0.5, ymax=4,
+    xmin=-4.5, xmax=4.5,
+    grid=both,
+    width=8cm,
+    height=6cm,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    minor tick num=1,
+    every tick/.style={black,thick},
+    ]
+    \addplot[domain=-4:4, thick, samples=200, color=blue]{abs(x)};
+  \end{axis}
+\end{tikzpicture}
+        </latex-image>
+      </image>
     </figure>
     <p>
-      Of course, in general we might wish to take the absolute value of a more complicated expression.
-      In the more general case, we do exactly the same thing:
-      the absolute value will leave positive quantities untouched,
-      but flip the sign of negative quantities.
+      More generally, how do we graph a function of the form <m>f(x)=\abs{g(x)}</m>? We can analyze this question using the piecewise definition of absolute value, along with our graphical interpretation of the scaling transformation. By definition, we have 
+      <me>
+        \abs{g(x)}=\begin{cases} g(x) \amp \text{if } g(x)\geq 0 \\ -g(x)\amp \text{if } g(x)&lt; 0.
+      \end{cases}
+      </me>
+      Thus we can obtain the graph of <m>f(x)=\abs{g(x)}</m> by graphing <m>g(x)</m> at all <m>x</m> where <m>g(x)\geq 0</m>, and <m>-g(x)</m> at all <m>x</m> where <m>g(x)&lt; 0</m>. Since the graph of <m>-g</m> is the result of reflecting the graph of <m>g</m> over the <m>x</m>-axis, we see that <m>f(x)=\abs{g(x)}</m> can be obtained by beginning with the graph of <m>g</m> and flipping all portions of the graph where <m>g&lt; 0</m>. Let's make this an official procedure for good measure.
     </p>
-    <definition>
-      <title>The Absolute Value of a Function</title>
+    <algorithm xml:id="proc_graph_abs_g">
+      <title>Graphing <m>f(x)=\abs{g(x)}</m></title>
+    
       <statement>
         <p>
-          The <em>absolute value of a function</em> <m>g(x)</m> is
-          <me>
-            |g(x)| = \begin{cases}g(x), \amp \text{ for all } x\text{ with } g(x)\geq 0\\ -g(x),\amp \text{ for all } x\text{ with } g(x)\lt  0 \end{cases}
-          </me>
+         The graph of <m>f(x)=\abs{g(x)}</m> is obtained from the graph of <m>g</m> by finding all portions of the graph of <m>g</m> where <m>g&lt; 0</m> and reflecting these over the <m>x</m>-axis. 
         </p>
       </statement>
-    </definition>
-    <example>
+    </algorithm>
+    <example xml:id="eg_abs_val_graph_shift">
+      <title>Transformed absolute value function</title>
       <statement>
         <p>
-          For example, consider the function
-          <m>g(x) = 2x-1</m> and its absolute value <m>f(x) = |g(x)| = |2x-1|</m>.
-          When <m>2x-1</m> is positive or zero
-          (meaning when <m>x\geq 1/2</m>),
-          the absolute value remains <m>2x-1</m>.
-          But when <m>2x-1</m> is negative
-          (meaning when <m>x\lt 1/2</m>)
-          the absolute value of <m>g</m> is <m>-(2x-1)</m>.
-          The graph of <m>y=|2x-1|</m> is a combination of the graphs of <m>y=2x-1</m> and <m>y=-(2x-1)</m>,
-          switching between graphs at <m>x=1/2</m> as shown in <xref ref="fig_TaalmanPage55b" />.
+         Consider the function <m>f(x)=\abs{2x-1}</m>. We have <m>f(x)=\abs{g(x)}</m>, where <m>g(x)=2x-1</m>. Since <m>g(x)&lt; 0</m> if and only if <m>x&lt; 1/2</m>, we obtain the graph of <m>f</m> by flipping the part of the line <m>y=2x-1</m> that lies below the <m>x</m>-axis across the <m>x</m>-axis. 
         </p>
-        <figure xml:id="fig_TaalmanPage55b-1">
-          <caption>The graph of <m>y=2x-1</m>.</caption>
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="80%" source="TaalmanPage55b-1.png"/>
-          \end{subfigure}
-          \hspace{.25in}
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="80%" source="TaalmanPage55b-2.png"/>
-          \caption{The graph of <m>y=-(2x-1)</m>.} \end{subfigure}
-          \hspace{.25in}
-          \begin{subfigure}[H]{0.4\textwidth}
-          <image width="80%" source="TaalmanPage55b-3.png"/>
-          \caption{The graph of <m>y=|2x-1|</m>.} \end{subfigure}
-          \caption{The graphs of <m>y=2x-1</m>,  <m>y=-(2x-1)</m>, and <m>y=|2x-1|</m>.}
+        <figure xml:id="fig_abs_val_graph_shift">
+          <caption>Graph of <m>f(x)=\abs{2x-1}</m></caption>
+          <sidebyside widths="46% 46%">
+        <figure xml:base="fig_linear_inner">
+         <caption>Graph of <m>g(x)=2x-1</m></caption>
+         <image>
+          <shortdescription>Graph of 2x-1</shortdescription>
+          <latex-image>
+             \begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+%    xlabel = $x$,
+%    ylabel = {$f(x)$},
+    xtick={-2,-1,1,2,3,4},
+    ytick={-3,-2,...,3},
+    ymin=-2.5, ymax=3.5,
+    xmin=-1.5, xmax=2.5,
+    grid=both,
+    width=8cm,
+    height=8cm,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    minor tick num=1,
+    every tick/.style={black,thick},
+    ]
+    \addplot[domain=-4:4, thick, samples=200, color=blue]{2*x-1};
+  \end{axis}
+\end{tikzpicture}
+          </latex-image>
+         </image>
         </figure>
+       <figure xml:id="fig_abs_val_linear">
+         <caption>Graph of <m>f(x)=\abs{2x-1}</m></caption>
+         <image>
+          <shortdescription>Graph of absolute value of 2x-1</shortdescription>
+          <latex-image>
+             \begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+%    xlabel = $x$,
+%    ylabel = {$f(x)$},
+    xtick={-2,-1,1,2,3,4},
+    ytick={-3,-2,...,3},
+    ymin=-2.5, ymax=3.5,
+    xmin=-1.5, xmax=2.5,
+    grid=both,
+    width=8cm,
+    height=8cm,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    minor tick num=1,
+    every tick/.style={black,thick},
+    ]
+    \addplot[domain=-4:4, thick, samples=200, color=blue]{abs(2*x-1)};
+  \end{axis}
+\end{tikzpicture}
+          </latex-image>
+         </image>
+        </figure>
+      </sidebyside>
+    </figure>
       </statement>
     </example>
-    <p>
-      Try applying the absolute value to a function in Exercise <xref ref="ex_TaalmanSec0_5Ex4" />:
-    </p>
-    <exercise xml:id="ex_TaalmanSec0_5Ex4">
-      <statement>
-        <p>
-          For <m>f(x) = |x^2-1|</m>, calculate <m>f(-2), f(0)</m>,
-          and <m>f(1)</m>.
-        </p>
-      </statement>
-    </exercise>
+    
     <example>
+      <title>Absolute value of quadratic</title>
       <statement>
         <p>
-          Let's write <m>f(x) = |x^2-1|</m> from <xref ref="ex_TaalmanSec0_5Ex4">Exercise</xref>
-          as a piecewise-defined function and then graph it.
-        </p>
-        <p>
-          When <m>x^2-1</m> is positive or zero,
-          its absolute value will remain <m>x^2-1</m>.
-          When <m>x^2-1</m> is negative,
-          its absolute value will be <m>-(x^2-1)</m>.
-          Therefore we have
-          <me>
-            f(x) = |x^2-1| = \begin{cases}x^2-1, \amp  \text{ for all } x\text{ with } x^2-1\geq 0\\ -(x^2-1), \amp  \text{ for all } x\text{ with } x^2-1\lt  0 \end{cases}
-          </me>
-        </p>
-        <p>
-          Although this is one way to write <m>|x^2-1|</m> as a piecewise-defined function,
-          it is difficult to work with.
-          For example,
-          to evaluate <m>f(-2)</m> we would need to know whether
-          <m>x^2-1\geq 0</m> or <m>x^2-1\lt 0</m> when <m>x=-2</m>.
-          To simplify this piecewise-defined function,
-          we need to rewrite the conditions as intervals of <m>x</m>-values.
-        </p>
-        <p>
-          Here is the graph of <m>y=x^2-1</m>.
-          We will use it to determine where
-          <m>x^2-1\geq 0</m> and <m>x^2-1\lt 0</m>:
-        </p>
-        <figure xml:id="fig_xquaredminusonegraph">
-          <caption>The graph of <m>y=x^2-1</m>.</caption>
-          <image width="46%" source="xquaredminusonegraph.png"/>
-        </figure>
-        <p>
-          So we see that <m>x^2-1\geq 0</m> for <m>x\leq -1</m> and <m>x\geq 1</m>,
-          and that <m>x^2-1\lt 0</m> for <m>-1\lt x\lt 1</m>.
-          Rewriting the piecewise-defined function in terms of these intervals:
-        </p>
-        <p>
-          Thus we have
-          <me>
-            f(x) = |x^2-1| = \begin{cases}x^2-1, \amp  \text{ if }  x\leq -1\\ -(x^2-1), \amp   \text{ if }  -1\lt x\lt 1\\ x^2-1, \amp  \text{ if }  x\geq 1 \end{cases}
-          </me>
-        </p>
-        <p>
-          You should take a moment to use this formula to check your answers to <xref ref="ex_TaalmanSec0_5Ex4">Exercise</xref>.
-        </p>
-        <p>
-          <xref ref="fig_TaalmanPage59" /> contains the graph of <m>y=|x^2-1|</m>.
-          Note that the graph of <m>y=|x^2-1|</m> is the same as the graph of <m>y=x^2-1</m> on the intervals
-          <m>(-\infty,-1]</m> and <m>[1,\infty)</m>.
-          On the interval <m>(-1,1)</m> where <m>x^2-1</m> was negative,
-          the graph must be reflected above the <m>x</m>-axis to make the values positive when applying the absolute value.
-        </p>
-        <figure xml:id="fig_TaalmanPage59">
-          <caption>The graph of <m>y=|x^2-1|</m> is found by reflecting the negative parts of the graph of <m>y=x^2-1</m> up above the <m>x</m>-axis.</caption>
-          <image width="37%" source="TaalmanPage59.png"/>
-        </figure>
+         Consider <m>f(x)=\abs{x^2-1}=\abs{g(x)}</m>, where <m>g(x)=x^2-1</m>. Our usual sign diagram argument shows that <m>g(x)&lt; 0</m> if and only if <m>-1&lt; x&lt; 1</m>. Thus we obtain the graph of <m>f</m> by flipping the part of the parabola <m>g(x)=x^2-1</m> lying over the interval <m>(-1,1)</m> across the <m>x</m>-axis. 
+         </p>
+         <figure xml:id="fig_graph_abs_quad">
+          <caption>Graph of <m>f(x)=\abs{x^2-1}</m></caption>
+          <sidebyside widths="46% 46%">
+            <figure xml:id="fig_inner_quad">
+              <caption>Graph of <m>g(x)=x^2-1</m></caption>
+              <image>
+                <shortdescription>Graph of x^2-1</shortdescription>
+                <latex-image>
+                   \begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+%    xlabel = $x$,
+%    ylabel = {$f(x)$},
+    xtick={-3,-2,...,3},
+    ytick={-2,0,...,8},
+    ymin=-2.5, ymax=8.5,
+    xmin=-3.5, xmax=3.5,
+    grid=both,
+    width=8cm,
+    height=8cm,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    minor tick num=1,
+    every tick/.style={black,thick},
+    ] 
+    \addplot[domain=-3:3, thick, samples=200, color=blue]{x^2-1};
+  \end{axis}
+\end{tikzpicture}
+                </latex-image>
+              </image>
+            </figure>
+<figure xml:id="fig_abs_quad_final">
+  <caption>Graph of <m>f(x)=\abs{x^2-1}</m></caption>
+  <image>
+    <shortdescription>Graph of absolute value of x^2-1</shortdescription>
+    <latex-image>
+       \begin{tikzpicture}
+  \begin{axis}[
+   axis lines = middle,
+%    xlabel = $x$,
+%    ylabel = {$f(x)$},
+    xtick={-3,-2,...,3},
+    ytick={-2,0,...,8},
+    ymin=-2.5, ymax=8.5,
+    xmin=-3.5, xmax=3.5,
+    grid=both,
+    width=8cm,
+    height=8cm,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    minor tick num=1,
+    every tick/.style={black,thick},
+    ]
+    \addplot[domain=-3:3, thick, samples=200, color=blue]{abs(x^2-1)};
+  \end{axis}
+\end{tikzpicture}
+    </latex-image>
+  </image>
+</figure>
+          </sidebyside>
+         </figure>
+        
       </statement>
     </example>
-    <exercise>
-      <statement>
-        <p>
-          For the graph <m>y=f(x)</m> shown below,
-          sketch the graph of <m>y=|f(x)|</m> by reflecting the parts of the graph with negative values over the <m>x</m>-axis.
-        </p>
-        <figure xml:id="fig_TaalmanPage59X">
-          <caption>The graph of <m>y=f(x)</m>.</caption>
-          <image width="37%" source="TaalmanPage60.png"/>
-        </figure>
-      </statement>
-    </exercise>
+    
   </subsection>
-  <subsection>
-    <title>Summary</title>
-    <p>
-      The following terms were introduced in this section:
-    </p>
-    piecewise-defined function, absolute value, distance between real numbers (again)
-    <p>
-      <em>Key ideas:</em> Piecewise-defined functions are not algebraic functions.
-      They use different formulas on different intervals and their graphs are found by piecing together the graphs of the different formulas.
-      Absolute value is an example of a piecewise-defined function and can be used to find distance.
-      The graph of the absolute value of a function reflects the negative parts of the graph of the original function up over the horizontal axis.
-    </p>
-    <p>
-      <em>Other ideas introduced:</em>
-      It would be great to have an algebraic way to determine when an expression is positive and negative,
-      so we don't have to use a graph to find the absolute value of a function.
-    </p>
-    <p>
-      \fbox{\fbox{ End of Section 1.7}}
-    </p>
-    <p>
-      \rule{1.1\textwidth}{2pt}
-    </p>
-  </subsection>
+  
 </section>
