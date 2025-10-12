@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="s_limits_naive" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>Limits: informal definition</title>
+    <title>Introduction to limits</title>
     <objectives>
             <ol>
                 <li>
@@ -11,14 +11,25 @@
                 </li>
                 <li>
                     <p>
-                        Investigate the existence and/or value of a function graphically, by examining a a graph. 
+                        Investigate the existence and/or value of a limit from a graph or table.
                     </p>
                 </li>
                 <li>
                     <p>
-                        Use rigorous limit laws to compute limits of functions <m>f</m> formed from other functions using common arithmetic operations. 
+                        Give an informal definition of one-sided limits.
                     </p>
                 </li>
+                <li>
+                    <p>
+                        Express existence of two-sided limit in terms of one-sided limits.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Determine one-sided limits from a graph or table.
+                    </p>
+                </li>
+
             </ol>
     </objectives>
     
@@ -27,18 +38,7 @@
         <p>
             Many of the questions we will study in regard to functions revolve around how the output of a function <m>f</m> changes with respect to its input. As such we want to develop useful and precise language and tools for describing this relation. The <em>limit</em> of a function, defined informally here and rigorously later, is one such tool. Before getting to its informal definition, we illustrate with a graphical example the type of statements we wish to formalize with limit language. First, a reminder about what the graph of a function is. 
         </p> 
-        <definition xml:id="d_function_graph">
-            <title>Graph of function</title>
-            <statement>
-                <p>
-                    Given a function <m>f\colon D\rightarrow \R</m>, where <m>D\subseteq \R</m>, its <term>graph</term> is the set 
-                    <me>
-                        \{(x,y)\in \R^2\colon x\in D \text{ and } y=f(x)\}
-                    </me>.
-                    In other words the graph of <m>f</m> is the set of all points <m>P</m> in the <m>xy</m>-plane of the form <m>P=(x,f(x))</m>, where <m>x\in D</m>. 
-                </p>
-            </statement>
-        </definition>
+        
         
             <example xml:id="eg_function_behavior">
                 <title>Function behavior</title>
@@ -104,36 +104,10 @@
             </p>
         </solution>
         </example>
-        <remark xml:id="rm_greater_less_large">
-            <title>Large and small, greater than and less than</title>
-            <title>Large and small, greater than and less than</title>
-            <p>
-                This is a good point to elucidate what we mean in mathematics when we talk about a number being large or small. Both these attributes refer to the <em>size</em> or <em>magnitude</em> of the number, and these in turn are defined as the <em>absolute value</em> of the number. Furthermore, geometrically, the absolute value <m>\abs{x}</m> measures the <em>distance</em> from <m>x</m> to the origin. Thus, we say a number <m>x\in \R</m> is large or small depending on whether its absolute value <m>\abs{x}</m> is large or small, which depends on whether <m>x</m> is far away from or close to <m>0</m> on the real line. As a result, we say that both of the following are sequences where the numbers get arbitrarily large:
-                <md>
-                    <mrow>1, 10, 100, 1000, 10000,\dots \amp  \amp -1, -10,-100, -1000,-10000,\dots \amp </mrow>
-                </md>.
-                In more detail we say that the first sequence gets arbitrarily large and positive, while the second sequence gets arbitrarily large and negative. 
-                        </p>
-                        <p>
-                Contrast this with the use of <q>greater than</q> and <q>less than</q>. These refer specifically to the ordering relation <m>&lt;</m> defined on <m>\R</m>: <ie/>, 
-                <md>
-                    <mrow>x \text{ is less than } y \amp \iff x&lt; y </mrow>
-                    <mrow>x \text{ is greater than } y \amp \iff x&gt; y </mrow>
-                </md>.
-                The <m>&lt;</m> relation is related to, but not completely determined by size of numbers. A good way of thinking of the <m>&lt;</m> relation geometrically is in terms of position on the real number line: we have <m>x&lt; y</m> if and only if <m>x</m> lies to the left of <m>y</m> as points on the number line.  Thus, the number <m>-100</m> is <em>less than</em> the number <m>1</m> (since  <m>-100 &lt; 1</m>), even though <m>1</m> is <em>smaller</em> than <m>-100</m> (since <m>\abs{1}&lt; \abs{100}</m>). 
-            </p>
-            
-        </remark>
+        
             
         
-        <definition xml:id="d_defined_at">
-            <title>Function defined on set</title>
-            <statement>
-                <p>
-                Let <m>f</m> be a function with domain <m>D</m>. Given <m>a\in \R</m>, we say that <m>f</m> is <term>defined</term> at <m>a</m> if <m>a</m> is an element of the domain: <ie/>, <m>a\in D</m>. Similarly, given a subset <m>A\subseteq \R</m>, we say that <m>f</m> is defined on <m>A</m> if <m>A</m> is included in the domain: <ie/>, <m>A\subseteq D</m>. 
-                </p>
-            </statement>
-        </definition>
+        
         <definition xml:id="d_limit_informal">
             <title>Limit (informal)</title>
             <statement>

@@ -290,165 +290,216 @@
     </example>
   </subsection>
   <subsection>
-    <title>Absolute Value and Distance</title>
+    <title>Absolute value and distance</title>
     <p>
-      The absolute value function measures the size of a quantity,
-      disregarding whether it is positive or negative.
-      For a number visualized on the real number line,
-      this also describes the distance of that number from 0.
-      Said in another way,
-      the absolute value of a real number <m>a</m> is the magnitude, or size,
-      of <m>a</m> and is denoted <m>|a|</m>.
-    </p>
-    <example>
+      For the rest of the section we will focus on one specific example of a piecewise-defined function that plays an essential role in calculus: the <em>absolute value function</em> <m>f(x)=\abs{x}</m>. What makes this function so valuable to us, is that it introduces a quantitative notion of <em>distance</em> to points on the real number line. Indeed, our first definition of the absolute value will be expressed entirely in these geometric terms. 
+      <definition xml:id="d_absolute_value_geometric">
+      <title>Absolute value (geometric)</title>
       <statement>
-        <p>
-          For example, <m>|3|=3</m> and <m>|-3|=3</m>.
-        </p>
+      <p>
+      Given a real number <m>x\in \R</m> we define its <term>absolute value</term> to be the its distance from 0 on the number line. In more detail, <m>\abs{x}</m> is the length of the line segment between <m>0</m> and <m>x</m>. 
+      </p>
       </statement>
-    </example>
-    <p>
-      The absolute value of <m>a</m> "makes the number <m>a</m> positive." More precisely,
-      if <m>a</m> is positive or zero,
-      then taking the absolute value should do nothing:
-      in this case <m>|a|=a</m>.
-      However, if <m>a</m> is negative,
-      then taking the absolute value should change the sign:
-      in this case <m>|a|=-a</m>.
+      </definition>
+      The diagram in <xref ref="fig_abs_num_line"/> illustrates how we compute <m>\abs{x}</m> using our geometric definition in terms of distance. From the indicated distances there, we see that 
+      <md>
+        <mrow>\abs{-2} \amp =\abs{2}=2</mrow>
+        <mrow>\abs{-5} \amp =5</mrow>
+      </md>.
+      Furthermore, since the distance between the point <m>0</m> and itself is <m>0</m>, we see that <m>\abs{0}=0</m>. 
     </p>
-    <example>
-      <statement>
+    <figure xml:id="fig_abs_num_line">
+        <caption>Understanding <m>\abs{x}</m> in terms of distance</caption>
+      <image width="70%">
+        <shortdescription>Number line diagram for absolute value</shortdescription>
+        <latex-image>
+\begin{tikzpicture}
+% Draw number line
+\draw[thick] (-6,0) -- (3,0);
+
+% Points
+\foreach \x in {-5,-2,0,2}
+\draw[fill=blue] (\x,0) circle (3pt) node[below=4pt] {$\x$};
+
+% Upper curly braces (curve upward)
+\begin{scope}[decoration={calligraphic brace, amplitude=6pt}, thick]
+\draw[decorate] (-2,0.4) -- node[above=6pt] {$d=2$} (0,0.4);
+\draw[decorate] (0,0.4) -- node[above=6pt] {$d=2$} (2,0.4);
+\end{scope}
+
+% Higher curly brace (curve upward, use mirror to curve downward)
+\begin{scope}[decoration={calligraphic brace, amplitude=6pt}, thick]
+\draw[decorate] (-5,1.2) -- node[above=6pt] {$d=5$} (0,1.2);
+\end{scope}
+\end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  <p>
+    Exploring our geometric definition further, we see that for any positive number <m>a</m>, we have 
+    <me>
+      \abs{a}=\abs{-a}=a
+    </me>.
+    This is because both points <m>a</m> and <m>-a</m> are a distance of <m>a</m> from the point <m>0</m>. 
+  </p>
+  <image width="60%">
+    <shortdescription>Absolute value of a positive number and its minus</shortdescription>
+    <latex-image>
+     \begin{tikzpicture}
+  % Draw number line
+  \draw[thick] (-3,0) -- (3,0);
+
+  % Points
+  \foreach \x/\y in {-2/{-a},0/0,2/a}
+    \draw[fill=blue] (\x,0) circle (3pt) node[below=4pt] {$\y$};
+
+  % Upper curly braces (curve upward)
+  \begin{scope}[decoration={calligraphic brace, amplitude=6pt}, thick]
+    \draw[decorate] (-2,0.4) -- node[above=6pt] {$d=a$} (0,0.4);
+    \draw[decorate] (0,0.4) -- node[above=6pt] {$d=a$} (2,0.4);
+  \end{scope}
+
+\end{tikzpicture}
+
+    </latex-image>
+  </image>
+<p>
+  Put another way, given any real number <m>x</m>, to specify its location on the number line, we need <em>two</em> pieces of information: 
+  <ol>
+    <li>
+      <p>
+        whether <m>x</m> lies to the <em>left</em> or <em>right</em> of <m>0</m>;
+      </p>
+    </li>
+    <li>
+      <p>
+        the distance from <m>x</m> to <m>0</m>.
+      </p>
+    </li>
+  </ol>
+  The first piece of information is given by the <em>sign</em> of <m>x</m>: that is, <m>x</m> lies to the left of <m>0</m> if and only if <m>x&lt; 0</m>, and to the right if and only if <m>x&gt; 0</m>. The second piece of information is given by the absolute value <m>\abs{x}</m>. In this light, you can think of the absolute value function as ignoring the sign of a number and just returning its distance to zero. This is another explanation of why <m>\abs{a}=\abs{-a}</m>. 
+</p>
+ <remark xml:id="rm_greater_less_large">
+            <title>Large and small, greater than and less than</title>
+            <p>
+                The foregoing discussion brings to light some linguistic subtleties surrounding mathematical notions like  the <m>&lt;</m> relation, the <m>&gt;</m> relation, and the absolute value <m>\abs{x}</m>. 
+            </p>
+            <p>
+              Namely, although the two relations <m>&lt;</m> and <m>&gt;</m> are translated into English as <q>less than</q> and <q>greater than</q>, a statement like <m>x&lt; y</m> is not an indication of the relative <em>size</em> (or <em>magnitude</em>) of <m>x</m> and <m>y</m>, but rather their relative <em>position</em> on the real number line! In this sense, the correct geometric way to think of the statement <m>x&lt; y</m> is as follows: 
+              <md>
+                <mrow>x&lt; y \amp \iff x \text{ lies to the left  of } y \text{ on the number line} </mrow>
+                <mrow> \amp \iff  y \text{ lies to the right  of } y \text{ on the number line} </mrow>
+              </md>.
+            By contrast, the <em>size</em> of a number <m>x</m> is measured by its absolute value <m>\abs{x}</m>. Moreover, to say one number is <em>smaller</em> or <em>larger</em> than another is to say its absolute value is less than or greater than the other number's absolute value: <ie/>, we have 
+            <md>
+              <mrow>\abs{x}&lt; \abs{y} \amp \iff x \text{ is smaller than } y</mrow>
+              <mrow> \amp \iff y \text{ is larger than } x</mrow>
+            </md>.
+            As a result, the <em>sign</em> of a number has nothing to do with its size! To illustrate this, note that the three sequences of numbers below are all examples where the terms are getting arbitrarily large:
+            <md>
+              <mrow>1, \amp 10, 100, 1000, 10000,\dots </mrow>
+              <mrow>-1, \amp -10, -100, -1000, -10000,\dots</mrow>
+              <mrow>1, \amp -10, 100, -1000,10000,\dots </mrow>
+            </md>. 
+                In more detail we say that the first is a sequence of positive numbers that get arbitrarily large, the second a sequence of negative numbers that get arbitrarily large and negative, and the third a sequence of numbers of alternating sign that get arbitrarily large. 
+                </p>
+        </remark>
         <p>
-          For example, <m>|-3|=-(-3) = 3</m>.
+          Our geometric definition of the absolute value function in terms of distance will be very important for conceptualizing calculus notions like limits, continuity, and derivatives. However, for computaitonal purposes it is convenient to have a more algebraic definition of the absolute value. Here the notion of a piecewise-defined function comes to our aid. 
         </p>
-      </statement>
-    </example>
-    <p>
-      To define the absolute value function rigorously,
-      we must use a piecewise-defined function.
-      As just discussed,
-      for positive numbers and zero, we must apply one rule
-      (do nothing),
-      and for negative numbers, we must apply another rule
-      (multiply by <m>-1</m>).
-      Here is the formal definition,
-      which says precisely that.
-    </p>
     <definition xml:id="d_absval">
-      <title>Absolute Value</title>
+      <title>Absolute value (piecewise)</title>
       <statement>
         <p>
-          The <em>absolute value</em> of a real number <m>x</m> is
-          <me>
-            |x| = \begin{cases}x, \amp  \text{ if } x\geq 0\\ -x, \amp \text{ if } x\lt 0. \end{cases}
-          </me>
+         Given a real number <m>x</m>, we definte its <term>absolute value</term> <m>\abs{x}</m> as follows:
+         <men xml:id="eq_abs_val">
+          \abs{x}=\begin{cases}
+          x\amp \text{if } x\geq 0\\
+          -x\amp \text{if } x&lt; 0
+          \end{cases}
+         </men>.
+         The function <m>f\colon \R\rightarrow \R</m> defined as <m>f(x)=\abs{x}</m> is called the <term>absolute value function</term>. 
         </p>
       </statement>
     </definition>
+    <p>
+      Let's see how <xref ref="d_absolute_value"/> agrees with our previous geometric definition of the absolute value.
+    </p>
+    <example xml:id="eg_abs_value">
+    <title>Absolute value (piecewise)</title>
+    <statement>
+    <p>
+    Use <xref ref="d_absolute_value"/> to compute the following. 
+    <ol>
+      <li>
+        <p>
+          <m>\abs{2}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\abs{-2}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\abs{-5}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\abs{0}</m>
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+      <li>
+        <p>
+          Since <m>2\geq 0</m>, we use the first case in <xref ref="eq_abs_val"/> to compute <m>\abs{2}</m>:
+          <md>
+            <mrow>\abs{2} \amp =2 \amp (\text{since } 2\geq 0)</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Since <m>-2&lt; 0</m>, we use the second case in <xref ref="eq_abs_val"/> to compute <m>\abs{-2}</m>:
+          <md>
+            <mrow>\abs{-2} \amp = -(-2) \amp (\text{since } -2&lt; 0)</mrow>
+            <mrow> \amp =2</mrow>
+          </md>.
+          This example illustrates how, despite the <m>-x</m> appearing in the formula for the second case of <xref ref="d_absolute_value"/>, the output of the absolute value function is always nonnegative. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Similarly, since <m>-5&lt; 0</m>, we use the second case in <xref ref="eq_abs_val"/> to compute <m>\abs{-5}</m>:
+          <md>
+           <mrow>\abs{-5} \amp = -(-5) \amp (\text{since } -5&lt; 0)</mrow>
+            <mrow> \amp =5</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lastly, the first case of the definition applies to <m>x=0</m>, allowing us to compute <m>\abs{0}=0</m>. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
     <remark>
+      <title>Absolute value (piecewise)</title>
       <p>
-        The quantity <m>-x</m> is not necessarily negative;
-        it depends on whether the number <m>x</m> is positive or negative.
-        For example,
-        if <m>x=-3</m>, then <m>-x = -(-3)=3</m> is positive.
-        In <xref ref="d_absval">Definition</xref>,
-        <m>|x|=-x</m> only if <m>x</m> is negative,
-        in which case <m>-x</m> is a <em>positive number</em>.
+        As the last example illustrates, despite the <m>-x</m> formula appearing in the second case of the piecewise definition of <m>\abs{x}</m>, the output is always nonnegative. This is because the second case only applies if the the input <m>x</m> is itself <em>negative</em>, in which case the output <m>-x</m> is <em>positive</em>!
       </p>
     </remark>
-    <p>
-      Absolute values distribute over products and quotients;
-      for example,
-      the absolute value of a product is simply the product of the absolute values.
-    </p>
-    <theorem>
-      <title>Absolute Values Distribute over Products and Quotients</title>
-      <statement>
-        <p>
-          Given any real numbers <m>a</m> and <m>b</m>,
-          <m>|ab| = |a||b|</m> and <m>\left|\dfrac{a}{b}\right| = \dfrac{|a|}{|b|}</m>.
-        </p>
-      </statement>
-    </theorem>
-    <example>
-      <statement>
-        <p>
-          For example,
-          <m>|(-2)(3)| = |-6| = 6</m> is equal to <m>|-2||3| = (2)(3) = 6</m>.
-        </p>
-      </statement>
-    </example>
-    <example>
-      <title>Non-Example</title>
-      <statement>
-        <p>
-          Note that absolute values do <em>not</em>
-          distribute over sums and differences.
-          For example,
-          <m>|-2+3| = |1| = 1</m> is not equal to <m>|-2|+|3| = 2+3 = 5</m>.
-        </p>
-      </statement>
-    </example>
-    <p>
-      The absolute value <m>|a|</m> of any real number <m>a</m> is the distance between <m>a</m> and 0 on the real number line.
-      Geometrically,
-      the distance between any two real numbers <m>a</m> and <m>b</m> is the length of the line segment from <m>a</m> to <m>b</m> on the number line.
-      Algebraically, this distance is given by <m>|b-a|</m>,
-      regardless of the signs of <m>a</m> and <m>b</m>.
-    </p>
-    <example>
-      <statement>
-        <p>
-          For example,
-          the diagram that follows shows that the distance between <m>a=2</m> and <m>b=-1</m> is 3 units.
-          Algebraically, <m>|b-a| = |-1-2| = |-3| = 3</m>.
-        </p>
-      </statement>
-    </example>
-    <definition xml:id="d_distwithabsvals">
-      <title>Distance Between Two Real Numbers</title>
-      <statement>
-        <p>
-          The <em>distance</em> between two real numbers <m>a</m> and <m>b</m> is <m>\text{ dist } (a,b) = |b-a|</m>.
-        </p>
-      </statement>
-    </definition>
-    <exercise>
-      <statement>
-        <p>
-          For each of the values of <m>a</m> and <m>b</m> that follow,
-          sketch <m>a</m> and <m>b</m> on the real number line and visually find the distance between <m>a</m> and <m>b</m>.
-          Then calculate <m>|b-a|</m> and verify that it is equal to the geometric distance.
-          <ol marker="labelalphitemsep5pt">
-            <li>
-              <p>
-                <m>a=3</m> and <m>b=5</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>a=5</m> and <m>b=3</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>a=-3</m> and <m>b=5</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>a=3</m> and <m>b=-5</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>a=-3</m> and <m>b=-5</m>
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
+    
     <p>
       You may remember that we gave a different definition for the distance between two real numbers in <xref ref="d_distwithsquareroot">Definition</xref>.
       These two definitions are the same,
