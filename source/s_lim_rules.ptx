@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_lim_rules" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Limit rules</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand that a limit rule can only be applied subjecto to certain restrictions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    See examples where limit rules are not sufficient for computing a limit. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_limit_laws">
+        <title>Limit rules</title>
+    <p>
+        We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with. Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules. 
+    </p>
+    <p>
+        Our first theorem gives us <em>formulas</em> for computing the limits of particular types of functions: constant functions, and the identity function. 
+    </p>
+    <theorem xml:id="th_lim_const_id">
+    <title>Constant and identity functions</title>
+        <statement>
+            <p>
+            <ol>  
+                <li xml:id="th_lim_const">
+                    <title>Constant function</title>
+                    <p>
+                       Fix a real number <m>c\in \R</m> and let <m>h\colon \R\rightarrow \R</m> be the constant function defined as <m>h(x)=c</m> for all <m>x\in \R</m>. Given any <m>a\in \R</m> we have 
+                       <men xml:id="eq_limit_const">
+                        \lim_{x\to a}h(x)=\lim_{x\to a}c=c
+                       </men>.
+                    </p>
+                </li>
+                <li xml:id="th_lim_id">
+                    <title>Identity function</title>
+                    <p>
+                       Let <m>\id\colon \R\rightarrow \R</m> be the identity function defined as <m>\id(x)=x</m> for all <m>x\in \R</m>. Given any <m>a\in \R</m> we have 
+                       <men xml:id="eq_lim_id">
+                        \lim_{x\to a}\id(x)=\lim_{x\to a}x=a
+                       </men>.
+                    </p>
+                </li>
+            </ol> 
+            </p>
+        </statement>
+    </theorem>
+    <p>
+        In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various <em>function operations</em>. 
+    </p>
+    <theorem xml:id="th_lim_rules">
+        <title>Limit rules</title>
+        <statement>
+            <p>
+               Let <m>f</m> and <m>g</m> be functions, and suppose <m>\lim\limits_{x\to a}f(x)</m> and <m>\lim\limits_{x\to a}g(x)</m> exist for the real number <m>a\in \R</m>. 
+            <ol>
+                <li xml:id="th_lim_sum">
+                    <title>Sum rule</title>
+                    <p>
+                       <m>\lim\limits_{x\to a}
+                        \left(f(x)+g(x)\right)=\lim\limits_{x\to a}f(x)+\lim\limits_{x\to a}g(x)</m>.
+                    </p>
+                </li>
+                <li xml:id="th_lim_diff">
+                    <title>Difference rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\left(f(x)-g(x)\right)=\lim\limits_{x\to a}f(x)-\lim\limits_{x\to a}g(x)</m>.
+                    </p>
+                </li>
+                <li xml:id="th_scal_mult">
+                    <title>Scalar multiple rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\left(cf(x)\right)=c\lim\limits_{x\to a}f(x)</m> for all <m>c\in \R</m>. 
+                    </p>
+                </li>
+                <li xml:id="th_prod">
+                    <title>Product rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\left(f(x)g(x)\right)=\lim\limits_{x\to a}f(x)\, \lim\limits_{x\to a}g(x)</m>.
+                    </p>
+                </li>
+                <li xml:id="th_lim_quot">
+                    <title>Quotient rule</title>
+                    <p>
+                       If <m>\lim\limits_{x\to a}g(x)\ne 0</m>, then 
+                       <m>\displaystyle
+                        \lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{\lim\limits_{x\to a}f(x)}{\lim\limits_{x\to a}g(x)}
+                       </m>.
+                    </p>
+                </li>
+                <li xml:base="th_lim_power">
+                    <title>Power rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}[f(x)]^n=\left[\lim\limits_{x\to a}f(x)\right]^n</m> for all positive integers <m>n</m>. 
+                    </p>
+                </li>
+                <li xml:base="th_lim_root">
+                    <title>Root rule</title>
+                    <p>
+                        <m>\lim\limits_{x\to a}\sqrt[n]{f(x)}=\sqrt[n]{\lim\limits_{x\to a}f(x)}</m> for all positive integers <m>n</m>, where we must assume <m>\lim\limits_{x\to a}f(x)</m> is positive if <m>n</m> is even. 
+                    </p>
+                </li>
+                <li xml:id="th_lim_repl">
+                    <title>Replacement rule</title>
+                    <p>
+                        If <m>h</m> is a function satisfying <m>h(x)=f(x)</m> for all <m>x\ne a</m> in an open interval about <m>a</m>, then <m>\lim\limits_{x\to a}f(x)=\lim\limits_{x\to a}h(x)</m>.
+                    </p>
+                </li>
+            </ol>
+            </p>
+
+        </statement>
+    </theorem>
+    <remark>
+        <title>Limit rules</title>
+        <p>
+            It is useful to think of <xref ref="th_lim_rules"/> as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can <q>bring the limit into</q> various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions.
+            Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.
+        </p>
+        <p>
+            In fact most of the rules in <xref ref="th_lim_rules"/> can be nicely summarized in plain English (<eg/>, <q>the limit of a product is the product of the limits</q>, <q>the limit of an <m>n</m>-th power is the <m>n</m>-th power of the limit </q>), and these summaries are helpful for remembering how the limit interacts with function operations.
+        </p>
+    </remark>
+    <remark>
+        <title>Quotient rule</title>
+        <p>
+            Assume as in <xref ref="th_lim_rules"/> that <m>\lim_{x\to a}f(x)</m> and <m>\lim_{x\to a}g(x)</m> exist and consider the limit <m>\lim_{x\to a}\frac{f(x)}{g(x)}</m>. Mark well that we can only make use of the quotient rule if <m>\lim_{x\to a}g(x)\ne 0</m>, in which case we can conclude that the limit of the quotient is the quotient of the limits. 
+        </p>
+        <p>
+            Note further that in the case where <m>\lim_{x\to a}g(x)=0</m>, we cannot automatically conclude that the limit <m>\lim_{x\to a}\frac{f(x)}{g(x)}</m> does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See <xref ref="eg_lim_quot_fail"/>.
+        </p>
+    </remark>
+    <example xml:id="eg_lim_rules">
+        <title>Using limit rules</title>
+        <statement><p>
+            Compute the limit below. Your answer should be a <em>chain of equalities</em> with steps justified by limit rules. 
+            <me>
+                \lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}}
+            </me>
+            
+        </p></statement>
+        <solution>
+            <p>
+                <md>
+                    <mrow>\lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}} \amp = \frac{\lim\limits_{x\to -2}(x^3+x+1)}{\lim\limits_{x\to -2}\sqrt[3]{4x^2+11}}
+                        \amp \text{(quot. rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{(\lim\limits_{x\to -2}x)^3+\lim\limits_{x\to -2}x+\lim\limits_{x\to -2}1}{\sqrt[3]{\lim\limits_{x\to -2}(4x^2+11)}}
+                        \amp \text{(sum, power rule/root rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{(-2)^3-2+1}{\sqrt[3]{\lim_{x\to -2}(4x^2)+\lim\limits_{x\to -2}11}}
+                        \amp \text{(ident., const. rule/sum rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{-9}{\sqrt[3]{4(\lim\limits_{x\to -2}x)^2+11}}
+                        \amp \text{(scal. mult., power, const. rule)}
+                    </mrow>
+                    <mrow> \amp =-\frac{9}{\sqrt[3]{4(-2)^2+11}} \amp \text{(ident. rule)}</mrow>
+                    <mrow> \amp =-\frac{9}{\sqrt[3]{27}}=-3</mrow>
+                </md>.
+            </p>
+        </solution>
+    </example>
+    <corollary xml:id="cor_poly_rational">
+        <title>Evaluation (polynomials and rational functions)</title>
+        <statement>
+            <p>
+                <ol>
+                    <li>
+                        <title>Polynomial evaluation</title>
+                        <p>
+                            Let <m>f(x)=\anpoly</m> be a polynomial. Given any <m>a\in \R</m>, we have 
+                            <me>
+                                \lim\limits_{x\to a}f(x)=f(a)
+                            </me>.
+                        </p>
+                    </li>
+                    <li>
+                        <title>Rational evaluation</title>
+                        <p>
+                            Let <m>f</m> and <m>g</m> be polynomials. For any <m>a\in \R</m> satisfying <m>g(a)\ne 0</m>, we have 
+                            <me>
+                                \lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{f(a)}{g(a)}
+                            </me>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </corollary>
+    <example xml:id="eg_poly_eval">
+        <title>Polynomial evaluation</title>
+        <statement><p>
+            Give a simplified computation of the limit in <xref ref="eg_lim_rules"/> using <xref ref="cor_poly_rational"/>.
+        </p></statement>
+        <solution>
+            <p>
+                The polynomial evaluation formula allows us to skip a few steps in our computation from <xref ref="eg_lim_rules"/>:
+                <md>
+                    <mrow>\lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}} \amp = \frac{\lim\limits_{x\to -2}(x^3+x+1)}{\lim\limits_{x\to -2}\sqrt[3]{4x^2+11}}
+                        \amp \text{(quot. rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{(-2)^3+(-2)+1}{\sqrt[3]{\lim\limits_{x\to -2}(4x^2+11)}}
+                        \amp \text{(poly. eval./root rule)}
+                    </mrow>
+                    <mrow> \amp =\frac{-9}{\sqrt[3]{4(-2)^2+11}}
+                        \amp \text{(poly eval.)}
+                    </mrow>
+                    <mrow> \amp =-\frac{9}{\sqrt[3]{27}}=-3</mrow>
+                </md>.
+            </p>
+        </solution>
+    </example>
+    <example xml:id="eg_lim_quot_fail">
+        <title>Quotient rule does not apply</title>
+        <statement><p>
+            Compute the limit below. Your answer should be a chain of equalities with each step justified. 
+            <me>
+                \lim_{x\to 1}\frac{x^2-1}{x-1}
+            </me>
+            
+        </p></statement>
+        <solution>
+            <p>
+                Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: 
+                <md>
+                    <mrow> \lim_{x\to 1}\frac{x^2-1}{x-1}\amp =\lim_{x\to 1}\frac{(x-1)(x+1)}{x-1} </mrow>
+                    <mrow> \amp = \lim_{x\to 1}x+1 \amp \text{(repl. rule)}</mrow>
+                    <mrow> \amp =2 \amp \text{(poly eval.)}</mrow>
+                </md>. 
+            </p>
+        </solution>
+    </example>
+    </subsection>
+    
+
+</section>
