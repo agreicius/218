@@ -297,7 +297,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -351,7 +351,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">Suppose <span class="process-math">\(f\)</span> is a function defined everywhere on an open interval containing the point <span class="process-math">\(a\in \R\text{,}\)</span> except possibly at <span class="process-math">\(a\)</span> itself. We say that the <dfn class="terminology">limit</dfn> of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\)</span> exists if there is a value <span class="process-math">\(L\)</span> satisfying the following property: for all <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists a <span class="process-math">\(\delta &gt; 0\)</span> such that if <span class="process-math">\(0&lt; \abs{x-a}&lt; \delta\text{,}\)</span> then <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\text{.}\)</span> Using logical shorthand:</div>
 <div class="displaymath process-math" id="eq_lim_formal">
 \begin{equation}
-\text{for all } \epsilon &gt; 0, \text{ there is } \delta&gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\text{.}\tag{1.77}
+\text{for all } \epsilon &gt; 0, \text{ there is } \delta&gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\text{.}\tag{1.75}
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_lim_formal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -373,7 +373,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">The <em class="emphasis">conditional</em> (or <em class="emphasis">if-then</em>) statement</div>
 <div class="displaymath process-math" id="eq_def_anat">
 \begin{equation}
-0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\tag{1.78}
+0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\tag{1.76}
 \end{equation}
 </div>
 <div class="para">asserts that <em class="emphasis">if</em> <span class="process-math">\(x\)</span> is within a distance <span class="process-math">\(\delta\)</span> of <span class="process-math">\(a\)</span> (but not equal to <span class="process-math">\(a\)</span>), <em class="emphasis">then</em> <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span>
@@ -387,7 +387,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">How does adding the <em class="emphasis">existential quantifier</em> “there exists a <span class="process-math">\(\delta\)</span>” change the meaning? Considering <span class="process-math">\(\epsilon\)</span> to be fixed for the moment, the statement</div>
 <div class="displaymath process-math" id="eq_def_anat_exists">
 \begin{equation}
-\text{ there is } \delta&gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\tag{1.79}
+\text{ there is } \delta&gt; 0, \text{ s.t., } 0&lt; \abs{x-a}&lt; \delta\implies \abs{f(x)-L}&lt; \epsilon\tag{1.77}
 \end{equation}
 </div>
 <div class="para">asserts that for all <span class="process-math">\(x\)</span> <em class="emphasis">sufficiently close</em> (but not equal) to <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span> Indeed, it provides a sort of “safety distance” <span class="process-math">\(\delta\)</span> and says that as long as <span class="process-math">\(x\)</span> is within this safety distance of <span class="process-math">\(a\)</span> (but not equal to <span class="process-math">\(a\)</span>), then <span class="process-math">\(f(x)\)</span> is within a distance <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\text{.}\)</span>
@@ -444,16 +444,16 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">Treating <span class="process-math">\(\epsilon\)</span> as an arbitrary positive constant, solve the inequality</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_proc_lim_def.html" id="eq_proc_lim_def">
 \begin{equation}
-\abs{f(x)-L}&lt; \epsilon\tag{1.80}
+\abs{f(x)-L}&lt; \epsilon\tag{1.78}
 \end{equation}
 </div>
-<div class="para">for <span class="process-math">\(x\text{.}\)</span> That is, find the set <span class="process-math">\(S\)</span> of all <span class="process-math">\(x\)</span> satisfying <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.80">(1.80)</a>. This set is typically a union of one or more intervals.</div>
+<div class="para">for <span class="process-math">\(x\text{.}\)</span> That is, find the set <span class="process-math">\(S\)</span> of all <span class="process-math">\(x\)</span> satisfying <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.78">(1.78)</a>. This set is typically a union of one or more intervals.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1"><a href="#proc_epsilon_delta-2-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
 <li id="proc_epsilon_delta-2-1-4-2">
-<div class="para" id="proc_epsilon_delta-2-1-4-2-1">Find a positive <span class="process-math">\(\delta\)</span> such that the set <span class="process-math">\(S\)</span> of solutions to <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.80">(1.80)</a> contains the interval <span class="process-math">\((a-\delta, a+\delta)\text{,}\)</span> with the possible exception of <span class="process-math">\(a\)</span> itself. The <span class="process-math">\(\delta\)</span> you provide will be expressed in terms of <span class="process-math">\(\epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="proc_epsilon_delta-2-1-4-2-1">Find a positive <span class="process-math">\(\delta\)</span> such that the set <span class="process-math">\(S\)</span> of solutions to <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.78">(1.78)</a> contains the interval <span class="process-math">\((a-\delta, a+\delta)\text{,}\)</span> with the possible exception of <span class="process-math">\(a\)</span> itself. The <span class="process-math">\(\delta\)</span> you provide will be expressed in terms of <span class="process-math">\(\epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2"><a href="#proc_epsilon_delta-2-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
@@ -465,7 +465,7 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#proc_epsilon_delta-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Procedure 1.13.4: Epsilon-delta proof for limits"><a href="#proc_epsilon_delta" title="Copy heading and permalink for Procedure 1.13.4: Epsilon-delta proof for limits" aria-label="Copy heading and permalink for Procedure 1.13.4: Epsilon-delta proof for limits">🔗</a></div></article><div class="para" id="s_lim_formal-8">Our first example illustrating <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.80">(1.80)</a> treats a function of the form <span class="process-math">\(f(x)=ax+b\text{.}\)</span> Such functions are called <em class="emphasis">affine functions</em>.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Procedure 1.13.4: Epsilon-delta proof for limits"><a href="#proc_epsilon_delta" title="Copy heading and permalink for Procedure 1.13.4: Epsilon-delta proof for limits" aria-label="Copy heading and permalink for Procedure 1.13.4: Epsilon-delta proof for limits">🔗</a></div></article><div class="para" id="s_lim_formal-8">Our first example illustrating <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.78">(1.78)</a> treats a function of the form <span class="process-math">\(f(x)=ax+b\text{.}\)</span> Such functions are called <em class="emphasis">affine functions</em>.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_ep_delt_affine"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epsilon-delta: affine function.</span>
@@ -573,7 +573,7 @@ d \amp =a+(d-a)
 </div>
 <div class="solutions"><details id="s_lim_formal-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="s_lim_formal-12-3-1">
-<div class="para">Following <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.80">(1.80)</a> we treat <span class="process-math">\(\epsilon\)</span> as an arbitrary positive constant and attempt to solve the inequality</div>
+<div class="para">Following <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.78">(1.78)</a> we treat <span class="process-math">\(\epsilon\)</span> as an arbitrary positive constant and attempt to solve the inequality</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_proc_lim_def.html">
 \begin{equation*}
 \abs{f(x)-1}&lt; \epsilon\text{.}
@@ -660,7 +660,7 @@ S=(3-\epsilon(2-\epsilon), 3+\epsilon(2 +\epsilon))=(3-\delta_1, 3+\delta_2)\tex
 </div>
 <div class="autopermalink" data-description="Solution 1.13.9.1"><a href="#s_lim_formal-12-3" title="Copy heading and permalink for Solution 1.13.9.1" aria-label="Copy heading and permalink for Solution 1.13.9.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Example 1.13.9: Epsilon-delta: radical function"><a href="#s_lim_formal-12" title="Copy heading and permalink for Example 1.13.9: Epsilon-delta: radical function" aria-label="Copy heading and permalink for Example 1.13.9: Epsilon-delta: radical function">🔗</a></div></article><div class="para" id="s_lim_formal-13">As the last example illustrates, as our function <span class="process-math">\(f\)</span> becomes more complicated, solving the relevant inequality <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.80">(1.80)</a> can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a <em class="emphasis">partial</em> proof: namely we will give you one specific <span class="process-math">\(\epsilon\)</span> as a challenge, and ask you to find a <span class="process-math">\(\delta\)</span> that satisfies <a href="s_lim_formal.html#eq_lim_formal" class="xref" data-knowl="./knowl/xref/eq_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.77">(1.77)</a> for this particular <span class="process-math">\(\epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 1.13.9: Epsilon-delta: radical function"><a href="#s_lim_formal-12" title="Copy heading and permalink for Example 1.13.9: Epsilon-delta: radical function" aria-label="Copy heading and permalink for Example 1.13.9: Epsilon-delta: radical function">🔗</a></div></article><div class="para" id="s_lim_formal-13">As the last example illustrates, as our function <span class="process-math">\(f\)</span> becomes more complicated, solving the relevant inequality <a href="s_lim_formal.html#eq_proc_lim_def" class="xref" data-knowl="./knowl/xref/eq_proc_lim_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.78">(1.78)</a> can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a <em class="emphasis">partial</em> proof: namely we will give you one specific <span class="process-math">\(\epsilon\)</span> as a challenge, and ask you to find a <span class="process-math">\(\delta\)</span> that satisfies <a href="s_lim_formal.html#eq_lim_formal" class="xref" data-knowl="./knowl/xref/eq_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.75">(1.75)</a> for this particular <span class="process-math">\(\epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_formal-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_ep_delt_quad"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding <span class="process-math">\(\delta\)</span> for specific <span class="process-math">\(\epsilon\text{:}\)</span> quadratic function.</span>
