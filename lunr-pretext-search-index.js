@@ -2836,135 +2836,225 @@ var ptx_lunr_docs = [
   "body": " Limit at endpoints of domain   Let be a function, and let .   Right endpoint  If is defined for all on an open interval , but not for all in a full open interval containing , then we say the limit of as approaches exists if exists. When this is the case, we define .    Left endpoint  If is defined for all on an open interval , but not for all in a full open interval containing , then we say the limit of as approaches exists if exists. When this is the case, we define .      "
 },
 {
-  "id": "s_limit_sandwich",
+  "id": "s_lim_rules",
   "level": "1",
-  "url": "s_limit_sandwich.html",
+  "url": "s_lim_rules.html",
   "type": "Section",
   "number": "1.12",
-  "title": "Limits: algebraic technique and sandwich theorem",
-  "body": " Limits: algebraic technique and sandwich theorem     Use algebraic techniques to help compute limits.    Use the sandwich theorem to compute limits.    Apply the sandwich theorem technique to limits involving absolute value, sine, and cosine.      Algebraic techniques  As we saw in , there are limits to usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some algebraic techniques.   Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .     Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.      Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .      Sandwich theorem  Another situation where our basic limit rules might not suffice to compute a given limit is when the function in question is unreasonably complicated, making its behavior near a point difficult to pin down. The sandwich theorem potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function , whose behavior is a mystery to us, with two simpler bounding functions and , whose behavior we understand. It is called the sandwich theorem as the necessary inequality has  sandwiched between the functions and .   Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!    Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.   Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that         Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.      Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .     Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .    Our next theorem concerns the absolute value, the definition of which we now recall.   Absolute value   The absolute value of a real number , denoted , is defined as .     Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.       Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .       Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.   Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .       As promised in the proof of , we provide a proof of the inequality , or equivalently, for all . You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.   Proof of  We will prove that for all . First, observer that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any . The triangle , where , , and lies within the the sector of the unit disc determined by . (Diagram to appear sometime soon.) Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.    "
+  "title": "Limit rules",
+  "body": " Limit rules     State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.    Understand that a limit rule can only be applied subjecto to certain restrictions.    See examples where limit rules are not sufficient for computing a limit.      Limit rules  We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with. Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules.  Our first theorem gives us formulas for computing the limits of particular types of functions: constant functions, and the identity function.   Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .       In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various function operations .   Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .        Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.    Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .    Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .     Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .        Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .     Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .     "
 },
 {
-  "id": "s_limit_sandwich-2",
+  "id": "s_lim_rules-2",
   "level": "2",
-  "url": "s_limit_sandwich.html#s_limit_sandwich-2",
+  "url": "s_lim_rules.html#s_lim_rules-2",
   "type": "Objectives",
   "number": "1.12",
   "title": "",
-  "body": "   Use algebraic techniques to help compute limits.    Use the sandwich theorem to compute limits.    Apply the sandwich theorem technique to limits involving absolute value, sine, and cosine.    "
+  "body": "   State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.    Understand that a limit rule can only be applied subjecto to certain restrictions.    See examples where limit rules are not sufficient for computing a limit.    "
+},
+{
+  "id": "th_lim_const_id",
+  "level": "2",
+  "url": "s_lim_rules.html#th_lim_const_id",
+  "type": "Theorem",
+  "number": "1.12.1",
+  "title": "Constant and identity functions.",
+  "body": " Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .      "
+},
+{
+  "id": "th_lim_rules",
+  "level": "2",
+  "url": "s_lim_rules.html#th_lim_rules",
+  "type": "Theorem",
+  "number": "1.12.2",
+  "title": "Limit rules.",
+  "body": " Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .      "
+},
+{
+  "id": "ss_limit_laws-7",
+  "level": "2",
+  "url": "s_lim_rules.html#ss_limit_laws-7",
+  "type": "Remark",
+  "number": "1.12.3",
+  "title": "Limit rules.",
+  "body": " Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.  "
+},
+{
+  "id": "ss_limit_laws-8",
+  "level": "2",
+  "url": "s_lim_rules.html#ss_limit_laws-8",
+  "type": "Remark",
+  "number": "1.12.4",
+  "title": "Quotient rule.",
+  "body": " Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .  "
+},
+{
+  "id": "eg_lim_rules",
+  "level": "2",
+  "url": "s_lim_rules.html#eg_lim_rules",
+  "type": "Example",
+  "number": "1.12.5",
+  "title": "Using limit rules.",
+  "body": " Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .   "
+},
+{
+  "id": "cor_poly_rational",
+  "level": "2",
+  "url": "s_lim_rules.html#cor_poly_rational",
+  "type": "Corollary",
+  "number": "1.12.6",
+  "title": "Evaluation (polynomials and rational functions).",
+  "body": " Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .      "
+},
+{
+  "id": "eg_poly_eval",
+  "level": "2",
+  "url": "s_lim_rules.html#eg_poly_eval",
+  "type": "Example",
+  "number": "1.12.7",
+  "title": "Polynomial evaluation.",
+  "body": " Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .   "
+},
+{
+  "id": "eg_lim_quot_fail",
+  "level": "2",
+  "url": "s_lim_rules.html#eg_lim_quot_fail",
+  "type": "Example",
+  "number": "1.12.8",
+  "title": "Quotient rule does not apply.",
+  "body": " Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .   "
+},
+{
+  "id": "s_lim_algebra",
+  "level": "1",
+  "url": "s_lim_algebra.html",
+  "type": "Section",
+  "number": "1.13",
+  "title": "Limits: algebraic technique",
+  "body": " Limits: algebraic technique     Use algebraic techniques to help compute limits.      Algebraic techniques  As we saw in , there are limits to usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some algebraic techniques.   Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .     Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.      Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .      Sandwich theorem  Another situation where our basic limit rules might not suffice to compute a given limit is when the function in question is unreasonably complicated, making its behavior near a point difficult to pin down. The sandwich theorem potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function , whose behavior is a mystery to us, with two simpler bounding functions and , whose behavior we understand. It is called the sandwich theorem as the necessary inequality has  sandwiched between the functions and .   Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!    Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.   Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that         Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.      Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .     Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .    Our next theorem concerns the absolute value, the definition of which we now recall.   Absolute value   The absolute value of a real number , denoted , is defined as .     Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.       Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .       Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.   Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .       As promised in the proof of , we provide a proof of the inequality , or equivalently, for all . You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.   Proof of  We will prove that for all . First, observer that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any . The triangle , where , , and lies within the the sector of the unit disc determined by . (Diagram to appear sometime soon.) Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.    "
+},
+{
+  "id": "s_lim_algebra-2",
+  "level": "2",
+  "url": "s_lim_algebra.html#s_lim_algebra-2",
+  "type": "Objectives",
+  "number": "1.13",
+  "title": "",
+  "body": "   Use algebraic techniques to help compute limits.    "
 },
 {
   "id": "eg_lim_factor",
   "level": "2",
-  "url": "s_limit_sandwich.html#eg_lim_factor",
+  "url": "s_lim_algebra.html#eg_lim_factor",
   "type": "Example",
-  "number": "1.12.1",
+  "number": "1.13.1",
   "title": "Algebraic limit technique: factoring.",
   "body": " Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .   "
 },
 {
   "id": "eg_limit_clear_denom",
   "level": "2",
-  "url": "s_limit_sandwich.html#eg_limit_clear_denom",
+  "url": "s_lim_algebra.html#eg_limit_clear_denom",
   "type": "Example",
-  "number": "1.12.2",
+  "number": "1.13.2",
   "title": "Algebraic limit technique: clear denominator.",
   "body": " Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.    "
 },
 {
   "id": "eg_lim_radical",
   "level": "2",
-  "url": "s_limit_sandwich.html#eg_lim_radical",
+  "url": "s_lim_algebra.html#eg_lim_radical",
   "type": "Example",
-  "number": "1.12.3",
+  "number": "1.13.3",
   "title": "Algebraic limit technique: radicals.",
   "body": " Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .   "
 },
 {
   "id": "th_sandwich",
   "level": "2",
-  "url": "s_limit_sandwich.html#th_sandwich",
+  "url": "s_lim_algebra.html#th_sandwich",
   "type": "Theorem",
-  "number": "1.12.4",
+  "number": "1.13.4",
   "title": "Sandwich theorem.",
   "body": " Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!   "
 },
 {
   "id": "proc_sandwich",
   "level": "2",
-  "url": "s_limit_sandwich.html#proc_sandwich",
+  "url": "s_lim_algebra.html#proc_sandwich",
   "type": "Procedure",
-  "number": "1.12.5",
+  "number": "1.13.5",
   "title": "Sandwich theorem.",
   "body": " Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that       "
 },
 {
   "id": "rm_sandwich",
   "level": "2",
-  "url": "s_limit_sandwich.html#rm_sandwich",
+  "url": "s_lim_algebra.html#rm_sandwich",
   "type": "Remark",
-  "number": "1.12.6",
+  "number": "1.13.6",
   "title": "Sandwich theorem.",
   "body": " Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.    "
 },
 {
   "id": "eg_sandwich_easy",
   "level": "2",
-  "url": "s_limit_sandwich.html#eg_sandwich_easy",
+  "url": "s_lim_algebra.html#eg_sandwich_easy",
   "type": "Example",
-  "number": "1.12.7",
+  "number": "1.13.7",
   "title": "Sandwich theorem: easy.",
   "body": " Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .   "
 },
 {
   "id": "ss_sandwich-8",
   "level": "2",
-  "url": "s_limit_sandwich.html#ss_sandwich-8",
+  "url": "s_lim_algebra.html#ss_sandwich-8",
   "type": "Example",
-  "number": "1.12.8",
+  "number": "1.13.8",
   "title": "Sandwich theorem: less easy.",
   "body": " Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .   "
 },
 {
   "id": "d_absolute_value",
   "level": "2",
-  "url": "s_limit_sandwich.html#d_absolute_value",
+  "url": "s_lim_algebra.html#d_absolute_value",
   "type": "Definition",
-  "number": "1.12.9",
+  "number": "1.13.9",
   "title": "Absolute value.",
   "body": " Absolute value   The absolute value of a real number , denoted , is defined as .   "
 },
 {
   "id": "rm_abs_val",
   "level": "2",
-  "url": "s_limit_sandwich.html#rm_abs_val",
+  "url": "s_lim_algebra.html#rm_abs_val",
   "type": "Remark",
-  "number": "1.12.10",
+  "number": "1.13.10",
   "title": "Absolute value.",
   "body": " Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.     "
 },
 {
   "id": "th_abs_lim",
   "level": "2",
-  "url": "s_limit_sandwich.html#th_abs_lim",
+  "url": "s_lim_algebra.html#th_abs_lim",
   "type": "Theorem",
-  "number": "1.12.11",
+  "number": "1.13.11",
   "title": "Limits and absolute value.",
   "body": " Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .      "
 },
 {
   "id": "th_lim_sine_cos",
   "level": "2",
-  "url": "s_limit_sandwich.html#th_lim_sine_cos",
+  "url": "s_lim_algebra.html#th_lim_sine_cos",
   "type": "Theorem",
-  "number": "1.12.12",
+  "number": "1.13.12",
   "title": "Sine and cosine evaluation at zero.",
   "body": " Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .      "
 },
 {
   "id": "ss_sandwich-16",
   "level": "2",
-  "url": "s_limit_sandwich.html#ss_sandwich-16",
+  "url": "s_lim_algebra.html#ss_sandwich-16",
   "type": "Proof",
   "number": "1",
   "title": "Proof of <span class=\"process-math\">\\(\\abs{\\sin\\theta}\\leq \\abs{\\theta}\\)<\/span>.",
@@ -2975,7 +3065,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "s_lim_formal.html",
   "type": "Section",
-  "number": "1.13",
+  "number": "1.14",
   "title": "Limits: formal definition",
   "body": " Limits: formal definition     Provide a rigorous definition of the limit.    Understand the quantifier logic underlying the formal definition of a limit in a challenge and response manner.    Use the formal definition of the limit to compute a limit and\/or decide whether a limit exists.     As mentioned before, what makes less than rigorous is the use of the vague phrases arbitrarily close and sufficiently close . The epsilon-delta formulation given in is a mathematically precise way of of capturing these notions.   Limit (formal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: .     Anatomy of a definition   can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.   Absolute value  The absolute value expressions and are measures of how close is to and how close is to . To say is to say is within a distance of ; similarly says is within a distance of .    Conditional  The conditional (or if-then ) statement asserts that if  is within a distance of (but not equal to ), then  is within a distance of .    Existential quantifier  How does adding the existential quantifier  there exists a change the meaning? Considering to be fixed for the moment, the statement asserts that for all  sufficiently close (but not equal) to , is within a distance of . Indeed, it provides a sort of safety distance  and says that as long as is within this safety distance of (but not equal to ), then is within a distance of .    Universal quantifier  Lastly, consider what effect the universal quantifier  for all has. The full statement asserts that for any positive  , the value is within a distance for all sufficiently close to . In particular, choosing to be as small as you like, we have within that small distance of for all sufficiently close to . In other words, we can make  arbitrarily close to for all sufficiently close (but not equal) to .       Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure:   for each positive , we are challenged to show that for sufficiently close to , ;    to meet this -challenge we respond by providing a for which implies .   Note that the we provide in response to a particular -challenge will typically depend on : and indeed, we typically see that the smaller the , the smaller the . This is illustrated in the examples below.    Epsilon-delta proof for limits   To prove for a function and real numbers , proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .       Our first example illustrating treats a function of the form . Such functions are called affine functions .   Epsilon-delta: affine function   Let . Verify that using the epsilon-delta definition of the limit.    We follow .   Step 1  Treating as a fixed arbitrary constant we attempt to solve the inequality : .    Step 2  By step 1, we see that the solution to our starting inequality is the set of satisfying . In other words, . Thus itself is of the form , where .    Step 3  Thus given any , setting , we have for all satisfying . We conclude that .      Visualizing epsilon-delta proofs  The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim in terms of the graph of . (The window below is a bit narrow. Go to the Geogebra page of the interactive for a larger rendition.) We elucidate how to parse this graphical representation.   The specific -challenge is indicated by a horizontal band centered about .    The -response is indicated by a vertical band centered about .    The game is, given a specific -challenge, find an appropriate such that when is within of , the values are within of . Visually, this is accomplished when all points on the segment of the graph of lying in the vertical band about also lie within the horizontal band about .      Visualizing epsilon-delta proofs. Made with Geogebra      Finding such that  In the final step of applying to a limit statment , we usually have found an open interval containing , and then must find a such that . The following approach is useful in this regard. Observe that and thus , where , are the distances from to the left and right endpoints of the interval.   Visualizing distances to endpoints of interval   Visualizing distances to endpoints of interval     Setting as the minimum of these distances, we now have , as desired.  Depending on the example, we can sometimes easily determine which of and is the minimum, giving us an explicit expression for . When things are too complicated, however, it is perfectly fine to set .    Epsilon-delta: radical function   Let . Verify that using the epsilon-delta definition of the limit.    Following we treat as an arbitrary positive constant and attempt to solve the inequality . We have . We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule to apply, we need and to both be nonnegative. (Example: , but .) To deal with this, we will treat two separate cases: and .   Case:  When , all terms in the last inequality above are positive, and we may continue on to conclude . Thus the set of solutions to our original inequality, assuming , is , where . Note that since , both and are positive. It is clear that . Setting to be the minimum of , guarantees that . We conclude that for any positive , setting , we have for all satisfying .  Note: in fact, it is not difficult to see in this case that and so we could have more explicitly set in this case. Nonetheless, declaring works just as well here, as well as in other examples.    Case:  Now assume . We need to find a such that implies . From the previous case ( ), we know there is a such that implies . But since , we have , as desired.   Our two cases, taken together, show that for all , there exists a such that . Thus .    As the last example illustrates, as our function becomes more complicated, solving the relevant inequality can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a partial proof: namely we will give you one specific as a challenge, and ask you to find a that satisfies for this particular .   Finding for specific : quadratic function   Let . It is a fact that . Verify the epsilon-delta definition for this limit statement for the specific epsilon .    We wish to find satisfying . Proceeding as in , we first solve the inequality : . Notice that in this case, the set of solutions to the inequality is a union of two intervals: . Notice further that our limit point is an element of the second interval, and that we have , where . Thus, setting , we have . It follows that , as desired.    We gather here some inequality properties that came to light in the examples above. These are essential for solving inequalities, and thus for performing epsilon-delta proofs.   Inequality rules      Multiply by constant  Assume is a positive constant and is a negative one. For all we have .    Absolute value  Assume is a nonnegative constant. For all , we have .    Squaring and square-rooting  Assume is a nonnegative constant. For all , we have . It follows that for all nonnegative , we have .       "
 },
@@ -2984,7 +3074,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#s_lim_formal-2",
   "type": "Objectives",
-  "number": "1.13",
+  "number": "1.14",
   "title": "",
   "body": "   Provide a rigorous definition of the limit.    Understand the quantifier logic underlying the formal definition of a limit in a challenge and response manner.    Use the formal definition of the limit to compute a limit and\/or decide whether a limit exists.    "
 },
@@ -2993,7 +3083,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#d_lim_formal",
   "type": "Definition",
-  "number": "1.13.1",
+  "number": "1.14.1",
   "title": "Limit (formal).",
   "body": " Limit (formal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: .   "
 },
@@ -3002,7 +3092,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#rm_def_anat",
   "type": "Remark",
-  "number": "1.13.2",
+  "number": "1.14.2",
   "title": "Anatomy of a definition.",
   "body": " Anatomy of a definition   can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.   Absolute value  The absolute value expressions and are measures of how close is to and how close is to . To say is to say is within a distance of ; similarly says is within a distance of .    Conditional  The conditional (or if-then ) statement asserts that if  is within a distance of (but not equal to ), then  is within a distance of .    Existential quantifier  How does adding the existential quantifier  there exists a change the meaning? Considering to be fixed for the moment, the statement asserts that for all  sufficiently close (but not equal) to , is within a distance of . Indeed, it provides a sort of safety distance  and says that as long as is within this safety distance of (but not equal to ), then is within a distance of .    Universal quantifier  Lastly, consider what effect the universal quantifier  for all has. The full statement asserts that for any positive  , the value is within a distance for all sufficiently close to . In particular, choosing to be as small as you like, we have within that small distance of for all sufficiently close to . In other words, we can make  arbitrarily close to for all sufficiently close (but not equal) to .     "
 },
@@ -3011,7 +3101,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#s_lim_formal-6",
   "type": "Remark",
-  "number": "1.13.3",
+  "number": "1.14.3",
   "title": "Challenge and response.",
   "body": " Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure:   for each positive , we are challenged to show that for sufficiently close to , ;    to meet this -challenge we respond by providing a for which implies .   Note that the we provide in response to a particular -challenge will typically depend on : and indeed, we typically see that the smaller the , the smaller the . This is illustrated in the examples below.  "
 },
@@ -3020,7 +3110,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#proc_epsilon_delta",
   "type": "Procedure",
-  "number": "1.13.4",
+  "number": "1.14.4",
   "title": "Epsilon-delta proof for limits.",
   "body": " Epsilon-delta proof for limits   To prove for a function and real numbers , proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .      "
 },
@@ -3029,7 +3119,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#eg_ep_delt_affine",
   "type": "Example",
-  "number": "1.13.5",
+  "number": "1.14.5",
   "title": "Epsilon-delta: affine function.",
   "body": " Epsilon-delta: affine function   Let . Verify that using the epsilon-delta definition of the limit.    We follow .   Step 1  Treating as a fixed arbitrary constant we attempt to solve the inequality : .    Step 2  By step 1, we see that the solution to our starting inequality is the set of satisfying . In other words, . Thus itself is of the form , where .    Step 3  Thus given any , setting , we have for all satisfying . We conclude that .    "
 },
@@ -3047,7 +3137,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#rm_find_delta",
   "type": "Remark",
-  "number": "1.13.7",
+  "number": "1.14.7",
   "title": "Finding <span class=\"process-math\">\\(\\delta\\)<\/span> such that <span class=\"process-math\">\\((a-\\delta, a+\\delta)\\subseteq S\\)<\/span>.",
   "body": " Finding such that  In the final step of applying to a limit statment , we usually have found an open interval containing , and then must find a such that . The following approach is useful in this regard. Observe that and thus , where , are the distances from to the left and right endpoints of the interval.   Visualizing distances to endpoints of interval   Visualizing distances to endpoints of interval     Setting as the minimum of these distances, we now have , as desired.  Depending on the example, we can sometimes easily determine which of and is the minimum, giving us an explicit expression for . When things are too complicated, however, it is perfectly fine to set .  "
 },
@@ -3056,7 +3146,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#s_lim_formal-12",
   "type": "Example",
-  "number": "1.13.9",
+  "number": "1.14.9",
   "title": "Epsilon-delta: radical function.",
   "body": " Epsilon-delta: radical function   Let . Verify that using the epsilon-delta definition of the limit.    Following we treat as an arbitrary positive constant and attempt to solve the inequality . We have . We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule to apply, we need and to both be nonnegative. (Example: , but .) To deal with this, we will treat two separate cases: and .   Case:  When , all terms in the last inequality above are positive, and we may continue on to conclude . Thus the set of solutions to our original inequality, assuming , is , where . Note that since , both and are positive. It is clear that . Setting to be the minimum of , guarantees that . We conclude that for any positive , setting , we have for all satisfying .  Note: in fact, it is not difficult to see in this case that and so we could have more explicitly set in this case. Nonetheless, declaring works just as well here, as well as in other examples.    Case:  Now assume . We need to find a such that implies . From the previous case ( ), we know there is a such that implies . But since , we have , as desired.   Our two cases, taken together, show that for all , there exists a such that . Thus .   "
 },
@@ -3065,7 +3155,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#eg_ep_delt_quad",
   "type": "Example",
-  "number": "1.13.10",
+  "number": "1.14.10",
   "title": "Finding <span class=\"process-math\">\\(\\delta\\)<\/span> for specific <span class=\"process-math\">\\(\\epsilon\\text{:}\\)<\/span> quadratic function.",
   "body": " Finding for specific : quadratic function   Let . It is a fact that . Verify the epsilon-delta definition for this limit statement for the specific epsilon .    We wish to find satisfying . Proceeding as in , we first solve the inequality : . Notice that in this case, the set of solutions to the inequality is a union of two intervals: . Notice further that our limit point is an element of the second interval, and that we have , where . Thus, setting , we have . It follows that , as desired.   "
 },
@@ -3074,7 +3164,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_formal.html#th_ineqs",
   "type": "Theorem",
-  "number": "1.13.11",
+  "number": "1.14.11",
   "title": "Inequality rules.",
   "body": " Inequality rules      Multiply by constant  Assume is a positive constant and is a negative one. For all we have .    Absolute value  Assume is a nonnegative constant. For all , we have .    Squaring and square-rooting  Assume is a nonnegative constant. For all , we have . It follows that for all nonnegative , we have .      "
 },
