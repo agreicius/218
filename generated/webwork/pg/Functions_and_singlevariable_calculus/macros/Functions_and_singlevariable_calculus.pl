@@ -10,10 +10,23 @@
 
 sub latexImagePreamble {
 return <<'END_LATEX_IMAGE_PREAMBLE'
-\usepackage{tikz, pgfplots} 
-\usetikzlibrary{positioning,matrix,arrows} 
-\usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} 
-\usepackage{polynom}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tkz-graph}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\usetikzlibrary{matrix,shapes,decorations.pathreplacing,fit,backgrounds}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{through,intersections,decorations,shadows,fadings}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tkz-graph}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\usetikzlibrary{matrix,shapes,decorations.pathreplacing,fit,backgrounds,calligraphy}
 
 END_LATEX_IMAGE_PREAMBLE
 }
