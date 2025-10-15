@@ -2842,7 +2842,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.12",
   "title": "Limit rules",
-  "body": " Limit rules     State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.    Understand that a limit rule can only be applied subjecto to certain restrictions.    See examples where limit rules are not sufficient for computing a limit.      Limit rules  We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with. Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules.  Our first theorem gives us formulas for computing the limits of particular types of functions: constant functions, and the identity function.   Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .       In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various function operations .   Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .        Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.    Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .    Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .     Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .        Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .     Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .     "
+  "body": " Limit rules     State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.    Understand that a limit rule can only be applied subjecto to certain restrictions.    See examples where limit rules are not sufficient for computing a limit.      Limit rules  We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with! Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules.  Our first theorem gives us two simple formulas for computing the limits of particular types of functions: constant functions, and the identity function.   Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .       In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various function operations like addition, multiplication, .   Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .        Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.    Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .    Using limit rules   Compute the following limits.                               Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .     Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .        Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .     Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .     "
 },
 {
   "id": "s_lim_rules-2",
@@ -2896,6 +2896,15 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "1.12.5",
   "title": "Using limit rules.",
+  "body": " Using limit rules   Compute the following limits.                             "
+},
+{
+  "id": "eg_lim_rule_complic",
+  "level": "2",
+  "url": "s_lim_rules.html#eg_lim_rule_complic",
+  "type": "Example",
+  "number": "1.12.6",
+  "title": "Using limit rules.",
   "body": " Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .   "
 },
 {
@@ -2903,7 +2912,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_rules.html#cor_poly_rational",
   "type": "Corollary",
-  "number": "1.12.6",
+  "number": "1.12.7",
   "title": "Evaluation (polynomials and rational functions).",
   "body": " Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .      "
 },
@@ -2912,7 +2921,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_rules.html#eg_poly_eval",
   "type": "Example",
-  "number": "1.12.7",
+  "number": "1.12.8",
   "title": "Polynomial evaluation.",
   "body": " Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .   "
 },
@@ -2921,7 +2930,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_rules.html#eg_lim_quot_fail",
   "type": "Example",
-  "number": "1.12.8",
+  "number": "1.12.9",
   "title": "Quotient rule does not apply.",
   "body": " Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .   "
 },
