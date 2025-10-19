@@ -2842,7 +2842,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.12",
   "title": "Limit rules",
-  "body": " Limit rules     State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.    Understand that a limit rule can only be applied subjecto to certain restrictions.    See examples where limit rules are not sufficient for computing a limit.      Limit rules  We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with! Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules.  Our first theorem gives us two simple formulas for computing the limits of particular types of functions: constant functions, and the identity function.   Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .       In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various function operations like addition, multiplication, .   Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .        Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.    Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .    Using limit rules   Compute the following limits.                               Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .     Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .        Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .     Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .     "
+  "body": " Limit rules     State and apply limit rules to compute limits of functions formed from other functions using arithmetic operations.    Understand that a limit rule can only be applied subjecto to certain restrictions.    See examples where limit rules are not sufficient for computing a limit.      Limit rules  We now state some useful limit formulas and rules. These will give us a means of breaking down the limit computation of a complicated function into limits of simpler functions. Technically speaking we must prove the validity of each of these rules and formulas; however this would be a fool's errand until we have a rigorous definition of the limit to work with! Such a definition will be provided in the near future, though even then we will not concern ourselves overly with proofs; we are more interested in learning how to make valid use of the rules.  Our first theorem gives us two simple formulas for computing the limits of particular types of functions: constant functions, and the identity function.   Constant and identity function formulas      Constant function formula  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function formula  Let be the identity function defined as for all . Given any we have .       In contrast to the last theorem, our next theorem does not provide any formulas per se, but rather gives us rules governing how limits interact with various function operations like addition, multiplication, .   Limit rules   Let and be functions, and suppose and exist for the real number .   Sum rule   .    Difference rule   .    Scalar multiple rule   for all .    Product rule   .    Quotient rule  If , then .    Power rule   for all positive integers .    Root rule   for all positive integers , where we must assume is positive if is even.    Replacement rule  If is a function satisfying for all in an open interval about , then .        Limit rules  It is useful to think of as giving us a bunch of algebraic rules for computing limits of functions defined using addition, subtraction, multiplication, etc. For the most part these rules tell us that we can bring the limit into various operations: for example, the first two rules tell us that we can bring the limit into sums and differences of functions. Or better, using plain English, they tell us that the limit of a sum (of functions) is the sum of the limits, and that the limit of a difference (of functions) is the difference of the limits.  In fact most of the rules in can be nicely summarized in plain English ( , the limit of a product is the product of the limits , the limit of an -th power is the -th power of the limit ), and these summaries are helpful for remembering how the limit interacts with function operations.    Quotient rule  Assume as in that and exist and consider the limit . Mark well that we can only make use of the quotient rule if , in which case we can conclude that the limit of the quotient is the quotient of the limits.  Note further that in the case where , we cannot automatically conclude that the limit does not exist; it simply the case that we cannot make use of the quotient rule to evaluate this limit. When this happens, we must look to other means for investigating the limit. See .    Using limit rules   Compute the following limits. Your answer should be a chain of equalities with steps justified.                             We have .    We have .    We have .    We have .       You may have noticed in the last example that although we had to apply several limit rules before we could compute , when in the end the value of that limit was simply the result of evaluating the polynomial at : , in the end we found that . Using the integer power rule, scalar multiplication rule, and sum rule in sequence, it is easy to see that the same is true for any polynomial . This is the fundamental idea behind the polynomial evaluation formula in the theorem below. Throwing the quotient rule into the mix, we can immediately generalize this result to rational functions, since these are just quotients of polynomials. Indeed, give a rational function , we have , as long as . This shows how the rational function evaluation formula follows from the polynomial evaluation formula . We make these two evaluation formulas official in the form of a theorem.   Polynomial and rational function evaluation      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .        Polynomial and rational function evaluation   Give a simplified computation of the limit from .    Since is a rational function, and since the denominator polynomial satisfies , we may apply the rational function evaluation formula: .     Rational function evaluation  As useful as is, mark well the restriction on its application: we can only use this evaluation rule (currently) on polynomials and rational functions . below is a nice illustration of this limitation. As tempted as we might be to compute the limit simply by evaluating the function at , we currently have no evaluation rule that allows us to do so directly. We had to use limit rules to simplify the limit expression to a point where we could apply the polynomial evaluation formula.    Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified.     .     Limit rules and limit formulas  It is useful to distinguish between limit rules and limit formulas . The various limit rules given in gives us a means of reducing a complicated limit computation to a sequence of simpler limit computations. At some point, however, we have to be able to compute these limits!  This is where our limit formulas come into play. Currently the polynomial and rational function evaluation formulas are our most powerful means of computing limits. Notice that these formulas subsume the formulas for constant functions and identity functions given in , as constant functions and the identity function are both examples of polynomials (of degree 0 and 1, respectively).  Why do we call these limit formulas evaluation formulas? The formulas for polynomials and rational functions are both of the form . These formulas instruct us to compute the limit simply by computing evaluating the function at : that is, by evaluating the function at the limit point . Currently we only have evaluation formulas for polynomials and rational functions, but soon we will be able to extend this to a vastly larger class of functions: namely, to all continuous functions . Stay tuned.   We end this section with one more limit rule related to the absolute value function. The proof of this result serves as another example of using limit rules.   Absolute value evaluation   Assume exists. We have .    We will derive this rule by using the identity for all . We have , as claimed.     "
 },
 {
   "id": "s_lim_rules-2",
@@ -2859,8 +2859,8 @@ var ptx_lunr_docs = [
   "url": "s_lim_rules.html#th_lim_const_id",
   "type": "Theorem",
   "number": "1.12.1",
-  "title": "Constant and identity functions.",
-  "body": " Constant and identity functions      Constant function  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function  Let be the identity function defined as for all . Given any we have .      "
+  "title": "Constant and identity function formulas.",
+  "body": " Constant and identity function formulas      Constant function formula  Fix a real number and let be the constant function defined as for all . Given any we have .    Identity function formula  Let be the identity function defined as for all . Given any we have .      "
 },
 {
   "id": "th_lim_rules",
@@ -2896,43 +2896,61 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "1.12.5",
   "title": "Using limit rules.",
-  "body": " Using limit rules   Compute the following limits.                             "
+  "body": " Using limit rules   Compute the following limits. Your answer should be a chain of equalities with steps justified.                             We have .    We have .    We have .    We have .      "
+},
+{
+  "id": "th_poly_rational_eval",
+  "level": "2",
+  "url": "s_lim_rules.html#th_poly_rational_eval",
+  "type": "Theorem",
+  "number": "1.12.6",
+  "title": "Polynomial and rational function evaluation.",
+  "body": " Polynomial and rational function evaluation      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .      "
+},
+{
+  "id": "eg_poly_rational_eval",
+  "level": "2",
+  "url": "s_lim_rules.html#eg_poly_rational_eval",
+  "type": "Example",
+  "number": "1.12.7",
+  "title": "Polynomial and rational function evaluation.",
+  "body": " Polynomial and rational function evaluation   Give a simplified computation of the limit from .    Since is a rational function, and since the denominator polynomial satisfies , we may apply the rational function evaluation formula: .   "
+},
+{
+  "id": "ss_limit_laws-13",
+  "level": "2",
+  "url": "s_lim_rules.html#ss_limit_laws-13",
+  "type": "Warning",
+  "number": "1.12.8",
+  "title": "Rational function evaluation.",
+  "body": " Rational function evaluation  As useful as is, mark well the restriction on its application: we can only use this evaluation rule (currently) on polynomials and rational functions . below is a nice illustration of this limitation. As tempted as we might be to compute the limit simply by evaluating the function at , we currently have no evaluation rule that allows us to do so directly. We had to use limit rules to simplify the limit expression to a point where we could apply the polynomial evaluation formula.  "
 },
 {
   "id": "eg_lim_rule_complic",
   "level": "2",
   "url": "s_lim_rules.html#eg_lim_rule_complic",
   "type": "Example",
-  "number": "1.12.6",
-  "title": "Using limit rules.",
-  "body": " Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified by limit rules.     .   "
-},
-{
-  "id": "cor_poly_rational",
-  "level": "2",
-  "url": "s_lim_rules.html#cor_poly_rational",
-  "type": "Corollary",
-  "number": "1.12.7",
-  "title": "Evaluation (polynomials and rational functions).",
-  "body": " Evaluation (polynomials and rational functions)      Polynomial evaluation  Let be a polynomial. Given any , we have .    Rational evaluation  Let and be polynomials. For any satisfying , we have .      "
-},
-{
-  "id": "eg_poly_eval",
-  "level": "2",
-  "url": "s_lim_rules.html#eg_poly_eval",
-  "type": "Example",
-  "number": "1.12.8",
-  "title": "Polynomial evaluation.",
-  "body": " Polynomial evaluation  Give a simplified computation of the limit in using .   The polynomial evaluation formula allows us to skip a few steps in our computation from : .   "
-},
-{
-  "id": "eg_lim_quot_fail",
-  "level": "2",
-  "url": "s_lim_rules.html#eg_lim_quot_fail",
-  "type": "Example",
   "number": "1.12.9",
-  "title": "Quotient rule does not apply.",
-  "body": " Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with each step justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .   "
+  "title": "Using limit rules.",
+  "body": " Using limit rules  Compute the limit below. Your answer should be a chain of equalities with steps justified.     .   "
+},
+{
+  "id": "ss_limit_laws-15",
+  "level": "2",
+  "url": "s_lim_rules.html#ss_limit_laws-15",
+  "type": "Remark",
+  "number": "1.12.10",
+  "title": "Limit rules and limit formulas.",
+  "body": " Limit rules and limit formulas  It is useful to distinguish between limit rules and limit formulas . The various limit rules given in gives us a means of reducing a complicated limit computation to a sequence of simpler limit computations. At some point, however, we have to be able to compute these limits!  This is where our limit formulas come into play. Currently the polynomial and rational function evaluation formulas are our most powerful means of computing limits. Notice that these formulas subsume the formulas for constant functions and identity functions given in , as constant functions and the identity function are both examples of polynomials (of degree 0 and 1, respectively).  Why do we call these limit formulas evaluation formulas? The formulas for polynomials and rational functions are both of the form . These formulas instruct us to compute the limit simply by computing evaluating the function at : that is, by evaluating the function at the limit point . Currently we only have evaluation formulas for polynomials and rational functions, but soon we will be able to extend this to a vastly larger class of functions: namely, to all continuous functions . Stay tuned.  "
+},
+{
+  "id": "th_abs_lim_rule",
+  "level": "2",
+  "url": "s_lim_rules.html#th_abs_lim_rule",
+  "type": "Theorem",
+  "number": "1.12.11",
+  "title": "Absolute value evaluation.",
+  "body": " Absolute value evaluation   Assume exists. We have .    We will derive this rule by using the identity for all . We have , as claimed.   "
 },
 {
   "id": "s_lim_algebra",
@@ -2941,7 +2959,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.13",
   "title": "Limits: algebraic technique",
-  "body": " Limits: algebraic technique     Use algebraic techniques to help compute limits.      Algebraic techniques  As we saw in , there are limits to usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some algebraic techniques.   Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .     Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.      Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .      Sandwich theorem  Another situation where our basic limit rules might not suffice to compute a given limit is when the function in question is unreasonably complicated, making its behavior near a point difficult to pin down. The sandwich theorem potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function , whose behavior is a mystery to us, with two simpler bounding functions and , whose behavior we understand. It is called the sandwich theorem as the necessary inequality has  sandwiched between the functions and .   Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!    Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.   Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that         Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.      Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .     Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .    Our next theorem concerns the absolute value, the definition of which we now recall.   Absolute value   The absolute value of a real number , denoted , is defined as .     Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.       Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .       Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.   Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .       As promised in the proof of , we provide a proof of the inequality , or equivalently, for all . You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.   Proof of  We will prove that for all . First, observer that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any . The triangle , where , , and lies within the the sector of the unit disc determined by . (Diagram to appear sometime soon.) Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.    "
+  "body": " Limits: algebraic technique     Assess when limit rules do not suffice to compute limits.    Use algebraic techniques to help compute limits.    Review algebraic techniques of factoring, clearing denominators, and conjugate radical expressions.     It is easy to forget that our limit rules all have restrictive conditions that limit their use: namely, we need the limit of the component functions involved to exist, and in the case of the quotient rule, we need the limit of the denominator function to be nonzero. These restrictions put significant limitations on the extent to which we can apply limit rules to compute limits, as the following simple example illustrates.   Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with steps justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .    As we saw in , there are limits to the usefulness of our limit rules. In many cases, if we run into a dead end, some algebraic manipulation of the function expression can help us find a way forward. The following examples serve to illustrate this technique and remind you of some common algebraic techniques: , factoring, clearing denominators, and simplifying expressions with radicals.   Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .     Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.      Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .     Assessing application of limit rules  The example of this section suggest the following general strategy for computing limits:   First assess whether the given limit can be computed using limit rules. This usually amounts to checking mentally that the limits of component functions actually exist, and no zeros appear in the denominator.    If it is clear that we cannot simply apply limit rules, try using algebra in combination with the replacement rule to simplify the limit to a form where limit rules and evaluation formulas can be applied.  In this case the particular form of the given function often suggests a particular algebraic technique to try: , factoring, clearing denominators, or simplifying radical expressions.      "
 },
 {
   "id": "s_lim_algebra-2",
@@ -2950,14 +2968,23 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "1.13",
   "title": "",
-  "body": "   Use algebraic techniques to help compute limits.    "
+  "body": "   Assess when limit rules do not suffice to compute limits.    Use algebraic techniques to help compute limits.    Review algebraic techniques of factoring, clearing denominators, and conjugate radical expressions.    "
+},
+{
+  "id": "eg_lim_quot_fail",
+  "level": "2",
+  "url": "s_lim_algebra.html#eg_lim_quot_fail",
+  "type": "Example",
+  "number": "1.13.1",
+  "title": "Quotient rule does not apply.",
+  "body": " Quotient rule does not apply  Compute the limit below. Your answer should be a chain of equalities with steps justified.    Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: .   "
 },
 {
   "id": "eg_lim_factor",
   "level": "2",
   "url": "s_lim_algebra.html#eg_lim_factor",
   "type": "Example",
-  "number": "1.13.1",
+  "number": "1.13.2",
   "title": "Algebraic limit technique: factoring.",
   "body": " Algebraic limit technique: factoring   Compute . Your answer should be a chain of equalities with steps justified.    Note that the limit of the denominator expression as is zero, and thus we cannot directly use the quotient rule. Thus we begin with some algebraic manipulation. The key algebraic technique here is factoring. .   "
 },
@@ -2966,7 +2993,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_algebra.html#eg_limit_clear_denom",
   "type": "Example",
-  "number": "1.13.2",
+  "number": "1.13.3",
   "title": "Algebraic limit technique: clear denominator.",
   "body": " Algebraic limit technique: clear denominator   Compute . Your answer should be a chain of equalities with steps justified.    Again, the quotient rule is not available to us, as the limit of the denominator function is zero. Accordingly, we begin with some algebra.    "
 },
@@ -2975,99 +3002,18 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_lim_algebra.html#eg_lim_radical",
   "type": "Example",
-  "number": "1.13.3",
+  "number": "1.13.4",
   "title": "Algebraic limit technique: radicals.",
   "body": " Algebraic limit technique: radicals   Compute . Your answer should be a chain of equalities with steps justified.    We use the technique of multiplying the numerator and denominator by a conjugate radical expression : .   "
 },
 {
-  "id": "th_sandwich",
+  "id": "s_lim_algebra-9",
   "level": "2",
-  "url": "s_lim_algebra.html#th_sandwich",
-  "type": "Theorem",
-  "number": "1.13.4",
-  "title": "Sandwich theorem.",
-  "body": " Sandwich theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    As with all bits of theory in mathematics, this statement requires proof; and as with most bits of theory in this course, we will not provide that proof. Interested in seeing how one would prove this and other statements from calculus? Take Math 320-1 or Math 321-1!   "
-},
-{
-  "id": "proc_sandwich",
-  "level": "2",
-  "url": "s_lim_algebra.html#proc_sandwich",
-  "type": "Procedure",
+  "url": "s_lim_algebra.html#s_lim_algebra-9",
+  "type": "Remark",
   "number": "1.13.5",
-  "title": "Sandwich theorem.",
-  "body": " Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that       "
-},
-{
-  "id": "rm_sandwich",
-  "level": "2",
-  "url": "s_lim_algebra.html#rm_sandwich",
-  "type": "Remark",
-  "number": "1.13.6",
-  "title": "Sandwich theorem.",
-  "body": " Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.    "
-},
-{
-  "id": "eg_sandwich_easy",
-  "level": "2",
-  "url": "s_lim_algebra.html#eg_sandwich_easy",
-  "type": "Example",
-  "number": "1.13.7",
-  "title": "Sandwich theorem: easy.",
-  "body": " Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .   "
-},
-{
-  "id": "ss_sandwich-8",
-  "level": "2",
-  "url": "s_lim_algebra.html#ss_sandwich-8",
-  "type": "Example",
-  "number": "1.13.8",
-  "title": "Sandwich theorem: less easy.",
-  "body": " Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .   "
-},
-{
-  "id": "d_absolute_value",
-  "level": "2",
-  "url": "s_lim_algebra.html#d_absolute_value",
-  "type": "Definition",
-  "number": "1.13.9",
-  "title": "Absolute value.",
-  "body": " Absolute value   The absolute value of a real number , denoted , is defined as .   "
-},
-{
-  "id": "rm_abs_val",
-  "level": "2",
-  "url": "s_lim_algebra.html#rm_abs_val",
-  "type": "Remark",
-  "number": "1.13.10",
-  "title": "Absolute value.",
-  "body": " Absolute value  Below we gather some useful remarks and facts about the absolute value.   We have for all .    Fix a nonnegative number . We have for all .    We have for all .    Fix a real number . Geometrically speaking is the distance between and on the real line. In particular, taking , we see that is the distance between and the origin on the real line.     "
-},
-{
-  "id": "th_abs_lim",
-  "level": "2",
-  "url": "s_lim_algebra.html#th_abs_lim",
-  "type": "Theorem",
-  "number": "1.13.11",
-  "title": "Limits and absolute value.",
-  "body": " Limits and absolute value      Absolute value evaluation   for all .    Absolute value implication  Fix . If , then . Using logical shorthand: .          Using the identity , we see that .    To prove this implication ( , if-then statement), we assume that and prove that . We do so using the sandwich theorem. Indeed, since for all , we have for all in the domain of . Thus, letting and , we have for all in the domain of , and . It now follows from the sandwich theorem that .      "
-},
-{
-  "id": "th_lim_sine_cos",
-  "level": "2",
-  "url": "s_lim_algebra.html#th_lim_sine_cos",
-  "type": "Theorem",
-  "number": "1.13.12",
-  "title": "Sine and cosine evaluation at zero.",
-  "body": " Sine and cosine evaluation at zero      Sine evaluation at zero   .    Cosine evaluation at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .      "
-},
-{
-  "id": "ss_sandwich-16",
-  "level": "2",
-  "url": "s_lim_algebra.html#ss_sandwich-16",
-  "type": "Proof",
-  "number": "1",
-  "title": "Proof of <span class=\"process-math\">\\(\\abs{\\sin\\theta}\\leq \\abs{\\theta}\\)<\/span>.",
-  "body": " Proof of  We will prove that for all . First, observer that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any . The triangle , where , , and lies within the the sector of the unit disc determined by . (Diagram to appear sometime soon.) Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.  "
+  "title": "Assessing application of limit rules.",
+  "body": " Assessing application of limit rules  The example of this section suggest the following general strategy for computing limits:   First assess whether the given limit can be computed using limit rules. This usually amounts to checking mentally that the limits of component functions actually exist, and no zeros appear in the denominator.    If it is clear that we cannot simply apply limit rules, try using algebra in combination with the replacement rule to simplify the limit to a form where limit rules and evaluation formulas can be applied.  In this case the particular form of the given function often suggests a particular algebraic technique to try: , factoring, clearing denominators, or simplifying radical expressions.     "
 },
 {
   "id": "s_lim_formal",
