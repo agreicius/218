@@ -30,12 +30,12 @@
         Our first theorem gives us two simple <em>formulas</em> for computing the limits of particular types of functions: constant functions, and the identity function. 
     </p>
     <theorem xml:id="th_lim_const_id">
-    <title>Constant and identity functions</title>
+    <title>Constant and identity function formulas</title>
         <statement>
             <p>
             <ol>  
                 <li xml:id="th_lim_const">
-                    <title>Constant function</title>
+                    <title>Constant function formula</title>
                     <p>
                        Fix a real number <m>c\in \R</m> and let <m>h\colon \R\rightarrow \R</m> be the constant function defined as <m>h(x)=c</m> for all <m>x\in \R</m>. Given any <m>a\in \R</m> we have 
                        <men xml:id="eq_limit_const">
@@ -44,7 +44,7 @@
                     </p>
                 </li>
                 <li xml:id="th_lim_id">
-                    <title>Identity function</title>
+                    <title>Identity function formula</title>
                     <p>
                        Let <m>\id\colon \R\rightarrow \R</m> be the identity function defined as <m>\id(x)=x</m> for all <m>x\in \R</m>. Given any <m>a\in \R</m> we have 
                        <men xml:id="eq_lim_id">
@@ -145,7 +145,7 @@
     <title>Using limit rules</title>
     <statement>
     <p>
-    Compute the following limits. 
+    Compute the following limits. Your answer should be a chain of equalities with steps justified. 
     <ol>
         <li>
             <p>
@@ -172,43 +172,75 @@
     </statement>
     <solution>
     <p>
-    
+    <ol>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\lim\limits_{t\to 6}8(t-5)(t-7) \amp = 8\lim\limits_{t\to 6}(t-5)(t-7) \amp \text{(scal. mult. rule)} </mrow>
+                    <mrow> \amp = 8\left(\lim\limits_{t\to 6}(t-5)\right)\left(\lim\limits_{t\to 6}(t-7)\right) \amp \text{(prod. rule)} </mrow>
+                    <mrow> \amp = 8(6-5)(6-7) \amp \text{(ident. formula)} </mrow>
+                    <mrow> \amp = 8(1)(-1)=-8</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\lim\limits_{x\to -2}x^3-4x+8 \amp = \lim\limits_{x\to -2}x^3-\lim\limits_{x\to -2}4x+\lim\limits_{x\to -2}8 \amp \text{(sum rule)} </mrow>
+                    <mrow> \amp = (\lim\limits_{x\to -2}x)^3-4\lim\limits_{x\to -2}x+8 \amp \text{(power, scal. mult., const. formula)} </mrow>
+                    <mrow> \amp = (-2)^3-4(-2)+8 \amp \text{(ident. formula)} </mrow>
+                    <mrow> \amp = -8+8+8=8</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\lim\limits_{z\to 4}\sqrt{z^2-10} \amp = \sqrt{\lim\limits_{z\to 4}(z^2-10)} \amp \text{(root rule)} </mrow>
+                    <mrow> \amp = \sqrt{\lim\limits_{z\to 4}z^2-\lim\limits_{z\to 4}10} \amp \text{(sum rule)} </mrow>
+                    <mrow> \amp = \sqrt{(\lim\limits_{z\to 4}z)^2-10} \amp \text{(power, const. formula)} </mrow>
+                    <mrow> \amp = \sqrt{4^2-10} \amp \text{(ident. formula)} </mrow>
+                    <mrow> \amp = \sqrt{6}</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\lim\limits_{y\to 2}\frac{y+2}{y^2+5y+6} \amp = \frac{\lim\limits_{y\to 2}(y+2)}{\lim\limits_{y\to 2}(y^2+5y+6)} \amp \text{(quot. rule)} </mrow>
+                    <mrow> \amp = \frac{\lim\limits_{y\to 2}y+\lim\limits_{y\to 2}2}{\lim\limits_{y\to 2}y^2+5\lim\limits_{y\to 2}y+\lim\limits_{y\to 2}6} \amp \text{(sum, scal. mult. rule)} </mrow>
+                    <mrow> \amp = \frac{2+2}{2^2+5(2)+6} \amp \text{(ident. formula)} </mrow>
+                    <mrow> \amp = \frac{4}{4+10+6} \amp \text{(ident. formula)} </mrow>
+                    <mrow> \amp = \frac{4}{20} = \frac{1}{5} </mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
     </p>
     </solution>
     </example>
-    
-    <example xml:id="eg_lim_rule_complic">
-        <title>Using limit rules</title>
-        <statement><p>
-            Compute the limit below. Your answer should be a <em>chain of equalities</em> with steps justified by limit rules. 
-            <me>
-                \lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}}
-            </me>
-            
-        </p></statement>
-        <solution>
-            <p>
-                <md>
-                    <mrow>\lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}} \amp = \frac{\lim\limits_{x\to -2}(x^3+x+1)}{\lim\limits_{x\to -2}\sqrt[3]{4x^2+11}}
-                        \amp \text{(quot. rule)}
-                    </mrow>
-                    <mrow> \amp =\frac{(\lim\limits_{x\to -2}x)^3+\lim\limits_{x\to -2}x+\lim\limits_{x\to -2}1}{\sqrt[3]{\lim\limits_{x\to -2}(4x^2+11)}}
-                        \amp \text{(sum, power rule/root rule)}
-                    </mrow>
-                    <mrow> \amp =\frac{(-2)^3-2+1}{\sqrt[3]{\lim_{x\to -2}(4x^2)+\lim\limits_{x\to -2}11}}
-                        \amp \text{(ident., const. rule/sum rule)}
-                    </mrow>
-                    <mrow> \amp =\frac{-9}{\sqrt[3]{4(\lim\limits_{x\to -2}x)^2+11}}
-                        \amp \text{(scal. mult., power, const. rule)}
-                    </mrow>
-                    <mrow> \amp =-\frac{9}{\sqrt[3]{4(-2)^2+11}} \amp \text{(ident. rule)}</mrow>
-                    <mrow> \amp =-\frac{9}{\sqrt[3]{27}}=-3</mrow>
-                </md>.
-            </p>
-        </solution>
-    </example>
-    <corollary xml:id="cor_poly_rational">
-        <title>Evaluation (polynomials and rational functions)</title>
+    <p>
+        You may have noticed in the last example that although we had to apply several limit rules before we could compute <m>\lim\limits_{x\to -2}x^3-4x+8</m>, when in the end the value of that limit was simply the result of evaluating the polynomial <m>p(x)=x^3-4x+8</m> at <m>x=-2</m>: <ie/>, in the end we found that 
+        <me>
+            \lim\limits_{x\to -2}p(x)=p(-2)=(-2)^3-4(-2)+8=-8+8+8=8
+        </me>.
+        Using the integer power rule, scalar multiplication rule, and sum rule in sequence, it is easy to see that the same is true for any polynomial <m>p(x)=\anpoly</m>. This is the fundamental idea behind the polynomial evaluation formula <xref ref="eq_poly_eval"/> in the theorem below. Throwing the quotient rule into the mix, we can immediately generalize this result to rational functions, since these are just quotients of polynomials. Indeed, give a rational function 
+        <me>
+            f(x)=\frac{p(x)}{q(x)}
+        </me>,
+        we have 
+        <md>
+        <mrow>\lim\limits_{x\to a}f(x) \amp = \frac{\lim\limits_{x\to a}p(x)}{\lim\limits_{x\to a}q(x)} \amp \text{(quot. rule)} </mrow>
+        <mrow> \amp = \frac{p(a)}{q(a)} \amp \text{(poly. eval.)} </mrow>
+        </md>,
+        as long as <m>q(a)\ne 0</m>. This shows how the rational function evaluation formula <xref ref="eq_rational_eval"/> follows from the polynomial evaluation formula <xref ref="eq_poly_eval"/>. We make these two evaluation formulas official in the form of a theorem.
+    </p>
+<theorem xml:id="th_poly_rational_eval">
+        <title>Polynomial and rational function evaluation</title>
         <statement>
             <p>
                 <ol>
@@ -216,32 +248,79 @@
                         <title>Polynomial evaluation</title>
                         <p>
                             Let <m>f(x)=\anpoly</m> be a polynomial. Given any <m>a\in \R</m>, we have 
-                            <me>
+                        <men xml:id="eq_poly_eval">
                                 \lim\limits_{x\to a}f(x)=f(a)
-                            </me>.
+                            </men>.
                         </p>
                     </li>
                     <li>
                         <title>Rational evaluation</title>
                         <p>
                             Let <m>f</m> and <m>g</m> be polynomials. For any <m>a\in \R</m> satisfying <m>g(a)\ne 0</m>, we have 
-                            <me>
+                            <men xml:id="eq_rational_eval">
                                 \lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{f(a)}{g(a)}
-                            </me>.
+                            </men>.
                         </p>
                     </li>
                 </ol>
             </p>
         </statement>
-    </corollary>
-    <example xml:id="eg_poly_eval">
-        <title>Polynomial evaluation</title>
+    </theorem>
+    <example xml:id="eg_poly_rational_eval">
+    <title>Polynomial and rational function evaluation</title>
+    <statement>
+    <p>
+    Give a simplified computation of the limit 
+    <me>
+        \lim\limits_{y\to 2}\frac{y+2}{y^2+5y+6}
+    </me>
+    from <xref ref="eg_lim_rules"/>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Since 
+    <me>
+        f(y)=\frac{y+2}{y^2+5y+6}=\frac{p(y)}{q(y)}
+    </me>
+    is a rational function, and since the denominator polynomial <m>q(y)=y^2+5y+6</m> satisfies <m>q(2)\ne 0</m>, we may apply the rational function evaluation formula: 
+    <md>
+        <mrow> \lim\limits_{y\to 2}\frac{p(y)}{q(y)}\amp =\frac{p(2)}{q(2)} </mrow>
+        <mrow> \amp=\frac{2+2}{2^2+5\cdot 2+6}</mrow>
+        <mrow> \amp =\frac{4}{20}</mrow>
+        <mrow> \amp =\frac{1}{5}</mrow> 
+    </md>.
+    </p>
+    </solution>
+    </example>
+    <warning>
+        <title>Rational function evaluation</title>
+        <p>
+            As useful as <xref ref="th_poly_rational_eval"/> is, mark well the restriction on its application: we can only use this evaluation rule (currently) on polynomials <m>p(x)=\anpoly</m> and rational functions 
+            <me>
+                f(x)=\frac{\anpoly}{\bmpoly}
+            </me>.
+            <xref ref="eg_poly_rational_eval"/> below is a nice illustration of this limitation. As tempted as we might be to compute the limit
+            <me>
+                 \lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}}
+            </me>
+            simply by evaluating the function 
+            <me>
+                f(x)= \lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}}
+            </me>
+            at <m>x=-2</m>, we currently have no evaluation rule that allows us to do so directly. We had to use limit rules to simplify the limit expression to a point where we could apply the polynomial evaluation formula. 
+        </p>
+    </warning>
+    <example xml:id="eg_lim_rule_complic">
+        <title>Using limit rules</title>
         <statement><p>
-            Give a simplified computation of the limit in <xref ref="eg_lim_rules_complic"/> using <xref ref="cor_poly_rational"/>.
+            Compute the limit below. Your answer should be a chain of equalities with steps justified.
+            <me>
+                \lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}}
+            </me>
         </p></statement>
         <solution>
             <p>
-                The polynomial evaluation formula allows us to skip a few steps in our computation from <xref ref="eg_lim_rules"/>:
                 <md>
                     <mrow>\lim_{x\to -2}\frac{x^3+x+1}{\sqrt[3]{4x^2+11}} \amp = \frac{\lim\limits_{x\to -2}(x^3+x+1)}{\lim\limits_{x\to -2}\sqrt[3]{4x^2+11}}
                         \amp \text{(quot. rule)}
@@ -250,33 +329,59 @@
                         \amp \text{(poly. eval./root rule)}
                     </mrow>
                     <mrow> \amp =\frac{-9}{\sqrt[3]{4(-2)^2+11}}
-                        \amp \text{(poly eval.)}
+                        \amp \text{(poly. eval.)}
                     </mrow>
-                    <mrow> \amp =-\frac{9}{\sqrt[3]{27}}=-3</mrow>
+                    <mrow> \amp =\frac{-9}{\sqrt[3]{27}}
+                    </mrow>
+                    <mrow> \amp =-\frac{9}{3}=-3</mrow>
                 </md>.
             </p>
         </solution>
     </example>
-    <example xml:id="eg_lim_quot_fail">
-        <title>Quotient rule does not apply</title>
-        <statement><p>
-            Compute the limit below. Your answer should be a chain of equalities with each step justified. 
+    <remark>
+        <title>Limit rules and limit formulas</title>
+        <p>
+            It is useful to distinguish between limit <em>rules</em> and limit <em>formulas</em>. The various limit rules given in <xref ref="th_lim_rules"/> gives us a means of reducing a <em>complicated</em> limit computation to a sequence of <em>simpler</em> limit computations. At some point, however, we have to be able to <em>compute</em> these limits! 
+        </p>
+        <p>
+            This is where our limit formulas come into play. Currently the polynomial and rational function evaluation formulas are our most powerful means of computing limits. Notice that these formulas subsume the formulas for constant functions and identity functions given in <xref ref="th_lim_const_id"/>, as constant functions and the identity function <m>f(x)=x</m> are both examples of polynomials (of degree 0 and 1, respectively). 
+        </p>
+        <p>
+            Why do we call these limit formulas <em>evaluation</em> formulas? The formulas for polynomials and rational functions are both of the form 
             <me>
-                \lim_{x\to 1}\frac{x^2-1}{x-1}
-            </me>
-            
-        </p></statement>
-        <solution>
-            <p>
-                Note that since the limit of the denominator function is 0, we are not able to use the quotient (or rational function) rule. We begin instead with some algebra: 
-                <md>
-                    <mrow> \lim_{x\to 1}\frac{x^2-1}{x-1}\amp =\lim_{x\to 1}\frac{(x-1)(x+1)}{x-1} </mrow>
-                    <mrow> \amp = \lim_{x\to 1}x+1 \amp \text{(repl. rule)}</mrow>
-                    <mrow> \amp =2 \amp \text{(poly eval.)}</mrow>
-                </md>. 
-            </p>
-        </solution>
-    </example>
+                \lim\limits_{x\to a}f(x)=f(a)
+            </me>.
+             These formulas instruct us to compute the limit <m>\lim\limits_{x\to a}f(x)</m> simply by computing <m>f(a)</m> evaluating the function <m>f</m> at <m>a</m>: that is, by <em>evaluating</em> the function <m>f</m> at the limit point <m>a</m>. Currently we only have evaluation formulas for polynomials and rational functions, but soon we will be able to extend this to a vastly larger class of functions: namely, to all <em>continuous functions</em>. Stay tuned.
+        </p>
+    </remark>    
+    <p>
+        We end this section with one more limit rule related to the absolute value function. The proof of this result serves as another example of using limit rules. 
+    </p>
+    <theorem xml:id="th_abs_lim_rule">
+    <title>Absolute value evaluation</title>
+    <statement>
+    <p>
+    Assume <m>\lim\limits_{x\to a}f(x)</m> exists. We have 
+    <men xml:id="eq_abs_value_rule">
+        \lim\limits_{x\to a}\abs{f(x)}=\abs{\lim\limits_{x\to a}f(x)}
+    </men>.
+    </p>
+    </statement>
+    <proof>
+    <p>
+        We will derive this rule by using the identity <m>\abs{x}=\sqrt{x^2}</m> for all <m>x\in \R</m>. We have 
+        <md>
+            <mrow>\lim\limits_{x\to a}\abs{f(x)} \amp = \lim\limits_{x\to a}\sqrt{(f(x))^2} \amp (\sqrt{x^2}=\abs{x})</mrow>
+            <mrow> \amp = \sqrt{\lim\limits_{x\to a}(f(x))^2} \amp \text{(root rule)} </mrow>
+            <mrow> \amp = \sqrt{(\lim\limits_{x\to a}f(x))^2} \amp \text{(power rule)} </mrow>
+            <mrow> \amp = \abs{\lim\limits_{x\to a}f(x)} \amp (\sqrt{x^2}=\abs{x}) </mrow>
+        </md>,
+        as claimed. 
+    </p>
+    </proof>
+    </theorem>
+    
+    
     </subsection>
     
 
