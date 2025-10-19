@@ -22,7 +22,7 @@
         </ol>
     </objectives>
     <p>
-        As mentioned before, what makes <xref ref="d_limit_informal"/> less than rigorous is the use of the vague phrases <q>arbitrarily close</q> and <q>sufficiently close</q>. The <q>epsilon-delta</q> formulation given in <xref ref="d_lim_formal"/> is a mathematically precise way of of capturing these notions. 
+        As mentioned before, what makes <xref ref="d_limit_informal"/> less than rigorous is the use of the vague phrases <q>arbitrarily close</q> and <q>sufficiently close</q>. The <q>epsilon-delta</q> formulation given in <xref ref="d_lim_formal"/> is a mathematically precise way of    capturing these notions. 
     </p>
     <definition xml:id="d_lim_formal">
         <title>Limit (formal)</title>
@@ -80,26 +80,144 @@
             </ul>
         </p>
     </remark>
-    <remark>
+    <remark xml:id="rm_challenge_response">
         <title>Challenge and response</title>
         <p>
-            It is useful to think of the process of verifying <xref ref="d_lim_formal"/> to establish a limit claim <m>\lim_{x\to a}f(x)=L</m> as a <em>challenge and response</em> type of procedure:
+            It is useful to think of the process of verifying <xref ref="d_lim_formal"/> to establish a limit claim <m>\lim_{x\to a}f(x)=L</m> as a <em>challenge and response</em> type of procedure.
             <ul>
                 <li>
                     <p>
-                        for each positive <m>\epsilon</m>, we are challenged to show that for <m>x</m> sufficiently close to <m>a</m>, <m>\abs{f(x)-L}&lt; \epsilon</m>;
+                        For each positive <m>\epsilon</m>, we are challenged to show that for <m>x</m> sufficiently close to <m>a</m>, <m>\abs{f(x)-L}&lt; \epsilon</m>. Consider this an <em>epsilon-challenge</em> to the limit statement <m>\lim\limits_{x\to a}f(x)=L</m>.
                     </p>
                 </li>
                 <li>
                     <p>
-                        to meet this <m>\epsilon</m>-challenge we respond by providing a <m>\delta</m> for which <m>0&lt; \abs{x-a}&lt; \delta</m> implies <m>\abs{f(x)-L}&lt; \epsilon</m>. 
+                        To meet a specific epsilon-challenge <m>\epsilon</m> we respond by providing a <m>\delta</m> for which <m>0&lt; \abs{x-a}&lt; \delta</m> implies <m>\abs{f(x)-L}&lt; \epsilon</m>. Consider this <m>\delta</m> our response that <em>meets</em> the given epsilon-challenge. 
                     </p>
                 </li>
             </ul>
-            Note that the <m>\delta</m> we provide in response to a particular <m>\epsilon</m>-challenge will typically depend on <m>\epsilon</m>: and indeed, we typically see that the smaller the <m>\epsilon</m>, the smaller the <m>\delta</m>. This is illustrated in the examples below. 
+            Note that the <m>\delta</m> we provide in response to a particular epsilon-challenge will typically depend on the particular <m>\epsilon</m> in question. Indeed, we typically see that the smaller the <m>\epsilon</m>, the smaller the <m>\delta</m>. 
         </p>
     </remark>
+    <p>
+        Let's see this challenge-response nature of the formal definition of the limit in action. We choose a linear function <m>f(x)=ax+b</m> for our first example.
+    </p>
 
+<example xml:id="eg_ep_delt_affine">
+    <title>Epsilon-delta: linear function</title>
+    <statement>
+        <p>
+            Let <m>f(x)=-4x+7</m>. Verify that <m>\lim\limits_{x\to 1}f(x)=3</m> using the epsilon-delta definition of the limit. 
+        </p>
+    </statement>
+    <solution>
+        <p>
+           We approach the problem in the spirit of the challenge-response characterization given in <xref ref="rm_challenge_response"/>.  Given an arbitrary epsilon-challenge of <m>\epsilon &gt; 0</m>, we seek to respond with a suitable <m>\delta &gt; 0</m> that meets the challenge: <ie/>, we wish to find a <m>\delta</m> that  guarantees <m>\abs{f(x)-3}&lt; \epsilon</m> for all <m>\abs{x-1}&lt; \delta</m>. 
+        </p>
+        <p>
+            To do so, work backwards. Treating <m>\epsilon</m> as a fixed contstant, we ask what must <m>x</m> satisfy in order for <m>\abs{f(x)-L}&lt; \epsilon</m>. In other words, we should first {\em solve} the inequality <m>\abs{f(x)-3}&lt; \epsilon</m> for <m>x</m>! We have 
+            <md>
+                <mrow> \abs{f(x)-3}&lt; \epsilon\amp \iff \abs{-4x+7-3}&lt; \epsilon </mrow>
+                <mrow> \amp \iff \abs{-4x+4}&lt; \epsilon</mrow>
+                <mrow> \amp \iff \abs{-4(x-1)}&lt; \epsilon</mrow>
+                <mrow> \amp \iff \abs{-4}\abs{x-1}&lt; \epsilon \amp \text{(abs. val. prop.)}</mrow>
+                <mrow> \amp \iff 4\abs{x-1}&lt; \epsilon</mrow>
+                <mrow> \amp \iff \abs{x-1}&lt; \frac{\epsilon}{4} \text{(abs. val. prop.)}</mrow>
+                <mrow> \amp \iff -\frac{\epsilon}{4}&lt; x-1&lt; \frac{\epsilon}{4}</mrow>
+                <mrow> \amp \iff 1-\frac{\epsilon}{4}&lt; x &lt; 1+\frac{\epsilon}{4}</mrow>
+            </md>.
+         We see then that <m>x</m> solves the inequality <m>\abs{f(x)-1}&lt; \epsilon</m> if and only if <m>x\in (1-\epsilon/4, 1+\epsilon/4)</m>. But this is true if and only if <m>\abs{x-1}&lt; \epsilon/4</m>. Indeed, <m>x\in (1-\epsilon/4, 1+\epsilon/4)</m> if and only if the distance between <m>x</m> and <m>1</m> is at most <m>\epsilon/4</m>, if and only if <m>\abs{x-1}&lt; \epsilon/4</m>. (See <xref ref="fig_centered_interval"/>.) 
+        </p>
+        <p>
+            Summarizing we see that, setting <m>\delta=\epsilon/4</m>, we have 
+            <me>
+                \abs{f(x)-3}&lt; \epsilon
+            </me>
+            for all <m>x</m> satisfying <m>\abs{x-1}&lt; \delta</m>. It follows that for any <m>\epsilon</m> challenge to the limit statement <m>\lim\limits_{x\to 1}f(x)=3</m>, we can find a suitable <m>\delta=\epsilon/4</m> to satisfy the requirements of the formal definition of the limit. Thus, by <xref ref="d_lim_formal"/>, we conclude that <m>\lim\limits_{x\to 1}f(x)=3</m>, as desired.
+            for all <m>x</m> satisfying <m>\abs{x-1}&lt; \delta</m>. It follows that for any <m>\epsilon</m> challenge to the limit statement <m>\lim\limits_{x\to 1}f(x)=3</m>, we can find a suitable <m>\delta</m> meeting this challenge. We conclude that <m>\lim\limits_{x\to 1}f(x)=3</m>.
+        </p>
+    </solution>
+</example>
+<remark>
+    <title>Centered intevals</title>
+    <p>
+        The final step in the solution to <xref ref="eg_ep_delt_affine"/> hinged on the observation that <m>x\in (1-\epsilon/4,1+\epsilon/4)</m> if and only if <m>\abs{x-1}&lt; \epsilon/4</m>. The observation is worth generalizing. Given a point <m>a</m> and distance <m>d</m>, call the interval <m>(a-d,a+d)</m> the interval <term>centered</term> at <m>a</m> with <term>radius</term> <m>d</m>. As <xref ref="fig_centered_interval"/> illustrates, the interval <m>(a-d, a+d)</m> is precisely the set of all <m>x</m> whose distance to <m>a</m> is less than <m>d</m>: equivalently, <m>(a-d,a+d)</m> is the set of all <m>x</m> satisfying <m>\abs{x-a}&lt; d</m>. 
+    </p>
+    <figure xml:id="fig_centered_interval">
+    <caption>Interval <m>(a-d,a+d)</m> of radius <m>d</m> centered at <m>a</m></caption>
+    <image width="60%">
+        <shortdescription>Centered interval at a with radius d</shortdescription>
+        <latex-image>
+             \begin{tikzpicture}
+  % Draw number line
+  \draw[thick] (-3,0) -- (3,0);
+  \draw[thick, red] (-1.9,0) -- (1.9,0);
+
+  % Points
+  \foreach \x/\y in {-2/{a+d},2/{a-d}}
+    \draw[fill=white] (\x,0) circle (3pt) node[below=4pt] {$\y$};
+    \draw[fill=blue] (0,0) circle (3pt) node[below=4pt] {$a$};
+  % Upper curly braces (curve upward)
+  \begin{scope}[decoration={calligraphic brace, amplitude=6pt}, thick]
+    \draw[decorate] (-2,0.4) -- node[above=6pt] {$d$} (0,0.4);
+    \draw[decorate] (0,0.4) -- node[above=6pt] {$d$} (2,0.4);
+  \end{scope}
+
+\end{tikzpicture}
+        </latex-image>
+    </image>
+</figure>
+</remark>
+
+<remark>
+    <title>Epsilon-delta definition</title>
+    <p>
+         Note that our polynomial evaluation rule <xref ref="eq_poly_eval"/> could have been applied to the previous example, since the function <m>f(x)=-4x+7</m> is a polynomial (of degree 1). Indeed, using that rule, we have 
+        <me>
+            \lim\limits_{x\to 1}f(x)=f(1)=-4+7=3
+        </me>,
+        in agreement with <xref ref="eg_ep_delt_affine"/>. So what is the purpose of that example?
+        It is important to note that all of the rules in <xref ref="s_lim_rules"/>, including the polynomial evaluation rule, were stated <em>without proof</em>. Using the delta-epsilon definition in a particular example gives us a rigorous proof that the result obtained via limit rules is correct.   
+    </p>
+    <p>
+        Going further, it is possible to give, for each limit rule and formula of <xref ref="s_lim_rules"/>, a general proof of its validity using the epsilon-delta definition. Outside of epsilon-delta examples, proofs are not an official topic of this course. For the curious, however, checkout <xref ref="eg_lim_sum_rule_proof"/> for an example of how we use the epsilon-delta definition to prove limit rules. 
+    </p>
+</remark>
+<p>
+It is possible to give a graphical interpretation of challenge-response nature of the epsilon-delta definition, and this might help you understand all the logical subtleties of the formal definition pointed out in <xref ref="rm_def_anat"/>.
+</p>
+<example xml:id="eg_lim_ep_delta_visual">
+    <title>Visualizing epsilon-delta definition</title>
+    <p>The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim <m>\lim\limits_{x\to a}f(x)=L</m> in terms of the graph of <m>f</m>. (The window below is a bit narrow. Go to the <url href="https://www.geogebra.org/m/degz8kgk">Geogebra page</url> of the interactive for a larger rendition.) Let's elaborate on how exactly to parse this graphical representation. 
+    <ul>
+        <li>
+            <p>
+                The specific <m>\epsilon</m>-challenge is indicated by a horizontal band centered about <m>y=L</m>.  
+            </p>
+        </li>
+        <li>
+            <p>
+                The <m>\delta</m>-response is indicated by a vertical band centered about <m>x=a</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                The game, given a specific <m>\epsilon</m>-challenge, is to find an appropriate <m>\delta</m> such that when <m>x</m> is within <m>\delta</m> of <m>a</m>, the values <m>f(x)</m> are within <m>\epsilon</m> of <m>L</m>. Visually, this is accomplished when all points <m>(x,f(x))</m> on the segment of the graph of <m>f</m> lying in the vertical band about <m>x=a</m> also lie within the horizontal band about <m>y=L</m>.
+            </p>
+        </li>
+    </ul> 
+</p>
+    <figure xml:id="fig_vis_ep_delta">
+        <caption>Visualizing epsilon-delta proofs. Made with <url href="https://www.geogebra.org/m/degz8kgk">Geogebra</url></caption>
+        <interactive xml:id="int_geo_ep_delta" platform="geogebra" width="100%" aspect="4:3">
+          <slate xml:id="geo_ep_delta" surface="geogebra" material="degz8kgk" aspect="4:3">
+          </slate>
+        </interactive>
+      </figure>
+</example>
+<p>
+    Before moving on to further examples of the epsilon-delta definition it will be worthwhile to fomulate a systematic approach to its application. The steps we used in <xref ref="eg_ep_delt_affine"/> can be summarized by the more general procedure below. 
+</p>
 <algorithm xml:id="proc_epsilon_delta">
     <title>Epsilon-delta proof for limits</title>
     <statement>
@@ -129,85 +247,12 @@
     </p>
     </statement>
 </algorithm>
-<p>
-    Our first example illustrating <xref ref="eq_proc_lim_def"/> treats a function of the form <m>f(x)=ax+b</m>. Such functions are called <em>affine functions</em>. 
-</p>
-<example xml:id="eg_ep_delt_affine">
-    <title>Epsilon-delta: affine function</title>
-    <statement>
-        <p>
-            Let <m>f(x)=-4x+7</m>. Verify that <m>\lim\limits_{x\to 1}f(x)=3</m> using the epsilon-delta definition of the limit. 
-        </p>
-    </statement>
-    <solution>
-        <p>
-           We follow <xref ref="proc_epsilon_delta"/>.  
-        </p>
-        <case>
-        <title>Step 1</title>
-        <p>
-            Treating <m>\epsilon</m> as a fixed arbitrary constant we attempt to solve the inequality <m>\abs{f(x)-3}&lt; \epsilon</m>:
-            <md>
-                <mrow> \abs{f(x)-3}&lt; \epsilon\amp \iff \abs{-4x+7-3}&lt; \epsilon </mrow>
-                <mrow> \amp \iff \abs{-4x+4}&lt; \epsilon</mrow>
-                <mrow> \amp \iff \abs{-4(x-1)}&lt; \epsilon</mrow>
-                <mrow> \amp \iff \abs{-4}\abs{x-1}&lt; \epsilon \amp \text{(abs. val. prop.)}</mrow>
-                <mrow> \amp \iff 4\abs{x-1}&lt; \epsilon</mrow>
-                <mrow> \amp \iff \abs{x-1}&lt; \frac{\epsilon}{4} \text{(abs. val. prop.)}</mrow>
-                <mrow> \amp \iff -\frac{\epsilon}{4}&lt; x-1&lt; \frac{\epsilon}{4}</mrow>
-                <mrow> \amp \iff 1-\frac{\epsilon}{4}&lt; x &lt; 1+\frac{\epsilon}{4}</mrow>
-            </md>.
-        </p>
-        </case>
-        <case>
-        <title>Step 2</title>
-        <p>
-        By step 1, we see that the solution <m>S</m> to our starting inequality is the set of <m>x</m> satisfying <m>1-\frac{\epsilon}{4}&lt; x &lt; 1+\frac{\epsilon}{4}</m>. In other words, <m>S=(1-\epsilon/4, 1+\epsilon/4)</m>. Thus <m>S</m> itself is of the form <m>(1-\delta, 1+\delta)</m>, where <m>\delta=\frac{\epsilon}{4}</m>. 
-        </p>
-        </case>
-        <case>
-        <title>Step 3</title>
-        <p>
-        Thus given any <m>\epsilon &gt; 0</m>, setting <m>\delta=\frac{\epsilon}{4}</m>, we have <m>\abs{f(x)-3}&lt; \epsilon</m> for all <m>x</m> satisfying <m>\abs{x-1}&lt; \delta=\epsilon/4</m>. We conclude that <m>\lim\limits_{x\to 1}f(x)=3</m>. 
-        </p>
-        </case>
-        
-        
-    </solution>
-</example>
-<project>
-    <title>Visualizing epsilon-delta proofs</title>
-    <p>The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim <m>\lim\limits_{x\to a}f(x)=L</m> in terms of the graph of <m>f</m>. (The window below is a bit narrow. Go to the <url href="https://www.geogebra.org/m/degz8kgk">Geogebra page</url> of the interactive for a larger rendition.) We elucidate how to parse this graphical representation. 
-    <ul>
-        <li>
-            <p>
-                The specific <m>\epsilon</m>-challenge is indicated by a horizontal band centered about <m>y=L</m>.  
-            </p>
-        </li>
-        <li>
-            <p>
-                The <m>\delta</m>-response is indicated by a vertical band centered about <m>x=a</m>.
-            </p>
-        </li>
-        <li>
-            <p>
-                The game is, given a specific <m>\epsilon</m>-challenge, find an appropriate <m>\delta</m> such that when <m>x</m> is within <m>\delta</m> of <m>a</m>, the values <m>f(x)</m> are within <m>\epsilon</m> of <m>L</m>. Visually, this is accomplished when all points <m>(x,f(x))</m> on the segment of the graph of <m>f</m> lying in the vertical band about <m>x=a</m> also lie within the horizontal band about <m>y=L</m>.
-            </p>
-        </li>
-    </ul> 
-</p>
-    <figure xml:id="fig_vis_ep_delta">
-        <caption>Visualizing epsilon-delta proofs. Made with <url href="https://www.geogebra.org/m/degz8kgk">Geogebra</url></caption>
-        <interactive xml:id="int_geo_ep_delta" platform="geogebra" width="100%" aspect="4:3">
-          <slate xml:id="geo_ep_delta" surface="geogebra" material="degz8kgk" aspect="4:3">
-          </slate>
-        </interactive>
-      </figure>
-</project>
+
+
 <remark xml:id="rm_find_delta">
     <title>Finding <m>\delta</m> such that <m>(a-\delta, a+\delta)\subseteq S</m></title>
     <p>
-        In the final step of applying <xref ref="proc_epsilon_delta"/> to a limit statment <m>\lim\limits_{x\to a}f(x)=L</m>, we usually have found an open interval <m>(c,d)</m> containing <m>a</m>, and then must find a <m>\delta</m> such that 
+        In the final step of applying <xref ref="proc_epsilon_delta"/> to a limit statement <m>\lim\limits_{x\to a}f(x)=L</m>, we usually have found an open interval <m>(c,d)</m> containing <m>a</m>, and then must find a <m>\delta</m> such that 
         <me>
             (a-\delta, a+\delta)\subseteq (c,d)
         </me>.
@@ -389,52 +434,89 @@
     </solution>
 </example>
 <p>
-    We gather here some inequality properties that came to light in the examples above. These are essential for solving inequalities, and thus for performing epsilon-delta proofs. 
+    We finish the section with an example illustrating how to use the epsilon-delta definition of the limit to give a rigorous proof of limit rules. As mentioned above, proving limit rules is not an official topic of this course. However, the argument given in the solution below might help further illuminate how the epsilon-delta definition works. We will make use of the famous triangle inequality for the absolute value, which we make official here. 
 </p>
-<theorem xml:id="th_ineqs">
-    <title>Inequality rules</title>
-    <statement>
-        <p>
-            <ol>
-                <li>
-                    <title>Multiply by constant</title>
-                    <p>
-                        Assume <m>a&gt; 0</m> is a positive constant and <m>b&lt; 0</m> is a negative one. For all <m>x,y\in \R</m> we have
-                        <md>
-                            <mrow>x&lt; y \amp \iff ax&lt; ay</mrow>
-                            <mrow>x&lt; y \amp \iff by&lt; bx</mrow>
-                        </md>.              
-                    </p>
-                </li>
-                <li>
-                    <title>Absolute value</title>
-                    <p>
-                        Assume <m>a\geq 0</m> is a nonnegative constant. For all <m>x\in \R</m>, we have 
-                        <md>
-                            <mrow>\abs{x}&lt; a \amp \iff -a&lt; x&lt; a</mrow>
-                            <mrow> \abs{x}&gt; a\amp \iff x&lt; -a \text{ or } a&gt; x</mrow>
-                        </md>.
-                    </p>
-                </li>
-                <li>
-                    <title>Squaring and square-rooting</title>
-                    <p>
-                        Assume <m>a\geq 0</m> is a nonnegative constant. For all <m>x\in \R</m>, we have 
-                        <md>
-                            <mrow>a&lt; x \amp \implies a^2\leq x^2</mrow>
-                <mrow>a&lt; x \amp \implies \sqrt{a}\leq \sqrt{x}</mrow>
-                </md>.
-            It follows that for all nonnegative <m>x\geq 0</m>, we have
-            <md>
-                <mrow>a&lt; x \amp \iff a^2\leq x^2</mrow>
-                <mrow>a&lt; x \amp \iff \sqrt{a}\leq \sqrt{x}</mrow>
-                </md>.
-                    </p>
-                </li>
-            </ol>
-        </p>
-                
-    </statement>
+<theorem xml:id="th_triangle_inequality">
+<title>Triangle inequality</title>
+<statement>
+<p>
+For all <m>x,y\in \R</m> we have 
+<men xml:id="eq_triangle_ineq">
+    \abs{x+y}\leq \abs{x}+\abs{y}
+</men>.
+Furthermore, equality holds above if and only if <m>xy\geq 0</m>, which is equivalent to <m>x</m> and <m>y</m> not having different signs.
+</p>
+</statement>
+<proof>
+<p>
+    There are a number of different ways of proving the triangle inequality. We will give a proof making use of the identity <m>\abs{x}=\sqrt{x^2}</m>. First observe that since both sides of <xref ref="eq_triangle_ineq"/> are nonnegative, we have 
+    <me>
+        \abs{x+y}\leq \abs{x}+\abs{y}\iff (\abs{x+y})^2\leq (\abs{x}+\abs{y})^2
+    </me>,
+    using <xref ref="th_ineq_squaring"/>. Now begin with <m>(\abs{x}+\abs{y})^2</m>. We have 
+    <md>
+        <mrow>(\abs{x}+\abs{y})^2 \amp = \abs{x}^2+\abs{y}^2+2\abs{x}\abs{y} </mrow>
+        <mrow> \amp =(\sqrt{x^2})^2+(\sqrt{y^2})^2+2\abs{x}\abs{y} </mrow>
+        <mrow> \amp = x^2+y^2+2\abs{xy} </mrow>
+        <mrow> \amp \geq x^2+y^2+2xy \amp (\abs{a}\geq a)</mrow>
+        <mrow> \amp = (x+y)^2</mrow>
+        <mrow> \amp =(\sqrt{(x+y)^2})^2</mrow>
+        <mrow> \amp = \abs{x+y}^2</mrow>
+    </md>.
+    We conclude that <m>\abs{x+y}^2\leq (\abs{x}+\abs{y})^2</m>, and thus that 
+    <m>\abs{x+y}\leq abs{x}+\abs{y}</m>, as desired. Where does the condition for inequality in <xref ref="eq_triangle_ineq"/> come from? Notice that the chain of equalities above is a chain of <em>equalities</em> if and only if the middle inequality, which uses <m>2\abs{xy}\geq 2xy</m> is an equality. This in turn is true if and only if <m>xy\geq 0</m>, which is equivalent to saying that <m>x</m> and <m>y</m> do not have different signs.    
+</p>
+</proof>
 </theorem>
+
+<example xml:id="eg_lim_sum_rule_proof">
+<title>Proof of the sum rule for limits</title>
+<statement>
+<p>
+Use the epsilon-delta definition of the limit to prove the <xref ref="th_lim_sum" text="title"/>. That is, show that if <m>\lim\limits_{x\to a}f(x)</m> and <m>\lim\limits_{x\to a}g(x)</m> exist, then <m>\lim\limits_{x\to a}f(x)+g(x)</m> exists and satisfies
+<me>
+    \lim\limits_{x\to a}f(x)+g(x)=\lim\limits_{x\to a}f(x)+\lim\limits_{x\to a}g(x)
+</me>.
+</p>
+</statement>
+<solution>
+<p>
+Let <m>\lim\limits_{x\to a}f(x)=L</m> and <m>\lim\limits_{x\to a}g(x)=M</m>. We use the epsilon-delta definition to show that <m>\lim\limits_{x\to a}f(x)+g(x)=L+M</m>. 
+</p>
+<p>
+    Given an arbitrary <m>\epsilon &gt; 0</m>, we must find a <m>\delta &gt; 0</m> such that
+    <me>
+        \abs{f(x)+g(x)-(L+M)}&lt; \epsilon
+    </me>
+    for all <m>x</m> satisfying <m>\abs{x-a}&lt; \delta</m>. Since 
+    <md>
+        <mrow>\lim\limits_{x\to a}f(x) \amp = L \amp \lim\limits_{x\to a}g(x)=M</mrow>
+    </md>,
+    we can find positive numbers <m>\delta_1</m> and <m>\delta_2</m> such that 
+    <mdn>
+        <mrow xml:id="eq_lim_sum_rule_proof"> \abs{f(x)-L} \amp &lt; \epsilon/2 \amp \abs{g(x)-M}&lt; \epsilon/2</mrow>
+    </mdn>
+    for all <m>x</m> satisfying <m>\abs{x-a}&lt; \delta_1</m> and <m>\abs{x-a}&lt; \delta_2</m>. What's going on here? The <m>\delta_1</m> and <m>\delta_2</m> are our responses to the the epsilon challenge of <m>\epsilon/2</m> to the statements <m>\lim\limits_{x\to a}f(x)=L</m> and <m>\lim\limits_{x\to a}g(x)=M</m>. You will see below, why we chose an epsilon challenge of <m>\epsilon/2</m> here. 
+</p>
+<p>
+    Letting <m>\delta=\min(\delta_1,\delta_2)</m> it follows that both inequalities in <xref ref="eq_lim_sum_rule_proof"/> hold for all <m>x</m> satisfying <m>\abs{x-a}&lt; \delta</m>. We claim this <m>\delta</m> is the response we want to the given <m>\epsilon</m> challenge to the limit statement <m>\lim\limits_{x\to a}f(x)+g(x)=L+M</m>. Indeed for all <m>x</m> satisfying <m>\abs{x-a}&lt; \delta</m>, we have
+    <md>
+        <mrow>\abs{f(x)+g(x)-(L+M)} \amp =\abs{(f(x)-L)+(g(x)-M)}</mrow>
+        <mrow> \amp \leq \abs{f(x)-L} +\abs{g(x)-M} \amp (\text{triangle ineq.})</mrow>
+        <mrow> \amp &lt;  \epsilon/2 +\epsilon/2 \amp (\abs{x-a}&lt; \delta)</mrow>
+        <mrow> \amp = \epsilon</mrow>
+    </md>.
+    This proves that given any <m>\epsilon &gt; 0</m> there is a <m>\delta&gt; 0</m> such that 
+    <me>
+        \abs{f(x)+g(x)-(L+M)}&lt; \epsilon
+    </me>
+    for all <m>x</m> satisfying <m>\abs{x-a}&lt; \delta</m>, and hence that 
+    <me>
+        \lim\limits_{x\to a}f(x)+g(x)=\lim\limits_{x\to a}f(x)+\lim\limits_{x\to a}g(x)
+    </me>.
+</p>
+</solution>
+</example>
+
 
 </section>
