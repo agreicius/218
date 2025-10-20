@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_cont_ivt" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Continuity: intermediate value theorem</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Investigate continuity properties of piecewise-defined functions.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand the statement and utility of the intermediate value theorem (IVT).
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the IVT to argue that a function assumes a particular value. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the IVT to prove the existence of solutions to a given equation. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the IVT to determine the range of a continuous function. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+   <subsection xml:id="ss_piecewise">
+    <title>Continuity of piecewise defined functions</title>
+    <p>
+        As you may have gathered by now, most of the functions that we write down via formula are essentially automatically continuous. This is a formal consequence of <xref first="th_cont_poly_rational" last="th_cont_comp"/>. Since most formulas we use are built up using some basic continuous functions (polynomials, rational functions, trig functions), and some operations that preserve continuity (sum, product, quotient,<etc/>), it follows that such formulas end up defining continuous functions. 
+    </p>
+    <p>
+        In this sense it is actually somewhat difficult to write down a discontinuous function, at least if we restrict ourselves to using formulas of the type described above. Piecewise-defined functions give us an easy way of getting around this issue, providing us with a useful source of functions that potentially have discontinuities. Of course, being defined in a piecewise manner does not guarantee the existence of a continuity; consider for the example the absolute value function <m>f(x)=\abs{x}</m>, which is continuous, but defined piecewise as 
+        <me>
+            \abs{x}=\begin{cases}
+            x \amp x\geq 0\\
+            -x \amp x&lt; 0
+            \end{cases}
+        </me>.
+        The example below illustrates in general how we determine whether a piecewise-defined function is continuous at various inputs. 
+    </p>
+    <example xml:id="eg_cont_piecewise">
+    <title>Continuity: piecewise</title>
+    <statement>
+        <p>
+            Let <m>f\colon \R\rightarrow \R</m> be defined as 
+            <me>
+                f(x)=\begin{cases}
+                c^2x \amp \text{if } x&lt; 1\\
+                3cx-2 \amp \text{if } x\geq 1
+                \end{cases}
+            </me>,
+            where <m>c\in \R</m> is a fixed constant. 
+            <ol>
+                <li>
+                    <p>
+                        Argue that <m>f</m> is continuous at all inputs <m>a\ne 1</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find all values of <m>c</m> for which <m>f</m> is continuous at the input <m>1</m>, and hence everywhere. 
+                    </p>
+                </li>
+            </ol>
+            
+        </p>
+    </statement>
+    <solution>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        Take any <m>a\in \R</m> with <m>a\ne 1</m>. 
+                    </p>
+                    <p>
+                        If <m>a&lt; 1</m>, then <m>f(x)=cx^2</m> for inputs near <m>a</m>. Since <m>g(x)=cx^2</m> is a polynomial, and since polynomials are continuous on their domain, it follows that <m>f</m> is continuous at <m>a</m>. 
+                    </p>
+                    <p>
+                        Similarly, if <m>a\geq 1</m>, then <m>f(x)=3cx-2</m> for inputs <m>x</m> near <m>a</m>. Again since <m>h(x)=3cx-2</m> is a polynomial, it is continuous at all such inputs, and hence also at <m>a</m>. 
+                    </p>
+                    <p>
+                        This shows that <m>f</m> is continuous at <m>a</m> for all <m>a\ne 1</m>, no matter what the value of <m>c</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We use the definition of continuity to see what <m>c</m> must satisfy for <m>f</m> to be differentiable at <m>1</m>. Namely, this is true if and only if 
+                        <ol marker="(i)">
+                            <li>
+                                <p>
+                                    <m>\lim\limits_{x\to 1}f(x)</m> exists, and further
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>\lim\limits_{x\to 1}f(x)=f(1)</m> 
+                                </p>
+                            </li>.
+                        </ol>
+                        Condition (i) holds if and only if <m>\lim\limits_{x\to 1^-}f(x)=\lim\limits_{x\to 1^-}f(x)</m>. We compute both one-sided limits:
+                        <md>
+                            <mrow>\lim\limits_{x\to 1^-}f(x) \amp = \lim\limits_{x\to 1^-}c^2x \amp (\text{def., } x&lt; 1)</mrow>
+                            <mrow> \amp c^2 \amp \text{(poly. eval.)} </mrow>
+                            <mrow>\lim\limits_{x\to 1^+}f(x) \amp = \lim\limits_{x\to 1^+}3cx-2 \amp (\text{def., } x&gt; 1)</mrow>
+                            <mrow> \amp 3c-2\amp \text{(poly. eval.)} </mrow>
+                        </md>.
+                        We see that (i) is satisfied if and only if <m>c^2=3c-2</m>, or 
+                        <me>
+                            c^2-3c+2=0
+                        </me>,
+                        which is true if and only if <m>c=1</m> or <m>c=2</m>. 
+                    </p>
+                    <p>
+                        It remains to determine which choices of <m>c</m> guarantee condition (ii). We claim that both work: indeed, since both <m>c=1</m> and <m>c=2</m> guarantee that <m>\lim\limits_{x\to 1 }f(x)=c^2=3c-2</m>, and since <m>f(1)=3c-2</m> using the piecewise definition, we conclude that for both choices of <m>c</m> we have <m>\lim\limits_{x\to 1}f(x)=f(1)=3c-2</m>, as desired. 
+                    </p>
+                </li>
+            </ol>
+        The figure below shows the resulting graph for <m>f</m>, taking <m>c=1</m> and <m>c=2</m>. You can think of condition (i) as guaranteeing that our two linear segments join up correctly at <m>x=1</m>. 
+        <figure xml:id="fig_f_piecewise">
+            <caption>Graphs of <m>f</m>: <m>c=1</m> and <m>c=2</m></caption>
+            <sidebyside valigns="middle middle">
+                <figure xml:id="fig_f_c1">
+                    <caption><m>c=1</m></caption>
+                    <image xml:id="im_f_piecewise_c1">
+                        <shortdescription>Graph of piecewise-defined function</shortdescription>
+                        <sageplot>
+                        f=plot(x,x,-1,1)
+                        g=plot(3*x-2, x,1,3)
+                        f+g
+                        </sageplot>
+                    </image>
+                </figure>
+                <figure xml:id="fig_f_c2">
+                    <caption><m>c=2</m></caption>
+                    <image xml:id="im_f_piecewise_c2">
+                        <shortdescription>Graph of piecewise-defined function</shortdescription>
+                        <sageplot>
+                        f=plot(4*x,x,-1,1)
+                        g=plot(6*x-2, x,1,3, ymax=6)
+                        f+g
+                        </sageplot>
+                    </image>
+                </figure>
+            </sidebyside>
+        </figure>
+        </p>
+    </solution>
+        
+    </example>
+   </subsection> 
+   <subsection xml:id="ss_ivt">
+    <title>Intermediate value theorem</title>
+    <p>
+        Recall the cute informal description of a continuous function as one whose graph can be traced without lifting your pencil. This can be further interpreted as saying that as we trace a segment of the graph lying over some interval in the <m>x</m>-axis, it should not be possible to <q>skip</q> over a particular <m>y</m>-value. Indeed, to skip this value, we would have to lift our pencil. This seems plausible, starting from our cutesy informal description of continuity, but can we prove it rigorously? Yes, we can as witnessed by the <xref ref="th_ivt" text="custom">intermediate value theorem</xref>.  
+    </p>
+    <theorem xml:id="th_ivt">
+        <title>Intermediate value theorem (IVT)</title>
+        <statement>
+            <p>
+                Let <m>f</m> be continuous on the closed interval <m>[a,b]</m>. If <m>f(a)\ne f(b)</m>, then given any value <m>d\in \R</m> lying strictly between <m>f(a)</m> and <m>f(b)</m>, there is an element <m>c\in (a,b)</m> such that <m>f(c)=d</m>. 
+            </p>
+        </statement>
+    </theorem>
+    <remark xml:id="rm_IVT_solutions">
+        <title>IVT and existence of solutions</title>
+        <p>
+            A common application of the IVT is to prove that an equation of the form <m>f(x)=d</m> has a solution in a given open interval <m>(a,b)</m>. Indeed, if <m>f</m> is continuous on <m>[a,b]</m>, and if <m>d</m> lies strictly between <m>f(a)</m> and <m>f(b)</m>, then the IVT guarantees the existence of an element <m>c\in (a,b)</m> satisfying <m>f(c)=d</m>.  
+        </p>
+        <p>
+            Interestingly, however, this method does not actually <em>provide</em> the solution <m>c</m>; it only tells us that it exists. This is probably the first time you have encountered what is called a <q>nonconstructive proof</q> in mathematics. The theorem tells us that the value <m>c</m> exists (assuming the necessary conditions hold), but does not explicitly tell us what <m>c</m> is. 
+        </p>
+    </remark>
+    <example xml:id="eg_ivt_sine">
+        <title>Sine equation</title>
+        <statement>
+            <p>
+                Prove that the equation <m>\sin x=\frac{7}{8}</m> has a solution that lies in the interval <m>(\pi/6, \pi/2)</m>. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Note that <m>\sin</m> is continuous on <m>[\pi/6, \pi/2]</m>, and that
+                <md>
+                    <mrow>\sin(\pi/6) \amp = \frac{1}{2}</mrow>
+                    <mrow>\sin(\pi/2) \amp = 1</mrow>
+                </md>.
+                Since <m>\frac{1}{2}&lt; \frac{7}{8}&lt; 1</m>, 
+                the IVT implies that for every there is an input <m>c\in (\pi/6, \pi/2)</m> such that <m>f(c)=7/8</m>. In other words, the given equation has a solution lying in the interval <m>(\pi/6, \pi/2)</m>. 
+            </p>
+        </solution>
+    </example>
+    <example xml:id="eg_ivt_poly">
+        <title>Roots of polynomials</title>
+        <statement>
+            <p>
+                Show that the polynomial <m>f(x)=x^5-x+1</m> has a root. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+                A root of <m>f</m> is an input <m>c</m> satisfying <m>f(c)=0</m>. Since <m>f</m> is continuous everywhere, the IVT will guarantee the existence of such a <m>c</m> as long as we can find inputs <m>a</m>, <m>b</m> satisfying <m>f(a)&gt; 0</m> and <m>f(b)&lt; 0</m>. Let's make a table of values of <m>f</m> for small inputs <m>x</m>: 
+                <me>
+                    \begin{array}{c|c}
+                    x \amp f(x) \\
+                    \hline 
+                    -1 \amp 1 \\
+                    0\amp 1 \\
+                    1 \amp 1\\
+                    2 \amp 31
+                    \end{array}
+                </me>.
+                This so far is not helpful to us, as all the values are positive. Let's try another negative value: 
+                <me>
+                    \begin{array}{c|c}
+                    x \amp f(x) \\
+                    \hline 
+                    -2 \amp -29\\
+                    -1 \amp 1 \\
+                    0\amp 1 \\
+                    1 \amp 1\\
+                    2 \amp 31
+                    \end{array}
+                </me>.
+                That's more like it! Since <m>f</m> is continuous on <m>[-2,-1]</m>, and since <me>-29=f(-2)&lt; 0 &lt; f(-1)=1</me>,
+                the IVT now implies there is a <m>c\in (-2,-1)</m> such that <m>f(c)=0</m>. 
+            </p>
+            <p>
+                Observe that this not only shows that <m>f</m> has a real root, it tells us further that there is a root lying between -2 and -1. Are there any other roots of this function? Further investigation is required. We will have the tools to answer this later. 
+            </p>
+        </solution>
+    </example>
+    <example xml:id="eg_ivt_trig">
+        <title>Complicated equation</title>
+        <statement>
+            <p>
+                Prove that the equation 
+                <me>
+                    \cos x=\frac{1}{\sqrt{x^2+4}}
+                </me>
+                has a solution.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                To get this problem into a state where we can apply the IVT, we rewrite the equation as 
+                <me>
+                    \cos x-\frac{1}{\sqrt{x^2+4}}=0
+                </me>
+                and define <m>f(x)=\cos x-\frac{1}{\sqrt{x^2+4}}</m>. Thus we are looking for a solution to <m>f(x)=0</m>. As with <xref ref="eg_ivt_poly"/>, this will boil down to finding inputs where <m>f</m> is positive and negative, respectively. Let's create a table of values for <m>f</m>: 
+                <me>
+                    \begin{array}{r|l}
+                    x\amp f(x)\\
+                    \hline
+                    -\pi/2 \amp 0-\frac{1}{\sqrt{\pi^2/4+4}}=-\frac{1}{\sqrt{\pi^2/4+4}}\\
+                    0   \amp 1-\frac{1}{\sqrt{4}}=\frac{1}{2}\\
+                    \pi/2  \amp -\frac{1}{\sqrt{\pi^2/4+4}}
+                    \end{array}
+                </me>.
+                We observe that 
+                <me>
+                    -\frac{1}{\sqrt{\pi^2/4+4}}=f(-\pi/2)&lt; 0&lt; f(0)=\frac{1}{2}  
+                </me>.
+                Since <m>f</m> is continuous on <m>[-\pi/2, 0]</m>, the IVT now implies there is an element <m>c\in (\pi/2, 0)</m> satisfying <m>f(c)=0</m>. Thus we have shown, not only that there is a solution, but one lying in this particular interval.
+            </p>
+            <p>
+                Note that the same reasoning tells us there is another solution between <m>0</m> and <m>\pi/2</m>.  That is the inequality 
+                <me>
+                    f(0)&gt; 0 &gt; f(\pi/2)
+                </me>
+                implies there is another solution <m>d</m> lying between <m>0</m> and <m>\pi/2</m>. Thus, we are able to roughly locate two solutions to the original equation, using the IVT twice. 
+            </p>
+            <p>
+                Note: since the given function happens to be <em>even</em> (<m>f(-x)=f(x)</m>), from our first solution <m>c</m> lying in <m>(-\pi/2, 0)</m> we obtain a second solution <m>-c</m> lying in <m>(0,\pi/2)</m>. 
+            </p>
+
+        </solution>
+    </example>
+    <p>
+        Recall that the range of a function <m>f\colon D\rightarrow \R</m> is the set of all outputs of <m>f</m>: 
+        <me>
+            \range f=\{b \in \R\colon b=f(x) \text{ for some } x\in D\}=\{f(x)\colon x\in D\}
+        </me>.
+        The intermediate value theorem implies that if <m>f</m> is a continuous function and <m>D</m> is an interval, then given any two values <m>c&lt; d</m>, if <m>c,d\in \range f</m>, then <m>[c,d]\subseteq \range f</m>. This observation often allows us to explicitly compute the range of a continuous function.        
+    </p>
+    <example xml:base="eg_ivt_range">
+        <title>Range of sine</title>
+        <statement>
+            <p>
+                Prove that the range of the sine function <m>f(x)=\sin x</m> is the entire interval <m>[-1,1]</m>. 
+            </p>
+        </statement>
+    <solution>
+        <p>
+            Since by definition <m>\sin(x)</m> is the <m>y</m>-value of a certain point lying on the unit circle, and since all such <m>y</m>-values lie between <m>-1</m> and <m>1</m>, we know that 
+            <me>
+                -1\leq \sin x\leq 1
+            </me>
+            for all <m>x\in \R</m>. Note that so far this only tells us that the outputs of <m>\sin</m> form a subset of <m>[-1,1]</m>: that is, this only tells us that <m>\range f\subseteq [-1,1]</m>. To show this set inclusion is in fact a set <em>equality</em>, we need to show that given any <m>b\in [-1,1]</m>, <m>b\in \range f</m>: <ie/>, given any <m>b\in [-1,1]</m>, there is an <m>a\in \R</m> such that <m>\sin(a)=b</m>.  
+        </p>
+        <p>
+            To this end, note that <m>\sin(-\pi/2)=-1</m> and <m>\sin(\pi/2)=1</m>. Thus <m>-1,1\in \range f</m>. Furthermore given any <m>b\in (-1,1)</m>, since <m>\sin</m> is continuous on <m>[-\pi/2, \pi/2]</m>, and since 
+            <me>
+                -1=\sin(-\pi/2)&lt; b &lt; \sin(\pi/2)=1
+            </me>,
+            we conclude by the IVT that there is an element <m>a\in (-\pi/2, \pi/2)</m> satisfying <m>\sin(a)=b</m>. Thus <m>b\in \range f</m>, as desired. 
+            
+        </p>
+    </solution>
+    </example>
+    
+   </subsection>
+    
+
+</section>
