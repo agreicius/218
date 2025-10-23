@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_infinite_limits" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Infinite limits</title>
+<objectives>
+    <ol>
+        <li>
+            <p>
+                Provide a rigorous definition of infinite limits at points <m>a\in \R</m> and at infinity. 
+            </p>
+        </li>
+        <li>
+            <p>
+               Investigate infinite limits graphically.  
+            </p>
+        </li>
+        <li>
+            <p>
+                Define vertical asymptotes using language of infinite limits. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Develop computation techniques for infinite limits. 
+            </p>
+        </li>  
+    </ol>
+</objectives>
+<definition xml:id="d_infty_lims">
+<title>Infinite limits (informal)</title>
+<statement>
+<p>
+Let <m>f</m> be a function. 
+<ol>
+    <li>
+        <title>Infinite limits at <m>a\in \R</m></title>
+        <p>
+            Fix <m>a\in \R</m> and assume <m>f</m> is defined everywhere on an open interval containing <m>a</m>, except possibly at <m>a</m> itself. We say that <m>f</m> has <term>limit <m>\infty</m></term> (resp., <term>limit <m>-\infty</m></term>) at <m>a</m> if the values of <m>f(x)</m> can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided <m>x</m> is sufficiently close (but not equal) to <m>a</m>. We write <m>\lim\limits_{x\to a}f(x)=\infty</m> (resp., <m>\lim\limits_{x\to a}f(x)=-\infty</m>) when this is the case. 
+        </p>
+    </li>
+    <li>
+        <title>Infinite limit at <m>\infty</m></title>
+        <p>
+            Assume <m>f</m> is defined on an open interval of the form <m>(c,\infty)</m>. We say that <m>f</m> has <term>limit <m>\infty</m></term> (resp., <term>limit <m>-\infty</m></term>) at <m>\infty</m> if the values of <m>f(x)</m> can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided <m>x</m> is sufficiently large and positive. We write <m>\lim\limits_{x\to \infty}f(x)=\infty</m> (resp., <m>\lim\limits_{x\to \infty}f(x)=-\infty</m>) when this is the case.
+        </p>
+    </li>
+    <li>
+        <title>Infinite limit at <m>-\infty</m></title>
+        <p>
+            Assume <m>f</m> is defined on an open interval of the form <m>(-\infty,c)</m>. We say that <m>f</m> has <term>limit <m>\infty</m></term> (resp., <term>limit <m>-\infty</m></term>) at <m>-\infty</m> if the values of <m>f(x)</m> can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided <m>x</m> is sufficiently large and negative. We write <m>\lim\limits_{x\to -\infty}f(x)=\infty</m> (resp., <m>\lim\limits_{x\to -\infty}f(x)=-\infty</m>) when this is the case.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+</definition>
+<remark xml:id="rm_infty_lims">
+<title>Infinite limits</title>
+<p>
+It is important to observe that the various notions of infinite limit defined in <xref ref="d_infty_lims"/> all cover situations where the limit of the function <em>does not exist</em>. The best way to understand an infinite limit statement of the form <m>\lim\limits_{x\to a}f(x)=\pm \infty</m>, where <m>a</m> denotes either a real number, <m>\infty</m>, or <m>-\infty</m>, is as an assertion that
+<ol marker="(a)">
+    <li>
+        <p>
+            the limit in question does not exist, and 
+        </p>
+    </li>
+    <li>
+        <p>
+            its failure to exist is due to values of the function getting arbitrarily large (in positive or negative direction) as <m>x</m> approaches <m>a</m>. 
+        </p>
+    </li>
+</ol>
+Accordingly, we must understand this new notation as an extended version of our original limit notation. In particular, we are <em>not</em> treating <m>\infty</m> or <m>-\infty</m> here as if they were actual real numbers. 
+</p>
+</remark>
+<remark xml:id="rm_infty_lims_onesided">
+<title>One-sided infinite limits</title>
+<p>
+Yet more variants of infinite limits can be defined for one-sided limits: that is, we can make sense of the following statements for any <m>a\in \R</m>:
+<md>
+    <mrow>\lim\limits_{x\to a^+}f(x) \amp = \infty \amp \lim\limits_{x\to a^+}f(x)\amp =-\infty</mrow>
+    <mrow>\lim\limits_{x\to a^-}f(x) \amp = \infty \amp \lim\limits_{x\to a^-}f(x)\amp =-\infty</mrow>
+</md>.
+We thought <xref ref="d_infty_lims"/> was long enough as it is. 
+</p>
+</remark>
+<definition xml:id="d_ver_asymp">
+<title>Vertical asymptote</title>
+<statement>
+<p>
+Fix a constant <m>a\in \R</m>. The line <m>x=a</m> is a <term>vertical asymptote</term> of the graph of a function <m>f</m> if at least one the of the following conditions holds:
+<md>
+    <mrow>\lim\limits_{x\to a^+}f(x) \amp = \infty \amp \lim\limits_{x\to a^+}f(x)\amp =-\infty</mrow>
+    <mrow>\lim\limits_{x\to a^-}f(x) \amp = \infty \amp \lim\limits_{x\to a^-}f(x)\amp =-\infty</mrow>
+</md>.
+</p>
+</statement>
+</definition>
+<example xml:id="eg_infty_lim_tan">
+<title>Vertical asymptotes: <m>\tan</m></title>
+<statement>
+<p>
+Let <m>f(x)=\tan x</m>. Recall that the domain of <m>f</m> is 
+<me>
+    D=\R-\left\{\frac{\pi}{2}+\pi\, n\colon n\in \Z\right\}=\left\{x\in \R\colon x\ne \frac{\pi}{2}+\pi\, n \text{ for some } n\in \Z \right\}
+</me>.
+<ol>
+    <li>
+        <p>
+            Sketch a graph of <m>f</m> on its entire domain. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Find any and all vertical or horizontal asymptotes of <m>f</m>. 
+        </p>
+    </li>
+</ol>
+
+</p>
+</statement>
+<solution>
+<p>
+    <ol>
+        <li>
+            <p>
+                The graph of <m>f(x)=\tan(x)=\frac{\sin x}{\cos x}</m> is given below. 
+                <figure xml:id="fig_graph_tan">
+                    <caption>Graph of <m>f(x)=\tan x</m></caption>
+                    <image>
+                        <shortdescription>Graph of tan</shortdescription>
+                        <sageplot>
+                        f=plot(tan(x), x,-2*pi,2*pi, detect_poles=show, ymin=-10, ymax=10, ticks=[[-3*pi/2,-pi/2,pi/2,3*pi/2],[-10,-5,5,10]],tick_formatter=(pi,None))
+                        f
+                        </sageplot>
+                    </image>
+                </figure>
+            </p>
+        </li>
+        <li>
+            <p>
+                For each integer <m>n</m>, let <m>a_n=\frac{\pi}{2}+\pi n</m>. We see visually that 
+                <md>
+                    <mrow>\lim_{x\to a_n^-}f(x) \amp= \infty </mrow>
+                    <mrow>\lim_{x\to a_n^+}f(x) \amp= -\infty </mrow>
+                </md>
+                for all <m>n</m>, and hence that each line <m>x=a_n</m> is a vertical asymptote of the graph of <m>f</m>.
+            </p>
+        </li>
+    </ol>
+</p>
+</solution>
+</example>
+<p>
+    As illustrated by <xref ref="eg_infty_lim_tan"/>, infinite limit formulas can be easily deduced from graphs of familiar functions. <xref ref="th_power_functions"/> can be thought of as directly translating properties of the graphs of power functions <m>f(x)=x^n</m> and their reciprocals <m>g(x)=\frac{1}{x^n}</m>into limit statements. 
+</p>
+<theorem xml:id="th_power_functions">
+    <title>Power functions and their reciprocals</title>
+    <statement>
+        <p>
+            Let <m>n</m> be a positive integer.  
+            <md>
+                <mrow>\lim_{x\to \infty}x^n \amp= \infty.</mrow>
+                <mrow>\lim_{x\to -\infty}x^n \amp= \begin{cases}
+                \infty 
+                \amp \text{if } n \text{ is even}\\
+                -\infty \amp \text{ if } n \text{ is odd.}
+                \end{cases}
+                </mrow>
+                <mrow>\lim_{x\to 0^+}\frac{1}{x^n} \amp = \infty.</mrow>
+                <mrow>\lim_{x\to 0^-}\frac{1}{x^n}  \amp =\begin{cases}
+                    \infty\amp \text{if } n \text{ is even}\\
+                    -\infty\amp\text{if } n \text{ is odd. }
+                \end{cases} </mrow>
+            </md>
+        </p>
+    </statement>
+</theorem>
+<p>
+    The next theorem helps us to compute the limit of functions built from other functions that may have infinite limits. Instead of trying to commit all the details of this theorem to memory, it is easier to understand the simple arithmetical arguments that go into establishing these results. For example, the fact that if 
+    <m>
+        \lim\limits_{x\to a}f(x)=\pm \infty
+    </m>
+     and <m>\lim\limits_{x\to a}p(x)=c</m>, then <m>\lim\limits_{x\to a}\frac{p(x)}{f(x)}=0</m>, essentially follows from the fact that if the numerator <m>p(x)</m> is approaching some finite number <m>c</m> as <m>x\to a</m>, while the denominator <m>f(x)</m> gets arbitrarily large, then the quotient <m>p(x)/f(x)</m> is roughly described as <m>c</m> divided by a very large number, which is very small. Thus the limit is equal to 0.  
+</p>
+<p>
+    All of the arguments behind the results of <xref ref="th_infinite_limit"/> are of a similar elementary nature. The type descriptions of each result (<eg/>, <m>\infty+\infty</m>, <m>\infty\cdot c</m>, <etc/>) should be thought of as helpful shorthand for the simple principles at work. You should use these in the parenthetical justifications of steps in an infinite limit computation. Note that the type descriptions alone don't indicate the sign (<m>\pm</m>) of your result: <eg/>, a limit computation of type <m>\infty\cdot \infty</m>, can yield <m>\infty</m> or <m>-\infty</m>, depending on the behavior of the functions near the limit point <m>a</m>. 
+</p>
+<theorem xml:id="th_infinite_limit">
+    <title>Infinite limit formulas</title>
+    <statement>
+        <p>
+            In what follows <m>a</m> denotes either a real number or <m>\pm \infty</m>. Assume that <m>\lim\limits_{x\to a}f(x)</m> and <m>\lim\limits_{x\to a}g(x)</m> are both infinite.
+            <ol>
+                <li>
+                    <title>Type <m>\infty+c</m></title>
+                    <p>
+                        If <m>\lim\limits_{x\to a}p(x)=c</m> for some <m>c\in \R</m>, then 
+                        <me>\lim\limits_{x\to a}f(x)+p(x)=\begin{cases}
+                        \infty\amp \text{if } \lim\limits_{x\to a}f(x)=\infty\\
+                        -\infty\amp \text{if } \lim\limits_{x\to a}f(x)=-\infty.
+                        \end{cases}
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\infty+\infty</m></title>
+                    <p> 
+                        <me>\lim\limits_{x\to a}f(x)+g(x)=\begin{cases}
+                        \infty \amp \text{if } \lim\limits_{x\to a}f(x)=\lim\limits_{x\to a}g(x)=\infty\\
+                        -\infty \amp \text{if } \lim\limits_{x\to a}f(x)=\lim\limits_{x\to a}g(x)=-\infty.
+                        \end{cases}
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\infty\cdot \infty</m></title>
+                    <p>
+                        <me>\lim\limits_{x\to a}f(x)g(x)=\begin{cases}
+                    \infty \amp \text{if } f(x)g(x)&gt;0 \text{ for all } x \text{ near } a\\
+                    -\infty \amp \text{if } f(x)g(x)&lt;0 \text{ for all } x \text{ near } a.\\
+                        \end{cases}
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\infty\cdot c</m></title>
+                    <p>
+                        If <m>\lim\limits_{x\to a}p(x)=c</m> for some <m>c\in \R</m>, then  <me>\lim\limits_{x\to a}f(x)p(x)=\begin{cases}
+                        \infty \amp \text{if } f(x)p(x)&gt; 0 \text{ for all } x \text{ near } a\\
+                        -\infty \amp \text{if } f(x)p(x)&lt; 0 \text{ for all } x \text{ near } a.
+                        \end{cases}
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\frac{c}{\infty}</m></title>
+                    <p>
+                       If <m>\lim\limits_{x\to a}p(x)=c</m> for some <m>c\in \R</m>, then 
+                       <me>
+                        \lim\limits_{x\to a}\frac{p(x)}{f(x)}=0
+                       </me>.
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\frac{c}{0}</m></title>
+                    <p>
+                        If <m>\lim\limits_{x\to a}p(x)=c</m> and <m>\lim\limits_{x\to a}q(x)=0</m>, then 
+                        <me>
+                            \lim\limits_{x\to a}\frac{p(x)}{q(x)}=\begin{cases}
+                            \infty\amp \text{if }\frac{p(x)}{q(x)}&gt; 0 \text{ for all } x \text{ near } a \\
+                            -\infty\amp \text{if } \frac{p(x)}{q(x)}&lt; 0 \text{ for all } x \text{ near } a.
+                            \end{cases}
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\infty^n</m></title>
+                    <p>
+                        If <m>n</m> is a positive integer, then 
+                        <me>
+                            \lim\limits_{x\to a}\left(f(x)\right)^n=\begin{cases}
+                            \infty \amp \text{if } \lim\limits_{x\to a}f(x)=\infty \text{ or } n \text{ is even} \\
+                            -\infty \amp \text{if } \lim\limits_{x\to a}f(x)=-\infty \text{ and } n \text{ is odd}. 
+                            \end{cases}
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <title>Type <m>\sqrt[n]{\infty}</m></title>
+                    <p>
+                        If <m>n</m> is a positive integer, then 
+                        <me>
+                            \lim\limits_{x\to a}\sqrt[n]{f(x)}=\begin{cases}
+                            \infty \amp \text{if } \lim\limits_{x\to a}f(x)=\infty \\
+                            -\infty \amp \text{if } \lim\limits_{x\to a}f(x)=-\infty \text{ and } n \text{ is odd}. 
+                            \end{cases}
+                        </me>
+                        
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</theorem>
+<p>
+    Let's see how to write up our work when making use of the results of <xref ref="th_infinite_limit"/>. The explanations in these situations tend to be slightly less streamlined than usual. This is in large part a result of the fact that in these situations we cannot make use of our usual limit rules (<eg/>, sum, product, quotient, <etc/>); and this is so precisely because those rules require that the limits involved exist!
+</p>
+<example xml:id="eg_infty_lim_elem">
+<title>Infinite limit: elementary examples</title>
+<statement>
+<p>
+Compute the following limits. Your answer should be either a real number, <m>\infty</m>, or <m>-\infty</m>. 
+<ol>
+    <li>
+        <p>
+            <m>\lim\limits_{x\to 0^+}\frac{\cos x}{x^3}</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\lim\limits_{x\to 1^-}\sqrt[5]{\frac{3}{x-1}}</m>    
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            Our thinking is as follows: the function in question if of the form <m>p(x)/f(x)</m>, where <m>p(x)\to 1</m> as <m>x\to 0^+</m> and <m>f(x)\to 0</m> as <m>x\to 0^+</m>. This is thus a limit of type <m>c/0</m>, according to <xref ref="th_infinite_limit"/>, and so should be equal to <m>\pm \infty</m>. Let's write this up more concisely, and determine the correct sign: 
+            <md>
+                <mrow>\lim\limits_{x\to 0^+}\frac{\cos x}{x^3}\amp = \infty \amp (\text{type } c/0)</mrow>
+            </md>,
+            since <m>\lim\limits_{x\to 0^+}\cos x=1</m>, <m>\lim\limits_{x\to 0^+}x^3=0</m>, and <m>\cos x/x^3 &gt; 0</m> for positive <m>x</m> close to <m>0</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+        In this case a quick appraisal tells us that the limit in question will fall under type <m>\sqrt[n]{\infty}</m>, and thus should be equal to <m>\pm \infty</m> (sign to be determined). Here is how we can formally write this up:
+        <md>
+            <mrow>\lim\limits_{x\to 1^+}\sqrt[5]{\frac{3}{x-1}} \amp = -\infty  \amp (\text{type } \sqrt[n]{\infty}) </mrow>
+        </md>,
+        since 
+        <md>
+            <mrow>\lim\limits_{x\to 1^-}\frac{3}{x-1} \amp = -\infty \amp (\text{type } c/0) </mrow>
+        </md>.
+        Furthermore, this last limit holds since <m>\lim_{x\to 1^-}x-1=0</m>, and <m>3/(x-1)</m> is negative for all <m>x</m> near to and less than <m>1</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+
+<example xml:id="eg_infty_lim_poly">
+<title>Infinite limit: polynomial</title>
+<statement>
+<p>
+Compute  <m>\lim_{x\to -\infty}x^3+7x^2</m>. Your answer should be a real number or <m>\pm \infty</m>. 
+</p>
+</statement>
+<solution>
+<p>
+Note first that <m>\lim\limits_{x\to -\infty}x^3=-\infty</m> (<xref ref="th_power_functions" text="global"/>), and <m>\lim\limits_{x\to -\infty}7x^2=\infty</m> (type <m>\infty\cdot c</m>). Unfortunately, we do not have any infinite limit principles with descriptive type <m>\infty-\infty</m>, so we cannot use any of the results of <xref ref="th_infinite_limit"/> directly. Instead, we first do some algebra, using our intuition that the <m>x^3</m> term <q>dominates</q> the <m>7x^2</m> term: 
+<md>
+    <mrow>\lim\limits_{x\to -\infty}x^3+7x^2 \amp = \lim\limits_{x\to -\infty}x^3(1+7/x) </mrow>
+    <mrow> \amp = -\infty \amp (\text{type } \infty\cdot c)</mrow>
+</md>,
+since <m>\lim\limits_{x\to -\infty}x^3=-\infty</m> and 
+<m>\lim\limits_{x\to -\infty}1+\frac{7}{x}=1+0=1</m>.
+</p>
+</solution>
+</example>
+<theorem xml:id="th_rational_function">
+    <title>Limit at infinity: rational functions</title>
+    <statement>
+        <p>
+            Assume we are given polynomials <m>f(x)=ax^m+a_{m-1}x^{m-1}+\cdots +a_1x+a_0</m> and <m>g(x)=bx^n+b_{n-1}x^{n-1}+\cdots +b_1x+b_0</m>, where <m>a</m> and <m>b</m> are nonzero constants. 
+            <ol>
+                <li xml:id="th_equal_deg">
+                    <title>Equal degree</title>
+                    <p>
+                    If <m>m=n</m>, then 
+                    <md>
+                        <mrow>\lim\limits_{x\to \infty}\frac{f(x)}{g(x)} \amp=\lim\limits_{x\to -\infty}\frac{f(x)}{g(x)}=\frac{a}{b} </mrow>
+                    </md>.
+                        
+                    </p>
+                </li>
+                <li>
+                    <title>Denominator degree bigger</title>
+                    <p>
+                        If <m>m&lt; n</m>, then 
+                        <md>
+                            <mrow>\lim\limits_{x\to \infty}\frac{f(x)}{g(x)} \amp =\lim\limits_{x\to -\infty}\frac{f(x)}{g(x)}=0</mrow>
+                        </md>.
+                    </p>
+                </li>
+                <li>
+                    <title>Numerator degree bigger</title>
+                    <p>
+                            If <m>m&gt; n</m>, then 
+                            <md>
+                                <mrow>\lim\limits_{x\to \infty}\frac{f(x)}{g(x)} \amp =\lim\limits_{x\to \infty}\frac{a}{b}x^{m-n}</mrow>
+                                <mrow>\lim\limits_{x\to -\infty}\frac{f(x)}{g(x)} \amp =\lim\limits_{x\to -\infty}\frac{a}{b}x^{m-n}</mrow>
+                            </md>.
+                            Furthermore, both these limits are infinite. However, their sign depends on whether <m>a/b</m> is positive or negative, and whether <m>m-n</m> is even or odd. Alternatively, the sign of the limit depends on the limits of <m>f</m> and <m>g</m> at <m>\infty</m> and <m>-\infty</m>, respectively. 
+                    </p>
+                    <p>
+                        Since both limits at infinity do not exist, <m>f</m> does not have any horizontal asymptotes. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</theorem>
+<example xml:id="eg_vert_hor_asym">
+<title>Asymptotes: rational function</title>
+<statement>
+<p>
+Let <m>\displaystyle f(x)=\frac{x^5-2x^4}{-x^2+3x-2}</m>. Find all and any horizontal and vertical asymptotes of <m>f</m>. For any vertical asymptotes, compute both one-sided limits. 
+</p>
+</statement>
+<solution>
+    <case>
+        <title>Horizontal asymptotes</title>  
+    <p>
+For our horizontal asymptote investigation we compute the limits at infinity of <m>f</m>. At <m>\infty</m> we have 
+<md>
+    <mrow> \lim\limits_{x\to \infty}f(x) \amp= \lim\limits_{x\to \infty}\frac{x^5-2x^4}{-x^2+3x-2} </mrow>
+    <mrow> \amp =\lim\limits_{x\to \infty}-x^{3} \amp (<xref ref="th_rational_function"/>) </mrow>
+    <mrow> \amp = -\infty \amp (\infty\cdot c) </mrow>
+</md>
+since <m>\lim\limits_{x\to \infty}x^3=\infty</m>, and <m>-x^3</m> is negative eventually as <m>x\to \infty</m>. 
+</p>
+<p>
+    At <m>-\infty</m> we have 
+    <md>
+        <mrow> \lim\limits_{x\to -\infty}f(x) \amp= \lim\limits_{x\to -\infty}\frac{x^5-2x^4}{-x^2+3x-2} </mrow>
+        <mrow> \amp =\lim\limits_{x\to -\infty}-x^{3} \amp (<xref ref="th_rational_function"/>) </mrow>
+        <mrow> \amp = \infty \amp (\text{type } \infty\cdot c) </mrow>
+    </md>
+    since <m>\lim\limits_{x\to -\infty}x^3=-\infty</m>, and <m>-x^3</m> is positive eventually as <m>x\to -\infty</m>. 
+</p>
+</case>
+<case>
+<title>Vertical asymptotes</title>
+<p>
+We have 
+<me>
+    f(x)=\frac{x^5-2x^4}{-x^2+3x-2}=\frac{x^4(x-2)}{-(x-2)(x-1)}
+</me>.
+Since <m>f</m> is continuous everywhere on its domain, the only candidates for vertical asymptotes are the lines <m>x=2</m> and <m>x=1</m>. We investigate the limits at these points: 
+<md>
+    <mrow> \lim\limits_{x\to 2 }f(x)\amp=\lim\limits_{x\to 2}\frac{x^4(x-2)}{-(x-2)(x-1)} </mrow>
+    <mrow> \amp = \lim\limits_{x\to 2 }\frac{x^4}{-(x-1)} \amp \text{(repl.)}</mrow>
+    <mrow> \amp = -16 \amp \text{(poly. eval.)}</mrow>
+</md>.
+Since the limit exists here, the line <m>x=2</m> is not a vertical asymptote.
+</p>
+<p>
+    We now compute the one-sided limits at <m>x=1</m>. We have 
+    <md>
+        <mrow>\lim\limits_{x\to 1^-}f(x) \amp = \lim\limits_{x\to 1^-}\frac{-x^4}{x-1} \amp \text{(repl.)}</mrow>
+        <mrow> \amp = \infty \amp (\text{type } c/0)</mrow>
+    </md>,
+     since <m>\lim\limits_{x\to 1^-}x-1=0</m>, <m>\lim\limits_{x\to 1^-}-x^4=-1</m>, and <m>-x^4/(x-1)</m> is positive for all <m>x</m> close to and less than <m>1</m>. Since once of the one-sided limits is infinite, we conclude that <m>x=1</m> is a vertical asymptote of the graph of <m>f</m>. 
+</p>
+<p>
+    We are asked to compute the other one-sided limit. The computation is similar: 
+    <md>
+        <mrow>\lim\limits_{x\to 1^+}f(x) \amp = \lim\limits_{x\to 1^+}\frac{-x^4}{x-1} \amp \text{(repl.)}</mrow>
+        <mrow> \amp = -\infty \amp (\text{type } c/0)</mrow>
+    </md>,
+     since <m>\lim\limits_{x\to 1^-}x-1=0</m>, <m>\lim\limits_{x\to 1^-}-x^4=-1</m>, and <m>-x^4/(x-1)</m> is negative for all <m>x</m> close to and greater than <m>1</m>.
+</p>
+</case>
+
+</solution>
+</example>
+
+
+
+    
+
+</section>
