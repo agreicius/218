@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Limits at infinity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.14';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.cc8d78735f870736.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_continuous.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_infinite_limits.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_lim_at_infty"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits at infinity</span>
+</h2>
+<article class="objectives goal-like" id="s_lim_at_infty-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_lim_at_infty-2-1">
+<li id="s_lim_at_infty-2-1-1">
+<div class="para" id="s_lim_at_infty-2-1-1-1">Give formal definition of limit of function at (plus and minus) infinity.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.16.1"><a href="#s_lim_at_infty-2-1-1" title="Copy heading and permalink for Objective 1.16.1" aria-label="Copy heading and permalink for Objective 1.16.1">🔗</a></div>
+</li>
+<li id="s_lim_at_infty-2-1-2">
+<div class="para" id="s_lim_at_infty-2-1-2-1">Investigate limits at infinity graphically.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.16.2"><a href="#s_lim_at_infty-2-1-2" title="Copy heading and permalink for Objective 1.16.2" aria-label="Copy heading and permalink for Objective 1.16.2">🔗</a></div>
+</li>
+<li id="s_lim_at_infty-2-1-3">
+<div class="para" id="s_lim_at_infty-2-1-3-1">Introduce valid rules and formulas for limits at infinity.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.16.3"><a href="#s_lim_at_infty-2-1-3" title="Copy heading and permalink for Objective 1.16.3" aria-label="Copy heading and permalink for Objective 1.16.3">🔗</a></div>
+</li>
+<li id="s_lim_at_infty-2-1-4">
+<div class="para" id="s_lim_at_infty-2-1-4-1">Evaluate limits at infinity using limit rules and formulas.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.16.4"><a href="#s_lim_at_infty-2-1-4" title="Copy heading and permalink for Objective 1.16.4" aria-label="Copy heading and permalink for Objective 1.16.4">🔗</a></div>
+</li>
+<li id="s_lim_at_infty-2-1-5">
+<div class="para" id="s_lim_at_infty-2-1-5-1">Define horizontal asymptotes using language of limits at infinity.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.16.5"><a href="#s_lim_at_infty-2-1-5" title="Copy heading and permalink for Objective 1.16.5" aria-label="Copy heading and permalink for Objective 1.16.5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 1.16"><a href="#s_lim_at_infty-2" title="Copy heading and permalink for Objectives 1.16" aria-label="Copy heading and permalink for Objectives 1.16">🔗</a></div></article><div class="para" id="s_lim_at_infty-3">We motivated the introduction of limit notation as a useful and precise way of describing the behavior of the values of a function <span class="process-math">\(f\)</span> as its inputs approach a fixed real number <span class="process-math">\(a\in \R\text{.}\)</span> It is natural to ask, however, how the values of <span class="process-math">\(f\)</span> vary as inputs move off to infinity in the positive or negative direction. For example, suppose the number of sales <span class="process-math">\(s\)</span> of a product is given as a function <span class="process-math">\(s=f(t)\text{,}\)</span> where <span class="process-math">\(t\)</span> is the number of days since the product’s introduction to the market. Naturally, a sales team would be interested in what happens to <span class="process-math">\(f(t)\)</span> as <span class="process-math">\(t\)</span> goes to infinity. The definition below makes rigorous sense of this “going to infinity” business. Notice that it is not so very different than our usual epsilon-delta definition of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_lim_at_infty"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits at infinity.</span>
+</h3>
+<div class="para logical" id="d_lim_at_infty-2-1">
+<ol class="decimal" id="d_lim_at_infty-2-1-1">
+<li id="d_lim_at_infty-2-1-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Limit at <span class="process-math">\(\infty\)</span>.</span></span><div class="para logical" id="d_lim_at_infty-2-1-1-1-2">
+<div class="para">Suppose <span class="process-math">\(f\)</span> is defined on an open interval of the form <span class="process-math">\((a,\infty)\text{.}\)</span> We say that the <dfn class="terminology">limit of <span class="process-math">\(f\)</span> at positive infinity (or at <span class="process-math">\(\infty\)</span>)</dfn> exists if there is a value <span class="process-math">\(L\)</span> satisfying the following property: for all <span class="process-math">\(\epsilon&gt; 0\text{,}\)</span> there exists a <span class="process-math">\(M\geq a\)</span> such that if <span class="process-math">\(x&gt; M\text{,}\)</span> then <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\text{.}\)</span> Using logical shorthand:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{for all } \epsilon&gt; 0, \text{ there is } M\geq a, \text{ s.t.
+} x&gt; M\implies \abs{f(x)-L}&lt; \epsilon\text{.}
+\end{equation*}
+</div>
+<div class="para">When this is the case, we call <span class="process-math">\(L\)</span> the limit of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\)</span> approaches positive infinity (or <span class="process-math">\(\infty\)</span>), and write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to \infty}f(x)=L\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_lim_at_infty-2-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Limit at \infty"><a href="#d_lim_at_infty-2-1-1-1" title="Copy heading and permalink for Item 1: Limit at \infty" aria-label="Copy heading and permalink for Item 1: Limit at \infty">🔗</a></div>
+</li>
+<li id="d_lim_at_infty-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Limit at <span class="process-math">\(-\infty\)</span>.</span></span><div class="para logical" id="d_lim_at_infty-2-1-1-2-2">
+<div class="para">Suppose <span class="process-math">\(f\)</span> is defined on an open interval of the form <span class="process-math">\((-\infty,a)\text{.}\)</span> We say that the <dfn class="terminology">limit of <span class="process-math">\(f\)</span> at negative infinity (or at <span class="process-math">\(-\infty\)</span>)</dfn> exists if there is a value <span class="process-math">\(L\)</span> satisfying the following property: for all <span class="process-math">\(\epsilon&gt; 0\text{,}\)</span> there exists a <span class="process-math">\(M\leq a\)</span> such that if <span class="process-math">\(x&lt; M\text{,}\)</span> then <span class="process-math">\(\abs{f(x)-L}&lt; \epsilon\text{.}\)</span> Using logical shorthand:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{for all } \epsilon&gt; 0, \text{ there is } M\leq a, \text{ s.t.
+} x&lt; M\implies \abs{f(x)-L}&lt; \epsilon\text{.}
+\end{equation*}
+</div>
+<div class="para">When this is the case, we call <span class="process-math">\(L\)</span> the limit of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\)</span> approaches negative infinity (or <span class="process-math">\(-\infty\)</span>), and write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to -\infty}f(x)=L\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_lim_at_infty-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Limit at -\infty"><a href="#d_lim_at_infty-2-1-1-2" title="Copy heading and permalink for Item 2: Limit at -\infty" aria-label="Copy heading and permalink for Item 2: Limit at -\infty">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_lim_at_infty-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.16.1: Limits at infinity"><a href="#d_lim_at_infty" title="Copy heading and permalink for Definition 1.16.1: Limits at infinity" aria-label="Copy heading and permalink for Definition 1.16.1: Limits at infinity">🔗</a></div></article><article class="remark remark-like" id="s_lim_at_infty-5"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits at infinity: informal.</span>
+</h3>
+<div class="para" id="s_lim_at_infty-5-2">Informally, we have <span class="process-math">\(\lim\limits_{x\to \infty}f(x)=L\)</span> if we can make <span class="process-math">\(f(x)\)</span> arbitrarily close to <span class="process-math">\(L\)</span> for all inputs <span class="process-math">\(x\)</span> that are sufficiently large and positive. It is useful to think of the <span class="process-math">\(M\)</span> in the formal definition as a large <em class="emphasis">positive</em> number such that <span class="process-math">\(f(x)\)</span> is guaranteed to be within <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\)</span> for all <span class="process-math">\(x\)</span> is greater than (i.e., to the right of) <span class="process-math">\(M\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_lim_at_infty-5-3">Similarly, we have <span class="process-math">\(\lim\limits_{x\to -\infty}f(x)=L\)</span> if we can make <span class="process-math">\(f(x)\)</span> arbitrarily close to <span class="process-math">\(L\)</span> for all inputs <span class="process-math">\(x\)</span> that are sufficiently large and negative. In this case, it is useful to think of the <span class="process-math">\(M\)</span> in the formal definition as a large <em class="emphasis">negative</em> number such that <span class="process-math">\(f(x)\)</span> is guaranteed to be within <span class="process-math">\(\epsilon\)</span> of <span class="process-math">\(L\)</span> for all <span class="process-math">\(x\)</span> less than (i.e., to the left of) <span class="process-math">\(M\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.16.2: Limits at infinity: informal"><a href="#s_lim_at_infty-5" title="Copy heading and permalink for Remark 1.16.2: Limits at infinity: informal" aria-label="Copy heading and permalink for Remark 1.16.2: Limits at infinity: informal">🔗</a></div></article><article class="remark remark-like" id="s_lim_at_infty-6"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">At infinity versus at a point.</span>
+</h3>
+<div class="para logical" id="s_lim_at_infty-6-2">
+<div class="para">The limit at infinity notation is very similar to the limit at a point notation:</div>
+<div class="displaymath process-math" id="s_lim_at_infty-6-2-1">
+\begin{align*}
+\lim\limits_{x\to \infty}f(x) \amp =L \amp \lim\limits_{x\to a}f(x)\amp =L\text{.}
+\end{align*}
+</div>
+<div class="para">That said, do not make the mistake of thinking that we are somehow treating infinity as if it were an actual real number. Think of our new notation as an extended version of our old notation. The ‘<span class="process-math">\(x\to\infty\)</span>’ in the subscript is just a sort of shorthand for saying “as <span class="process-math">\(x\)</span> gets sufficiently large and positive”. In fact, so useful is this <span class="process-math">\(x\to \infty\)</span> shorthand, that you will see us use it frequently on its own, outside of the limit notation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.16.3: At infinity versus at a point"><a href="#s_lim_at_infty-6" title="Copy heading and permalink for Remark 1.16.3: At infinity versus at a point" aria-label="Copy heading and permalink for Remark 1.16.3: At infinity versus at a point">🔗</a></div></article><div class="para logical" id="s_lim_at_infty-7">
+<div class="para">Graphically speaking, if <span class="process-math">\(\lim\limits_{x\to \infty}f(x)=L\text{,}\)</span> then the <span class="process-math">\(y\)</span>-values of points on the graph of <span class="process-math">\(f\)</span> will get closer and closer to <span class="process-math">\(L\text{,}\)</span> as <span class="process-math">\(x\to \infty\text{.}\)</span> This means the graph of <span class="process-math">\(f\)</span> will get arbitrarily close to the horizontal line <span class="process-math">\(y=L\)</span> for points lying further and further to the right. A similar observation holds if the limit at <span class="process-math">\(-\infty\)</span> exists. This is illustrated in <a href="s_lim_at_infty.html#fig_lim_at_infty" class="xref" data-knowl="./knowl/xref/fig_lim_at_infty.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.16.4">Figure 1.16.4</a> for the graph of a function <span class="process-math">\(f\)</span> that satisfies</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_lim_at_infty.html" id="s_lim_at_infty-7-11">
+\begin{align*}
+\lim\limits_{x\to \infty}f(x) \amp =1 \amp  \lim\limits_{x\to -\infty}f(x)\amp =-2\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_lim_at_infty"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/sageplot/fig_lim_at_infty-2.svg" role="img" class="contained" alt="Graph of function with horizontal asymptotes"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of function <span class="process-math">\(f\)</span> satisfying <span class="process-math">\(\lim\limits_{x\to -\infty}f(x)=-2\)</span> and <span class="process-math">\(\lim\limits_{x\to \infty}f(x)=1\)</span><div class="autopermalink" data-description="Figure 1.16.4"><a href="#fig_lim_at_infty" title="Copy heading and permalink for Figure 1.16.4" aria-label="Copy heading and permalink for Figure 1.16.4">🔗</a></div></figcaption></figure><div class="para" id="s_lim_at_infty-9">When a curve in the plane behaves in such a manner, we say that it has a horizontal asymptote. We give a formal definition of this below for the graph of a function, using limit-at-infinity notation.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_horizontal_asymptote"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Horizontal asymptote.</span>
+</h3>
+<div class="para" id="d_horizontal_asymptote-2-1">The line <span class="process-math">\(y=L\)</span> is a <dfn class="terminology">horizontal asymptote</dfn> of the graph of a function <span class="process-math">\(f\)</span> if <span class="process-math">\(\lim\limits_{x\to \infty}f(x)=L\)</span> or <span class="process-math">\(\lim\limits_{x\to -\infty}f(x)=L\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_horizontal_asymptote-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.16.5: Horizontal asymptote"><a href="#d_horizontal_asymptote" title="Copy heading and permalink for Definition 1.16.5: Horizontal asymptote" aria-label="Copy heading and permalink for Definition 1.16.5: Horizontal asymptote">🔗</a></div></article><div class="para" id="s_lim_at_infty-11">The existence or nonexistence of horizontal asymptotes for the graph of a function gives us an easy visual way of deciding whether limits at infinity exist.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_lim_at_infty_cos"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit at infinity: <span class="process-math">\(\cos\)</span>.</span>
+</h3>
+<div class="para logical" id="eg_lim_at_infty_cos-2-1">
+<div class="para">Let <span class="process-math">\(f(x)=\cos x\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_lim_at_infty_cos-2-1-2">
+<li id="eg_lim_at_infty_cos-2-1-2-1">
+<div class="para" id="eg_lim_at_infty_cos-2-1-2-1-1">Provide a graph of <span class="process-math">\(f\)</span> over its entire domain.<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_at_infty_cos-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_lim_at_infty_cos-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_lim_at_infty_cos-2-1-2-2">
+<div class="para" id="eg_lim_at_infty_cos-2-1-2-2-1">Argue graphically whether the infinite limits <span class="process-math">\(\lim\limits_{x\to \pm \infty}f(x)\)</span> exist.<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_at_infty_cos-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_lim_at_infty_cos-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_at_infty_cos-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_lim_at_infty_cos-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="eg_lim_at_infty_cos-3-1">From the graph of <span class="process-math">\(f(x)=\cos x\)</span> in <a href="s_lim_at_infty.html#fig_graph_cos" class="xref" data-knowl="./knowl/xref/fig_graph_cos.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.16.7">Figure 1.16.7</a>, we see visually that there are no horizontal asymptotes: in more detail, since <span class="process-math">\(f(x)\)</span> oscillate between consistently between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> as <span class="process-math">\(x\to \pm \infty\text{,}\)</span> there is no one fixed value <span class="process-math">\(L\)</span> that the values of <span class="process-math">\(f\)</span> approach. Thus the limits of <span class="process-math">\(f\)</span> at <span class="process-math">\(\infty\)</span> and <span class="process-math">\(-\infty\)</span> do not exist. <figure class="figure figure-like" id="fig_graph_cos"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/sageplot/im_graph_cos.svg" role="img" class="contained" alt="Graph of cosine"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x)=\cos x\)</span><div class="autopermalink" data-description="Figure 1.16.7"><a href="#fig_graph_cos" title="Copy heading and permalink for Figure 1.16.7" aria-label="Copy heading and permalink for Figure 1.16.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_at_infty_cos-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.16.6.1"><a href="#eg_lim_at_infty_cos-3" title="Copy heading and permalink for Solution 1.16.6.1" aria-label="Copy heading and permalink for Solution 1.16.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.16.6: Limit at infinity: \cos"><a href="#eg_lim_at_infty_cos" title="Copy heading and permalink for Example 1.16.6: Limit at infinity: \cos" aria-label="Copy heading and permalink for Example 1.16.6: Limit at infinity: \cos">🔗</a></div></article><div class="para" id="s_lim_at_infty-13">Fix a positive integer <span class="process-math">\(n\)</span> and define <span class="process-math">\(f\colon \R-\{0\}\rightarrow \R\)</span> as <span class="process-math">\(f(x)=\frac{1}{x^n}\text{.}\)</span> We recall that the graph of such a function looks like one of the graphs in <a href="s_lim_at_infty.html#fig_reciprocal" class="xref" data-knowl="./knowl/xref/fig_reciprocal.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.16.8">Figure 1.16.8</a>, depending on whether <span class="process-math">\(n\)</span> is even or odd.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_reciprocal"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
+<div class="sbspanel sbspanel--middle middle" style=""><figure class="figure figure-like" id="fig_recip_odd"><img src="generated/sageplot/fig_recip_odd-2.svg" role="img" class="contained" alt="Graph of reciprocal power function"><figcaption><span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="process-math">\(n\)</span> odd<div class="autopermalink" data-description="Figure 1.16.8.(a)"><a href="#fig_recip_odd" title="Copy heading and permalink for Figure 1.16.8.(a)" aria-label="Copy heading and permalink for Figure 1.16.8.(a)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--middle middle" style=""><figure class="figure figure-like" id="fig_recip_even"><img src="generated/sageplot/fig_recip_even-2.svg" role="img" class="contained" alt="Graph of reciprocal power function"><figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="process-math">\(n\)</span> even<div class="autopermalink" data-description="Figure 1.16.8.(b)"><a href="#fig_recip_even" title="Copy heading and permalink for Figure 1.16.8.(b)" aria-label="Copy heading and permalink for Figure 1.16.8.(b)">🔗</a></div></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of <span class="process-math">\(f(x)=\frac{1}{x^n}\text{,}\)</span> for positive integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Figure 1.16.8"><a href="#fig_reciprocal" title="Copy heading and permalink for Figure 1.16.8" aria-label="Copy heading and permalink for Figure 1.16.8">🔗</a></div></figcaption></figure><div class="para logical" id="s_lim_at_infty-15">
+<div class="para">In all cases we see that the graph of any such function <span class="process-math">\(f(x)=\frac{1}{x^n}\)</span> has <span class="process-math">\(y=0\)</span> both as a right and left asymptote. This suggests that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to \infty}\frac{1}{x^n}=\lim_{x\to -\infty}\frac{1}{x^n}=0\text{.}
+\end{equation*}
+</div>
+<div class="para">The theorem below makes this observation official.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_recip_powers"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit at infinity: reciprocal power functions.</span>
+</h3>
+<div class="para logical" id="th_recip_powers-2-1">
+<div class="para">Let <span class="process-math">\(f(x)=\frac{1}{x^n}\text{,}\)</span> where <span class="process-math">\(n\)</span> is a positive integer. We have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\to \infty}\frac{1}{x^n}=\lim_{x\to -\infty}\frac{1}{x^n}=0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_recip_powers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.16.9: Limit at infinity: reciprocal power functions"><a href="#th_recip_powers" title="Copy heading and permalink for Theorem 1.16.9: Limit at infinity: reciprocal power functions" aria-label="Copy heading and permalink for Theorem 1.16.9: Limit at infinity: reciprocal power functions">🔗</a></div></article><article class="remark remark-like" id="s_lim_at_infty-17"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit at infinity laws.</span>
+</h3>
+<div class="para" id="s_lim_at_infty-17-2">It is not so surprising that “at infinity” limits satisfy “at infinity” versions of the limit rules in <a href="s_lim_rules.html#th_lim_rules" class="xref" data-knowl="./knowl/xref/th_lim_rules.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.12.2: Limit rules">Theorem 1.12.2</a>, as we as the sandwich theorem. Note, however, that our various “evaluation limit formulas” (e.g., polynomial evaluation) do not extend to limits at infinity, as it simply makes no sense to evaluate a function <span class="process-math">\(f\)</span> at <span class="process-math">\(\infty\text{:}\)</span> that is, it simply makes no sense to write <span class="process-math">\(f(\infty)\)</span> or <span class="process-math">\(f(-\infty)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_lim_at_infty-17-3">It is worth stating explicitly the  “at infinity” version of the <a href="s_lim_rules.html#th_lim_repl" class="xref" data-knowl="./knowl/xref/th_lim_repl.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 8: Replacement rule">replacement rule</a>, which has a slightly different flavor than the original version. We do so only for positive infinity: suppose <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are defined on an open interval <span class="process-math">\((a,\infty)\)</span> and that <span class="process-math">\(\lim\limits_{x\to \infty}g(x)\)</span> exists; if there exists an <span class="process-math">\(M\geq a\)</span> such that <span class="process-math">\(f(x)=g(x)\)</span> for all <span class="process-math">\(x\geq M\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to \infty}f(x)=\lim\limits_{x\to \infty}g(x)\text{.}\)</span> In plain English: if <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are <em class="emphasis">eventually</em> equal to one another, than their limits at <span class="process-math">\(\infty\)</span> are equal.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-17-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.16.10: Limit at infinity laws"><a href="#s_lim_at_infty-17" title="Copy heading and permalink for Remark 1.16.10: Limit at infinity laws" aria-label="Copy heading and permalink for Remark 1.16.10: Limit at infinity laws">🔗</a></div></article><div class="para" id="s_lim_at_infty-18">The formulas in <a href="s_lim_at_infty.html#th_recip_powers" class="xref" data-knowl="./knowl/xref/th_recip_powers.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.9: Limit at infinity: reciprocal power functions">Theorem 1.16.9</a> give us a decent starting point in terms of computing limits at infinity. Combining these formulas and with limit rules, we can compute limits at infinity for more complicated functions. In order to make use of <a href="s_lim_at_infty.html#th_recip_powers" class="xref" data-knowl="./knowl/xref/th_recip_powers.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.9: Limit at infinity: reciprocal power functions">Theorem 1.16.9</a>, however, we often have to include an algebra step first.<div class="autopermalink" data-description="Paragraph"><a href="#s_lim_at_infty-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_lim_infty_rational_function"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit at infinity: rational function.</span>
+</h3>
+<div class="para" id="eg_lim_infty_rational_function-2-1">Let <span class="process-math">\(f(x)=\displaystyle\frac{3x^3-100x}{4\abs{x}^3+x^2+1}\text{.}\)</span> Compute <span class="process-math">\(\lim\limits_{x\to \infty}f(x)\)</span> and <span class="process-math">\(\lim\limits_{x\to -\infty}f(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_infty_rational_function-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_lim_infty_rational_function-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_lim_infty_rational_function-3-1">
+<div class="para">Note that both the numerator and denominator approach <span class="process-math">\(\pm \infty\)</span> as <span class="process-math">\(x\to \pm \infty\text{.}\)</span> Our intuition is that the highest power of <span class="process-math">\(x\)</span> is the “dominant” term for large <span class="process-math">\(x\text{.}\)</span> To crystallize this intuition algebraically, we factor out the <span class="process-math">\(x^3\)</span> in the top and bottom, after first dealing with the absolute value:</div>
+<div class="displaymath process-math" id="eg_lim_infty_rational_function-3-1-7">
+\begin{align*}
+\lim\limits_{x\to \infty} \frac{3x^3-100x}{4\abs{x}^3+x^2+1}\amp = 
+\lim\limits_{x\to \infty}\frac{3x^3-100x}{4x^3+x^2+1} \amp (x\geq 0\implies \abs{x}=x) \\
+\amp = \lim\limits_{x\to \infty}\frac{x^3(3-\frac{100}{x^2})}{x^3(4+\frac{1}{x}+\frac{1}{x^3})}\\
+\amp = \lim\limits_{x\to \infty}\frac{3-\frac{100}{x^2}}{4+\frac{1}{x}+\frac{1}{x^3}} \amp (\text{repl.}) \\
+\amp\frac{3-100\lim\limits_{x\to\infty }\frac{1}{x^2}}{4+\lim\limits_{x\to\infty }\frac{1}{x}+\lim\limits_{x\to\infty }\frac{1}{x^3}} \amp (\text{quot., sum, scal. mult.}) \\
+\amp = \frac{4+0}{3+0+0} \amp (1/x^n\to 0)\\
+\amp = \frac{4}{3}\\
+\lim\limits_{x\to -\infty} \frac{3x^3-100x}{4\abs{x}^3+x^2+1}\amp = 
+\lim\limits_{x\to -\infty}\frac{3x^3-100x}{-4x^3+x^2+1} \amp (x\leq 0\implies \abs{x}=-x) \\
+\amp = \lim\limits_{x\to -\infty}\frac{x^3(3-\frac{100}{x^2})}{x^3(-4+\frac{1}{x}+\frac{1}{x^3})}\\
+\amp = \lim\limits_{x\to -\infty}\frac{3-\frac{100}{x^2}}{-4+\frac{1}{x}+\frac{1}{x^3}} \amp (\text{repl.}) \\
+\amp\frac{3-100\lim\limits_{x\to-\infty }\frac{1}{x^2}}{-4+\lim\limits_{x\to-\infty }\frac{1}{x}+\lim\limits_{x\to-\infty }\frac{1}{x^3}} \amp (\text{quot., sum, scal. mult.}) \\
+\amp = \frac{4+0}{-3+0+0} \amp (1/x^n\to 0)\\
+\amp = -\frac{4}{3}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_infty_rational_function-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.16.11.1"><a href="#eg_lim_infty_rational_function-3" title="Copy heading and permalink for Solution 1.16.11.1" aria-label="Copy heading and permalink for Solution 1.16.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.16.11: Limit at infinity: rational function"><a href="#eg_lim_infty_rational_function" title="Copy heading and permalink for Example 1.16.11: Limit at infinity: rational function" aria-label="Copy heading and permalink for Example 1.16.11: Limit at infinity: rational function">🔗</a></div></article><article class="example example-like" id="eg_lim_infty_radical"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit at infinity: radical function.</span>
+</h3>
+<div class="para" id="eg_lim_infty_radical-2-1">Let <span class="process-math">\(f(x)=\displaystyle \frac{\sqrt{x^2+4}}{2x^2+1}\text{.}\)</span> Compute <span class="process-math">\(\lim\limits_{x\to -\infty}f(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_infty_radical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_lim_infty_radical-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_lim_infty_radical-3-1">
+<div class="para">Again we have a situation where the numerator and denominator both approach <span class="process-math">\(\infty\text{.}\)</span> Using the same intuition as above, we guess that the <span class="process-math">\(x^2\)</span> term under the radical is the dominant one, as is the  <span class="process-math">\(x^2\)</span> term in the denominator. We make rigorous this intuition by factoring these out. Note how we must be careful with the radical simplification. In particular, we use the fact that <span class="process-math">\(\sqrt{x^2}=\abs{x}\text{,}\)</span> and then deal with the absolute value appropriately:</div>
+<div class="displaymath process-math" id="eg_lim_infty_radical-3-1-5">
+\begin{align*}
+\lim\limits_{x\to -\infty}\frac{\sqrt{x^2+4}}{2x^2+1} \amp = \lim\limits_{x\to -\infty}\frac{\sqrt{x^2(1+4/x^2)}}{x^2(2+1/x^2)} \\
+\amp = \lim\limits_{x\to -\infty}\frac{\abs{x}\sqrt{1+4/x^2}}{x^2(2+1/x^2)}\\
+\amp =\lim\limits_{x\to -\infty}\frac{-x\sqrt{1+4/x^2}}{x^2(2+1/x^2)} \amp (x\leq 0\implies \abs{x}=-x)\\
+\amp = \lim\limits_{x\to -\infty }-\frac{1}{x}\cdot\frac{\sqrt{1+4/x^2}}{x(2+1/x^2)}\\
+\amp = -\lim\limits_{x\to -\infty }\frac{1}{x}\cdot \frac{-\sqrt{1+4 \lim\limits_{x\to -\infty}1/x^2}}{2+\lim\limits_{x\to -\infty}1/x^2} \amp \text{(prod., quot., root, sum)}\\
+\amp = 0\cdot \frac{\sqrt{1+0}}{2+0} \amp (1/x^n\to 0)\\
+\amp = 0\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_lim_infty_radical-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.16.12.1"><a href="#eg_lim_infty_radical-3" title="Copy heading and permalink for Solution 1.16.12.1" aria-label="Copy heading and permalink for Solution 1.16.12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.16.12: Limit at infinity: radical function"><a href="#eg_lim_infty_radical" title="Copy heading and permalink for Example 1.16.12: Limit at infinity: radical function" aria-label="Copy heading and permalink for Example 1.16.12: Limit at infinity: radical function">🔗</a></div></article><div class="autopermalink" data-description="Section 1.16: Limits at infinity"><a href="#s_lim_at_infty" title="Copy heading and permalink for Section 1.16: Limits at infinity" aria-label="Copy heading and permalink for Section 1.16: Limits at infinity">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_continuous.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_infinite_limits.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

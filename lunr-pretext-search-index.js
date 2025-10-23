@@ -3022,7 +3022,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.14",
   "title": "Limits: formal definition",
-  "body": " Limits: formal definition     Provide a rigorous definition of the limit.    Understand the quantifier logic underlying the formal definition of a limit in a challenge and response manner.    Use the formal definition of the limit to compute a limit and\/or decide whether a limit exists.     As mentioned before, what makes less than rigorous is the use of the vague phrases arbitrarily close and sufficiently close . The epsilon-delta formulation given in is a mathematically precise way of capturing these notions.   Limit (formal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: .     Anatomy of a definition   can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.   Absolute value  The absolute value expressions and are measures of how close is to and how close is to . To say is to say is within a distance of ; similarly says is within a distance of .    Conditional  The conditional (or if-then ) statement asserts that if  is within a distance of (but not equal to ), then  is within a distance of .    Existential quantifier  How does adding the existential quantifier  there exists a change the meaning? Considering to be fixed for the moment, the statement asserts that for all  sufficiently close (but not equal) to , is within a distance of . Indeed, it provides a sort of safety distance  and says that as long as is within this safety distance of (but not equal to ), then is within a distance of .    Universal quantifier  Lastly, consider what effect the universal quantifier  for all has. The full statement asserts that for any positive  , the value is within a distance for all sufficiently close to . In particular, choosing to be as small as you like, we have within that small distance of for all sufficiently close to . In other words, we can make  arbitrarily close to for all sufficiently close (but not equal) to .       Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure.   For each positive , we are challenged to show that for sufficiently close to , . Consider this an epsilon-challenge to the limit statement .    To meet a specific epsilon-challenge we respond by providing a for which implies . Consider this our response that meets the given epsilon-challenge.   Note that the we provide in response to a particular epsilon-challenge will typically depend on the particular in question. Indeed, we typically see that the smaller the , the smaller the .   Let's see this challenge-response nature of the formal definition of the limit in action. We choose a linear function for our first example.   Epsilon-delta: linear function   Let . Verify that using the epsilon-delta definition of the limit.    We approach the problem in the spirit of the challenge-response characterization given in . Given an arbitrary epsilon-challenge of , we seek to respond with a suitable that meets the challenge: , we wish to find a that guarantees for all .  To do so, work backwards. Treating as a fixed contstant, we ask what must satisfy in order for . In other words, we should first {\\em solve} the inequality for ! We have . We see then that solves the inequality if and only if . But this is true if and only if . Indeed, if and only if the distance between and is at most , if and only if . (See .)  Summarizing we see that, setting , we have for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable to satisfy the requirements of the formal definition of the limit. Thus, by , we conclude that , as desired. for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable meeting this challenge. We conclude that .     Centered intevals  The final step in the solution to hinged on the observation that if and only if . The observation is worth generalizing. Given a point and distance , call the interval the interval centered at with radius  . As illustrates, the interval is precisely the set of all whose distance to is less than : equivalently, is the set of all satisfying .   Interval of radius centered at   Centered interval at a with radius d       Epsilon-delta definition  Note that our polynomial evaluation rule could have been applied to the previous example, since the function is a polynomial (of degree 1). Indeed, using that rule, we have , in agreement with . So what is the purpose of that example? It is important to note that all of the rules in , including the polynomial evaluation rule, were stated without proof . Using the delta-epsilon definition in a particular example gives us a rigorous proof that the result obtained via limit rules is correct.  Going further, it is possible to give, for each limit rule and formula of , a general proof of its validity using the epsilon-delta definition. Outside of epsilon-delta examples, proofs are not an official topic of this course. For the curious, however, checkout for an example of how we use the epsilon-delta definition to prove limit rules.   It is possible to give a graphical interpretation of challenge-response nature of the epsilon-delta definition, and this might help you understand all the logical subtleties of the formal definition pointed out in .   Visualizing epsilon-delta definition  The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim in terms of the graph of . (The window below is a bit narrow. Go to the Geogebra page of the interactive for a larger rendition.) Let's elaborate on how exactly to parse this graphical representation.   The specific -challenge is indicated by a horizontal band centered about .    The -response is indicated by a vertical band centered about .    The game, given a specific -challenge, is to find an appropriate such that when is within of , the values are within of . Visually, this is accomplished when all points on the segment of the graph of lying in the vertical band about also lie within the horizontal band about .      Visualizing epsilon-delta proofs. Made with Geogebra     Before moving on to further examples of the epsilon-delta definition it will be worthwhile to fomulate a systematic approach to its application. The steps we used in can be summarized by the more general procedure below.   Epsilon-delta proof for limits   To prove for a function and real numbers , proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .        Finding such that  In the final step of applying to a limit statement , we usually have found an open interval containing , and then must find a such that . The following approach is useful in this regard. Observe that and thus , where , are the distances from to the left and right endpoints of the interval.   Visualizing distances to endpoints of interval   Visualizing distances to endpoints of interval     Setting as the minimum of these distances, we now have , as desired.  Depending on the example, we can sometimes easily determine which of and is the minimum, giving us an explicit expression for . When things are too complicated, however, it is perfectly fine to set .    Epsilon-delta: radical function   Let . Verify that using the epsilon-delta definition of the limit.    Following we treat as an arbitrary positive constant and attempt to solve the inequality . We have . We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule to apply, we need and to both be nonnegative. (Example: , but .) To deal with this, we will treat two separate cases: and .   Case:  When , all terms in the last inequality above are positive, and we may continue on to conclude . Thus the set of solutions to our original inequality, assuming , is , where . Note that since , both and are positive. It is clear that . Setting to be the minimum of , guarantees that . We conclude that for any positive , setting , we have for all satisfying .  Note: in fact, it is not difficult to see in this case that and so we could have more explicitly set in this case. Nonetheless, declaring works just as well here, as well as in other examples.    Case:  Now assume . We need to find a such that implies . From the previous case ( ), we know there is a such that implies . But since , we have , as desired.   Our two cases, taken together, show that for all , there exists a such that . Thus .    As the last example illustrates, as our function becomes more complicated, solving the relevant inequality can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a partial proof: namely we will give you one specific as a challenge, and ask you to find a that satisfies for this particular .   Finding for specific : quadratic function   Let . It is a fact that . Verify the epsilon-delta definition for this limit statement for the specific epsilon .    We wish to find satisfying . Proceeding as in , we first solve the inequality : . Notice that in this case, the set of solutions to the inequality is a union of two intervals: . Notice further that our limit point is an element of the second interval, and that we have , where . Thus, setting , we have . It follows that , as desired.    We finish the section with an example illustrating how to use the epsilon-delta definition of the limit to give a rigorous proof of limit rules. As mentioned above, proving limit rules is not an official topic of this course. However, the argument given in the solution below might help further illuminate how the epsilon-delta definition works. We will make use of the famous triangle inequality for the absolute value, which we make official here.   Triangle inequality   For all we have . Furthermore, equality holds above if and only if , which is equivalent to and not having different signs.    There are a number of different ways of proving the triangle inequality. We will give a proof making use of the identity . First observe that since both sides of are nonnegative, we have , using . Now begin with . We have . We conclude that , and thus that , as desired. Where does the condition for inequality in come from? Notice that the chain of equalities above is a chain of equalities if and only if the middle inequality, which uses is an equality. This in turn is true if and only if , which is equivalent to saying that and do not have different signs.     Proof of the sum rule for limits   Use the epsilon-delta definition of the limit to prove the . That is, show that if and exist, then exists and satisfies .    Let and . We use the epsilon-delta definition to show that .  Given an arbitrary , we must find a such that for all satisfying . Since , we can find positive numbers and such that for all satisfying and . What's going on here? The and are our responses to the the epsilon challenge of to the statements and . You will see below, why we chose an epsilon challenge of here.  Letting it follows that both inequalities in hold for all satisfying . We claim this is the response we want to the given challenge to the limit statement . Indeed for all satisfying , we have . This proves that given any there is a such that for all satisfying , and hence that .    "
+  "body": " Limits: formal definition     Provide a rigorous definition of the limit.    Understand the quantifier logic underlying the formal definition of a limit in a challenge and response manner.    Use the formal definition of the limit to compute a limit and\/or decide whether a limit exists.     As mentioned before, what makes less than rigorous is the use of the vague phrases arbitrarily close and sufficiently close . The epsilon-delta formulation given in is a mathematically precise way of capturing these notions.   Limit (formal)   Suppose is a function defined everywhere on an open interval containing the point , except possibly at itself. We say that the limit of as approaches exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: .     Anatomy of a definition   can come off as forbiddingly technical. This is due to its combination of mathematical and logical details. We endeavor now to unpack and explicate some of these details. We will start with the mathematical nuts and bolts in the interior of the statement and work our way outward through the logical layers.   Absolute value  The absolute value expressions and are measures of how close is to and how close is to . To say is to say is within a distance of ; similarly says is within a distance of .    Conditional  The conditional (or if-then ) statement asserts that if  is within a distance of (but not equal to ), then  is within a distance of .    Existential quantifier  How does adding the existential quantifier  there exists a change the meaning? Considering to be fixed for the moment, the statement asserts that for all  sufficiently close (but not equal) to , is within a distance of . Indeed, it provides a sort of safety distance  and says that as long as is within this safety distance of (but not equal to ), then is within a distance of .    Universal quantifier  Lastly, consider what effect the universal quantifier  for all has. The full statement asserts that for any positive  , the value is within a distance for all sufficiently close to . In particular, choosing to be as small as you like, we have within that small distance of for all sufficiently close to . In other words, we can make  arbitrarily close to for all sufficiently close (but not equal) to .       Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure.   For each positive , we are challenged to show that for sufficiently close to , . Consider this an epsilon-challenge to the limit statement .    To meet a specific epsilon-challenge we respond by providing a for which implies . Consider this proffered our delta-response that meets the given epsilon-challenge.   Note that the we provide in response to a particular epsilon-challenge will typically depend on the particular in question. Indeed, we typically see that the smaller the , the smaller the .   Let's see this challenge-response nature of the formal definition of the limit in action. We choose a linear function for our first example.   Epsilon-delta: linear function   Let . Verify that using the epsilon-delta definition of the limit.    We approach the problem in the spirit of the challenge-response characterization given in . Given an arbitrary epsilon-challenge of , we seek to respond with a suitable that meets the challenge: , we wish to find a that guarantees for all .  To do so, we work backwards. Treating as a fixed contstant, we ask what must satisfy in order for . In other words, we should first {\\em solve} the inequality for ! We have . We see then that solves the inequality if and only if . But this is true if and only if . Indeed, if and only if the distance between and is at most , if and only if . (See .)  Summarizing we see that, setting , we have for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable to satisfy the requirements of the formal definition of the limit. Thus, by , we conclude that , as desired. for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable meeting this challenge. We conclude that .     Centered intevals  The final step in the solution to hinged on the observation that if and only if . The observation is worth generalizing. Given a point and distance , call the interval the interval centered at with radius  . As illustrates, the interval is precisely the set of all whose distance to is less than : equivalently, is the set of all satisfying .   Interval of radius centered at   Centered interval at a with radius d       Epsilon-delta definition  Note that our polynomial evaluation rule could have been applied to the previous example, since the function is a polynomial (of degree 1). Indeed, using that rule, we have , in agreement with . So what is the purpose of that example? It is important to note that all of the rules in , including the polynomial evaluation rule, were stated without proof . Using the delta-epsilon definition in a particular example gives us a rigorous proof that the result obtained via limit rules is correct.  Going further, it is possible to give, for each limit rule and formula of , a general proof of its validity using the epsilon-delta definition. Outside of epsilon-delta examples, proofs are not an official topic of this course. For the curious, however, checkout for an example of how we use the epsilon-delta definition to prove limit rules.   It is possible to give a graphical interpretation of the challenge-response nature of the epsilon-delta definition, and this might help you understand all the logical subtleties of the formal definition pointed out in .   Visualizing epsilon-delta definition  The Geogebra interactive below provides a means of visualizing the challenge-response nature of the epsilon-delta proof of a limit claim in terms of the graph of . (The window below is a bit narrow. Go to the Geogebra page of the interactive for a larger rendition.) Let's elaborate on how exactly to parse this graphical representation.   The specific -challenge is indicated by a horizontal band centered about .    The -response is indicated by a vertical band centered about .    The game, given a specific -challenge, is to find an appropriate such that when is within of , the values are within of . Visually, this is accomplished when all points on the segment of the graph of lying in the vertical band about also lie within the horizontal band about .      Visualizing epsilon-delta proofs. Made with Geogebra     Before moving on to further examples of the epsilon-delta definition it will be worthwhile to fomulate a systematic approach to its application. The steps we used in can be summarized by the more general procedure below.   Epsilon-delta proof for limits   To prove using the epsilon-delta definition, proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .        Finding such that  In the final step of applying to a limit statement , we usually have found an open interval containing , and then must find a such that . The following approach is useful in this regard. Observe that and thus , where , are the distances from to the left and right endpoints of the interval.   Visualizing distances to endpoints of interval   Visualizing distances to endpoints of interval     Setting as the minimum of these distances, we now have , as desired.  Depending on the example, we can sometimes easily determine which of and is the minimum, giving us an explicit expression for . When things are too complicated, however, it is perfectly fine to set .    Epsilon-delta: radical function   Let . Verify that using the epsilon-delta definition of the limit.    Following we treat as an arbitrary positive constant and attempt to solve the inequality . We have . We are tempted now to square all terms in the above inequality to get rid of the radical, but recall that in order for the rule to apply, we need and to both be nonnegative. (Example: , but .) To deal with this, we will treat two separate cases: and .   Case:  When , all terms in the last inequality above are positive, and we may continue on to conclude . Thus the set of solutions to our original inequality, assuming , is , where . Note that since , both and are positive. It is clear that . Setting to be the minimum of , guarantees that . We conclude that for any positive , setting , we have for all satisfying .  Note: in fact, it is not difficult to see in this case that and so we could have more explicitly set in this case. Nonetheless, declaring works just as well here, as well as in other examples.    Case:  Now assume . We need to find a such that implies . From the previous case ( ), we know there is a such that implies . But since , we have , as desired.   Our two cases, taken together, show that for all , there exists a such that . Thus .    As the last example illustrates, as our function becomes more complicated, solving the relevant inequality can be a delicate and difficult affair. Mindful of this fact, instead of asking you to give a full epsilon-delta proof of a given limit claim, we will sometimes ask you to give a partial proof: namely we will give you one specific as a challenge, and ask you to find a that satisfies for this particular .   Finding for specific : quadratic function   Let . It is a fact that . Verify the epsilon-delta definition for this limit statement for the specific epsilon .    We wish to find satisfying . Proceeding as in , we first solve the inequality : . Notice that in this case, the set of solutions to the inequality is a union of two intervals: . Notice further that our limit point is an element of the second interval, and that we have , where . Thus, setting , we have . It follows that , as desired.    We finish the section with an example illustrating how to use the epsilon-delta definition of the limit to give a rigorous proof of limit rules. As mentioned above, proving limit rules is not an official topic of this course. However, the argument given in the solution below might help further illuminate how the epsilon-delta definition works. We will make use of the famous triangle inequality for the absolute value, which we make official here.   Triangle inequality   For all we have . Furthermore, equality holds above if and only if , which is equivalent to and not having different signs.    There are a number of different ways of proving the triangle inequality. We will give a proof making use of the identity . First observe that since both sides of are nonnegative, we have , using . Now begin with . We have . We conclude that , and thus that , as desired. Where does the condition for inequality in come from? Notice that the chain of equalities above is a chain of equalities if and only if the middle inequality, which uses is an equality. This in turn is true if and only if , which is equivalent to saying that and do not have different signs.     Proof of the sum rule for limits   Use the epsilon-delta definition of the limit to prove the . That is, show that if and exist, then exists and satisfies .    Let and . We use the epsilon-delta definition to show that .  Given an arbitrary , we must find a such that for all satisfying . Since , we can find positive numbers and such that for all satisfying and . What's going on here? The and are our responses to the the epsilon challenge of to the statements and . You will see below, why we chose an epsilon challenge of here.  Letting it follows that both inequalities in hold for all satisfying . We claim this is the response we want to the given challenge to the limit statement . Indeed for all satisfying , we have . This proves that given any there is a such that for all satisfying , and hence that .    "
 },
 {
   "id": "s_lim_formal-2",
@@ -3058,7 +3058,7 @@ var ptx_lunr_docs = [
   "type": "Remark",
   "number": "1.14.3",
   "title": "Challenge and response.",
-  "body": " Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure.   For each positive , we are challenged to show that for sufficiently close to , . Consider this an epsilon-challenge to the limit statement .    To meet a specific epsilon-challenge we respond by providing a for which implies . Consider this our response that meets the given epsilon-challenge.   Note that the we provide in response to a particular epsilon-challenge will typically depend on the particular in question. Indeed, we typically see that the smaller the , the smaller the .  "
+  "body": " Challenge and response  It is useful to think of the process of verifying to establish a limit claim as a challenge and response type of procedure.   For each positive , we are challenged to show that for sufficiently close to , . Consider this an epsilon-challenge to the limit statement .    To meet a specific epsilon-challenge we respond by providing a for which implies . Consider this proffered our delta-response that meets the given epsilon-challenge.   Note that the we provide in response to a particular epsilon-challenge will typically depend on the particular in question. Indeed, we typically see that the smaller the , the smaller the .  "
 },
 {
   "id": "eg_ep_delt_affine",
@@ -3067,7 +3067,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "1.14.4",
   "title": "Epsilon-delta: linear function.",
-  "body": " Epsilon-delta: linear function   Let . Verify that using the epsilon-delta definition of the limit.    We approach the problem in the spirit of the challenge-response characterization given in . Given an arbitrary epsilon-challenge of , we seek to respond with a suitable that meets the challenge: , we wish to find a that guarantees for all .  To do so, work backwards. Treating as a fixed contstant, we ask what must satisfy in order for . In other words, we should first {\\em solve} the inequality for ! We have . We see then that solves the inequality if and only if . But this is true if and only if . Indeed, if and only if the distance between and is at most , if and only if . (See .)  Summarizing we see that, setting , we have for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable to satisfy the requirements of the formal definition of the limit. Thus, by , we conclude that , as desired. for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable meeting this challenge. We conclude that .   "
+  "body": " Epsilon-delta: linear function   Let . Verify that using the epsilon-delta definition of the limit.    We approach the problem in the spirit of the challenge-response characterization given in . Given an arbitrary epsilon-challenge of , we seek to respond with a suitable that meets the challenge: , we wish to find a that guarantees for all .  To do so, we work backwards. Treating as a fixed contstant, we ask what must satisfy in order for . In other words, we should first {\\em solve} the inequality for ! We have . We see then that solves the inequality if and only if . But this is true if and only if . Indeed, if and only if the distance between and is at most , if and only if . (See .)  Summarizing we see that, setting , we have for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable to satisfy the requirements of the formal definition of the limit. Thus, by , we conclude that , as desired. for all satisfying . It follows that for any challenge to the limit statement , we can find a suitable meeting this challenge. We conclude that .   "
 },
 {
   "id": "s_lim_formal-9",
@@ -3103,7 +3103,7 @@ var ptx_lunr_docs = [
   "type": "Procedure",
   "number": "1.14.10",
   "title": "Epsilon-delta proof for limits.",
-  "body": " Epsilon-delta proof for limits   To prove for a function and real numbers , proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .      "
+  "body": " Epsilon-delta proof for limits   To prove using the epsilon-delta definition, proceed as follows.   Treating as an arbitrary positive constant, solve the inequality for . That is, find the set of all satisfying . This set is typically a union of one or more intervals.    Find a positive such that the set of solutions to contains the interval , with the possible exception of itself. The you provide will be expressed in terms of .    It follows that . Since was arbitrary, conclude that .      "
 },
 {
   "id": "rm_find_delta",
@@ -3149,6 +3149,438 @@ var ptx_lunr_docs = [
   "number": "1.14.16",
   "title": "Proof of the sum rule for limits.",
   "body": " Proof of the sum rule for limits   Use the epsilon-delta definition of the limit to prove the . That is, show that if and exist, then exists and satisfies .    Let and . We use the epsilon-delta definition to show that .  Given an arbitrary , we must find a such that for all satisfying . Since , we can find positive numbers and such that for all satisfying and . What's going on here? The and are our responses to the the epsilon challenge of to the statements and . You will see below, why we chose an epsilon challenge of here.  Letting it follows that both inequalities in hold for all satisfying . We claim this is the response we want to the given challenge to the limit statement . Indeed for all satisfying , we have . This proves that given any there is a such that for all satisfying , and hence that .   "
+},
+{
+  "id": "s_continuous",
+  "level": "1",
+  "url": "s_continuous.html",
+  "type": "Section",
+  "number": "1.15",
+  "title": "Continuity",
+  "body": " Continuity     Define continuity of a function at a point and on an interval.    Analyzing continuity at a point graphically and analytically (using limits).    Understand how the continuity property is preserved under familiar function operations, including composition. Show that all algebraic functions are continuous at every point in their domain.    Argue using the intermediate value theorem that a function achieves a given value, and that a given equation has a solution in a specified interval.     In this section we explore the notion of continuity of a function. The definition of continuity is most clearly stated in terms of limits: a function is continuous at a point in its domain if its limit exists there and is equal to its value . Graphically, this means, roughly speaking that the graph of has no untoward behavior at : , there are no jumps or asymptotes at , nor any wild oscillations near . As we will see, the property of being continuous at points has many important and useful consequences, including the famous .   Continuous functions  Before getting to the official definition of a continuity, we quickly indulge in some technicalities around the notions of interior points and endpoints of domains.   Interior points and endpoints   Let be a function with domain .   Interior point  An element is an interior point of if contains an open interval that contains : , and .    Endpoints  An element is a left endpoint of if it is not an interior point of and contains an interval of the form .  An element is a right endpoint of if it is not an interior point of and contains an interval of the form . with .  An element is an endpoint of if it is either left or right endpoint.        Continuity   Let be a function with domain , and suppose is either an interior point or an endpoint of . The function is continuous at if the limit of at exists and is equal to the value of at : , if    exists, and     .   The function is discontinuous at if it is not continuous there.  For a subset , we say is continuous on if is continuous at all interior or endpoint points of lying in . We say is continuous if it is continuous on its entire domain.     Continuity at  Let be a function with domain . Observe that our definition of continuity (and discontinuity) only applies to elements of the domain. (In fact, it only applies to elements of the domain that are either interior points or endpoints.)  For example, consider the function with domain . Since is not an element of the domain of , we do not say that is continuous or discontinuous at .    Endpoints  Let be a function with domain , and let be a right endpoint of . Since by definition contains an interval of the form but not a full open interval containing , we are in a situation where only the left limit of is defined at . Recall ( ) that we define in this case. A similar remark applies to left endpoints of .    Continuity at endpoint   Let , with domain . Decide whether is continuous at .    First observe that since is a left endpoint of , we define . We compute . Thus exists and is equal to 0. Since , we see further that and thus that is continuous at .     Continuity: graphical  When scanning the graph of a function for points of continuity or discontinuity, we look for problem points . These are locations on the graph where either (a) the limit of the function appears not to exist, or (b) where the limit does exist but does not agree with the value of the function.  A well-loved adage in this regard is the phrase a continuous function is one whose graph can be traced without lifting the pencil . This is cute, and helpful for guidance, but should not be taken too literally. Indeed, there are some pretty wacky continuous functions out there. For example, the function is continuous everywhere on its domain, and yet there are some peculiar properties of its graph that make it unclear it what sense it could be traced by a pencil . (Not having defined the sine function yet, we have gotten a little ahead of ourselves. The reader is invited to graph the function above using technology.)    Continuity: graphical   For the function whose graph is given below, find all points of discontinuity and explain what conditions of fail to attain. Make use of some of the following descriptors of discontinuities: jump , removeable , oscillating , infinite .   Graph of function   Graph of complicated function       Note that we do not speak of being continuous or discontinuous at , as this is not an element of the domain of .  The limit of at does not exist, since the left limit does not equal the right limit ( ). Thus (i) of fails, and is not continuous at . Such a discontinuity is called a jump discontinuity , as the difference between the left- and right-hand limit values is manifested graphically as a discrete jump in the height of the graph of .  The limit of at exists, and is equal to the value of at : that is, we have . Thus (i) and (ii) of are satisfied, and is continuous at .  The limit of at does not exist, since the right-hand limit does not exist. Thus (i) of fails, and is not continuous at . Such a discontinuity is called an oscillating discontinuity , as the wild oscillation is the reason why the limit does not exist.  The limit of exists at , but is not equal to the value of at . In more detail, we have . Thus is not continuous at . Such a discontinuity is called a removeable discontinuity as a simple redefining of at ( , setting ) would make the discontinuity disappear.     Continuous everywhere   Let . Prove, using that is continuous.    Let be any interior element in the implied domain of . By definition of this domain, this means . It follows that . This computation shows both that (i) exists, and (ii) , and thus by , that is continuous at . Since was an arbitrary element of the domain of , we conclude that is continuous at all points of its domain, and hence continuous.    Next we state some theorems that facilitate our (non-graphical) analysis of continuity for a given function. The first result establishes the continuity of some familiar families, proving us with a basic collection of continuous functions.   Continuous functions      Absolute value  The function is continuous everywhere on its domain. In other words, the absolute value function is a continuous function.    Polynomials and rational functions  If is either a polynomial or a rational function, then is continuous everywhere on its domain. In other words, polynomials and rational functions are continuous functions.          This is a direct consequence of and .    This is a direct consequence of and .       By contrast, our next two theorems give us rules for building new continuous functions out of old ones, allowing us to build up our collection of continuous functions.   Continuity rules   Assume and are both continuous at the point .   Linear combination  For all constants , the function is continuous at .    Product  The function is continuous at .    Quotient  Assume further that . The function is continuous at .    Power  Let be a positive integer. The function is continuous at .    Root rule  Let be a positive integer. If is even, assume further that . The function is continuous at .        Continuity composition rule   Assume and are functions, and suppose the range of is a subset of the domain of . If , and if is continuous at , then .  It follows that if is continuous at , then the composition is continuous at .    Whereas establishes the continuity of some basic families of functions, and tell us that continuity is preserved by all of our familiar function operations (sum, product, quotient, composition, etc.)! As a result, just about any function we build from our starting collection of polynomials and rational functions, is continuous on its entire domain. Since the set family of functions that can be build up from polynomials in this way is precisely the set of algebraic functions , we conclude that all algebraic functions are continuous!   Algebraic functions are continuous   All algebraic functions are continuous. In more detail, if is an algebraic function with domain , then is continuous at all interior points and endpoints of .    By definition of continuity, is continuous at if and only if . Now that we know that any algebraic functions is continuous everywhere on their domain, we obtain a sort of super-powered evaluation formula generalizing : namely, the algebraic evaluation formula.   Algebraic function evaluation   If is an algebraic function with domain , then for all .    As a result of most of the ``easy\" limit computations ( , limit computations that do not require algebra) we considered in now become extremely easy, as long as the function in question is algebraic, and the limit point is in that function's domain. Do be careful of that last restriction, however. If is not in the domain of , then we cannot use , and probably need to resort to algebraic techniques.   Algebraic function evaluation   Let . Compute the following limits.                We first observe that is algebraic, with domain .   Since is algebraic and , we may use to compute .    Note that , and thus we cannot use . As usual we resort to some algebra: .       In light of , we see that it is actually somewhat difficult to write down a discontinuous function! Piecewise-defined functions give us an easy way of getting around this issue, providing us with a useful source of functions that potentially have discontinuities. Of course, being defined in a piecewise manner does not guarantee the existence of a continuity; consider for the example the absolute value function , which is continuous, but defined piecewise as . The example below illustrates in general how we determine whether a piecewise-defined function is continuous at various inputs.   Continuity: piecewise   Let be defined as , where is a fixed constant.   Argue that is continuous at all inputs .    Find all values of for which is continuous at the input , and hence everywhere.          Take any with .  If , then for inputs near . Since is a polynomial, and since polynomials are continuous on their domain, it follows that is continuous at .  Similarly, if , then for inputs near . Again since is a polynomial, it is continuous at all such inputs, and hence also at .  This shows that is continuous at for all , no matter what the value of .    We use the definition of continuity to see what must satisfy for to be differentiable at . Namely, this is true if and only if    exists, and further        Condition (i) holds if and only if . We compute both one-sided limits: . We see that (i) is satisfied if and only if , or , which is true if and only if or .  It remains to determine which choices of guarantee condition (ii). We claim that both work: indeed, since both and guarantee that , and since using the piecewise definition, we conclude that for both choices of we have , as desired.   The figure below shows the resulting graph for , taking and . You can think of condition (i) as guaranteeing that our two linear segments join up correctly at .   Graphs of : and      Graph of piecewise-defined function        Graph of piecewise-defined function           Intermediate value theorem  Recall the cute informal description of a continuous function as one whose graph can be traced without lifting your pencil. This can be further interpreted as saying that as we trace a segment of the graph lying over some interval in the -axis, it should not be possible to skip over a particular -value. Indeed, to skip this value, we would have to lift our pencil. This seems plausible, starting from our cutesy informal description of continuity, but can we prove it rigorously? Yes, we can as witnessed by the intermediate value theorem .   Intermediate value theorem (IVT)   Let be continuous on the closed interval . If , then given any value lying strictly between and , there is an element such that .     IVT and existence of solutions  A common application of the IVT is to prove that an equation of the form has a solution in a given open interval . Indeed, if is continuous on , and if lies strictly between and , then the IVT guarantees the existence of an element satisfying .  Interestingly, however, this method does not actually provide the solution ; it only tells us that it exists. This is probably the first time you have encountered what is called a nonconstructive proof in mathematics. The theorem tells us that the value exists (assuming the necessary conditions hold), but does not explicitly tell us what is.    Sine equation   Prove that the equation has a solution that lies in the interval .    Note that is continuous on , and that . Since , the IVT implies that for every there is an input such that . In other words, the given equation has a solution lying in the interval .     Roots of polynomials   Show that the polynomial has a root.    A root of is an input satisfying . Since is continuous everywhere, the IVT will guarantee the existence of such a as long as we can find inputs , satisfying and . Let's make a table of values of for small inputs : . This so far is not helpful to us, as all the values are positive. Let's try another negative value: . That's more like it! Since is continuous on , and since , the IVT now implies there is a such that .  Observe that this not only shows that has a real root, it tells us further that there is a root lying between -2 and -1. Are there any other roots of this function? Further investigation is required. We will have the tools to answer this later.     Complicated equation   Prove that the equation has a solution.    To get this problem into a state where we can apply the IVT, we rewrite the equation as and define . Thus we are looking for a solution to . As with , this will boil down to finding inputs where is positive and negative, respectively. Let's create a table of values for : . We observe that . Since is continuous on , the IVT now implies there is an element satisfying . Thus we have shown, not only that there is a solution, but one lying in this particular interval.  Note that the same reasoning tells us there is another solution between and . That is the inequality implies there is another solution lying between and . Thus, we are able to roughly locate two solutions to the original equation, using the IVT twice.  Note: since the given function happens to be even ( ), from our first solution lying in we obtain a second solution lying in .    Recall that the range of a function is the set of all outputs of : . The intermediate value theorem implies that if is a continuous function and is an interval, then given any two values , if , then . This observation often allows us to explicitly compute the range of a continuous function.   "
+},
+{
+  "id": "s_continuous-2",
+  "level": "2",
+  "url": "s_continuous.html#s_continuous-2",
+  "type": "Objectives",
+  "number": "1.15",
+  "title": "",
+  "body": "   Define continuity of a function at a point and on an interval.    Analyzing continuity at a point graphically and analytically (using limits).    Understand how the continuity property is preserved under familiar function operations, including composition. Show that all algebraic functions are continuous at every point in their domain.    Argue using the intermediate value theorem that a function achieves a given value, and that a given equation has a solution in a specified interval.    "
+},
+{
+  "id": "d_interior_endpoint",
+  "level": "2",
+  "url": "s_continuous.html#d_interior_endpoint",
+  "type": "Definition",
+  "number": "1.15.1",
+  "title": "Interior points and endpoints.",
+  "body": " Interior points and endpoints   Let be a function with domain .   Interior point  An element is an interior point of if contains an open interval that contains : , and .    Endpoints  An element is a left endpoint of if it is not an interior point of and contains an interval of the form .  An element is a right endpoint of if it is not an interior point of and contains an interval of the form . with .  An element is an endpoint of if it is either left or right endpoint.      "
+},
+{
+  "id": "d_continuity",
+  "level": "2",
+  "url": "s_continuous.html#d_continuity",
+  "type": "Definition",
+  "number": "1.15.2",
+  "title": "Continuity.",
+  "body": " Continuity   Let be a function with domain , and suppose is either an interior point or an endpoint of . The function is continuous at if the limit of at exists and is equal to the value of at : , if    exists, and     .   The function is discontinuous at if it is not continuous there.  For a subset , we say is continuous on if is continuous at all interior or endpoint points of lying in . We say is continuous if it is continuous on its entire domain.   "
+},
+{
+  "id": "ss_cont-5",
+  "level": "2",
+  "url": "s_continuous.html#ss_cont-5",
+  "type": "Remark",
+  "number": "1.15.3",
+  "title": "Continuity at <span class=\"process-math\">\\(a\\)<\/span>.",
+  "body": " Continuity at  Let be a function with domain . Observe that our definition of continuity (and discontinuity) only applies to elements of the domain. (In fact, it only applies to elements of the domain that are either interior points or endpoints.)  For example, consider the function with domain . Since is not an element of the domain of , we do not say that is continuous or discontinuous at .  "
+},
+{
+  "id": "ss_cont-6",
+  "level": "2",
+  "url": "s_continuous.html#ss_cont-6",
+  "type": "Remark",
+  "number": "1.15.4",
+  "title": "Endpoints.",
+  "body": " Endpoints  Let be a function with domain , and let be a right endpoint of . Since by definition contains an interval of the form but not a full open interval containing , we are in a situation where only the left limit of is defined at . Recall ( ) that we define in this case. A similar remark applies to left endpoints of .  "
+},
+{
+  "id": "eg_cont_endpoint",
+  "level": "2",
+  "url": "s_continuous.html#eg_cont_endpoint",
+  "type": "Example",
+  "number": "1.15.5",
+  "title": "Continuity at endpoint.",
+  "body": " Continuity at endpoint   Let , with domain . Decide whether is continuous at .    First observe that since is a left endpoint of , we define . We compute . Thus exists and is equal to 0. Since , we see further that and thus that is continuous at .   "
+},
+{
+  "id": "ss_cont-8",
+  "level": "2",
+  "url": "s_continuous.html#ss_cont-8",
+  "type": "Remark",
+  "number": "1.15.6",
+  "title": "Continuity: graphical.",
+  "body": " Continuity: graphical  When scanning the graph of a function for points of continuity or discontinuity, we look for problem points . These are locations on the graph where either (a) the limit of the function appears not to exist, or (b) where the limit does exist but does not agree with the value of the function.  A well-loved adage in this regard is the phrase a continuous function is one whose graph can be traced without lifting the pencil . This is cute, and helpful for guidance, but should not be taken too literally. Indeed, there are some pretty wacky continuous functions out there. For example, the function is continuous everywhere on its domain, and yet there are some peculiar properties of its graph that make it unclear it what sense it could be traced by a pencil . (Not having defined the sine function yet, we have gotten a little ahead of ourselves. The reader is invited to graph the function above using technology.)  "
+},
+{
+  "id": "eg_cont_graph",
+  "level": "2",
+  "url": "s_continuous.html#eg_cont_graph",
+  "type": "Example",
+  "number": "1.15.7",
+  "title": "Continuity: graphical.",
+  "body": " Continuity: graphical   For the function whose graph is given below, find all points of discontinuity and explain what conditions of fail to attain. Make use of some of the following descriptors of discontinuities: jump , removeable , oscillating , infinite .   Graph of function   Graph of complicated function       Note that we do not speak of being continuous or discontinuous at , as this is not an element of the domain of .  The limit of at does not exist, since the left limit does not equal the right limit ( ). Thus (i) of fails, and is not continuous at . Such a discontinuity is called a jump discontinuity , as the difference between the left- and right-hand limit values is manifested graphically as a discrete jump in the height of the graph of .  The limit of at exists, and is equal to the value of at : that is, we have . Thus (i) and (ii) of are satisfied, and is continuous at .  The limit of at does not exist, since the right-hand limit does not exist. Thus (i) of fails, and is not continuous at . Such a discontinuity is called an oscillating discontinuity , as the wild oscillation is the reason why the limit does not exist.  The limit of exists at , but is not equal to the value of at . In more detail, we have . Thus is not continuous at . Such a discontinuity is called a removeable discontinuity as a simple redefining of at ( , setting ) would make the discontinuity disappear.   "
+},
+{
+  "id": "eg_cont_on_domain",
+  "level": "2",
+  "url": "s_continuous.html#eg_cont_on_domain",
+  "type": "Example",
+  "number": "1.15.9",
+  "title": "Continuous everywhere.",
+  "body": " Continuous everywhere   Let . Prove, using that is continuous.    Let be any interior element in the implied domain of . By definition of this domain, this means . It follows that . This computation shows both that (i) exists, and (ii) , and thus by , that is continuous at . Since was an arbitrary element of the domain of , we conclude that is continuous at all points of its domain, and hence continuous.   "
+},
+{
+  "id": "th_cont_poly_rational",
+  "level": "2",
+  "url": "s_continuous.html#th_cont_poly_rational",
+  "type": "Theorem",
+  "number": "1.15.10",
+  "title": "Continuous functions.",
+  "body": " Continuous functions      Absolute value  The function is continuous everywhere on its domain. In other words, the absolute value function is a continuous function.    Polynomials and rational functions  If is either a polynomial or a rational function, then is continuous everywhere on its domain. In other words, polynomials and rational functions are continuous functions.          This is a direct consequence of and .    This is a direct consequence of and .      "
+},
+{
+  "id": "th_cont_rules",
+  "level": "2",
+  "url": "s_continuous.html#th_cont_rules",
+  "type": "Theorem",
+  "number": "1.15.11",
+  "title": "Continuity rules.",
+  "body": " Continuity rules   Assume and are both continuous at the point .   Linear combination  For all constants , the function is continuous at .    Product  The function is continuous at .    Quotient  Assume further that . The function is continuous at .    Power  Let be a positive integer. The function is continuous at .    Root rule  Let be a positive integer. If is even, assume further that . The function is continuous at .      "
+},
+{
+  "id": "th_cont_comp",
+  "level": "2",
+  "url": "s_continuous.html#th_cont_comp",
+  "type": "Theorem",
+  "number": "1.15.12",
+  "title": "Continuity composition rule.",
+  "body": " Continuity composition rule   Assume and are functions, and suppose the range of is a subset of the domain of . If , and if is continuous at , then .  It follows that if is continuous at , then the composition is continuous at .   "
+},
+{
+  "id": "th_alg_func_cont",
+  "level": "2",
+  "url": "s_continuous.html#th_alg_func_cont",
+  "type": "Theorem",
+  "number": "1.15.13",
+  "title": "Algebraic functions are continuous.",
+  "body": " Algebraic functions are continuous   All algebraic functions are continuous. In more detail, if is an algebraic function with domain , then is continuous at all interior points and endpoints of .   "
+},
+{
+  "id": "th_alg_func_eval",
+  "level": "2",
+  "url": "s_continuous.html#th_alg_func_eval",
+  "type": "Theorem",
+  "number": "1.15.14",
+  "title": "Algebraic function evaluation.",
+  "body": " Algebraic function evaluation   If is an algebraic function with domain , then for all .   "
+},
+{
+  "id": "eg_alg_func_eval",
+  "level": "2",
+  "url": "s_continuous.html#eg_alg_func_eval",
+  "type": "Example",
+  "number": "1.15.15",
+  "title": "Algebraic function evaluation.",
+  "body": " Algebraic function evaluation   Let . Compute the following limits.                We first observe that is algebraic, with domain .   Since is algebraic and , we may use to compute .    Note that , and thus we cannot use . As usual we resort to some algebra: .      "
+},
+{
+  "id": "eg_cont_piecewise",
+  "level": "2",
+  "url": "s_continuous.html#eg_cont_piecewise",
+  "type": "Example",
+  "number": "1.15.16",
+  "title": "Continuity: piecewise.",
+  "body": " Continuity: piecewise   Let be defined as , where is a fixed constant.   Argue that is continuous at all inputs .    Find all values of for which is continuous at the input , and hence everywhere.          Take any with .  If , then for inputs near . Since is a polynomial, and since polynomials are continuous on their domain, it follows that is continuous at .  Similarly, if , then for inputs near . Again since is a polynomial, it is continuous at all such inputs, and hence also at .  This shows that is continuous at for all , no matter what the value of .    We use the definition of continuity to see what must satisfy for to be differentiable at . Namely, this is true if and only if    exists, and further        Condition (i) holds if and only if . We compute both one-sided limits: . We see that (i) is satisfied if and only if , or , which is true if and only if or .  It remains to determine which choices of guarantee condition (ii). We claim that both work: indeed, since both and guarantee that , and since using the piecewise definition, we conclude that for both choices of we have , as desired.   The figure below shows the resulting graph for , taking and . You can think of condition (i) as guaranteeing that our two linear segments join up correctly at .   Graphs of : and      Graph of piecewise-defined function        Graph of piecewise-defined function        "
+},
+{
+  "id": "th_ivt",
+  "level": "2",
+  "url": "s_continuous.html#th_ivt",
+  "type": "Theorem",
+  "number": "1.15.18",
+  "title": "Intermediate value theorem (IVT).",
+  "body": " Intermediate value theorem (IVT)   Let be continuous on the closed interval . If , then given any value lying strictly between and , there is an element such that .   "
+},
+{
+  "id": "rm_IVT_solutions",
+  "level": "2",
+  "url": "s_continuous.html#rm_IVT_solutions",
+  "type": "Remark",
+  "number": "1.15.19",
+  "title": "IVT and existence of solutions.",
+  "body": " IVT and existence of solutions  A common application of the IVT is to prove that an equation of the form has a solution in a given open interval . Indeed, if is continuous on , and if lies strictly between and , then the IVT guarantees the existence of an element satisfying .  Interestingly, however, this method does not actually provide the solution ; it only tells us that it exists. This is probably the first time you have encountered what is called a nonconstructive proof in mathematics. The theorem tells us that the value exists (assuming the necessary conditions hold), but does not explicitly tell us what is.  "
+},
+{
+  "id": "eg_ivt_sine",
+  "level": "2",
+  "url": "s_continuous.html#eg_ivt_sine",
+  "type": "Example",
+  "number": "1.15.20",
+  "title": "Sine equation.",
+  "body": " Sine equation   Prove that the equation has a solution that lies in the interval .    Note that is continuous on , and that . Since , the IVT implies that for every there is an input such that . In other words, the given equation has a solution lying in the interval .   "
+},
+{
+  "id": "eg_ivt_poly",
+  "level": "2",
+  "url": "s_continuous.html#eg_ivt_poly",
+  "type": "Example",
+  "number": "1.15.21",
+  "title": "Roots of polynomials.",
+  "body": " Roots of polynomials   Show that the polynomial has a root.    A root of is an input satisfying . Since is continuous everywhere, the IVT will guarantee the existence of such a as long as we can find inputs , satisfying and . Let's make a table of values of for small inputs : . This so far is not helpful to us, as all the values are positive. Let's try another negative value: . That's more like it! Since is continuous on , and since , the IVT now implies there is a such that .  Observe that this not only shows that has a real root, it tells us further that there is a root lying between -2 and -1. Are there any other roots of this function? Further investigation is required. We will have the tools to answer this later.   "
+},
+{
+  "id": "eg_ivt_trig",
+  "level": "2",
+  "url": "s_continuous.html#eg_ivt_trig",
+  "type": "Example",
+  "number": "1.15.22",
+  "title": "Complicated equation.",
+  "body": " Complicated equation   Prove that the equation has a solution.    To get this problem into a state where we can apply the IVT, we rewrite the equation as and define . Thus we are looking for a solution to . As with , this will boil down to finding inputs where is positive and negative, respectively. Let's create a table of values for : . We observe that . Since is continuous on , the IVT now implies there is an element satisfying . Thus we have shown, not only that there is a solution, but one lying in this particular interval.  Note that the same reasoning tells us there is another solution between and . That is the inequality implies there is another solution lying between and . Thus, we are able to roughly locate two solutions to the original equation, using the IVT twice.  Note: since the given function happens to be even ( ), from our first solution lying in we obtain a second solution lying in .   "
+},
+{
+  "id": "s_lim_at_infty",
+  "level": "1",
+  "url": "s_lim_at_infty.html",
+  "type": "Section",
+  "number": "1.16",
+  "title": "Limits at infinity",
+  "body": " Limits at infinity     Give formal definition of limit of function at (plus and minus) infinity.    Investigate limits at infinity graphically.    Introduce valid rules and formulas for limits at infinity.    Evaluate limits at infinity using limit rules and formulas.    Define horizontal asymptotes using language of limits at infinity.     We motivated the introduction of limit notation as a useful and precise way of describing the behavior of the values of a function as its inputs approach a fixed real number . It is natural to ask, however, how the values of vary as inputs move off to infinity in the positive or negative direction. For example, suppose the number of sales of a product is given as a function , where is the number of days since the product's introduction to the market. Naturally, a sales team would be interested in what happens to as goes to infinity. The definition below makes rigorous sense of this going to infinity business. Notice that it is not so very different than our usual epsilon-delta definition of the limit.   Limits at infinity      Limit at  Suppose is defined on an open interval of the form . We say that the limit of at positive infinity (or at ) exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: . When this is the case, we call the limit of as approaches positive infinity (or ), and write .    Limit at  Suppose is defined on an open interval of the form . We say that the limit of at negative infinity (or at ) exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: . When this is the case, we call the limit of as approaches negative infinity (or ), and write .        Limits at infinity: informal  Informally, we have if we can make arbitrarily close to for all inputs that are sufficiently large and positive. It is useful to think of the in the formal definition as a large positive number such that is guaranteed to be within of for all is greater than ( , to the right of) .  Similarly, we have if we can make arbitrarily close to for all inputs that are sufficiently large and negative. In this case, it is useful to think of the in the formal definition as a large negative number such that is guaranteed to be within of for all less than ( , to the left of) .    At infinity versus at a point  The limit at infinity notation is very similar to the limit at a point notation: . That said, do not make the mistake of thinking that we are somehow treating infinity as if it were an actual real number. Think of our new notation as an extended version of our old notation. The in the subscript is just a sort of shorthand for saying as gets sufficiently large and positive . In fact, so useful is this shorthand, that you will see us use it frequently on its own, outside of the limit notation.   Graphically speaking, if , then the -values of points on the graph of will get closer and closer to , as . This means the graph of will get arbitrarily close to the horizontal line for points lying further and further to the right. A similar observation holds if the limit at exists. This is illustrated in for the graph of a function that satisfies .   Graph of function satisfying and   Graph of function with horizontal asymptotes     When a curve in the plane behaves in such a manner, we say that it has a horizontal asymptote. We give a formal definition of this below for the graph of a function, using limit-at-infinity notation.   Horizontal asymptote   The line is a horizontal asymptote of the graph of a function if or .    The existence or nonexistence of horizontal asymptotes for the graph of a function gives us an easy visual way of deciding whether limits at infinity exist.   Limit at infinity:   Let .   Provide a graph of over its entire domain.    Argue graphically whether the infinite limits exist.       From the graph of in , we see visually that there are no horizontal asymptotes: in more detail, since oscillate between consistently between and as , there is no one fixed value that the values of approach. Thus the limits of at and do not exist.  Graph of   Graph of cosine        Fix a positive integer and define as . We recall that the graph of such a function looks like one of the graphs in , depending on whether is even or odd.   Graphs of , for positive integer .    odd   Graph of reciprocal power function      even   Graph of reciprocal power function       In all cases we see that the graph of any such function has both as a right and left asymptote. This suggests that . The theorem below makes this observation official.   Limit at infinity: reciprocal power functions   Let , where is a positive integer. We have .     Limit at infinity laws  It is not so surprising that at infinity limits satisfy at infinity versions of the limit rules in , as we as the sandwich theorem. Note, however, that our various evaluation limit formulas ( , polynomial evaluation) do not extend to limits at infinity, as it simply makes no sense to evaluate a function at : that is, it simply makes no sense to write or .  It is worth stating explicitly the at infinity version of the replacement rule , which has a slightly different flavor than the original version. We do so only for positive infinity: suppose and are defined on an open interval and that exists; if there exists an such that for all , then . In plain English: if and are eventually equal to one another, than their limits at are equal.   The formulas in give us a decent starting point in terms of computing limits at infinity. Combining these formulas and with limit rules, we can compute limits at infinity for more complicated functions. In order to make use of , however, we often have to include an algebra step first.   Limit at infinity: rational function   Let . Compute and .    Note that both the numerator and denominator approach as . Our intuition is that the highest power of is the dominant term for large . To crystallize this intuition algebraically, we factor out the in the top and bottom, after first dealing with the absolute value: .     Limit at infinity: radical function   Let . Compute .    Again we have a situation where the numerator and denominator both approach . Using the same intuition as above, we guess that the term under the radical is the dominant one, as is the term in the denominator. We make rigorous this intuition by factoring these out. Note how we must be careful with the radical simplification. In particular, we use the fact that , and then deal with the absolute value appropriately: .    "
+},
+{
+  "id": "s_lim_at_infty-2",
+  "level": "2",
+  "url": "s_lim_at_infty.html#s_lim_at_infty-2",
+  "type": "Objectives",
+  "number": "1.16",
+  "title": "",
+  "body": "   Give formal definition of limit of function at (plus and minus) infinity.    Investigate limits at infinity graphically.    Introduce valid rules and formulas for limits at infinity.    Evaluate limits at infinity using limit rules and formulas.    Define horizontal asymptotes using language of limits at infinity.    "
+},
+{
+  "id": "d_lim_at_infty",
+  "level": "2",
+  "url": "s_lim_at_infty.html#d_lim_at_infty",
+  "type": "Definition",
+  "number": "1.16.1",
+  "title": "Limits at infinity.",
+  "body": " Limits at infinity      Limit at  Suppose is defined on an open interval of the form . We say that the limit of at positive infinity (or at ) exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: . When this is the case, we call the limit of as approaches positive infinity (or ), and write .    Limit at  Suppose is defined on an open interval of the form . We say that the limit of at negative infinity (or at ) exists if there is a value satisfying the following property: for all , there exists a such that if , then . Using logical shorthand: . When this is the case, we call the limit of as approaches negative infinity (or ), and write .      "
+},
+{
+  "id": "s_lim_at_infty-5",
+  "level": "2",
+  "url": "s_lim_at_infty.html#s_lim_at_infty-5",
+  "type": "Remark",
+  "number": "1.16.2",
+  "title": "Limits at infinity: informal.",
+  "body": " Limits at infinity: informal  Informally, we have if we can make arbitrarily close to for all inputs that are sufficiently large and positive. It is useful to think of the in the formal definition as a large positive number such that is guaranteed to be within of for all is greater than ( , to the right of) .  Similarly, we have if we can make arbitrarily close to for all inputs that are sufficiently large and negative. In this case, it is useful to think of the in the formal definition as a large negative number such that is guaranteed to be within of for all less than ( , to the left of) .  "
+},
+{
+  "id": "s_lim_at_infty-6",
+  "level": "2",
+  "url": "s_lim_at_infty.html#s_lim_at_infty-6",
+  "type": "Remark",
+  "number": "1.16.3",
+  "title": "At infinity versus at a point.",
+  "body": " At infinity versus at a point  The limit at infinity notation is very similar to the limit at a point notation: . That said, do not make the mistake of thinking that we are somehow treating infinity as if it were an actual real number. Think of our new notation as an extended version of our old notation. The in the subscript is just a sort of shorthand for saying as gets sufficiently large and positive . In fact, so useful is this shorthand, that you will see us use it frequently on its own, outside of the limit notation.  "
+},
+{
+  "id": "fig_lim_at_infty",
+  "level": "2",
+  "url": "s_lim_at_infty.html#fig_lim_at_infty",
+  "type": "Figure",
+  "number": "1.16.4",
+  "title": "",
+  "body": " Graph of function satisfying and   Graph of function with horizontal asymptotes    "
+},
+{
+  "id": "d_horizontal_asymptote",
+  "level": "2",
+  "url": "s_lim_at_infty.html#d_horizontal_asymptote",
+  "type": "Definition",
+  "number": "1.16.5",
+  "title": "Horizontal asymptote.",
+  "body": " Horizontal asymptote   The line is a horizontal asymptote of the graph of a function if or .   "
+},
+{
+  "id": "eg_lim_at_infty_cos",
+  "level": "2",
+  "url": "s_lim_at_infty.html#eg_lim_at_infty_cos",
+  "type": "Example",
+  "number": "1.16.6",
+  "title": "Limit at infinity: <span class=\"process-math\">\\(\\cos\\)<\/span>.",
+  "body": " Limit at infinity:   Let .   Provide a graph of over its entire domain.    Argue graphically whether the infinite limits exist.       From the graph of in , we see visually that there are no horizontal asymptotes: in more detail, since oscillate between consistently between and as , there is no one fixed value that the values of approach. Thus the limits of at and do not exist.  Graph of   Graph of cosine       "
+},
+{
+  "id": "fig_reciprocal",
+  "level": "2",
+  "url": "s_lim_at_infty.html#fig_reciprocal",
+  "type": "Figure",
+  "number": "1.16.8",
+  "title": "",
+  "body": " Graphs of , for positive integer .    odd   Graph of reciprocal power function      even   Graph of reciprocal power function      "
+},
+{
+  "id": "th_recip_powers",
+  "level": "2",
+  "url": "s_lim_at_infty.html#th_recip_powers",
+  "type": "Theorem",
+  "number": "1.16.9",
+  "title": "Limit at infinity: reciprocal power functions.",
+  "body": " Limit at infinity: reciprocal power functions   Let , where is a positive integer. We have .   "
+},
+{
+  "id": "s_lim_at_infty-17",
+  "level": "2",
+  "url": "s_lim_at_infty.html#s_lim_at_infty-17",
+  "type": "Remark",
+  "number": "1.16.10",
+  "title": "Limit at infinity laws.",
+  "body": " Limit at infinity laws  It is not so surprising that at infinity limits satisfy at infinity versions of the limit rules in , as we as the sandwich theorem. Note, however, that our various evaluation limit formulas ( , polynomial evaluation) do not extend to limits at infinity, as it simply makes no sense to evaluate a function at : that is, it simply makes no sense to write or .  It is worth stating explicitly the at infinity version of the replacement rule , which has a slightly different flavor than the original version. We do so only for positive infinity: suppose and are defined on an open interval and that exists; if there exists an such that for all , then . In plain English: if and are eventually equal to one another, than their limits at are equal.  "
+},
+{
+  "id": "eg_lim_infty_rational_function",
+  "level": "2",
+  "url": "s_lim_at_infty.html#eg_lim_infty_rational_function",
+  "type": "Example",
+  "number": "1.16.11",
+  "title": "Limit at infinity: rational function.",
+  "body": " Limit at infinity: rational function   Let . Compute and .    Note that both the numerator and denominator approach as . Our intuition is that the highest power of is the dominant term for large . To crystallize this intuition algebraically, we factor out the in the top and bottom, after first dealing with the absolute value: .   "
+},
+{
+  "id": "eg_lim_infty_radical",
+  "level": "2",
+  "url": "s_lim_at_infty.html#eg_lim_infty_radical",
+  "type": "Example",
+  "number": "1.16.12",
+  "title": "Limit at infinity: radical function.",
+  "body": " Limit at infinity: radical function   Let . Compute .    Again we have a situation where the numerator and denominator both approach . Using the same intuition as above, we guess that the term under the radical is the dominant one, as is the term in the denominator. We make rigorous this intuition by factoring these out. Note how we must be careful with the radical simplification. In particular, we use the fact that , and then deal with the absolute value appropriately: .   "
+},
+{
+  "id": "s_infinite_limits",
+  "level": "1",
+  "url": "s_infinite_limits.html",
+  "type": "Section",
+  "number": "1.17",
+  "title": "Infinite limits",
+  "body": " Infinite limits     Provide a rigorous definition of infinite limits at points and at infinity.    Investigate infinite limits graphically.    Define vertical asymptotes using language of infinite limits.    Develop computation techniques for infinite limits.      Infinite limits (informal)   Let be a function.   Infinite limits at  Fix and assume is defined everywhere on an open interval containing , except possibly at itself. We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently close (but not equal) to . We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and positive. We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and negative. We write (resp., ) when this is the case.        Infinite limits  It is important to observe that the various notions of infinite limit defined in all cover situations where the limit of the function does not exist . The best way to understand an infinite limit statement of the form , where denotes either a real number, , or , is as an assertion that   the limit in question does not exist, and    its failure to exist is due to values of the function getting arbitrarily large (in positive or negative direction) as approaches .   Accordingly, we must understand this new notation as an extended version of our original limit notation. In particular, we are not treating or here as if they were actual real numbers.    One-sided infinite limits  Yet more variants of infinite limits can be defined for one-sided limits: that is, we can make sense of the following statements for any : . We thought was long enough as it is.    Vertical asymptote   Fix a constant . The line is a vertical asymptote of the graph of a function if at least one the of the following conditions holds: .     Vertical asymptotes:   Let . Recall that the domain of is .   Sketch a graph of on its entire domain.    Find any and all vertical or horizontal asymptotes of .          The graph of is given below.  Graph of   Graph of tan        For each integer , let . We see visually that for all , and hence that each line is a vertical asymptote of the graph of .       As illustrated by , infinite limit formulas can be easily deduced from graphs of familiar functions. can be thought of as directly translating properties of the graphs of power functions and their reciprocals into limit statements.   Power functions and their reciprocals   Let be a positive integer.     The next theorem helps us to compute the limit of functions built from other functions that may have infinite limits. Instead of trying to commit all the details of this theorem to memory, it is easier to understand the simple arithmetical arguments that go into establishing these results. For example, the fact that if and , then , essentially follows from the fact that if the numerator is approaching some finite number as , while the denominator gets arbitrarily large, then the quotient is roughly described as divided by a very large number, which is very small. Thus the limit is equal to 0.  All of the arguments behind the results of are of a similar elementary nature. The type descriptions of each result ( , , , ) should be thought of as helpful shorthand for the simple principles at work. You should use these in the parenthetical justifications of steps in an infinite limit computation. Note that the type descriptions alone don't indicate the sign ( ) of your result: , a limit computation of type , can yield or , depending on the behavior of the functions near the limit point .   Infinite limit formulas   In what follows denotes either a real number or . Assume that and are both infinite.   Type  If for some , then     Type       Type       Type  If for some , then     Type  If for some , then .    Type  If and , then     Type  If is a positive integer, then     Type  If is a positive integer, then        Let's see how to write up our work when making use of the results of . The explanations in these situations tend to be slightly less streamlined than usual. This is in large part a result of the fact that in these situations we cannot make use of our usual limit rules ( , sum, product, quotient, ); and this is so precisely because those rules require that the limits involved exist!   Infinite limit: elementary examples   Compute the following limits. Your answer should be either a real number, , or .                   Our thinking is as follows: the function in question if of the form , where as and as . This is thus a limit of type , according to , and so should be equal to . Let's write this up more concisely, and determine the correct sign: , since , , and for positive close to .    In this case a quick appraisal tells us that the limit in question will fall under type , and thus should be equal to (sign to be determined). Here is how we can formally write this up: , since . Furthermore, this last limit holds since , and is negative for all near to and less than .        Infinite limit: polynomial   Compute . Your answer should be a real number or .    Note first that ( ), and (type ). Unfortunately, we do not have any infinite limit principles with descriptive type , so we cannot use any of the results of directly. Instead, we first do some algebra, using our intuition that the term dominates the term: , since and .     Limit at infinity: rational functions   Assume we are given polynomials and , where and are nonzero constants.   Equal degree  If , then .    Denominator degree bigger  If , then .    Numerator degree bigger  If , then . Furthermore, both these limits are infinite. However, their sign depends on whether is positive or negative, and whether is even or odd. Alternatively, the sign of the limit depends on the limits of and at and , respectively.  Since both limits at infinity do not exist, does not have any horizontal asymptotes.        Asymptotes: rational function   Let . Find all and any horizontal and vertical asymptotes of . For any vertical asymptotes, compute both one-sided limits.     Horizontal asymptotes  For our horizontal asymptote investigation we compute the limits at infinity of . At we have since , and is negative eventually as .  At we have since , and is positive eventually as .    Vertical asymptotes  We have . Since is continuous everywhere on its domain, the only candidates for vertical asymptotes are the lines and . We investigate the limits at these points: . Since the limit exists here, the line is not a vertical asymptote.  We now compute the one-sided limits at . We have , since , , and is positive for all close to and less than . Since once of the one-sided limits is infinite, we conclude that is a vertical asymptote of the graph of .  We are asked to compute the other one-sided limit. The computation is similar: , since , , and is negative for all close to and greater than .     "
+},
+{
+  "id": "s_infinite_limits-2",
+  "level": "2",
+  "url": "s_infinite_limits.html#s_infinite_limits-2",
+  "type": "Objectives",
+  "number": "1.17",
+  "title": "",
+  "body": "   Provide a rigorous definition of infinite limits at points and at infinity.    Investigate infinite limits graphically.    Define vertical asymptotes using language of infinite limits.    Develop computation techniques for infinite limits.    "
+},
+{
+  "id": "d_infty_lims",
+  "level": "2",
+  "url": "s_infinite_limits.html#d_infty_lims",
+  "type": "Definition",
+  "number": "1.17.1",
+  "title": "Infinite limits (informal).",
+  "body": " Infinite limits (informal)   Let be a function.   Infinite limits at  Fix and assume is defined everywhere on an open interval containing , except possibly at itself. We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently close (but not equal) to . We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and positive. We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and negative. We write (resp., ) when this is the case.      "
+},
+{
+  "id": "rm_infty_lims",
+  "level": "2",
+  "url": "s_infinite_limits.html#rm_infty_lims",
+  "type": "Remark",
+  "number": "1.17.2",
+  "title": "Infinite limits.",
+  "body": " Infinite limits  It is important to observe that the various notions of infinite limit defined in all cover situations where the limit of the function does not exist . The best way to understand an infinite limit statement of the form , where denotes either a real number, , or , is as an assertion that   the limit in question does not exist, and    its failure to exist is due to values of the function getting arbitrarily large (in positive or negative direction) as approaches .   Accordingly, we must understand this new notation as an extended version of our original limit notation. In particular, we are not treating or here as if they were actual real numbers.  "
+},
+{
+  "id": "rm_infty_lims_onesided",
+  "level": "2",
+  "url": "s_infinite_limits.html#rm_infty_lims_onesided",
+  "type": "Remark",
+  "number": "1.17.3",
+  "title": "One-sided infinite limits.",
+  "body": " One-sided infinite limits  Yet more variants of infinite limits can be defined for one-sided limits: that is, we can make sense of the following statements for any : . We thought was long enough as it is.  "
+},
+{
+  "id": "d_ver_asymp",
+  "level": "2",
+  "url": "s_infinite_limits.html#d_ver_asymp",
+  "type": "Definition",
+  "number": "1.17.4",
+  "title": "Vertical asymptote.",
+  "body": " Vertical asymptote   Fix a constant . The line is a vertical asymptote of the graph of a function if at least one the of the following conditions holds: .   "
+},
+{
+  "id": "eg_infty_lim_tan",
+  "level": "2",
+  "url": "s_infinite_limits.html#eg_infty_lim_tan",
+  "type": "Example",
+  "number": "1.17.5",
+  "title": "Vertical asymptotes: <span class=\"process-math\">\\(\\tan\\)<\/span>.",
+  "body": " Vertical asymptotes:   Let . Recall that the domain of is .   Sketch a graph of on its entire domain.    Find any and all vertical or horizontal asymptotes of .          The graph of is given below.  Graph of   Graph of tan        For each integer , let . We see visually that for all , and hence that each line is a vertical asymptote of the graph of .      "
+},
+{
+  "id": "th_power_functions",
+  "level": "2",
+  "url": "s_infinite_limits.html#th_power_functions",
+  "type": "Theorem",
+  "number": "1.17.7",
+  "title": "Power functions and their reciprocals.",
+  "body": " Power functions and their reciprocals   Let be a positive integer.    "
+},
+{
+  "id": "th_infinite_limit",
+  "level": "2",
+  "url": "s_infinite_limits.html#th_infinite_limit",
+  "type": "Theorem",
+  "number": "1.17.8",
+  "title": "Infinite limit formulas.",
+  "body": " Infinite limit formulas   In what follows denotes either a real number or . Assume that and are both infinite.   Type  If for some , then     Type       Type       Type  If for some , then     Type  If for some , then .    Type  If and , then     Type  If is a positive integer, then     Type  If is a positive integer, then       "
+},
+{
+  "id": "eg_infty_lim_elem",
+  "level": "2",
+  "url": "s_infinite_limits.html#eg_infty_lim_elem",
+  "type": "Example",
+  "number": "1.17.9",
+  "title": "Infinite limit: elementary examples.",
+  "body": " Infinite limit: elementary examples   Compute the following limits. Your answer should be either a real number, , or .                   Our thinking is as follows: the function in question if of the form , where as and as . This is thus a limit of type , according to , and so should be equal to . Let's write this up more concisely, and determine the correct sign: , since , , and for positive close to .    In this case a quick appraisal tells us that the limit in question will fall under type , and thus should be equal to (sign to be determined). Here is how we can formally write this up: , since . Furthermore, this last limit holds since , and is negative for all near to and less than .      "
+},
+{
+  "id": "eg_infty_lim_poly",
+  "level": "2",
+  "url": "s_infinite_limits.html#eg_infty_lim_poly",
+  "type": "Example",
+  "number": "1.17.10",
+  "title": "Infinite limit: polynomial.",
+  "body": " Infinite limit: polynomial   Compute . Your answer should be a real number or .    Note first that ( ), and (type ). Unfortunately, we do not have any infinite limit principles with descriptive type , so we cannot use any of the results of directly. Instead, we first do some algebra, using our intuition that the term dominates the term: , since and .   "
+},
+{
+  "id": "th_rational_function",
+  "level": "2",
+  "url": "s_infinite_limits.html#th_rational_function",
+  "type": "Theorem",
+  "number": "1.17.11",
+  "title": "Limit at infinity: rational functions.",
+  "body": " Limit at infinity: rational functions   Assume we are given polynomials and , where and are nonzero constants.   Equal degree  If , then .    Denominator degree bigger  If , then .    Numerator degree bigger  If , then . Furthermore, both these limits are infinite. However, their sign depends on whether is positive or negative, and whether is even or odd. Alternatively, the sign of the limit depends on the limits of and at and , respectively.  Since both limits at infinity do not exist, does not have any horizontal asymptotes.      "
+},
+{
+  "id": "eg_vert_hor_asym",
+  "level": "2",
+  "url": "s_infinite_limits.html#eg_vert_hor_asym",
+  "type": "Example",
+  "number": "1.17.12",
+  "title": "Asymptotes: rational function.",
+  "body": " Asymptotes: rational function   Let . Find all and any horizontal and vertical asymptotes of . For any vertical asymptotes, compute both one-sided limits.     Horizontal asymptotes  For our horizontal asymptote investigation we compute the limits at infinity of . At we have since , and is negative eventually as .  At we have since , and is positive eventually as .    Vertical asymptotes  We have . Since is continuous everywhere on its domain, the only candidates for vertical asymptotes are the lines and . We investigate the limits at these points: . Since the limit exists here, the line is not a vertical asymptote.  We now compute the one-sided limits at . We have , since , , and is positive for all close to and less than . Since once of the one-sided limits is infinite, we conclude that is a vertical asymptote of the graph of .  We are asked to compute the other one-sided limit. The computation is similar: , since , , and is negative for all close to and greater than .    "
 },
 {
   "id": "appendix-notation",
