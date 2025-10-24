@@ -605,25 +605,6 @@
             Interestingly, however, this method does not actually <em>provide</em> the solution <m>c</m>; it only tells us that it exists. This is probably the first time you have encountered what is called a <q>nonconstructive proof</q> in mathematics. The theorem tells us that the value <m>c</m> exists (assuming the necessary conditions hold), but does not explicitly tell us what <m>c</m> is. 
         </p>
     </remark>
-    <example xml:id="eg_ivt_sine">
-        <title>Sine equation</title>
-        <statement>
-            <p>
-                Prove that the equation <m>\sin x=\frac{7}{8}</m> has a solution that lies in the interval <m>(\pi/6, \pi/2)</m>. 
-            </p>
-        </statement>
-        <solution>
-            <p>
-                Note that <m>\sin</m> is continuous on <m>[\pi/6, \pi/2]</m>, and that
-                <md>
-                    <mrow>\sin(\pi/6) \amp = \frac{1}{2}</mrow>
-                    <mrow>\sin(\pi/2) \amp = 1</mrow>
-                </md>.
-                Since <m>\frac{1}{2}&lt; \frac{7}{8}&lt; 1</m>, 
-                the IVT implies that for every there is an input <m>c\in (\pi/6, \pi/2)</m> such that <m>f(c)=7/8</m>. In other words, the given equation has a solution lying in the interval <m>(\pi/6, \pi/2)</m>. 
-            </p>
-        </solution>
-    </example>
     <example xml:id="eg_ivt_poly">
         <title>Roots of polynomials</title>
         <statement>
@@ -664,59 +645,48 @@
             </p>
         </solution>
     </example>
-    <example xml:id="eg_ivt_trig">
-        <title>Complicated equation</title>
+    <example xml:id="eg_ivt_alg">
+        <title>IVT for an algebraic function</title>
         <statement>
             <p>
-                Prove that the equation 
-                <me>
-                    \cos x=\frac{1}{\sqrt{x^2+4}}
-                </me>
+                Prove that the equation
+                <men xml:id="eq_ivt_alg">\sqrt[3]{x-1}+x=2</men>
                 has a solution.
             </p>
         </statement>
         <solution>
             <p>
-                To get this problem into a state where we can apply the IVT, we rewrite the equation as 
-                <me>
-                    \cos x-\frac{1}{\sqrt{x^2+4}}=0
-                </me>
-                and define <m>f(x)=\cos x-\frac{1}{\sqrt{x^2+4}}</m>. Thus we are looking for a solution to <m>f(x)=0</m>. As with <xref ref="eg_ivt_poly"/>, this will boil down to finding inputs where <m>f</m> is positive and negative, respectively. Let's create a table of values for <m>f</m>: 
-                <me>
-                    \begin{array}{r|l}
-                    x\amp f(x)\\
-                    \hline
-                    -\pi/2 \amp 0-\frac{1}{\sqrt{\pi^2/4+4}}=-\frac{1}{\sqrt{\pi^2/4+4}}\\
-                    0   \amp 1-\frac{1}{\sqrt{4}}=\frac{1}{2}\\
-                    \pi/2  \amp -\frac{1}{\sqrt{\pi^2/4+4}}
-                    \end{array}
-                </me>.
-                We observe that 
-                <me>
-                    -\frac{1}{\sqrt{\pi^2/4+4}}=f(-\pi/2)&lt; 0&lt; f(0)=\frac{1}{2}  
-                </me>.
-                Since <m>f</m> is continuous on <m>[-\pi/2, 0]</m>, the IVT now implies there is an element <m>c\in (\pi/2, 0)</m> satisfying <m>f(c)=0</m>. Thus we have shown, not only that there is a solution, but one lying in this particular interval.
+                Define <m>f(x)=\sqrt[3]{x-1}+x-2</m>. The function <m>f</m> is algebraic and hence continuous on its domain, which is <m>\R</m>. Observe that 
+                <md>
+                    <mrow>f(0) \amp =\sqrt[3]{-1}-2=-1-2=-3</mrow>
+                    <mrow>f(2) \amp =\sqrt[3]{1}+2-2=1</mrow>
+                </md>.
+                Since <m>f</m> is continuous on <m>[0,2]</m> and since <m>f(0)&lt; 0 &lt; f(2)</m>, the intermediate value theorem implies that there is an element <m>c\in (0,2)</m> satisfying <m>f(c)=0</m>. Setting <m>x=c</m> gives us a solution to the original equation <xref ref="eq_ivt_alg"/>. 
             </p>
-            <p>
-                Note that the same reasoning tells us there is another solution between <m>0</m> and <m>\pi/2</m>.  That is the inequality 
-                <me>
-                    f(0)&gt; 0 &gt; f(\pi/2)
-                </me>
-                implies there is another solution <m>d</m> lying between <m>0</m> and <m>\pi/2</m>. Thus, we are able to roughly locate two solutions to the original equation, using the IVT twice. 
-            </p>
-            <p>
-                Note: since the given function happens to be <em>even</em> (<m>f(-x)=f(x)</m>), from our first solution <m>c</m> lying in <m>(-\pi/2, 0)</m> we obtain a second solution <m>-c</m> lying in <m>(0,\pi/2)</m>. 
-            </p>
-
         </solution>
     </example>
+   <remark xml:id="rm_sign_diagram">
+    <title>Sign diagram technique</title>
     <p>
-        Recall that the range of a function <m>f\colon D\rightarrow \R</m> is the set of all outputs of <m>f</m>: 
-        <me>
-            \range f=\{b \in \R\colon b=f(x) \text{ for some } x\in D\}=\{f(x)\colon x\in D\}
-        </me>.
-        The intermediate value theorem implies that if <m>f</m> is a continuous function and <m>D</m> is an interval, then given any two values <m>c&lt; d</m>, if <m>c,d\in \range f</m>, then <m>[c,d]\subseteq \range f</m>. This observation often allows us to explicitly compute the range of a continuous function.        
+        At long last we are able to justify <xref ref="th_constancy_sign"/>, which was the basis of <xref ref="proc_solve_ineq"/>, our sign diagram technique for solving inequalities. The crucial claim was that given an algebraic function <m>f</m> and an interval <m>I</m> on which <m>f</m> is defined and never equal to zero, <m>f</m> is either always positive or always negative on <m>I</m>. Let's see how the intermediate value theorem implies this fact.
     </p>
+    <p>Assume <m>f</m> is an algebraic function, and that the interval <m>I</m> is a subset of the domain of <m>f</m>: <ie/>, <m>f</m> is defined at all points in <m>I</m>. If <m>f</m> assumes both positive and negative values on <m>I</m>, then we can find points <m>a,b\in I</m> such that <m>a&lt; b</m>, and <m>f(a)</m> and <m>f(b)</m> have different signs (<ie/>, one is positive and the other is negative). But since <m>f</m> is <em>algebraic</em>, it is continuous, which means in particular that it is continuous at all points in <m>I</m>, and hence also on the interval <m>[a,b]\subseteq I</m>. We now apply the intermediate value theorem: since the signs of <m>f(a)</m> and <m>f(b)</m> are different, <m>0</m> lies between <m>f(a)</m> and <m>f(b)</m>, and thus there is a <m>c\in (a,b)</m> such that <m>f(c)=0</m>. We have shown that if an algebraic function changes sign on an interval in its domain, then it must have a zero in that interval. Equivalently, an algebraic function cannot change sign on an interval in its domain on which it is never equal to zero.
+    </p>
+   </remark>
+    <p>
+        Looking at the argument in <xref ref="rm_sign_diagram"/>, we see that we don't need our function <m>f</m> to be algebraic for <xref ref="th_constancy_sign"/>, we only need that it is <em>continuous</em>. Thus we have the following more general result. 
+    </p>
+    <theorem xml:id="th_constancy_sign_general">
+    <title>Constancy of sign: continuous functions</title>
+    <statement>
+    <p>
+    Assume <m>f</m> is continuous on the interval <m>I</m>. If <m>I</m> contains no zeros of <m>f</m>, then <m>f</m> is either always positive or always negative on <m>I</m>. 
+    </p>
+    <p>
+        As a result, <xref ref="proc_solve_ineq"/> can be applied to any continuous function.
+    </p>
+    </statement>
+    </theorem>
     
 </subsection>
     
