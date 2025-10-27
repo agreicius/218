@@ -26,6 +26,9 @@
         </li>  
     </ol>
 </objectives>
+<p>
+    As a complement to our <em>limit at infinity</em> discussion, we follow up with a treatment of <em>infinite limits</em>. Whereas previously we introduced the <m>\lim\limits_{x\to \pm \infty}f(x)</m> notation in order to describe the behavior of a function as the <em>input</em> of the function gets arbitrarily large (in the positive or negative direction), now we wish to introduce notation that indicates that the <em>values</em> of the function get arbitrarily large (in the positive or negative direction). 
+</p>
 <definition xml:id="d_infty_lims">
 <title>Infinite limits (informal)</title>
 <statement>
@@ -84,6 +87,9 @@ Yet more variants of infinite limits can be defined for one-sided limits: that i
 We thought <xref ref="d_infty_lims"/> was long enough as it is. 
 </p>
 </remark>
+<p>
+    Graphically speaking, if <m>\lim\limits_{x\to a}f(x)=\pm \infty</m> at a value <m>a</m>, then the graph of <m>f</m> will asymptotically approach the vertical line <m>x=a</m> as <m>x</m> gets arbitrarily close to <m>a</m>. This motivates the following definition.  
+</p>
 <definition xml:id="d_ver_asymp">
 <title>Vertical asymptote</title>
 <statement>
@@ -96,63 +102,10 @@ Fix a constant <m>a\in \R</m>. The line <m>x=a</m> is a <term>vertical asymptote
 </p>
 </statement>
 </definition>
-<example xml:id="eg_infty_lim_tan">
-<title>Vertical asymptotes: <m>\tan</m></title>
-<statement>
-<p>
-Let <m>f(x)=\tan x</m>. Recall that the domain of <m>f</m> is 
-<me>
-    D=\R-\left\{\frac{\pi}{2}+\pi\, n\colon n\in \Z\right\}=\left\{x\in \R\colon x\ne \frac{\pi}{2}+\pi\, n \text{ for some } n\in \Z \right\}
-</me>.
-<ol>
-    <li>
-        <p>
-            Sketch a graph of <m>f</m> on its entire domain. 
-        </p>
-    </li>
-    <li>
-        <p>
-            Find any and all vertical or horizontal asymptotes of <m>f</m>. 
-        </p>
-    </li>
-</ol>
 
-</p>
-</statement>
-<solution>
+
 <p>
-    <ol>
-        <li>
-            <p>
-                The graph of <m>f(x)=\tan(x)=\frac{\sin x}{\cos x}</m> is given below. 
-                <figure xml:id="fig_graph_tan">
-                    <caption>Graph of <m>f(x)=\tan x</m></caption>
-                    <image>
-                        <shortdescription>Graph of tan</shortdescription>
-                        <sageplot>
-                        f=plot(tan(x), x,-2*pi,2*pi, detect_poles=show, ymin=-10, ymax=10, ticks=[[-3*pi/2,-pi/2,pi/2,3*pi/2],[-10,-5,5,10]],tick_formatter=(pi,None))
-                        f
-                        </sageplot>
-                    </image>
-                </figure>
-            </p>
-        </li>
-        <li>
-            <p>
-                For each integer <m>n</m>, let <m>a_n=\frac{\pi}{2}+\pi n</m>. We see visually that 
-                <md>
-                    <mrow>\lim_{x\to a_n^-}f(x) \amp= \infty </mrow>
-                    <mrow>\lim_{x\to a_n^+}f(x) \amp= -\infty </mrow>
-                </md>
-                for all <m>n</m>, and hence that each line <m>x=a_n</m> is a vertical asymptote of the graph of <m>f</m>.
-            </p>
-        </li>
-    </ol>
-</p>
-</solution>
-</example>
-<p>
-    As illustrated by <xref ref="eg_infty_lim_tan"/>, infinite limit formulas can be easily deduced from graphs of familiar functions. <xref ref="th_power_functions"/> can be thought of as directly translating properties of the graphs of power functions <m>f(x)=x^n</m> and their reciprocals <m>g(x)=\frac{1}{x^n}</m>into limit statements. 
+    As with limits at infinity, we would like a starter kit of basic infinite limit formulas that we can build up from. The theorem below is a compendium of limits at infinity and infinite limit formulas for power functions and their reciprocals. Of course, this theorem, like all theorems technically requires proof. In this case, however, the statements of the theorem are essentially just limit notation translations of properties of the graphs of these familiar functions. (See <xref ref="fig_power_positive_integer_powers"/> and <xref ref="fig_power_neg_integer_powers"/>.)
 </p>
 <theorem xml:id="th_power_functions">
     <title>Power functions and their reciprocals</title>
@@ -289,19 +242,20 @@ Let <m>f(x)=\tan x</m>. Recall that the domain of <m>f</m> is
     Let's see how to write up our work when making use of the results of <xref ref="th_infinite_limit"/>. The explanations in these situations tend to be slightly less streamlined than usual. This is in large part a result of the fact that in these situations we cannot make use of our usual limit rules (<eg/>, sum, product, quotient, <etc/>); and this is so precisely because those rules require that the limits involved exist!
 </p>
 <example xml:id="eg_infty_lim_elem">
-<title>Infinite limit: elementary examples</title>
+<title>Infinite limit</title>
 <statement>
 <p>
 Compute the following limits. Your answer should be either a real number, <m>\infty</m>, or <m>-\infty</m>. 
 <ol>
+    
     <li>
         <p>
-            <m>\lim\limits_{x\to 0^+}\frac{\cos x}{x^3}</m>
+            <m>\lim\limits_{x\to 1^-}\sqrt[5]{\frac{3}{x-1}}</m>    
         </p>
     </li>
     <li>
         <p>
-            <m>\lim\limits_{x\to 1^-}\sqrt[5]{\frac{3}{x-1}}</m>    
+           <m> \lim\limits_{x\to -\infty}x^3+7x^2</m>
         </p>
     </li>
 </ol>
@@ -310,15 +264,6 @@ Compute the following limits. Your answer should be either a real number, <m>\in
 <solution>
 <p>
 <ol>
-    <li>
-        <p>
-            Our thinking is as follows: the function in question if of the form <m>p(x)/f(x)</m>, where <m>p(x)\to 1</m> as <m>x\to 0^+</m> and <m>f(x)\to 0</m> as <m>x\to 0^+</m>. This is thus a limit of type <m>c/0</m>, according to <xref ref="th_infinite_limit"/>, and so should be equal to <m>\pm \infty</m>. Let's write this up more concisely, and determine the correct sign: 
-            <md>
-                <mrow>\lim\limits_{x\to 0^+}\frac{\cos x}{x^3}\amp = \infty \amp (\text{type } c/0)</mrow>
-            </md>,
-            since <m>\lim\limits_{x\to 0^+}\cos x=1</m>, <m>\lim\limits_{x\to 0^+}x^3=0</m>, and <m>\cos x/x^3 &gt; 0</m> for positive <m>x</m> close to <m>0</m>. 
-        </p>
-    </li>
     <li>
         <p>
         In this case a quick appraisal tells us that the limit in question will fall under type <m>\sqrt[n]{\infty}</m>, and thus should be equal to <m>\pm \infty</m> (sign to be determined). Here is how we can formally write this up:
@@ -332,20 +277,8 @@ Compute the following limits. Your answer should be either a real number, <m>\in
         Furthermore, this last limit holds since <m>\lim_{x\to 1^-}x-1=0</m>, and <m>3/(x-1)</m> is negative for all <m>x</m> near to and less than <m>1</m>. 
         </p>
     </li>
-</ol>
-</p>
-</solution>
-</example>
-
-<example xml:id="eg_infty_lim_poly">
-<title>Infinite limit: polynomial</title>
-<statement>
-<p>
-Compute  <m>\lim_{x\to -\infty}x^3+7x^2</m>. Your answer should be a real number or <m>\pm \infty</m>. 
-</p>
-</statement>
-<solution>
-<p>
+    <li>
+        <p>
 Note first that <m>\lim\limits_{x\to -\infty}x^3=-\infty</m> (<xref ref="th_power_functions" text="global"/>), and <m>\lim\limits_{x\to -\infty}7x^2=\infty</m> (type <m>\infty\cdot c</m>). Unfortunately, we do not have any infinite limit principles with descriptive type <m>\infty-\infty</m>, so we cannot use any of the results of <xref ref="th_infinite_limit"/> directly. Instead, we first do some algebra, using our intuition that the <m>x^3</m> term <q>dominates</q> the <m>7x^2</m> term: 
 <md>
     <mrow>\lim\limits_{x\to -\infty}x^3+7x^2 \amp = \lim\limits_{x\to -\infty}x^3(1+7/x) </mrow>
@@ -354,8 +287,47 @@ Note first that <m>\lim\limits_{x\to -\infty}x^3=-\infty</m> (<xref ref="th_powe
 since <m>\lim\limits_{x\to -\infty}x^3=-\infty</m> and 
 <m>\lim\limits_{x\to -\infty}1+\frac{7}{x}=1+0=1</m>.
 </p>
+    </li>
+</ol>
+</p>
 </solution>
 </example>
+<remark xml:id="eg_inf_gen_poly">
+<title>End behavior of polynomials</title>
+<p>
+The technique in part (b) of <xref ref="eg_infty_lim_elem"/> can be generalized to analyze the behavior of an arbitrary polynomial. 
+</p>
+<p>
+    Let <m>f(x)=\anpoly</m>, where <m>a_n\ne 0</m>. Our intuition tells us that the leading term <m>a_nx^n</m> should <q>dominate</q> the other terms as <m>x\to\pm\infty</m>. We make precise sense of this algebraically by <em>forcibly factoring</em> out <m>x^n</m>. Namely, we write
+<me>
+    f(x)=x^n\underset{p(x)}{\underbrace{\left(a_n+\frac{a_{n-1}}{x}+\frac{a_{n-2}}{x^2}+\cdots \frac{a_1}{x^{n-1}}+\frac{a_0}{x^n}\right)}}
+</me>.
+Next, we compute 
+<md>
+    <mrow>\lim\limits_{x\to \infty}p(x) \amp = \lim\limits_{x\to \infty} (a_n+a_{n-1}/x+a_{n-2}/x^2+\cdots +a_1/x^{n-1}+a_0/x^n)  </mrow>
+    <mrow>\amp =
+        (\lim\limits_{x\to \infty}a_n+\lim\limits_{x\to \infty}a_{n-1}/x++\cdots+\lim\limits_{x\to \infty} a_1/x^{n-1}+\lim\limits_{x\to \infty}a_0/x^n) \amp </mrow>
+        <mrow>\amp =a_n+0+\cdots +0 \amp </mrow>
+        <mrow> \amp =a_n</mrow>
+</md>.
+We conclude that <m>\lim\limits_{x\to \infty}f(x)</m> is of type <m>\infty\cdot c</m>. It follows that 
+<me>
+    \lim\limits_{x\to \pm \infty}\anpoly=\pm\infty
+</me>.
+However, the precise sign depends on the sign of <m>a_n</m> and the sign of <m>x^n</m> as <m>x\to \pm \infty</m>. For example, we have 
+<me>
+    \lim\limits_{x\to -\infty}-3x^5+x^4+x^2+1=\infty
+</me>,
+since <m>-3x^5&gt; 0</m> as <m>x\to -\infty</m>. As a shorthand, we write 
+<me>
+    \lim\limits_{x\to \pm\infty}\anpoly=\lim\limits_{x\to \pm\infty}a_nx^n
+</me>,
+and leave it to you to determine whether the last limit is <m>\infty</m> or <m>-\infty</m>. 
+</p>
+</remark>
+<p>
+    The argument above can be extended even further to compute limits at infinity of an arbitrary <em>rational function</em>.  
+</p>
 <theorem xml:id="th_rational_function">
     <title>Limit at infinity: rational functions</title>
     <statement>
@@ -399,6 +371,9 @@ since <m>\lim\limits_{x\to -\infty}x^3=-\infty</m> and
         </p>
     </statement>
 </theorem>
+<p>
+    The next example will have us put <xref ref="th_rational_function"/> to good use in the context of computing horizontal and vertical asymptotes of a rational function. 
+</p>
 <example xml:id="eg_vert_hor_asym">
 <title>Asymptotes: rational function</title>
 <statement>
@@ -463,6 +438,29 @@ Since the limit exists here, the line <m>x=2</m> is not a vertical asymptote.
 
 </solution>
 </example>
+<warning>
+    <title>End behavior of rational functions</title>
+    <p>
+        Note well the important restriction imposed in <xref ref="th_rational_function"/>: namely, this can only be applied to limits at infinity of <em>rational functions</em>. Do not assume that it can be applied to any quotient of functions! 
+    </p>
+    <p>
+        For example, we cannot apply <xref ref="th_rational_function"/> to the limit
+        <me>
+            \lim\limits_{x\to \infty}\frac{\sqrt{\frac{1}{x}+x^2}}{\frac{1}{x^3}+7x}
+        </me>,
+        since this function is not rational. However, the same approach of <em>forcibly factoring</em> out a dominating term can be used: 
+        <md>
+            <mrow>\lim\limits_{x\to \infty} \frac{\sqrt{\frac{1}{x}+x^2}}{\frac{1}{x^3}+7x} \amp
+                =\lim\limits_{x\to \infty}\frac{\sqrt{x^2(\frac{1}{x^3}+1)}}{x(\frac{1}{x^4}+7)} </mrow>
+                <mrow> \amp =\lim\limits_{x\to \infty}\frac{\abs{x}\sqrt{1/x^3+1}}{x(1/x^4+7)} </mrow>
+                <mrow> \amp = \lim\limits_{x\to \infty}\frac{x\sqrt{1/x^3+1}}{x(1/x^4+7)} \amp (x&gt; 0)</mrow>
+                <mrow> \amp =\lim\limits_{x\to \infty}\frac{\sqrt{1/x^3+1}}{1/x^4+7}</mrow>
+                <mrow> \amp = \frac{\sqrt{\lim\limits_{x\to \infty}1/x^3+1}}{\lim\limits_{x\to \infty} 1/x^4+7}</mrow>
+                <mrow> \amp =\frac{\sqrt{0+1}}{0+7}</mrow>
+                <mrow> \amp =\frac{1}{7}</mrow>
+        </md>.
+    </p>
+</warning>
 
 
 

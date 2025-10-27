@@ -141,41 +141,7 @@
     <p>
     The existence or nonexistence of horizontal asymptotes for the graph of a function gives us an easy visual way of deciding whether limits at infinity exist. 
     </p>
-    <example xml:id="eg_lim_at_infty_cos">
-    <title>Limit at infinity: <m>\cos</m></title>
-    <statement>
-    <p>
-        Let <m>f(x)=\cos x</m>. 
-        <ol>
-            <li>
-                <p>
-                    Provide a graph of <m>f</m> over its entire domain. 
-                </p>
-            </li>
-            <li>
-                <p>
-                    Argue graphically whether the infinite limits <m>\lim\limits_{x\to \pm \infty}f(x)</m> exist. 
-                </p>
-            </li>
-        </ol>
-    </p>
-    </statement>
-    <solution>
-    <p>
-    From the graph of <m>f(x)=\cos x</m> in <xref ref="fig_graph_cos"/>, we see visually that there are no horizontal asymptotes: in more detail, since <m>f(x)</m> oscillate between consistently between <m>-1</m> and <m>1</m> as <m>x\to \pm \infty</m>, there is no one fixed value <m>L</m> that the values of <m>f</m> approach. Thus the limits of <m>f</m> at <m>\infty</m> and <m>-\infty</m> do not exist.  
-    <figure xml:id="fig_graph_cos">
-        <caption>Graph of <m>f(x)=\cos x</m></caption>
-        <image xml:id="im_graph_cos" width="75%">
-            <shortdescription>Graph of cosine</shortdescription>
-            <sageplot>
-            f=plot(cos(x), x,-4*pi, 4*pi, tick_formatter=(pi, None), ticks=[[-4*pi, -3*pi,-2*pi, -pi, pi, 2*pi,3*pi, 4*pi],[-1,1]])
-            f
-            </sageplot>
-        </image>
-    </figure>
-    </p>
-    </solution>
-    </example>
+    
     <p>
         Fix a positive integer <m>n</m> and define <m>f\colon \R-\{0\}\rightarrow \R</m> as <m>f(x)=\frac{1}{x^n}</m>. We recall that the graph of such a function looks like one of the graphs in <xref ref="fig_reciprocal"/>, depending on whether <m>n</m> is even or odd. 
     </p>
@@ -213,31 +179,65 @@
     <me>
         \lim_{x\to \infty}\frac{1}{x^n}=\lim_{x\to -\infty}\frac{1}{x^n}=0
     </me>.
-    The theorem below makes this observation official.
+    The theorem below makes this observation official, as well as providing an obvious limit at infinity formula for constant functions.
     </p>
     <theorem xml:id="th_recip_powers">
-        <title>Limit at infinity: reciprocal power functions</title>
+        <title>Limit at infinity formulas</title>
         <statement>
-            <p>
+     <p>           <ol>
+                <li>
+                    <title>Constant function formula</title>
+                    <p>
+                        Fix a real constant <m>c</m>, and let <m>f</m> be the constant function <m>f(x)=c</m> for all <m>x\in \R</m>. We have 
+                        <men xml:id="eq_at_infty_const">
+                            \lim\limits_{x\to \infty} c=\lim\limits_{x\to -\infty} c=c
+                        </men>.
+                    </p>
+                </li>
+                <li>
+                    <p>
                 Let <m>f(x)=\frac{1}{x^n}</m>, where <m>n</m> is a positive integer. We have 
                 <me>
                     \lim_{x\to \infty}\frac{1}{x^n}=\lim_{x\to -\infty}\frac{1}{x^n}=0
                 </me>.
             </p>
+                </li>
+            </ol>
+        </p>
         </statement>
     </theorem>
     <remark>
     <title>Limit at infinity laws</title>
     <p>
-        It is not so surprising that <q>at infinity</q> limits satisfy <q>at infinity</q> versions of the limit rules in <xref ref="th_lim_rules"/>, as we as the sandwich theorem. Note, however, that our various <q>evaluation limit formulas</q> (<eg/>, polynomial evaluation) do not extend to limits at infinity, as it simply makes no sense to evaluate a function <m>f</m> at <m>\infty</m>: that is, it simply makes no sense to write <m>f(\infty)</m> or <m>f(-\infty)</m>. 
+        It is not so surprising that <q>at infinity</q> limits satisfy <q>at infinity</q> versions of the limit rules in <xref ref="th_lim_rules"/>. Note, however, that with the exception of the constant function rule, our various <q>evaluation limit formulas</q> (<eg/>, polynomial evaluation) do not extend to limits at infinity. In particular, it simply makes no sense in this case to evaluate a function <m>f</m> at <m>\infty</m>: that is, there is no meaning to the expression <m>f(\infty)</m> or <m>f(-\infty)</m>. 
     </p>
     <p>
         It is worth stating explicitly the  <q>at infinity</q> version of the <xref ref="th_lim_repl" text="custom">replacement rule</xref>, which has a slightly different flavor than the original version. We do so only for positive infinity: suppose <m>f</m> and <m>g</m> are defined on an open interval <m>(a,\infty)</m> and that <m>\lim\limits_{x\to \infty}g(x)</m> exists; if there exists an <m>M\geq a</m> such that <m>f(x)=g(x)</m> for all <m>x\geq M</m>, then <m>\lim\limits_{x\to \infty}f(x)=\lim\limits_{x\to \infty}g(x)</m>. In plain English: if <m>f</m> and <m>g</m> are <em>eventually</em> equal to one another, than their limits at <m>\infty</m> are equal. 
     </p>
     </remark>
     <p>
-        The formulas in <xref ref="th_recip_powers"/> give us a decent starting point in terms of computing limits at infinity. Combining these formulas and with limit rules, we can compute limits at infinity for more complicated functions. In order to make use of <xref ref="th_recip_powers"/>, however, we often have to include an algebra step first. 
+        The formulas in <xref ref="th_recip_powers"/> give us a decent starting point in terms of computing limits at infinity. Combining these formulas with limit rules, we can compute limits at infinity for more complicated functions. In order to make use of <xref ref="th_recip_powers"/>, however, we often have to include an algebra step first. 
     </p>
+    <example xml:id="eg_recip_powers">
+    <title>Limit at infinity: reciprocal powers</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\displaystyle \frac{\frac{1}{\sqrt{x}}-2}{\frac{1}{x^7}+4}</m>. Compute <m>\lim\limits_{x\to \infty}f(x)</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    In this example, we are able compute the limit using a combination of the formulas in <xref ref="th_recip_powers"/> and the limit rules:
+    <md>
+        <mrow>\lim\limits_{x\to \infty} \frac{\frac{1}{\sqrt{x}}-2}{\frac{1}{x^7}+4} \amp = \frac{\lim\limits_{x\to \infty}\frac{1}{\sqrt{x}}-\lim\limits_{x\to \infty} 2}{\lim\limits_{x\to \infty}\frac{1}{x^7}+\lim\limits_{x\to \infty}4} </mrow>
+        <mrow> \amp =\frac{\sqrt{\lim\limits_{x\to \infty}1/x}-2}{0+4} \amp (\text{root rule, const. rule, recip. powers})</mrow>
+        <mrow> \amp = \frac{0-2}{4} \amp (\text{recip. power})</mrow>
+        <mrow> \amp =-\frac{1}{2}</mrow>
+    </md>.
+    </p>
+    </solution>
+    </example>
+    
     <example xml:id="eg_lim_infty_rational_function">
     <title>Limit at infinity: rational function</title>
     <statement>
