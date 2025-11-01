@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Derivatives of Logarithmic Functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and differential calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.8.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.962d00926ef9460e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.2e7f40e86ae7d163.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and differential calculus</span></a></h1>
+<p class="byline">Ellen Goldstein</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="my-great-book-8-7.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="my-great-book-8.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="my-great-book-9.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">1</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">1.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">1.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="codenumber">1.2.6</span> <span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">1.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_func.html" class="internal"><span class="codenumber">2</span> <span class="title">Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">2.1</span> <span class="title">What is a Function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">The Definition of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Domain and Range of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-6" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Non-Functions and the Vertical Line Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-7" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Real-world Examples of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-8" class="internal"><span class="codenumber">2.1.6</span> <span class="title">Interval Notation for Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-9" class="internal"><span class="codenumber">2.1.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Definitions of linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3" class="internal"><span class="codenumber">2.2.2.1</span> <span class="title">Parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Properties of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Different Equations of Lines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Finding <span class="process-math">\(x\)</span>-intercepts of Quadratic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-8" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_avgchange.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Average Rate of Change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Definition of Average Rate of Change of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Average Change of a Linear Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-6" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Visualizing Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-7" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Average Change in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-8" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Concavity and Average Change of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-9" class="internal"><span class="codenumber">2.3.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-5" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Modeling with Quadratic Functions: Falling Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-8" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Polynomial and Rational Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Definition of Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Rules for Fractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Definition of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="codenumber">2.5.6</span> <span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="codenumber">2.5.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_power_alg.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Power Functions and Other Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Review of Exponent Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Definitions of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-6" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Integer Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-7" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Power Functions with Rational Powers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-8" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Using Square Roots to Find Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-9" class="internal"><span class="codenumber">2.6.7</span> <span class="title">A Summary of Algebraic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-10" class="internal"><span class="codenumber">2.6.8</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="codenumber">2.7.3</span> <span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="codenumber">2.7.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Solving Inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Rules for Inequalities and Solving Linear Inequalities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="codenumber">2.8.3</span> <span class="title">Solving Inequalities That Involve Quadratics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5-3" class="internal"><span class="codenumber">2.8.3.1</span> <span class="title">Application: Rewriting a Piecewise-Defined Function by Solving an Inequality</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6" class="internal"><span class="codenumber">2.8.4</span> <span class="title">Solving Inequalities That Involve Products and Quotients</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6-3" class="internal"><span class="codenumber">2.8.4.1</span> <span class="title">Application: Finding the Domain of a Function with an Even Root</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-7" class="internal"><span class="codenumber">2.8.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Composition of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="codenumber">2.9.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Definition of Composition of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Domain of Compositions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-7" class="internal"><span class="codenumber">2.9.5</span> <span class="title">Function Composition and Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-8" class="internal"><span class="codenumber">2.9.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Transformations and Symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="codenumber">2.10.3</span> <span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Application: The Vertex Form of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-7" class="internal"><span class="codenumber">2.10.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_limits.html" class="internal"><span class="codenumber">3</span> <span class="title">An Introduction to Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_lim_def.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Instantaneous Velocity and the Definition of Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-2" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-3" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The Idea of a Limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-4" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Definition of a Limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-5" class="internal"><span class="codenumber">3.1.4</span> <span class="title">One-Sided Limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-6" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_continuity.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-2" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-3" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Definition of Continuity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-3-3" class="internal"><span class="codenumber">3.2.2.1</span> <span class="title">Left and Right Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-4" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Types of Discontinuities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-5" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Rules for Calculating Limits</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-5-3" class="internal"><span class="codenumber">3.2.4.1</span> <span class="title">Limits of Combinations of Functions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-6" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ivt.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Intermediate Value Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-2" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-3" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Motivational Scenario</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-4" class="internal"><span class="codenumber">3.3.3</span> <span class="title">The Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-5" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Why All of the Hypotheses of the IVT are Necessary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-6" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Where a Function Can Change Sign</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-7" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_inf_lims.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Infinite Limits and Limits at Infinity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_inf_lims-2" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_inf_lims-3" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Definitions: Infinite Limits and Limits at Infinity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_VAsandHAs" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Vertical and Horizontal Asymptotes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_oneoverzerolimits" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Limits of the form <span class="process-math">\(\frac{1}{0}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_inf_lims-6" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_lim_rules.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Calculating Limits Algebraically: <span class="process-math">\(\frac{0}{0}\)</span> Limits and Cancellation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_lim_rules-2" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_zerooverzerolimits" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Cancellation Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_lim_rules-4" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Indeterminate Limit Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_holeorVA" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Hole or Vertical Asymptote?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_lim_rules-6" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_lim_indet.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Calculating Limits Algebraically: Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-2" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#subsec_endbehaviorpowerfuncs" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Limits at Infinity of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#subsec_endbehaviorofpolys" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Limits at Infinity of Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_endbehaviorofrationalfunctions" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Limits at Infinity of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-6" class="internal"><span class="codenumber">3.6.5</span> <span class="title">Other Limit Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-6-3" class="internal"><span class="codenumber">3.6.5.1</span> <span class="title">Non-indeterminate Limit Forms</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-7" class="internal"><span class="codenumber">3.6.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-6.html" class="internal"><span class="codenumber">4</span> <span class="title">An Introduction to Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Three Perspectives of the Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-2" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-3" class="internal"><span class="codenumber">4.1.2</span> <span class="title">The Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-4" class="internal"><span class="codenumber">4.1.3</span> <span class="title">The Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_associatedslopefunction" class="internal"><span class="codenumber">4.1.4</span> <span class="title">The Derivative as an Associated Slope Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-6" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-3.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The Definition of the Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-2" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-3" class="internal"><span class="codenumber">4.2.2</span> <span class="title">The Limit Definition of the Derivative at a Point</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-4" class="internal"><span class="codenumber">4.2.3</span> <span class="title">The Derivative as a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-5" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-6" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-7" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-4.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Differentiability and Local Linearity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-2" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-3" class="internal"><span class="codenumber">4.3.2</span> <span class="title">When is a Function Differentiable?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-4" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Differentiable vs. Continuous</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-5" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Local Linearizations and Approximating Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-6" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-5.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Elementary Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-2" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-3" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Derivatives of Constant and Linear Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-4" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Leibniz Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-5" class="internal"><span class="codenumber">4.4.4</span> <span class="title">The Power Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-6" class="internal"><span class="codenumber">4.4.5</span> <span class="title">The Constant Multiple and Sum Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-7" class="internal"><span class="codenumber">4.4.6</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-8" class="internal"><span class="codenumber">4.4.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-6.html" class="internal"><span class="codenumber">4.5</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-2" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-3" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Derivatives Do NOT Distribute Over Products and Quotients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#sec_productruleincontext" class="internal"><span class="codenumber">4.5.3</span> <span class="title">Real-World Motivation for the Derivative of a Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-5" class="internal"><span class="codenumber">4.5.4</span> <span class="title">The Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-6" class="internal"><span class="codenumber">4.5.5</span> <span class="title">The Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-7" class="internal"><span class="codenumber">4.5.6</span> <span class="title">The Proof of the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-8" class="internal"><span class="codenumber">4.5.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-7.html" class="internal"><span class="codenumber">4.6</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-2" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-3" class="internal"><span class="codenumber">4.6.2</span> <span class="title">A Review of Function Composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-4" class="internal"><span class="codenumber">4.6.3</span> <span class="title">Real-World Motivation for the Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-5" class="internal"><span class="codenumber">4.6.4</span> <span class="title">The Formula for the Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-6" class="internal"><span class="codenumber">4.6.5</span> <span class="title">More Examples Using the Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-7" class="internal"><span class="codenumber">4.6.6</span> <span class="title">Combining Derivative Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-8" class="internal"><span class="codenumber">4.6.7</span> <span class="title">A Proof of the Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-9" class="internal"><span class="codenumber">4.6.8</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-7.html" class="internal"><span class="codenumber">5</span> <span class="title">Using Derivatives, Part 1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-2" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-3" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Curves Described by Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-4" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Finding Derivatives of Implicit Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-5" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Tangent Lines to Implicitly Defined Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-6" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Vertical and Horizontal Tangent Lines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-7" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_relatedrates.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-2" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-3" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Review: Problem Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-4" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Rates of Change that are Related</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedratesformulas" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Useful Formulas for Related Rates Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedratesmethod" class="internal"><span class="codenumber">5.2.5</span> <span class="title">How to Solve Related Rates Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-7" class="internal"><span class="codenumber">5.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-4.html" class="internal"><span class="codenumber">5.3</span> <span class="title">The Mean Value Theorem and Critical Points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-2" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-3" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Real-World Motivation for the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-4" class="internal"><span class="codenumber">5.3.3</span> <span class="title">The Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-5" class="internal"><span class="codenumber">5.3.4</span> <span class="title">The Hypotheses of the Mean Value Theorem are Important</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-6" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Critical Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-7" class="internal"><span class="codenumber">5.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_maxandminvalues.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Minimum and Maximum Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-2" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">The First Derivative Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_concavity" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Concavity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-5" class="internal"><span class="codenumber">5.4.4</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-6" class="internal"><span class="codenumber">5.4.5</span> <span class="title">Proof of Theorem \xautoref{thm_firstderivativeinfo} Using the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-7" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-6.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Global Extrema and Optimization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-2" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-3" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Defining Global Extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-4" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Optimization: Global Extrema in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-5" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Optimization with Constraint Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-6" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-7.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Introduction to Curve Sketch Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-2" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-3" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Inflection Points: Where Concavity Changes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#sec_curvesketching" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Curve Sketching with  First and Second Derivative Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-5" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Sketching from Only Derivative Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-6" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-8.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Curve Sketch Analysis of Rational Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-2" class="internal"><span class="codenumber">5.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-3" class="internal"><span class="codenumber">5.7.2</span> <span class="title">Curve Sketching Summary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-3-3" class="internal"><span class="codenumber">5.7.2.1</span> <span class="title">A Brief Review of Symmetry</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-4" class="internal"><span class="codenumber">5.7.3</span> <span class="title">Examples of Sketching Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-5" class="internal"><span class="codenumber">5.7.4</span> <span class="title">Some  general observations about graphs of polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-6" class="internal"><span class="codenumber">5.7.5</span> <span class="title">Reviewing Asymptotes and Limit Calculations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#sec_curvesketchingwithasymptotes" class="internal"><span class="codenumber">5.7.6</span> <span class="title">Examples of Sketching Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-8" class="internal"><span class="codenumber">5.7.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="my-great-book-8.html" class="internal"><span class="codenumber">6</span> <span class="title">Calculus with Exponential and Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_inversefunctions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Inverse Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-2" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-3" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Why Inverse Functions?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-4" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Brief Review of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-5" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Defining Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-6" class="internal"><span class="codenumber">6.1.5</span> <span class="title">When is a Function Invertible?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-7" class="internal"><span class="codenumber">6.1.6</span> <span class="title">Properties of Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-8" class="internal"><span class="codenumber">6.1.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_expfunctions.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Exponential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-2" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-3" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Motivating Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-4" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Defining Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-5" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Growth of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-6" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Finding Formulas for Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-7" class="internal"><span class="codenumber">6.2.6</span> <span class="title">Properties of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-8" class="internal"><span class="codenumber">6.2.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_logfunctions.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-2" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-3" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Defining Logarithmic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-4" class="internal"><span class="codenumber">6.3.3</span> <span class="title">The Shapes of Graphs of Logarithms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-5" class="internal"><span class="codenumber">6.3.4</span> <span class="title">The Logarithm Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-6" class="internal"><span class="codenumber">6.3.5</span> <span class="title">Justifications for the Logarithm Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-7" class="internal"><span class="codenumber">6.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-5.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Modeling with Exponential and Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-2" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-3" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Percentage Growth</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#sec_doublingtime" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Doubling Time and Half-Life</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-5" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Modeling Temperature Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-6" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Measuring Earthquakes and Sound</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-7" class="internal"><span class="codenumber">6.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-6.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Limits of exponential and logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-2" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-3" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Exponential and Logarithmic Functions are Continuous on their Domains</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-4" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Limits at Infinity of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-5" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Limits of Logarithmic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#sec_examplesoflimitsoflogandexpfunctions" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Calculating limits involving exponential and logarithmic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-7" class="internal"><span class="codenumber">6.5.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-7.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Derivatives of exponential functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-2" class="internal"><span class="codenumber">6.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-3" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Defining <span class="process-math">\(e\)</span> via Derivatives of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-4" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Derivatives of Other Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-5" class="internal"><span class="codenumber">6.6.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="my-great-book-8-8.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Derivatives of Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-2" class="internal"><span class="codenumber">6.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-3" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Computing Derivatives of Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-3-3" class="internal"><span class="codenumber">6.7.2.1</span> <span class="title">A Detail About Domains and Absolute Value:</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-4" class="internal"><span class="codenumber">6.7.3</span> <span class="title">The Chain Rule with Logarithmic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-5" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Logarithmic differentiation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-6" class="internal"><span class="codenumber">6.7.5</span> <span class="title">Functions with Variables in the Base and Exponent</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-7" class="internal"><span class="codenumber">6.7.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-9.html" class="internal"><span class="codenumber">7</span> <span class="title">Using Derivatives, Part 2</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-9-2.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Curve Sketching and Applications of Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-2" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-3" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Review of Curve Sketching Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-4" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Curve Sketching with Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-5" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Curve sketching with logarithms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-6" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Exponential Functions Grow Proportionally to Themselves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-7" class="internal"><span class="codenumber">7.1.6</span> <span class="title">A more realistic model for population growth</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-8" class="internal"><span class="codenumber">7.1.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-9-3.html" class="internal"><span class="codenumber">7.2</span> <span class="title">L’Hôpital’s Rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-2" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-3" class="internal"><span class="codenumber">7.2.2</span> <span class="title">A Visual Approach to Indeterminate Limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-4" class="internal"><span class="codenumber">7.2.3</span> <span class="title">L’Hôpital’s Rule for the Indeterminate Forms <span class="process-math">\(\frac{0}{0}\)</span> and <span class="process-math">\(\frac{\infty}{\infty}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-5" class="internal"><span class="codenumber">7.2.4</span> <span class="title">L’Hôpital’s Rule for the Indeterminate Forms <span class="process-math">\(0\cdot \infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-6" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_findingglobalextrema.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Finding Global Extrema</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-2" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-3" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Defining Global Extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-4" class="internal"><span class="codenumber">7.3.3</span> <span class="title">How to Find Global Maxima and Minima</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-5" class="internal"><span class="codenumber">7.3.4</span> <span class="title">The Extreme Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-6" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Examples of Global Extrema in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-7" class="internal"><span class="codenumber">7.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-9-5.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Applied Optimization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-2" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-3" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Applications: Drug Concentrations, Maximizing Profit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-4" class="internal"><span class="codenumber">7.4.3</span> <span class="title">The Surge Function and Drug Concentration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-5" class="internal"><span class="codenumber">7.4.4</span> <span class="title">Defining Marginal Cost and Revenue</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-6" class="internal"><span class="codenumber">7.4.5</span> <span class="title">Maximizing Profit and Revenue</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-7" class="internal"><span class="codenumber">7.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-10.html" class="internal"><span class="codenumber">8</span> <span class="title">Calculus with Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-2.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Trigonometric Functions via Circles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-2" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-3" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Functions Defined by Circular Motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#sec_theunitcircle" class="internal"><span class="codenumber">8.1.3</span> <span class="title">The Unit Circle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-5" class="internal"><span class="codenumber">8.1.4</span> <span class="title">The Sine and Cosine Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-6" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-3.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Calculating Values of Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-2" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-3" class="internal"><span class="codenumber">8.2.2</span> <span class="title"><span class="process-math">\(45-45-90\)</span> and <span class="process-math">\(30-60-90\)</span> Triangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-4" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Using Reference Triangles to Calculate Values of Sine and Cosine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-5" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Calculating Values of Sine and Cosine Beyond <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-6" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Right-Triangle Trigonometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-7" class="internal"><span class="codenumber">8.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_identitiespart1.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Properties of Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-2" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-3" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Trigonometric Functions as Graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-4" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Solving Equations Involving Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-5" class="internal"><span class="codenumber">8.3.4</span> <span class="title">A Practical Example of Using Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-6" class="internal"><span class="codenumber">8.3.5</span> <span class="title">A Few Trigonometric Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-7" class="internal"><span class="codenumber">8.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-5.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Defining Inverse Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-2" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-3" class="internal"><span class="codenumber">8.4.2</span> <span class="title">A Brief Recap of Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-4" class="internal"><span class="codenumber">8.4.3</span> <span class="title">The arccosine function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-5" class="internal"><span class="codenumber">8.4.4</span> <span class="title">The arcsine function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-6" class="internal"><span class="codenumber">8.4.5</span> <span class="title">The arctangent function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-7" class="internal"><span class="codenumber">8.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-6.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Trigonometric Identities and Formulas</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-2" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-3" class="internal"><span class="codenumber">8.5.2</span> <span class="title">Overview: A Few More Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#sec_simplifyingcompositionsoftrigandinversetrig" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Simplifying compositions of inverse trigonometric and trigonometric functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-5" class="internal"><span class="codenumber">8.5.4</span> <span class="title">The Sum Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-6" class="internal"><span class="codenumber">8.5.5</span> <span class="title">Double-Angle Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-7" class="internal"><span class="codenumber">8.5.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_triglimits.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Limits of Trigonometric and Inverse Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-2" class="internal"><span class="codenumber">8.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-3" class="internal"><span class="codenumber">8.6.2</span> <span class="title">Continuity of Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-4" class="internal"><span class="codenumber">8.6.3</span> <span class="title">Infinite Limits and Limits at Infinity of Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-5" class="internal"><span class="codenumber">8.6.4</span> <span class="title">Limits at Infinity of Inverse Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-6" class="internal"><span class="codenumber">8.6.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Derivatives of Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-2" class="internal"><span class="codenumber">8.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-3" class="internal"><span class="codenumber">8.7.2</span> <span class="title">Derivatives of Sine and Cosine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-4" class="internal"><span class="codenumber">8.7.3</span> <span class="title">Derivatives of the Other Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-5" class="internal"><span class="codenumber">8.7.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-9.html" class="internal"><span class="codenumber">8.8</span> <span class="title">Derivatives of Inverse  Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-2" class="internal"><span class="codenumber">8.8.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-3" class="internal"><span class="codenumber">8.8.2</span> <span class="title">Derivatives of Inverse Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-4" class="internal"><span class="codenumber">8.8.3</span> <span class="title">Derivatives of Arbitrary Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-5" class="internal"><span class="codenumber">8.8.4</span> <span class="title">Derivatives of Arccosine and Arctangent</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-6" class="internal"><span class="codenumber">8.8.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-11.html" class="internal"><span class="codenumber">9</span> <span class="title">Using Derivatives, Part 3</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-2.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Related Rates with Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-2" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-3" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Trigonometric Relationships</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-4" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Related Rates with Trigonometric Functions in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-5" class="internal"><span class="codenumber">9.1.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-3.html" class="internal"><span class="codenumber">9.2</span> <span class="title">The Squeeze Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-2" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-3" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Statement of the Squeeze Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-4" class="internal"><span class="codenumber">9.2.3</span> <span class="title">Using the Squeeze Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-5" class="internal"><span class="codenumber">9.2.4</span> <span class="title">The Derivatives of Sine and Cosine: Rigorous Proofs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-6" class="internal"><span class="codenumber">9.2.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-4.html" class="internal"><span class="codenumber">9.3</span> <span class="title">L’Hôpital’s Rule with Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-4.html#my-great-book-11-4-2" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-4.html#my-great-book-11-4-3" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Examples of applying L’Hôpital’s Rule with Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-4.html#my-great-book-11-4-4" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-5.html" class="internal"><span class="codenumber">9.4</span> <span class="title">A Complete List of Indeterminate Limit Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-2" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-3" class="internal"><span class="codenumber">9.4.2</span> <span class="title">A Few New Indeterminate Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-4" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Indeterminate Limits of the Form <span class="process-math">\(0^0, 1^\infty\text{,}\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-5" class="internal"><span class="codenumber">9.4.4</span> <span class="title">Summary of Methods for Indeterminate Limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-6" class="internal"><span class="codenumber">9.4.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-6.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Curve Sketching Revisited</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-2" class="internal"><span class="codenumber">9.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-3" class="internal"><span class="codenumber">9.5.2</span> <span class="title">Recap of Curve Sketch Analyses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-4" class="internal"><span class="codenumber">9.5.3</span> <span class="title">Full Curve Sketching Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-5" class="internal"><span class="codenumber">9.5.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="my-great-book-8-8"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.7</span><span class="space"> </span><span class="title">Derivatives of Logarithmic Functions</span>
+</h2>
+<section class="subsection" id="my-great-book-8-8-2"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.7.1</span><span class="space"> </span><span class="title">Learning Goals</span>
+</h3>
+<ul class="disc" id="my-great-book-8-8-2-2">
+<li id="my-great-book-8-8-2-2-1">
+<div class="para" id="my-great-book-8-8-2-2-1-1">See how to use inverse properties and derivatives of exponential function to compute derivatives of logarithmic functions.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-2-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-2-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-2-2-2">
+<div class="para" id="my-great-book-8-8-2-2-2-1">Take the derivative of logarithmic functions.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-2-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-2-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-2-2-3">
+<div class="para" id="my-great-book-8-8-2-2-3-1">Recognize how to use previous derivative rules, especially the chain rule, when taking derivatives of logarithmic functions.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-2-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-2-2-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-2-2-4">
+<div class="para" id="my-great-book-8-8-2-2-4-1">Use the logarithm rules to make taking derivatives easier and also extend our derivative rules to functions with variables in both the base and exponent.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-2-2-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-2-2-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Subsection 6.7.1: Learning Goals"><a href="#my-great-book-8-8-2" title="Copy permalink for Subsection 6.7.1: Learning Goals">🔗</a></div></section><section class="subsection" id="my-great-book-8-8-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.7.2</span><span class="space"> </span><span class="title">Computing Derivatives of Logarithmic Functions</span>
+</h3>
+<section class="introduction" id="my-great-book-8-8-3-2"><div class="para" id="my-great-book-8-8-3-2-1">Since logarithms are defined as the inverse of exponential functions, we can use our knowledge of the derivatives of exponential functions to determine derivatives of logarithms, rather than having to start with the limit definition of the derivative. Here is how we can do this:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-2-2">
+<div class="para">Since <span class="process-math">\(y=\log_b x\)</span> and <span class="process-math">\(b^y=x\)</span> are inverses, we know that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_relationshipsoflogsandexp.html">
+\begin{equation*}
+b^{\log_bx}=x\text{.}
+\end{equation*}
+</div>
+<div class="para">This is also part (f) of <a href="sec_logfunctions.html#thm_relationshipsoflogsandexp" class="xref" data-knowl="./knowl/xref/thm_relationshipsoflogsandexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.3.9: Relationships Between $\log_b x$ and $b^x$">Theorem 6.3.9</a>. We can take the derivative of both sides of this equation:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_relationshipsoflogsandexp.html">
+\begin{equation*}
+\frac{d}{dx}\left(b^{\log_bx} \right)=\frac{d}{dx}( x)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-2-3">
+<div class="para">The derivative of the right side is <span class="process-math">\(1\)</span> since <span class="process-math">\(\frac{d}{dx}(x) = 1\text{.}\)</span> On the left side, we know that the derivative of the composition <span class="process-math">\(b^{g(x)}\)</span> will be <span class="process-math">\((\ln b) b^{g(x)} g'(x)\text{,}\)</span> by the chain rule. If we let <span class="process-math">\(g(x) = \log_bx\text{,}\)</span> then <span class="process-math">\(g'(x) = \frac{d}{dx}(\log_bx)\)</span> is precisely the derivative that we are trying to find:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\ln b)b^{\log_b x}\cdot \frac{d}{dx}(\log_bx) = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-2-4">
+<div class="para">Now, we can solve for <span class="process-math">\(\frac{d}{dx}(\log_bx)\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(\log_bx) = \frac{1}{(\ln b)b^{\log_b x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-2-5">
+<div class="para">We are technically done, but because we know <span class="process-math">\(b^{\log_b x} = x\text{,}\)</span> we can simplify further to:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(\log_bx) = \frac{1}{(\ln b)x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-2-6">
+<div class="para">Thus we have discovered that the derivative of <span class="process-math">\(\log_b x\)</span> is the fraction <span class="process-math">\(\frac{1}{(\ln b)x}\text{:}\)</span> Notice that when <span class="process-math">\(b=e\text{,}\)</span> <span class="process-math">\(\log_bx=\log_ex = \ln x\text{,}\)</span> and <span class="process-math">\(\ln(e)=1\text{.}\)</span> This means that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(\ln x \right)=\frac{1}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="remark remark-like" id="my-great-book-8-8-3-2-7"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.7.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="my-great-book-8-8-3-2-7-1">Up to this point, derivatives have been the same basic type as the original function from which they come. For example, derivatives of power functions are power functions, derivatives of polynomials are polynomials, and derivatives of exponential functions are exponential functions. Now something surprising happens: derivatives of logarithmic functions are not logarithmic! Even more surprisingly, logarithmic functions are transcendental, but their derivatives are algebraic.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-7-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 6.7.1"><a href="#my-great-book-8-8-3-2-7" title="Copy permalink for Remark 6.7.1">🔗</a></div></article><div class="para" id="my-great-book-8-8-3-2-8">Here are these derivative formulas summarized in a theorem:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_logder"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.7.2</span><span class="period">.</span><span class="space"> </span><span class="title">Derivatives of Logarithmic Functions.</span>
+</h4>
+<div class="para logical" id="thm_logder-2-1">
+<div class="para">For any constant <span class="process-math">\(b&gt;0\)</span> with <span class="process-math">\(b\neq1\text{,}\)</span> and for all positive values of <span class="process-math">\(x\text{,}\)</span>
+</div>
+<ol class="decimal ol-marker-15" id="thm_logder-2-1-4" start="0">
+<li id="thm_logder-2-1-4-1">
+<div class="para" id="thm_logder-2-1-4-1-1">
+<span class="process-math">\(\displaystyle \frac{d}{dx}\left(\log_b(x) \right)=\frac{1}{\ln(b)x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_logder-2-1-4-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm_logder-2-1-4-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm_logder-2-1-4-2">
+<div class="para" id="thm_logder-2-1-4-2-1">
+<span class="process-math">\(\displaystyle \frac{d}{dx}\left(\ln (x) \right)=\frac{1}{x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_logder-2-1-4-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm_logder-2-1-4-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_logder-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.7.2: Derivatives of Logarithmic Functions"><a href="#thm_logder" title="Copy permalink for Theorem 6.7.2: Derivatives of Logarithmic Functions">🔗</a></div></article><details id="my-great-book-8-8-3-2-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.3</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-8-8-3-2-10-1-1">
+<div class="para">Here are a few basic examples of derivatives of logarithms:</div>
+<ol class="decimal ol-marker-11" id="my-great-book-8-8-3-2-10-1-1-1" start="0">
+<li id="my-great-book-8-8-3-2-10-1-1-1-1">
+<div class="para logical" id="my-great-book-8-8-3-2-10-1-1-1-1-1">
+<div class="para">The derivative of <span class="process-math">\(f(x) = \log_5 x\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x) = \frac{1}{(\ln 5)x}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-10-1-1-1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#my-great-book-8-8-3-2-10-1-1-1-1" title="Copy permalink for Item 1">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-3-2-10-1-1-1-2">
+<div class="para logical" id="my-great-book-8-8-3-2-10-1-1-1-2-1">
+<div class="para">The derivative of <span class="process-math">\(g(x) = 8\ln x\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g'(x) = 8\cdot\frac{1}{x} = \frac{8}{x}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-10-1-1-1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#my-great-book-8-8-3-2-10-1-1-1-2" title="Copy permalink for Item 2">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-3-2-10-1-1-1-3">
+<div class="para logical" id="my-great-book-8-8-3-2-10-1-1-1-3-1">
+<div class="para">The derivative of <span class="process-math">\(h(x) = x^2 \ln x\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}h'(x) \amp = 2x\ln x+x^2\cdot\frac{1}{x} \\ \amp = 2x\ln x+x. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-10-1-1-1-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#my-great-book-8-8-3-2-10-1-1-1-3" title="Copy permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-2-10-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.7.3"><a href="#my-great-book-8-8-3-2-10" title="Copy permalink for Example 6.7.3">🔗</a></div></article></details><details id="my-great-book-8-8-3-2-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link">
+        
+          
+        
+      </summary><article class="exercise exercise-like knowl__content"><div class="autopermalink" data-description="Checkpoint [STRUCT].3"><a href="#my-great-book-8-8-3-2-11" title="Copy permalink for Checkpoint [STRUCT].3">🔗</a></div></article></details></section><section class="subsubsection" id="my-great-book-8-8-3-3"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">6.7.2.1</span><span class="space"> </span><span class="title">A Detail About Domains and Absolute Value:</span>
+</h4>
+<div class="para" id="my-great-book-8-8-3-3-2">Because <span class="process-math">\(\ln x\)</span> has domain <span class="process-math">\((0,\infty)\text{,}\)</span> when we say that <span class="process-math">\(\frac{d}{dx}(\ln x) = \frac{1}{x}\text{,}\)</span> we are also restricting <span class="process-math">\(\frac{1}{x}\)</span> to the domain <span class="process-math">\((0,\infty)\text{;}\)</span> we cannot have a derivative where the original function is undefined! However, it would be a pity to let half of the derivative go to waste. Let’s see how to use the entire domain <span class="process-math">\((-\infty,0)\cup (0,\infty)\)</span> of <span class="process-math">\(\frac{1}{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-3-3">
+<div class="para">Consider the function <span class="process-math">\(f(x) = \ln|x|\text{.}\)</span> We know from our previous study that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|x| = \begin{cases}x, \amp  \text{ when } x\geq 0\\ -x, \amp  \text{ when } x\lt 0 \end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-3-3-4">In plain language, <span class="process-math">\(|x|\)</span> "makes <span class="process-math">\(x\)</span> positive", so for <span class="process-math">\(x\lt 0\text{,}\)</span> <span class="process-math">\(\ln|x|\)</span> is now defined. For example, when <span class="process-math">\(x=-1\text{,}\)</span> we have that <span class="process-math">\(|-1| = -(-1) = 1\)</span> and so now, <span class="process-math">\(f(-1) =\ln|-1| = \ln(1) = 0\)</span> is indeed defined.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-3-5">
+<div class="para">However, when <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(|0|=0\)</span> and so <span class="process-math">\(f(0) = \ln |0| = \ln(0)\)</span> is still undefined. Thus the domain of <span class="process-math">\(f(x) = \ln|x|\)</span> is <span class="process-math">\((-\infty,0)\cup(0,\infty)\)</span> and we can write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = \ln|x| = \begin{cases}\ln(x), \amp  \text{ when } x&gt; 0\\ \ln(-x), \amp  \text{ when } x\lt 0 \end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-3-6">
+<div class="para">Now consider the derivative of <span class="process-math">\(f(x) = \ln|x|\text{.}\)</span> When <span class="process-math">\(x&gt;0\text{,}\)</span> we can simplify <span class="process-math">\(|x|=x\)</span> so that <span class="process-math">\(f(x) = \ln|x|=\ln x\)</span> and so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x) = \frac{d}{dx}(\ln x) = \frac{1}{x}\text{.}
+\end{equation*}
+</div>
+<div class="para">On the other hand, when <span class="process-math">\(x\lt 0\text{,}\)</span> we can simplify <span class="process-math">\(f(x) =\ln( -x)\text{.}\)</span> Now the function <span class="process-math">\(y = -x\)</span> is inside the logarithm, so using the chain rule, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x) = \frac{d}{dx}(\ln(-x)) = \frac{1}{-x}\cdot \frac{d}{dx}(-x) = -\frac{1}{x}\cdot (-1) = \frac{1}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-3-3-7">
+<div class="para">Notice that we got <span class="process-math">\(f'(x) = \frac{1}{x}\)</span> for both <span class="process-math">\(x&gt;0\)</span> and <span class="process-math">\(x\lt 0\text{.}\)</span> Thus we have discovered that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(\ln|x|) = \frac{1}{x}\text{.}
+\end{equation*}
+</div>
+<div class="para">The benefit to this is that now both the original function and its derivative have the full domain <span class="process-math">\((-\infty,0)\cup(0,\infty)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-7" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-3-3-8">The two graphs that follow illustrate that the associated slope function for <span class="process-math">\(\ln|x|\)</span> is the function <span class="process-math">\(\frac{1}{x}\text{.}\)</span> For negative values of <span class="process-math">\(x\text{,}\)</span> as we move from left to right, the slopes of <span class="process-math">\(\ln|x|\)</span> are negative with larger and larger magnitude while the heights of <span class="process-math">\(\frac{1}{x}\)</span> behave the same way. For positive values of <span class="process-math">\(x\text{,}\)</span> as we move from left to right, the slopes of <span class="process-math">\(\ln x\)</span> are positive but getting smaller while the heights of <span class="process-math">\(\frac{1}{x}\)</span> do the same.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="my-great-book-8-8-3-3-9"><div class="image-box" style="width: 93%; margin-left: 3.5%; margin-right: 3.5%;"><img src="external/TaalmanPage366ab.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.7.4<span class="period">.</span></span><span class="space"> </span>The slopes of <span class="process-math">\(f(x)=\ln|x|\)</span> are the heights of <span class="process-math">\(f'(x) = \frac{1}{x}\text{.}\)</span><div class="autopermalink" data-description="Figure 6.7.4"><a href="#my-great-book-8-8-3-3-9" title="Copy permalink for Figure 6.7.4">🔗</a></div></figcaption></figure><div class="para" id="my-great-book-8-8-3-3-10">We put this observation in a theorem as it will be useful in the next section:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-10" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="my-great-book-8-8-3-3-11"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.7.5</span><span class="period">.</span><span class="space"> </span><span class="title">Derivatives of Logarithms of Absolute Values.</span>
+</h5>
+<div class="para logical" id="my-great-book-8-8-3-3-11-2-1">
+<div class="para">For all values of <span class="process-math">\(x\)</span> with <span class="process-math">\(x\neq 0\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(\ln|x|) = \frac{1}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-11-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.7.5: Derivatives of Logarithms of Absolute Values"><a href="#my-great-book-8-8-3-3-11" title="Copy permalink for Theorem 6.7.5: Derivatives of Logarithms of Absolute Values">🔗</a></div></article><details id="my-great-book-8-8-3-3-12" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.7.6</span><span class="period">.</span>
+</h5></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="my-great-book-8-8-3-3-12-1-1">
+<div class="para">
+<em class="emphasis">True or False:</em> Determine whether each of the statements that follow is true or false. If a statement is true, explain why. If a statement is false, give a correct alternative.</div>
+<ol class="lower-alpha ol-marker-7" id="my-great-book-8-8-3-3-12-1-1-2">
+<li id="my-great-book-8-8-3-3-12-1-1-2-1">
+<div class="para" id="my-great-book-8-8-3-3-12-1-1-2-1-1">
+<em class="emphasis">True or False:</em> <span class="process-math">\(\dfrac{d}{dx}\left(\dfrac{1}{x}\right) = \ln x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-12-1-1-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.6.a"><a href="#my-great-book-8-8-3-3-12-1-1-2-1" title="Copy permalink for Item 6.7.6.a">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-3-3-12-1-1-2-2">
+<div class="para" id="my-great-book-8-8-3-3-12-1-1-2-2-1">
+<em class="emphasis">True or False:</em> <span class="process-math">\(\dfrac{d}{dx}(\ln|x|) = \dfrac{1}{|x|}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-12-1-1-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.6.b"><a href="#my-great-book-8-8-3-3-12-1-1-2-2" title="Copy permalink for Item 6.7.6.b">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-3-3-12-1-1-2-3">
+<div class="para" id="my-great-book-8-8-3-3-12-1-1-2-3-1">
+<em class="emphasis">True or False:</em> <span class="process-math">\(\dfrac{d^2}{dx^2}(\ln x) = \dfrac{1}{(\ln x)^2}\)</span> <em class="emphasis">Remember that the notation <span class="process-math">\(\frac{d^2}{dx^2}\)</span> means to take the second derivative.</em><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-12-1-1-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.6.c"><a href="#my-great-book-8-8-3-3-12-1-1-2-3" title="Copy permalink for Item 6.7.6.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-3-3-12-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.7.6"><a href="#my-great-book-8-8-3-3-12" title="Copy permalink for Checkpoint 6.7.6">🔗</a></div></article></details><div class="autopermalink" data-description="Subsubsection 6.7.2.1: A Detail About Domains and Absolute Value:"><a href="#my-great-book-8-8-3-3" title="Copy permalink for Subsubsection 6.7.2.1: A Detail About Domains and Absolute Value:">🔗</a></div></section><div class="autopermalink" data-description="Subsection 6.7.2: Computing Derivatives of Logarithmic Functions"><a href="#my-great-book-8-8-3" title="Copy permalink for Subsection 6.7.2: Computing Derivatives of Logarithmic Functions">🔗</a></div></section><section class="subsection" id="my-great-book-8-8-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.7.3</span><span class="space"> </span><span class="title">The Chain Rule with Logarithmic Functions</span>
+</h3>
+<div class="para logical" id="my-great-book-8-8-4-2">
+<div class="para">By combining our new differentiation rules for logarithmic functions with the chain rule, we obtain the following rules for derivatives of logarithmic compositions:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}\left(\log_b(g(x))\right) \amp =\frac{1}{(\ln b)g(x)}\cdot g'(x)\\ \amp =\frac{g'(x)}{(\ln b)g(x)} \end{aligned}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}\left(\ln g(x)\right )\amp =\frac{1}{g(x)}\cdot g'(x)\\ \amp =\frac{g'(x)}{g(x)}. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-4-3">Because the chain rule looks sufficiently different for logarithmic functions, we state it below with this new possible "outside" function of <span class="process-math">\(\log_b x\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="my-great-book-8-8-4-4"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.7.7</span><span class="period">.</span><span class="space"> </span><span class="title">The chain rule for logarithmic functions.</span>
+</h4>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(\log_b(g(x))\right)  =\frac{g'(x)}{(\ln b)g(x)}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(\ln g(x)\right)=\frac{g'(x)}{g(x)}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Theorem 6.7.7: The chain rule for logarithmic functions"><a href="#my-great-book-8-8-4-4" title="Copy permalink for Theorem 6.7.7: The chain rule for logarithmic functions">🔗</a></div></article><details id="my-great-book-8-8-4-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.8</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-8-8-4-5-1-1">
+<div class="para">For example,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(\log_5(x^2+1)\right)=\frac{1}{(\ln 5)(x^2+1)}\cdot (2x)=\frac{2x}{(\ln 5)(x^2+1)}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(\ln (x^2+1)\right)=\frac{1}{(x^2+1)}\cdot (2x)=\frac{2x}{x^2+1}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-5-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.7.8"><a href="#my-great-book-8-8-4-5" title="Copy permalink for Example 6.7.8">🔗</a></div></article></details><details id="my-great-book-8-8-4-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.7.9</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="my-great-book-8-8-4-6-1-1">Compute the derivative of <span class="process-math">\(g(x) = \log_3(4x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-6-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.7.9"><a href="#my-great-book-8-8-4-6" title="Copy permalink for Checkpoint 6.7.9">🔗</a></div></article></details><details id="my-great-book-8-8-4-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.10</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-8-8-4-7-1-1">Compute the derivative of <span class="process-math">\(f(x)=\ln(kx)\text{,}\)</span> where <span class="process-math">\(k\)</span> is a constant.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-7-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-4-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-4-7-2-1">
+<div class="para">We could use log rules to rewrite <span class="process-math">\(f(x)=\ln(kx)=\ln k+\ln x\text{,}\)</span> and see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x)=0+\frac{1}{x}=\frac{1}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-7-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-4-7-2-2">
+<div class="para">If we use the chain rule, we get the same result:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(\ln (kx)\right)=\frac{1}{kx}\cdot k=\frac{k}{kx}=\frac{1}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-7-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.10.1"><a href="#my-great-book-8-8-4-7-2" title="Copy permalink for Solution 6.7.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.10"><a href="#my-great-book-8-8-4-7" title="Copy permalink for Example 6.7.10">🔗</a></div></article></details><details id="ex_middledifflogderiv" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.11</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex_middledifflogderiv-1-1">Find the derivative of <span class="process-math">\(f(x) = \ln(x^5-32)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_middledifflogderiv-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_middledifflogderiv-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex_middledifflogderiv-2-1">
+<div class="para">Using the chain rule, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}( \ln(x^5-32))=\frac{1}{x^5-32}\cdot(5x^4)=\frac{5x^4}{x^5-32}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_middledifflogderiv-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.11.1"><a href="#ex_middledifflogderiv-2" title="Copy permalink for Solution 6.7.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.11"><a href="#ex_middledifflogderiv" title="Copy permalink for Example 6.7.11">🔗</a></div></article></details><details id="my-great-book-8-8-4-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.12</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-8-8-4-9-1-1">Find the derivative of <span class="process-math">\(f(x)=e^{x^2}\ln x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-9-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-4-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-4-9-2-1">
+<div class="para">Using the product and chain rules, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}\left(e^{x^2}\ln x\right)\amp =\frac{d}{dx}\left(e^{x^2}\right)\cdot\ln x+e^{x^2}\frac{d}{dx}(\ln x)\\ \amp =2xe^{x^2}\ln x+e^{x^2}\ \frac{1}{x}\\ \amp =e^{x^2}\left(2x\ln x+\frac{1}{x}\right) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-9-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.12.1"><a href="#my-great-book-8-8-4-9-2" title="Copy permalink for Solution 6.7.12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.12"><a href="#my-great-book-8-8-4-9" title="Copy permalink for Example 6.7.12">🔗</a></div></article></details><details id="my-great-book-8-8-4-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.13</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-8-8-4-10-1-1">Find the derivative of <span class="process-math">\(f(x)=\dfrac{7e^{3x}-x^22^x}{\log_5x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-10-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-4-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-4-10-2-1">
+<div class="para">We begin by applying the quotient rule:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x)= \frac{\frac{d}{dx}(7e^{3x}-x^22^x)\cdot \log_5x-(7e^{3x}-x^22^x)\cdot \frac{d}{dx}(\log_5x)}{(\log_5x)^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-10-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-4-10-2-2">
+<div class="para">Let’s first calculate the necessary derivatives in the numerator separately. Begin with finding the derivative of <span class="process-math">\(7e^{3x}-x^22^x\text{.}\)</span> In the first term, the derivative of <span class="process-math">\(7e^{3x}-x^2 2^x\)</span> requires the chain rule:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(7e^{3x}) = 7e^{3x}\cdot 3 = 21e^{3x}
+\end{equation*}
+</div>
+<div class="para">and the derivative of the second term <span class="process-math">\(x^2 2^x\)</span> requires the product rule:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}(x^2 2^x) \amp = 2x2^x+x^2(\ln2)2^x\\ \amp = 2^x(2x+(\ln 2)x^2) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-10-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-4-10-2-3">
+<div class="para">Lastly, the derivative of <span class="process-math">\(\log_5 x\)</span> from the far right of the numerator is:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(\log_5 x) = \frac{1}{(\ln 5)x}\text{.}
+\end{equation*}
+</div>
+<div class="para">Putting this all together, we have:</div>
+<div class="displaymath process-math" id="my-great-book-8-8-4-10-2-3-3">
+\begin{align*}
+f'(x)\amp = \frac{\frac{d}{dx}(7e^{3x}-x^22^x)\log_5x-(7e^{3x}-x^22^x)\frac{d}{dx}(\log_5x)}{(\log_5x)^2}\amp \leftarrow\amp  \text{ quotient rule }\\
+\amp = \frac{[21e^{3x}-(2^x(2x+(\ln 2)x^2))]\log_5x-(7e^{3x}-x^22^x)\frac{1}{(\ln5)x}}{(\log_5x)^2}\amp \leftarrow\amp  \text{ finishing the derivatives }
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-10-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-4-10-2-4">We will not attempt to simplify this expression.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-10-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.13.1"><a href="#my-great-book-8-8-4-10-2" title="Copy permalink for Solution 6.7.13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.13"><a href="#my-great-book-8-8-4-10" title="Copy permalink for Example 6.7.13">🔗</a></div></article></details><details id="my-great-book-8-8-4-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.14</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-8-8-4-11-1-1">Find the derivative of <span class="process-math">\(f(x)=\ln\left(\left(\frac{x^2-1}{1-2x}\right)^2\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-11-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-4-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="my-great-book-8-8-4-11-2-1">There are a number of ways we could find <span class="process-math">\(f'(x)\text{.}\)</span> One way is to jump right in and start differentiating. We would need two chain rules, followed by the quotient rule.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-11-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-4-11-2-2">
+<div class="para">However, we can also use log rules to do a bit of algebra first, which will make our differentiation easier. First, bring the exponent of 2 down using part (c) of <a href="sec_logfunctions.html#thm_logproperties" class="xref" data-knowl="./knowl/xref/thm_logproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.3.13: The Logarithm Rules">Theorem 6.3.13</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_logproperties.html">
+\begin{equation*}
+\frac{d}{dx}\left(\ln\left(\left(\frac{x^2-1}{1-2x}\right)^2\right)\right)= \frac{d}{dx}\left(2\ln\left(\frac{x^2-1}{1-2x}\right)\right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-11-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-4-11-2-3">
+<div class="para">Then, use part (b) of <a href="sec_logfunctions.html#thm_logproperties" class="xref" data-knowl="./knowl/xref/thm_logproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.3.13: The Logarithm Rules">Theorem 6.3.13</a> to rewrite the fraction inside of the logarithm as subtraction outside of the logarithm:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_logproperties.html">
+\begin{equation*}
+\frac{d}{dx}\left(2\ln\left(\frac{x^2-1}{1-2x}\right)\right)= \frac{d}{dx}\left(2[\ln(x^2-1)-\ln(1-2x)]\right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-11-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-4-11-2-4">
+<div class="para">Now, we can calculate the derivative using only one chain rule for each term:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\left(2[\ln(x^2-1)-\ln(1-2x)]\right) = 2\left[\frac{2x}{x^2-1}-\frac{-2}{1-2x}\right]
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-11-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.14.1"><a href="#my-great-book-8-8-4-11-2" title="Copy permalink for Solution 6.7.14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.14"><a href="#my-great-book-8-8-4-11" title="Copy permalink for Example 6.7.14">🔗</a></div></article></details><div class="para" id="my-great-book-8-8-4-12">This last example suggests a very useful method for finding derivatives of complicated functions: use the logarithm rules to break up a function algebraically in order to avoid using multiple derivative rules.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-12" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="my-great-book-8-8-4-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.7.15</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="my-great-book-8-8-4-13-1-1">For the function <span class="process-math">\(k(x) = \ln(\sqrt{x^2+5})\text{,}\)</span> find functions <span class="process-math">\(f,
+g\text{,}\)</span> and <span class="process-math">\(h\)</span> such that <span class="process-math">\(k=f\circ g\circ h\text{.}\)</span> There may be more than one possible answer. Then use the chain rule to calculate <span class="process-math">\(k'(x)\text{.}\)</span> <em class="emphasis">You may wish to use logarithm rules to make this easier.</em><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-4-13-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.7.15"><a href="#my-great-book-8-8-4-13" title="Copy permalink for Checkpoint 6.7.15">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 6.7.3: The Chain Rule with Logarithmic Functions"><a href="#my-great-book-8-8-4" title="Copy permalink for Subsection 6.7.3: The Chain Rule with Logarithmic Functions">🔗</a></div></section><section class="subsection" id="my-great-book-8-8-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.7.4</span><span class="space"> </span><span class="title">Logarithmic differentiation</span>
+</h3>
+<div class="para" id="my-great-book-8-8-5-2">The calculation of derivatives of complicated functions involving products, quotients, or powers can often be simplified by taking logarithms. We saw a few examples of this in the last section. In this section, we will codify a new method of taking derivatives, called <em class="emphasis">logarithmic differentiation</em>, that takes advantage of the properties of logarithmic functions, and will also see how it can be used to take derivatives of yet another category of functions.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-5-3">We can use logarithm rules to make taking derivatives easier, even if there are no logarithms involved in a problem. We cannot simply introduce a logarithm; that would change the function we are trying to differentiate. However, we can take the logarithm of <em class="emphasis">both sides of the equation</em>:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="my-great-book-8-8-5-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.16</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-8-8-5-4-1-1">
+<div class="para">In order to take the derivative of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y = \frac{x^{3/4}\sqrt{x^2+1}}{(3x+2)^5}
+\end{equation*}
+</div>
+<div class="para">we would need to first apply the quotient rule, then use the product rule for the derivative of the numerator, which involves using the chain rule for the derivative of <span class="process-math">\(\sqrt{x^2+1}\text{.}\)</span> We would also need the chain rule for the derivative of the denominator. Instead, we take the natural logarithm of both sides and simplify using algebra:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\ln y \amp = \ln\left(\frac{x^{3/4}\sqrt{x^2+1}}{(3x+2)^5}\right)\\ \amp = \ln(x^{3/4}\sqrt{x^2+1})-\ln((3x+2)^5)\\ \amp  = \ln(x^{3/4})+\ln(\sqrt{x^2+1})-5\ln(3x+2)\\ \amp = \frac{3}{4} \ln x+\frac{1}{2}\ln (x^2+1) - 5\ln(3x+2) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-4-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="my-great-book-8-8-5-4-1-2">
+<div class="para">Now we move on to taking derivatives. Pay very close attention to the left-hand side of this equation! Since <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> we must use the chain rule/implicit differentiation to take its derivative. However, the right-hand side of the equation is now much simpler to differentiate as there are no quotients or products.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}(\ln y) \amp = \frac{d}{dx}\left(\frac{3}{4} x+\frac{1}{2}\ln (x^2+1) - 5\ln(3x+2)\right)\\ \frac{1}{y}\frac{dy}{dx} \amp = \frac{3}{4}\cdot\frac{1}{x}+\frac{1}{2}\frac{2x}{x^2+1}-5\cdot\frac{3}{3x+2} \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-4-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="my-great-book-8-8-5-4-1-3">
+<div class="para">We can now solve for <span class="process-math">\(dy/dx\)</span> by multiplying both sides of the equation by <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx} = y\left(\frac{3}{4x}+\frac{x}{x^2+1}-\frac{15}{3x+2}\right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-4-1-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="my-great-book-8-8-5-4-1-4">
+<div class="para">Because we started with an explicit expression for <span class="process-math">\(y\text{,}\)</span> we would like to end with an explicit derivative <span class="process-math">\(\frac{dy}{dx}\text{,}\)</span> meaning one that involves only the independent variable <span class="process-math">\(x\text{.}\)</span> So we substitute <span class="process-math">\(y\)</span> from the beginning of the problem:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx} =  \frac{x^{3/4}\sqrt{x^2+1}}{(3x+2)^5}\left(\frac{3}{4x}+\frac{x}{x^2+1}-\frac{15}{3x+2}\right)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-4-1-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-8-8-5-4-1-5">This expression is not pretty, but it gives us a formula for the derivative <span class="process-math">\(y'=\frac{dy}{dx}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-4-1-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.7.16"><a href="#my-great-book-8-8-5-4" title="Copy permalink for Example 6.7.16">🔗</a></div></article></details><div class="para logical" id="my-great-book-8-8-5-5">
+<div class="para">\fbox{Here is a summary of the steps taken in this method, called <em class="emphasis">logarithmic differentiation</em>
+</div>
+<ul class="disc" id="my-great-book-8-8-5-5-2">
+<li id="my-great-book-8-8-5-5-2-1">
+<div class="para" id="my-great-book-8-8-5-5-2-1-1">Take the natural logarithm of both sides of an equation <span class="process-math">\(y=f(x)\)</span> to get <span class="process-math">\(\ln y = \ln f(x)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-5-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-5-5-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-5-2-2">
+<div class="para" id="my-great-book-8-8-5-5-2-2-1">Use the logarithm rules to simplify <span class="process-math">\(\ln f(x)\)</span> as much as possible, bringing exponents down and splitting up products and quotients into addition and subtraction.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-5-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-5-5-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-5-2-3">
+<div class="para" id="my-great-book-8-8-5-5-2-3-1">Differentiate implicitly with respect to <span class="process-math">\(x\text{.}\)</span> The derivative of <span class="process-math">\(\ln y\)</span> is <span class="process-math">\(\frac{1}{y}\frac{dy}{dx}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-5-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-5-5-2-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-5-2-4">
+<div class="para" id="my-great-book-8-8-5-5-2-4-1">Solve the resulting equation for <span class="process-math">\(\frac{dy}{dx}\)</span> by multiplying both sides by <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-5-2-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-5-5-2-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-5-2-5">
+<div class="para" id="my-great-book-8-8-5-5-2-5-1">Replace <span class="process-math">\(y\)</span> by the original expression for <span class="process-math">\(f(x)\)</span> in order to write your answer in terms of only the variable <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-5-2-5-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-8-8-5-5-2-5" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="remark remark-like" id="my-great-book-8-8-5-6"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.7.17</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="my-great-book-8-8-5-6-1">
+<div class="para">If <span class="process-math">\(f(x)\lt 0\)</span> for some values of <span class="process-math">\(x\text{,}\)</span> then <span class="process-math">\(\ln (f(x))\)</span> is not defined, but we can write <span class="process-math">\(|y| = |f(x)|\)</span> and use the derivative rule</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}\ln|x| =  \frac{1}{x}\text{.}
+\end{equation*}
+</div>
+<div class="para">We can also distribute absolute values over products, quotients, and powers, so the computations are exactly the same:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|ab| = |a||b|,  \left|\frac{a}{b}\right| = \frac{|a|}{|b|}, |a^b| = |a|^b
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-6-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 6.7.17"><a href="#my-great-book-8-8-5-6" title="Copy permalink for Remark 6.7.17">🔗</a></div></article><details id="my-great-book-8-8-5-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.18</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-8-8-5-7-1-1">
+<div class="para">Use logarithmic differentiation to calculate the derivative of the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x)=\frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-7-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-5-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-5-7-2-1">
+<div class="para">First, let’s take the natural log of both sides, and use algebra:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\ln(f(x)) \amp =\ln\left( \frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}\right)\\ \amp =\ln(\sqrt{x}(x^2-1)^5)-\ln((x+2)(x-4)^3)\\ \amp =\ln(\sqrt{x})+\ln((x^2-1)^5)-\ln((x+2))-\ln((x-4)^3)\\ \amp =\frac{1}{2}\ln(x)+5\ln(x^2-1)-\ln(x+2)-3\ln(x-4) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-7-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-5-7-2-2">
+<div class="para">Now, lets take the derivative of both sides:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}(\ln(f(x))) \amp =\frac{d}{dx}\left(\ln\left( \frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}\right)\right)\\ \frac{f'(x)}{f(x)} \amp =\frac{1}{2x}+\frac{10x}{x^2-1}-\frac{1}{x+2}-\frac{3}{x-4}. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-7-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-5-7-2-3">
+<div class="para">So, multiplying both sides by <span class="process-math">\(f(x)\text{,}\)</span> we obtain:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}f'(x)\amp =f(x)\left(\frac{1}{2x}+\frac{10x}{x^2-1}-\frac{1}{x+2}-\frac{3}{x-4}\right)\\ \amp =\left(\frac{\sqrt{x}(x^2-1)^5}{(x+2)(x-4)^3}\right)\left(\frac{1}{2x}+\frac{10x}{x^2-1}-\frac{1}{x+2}-\frac{3}{x-4}\right) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-7-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.18.1"><a href="#my-great-book-8-8-5-7-2" title="Copy permalink for Solution 6.7.18.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.18"><a href="#my-great-book-8-8-5-7" title="Copy permalink for Example 6.7.18">🔗</a></div></article></details><details id="my-great-book-8-8-5-8" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.7.19</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="my-great-book-8-8-5-8-1-1">
+<div class="para">Consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = 12x\sqrt[3]{1-x}\sqrt{x+1}
+\end{equation*}
+</div>
+<ol class="lower-alpha ol-marker-7" id="my-great-book-8-8-5-8-1-1-2">
+<li id="my-great-book-8-8-5-8-1-1-2-1">
+<div class="para" id="my-great-book-8-8-5-8-1-1-2-1-1">What derivative rules would you need to use to take the derivative of <span class="process-math">\(f(x)\)</span> as it is written now?<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-8-1-1-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.19.a"><a href="#my-great-book-8-8-5-8-1-1-2-1" title="Copy permalink for Item 6.7.19.a">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-8-1-1-2-2">
+<div class="para" id="my-great-book-8-8-5-8-1-1-2-2-1">Use the logarithm rules to rewrite <span class="process-math">\(\ln(12x\sqrt[3]{1-x}\sqrt{x+1})\)</span> so that it doesn’t involve any products or exponents.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-8-1-1-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.19.b"><a href="#my-great-book-8-8-5-8-1-1-2-2" title="Copy permalink for Item 6.7.19.b">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-8-1-1-2-3">
+<div class="para logical" id="my-great-book-8-8-5-8-1-1-2-3-1">
+<div class="para">Write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y = 12x\sqrt[3]{1-x}\sqrt{x+1}
+\end{equation*}
+</div>
+<div class="para">and apply <span class="process-math">\(\ln(\cdot)\)</span> to both sides. Using the expanded form of <span class="process-math">\(\ln(12x\sqrt[3]{1-x}\sqrt{x+1})\)</span> you found in part (b), take the derivative of both sides. <em class="emphasis">Remember to use the chain rule/implicit differentiation on the left!</em>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-8-1-1-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.19.c"><a href="#my-great-book-8-8-5-8-1-1-2-3" title="Copy permalink for Item 6.7.19.c">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-5-8-1-1-2-4">
+<div class="para" id="my-great-book-8-8-5-8-1-1-2-4-1">Solve for <span class="process-math">\(y' = \frac{dy}{dx}\)</span> and use the original function to replace <span class="process-math">\(y\)</span> on the right-hand side. Congratulations! You’ve found the derivative <span class="process-math">\(y'=f'(x)\)</span> without needing to apply all of the derivative rules you identified in part (a).<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-8-1-1-2-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.19.d"><a href="#my-great-book-8-8-5-8-1-1-2-4" title="Copy permalink for Item 6.7.19.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-5-8-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.7.19"><a href="#my-great-book-8-8-5-8" title="Copy permalink for Checkpoint 6.7.19">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 6.7.4: Logarithmic differentiation"><a href="#my-great-book-8-8-5" title="Copy permalink for Subsection 6.7.4: Logarithmic differentiation">🔗</a></div></section><section class="subsection" id="my-great-book-8-8-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.7.5</span><span class="space"> </span><span class="title">Functions with Variables in the Base and Exponent</span>
+</h3>
+<div class="para logical" id="my-great-book-8-8-6-2">
+<div class="para">Consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = x^x
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-6-3">None of the derivative rules we know apply to this function! The power rule <span class="process-math">\(\frac{d}{dx}(x^n) = nx^{n-1}\)</span> applies only to functions where the exponent is a number. The rule <span class="process-math">\(\frac{d}{dx}(b^x) = (\ln b)b^x\)</span> applies only to functions where the base is a number. In general, we do not yet have a way to take derivatives of functions where the variable appears in both the base and the exponent.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-6-4">Logarithmic differentiation provides a method for taking derivatives of such functions. The key step in this method is to use the logarithm rule for moving the exponent in front of the logarithm, so that there is no longer an exponent with a variable:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="my-great-book-8-8-6-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.20</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-8-8-6-5-1-1">
+<div class="para">Use logarithmic differentiation to calculate the derivative of the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x)=x^x
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-5-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-6-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-6-5-2-1">
+<div class="para">First, let’s take the natural log of both sides, and use algebra:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\ln(f(x)) \amp =\ln\left( x^x\right)\\ \amp =x\ln x. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-5-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-6-5-2-2">
+<div class="para">Now, lets take the derivative of both sides:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}(\ln(f(x))) \amp =\frac{d}{dx}\left(x\ln x\right)\\ \frac{f'(x)}{f(x)} \amp  = x(1/x)+\ln x \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-5-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-6-5-2-3">
+<div class="para">So, multiplying both sides by <span class="process-math">\(f(x)\text{,}\)</span> we obtain:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}f'(x)\amp  =f(x)( x(1/x)+\ln x)\\ \amp  =x^x( 1+\ln x)\\ \amp = x^x+x^x\ln x. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-5-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.20.1"><a href="#my-great-book-8-8-6-5-2" title="Copy permalink for Solution 6.7.20.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.20"><a href="#my-great-book-8-8-6-5" title="Copy permalink for Example 6.7.20">🔗</a></div></article></details><details id="my-great-book-8-8-6-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.7.21</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="my-great-book-8-8-6-6-1-1">
+<div class="para">Graph <span class="process-math">\(f(x) = x^x\)</span> on Desmos.</div>
+<ol class="lower-alpha ol-marker-7" id="my-great-book-8-8-6-6-1-1-2">
+<li id="my-great-book-8-8-6-6-1-1-2-1">
+<div class="para" id="my-great-book-8-8-6-6-1-1-2-1-1">Based on the Desmos graph, what is the domain of <span class="process-math">\(f(x) = x^x\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-6-1-1-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.21.a"><a href="#my-great-book-8-8-6-6-1-1-2-1" title="Copy permalink for Item 6.7.21.a">🔗</a></div>
+</li>
+<li id="my-great-book-8-8-6-6-1-1-2-2">
+<div class="para" id="my-great-book-8-8-6-6-1-1-2-2-1">We calculated that <span class="process-math">\(f'(x) = x^x(\ln x+1)\text{.}\)</span> What does this tell you about where <span class="process-math">\(f(x) = x^x\)</span> is differentiable and/or continuous?<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-6-1-1-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.7.21.b"><a href="#my-great-book-8-8-6-6-1-1-2-2" title="Copy permalink for Item 6.7.21.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-6-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.7.21"><a href="#my-great-book-8-8-6-6" title="Copy permalink for Checkpoint 6.7.21">🔗</a></div></article></details><details id="my-great-book-8-8-6-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.22</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-8-8-6-7-1-1">Use logarithmic differentiation to find <span class="process-math">\(\frac{d}{dx}((x^2-3)^x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-7-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-6-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-6-7-2-1">
+<div class="para">We want to find the <span class="process-math">\(\frac{dy}{dx}\)</span> for <span class="process-math">\(y=(x^2-3)^x\text{.}\)</span> Lets start by taking the natural log of both sides:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\ln(y) \amp =\ln\left((x^2-3)^x\right)\\ \amp =x\ln(x^2-3). \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-7-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-6-7-2-2">
+<div class="para">Now, lets take the derivative of both sides:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}(\ln(y) )\amp =\frac{d}{dx}\left(x\ln(x^2-3)\right)\\ \frac{1}{y} \left(\frac{dy}{dx}\right)\amp  = x\left(\frac{2x}{x^2-3}\right)+\ln(x^2-3) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-7-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-6-7-2-3">
+<div class="para">So, multiplying both sides by <span class="process-math">\(y\text{,}\)</span> we obtain:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{dy}{dx}\amp  =y\left( x\left(\frac{2x}{x^2-3}\right)+\ln(x^2-3)\right)\\ \amp  =(x^2-3)^x\left( x\left(\frac{2x}{x^2-3}\right)+\ln(x^2-3)\right) \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-7-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.22.1"><a href="#my-great-book-8-8-6-7-2" title="Copy permalink for Solution 6.7.22.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.22"><a href="#my-great-book-8-8-6-7" title="Copy permalink for Example 6.7.22">🔗</a></div></article></details><details id="my-great-book-8-8-6-8" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.23</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-8-8-6-8-1-1">
+<div class="para">Use logarithmic differentiation to calculate the derivative of the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = x^{\sqrt{x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-8-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="my-great-book-8-8-6-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="my-great-book-8-8-6-8-2-1">
+<div class="para">First, let’s take the natural log of both sides, and use algebra:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\ln(f(x)) \amp =\ln\left( x^{\sqrt{x}}\right)\\ \amp =\sqrt{x}\ln x. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-8-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-6-8-2-2">
+<div class="para">Now, lets take the derivative of both sides:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}\frac{d}{dx}(\ln(f(x))) \amp =\frac{d}{dx}\left(\sqrt{x}\ln x\right)\\ \frac{f'(x)}{f(x)} \amp  = \sqrt{x}(1/x)+\frac{1}{2}x^{-1/2}\ln x \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-8-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-6-8-2-3">
+<div class="para">So, multiplying both sides by <span class="process-math">\(f(x)\text{,}\)</span> we obtain:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}f'(x)\amp  =f(x)( \sqrt{x}(1/x)+\frac{1}{2}x^{-1/2}\ln x)\\ \amp  =x^{\sqrt{x}}\left( \frac{1}{\sqrt{x}}+\frac{\ln x}{2\sqrt{x}}\right)\\ \amp =\frac{x^{\sqrt{x}}(2+\ln x)}{2\sqrt{x}}. \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-6-8-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.7.23.1"><a href="#my-great-book-8-8-6-8-2" title="Copy permalink for Solution 6.7.23.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 6.7.23"><a href="#my-great-book-8-8-6-8" title="Copy permalink for Example 6.7.23">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 6.7.5: Functions with Variables in the Base and Exponent"><a href="#my-great-book-8-8-6" title="Copy permalink for Subsection 6.7.5: Functions with Variables in the Base and Exponent">🔗</a></div></section><section class="subsection" id="my-great-book-8-8-7"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.7.6</span><span class="space"> </span><span class="title">Summary</span>
+</h3>
+<div class="para" id="my-great-book-8-8-7-2">The following methods were introduced in this section:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-7-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-7-3">
+<em class="emphasis">Key ideas:</em> Derivatives of logarithms are algebraic functions: <span class="process-math">\(\frac{d}{dx}(\ln x) = \frac{1}{x}\)</span> and <span class="process-math">\(\frac{d}{dx}(\log_b x) = \frac{1}{(\ln b)x}\text{.}\)</span> The chain rule looks strange when combined with logarithmic functions and is worth paying special attention to. Applying a logarithm to (both sides of) a function can allow us to break apart the function and avoid using complicated derivative rules. In order to take the derivative of a function with variables in both the base and the exponent, we <em class="emphasis">must</em> use logarithmic differentiation.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-7-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-8-8-7-4">
+<div class="para">
+<em class="emphasis">Other ideas introduced:</em> We can use an absolute value within a logarithm to extend the domain of the function. In the case of <span class="process-math">\(\ln|x|\text{,}\)</span> this does not change the derivative:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx}(\ln |x|) = \frac{1}{x}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-7-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-7-5">
+<em class="emphasis">Other ideas reinforced:</em> The logarithm rules are extremely useful.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-7-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-7-6">\fbox{\fbox{ End of Section 5.7}}<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-7-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-8-8-7-7">\rule{1.1\textwidth}{2pt}<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-8-8-7-7" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 6.7.6: Summary"><a href="#my-great-book-8-8-7" title="Copy permalink for Subsection 6.7.6: Summary">🔗</a></div></section><div class="autopermalink" data-description="Section 6.7: Derivatives of Logarithmic Functions"><a href="#my-great-book-8-8" title="Copy permalink for Section 6.7: Derivatives of Logarithmic Functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="my-great-book-8-7.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="my-great-book-9.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
