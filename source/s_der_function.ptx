@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_der_function" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Derivative: function</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                  Extend the notion of derivative at a point to a definition of the derivative function <m>f'</m> associated to a function <m>f</m>.   
+                </p>
+            </li>
+            <li>
+                <p>
+                    Compute formulas for derivative functions <m>f'</m> using the limit definition of the derivative. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Introduce Leibniz notation in addition to prime notation. Understand the specific advantages of each notional style. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand both analytically and graphically common ways in which a function <m>f</m> can fail to be differentiable at an input.  
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <p>
+       Whereas previously we focused on the notion of the derivative of a function <m>f</m> at a specific input, we now switch perspectives somewhat and consider the derivative operation as defining a function <m>f'</m> associated to <m>f</m>. 
+    </p>
+    <definition xml:id="d_derivative_function">
+    <title>Derivative function</title>
+    <statement>
+    <p>
+    Let <m>f</m> be a function, and let <m>D\subseteq \R</m> be the set of points where <m>f</m> is differentiable. The derivative operation defines a function 
+    <md>
+        <mrow>f'\colon D \amp\rightarrow \R </mrow>
+        <mrow>x \amp \mapsto f'(x)</mrow>
+    </md> 
+    that is called the <term>derivative of <m>f</m></term>. 
+    </p>
+    </statement>
+    
+    </definition>
+    <p>
+        Note that the domain of the derivative function <m>f'</m> need not be the entire domain of <m>f</m>: indeed, by definition it consists precisely of the points where <m>f</m> is differentiable. The next example illustrates this. 
+    </p>
+    <example xml:id="eg_der_func_rad">
+    <title>Derivative function: radical</title>
+    <statement>
+    <p>
+    Let <m>f\colon (-\infty, 5]\rightarrow \R</m> be defined as <m>f(x)=\sqrt{5-x}</m>. 
+    <ol>
+        <li>
+            <p>
+                Compute the domain <m>D</m> of <m>f'</m>: that is, find all points where <m>f</m> is differentiable. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Derive a formula for the derivative function <m>f'\colon D\rightarrow \R</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                Take an element <m>x\in (-\infty, 5]</m> in the domain of <m>f</m> and compute:
+                <md>
+                    <mrow>\lim\limits_{h\to 0}\frac{f(x+h)-f(x)}{h} \amp = \lim\limits_{h\to 0}\frac{\sqrt{5-(x+h)}-\sqrt{5-x}}{h}</mrow>
+                    <mrow> \amp =\lim\limits_{h\to 0}\frac{\sqrt{5-(x+h)}-\sqrt{5-x}}{h}\cdot \frac{\sqrt{5-(x+h)}+\sqrt{5-x}}{\sqrt{5-(x+h)}+\sqrt{5-x}}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{5-(x+h)-(5-x)}{h(\sqrt{5-(x+h)}+\sqrt{5-x})}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{-h}{h(\sqrt{5-(x+h)}+\sqrt{5-x})}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}-\frac{1}{\sqrt{5-(x+h)}+\sqrt{5-x}}</mrow>
+                </md>.
+                We now note that for all <m>x\in (-\infty, 5)</m>, this last limit expression evaluates to <m>-\frac{1}{2\sqrt{5-x}}</m>, after the application of simple limit rules. Thus <m>f</m> is differentiable for such elements. For <m>x=5</m>, however, the last limit becomes 
+                <me>
+                    \lim\limits_{h\to 0}-\frac{1}{\sqrt{-h}}
+                </me>
+                which is a limit of type <m>c/\infty</m>, and hence infinite. In particular the limit doesn't exist for <m>x=5</m>, showing that <m>f</m> is not differentiable at <m>5</m>. 
+            </p>
+            <p>
+                We conclude that the domain of <m>f'</m> is <m>D=(-\infty, 5)</m>. Note that <m>D</m> is strictly smaller than the domain of <m>f</m> in this case: indeed, it is every element of the domain of <m>f</m> with the exception of <m>5</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                For <m>x\ne 5</m>, we can finish our limit computation above to compute <m>f'(x)</m>:
+                <md>
+                    <mrow>f'(x) \amp = \lim\limits_{h\to 0 }\frac{f(x+h)-f(x)}{h}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}-\frac{1}{\sqrt{5-(x+h)}+\sqrt{5-x}}</mrow>
+                    <mrow> \amp =-\frac{1}{\sqrt{\lim\limits_{h\to 0}5-(x+h)}-\sqrt{5-x}}\amp \text{(quot., root,sum)}</mrow>
+                    <mrow> \amp = -\frac{1}{\sqrt{5-x}+\sqrt{5-x}} \amp \text{(poly. eval.)}</mrow>
+                    <mrow> \amp = -\frac{1}{2\sqrt{5-x}}</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+        Using the slope interpretation of the derivative, we can begin to see how the derivative function <m>f'</m> implies information about the original function <m>f</m>, and conversely. 
+    </p>
+    <remark>
+        <title>Slope interpretation</title>
+        <p>
+        Let <m>D</m> be the set of points where <m>f</m> is differentiable, and let <m>f'\colon D\rightarrow \R</m> be the derivative of <m>f</m>. Given any <m>x\in D</m>, we have the following equivalences:
+        <md>
+            <mrow>f'(x)&gt; 0 \amp \iff \text{slope of tangent line to } f \text{ at } a \text{ is positive} </mrow>
+            <mrow>f'(x)&lt; 0 \amp \iff \text{slope of tangent line to } f \text{ at } a \text{ is negative} </mrow>
+            <mrow>f'(x)=0 \amp \iff \text{tangent line to } f \text{ at } a \text{ is horizontal} </mrow>
+        </md>.
+        We will elaborate further on these equivalences when we discuss the rate of change interpretation of the derivative in more detail. 
+        </p>
+        </remark>
+    <remark>
+    <title>Failing to be differentiable</title>
+    <p>
+        By definition, a function <m>f</m> fails to be differentiable at an input <m>a</m> if the limit <xref ref="eq_der_at_point_h"/> does not exist. The precise reason for that failure to exist is reflected in the graph of <m>f</m>, using the slope of tangent line interpretation of the derivative. Some examples and their graphical analogues: 
+        <ul>
+            <li>
+                <title>Infinite limit <m>\iff</m> vertical slope</title>
+                <p>
+                    If the limit <xref ref="eq_der_at_point_h"/> is infinite at <m>a</m>, then the tangent line to the curve at <m>a</m> (if it exists) is vertical: <ie/>, its slope is undefined.  
+                </p>
+                <p>
+                    This evident in the graph of <m>f(x)=\sqrt{5-x}</m>. (See <xref ref="fig_graph_radical"/>.) As <m>x\to 5</m>, <m>f'(x)\to -\infty</m>; equivalently, the slopes of the tangent lines to the graph of <m>f</m> at <m>x</m>, get arbitrarily large and negative. At <m>x=5</m> itself, the tangent line to the graph of <m>f</m> is in fact the vertical line <m>x=5</m>.
+                </p>
+            </li>
+            <li>
+                <title>Jump discontinuity <m>\iff</m> <q>corner point</q></title>
+                <p>
+                   If the limit <xref ref="eq_der_at_point_h"/> at <m>a</m> doesn't exist because of a discrepancy between the left- and right-hand limits, both of which exist, then we typically see the slope of tangent lines at points <m>x</m> to the left of <m>a</m> approaching one limiting slope, while the slope of tangent lines of points <m>x</m> to the right of <m>a</m> will approach another value. Geometrically, such a point will look like a corner or kink in the graph of <m>f</m>.  
+                </p>
+                <p>
+                    The classic illustration of this phenomenon is the absolute value function <m>f(x)=\abs{x}</m>. As we show in <xref ref="eg_der_funct_abs"/> this function is differentiable everywhere except at <m>x=0</m>. Graphically we see why this is the case in the corner nature of the point <m>P=(0,0)</m> on the graph: to the left the slope of the graph is <m>-1</m>; and to the right the slope is <m>1</m>. 
+                </p>
+            </li>
+            <li>
+                <title>Wild oscillation</title>
+                <p>
+                    If a function is wildly oscillating near an input <m>a</m> to such a degree that limit of of <m>f</m> doesn't exist at <m>a</m>, then it turns out that the derivative also cannot exist at <m>a</m>. See the point at <m>x=d</m> for the function with graph in <xref ref="fig_limit_naive"/> as an example. 
+                </p>
+            </li>
+        </ul>
+    </p>
+    </remark>
+    <example xml:id="eg_der_funct_abs">
+    <title>Derivative function: absolute value</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\abs{x}</m>. 
+    <ol>
+        <li>
+            <p>
+                Show that the domain of <m>f'</m> is 
+    <me>
+        D=\R-\{0\}=\{x\in \R\colon x\ne 0\}
+    </me>
+    and compute a formula for <m>f'\colon D\rightarrow \R</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Add a geometric argument about why <m>f</m> is not differentiable at <m>0</m> using <xref ref="fig_graph_abs"/>.
+            </p>
+        </li>
+    </ol> 
+    </p>
+    <figure xml:id="fig_graph_abs">
+        <caption>Graph of <m>f(x)=\abs{x}</m></caption>
+    <image xml:id="im_graph_abs" width="50%">
+        <shortdescription>Graph of absolute value</shortdescription>
+        <sageplot>
+        f=plot(abs(x),x,-2,2)
+        f
+        </sageplot>
+    </image>
+    </figure>
+    </statement>
+    <solution>
+    <p>
+    
+    </p>
+    </solution>
+    </example>
+    <example xml:id="eg_der_func_reciprocal">
+    <title>Derivative function: <m>\frac{1}{x}</m></title>
+    <statement>
+    <p>
+    Let <m>f(x)=\frac{1}{x}</m>. Compute the domain <m>D</m> of <m>f'</m> and derive a formula for <m>f'\colon D\rightarrow \R</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    
+    </p>
+    </solution>
+    </example>
+    <p>
+        We end this section by introducing an alternative notation for denoting the derivative of a function. The notation is called <em>Leibniz notation</em>, as it was favored in Gottlieb Leibniz's development of calculus. Isaac Newton, on the other hand favored the prime notation <m>f'</m>. Leibniz notation comes in very handy when considering the derivative as an <em>operation</em> that we apply to functions; it also strongly evokes the interpretation of the interpretation of the derivative as a rate of change. It is very much less convenient as an alternative notation for <m>f'(a)</m>, as exhibited by <xref ref="eq_Leib_at_point"/>. 
+    </p>
+    <definition xml:id="d_Leibniz_notation">
+    <title>Leibniz notation</title>
+    <statement>
+    <p>
+    Let <m>f</m> be a function relating the output variable <m>y</m> as a function <m>y=f(x)</m> of the input variable <m>x</m>, and let <m>D\subseteq \R</m> be the set of points where <m>f</m> is differentiable. We introduce the following notation, called <term>Leibniz notation</term>, to denote various concepts related to <m>f'</m>
+    <ul>
+        <li>
+            <title>Derivative function</title>
+            <p>
+                The derivative function <m>f'</m> is denoted as <m>\displaystyle\frac{df}{dx}</m> or <m>\displaystyle\frac{dy}{dx}</m>. In other words, we have have 
+                <men xml:id="eq_Leib_func">
+                    f'=\frac{df}{dx}=\frac{dy}{dx}
+                </men>.
+            </p>
+        </li>
+        <li>
+            <title>Derivative at a point</title>
+            <p>
+                Given <m>a\in D</m>, the derivative <m>f'(a)</m> of <m>f</m> at <m>a</m> is denoted as 
+                <m>
+                    \frac{df}{dx}\Bigr\vert_{x=a}
+                </m>
+                 or <m>\frac{dy}{dx}\Bigr\vert_{x=a}</m>. In other words, we have 
+                 <men xml:id="eq_Leib_at_point">
+                    f'(a)=\frac{df}{dx}\Bigr\vert_{x=a}=\frac{dy}{dx}\Bigr\vert_{x=a}
+                 </men>
+                 
+            </p>
+        </li>
+        <li>
+            <title>Derivative operation</title>
+            <p>
+                We denote by <m>\frac{d}{dx}</m> the <em>operation</em> of taking the derivative of a function with respect to <m>x</m>. Thus <m>\frac{d}{dx}(f)</m> is the derivative of <m>f</m>: <ie/>, 
+                <me>
+                    \frac{d}{dx}(f)=f'
+                </me>.
+            </p>
+        </li>
+    </ul>
+    </p>
+    </statement>
+    </definition>
+    <theorem xml:id="th_diff_implies_contin">
+        <title>Differentiable implies continuous</title>
+        <statement>
+            <p>
+                Suppose the function <m>f</m> is defined at <m>a\in \R</m>. If <m>f</m> is differentiable at <m>a</m>, then <m>f</m> is continuous at <m>a</m>. Using logical shorthand: 
+                <me>
+                    f \text{ diff. at  } a \implies f \text{ cont. at } a
+                </me>.
+            </p>
+        </statement>
+    </theorem>
+    
+    
+    
+    
+    
+</section>

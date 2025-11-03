@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_der_at_point" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Derivative: at a point</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Give formal limit definition of the derivative of a function at a point.
+                </p>
+            </li>
+            <li>
+                <p>
+                   Understand the different quotient of a function in terms of rates of change and slopes of secants. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand the derivative of a function at a point both as an instantaneous rate of change, and as the slope of the tangent line to the graph at that point. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <p>
+        We will launch directly into an unmotivated definition of the derivative of a function <m>f</m> at a point, and then motivate this definition retroactively in terms of important properties of <m>f</m> and its graph.  
+    </p>
+    <definition xml:id="d_der_at_point">
+    <title>Derivative at a point</title>
+    <statement>
+    <p>
+    Suppose <m>a\in \R</m> is an interior point or endpoint of the domain of <m>f</m>. We say that <m>f</m> is <term>differentiable</term> at <m>a</m> if the limit 
+    <men xml:id="eq_der_at_point_h">
+        \lim\limits_{h\to 0}\frac{f(h+a)-f(a)}{h},
+    </men>
+    or equivalently, the limit 
+    <men xml:id="eq_der_at_point_ab">
+        \lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}
+    </men>,
+    exists. When this is the case, we call this limit 
+    the <term>derivative</term> of <m>f</m> at <m>a</m>, denoted <m>f'(a)</m>: <ie/>, 
+    <men xml:id="eq_der_at_point">
+        f'(a)= \lim\limits_{h\to 0}\frac{f(h+a)-f(a)}{h}=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}
+    </men>.
+    </p>
+    </statement>
+    </definition>
+    <remark>
+    <title>Derivative at a point</title>
+    <p>
+    Implicit in our definition is that the two limit expressions
+    <md>
+        <mrow> \lim\limits_{h\to 0}\frac{f(h+a)-f(a)}{h} \amp \amp \lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}</mrow>
+    </md>
+    are equivalent, in the sense that the one exists if and only if the other exists, in which case both are equal. 
+    </p>
+    <p>
+        In more detail, the <m>x\to a</m> limit can be transformed to the <m>h\to 0</m> limit by using the substitution <m>h=x-a</m>; and conversely, the <m>h\to 0</m> limit can be transformed to the <m>x\to a</m> limit using the substitution <m>x=h+a</m>. 
+    </p>
+    </remark>
+    <remark>
+        <title>Limit definition of derivative</title>
+        <p>
+            Note that the limit 
+            <me>
+                \lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}
+            </me>
+            always involves a denominator that approaches 0 as <m>h\to 0</m>. This means we can <em>never</em> apply the quotient rule to such a limit directly; we will <em>always</em> have to do some algebra (or the like) to get to a place where we can potentially use limit rules.
+        </p>
+        
+    </remark>
+    <example xml:id="eg_der_at_point">
+    <title>Derivative at point: elementary</title>
+    <statement>
+    <p>
+    Let <m>f(x)=x^2</m>. 
+    <ol>
+        <li>
+            <p>
+                Show that <m>f</m> is differentiable at <m>-2</m> and compute <m>f'(-2)</m> using the limit definition of the derivative. 
+            </p>
+        </li>
+        <li>
+            <p>
+                More generally, fix any <m>a\in \R</m>. Show that <m>f</m> is differentiable at <m>a</m> and compute <m>f'(a)</m> using the limit definition of the derivative. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+        <p>
+        <ol>
+            <li>
+                <p>
+                    We compute 
+                    <md>
+                        <mrow>\lim\limits_{h\to 0 }\frac{f(-2+h)-f(-2)}{h} \amp = 
+                            \lim\limits_{h\to 0}\frac{(-2+h)^2-4}{h} </mrow>
+                        <mrow> \amp = \lim\limits_{h\to 0}\frac{4-4h+h^2-4}{h}</mrow>
+                        <mrow> \amp = \lim\limits_{h\to 0}\frac{h(-4+h)}{h}</mrow>
+                        <mrow> \amp = \lim\limits_{h\to 0}-4+h</mrow>
+                        <mrow> \amp = -4 \amp \text{(poly. eval.)}</mrow>
+                    </md>.
+                    Since the limit exists, we conclude that <m>f</m> is differentiable at <m>-2</m>, and that <m>f'(-2)=-4</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    The computation above is very similar for an arbitrary constant <m>a\in \R</m>: 
+                    <md>
+                        <mrow>\lim\limits_{h\to 0 }\frac{f(a+h)-f(a)}{h} \amp = 
+                            \lim\limits_{h\to 0}\frac{(a+h)^2-a^2}{h} </mrow>
+                        <mrow> \amp = \lim\limits_{h\to 0}\frac{a^2+2ah+h^2-a^2}{h}</mrow>
+                        <mrow> \amp = \lim\limits_{h\to 0}\frac{h(2a+h)}{h}</mrow>
+                        <mrow> \amp = \lim\limits_{h\to 0}2a+h</mrow>
+                        <mrow> \amp = 2a \amp \text{(poly. eval.)}</mrow>
+                    </md>.
+                    We conclude that <m>f</m> is differentiable at all <m>a\in \R</m>, and that <m>f'(a)=2a</m>. 
+                </p>
+            </li>
+        </ol>
+        </p>
+        </solution>
+    </example>
+    
+    
+    <definition xml:id="d_difference_quot">
+    <title>Difference quotient</title>
+    <statement>
+    <p>
+    Let <m>f</m> be a function. Given two distinct points <m>a\ne b</m> in the domain of <m>f</m>, the value 
+    <me>
+        \frac{f(b)-f(a)}{b-a}
+    </me>
+    is called a <term>difference</term> quotient of <m>f</m>. We have two useful ways of understanding this quantity. 
+    <ul>
+        <li>
+            <title>Average rate of change</title>
+            <p>
+                The difference quotient <m>\frac{f(b)-f(a)}{b-a}</m> is called the <term>average rate of change</term> of <m>f</m> between <m>a</m> and <m>b</m>. In this context we often use the <m>\Delta</m> notation below to emphasize the relation to changing values of <m>f</m>: 
+                <me>
+                    \frac{f(b)-f(a)}{b-a}=\frac{\Delta f}{\Delta x}=\frac{\Delta y}{\Delta x}
+                </me>,
+                where <m>y=f(x)</m>. 
+            </p>
+        </li>
+        <li>
+            <title>Slope of secant line</title>
+            <p>
+                Consider the points <m>P=(a,f(a))</m> and <m>Q=(b,f(b))</m>, which lie on the graph of <m>f</m>. The unique line <m>L</m> in <m>\R^2</m> that passes through <m>P</m> and <m>Q</m> is called the <term>secant line</term> on <m>f</m> between <m>P</m> and <m>Q</m>. This line can be defined, using point-slope form with respect to <m>P=(a,f(a))</m>, by the equation 
+                <me>
+                    y-f(a)=\underset{\text{slope}}{\underbrace{\left (\frac{f(b)-f(a)}{b-a}\right)}}(x-a)
+                </me>.
+                We recognize in this context that the difference quotient <m>\frac{f(b)-f(a)}{b-a}</m> is the slope of the secant line <m>L</m>. 
+            </p>
+        </li>
+    </ul>
+    </p>
+    </statement>
+    </definition>
+    <definition xml:id="d_der_interpretations">
+        <title>Derivative interpretations</title>
+        <statement>
+            <p>
+                Let <m>f</m> be differentiable at the point <m>a</m>. 
+                <ol>
+                    <li>
+                        <title>Instantaneous rate of change</title>
+                        <p>
+                            We call the derivative value 
+                            <me>
+                                f'(a)=\lim\limits_{h\to 0}\frac{f(h+a)-f(a)}{h}=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}
+                            </me>
+                            the <term>instantaneous rate of change of <m>f</m> at <m>a</m> with respect to <m>x</m></term>, or more simply, the rate of change of <m>f</m> at <m>a</m> with respect to <m>a</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <title>Tangent line</title>
+                        <p>
+                            Let <m>P=(a,f(a))</m>. The <term>tangent line to the graph of <m>f</m> at <m>P</m></term> (or <term>at <m>x=a</m></term>) is the line <m>L</m> defined by the equation 
+                            <me>
+                                y-f(a)=f'(a)(x-a)
+                            </me>. 
+                            In this context, we see that the derivative of <m>f</m> at <m>a</m> is the slope of the tangent line to the graph of <m>f</m> at <m>P</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </definition>
+    <example xml:id="eg_der_at_point_tangent">
+    <title>Tangent line at point</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\sqrt{5-x}</m>. 
+    <ol>
+        <li>
+            <p>
+                Sketch the graph of <m>f</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Find an equation for the tangent line <m>L</m> to the graph of <m>f</m> at <m>x=1</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Add <m>L</m> to your sketch of the graph of <m>f</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                Below you find the graph of <m>f(x)=\sqrt{5-x}</m>. How do we come up with something like this by hand. The quick and dirty way is to remember what the graph of $g(x)=\sqrt{x}$ and realize that the graph of <m>f</m> will have roughly the same shape, but perhaps shifted/scaled/reflected. A matter of a few plotted points (<eg/>, <m>(5,0)</m>, <m>(4,1)</m>, <m>(1,2)</m>), will then give us something like the following. 
+            </p>
+                <figure xml:id="fig_graph_radical">
+                    <caption>Graph of <m>f(x)=\sqrt{5-x}</m></caption>
+                    <image xml:id="im_graph_radical" width="75%">
+                        <shortdescription>Graph of radical of 5-x</shortdescription>
+                        <sageplot>
+                            f=plot(sqrt(5-x),x,-5,5)
+                            f
+                            </sageplot>
+                        
+                    </image>
+                </figure>
+        </li>
+        <li>
+            <p>
+                Let <m>L</m> be the tangent line to the graph of <m>f</m> at <m>x=1</m>. By definition the slope of <m>L</m> is <m>f'(1)</m>, which we now compute: 
+                <md>
+                    <mrow>f'(1) \amp = \lim\limits_{h\to 0}\frac{f(1+h)-f(1)}{h}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{\sqrt{5-(1+h)}-\sqrt{5-1}}{h}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{\sqrt{4-h}-2}{h}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{\sqrt{4-h}-2}{h}\cdot\frac{\sqrt{4-h}+2}{\sqrt{4-h}+2}</mrow>
+                    <mrow> \amp =\lim\limits_{h\to 0}\frac{4-h-4}{h(\sqrt{4-h}+2)} </mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{-h}{h\sqrt{4-h}+2}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}-\frac{1}{\sqrt{4-h}+2}</mrow>
+                    <mrow> \amp = -\frac{1}{4} \amp \text{(cont.)}</mrow>
+                </md>,
+                where the last step uses the fact that <m>g(h)=-\frac{1}{\sqrt{4-h}+2}</m> is continuous at <m>0</m>.
+                </p>
+                <p> We conclude that  the slope of <m>L</m> is <m>f'(1)=-\frac{1}{4}</m>. We now use point-slope form to find an equation for <m>L</m>. By definition the tangent line <m>L</m> passes through the point <m>P=(1,f(1))=(1,2)</m> on the graph of <m>f</m>. With respect to this point we have the following point-slope equation for <m>L</m>: 
+                    <me>
+                        y-2=-\frac{1}{4}(x-1)
+                    </me>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We now add both the point <m>P</m> and the tangent line <m>L</m> to our graph of <m>f</m>.
+            </p> 
+                <figure xml:id="fig_graph_tangent_radical">
+                    <caption>Graph of <m>f(x)=\sqrt{5-x}</m>, <m>P</m>, and <m>L</m></caption>
+                <image xml:id="im_graph_tang_radical" width="75%">
+                    <shortdescription>Graph of radical of 5-x together with tangent</shortdescription>
+                    <sageplot>
+                    f=plot(sqrt(5-x),x,-5,5)
+                    L=plot(-(x-1)/4+2,x,-5,5, color="green")
+                    P=point([1,2],size="50", color="red")
+                    t1=text(r"$P=(1,2)$",[1,2.25], color="black")
+                    t2=text(r"$L$",[-3,3.25], color="black")
+                    f+L+P+t1+t2
+                    </sageplot>
+                </image>
+                </figure>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    
+    
+    
+    
+
+</section>

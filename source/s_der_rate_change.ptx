@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_der_rate_change" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Derivative as rate of change</title>
+<objectives>
+    <ol>
+        <li>
+            <p>
+                Understand and use the rate of change interpretation of the derivative. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Apply the rate of change interpretation to the position, velocity, and acceleration functions of an object.  
+            </p>
+        </li>
+    </ol>
+</objectives>
+    <subsection xml:id="ss_der_rate_of">
+        <title>Rate of change</title>
+        <p>
+            Recall that the key to understanding the rate of change interpretation of the derivative is to use the particular formulation
+            <me>
+                f'(a)=\lim\limits_{b\to a}\frac{f(b)-f(a)}{b-a}
+            </me>,
+            and to interpret the difference quotient 
+            <men xml:id="eq_avg_rate">
+                \frac{f(b)-f(a)}{b-a}
+            </men>
+            as the <em>average rate of change</em> of <m>f</m> between <m>a</m> and <m>b</m>. The idea is that as <m>b\to a</m>, the <em>average</em> rate of change computed as by <xref ref="eq_avg_rate"/> gets closer and closer to an <em>instantaneous</em> rate of change of <m>f</m> at <m>a</m>. This is the motivation behind the definition of instantaneous rate of change given in <xref ref="d_der_interpretations"/>.
+        </p>
+        <algorithm xml:id="proc_rate_of_change">
+            <title>Rate of change interpretations</title>
+            <statement>
+                <p>
+                    Suppose quantity <m>q</m> is modeled as a function <m>q=f(s)</m> of some other quantity <m>s</m>. Roughly speaking, the derivative
+                    <me>
+                        f'=\frac{df}{ds}=\frac{dq}{ds}
+                    </me>
+                    computes the (instantaneous) rate of change of <m>q</m> with respect to <m>s</m>. We elaborate below.
+                    <ul>
+                        <li>
+                            <title>Difference quotient</title>
+                            <p>
+                                Let <m>s_0</m> and <m>s_1</m> be particular values of quantity <m>s</m> satisfying <m>s_0 &lt; s_1</m>. The difference quotient <m>\frac{f(s_1)-f(s_0)}{s_1-s_0}</m> computes the average rate of change of <m>q</m> as the quantity <m>s</m> varies from <m>s_0</m> to <m>s_1</m>: <ie/>, 
+                                <me>
+                                    \left( \begin{array}{c}\text{ avg rate of change of  } q\\
+                                            \text{ between } s_0 \text{ and } s_1\end{array}\right) = \underset{\frac{\Delta q}{\Delta s}}{\underbrace{\frac{f(s_1)-f(s_0)}{s_1-s_0}}}
+                                            \text{ units  }q \text{ per } \text{units } s 
+                                    </me>.
+                              For each choice of <m>s_1</m>, the difference quotient gives an <em>approximation</em> of the instantaneous rate of change of <m>q</m> with respect to <m>s</m> at <m>s=s_0</m>. 
+                            </p>
+                        </li>
+                        <li>
+                            <title>Rate of change of <m>q</m> with respect to <m>s</m></title>
+                            <p>
+                                Let <m>s_0</m> be a particular value of the quantity <m>q</m>. The value <m>f'(s_0)</m> of the derivative at <m>s=s_0</m> is the (instantaneous) <em>rate of change</em> of <m>q</m> with respect to <m>s</m> at the particular input <m>s_0</m>: <ie/>, 
+                                <men xml:id="eq_der_rate_change">
+                                \left( \begin{array}{c}\text{ rate of change of  } q\\
+                                        \text{w/r to } s \text{ at } s_0 \end{array}\right) = f'(s_0)  \ \text{ units  }q \text{ per } \text{units } s 
+                                </men>
+                                
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </statement>
+        </algorithm>
+        <example xml:id="eg_height_age">
+        <title>Height versus age</title>
+        <statement>
+        <p>
+        Suppose the height <m>h</m> (in meters) of individuals in a population is modeled as a function <m>h=f(a)</m> of their age <m>a</m> (in years). 
+        <ol>
+            <li>
+                <p>
+                    Interpret the two statements below in terms of the height and age of people. Your interpretation should include units, and should address all numeric details in the statements. 
+                    <md>
+                        <mrow> f(12)\amp =  1.5</mrow>
+                        <mrow> f'(12) \amp = 0.06 </mrow>
+                    </md>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    What does the following sequence of statements tell us about the relation of height versus age? Be specific. 
+                    <md>
+                        <mrow>f'(12) \amp = 0.06</mrow>
+                        <mrow>f'(15) \amp = 0.025</mrow>
+                        <mrow>f'(18) \amp = 0.001</mrow>
+                    </md>.
+                </p>
+            </li>
+        </ol>
+        </p>
+
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>
+                        The statement <m>f(12)=1.5</m> asserts that the height of a 12-year old in the population is 1.5 meters. 
+                     </p>
+                     <p>
+                         The statement <m>f'(12)=0.06</m> asserts that the rate of growth of a 12 year old in the population is <m>0.06</m> meters per year. 
+                     </p>
+                </li>
+                <li>
+                    <p>
+                        The sequence of statements tells us that the rates of growth for 12-, 15-, and 18-year olds are, respectively, 0.06, 0.025, and 0.001 meters per year. This is consistent with the fact that as we grow older, our rate of growth slows, approaching a rate of zero around age 18. 
+                    </p>
+                </li>
+            </ol>
+        
+        </solution>
+        </example>
+        
+    </subsection>
+    <subsection xml:id="ss_dynamics">
+        <title>Position, velocity, acceleration</title>
+        <definition xml:id="d_pos_vel_acc">
+            <statement>
+                <p>
+                    Suppose an object moves along an oriented axis with origin <m>O</m>. To simplify the units discussion, we assume below that distance is measured in meters (m) and time is measured in seconds (s). 
+                    <ul>
+                        <li>
+                            <title>Position</title>
+                            <p>
+                                At any given time <m>t</m>, the <term>position</term> <m>x(t)</m> of the object is its <em>directed distance</em> (positive or negative) to the origin.  
+                            </p>
+                        </li>
+                        <li>
+                            <title>Displacement</title>
+                            <p>
+                                Given times <m>t_0&lt; t_1</m>, the <term>displacement</term> of the object from time <m>t_0</m> to time <m>t_1</m> is the difference <m>x(t_1)-x(t_0)</m>, often denoted as <m>\Delta x</m> for short. 
+                            </p>
+                        </li>
+                        <li>
+                            <title>Velocity</title>
+                            <p>
+                               At any given time <m>t_0</m> the <term>velocity</term> <m>v(t_0)</m> of the object is defined as rate of change of position with respect to time at <m>t=t_0</m>. In other words, we have 
+                               <me>
+                                v(t)=\frac{dx}{dt}=x'(t) \text{ m/s}
+                               </me>.
+                               Values of velocity can be positive or negative. We define the <term>speed</term> <m>s(t)</m> of the object at time <m>t</m> as <m>s(t)=\abs{v(t)}.</m>
+                            </p>
+                        </li>
+                        <li>
+                            <title>Acceleration</title>
+                            <p>
+                                At any given time <m>t_0</m> we define the <term>acceleration</term> <m>a(t_0)</m> of the object as the rate of change of its velocity with respect to time at <m>t=t_0</m>. In other words, 
+                                <md>
+                                    <mrow>a(t) \amp =\frac{dv}{dt}=v'(t)=x''(t) \text{ (m/s) per s}</mrow>
+                                </md>.
+                            </p>
+                        </li>
+                    </ul> 
+                </p>
+            </statement>
+        </definition>
+        <example xml:id="eg_dynamics_drone">
+        <title>Drone</title>
+        <statement>
+        <p>
+        Dudley gets his hands on the remote control for a drone and pilots it for a glorious 3 seconds. Luckily, the drone can only move directly up and down. The altitude <m>h</m> (in meters) of the drone <m>t</m> seconds after Dudley takes control is given as 
+        <me>
+            h=h(t)=t^3-6t^2+9t
+        </me>.
+        <ol>
+            <li>
+                <p>
+                    Derive formulas for the velocity <m>v(t)</m>, speed <m>s(t)</m>, and acceleration <m>a(t)</m> of the drone <m>t</m> seconds after Dudley takes control. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Find the time intervals when the drone is ascending, and the time intervals when it is descending. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Describe the end of Dudley's flight at time <m>t=3</m> seconds. Where is the drone? Did a fatal crash happen? 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Compute (a) the displacement of the drone over the time interval <m>[0,3]</m>, and (b) the total distance traveled. 
+                </p>
+            </li>
+        </ol>
+        </p>
+        </statement>
+        <solution>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        We compute
+                        <md>
+                            <mrow>v(t) \amp = \frac{dh}{dt}</mrow>
+                            <mrow> \amp = 3x^2-12x+9</mrow>
+                            <mrow>a(t) \amp = \frac{dv}{dt}</mrow>
+                            <mrow> \amp = 6x-12</mrow>
+                        </md>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The drone ascending or descending is equivalent to the velocity <m>v</m> being positive or negative. It will help here to factor our expression of <m>v(t)</m>:
+                        <me>
+                            v(t)=3(x^2-4x+3)=3(x-3)(x-1)
+                        </me>.
+                        From this we can easily sketch a graph of <m>v(t)</m> as follows:
+                        <image xml:id="im_graph_v" width="70%">
+                            <shortdescription>Graph of velocity function</shortdescription>
+                            <sageplot>
+                                f=plot(3*(x-1)*(x-3),x,0,3.1, axes_labels=["$t$","$v$"])
+                                t1=text(r"$v=v(t)$",(1,6),fontsize=16, color="black")
+                                f+t1
+                            </sageplot>
+                        </image>
+                        And from the graph of <m>v</m> we see easily that <m>v(t)</m> is positive on <m>[0,1]</m> and negative on <m>[1,3]</m>. Thus the drone ascends for the first second, then descends for the remaining two seconds.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        At time <m>t=3</m>, the height of the drone is <m>h(3)=0</m> and the velocity is <m>v(3)=0</m>. This means that the downward velocity of the drone has slowed to 0 m per s upon impact. Dudley landed the drone safely, apparently! 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The total displacement <m>\Delta h</m> is given as 
+                        <me>
+                            h(3)-h(0)=0-0=0
+                        </me>.
+                        To compute the total distance traveled, we must separate the interval <m>[0,3]</m> into the separate intervals where the drone ascends and descends. The basic principle here is that if movement is always in the same direction (up or down in our case) over a certain time interval, then displacement is equal to distance traveled. 
+                    </p>
+                    <p>
+                        Over the time interval <m>[0,1]</m> the drone ascends from a height <m>h(0)=0</m> meters to a height of <m>h(1)=4</m> meters. Since the drone is always moving the same direction here, the total distance traveled over this time interval is <m>4</m> meters.  
+                    </p>
+                    <p>
+                        Over the time interval <m>[1,3]</m> the drone descends from a height of <m>h(1)=4</m> meters, to a height of <m>h(0)=0</m> meters. Again, since the drone is always moving in the same direction, the distance traveled over this time interval is 4 meters. 
+                    </p>
+                    <p>
+                        We conclude that in sum the drone has traveled a distance of <m>8=4+4</m> meters. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+        </solution>
+        </example>
+        
+    </subsection>
+    <subsection xml:id="ss_marginal_cost">
+        <title>Rates of change in economics</title>
+        <p>
+            Derivative play a crucial role in economics, where this notion is often described in that field's particular jargon as some variety of <em>marginal</em>. 
+        </p>
+        <definition xml:id="d_marginals">
+        <title>Marginal cost, revenue, profit</title>
+        <statement>
+        <p>
+        Suppose the cost <m>C</m> (in dollars) of making a product is modeled as a function <m>C=f(q)</m> of the total quantity of the good produced. The <term>marginal cost function</term> is defined as <m>f'=\frac{dC}{dq}</m>. Thus <m>f'(q_0)</m> computes the marginal cost (in dollars per unit producion) at a current level of production <m>q=q_0</m>: this is the rate of change of cost with respect to quantity produced at the given production level <m>q=q_0</m>. 
+        </p>
+        <p>
+            We get notions of <term>marginal revenue</term> and <term>marginal profit</term> by replacing the cost function above with a revenue or profit function. 
+        </p>
+        </statement>
+
+        </definition>
+        <example xml:id="eg_marginal">
+        <title>Marginals</title>
+        <statement>
+        <p>
+        Suppose the cost <m>C</m> (in dollars) for a farmer to produce <m>q</m> barrels of milk on a given day is given by 
+        <me>
+            C=C(b)=100+10b-\frac{b^2}{100}+\frac{b^3}{250}
+        </me>. 
+        Suppose further that farmer can charge a price <m>p=p(b)</m> of  
+        <me>
+            p(b)=\frac{20000}{100+b} \text{ dollar per barrel}
+        </me>
+        when producing <m>b</m> barrels of milk. 
+        
+        <ol>
+            <li>
+                <p>
+                    Determine the marginal cost of producing 100 barrels of milk, and give an easy to understand interpretation of what this means. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Determine the marginal profit of producing 100 barrels of milk. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    <em>Estimate</em> the change in profit that would result in going from 100 barrels  a day to 103 barrels of day. 
+                </p>
+            </li>
+        </ol>
+    </p>
+        </statement>
+        <solution>
+        <p>
+        <ol>
+            <li>
+                <p>
+                    By definition, marginal cost (with respect to barrels $b$ produced) is given as 
+                    <me>
+                        \frac{dC}{db}=C'(b)=10-\frac{b}{50}+\frac{3b^2}{250} \text{ dollars per barrel}
+                    </me>.
+                    In particular, we have 
+                    <me>
+                        \frac{dC}{db}\Bigr\vert_{b=100}=f'(100)=10-2+\frac{30000}{250}=128 \text{ dollars per barrel}
+                    </me>. 
+                    This tells us that as the farmer steps milk production from <m>100</m> barrels, the cost increases at a rate of 128 dollars per barrel. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Let <m>R=R(b)</m> be the revenue earned when producing <m>b</m> barrels of milk, under that assumption that all barrels will be purchased. We have 
+                    <me>
+                        R(b)=\underset{\text{amt. sold}}{b}\cdot \underset{\text{price}}{p(b)}=\frac{20000b}{100+b}
+                    </me>.
+                    Lastly, since profit is <m>P=P(b)</m> is defined as revenue minus cost, we have 
+                    <me>
+                        P(b)=R(b)-C(b)
+                    </me>
+                    and thus marginal profit is 
+                    <md>
+                        <mrow>\frac{dP}{db} \amp = R'(b)-C'(b)</mrow>
+                        <mrow> \amp = \frac{(20000b)'(100+b)-20000b(100+b)'}{(100+b)^2}-(10-\frac{q}{50}+\frac{3q^2}{250}) \amp (\text{quot. rule}, C'(b))</mrow>
+                        <mrow> \amp = \frac{2000000}{(100+b)^2}-(10-\frac{q}{50}+\frac{3q^2}{250})</mrow>
+                    </md>.
+                    The marginal profit at a production level of 100 barrels is thus 
+                    <md>
+                        <mrow>P'(100) \amp = \frac{2\times 10^6}{4\times 10^4}-C'(100)</mrow>
+                        <mrow> \amp = 50-128</mrow>
+                        <mrow> \amp = -78 \text{ dollars per barrel}</mrow>
+                    </md>.
+                    This tells us that increasing the production from 100 barrels results in the farmer's profit decreasing at a rate of 78 dollars per barrel. What's going on here is that although revenue will increase by increasing production, the rate at which it increases is less than the rate at which cost increases. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    <em>Assuming</em> that the rate of change of profit is <em>constant</em>, equal to <m>-78</m> dollars per barrel, for production levels near 100 barrels, as we increase our production from 100 barrels, the profit decreases at a constant rate of 78 dollars per barrel. Thus we estimate that profit would decrease by 
+                    <me>
+                        3\cdot 78=234
+                    </me>
+                    dollars if we increase production from 100 to 103 barrels.
+                </p>
+                <p>
+                    The reason this is an <em>estimate</em> and not necessarily the <em>exact</em> change in profit, is that our simplifying assumption need not be the case! That is, the rate of profit <m>P'(b)</m> is not necessarily constant as a function of <m>b</m>. Indeed, looking at the formula above, it most definitely is not in our case! And in fact, using our formula for <m>P(b)</m> we can compute <m>\Delta P</m> exactly as  
+                    <me>
+                        P(103)-P(100)=-\frac{25074027}{101500}\approx -247.03 \text{ dollars}
+                    </me>.
+                     
+                </p>
+            </li>
+        </ol>
+        </p>
+        </solution>
+        </example>
+        
+    </subsection>
+
+    
+
+</section>
