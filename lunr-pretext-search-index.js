@@ -3481,7 +3481,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.17",
   "title": "Infinite limits",
-  "body": " Infinite limits     Provide a rigorous definition of infinite limits at points and at infinity.    Investigate infinite limits graphically.    Define vertical asymptotes using language of infinite limits.    Develop computation techniques for infinite limits.     As a complement to our limit at infinity discussion, we follow up with a treatment of infinite limits . Whereas previously we introduced the notation in order to describe the behavior of a function as the input of the function gets arbitrarily large (in the positive or negative direction), now we wish to introduce notation that indicates that the values of the function get arbitrarily large (in the positive or negative direction).   Infinite limits (informal)   Let be a function.   Infinite limits at  Fix and assume is defined everywhere on an open interval containing , except possibly at itself. We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently close (but not equal) to . We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and positive. We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and negative. We write (resp., ) when this is the case.        Infinite limits  It is important to observe that the various notions of infinite limit defined in all cover situations where the limit of the function does not exist . The best way to understand an infinite limit statement of the form , where denotes either a real number, , or , is as an assertion that   the limit in question does not exist, and    its failure to exist is due to values of the function getting arbitrarily large (in positive or negative direction) as approaches .   Accordingly, we must understand this new notation as an extended version of our original limit notation. In particular, we are not treating or here as if they were actual real numbers.    One-sided infinite limits  Yet more variants of infinite limits can be defined for one-sided limits: that is, we can make sense of the following statements for any : . We thought was long enough as it is.   Graphically speaking, if at a value , then the graph of will asymptotically approach the vertical line as gets arbitrarily close to . This motivates the following definition.   Vertical asymptote   Fix a constant . The line is a vertical asymptote of the graph of a function if at least one the of the following conditions holds: .    As with limits at infinity, we would like a starter kit of basic infinite limit formulas that we can build up from. The theorem below is a compendium of limits at infinity and infinite limit formulas for power functions and their reciprocals. Of course, this theorem, like all theorems technically requires proof. In this case, however, the statements of the theorem are essentially just limit notation translations of properties of the graphs of these familiar functions. (See and .)   Power functions and their reciprocals   Let be a positive integer.     The next theorem helps us to compute the limit of functions built from other functions that may have infinite limits. There are a lot of rules listed there, each equipped with a type name that will help you reference it. That said, each rule is the consequence of very elementary reasoning about the size of various quantities. Instead of trying to commit all of to memory, we encourage you instead to internalize this reasoning. For example, the fact that if and , then , follows from the simple fact that if the numerator is approaching some finite number as , while the denominator gets arbitrarily large, then the quotient is the result of taking a number very close to and dividing it by a very large positive number, which yields a very small positive number. Thus the limit is equal to 0: , .  All of the arguments behind the results of are of a similar elementary nature. The type descriptions of each result ( , , , ) should be thought of as helpful shorthand for the simple principles at work. You should use these in the parenthetical justifications of steps in an infinite limit computation.   Infinite limit rules   For some arithmetic combinations of functions with infinite limits, we can easily determine the resulting limit using a simple argument about size of quantities. We collect some of these results below. In what follows the limit point can be either a real number or . . For the last result, the sign of depends on the sign of as .     Let's see how to write up our work when making use of the results of . The explanations in these situations tend to be slightly less streamlined than usual. This is in large part a result of the fact that in these situations we cannot make use of our usual limit rules ( , sum, product, quotient, ); and this is so precisely because those rules require that the limits involved exist!   Infinite limit   Compute the following limits. Your answer should be either a real number, , or .                   In this case a quick appraisal tells us that the limit in question will fall under type , and thus should be equal to , the basic principle being the following: the -th root of a very large negative number is a very large negative number. Here is how we can formally write this up. In this case we come right out and state the answer, indicating that this limit is of one of our known types: . We then provide justification for the claim that the limit is of the stated type. This can be done via a series of limit observations about component functions as follows:    ;     (type ), since and .       Note first that ( ), and (type ). Unfortunately, we do not have any infinite limit principles with descriptive type , so we cannot use any of the results of directly. Instead, we first do some algebra, using our intuition that the term dominates the term. We make this intuition precise by forcibly factoring out from the expression, in a way that allows us to recognize the type of the limit: , since and .       The technique used for the computations in can be summarized by the following rough procedure.   Infinite limit computation   To compute an infinite limit , with justification, follow the steps below.   If you cannot immediately identify the limit as one of the types of , do some algebraic manipulation. It may help to forcibly factor out terms that dominate the behavior of the function as .    Once you have identified the type of the infinite limit, compute the limit using and cite the limit type.    Below your computed limit, provide the necessary justification showing that the limit is indeed of the stated type. This typically involves computing limits of simpler functions that are used to construct . You may need to cite limit types and for some of these simpler limit computations as well.       Let's see this procedure in action with another example.   Infinite limits   Compute the following limit. Your answer should be a real number or . .    We have , since and thus .     End behavior of polynomials  The technique in part (b) of can be generalized to analyze the behavior of an arbitrary polynomial.  Let , where . Our intuition tells us that the leading term should dominate the other terms as . We make precise sense of this algebraically by forcibly factoring out . Namely, we write . Next, we compute . We conclude that is of type . It follows that . However, the precise sign depends on the sign of and the sign of as . For example, we have , since as . As a shorthand, we write , and leave it to you to determine whether the last limit is or .   The argument above can be extended even further to compute limits at infinity of an arbitrary rational function .   Limit at infinity: rational functions   Assume we are given polynomials and , where and are nonzero constants.   Equal degree  If , then .    Denominator degree bigger  If , then .    Numerator degree bigger  If , then . Furthermore, both these limits are infinite. However, their sign depends on whether is positive or negative, and whether is even or odd. Alternatively, the sign of the limit depends on the limits of and at and , respectively.  Since both limits at infinity do not exist, does not have any horizontal asymptotes.       The next example will have us put to good use in the context of computing horizontal and vertical asymptotes of a rational function.   Asymptotes: rational function   Let . Find all and any horizontal and vertical asymptotes of . For any vertical asymptotes, compute both one-sided limits.     Horizontal asymptotes  For our horizontal asymptote investigation we compute the limits at infinity of . At we have since , and is negative eventually as .  At we have since , and is positive eventually as .    Vertical asymptotes  We have . Since is continuous everywhere on its domain, the only candidates for vertical asymptotes are the lines and . We investigate the limits at these points: . Since the limit exists here, the line is not a vertical asymptote.  We now compute the one-sided limits at . We have , since , , and is positive for all close to and less than . Since once of the one-sided limits is infinite, we conclude that is a vertical asymptote of the graph of .  We are asked to compute the other one-sided limit. The computation is similar: , since , , and is negative for all close to and greater than .      End behavior of rational functions  Note well the important restriction imposed in : namely, this can only be applied to limits at infinity of rational functions . Do not assume that it can be applied to any quotient of functions!  For example, we cannot apply to the limit , since this function is not rational. However, the same approach of forcibly factoring out a dominating term can be used: .   "
+  "body": " Infinite limits     Provide a rigorous definition of infinite limits at points and at infinity.    Investigate infinite limits graphically.    Define vertical asymptotes using language of infinite limits.    Develop computation techniques for infinite limits.     As a complement to our limit at infinity discussion, we follow up with a treatment of infinite limits . Whereas previously we introduced the notation in order to describe the behavior of a function as the input of the function gets arbitrarily large (in the positive or negative direction), now we wish to introduce notation that indicates that the values of the function get arbitrarily large (in the positive or negative direction).   Infinite limits (informal)   Let be a function.   Infinite limits at  Fix and assume is defined everywhere on an open interval containing , except possibly at itself. We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently close (but not equal) to . We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and positive. We write (resp., ) when this is the case.    Infinite limit at  Assume is defined on an open interval of the form . We say that has limit (resp., limit ) at if the values of can be made arbitrarily large and positive (resp. arbitrarily large and negative) provided is sufficiently large and negative. We write (resp., ) when this is the case.        Infinite limits  It is important to observe that the various notions of infinite limit defined in all cover situations where the limit of the function does not exist . The best way to understand an infinite limit statement of the form , where denotes either a real number, , or , is as an assertion that   the limit in question does not exist, and    its failure to exist is due to values of the function getting arbitrarily large (in positive or negative direction) as approaches .   Accordingly, we must understand this new notation as an extended version of our original limit notation. In particular, we are not treating or here as if they were actual real numbers.    One-sided infinite limits  Yet more variants of infinite limits can be defined for one-sided limits: that is, we can make sense of the following statements for any : . We thought was long enough as it is.   Graphically speaking, if at a value , then the graph of will asymptotically approach the vertical line as gets arbitrarily close to . This motivates the following definition.   Vertical asymptote   Fix a constant . The line is a vertical asymptote of the graph of a function if at least one the of the following conditions holds: .    As with limits at infinity, we would like a starter kit of basic infinite limit formulas that we can build up from. The theorem below is a compendium of limits at infinity and infinite limit formulas for power functions and their reciprocals. Of course, this theorem, like all theorems technically requires proof. In this case, however, the statements of the theorem are essentially just limit notation translations of properties of the graphs of these familiar functions. (See and .)   Power functions and their reciprocals   Let be a positive integer.     The next theorem helps us to compute the limit of functions built from other functions that may have infinite limits. There are a lot of rules listed there, each equipped with a type name that will help you reference it. That said, each rule is the consequence of very elementary reasoning about the size of various quantities. Instead of trying to commit all of to memory, we encourage you instead to internalize this reasoning. For example, the fact that if and , then , follows from the simple fact that if the numerator is approaching some finite number as , while the denominator gets arbitrarily large, then the quotient is the result of taking a number very close to and dividing it by a very large positive number, which yields a very small positive number. Thus the limit is equal to 0: , .  All of the arguments behind the results of are of a similar elementary nature. The type descriptions of each result ( , , , ) should be thought of as helpful shorthand for the simple principles at work. You should use these in the parenthetical justifications of steps in an infinite limit computation.   Infinite limit rules   For some arithmetic combinations of functions with infinite limits, we can easily determine the resulting limit using a simple argument about size of quantities. We collect some of these results below. In what follows the limit point can be either a real number or . . In the type rule, the sign of the limit depends on the sign of and whether the limit of is or . Similarly, in the type rule, the sign of the limit depends on the sign of and the sign of as approaches .    Let's see how to write up our work when making use of the results of . The explanations in these situations tend to be slightly less streamlined than usual. This is in large part a result of the fact that in these situations we cannot make use of our usual limit rules ( , sum, product, quotient, ); and this is so precisely because those rules require that the limits involved exist!   Infinite limit   Compute the following limits. Your answer should be either a real number, , or .                   In this case a quick appraisal tells us that the limit in question will fall under type , and thus should be equal to , the basic principle being the following: the -th root of a very large negative number is a very large negative number. Here is how we can formally write this up. In this case we come right out and state the answer, indicating that this limit is of one of our known types: . We then provide justification for the claim that the limit is of the stated type. This can be done via a series of limit observations about component functions as follows:    ;     (type ), since and .       Note first that ( ), and (type ). Unfortunately, we do not have any infinite limit principles with descriptive type , so we cannot use any of the results of directly. Instead, we first do some algebra, using our intuition that the term dominates the term. We make this intuition precise by forcibly factoring out from the expression, in a way that allows us to recognize the type of the limit: , since and .        Determinate versus indeterminate forms  In part (b) of , we saw that the limit expression in its initial form was of type form . In contrast to the limit types of , the description alone is not sufficient for determining the limit. Why? In a limit of form , we have one term that is getting arbitrarily large and positive, and the other getting arbitrarily large and negative. That information alone, does not tell us what the limit behavior is. Indeed, in general the answer will depend on how quickly each term grows.  To make this more explicit consider the following three limits: . All three limits are of type , and yet we get three different answers. For this reason, limit types like are called indeterminate forms , because the information they convey is not sufficient for determining the limit. In contrast, the limit types appearing in are called determinate forms .  Below is a list of some common indeterminate forms to watch out for: . It is important to realize that if in the course of your analysis you encounter an indeterminate form, this does not necessarily mean that the limit in question does not exist. Instead, it means that your analysis thus far simply isn't detailed enough to provide an answer: , your investigation so far is inconclusive , and more work is required. For the time being that additional work will be algebraic in nature.   The technique used for the computations in can be summarized by the following rough procedure.   Infinite limit computation   To compute an infinite limit , with justification, follow the steps below.   If you cannot immediately identify the limit as one of the types of , do some algebraic manipulation. It may help to forcibly factor out terms that dominate the behavior of the function as .    Once you have identified the type of the infinite limit, compute the limit using and cite the limit type.    Below your computed limit, provide the necessary justification showing that the limit is indeed of the stated type. This typically involves computing limits of simpler functions that are used to construct . You may need to cite limit types and for some of these simpler limit computations as well.       Let's see this procedure in action with another example.   Infinite limits   Compute the following limit. Your answer should be a real number or . .    We have , since and thus .     End behavior of polynomials  The technique in part (b) of can be generalized to analyze the behavior of an arbitrary polynomial.  Let , where . Our intuition tells us that the leading term should dominate the other terms as . We make precise sense of this algebraically by forcibly factoring out . Namely, we write . Next, we compute . We conclude that is of type . It follows from that . However, the precise sign depends on the sign of and the sign of as . For example, we have , since as . As a shorthand, we write , and leave it to you to determine whether the last limit is or .   The argument above can be extended even further to compute limits at infinity of an arbitrary rational function .   Limit at infinity: rational functions   Assume we are given polynomials and , where and are nonzero constants.   Equal degree  If , then .    Denominator degree bigger  If , then .    Numerator degree bigger  If , then . Furthermore, both these limits are infinite. However, their sign depends on whether is positive or negative, and whether is even or odd. Alternatively, the sign of the limit depends on the limits of and at and , respectively.  Since both limits at infinity do not exist, does not have any horizontal asymptotes.       The next example will have us put to good use in the context of computing horizontal and vertical asymptotes of a rational function.   Asymptotes: rational function   Let . Find all and any horizontal and vertical asymptotes of . For any vertical asymptotes, compute both one-sided limits.    For our horizontal asymptote investigation we compute the limits at infinity of . At we have since , and is negative eventually as .  At we have since , and is positive eventually as .  Since is algebraic, the possible vertical asymptotes are of the form , where is not in the domain of . We have . From this we see that the only candidates for vertical asymptotes are the lines and . We investigate the limits at these points: . Since the limit exists at , the line is not a vertical asymptote.  We now compute the one-sided limits at . We have , since , , and is positive for all close to and less than . Since once of the one-sided limits is infinite, we conclude that is a vertical asymptote of the graph of .  We are asked to compute the other one-sided limit. The computation is similar: , since , , and is negative for all close to and greater than .     End behavior of rational functions  Note well the important restriction imposed in : namely, this can only be applied to limits at infinity of rational functions . Do not assume that it can be applied to any quotient of functions!  For example, we cannot apply to the limit , since this function is not rational. However, the same approach of forcibly factoring out a dominating term can be used: .   "
 },
 {
   "id": "s_infinite_limits-2",
@@ -3544,7 +3544,7 @@ var ptx_lunr_docs = [
   "type": "Theorem",
   "number": "1.17.6",
   "title": "Infinite limit rules.",
-  "body": " Infinite limit rules   For some arithmetic combinations of functions with infinite limits, we can easily determine the resulting limit using a simple argument about size of quantities. We collect some of these results below. In what follows the limit point can be either a real number or . . For the last result, the sign of depends on the sign of as .    "
+  "body": " Infinite limit rules   For some arithmetic combinations of functions with infinite limits, we can easily determine the resulting limit using a simple argument about size of quantities. We collect some of these results below. In what follows the limit point can be either a real number or . . In the type rule, the sign of the limit depends on the sign of and whether the limit of is or . Similarly, in the type rule, the sign of the limit depends on the sign of and the sign of as approaches .   "
 },
 {
   "id": "eg_infty_lim_elem",
@@ -3556,11 +3556,20 @@ var ptx_lunr_docs = [
   "body": " Infinite limit   Compute the following limits. Your answer should be either a real number, , or .                   In this case a quick appraisal tells us that the limit in question will fall under type , and thus should be equal to , the basic principle being the following: the -th root of a very large negative number is a very large negative number. Here is how we can formally write this up. In this case we come right out and state the answer, indicating that this limit is of one of our known types: . We then provide justification for the claim that the limit is of the stated type. This can be done via a series of limit observations about component functions as follows:    ;     (type ), since and .       Note first that ( ), and (type ). Unfortunately, we do not have any infinite limit principles with descriptive type , so we cannot use any of the results of directly. Instead, we first do some algebra, using our intuition that the term dominates the term. We make this intuition precise by forcibly factoring out from the expression, in a way that allows us to recognize the type of the limit: , since and .      "
 },
 {
+  "id": "rm_det_indet_forms",
+  "level": "2",
+  "url": "s_infinite_limits.html#rm_det_indet_forms",
+  "type": "Remark",
+  "number": "1.17.8",
+  "title": "Determinate versus indeterminate forms.",
+  "body": " Determinate versus indeterminate forms  In part (b) of , we saw that the limit expression in its initial form was of type form . In contrast to the limit types of , the description alone is not sufficient for determining the limit. Why? In a limit of form , we have one term that is getting arbitrarily large and positive, and the other getting arbitrarily large and negative. That information alone, does not tell us what the limit behavior is. Indeed, in general the answer will depend on how quickly each term grows.  To make this more explicit consider the following three limits: . All three limits are of type , and yet we get three different answers. For this reason, limit types like are called indeterminate forms , because the information they convey is not sufficient for determining the limit. In contrast, the limit types appearing in are called determinate forms .  Below is a list of some common indeterminate forms to watch out for: . It is important to realize that if in the course of your analysis you encounter an indeterminate form, this does not necessarily mean that the limit in question does not exist. Instead, it means that your analysis thus far simply isn't detailed enough to provide an answer: , your investigation so far is inconclusive , and more work is required. For the time being that additional work will be algebraic in nature.  "
+},
+{
   "id": "proc_inf_limit",
   "level": "2",
   "url": "s_infinite_limits.html#proc_inf_limit",
   "type": "Procedure",
-  "number": "1.17.8",
+  "number": "1.17.9",
   "title": "Infinite limit computation.",
   "body": " Infinite limit computation   To compute an infinite limit , with justification, follow the steps below.   If you cannot immediately identify the limit as one of the types of , do some algebraic manipulation. It may help to forcibly factor out terms that dominate the behavior of the function as .    Once you have identified the type of the infinite limit, compute the limit using and cite the limit type.    Below your computed limit, provide the necessary justification showing that the limit is indeed of the stated type. This typically involves computing limits of simpler functions that are used to construct . You may need to cite limit types and for some of these simpler limit computations as well.      "
 },
@@ -3569,7 +3578,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_infinite_limits.html#eg_inf_limit_proc",
   "type": "Example",
-  "number": "1.17.9",
+  "number": "1.17.10",
   "title": "Infinite limits.",
   "body": " Infinite limits   Compute the following limit. Your answer should be a real number or . .    We have , since and thus .   "
 },
@@ -3578,16 +3587,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_infinite_limits.html#eg_inf_gen_poly",
   "type": "Remark",
-  "number": "1.17.10",
+  "number": "1.17.11",
   "title": "End behavior of polynomials.",
-  "body": " End behavior of polynomials  The technique in part (b) of can be generalized to analyze the behavior of an arbitrary polynomial.  Let , where . Our intuition tells us that the leading term should dominate the other terms as . We make precise sense of this algebraically by forcibly factoring out . Namely, we write . Next, we compute . We conclude that is of type . It follows that . However, the precise sign depends on the sign of and the sign of as . For example, we have , since as . As a shorthand, we write , and leave it to you to determine whether the last limit is or .  "
+  "body": " End behavior of polynomials  The technique in part (b) of can be generalized to analyze the behavior of an arbitrary polynomial.  Let , where . Our intuition tells us that the leading term should dominate the other terms as . We make precise sense of this algebraically by forcibly factoring out . Namely, we write . Next, we compute . We conclude that is of type . It follows from that . However, the precise sign depends on the sign of and the sign of as . For example, we have , since as . As a shorthand, we write , and leave it to you to determine whether the last limit is or .  "
 },
 {
   "id": "th_rational_function",
   "level": "2",
   "url": "s_infinite_limits.html#th_rational_function",
   "type": "Theorem",
-  "number": "1.17.11",
+  "number": "1.17.12",
   "title": "Limit at infinity: rational functions.",
   "body": " Limit at infinity: rational functions   Assume we are given polynomials and , where and are nonzero constants.   Equal degree  If , then .    Denominator degree bigger  If , then .    Numerator degree bigger  If , then . Furthermore, both these limits are infinite. However, their sign depends on whether is positive or negative, and whether is even or odd. Alternatively, the sign of the limit depends on the limits of and at and , respectively.  Since both limits at infinity do not exist, does not have any horizontal asymptotes.      "
 },
@@ -3596,18 +3605,360 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_infinite_limits.html#eg_vert_hor_asym",
   "type": "Example",
-  "number": "1.17.12",
+  "number": "1.17.13",
   "title": "Asymptotes: rational function.",
-  "body": " Asymptotes: rational function   Let . Find all and any horizontal and vertical asymptotes of . For any vertical asymptotes, compute both one-sided limits.     Horizontal asymptotes  For our horizontal asymptote investigation we compute the limits at infinity of . At we have since , and is negative eventually as .  At we have since , and is positive eventually as .    Vertical asymptotes  We have . Since is continuous everywhere on its domain, the only candidates for vertical asymptotes are the lines and . We investigate the limits at these points: . Since the limit exists here, the line is not a vertical asymptote.  We now compute the one-sided limits at . We have , since , , and is positive for all close to and less than . Since once of the one-sided limits is infinite, we conclude that is a vertical asymptote of the graph of .  We are asked to compute the other one-sided limit. The computation is similar: , since , , and is negative for all close to and greater than .    "
+  "body": " Asymptotes: rational function   Let . Find all and any horizontal and vertical asymptotes of . For any vertical asymptotes, compute both one-sided limits.    For our horizontal asymptote investigation we compute the limits at infinity of . At we have since , and is negative eventually as .  At we have since , and is positive eventually as .  Since is algebraic, the possible vertical asymptotes are of the form , where is not in the domain of . We have . From this we see that the only candidates for vertical asymptotes are the lines and . We investigate the limits at these points: . Since the limit exists at , the line is not a vertical asymptote.  We now compute the one-sided limits at . We have , since , , and is positive for all close to and less than . Since once of the one-sided limits is infinite, we conclude that is a vertical asymptote of the graph of .  We are asked to compute the other one-sided limit. The computation is similar: , since , , and is negative for all close to and greater than .   "
 },
 {
-  "id": "s_infinite_limits-25",
+  "id": "s_infinite_limits-26",
   "level": "2",
-  "url": "s_infinite_limits.html#s_infinite_limits-25",
+  "url": "s_infinite_limits.html#s_infinite_limits-26",
   "type": "Warning",
-  "number": "1.17.13",
+  "number": "1.17.14",
   "title": "End behavior of rational functions.",
   "body": " End behavior of rational functions  Note well the important restriction imposed in : namely, this can only be applied to limits at infinity of rational functions . Do not assume that it can be applied to any quotient of functions!  For example, we cannot apply to the limit , since this function is not rational. However, the same approach of forcibly factoring out a dominating term can be used: .  "
+},
+{
+  "id": "s_der_at_point",
+  "level": "1",
+  "url": "s_der_at_point.html",
+  "type": "Section",
+  "number": "1.18",
+  "title": "Derivative: at a point",
+  "body": " Derivative: at a point     Give formal limit definition of the derivative of a function at a point.    Understand the different quotient of a function in terms of rates of change and slopes of secants.    Understand the derivative of a function at a point both as an instantaneous rate of change, and as the slope of the tangent line to the graph at that point.     We will launch directly into an unmotivated definition of the derivative of a function at a point, and then motivate this definition retroactively in terms of important properties of and its graph.   Derivative at a point   Suppose is an interior point or endpoint of the domain of . We say that is differentiable at if the limit or equivalently, the limit , exists. When this is the case, we call this limit the derivative of at , denoted : , .     Derivative at a point  Implicit in our definition is that the two limit expressions are equivalent, in the sense that the one exists if and only if the other exists, in which case both are equal.  In more detail, the limit can be transformed to the limit by using the substitution ; and conversely, the limit can be transformed to the limit using the substitution .    Limit definition of derivative  Note that the limit always involves a denominator that approaches 0 as . This means we can never apply the quotient rule to such a limit directly; we will always have to do some algebra (or the like) to get to a place where we can potentially use limit rules.    Derivative at point: elementary   Let .   Show that is differentiable at and compute using the limit definition of the derivative.    More generally, fix any . Show that is differentiable at and compute using the limit definition of the derivative.          We compute . Since the limit exists, we conclude that is differentiable at , and that .    The computation above is very similar for an arbitrary constant : . We conclude that is differentiable at all , and that .        Difference quotient   Let be a function. Given two distinct points in the domain of , the value is called a difference quotient of . We have two useful ways of understanding this quantity.   Average rate of change  The difference quotient is called the average rate of change of between and . In this context we often use the notation below to emphasize the relation to changing values of : , where .    Slope of secant line  Consider the points and , which lie on the graph of . The unique line in that passes through and is called the secant line on between and . This line can be defined, using point-slope form with respect to , by the equation . We recognize in this context that the difference quotient is the slope of the secant line .        Derivative interpretations   Let be differentiable at the point .   Instantaneous rate of change  We call the derivative value the instantaneous rate of change of at with respect to , or more simply, the rate of change of at with respect to .    Tangent line  Let . The tangent line to the graph of at (or at ) is the line defined by the equation . In this context, we see that the derivative of at is the slope of the tangent line to the graph of at .        Tangent line at point   Let .   Sketch the graph of .    Find an equation for the tangent line to the graph of at .    Add to your sketch of the graph of .          Below you find the graph of . How do we come up with something like this by hand. The quick and dirty way is to remember what the graph of $g(x)=\\sqrt{x}$ and realize that the graph of will have roughly the same shape, but perhaps shifted\/scaled\/reflected. A matter of a few plotted points ( , , , ), will then give us something like the following.   Graph of   Graph of radical of 5-x       Let be the tangent line to the graph of at . By definition the slope of is , which we now compute: , where the last step uses the fact that is continuous at .  We conclude that the slope of is . We now use point-slope form to find an equation for . By definition the tangent line passes through the point on the graph of . With respect to this point we have the following point-slope equation for : .    We now add both the point and the tangent line to our graph of .   Graph of , , and   Graph of radical of 5-x together with tangent          "
+},
+{
+  "id": "s_der_at_point-2",
+  "level": "2",
+  "url": "s_der_at_point.html#s_der_at_point-2",
+  "type": "Objectives",
+  "number": "1.18",
+  "title": "",
+  "body": "   Give formal limit definition of the derivative of a function at a point.    Understand the different quotient of a function in terms of rates of change and slopes of secants.    Understand the derivative of a function at a point both as an instantaneous rate of change, and as the slope of the tangent line to the graph at that point.    "
+},
+{
+  "id": "d_der_at_point",
+  "level": "2",
+  "url": "s_der_at_point.html#d_der_at_point",
+  "type": "Definition",
+  "number": "1.18.1",
+  "title": "Derivative at a point.",
+  "body": " Derivative at a point   Suppose is an interior point or endpoint of the domain of . We say that is differentiable at if the limit or equivalently, the limit , exists. When this is the case, we call this limit the derivative of at , denoted : , .   "
+},
+{
+  "id": "s_der_at_point-5",
+  "level": "2",
+  "url": "s_der_at_point.html#s_der_at_point-5",
+  "type": "Remark",
+  "number": "1.18.2",
+  "title": "Derivative at a point.",
+  "body": " Derivative at a point  Implicit in our definition is that the two limit expressions are equivalent, in the sense that the one exists if and only if the other exists, in which case both are equal.  In more detail, the limit can be transformed to the limit by using the substitution ; and conversely, the limit can be transformed to the limit using the substitution .  "
+},
+{
+  "id": "s_der_at_point-6",
+  "level": "2",
+  "url": "s_der_at_point.html#s_der_at_point-6",
+  "type": "Remark",
+  "number": "1.18.3",
+  "title": "Limit definition of derivative.",
+  "body": " Limit definition of derivative  Note that the limit always involves a denominator that approaches 0 as . This means we can never apply the quotient rule to such a limit directly; we will always have to do some algebra (or the like) to get to a place where we can potentially use limit rules.  "
+},
+{
+  "id": "eg_der_at_point",
+  "level": "2",
+  "url": "s_der_at_point.html#eg_der_at_point",
+  "type": "Example",
+  "number": "1.18.4",
+  "title": "Derivative at point: elementary.",
+  "body": " Derivative at point: elementary   Let .   Show that is differentiable at and compute using the limit definition of the derivative.    More generally, fix any . Show that is differentiable at and compute using the limit definition of the derivative.          We compute . Since the limit exists, we conclude that is differentiable at , and that .    The computation above is very similar for an arbitrary constant : . We conclude that is differentiable at all , and that .      "
+},
+{
+  "id": "d_difference_quot",
+  "level": "2",
+  "url": "s_der_at_point.html#d_difference_quot",
+  "type": "Definition",
+  "number": "1.18.5",
+  "title": "Difference quotient.",
+  "body": " Difference quotient   Let be a function. Given two distinct points in the domain of , the value is called a difference quotient of . We have two useful ways of understanding this quantity.   Average rate of change  The difference quotient is called the average rate of change of between and . In this context we often use the notation below to emphasize the relation to changing values of : , where .    Slope of secant line  Consider the points and , which lie on the graph of . The unique line in that passes through and is called the secant line on between and . This line can be defined, using point-slope form with respect to , by the equation . We recognize in this context that the difference quotient is the slope of the secant line .      "
+},
+{
+  "id": "d_der_interpretations",
+  "level": "2",
+  "url": "s_der_at_point.html#d_der_interpretations",
+  "type": "Definition",
+  "number": "1.18.6",
+  "title": "Derivative interpretations.",
+  "body": " Derivative interpretations   Let be differentiable at the point .   Instantaneous rate of change  We call the derivative value the instantaneous rate of change of at with respect to , or more simply, the rate of change of at with respect to .    Tangent line  Let . The tangent line to the graph of at (or at ) is the line defined by the equation . In this context, we see that the derivative of at is the slope of the tangent line to the graph of at .      "
+},
+{
+  "id": "eg_der_at_point_tangent",
+  "level": "2",
+  "url": "s_der_at_point.html#eg_der_at_point_tangent",
+  "type": "Example",
+  "number": "1.18.7",
+  "title": "Tangent line at point.",
+  "body": " Tangent line at point   Let .   Sketch the graph of .    Find an equation for the tangent line to the graph of at .    Add to your sketch of the graph of .          Below you find the graph of . How do we come up with something like this by hand. The quick and dirty way is to remember what the graph of $g(x)=\\sqrt{x}$ and realize that the graph of will have roughly the same shape, but perhaps shifted\/scaled\/reflected. A matter of a few plotted points ( , , , ), will then give us something like the following.   Graph of   Graph of radical of 5-x       Let be the tangent line to the graph of at . By definition the slope of is , which we now compute: , where the last step uses the fact that is continuous at .  We conclude that the slope of is . We now use point-slope form to find an equation for . By definition the tangent line passes through the point on the graph of . With respect to this point we have the following point-slope equation for : .    We now add both the point and the tangent line to our graph of .   Graph of , , and   Graph of radical of 5-x together with tangent         "
+},
+{
+  "id": "s_der_function",
+  "level": "1",
+  "url": "s_der_function.html",
+  "type": "Section",
+  "number": "1.19",
+  "title": "Derivative: function",
+  "body": " Derivative: function     Extend the notion of derivative at a point to a definition of the derivative function associated to a function .    Compute formulas for derivative functions using the limit definition of the derivative.    Introduce Leibniz notation in addition to prime notation. Understand the specific advantages of each notional style.    Understand both analytically and graphically common ways in which a function can fail to be differentiable at an input.     Whereas previously we focused on the notion of the derivative of a function at a specific input, we now switch perspectives somewhat and consider the derivative operation as defining a function associated to .   Derivative function   Let be a function, and let be the set of points where is differentiable. The derivative operation defines a function that is called the derivative of .    Note that the domain of the derivative function need not be the entire domain of : indeed, by definition it consists precisely of the points where is differentiable. The next example illustrates this.   Derivative function: radical   Let be defined as .   Compute the domain of : that is, find all points where is differentiable.    Derive a formula for the derivative function .          Take an element in the domain of and compute: . We now note that for all , this last limit expression evaluates to , after the application of simple limit rules. Thus is differentiable for such elements. For , however, the last limit becomes which is a limit of type , and hence infinite. In particular the limit doesn't exist for , showing that is not differentiable at .  We conclude that the domain of is . Note that is strictly smaller than the domain of in this case: indeed, it is every element of the domain of with the exception of .    For , we can finish our limit computation above to compute : .       Using the slope interpretation of the derivative, we can begin to see how the derivative function implies information about the original function , and conversely.   Slope interpretation  Let be the set of points where is differentiable, and let be the derivative of . Given any , we have the following equivalences: . We will elaborate further on these equivalences when we discuss the rate of change interpretation of the derivative in more detail.    Failing to be differentiable  By definition, a function fails to be differentiable at an input if the limit does not exist. The precise reason for that failure to exist is reflected in the graph of , using the slope of tangent line interpretation of the derivative. Some examples and their graphical analogues:   Infinite limit vertical slope  If the limit is infinite at , then the tangent line to the curve at (if it exists) is vertical: , its slope is undefined.  This evident in the graph of . (See .) As , ; equivalently, the slopes of the tangent lines to the graph of at , get arbitrarily large and negative. At itself, the tangent line to the graph of is in fact the vertical line .    Jump discontinuity  corner point  If the limit at doesn't exist because of a discrepancy between the left- and right-hand limits, both of which exist, then we typically see the slope of tangent lines at points to the left of approaching one limiting slope, while the slope of tangent lines of points to the right of will approach another value. Geometrically, such a point will look like a corner or kink in the graph of .  The classic illustration of this phenomenon is the absolute value function . As we show in this function is differentiable everywhere except at . Graphically we see why this is the case in the corner nature of the point on the graph: to the left the slope of the graph is ; and to the right the slope is .    Wild oscillation  If a function is wildly oscillating near an input to such a degree that limit of of doesn't exist at , then it turns out that the derivative also cannot exist at . See the point at for the function with graph in as an example.       Derivative function: absolute value   Let .   Show that the domain of is and compute a formula for .    Add a geometric argument about why is not differentiable at using .      Graph of   Graph of absolute value            Derivative function:   Let . Compute the domain of and derive a formula for .        We end this section by introducing an alternative notation for denoting the derivative of a function. The notation is called Leibniz notation , as it was favored in Gottlieb Leibniz's development of calculus. Isaac Newton, on the other hand favored the prime notation . Leibniz notation comes in very handy when considering the derivative as an operation that we apply to functions; it also strongly evokes the interpretation of the interpretation of the derivative as a rate of change. It is very much less convenient as an alternative notation for , as exhibited by .   Leibniz notation   Let be a function relating the output variable as a function of the input variable , and let be the set of points where is differentiable. We introduce the following notation, called Leibniz notation , to denote various concepts related to    Derivative function  The derivative function is denoted as or . In other words, we have have .    Derivative at a point  Given , the derivative of at is denoted as or . In other words, we have     Derivative operation  We denote by the operation of taking the derivative of a function with respect to . Thus is the derivative of : , .        Differentiable implies continuous   Suppose the function is defined at . If is differentiable at , then is continuous at . Using logical shorthand: .    "
+},
+{
+  "id": "s_der_function-2",
+  "level": "2",
+  "url": "s_der_function.html#s_der_function-2",
+  "type": "Objectives",
+  "number": "1.19",
+  "title": "",
+  "body": "   Extend the notion of derivative at a point to a definition of the derivative function associated to a function .    Compute formulas for derivative functions using the limit definition of the derivative.    Introduce Leibniz notation in addition to prime notation. Understand the specific advantages of each notional style.    Understand both analytically and graphically common ways in which a function can fail to be differentiable at an input.    "
+},
+{
+  "id": "d_derivative_function",
+  "level": "2",
+  "url": "s_der_function.html#d_derivative_function",
+  "type": "Definition",
+  "number": "1.19.1",
+  "title": "Derivative function.",
+  "body": " Derivative function   Let be a function, and let be the set of points where is differentiable. The derivative operation defines a function that is called the derivative of .   "
+},
+{
+  "id": "eg_der_func_rad",
+  "level": "2",
+  "url": "s_der_function.html#eg_der_func_rad",
+  "type": "Example",
+  "number": "1.19.2",
+  "title": "Derivative function: radical.",
+  "body": " Derivative function: radical   Let be defined as .   Compute the domain of : that is, find all points where is differentiable.    Derive a formula for the derivative function .          Take an element in the domain of and compute: . We now note that for all , this last limit expression evaluates to , after the application of simple limit rules. Thus is differentiable for such elements. For , however, the last limit becomes which is a limit of type , and hence infinite. In particular the limit doesn't exist for , showing that is not differentiable at .  We conclude that the domain of is . Note that is strictly smaller than the domain of in this case: indeed, it is every element of the domain of with the exception of .    For , we can finish our limit computation above to compute : .      "
+},
+{
+  "id": "s_der_function-8",
+  "level": "2",
+  "url": "s_der_function.html#s_der_function-8",
+  "type": "Remark",
+  "number": "1.19.3",
+  "title": "Slope interpretation.",
+  "body": " Slope interpretation  Let be the set of points where is differentiable, and let be the derivative of . Given any , we have the following equivalences: . We will elaborate further on these equivalences when we discuss the rate of change interpretation of the derivative in more detail.  "
+},
+{
+  "id": "s_der_function-9",
+  "level": "2",
+  "url": "s_der_function.html#s_der_function-9",
+  "type": "Remark",
+  "number": "1.19.4",
+  "title": "Failing to be differentiable.",
+  "body": " Failing to be differentiable  By definition, a function fails to be differentiable at an input if the limit does not exist. The precise reason for that failure to exist is reflected in the graph of , using the slope of tangent line interpretation of the derivative. Some examples and their graphical analogues:   Infinite limit vertical slope  If the limit is infinite at , then the tangent line to the curve at (if it exists) is vertical: , its slope is undefined.  This evident in the graph of . (See .) As , ; equivalently, the slopes of the tangent lines to the graph of at , get arbitrarily large and negative. At itself, the tangent line to the graph of is in fact the vertical line .    Jump discontinuity  corner point  If the limit at doesn't exist because of a discrepancy between the left- and right-hand limits, both of which exist, then we typically see the slope of tangent lines at points to the left of approaching one limiting slope, while the slope of tangent lines of points to the right of will approach another value. Geometrically, such a point will look like a corner or kink in the graph of .  The classic illustration of this phenomenon is the absolute value function . As we show in this function is differentiable everywhere except at . Graphically we see why this is the case in the corner nature of the point on the graph: to the left the slope of the graph is ; and to the right the slope is .    Wild oscillation  If a function is wildly oscillating near an input to such a degree that limit of of doesn't exist at , then it turns out that the derivative also cannot exist at . See the point at for the function with graph in as an example.     "
+},
+{
+  "id": "eg_der_funct_abs",
+  "level": "2",
+  "url": "s_der_function.html#eg_der_funct_abs",
+  "type": "Example",
+  "number": "1.19.5",
+  "title": "Derivative function: absolute value.",
+  "body": " Derivative function: absolute value   Let .   Show that the domain of is and compute a formula for .    Add a geometric argument about why is not differentiable at using .      Graph of   Graph of absolute value          "
+},
+{
+  "id": "eg_der_func_reciprocal",
+  "level": "2",
+  "url": "s_der_function.html#eg_der_func_reciprocal",
+  "type": "Example",
+  "number": "1.19.7",
+  "title": "Derivative function: <span class=\"process-math\">\\(\\frac{1}{x}\\)<\/span>.",
+  "body": " Derivative function:   Let . Compute the domain of and derive a formula for .       "
+},
+{
+  "id": "d_Leibniz_notation",
+  "level": "2",
+  "url": "s_der_function.html#d_Leibniz_notation",
+  "type": "Definition",
+  "number": "1.19.8",
+  "title": "Leibniz notation.",
+  "body": " Leibniz notation   Let be a function relating the output variable as a function of the input variable , and let be the set of points where is differentiable. We introduce the following notation, called Leibniz notation , to denote various concepts related to    Derivative function  The derivative function is denoted as or . In other words, we have have .    Derivative at a point  Given , the derivative of at is denoted as or . In other words, we have     Derivative operation  We denote by the operation of taking the derivative of a function with respect to . Thus is the derivative of : , .      "
+},
+{
+  "id": "th_diff_implies_contin",
+  "level": "2",
+  "url": "s_der_function.html#th_diff_implies_contin",
+  "type": "Theorem",
+  "number": "1.19.9",
+  "title": "Differentiable implies continuous.",
+  "body": " Differentiable implies continuous   Suppose the function is defined at . If is differentiable at , then is continuous at . Using logical shorthand: .   "
+},
+{
+  "id": "s_der_rules",
+  "level": "1",
+  "url": "s_der_rules.html",
+  "type": "Section",
+  "number": "1.20",
+  "title": "Derivative: rules",
+  "body": " Derivative: rules  We now examine how the operation of taking the derivative of a function interacts with our basic function operations: , scalar multiplication, addition, multiplication, and quotients. We will make heavy use of the Leibniz notation , which denotes the operation of taking the derivative with respect to . In this context we will either write , where is the name of a function, or else , where blah denotes some expression in . In the latter case, the expression in question is understood to define a function, with the usual implied domain convention. Thus for example denotes the derivative of the constant function ; and denotes the derivative of the identity function .   Derivative formulas: constant and power functions      Constant functions  For all we have . In other words, if is the constant function , then is the zero function defined as for all .    Identity function  We have . In other words, if is the identity function , then is the constant function defined as for all .    Power functions  Let be a real number. We have .        Power functions  Although we state the power function formula for general , for now we will only make use of it when is a rational number: , , where and are integers. Indeed, as of yet we have not ever defined what the expression means for an arbitrary real number . We can make sense of , , and even , but what does or mean? We will have to wait until Math 220-2 to give a precise and general definition.    Power function formula: radicals   Let . Compute .    The key is to convert the formula of from radical to power form: We then use the power formula to compute the derivative: . Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation.     Derivative rules      Linear combination  For all constants , we have .    Product rule  We have .    Quotient rule  We have .       With all of our mastery of limit techniques, it turns out that the proofs of these three statements are not so difficult. We provide a proof of (1) and (2).   Proof of (1)  Assume and are differentiable at . We have .    Proof of (2)  Assume and are differentiable at . We have , where this last step uses both the definition of the derivative and the fact that , since and are continuous by .      Linear combination rule  Note that our linear combination rule for derivatives implies the following three rules: . Indeed, the first follows from taking in , the second from taking , and the third from taking and .    Product and quotient rule  The product and quotient rules for the derivative might come as somewhat of a surprise. In particular, mark well the following non-equalities : . In plain English: it is simply not the case that the derivative of a product is the product of the derivatives; and it is not the case that the derivative of a quotient is the quotient of the derivatives. This of course is in stark contrast to the product and quotient rules for the limit.    Derivative rules   Compute a formula for for the given .    , where are fixed constants.                    We compute .    We compute .    If we go straight into using derivative rules, we would have to use the product and quotient rules, which would be time consuming. Instead, realizing that powers of appear in all terms (above and below), we first do some algebraic preparation: . We can now handle the derivative computation just by using the linear combination rule and power function formulas: .       The first part of provides a formula for computing the derivative of a general polynomial. This is deserving of an official result.   Derivative: polynomials   Given a polynomial , where are fixed constants, we have .     Higher order derivatives   Let be a function with derivative . Continuing to compute derivatives in succession yields the higher order derivatives of . In particular, the second derivative is defined as , and denoted as or ; and the third derivative is defined as , and is denoted or .  More generally, for any , the -th derivative of is the result of applying the derivative operation times in succession, and is denoted or      Higher-order derivatives   Let . Compute formulas for , , and .    We compute the derivatives in succession: .    "
+},
+{
+  "id": "th_der_formulas_basic",
+  "level": "2",
+  "url": "s_der_rules.html#th_der_formulas_basic",
+  "type": "Theorem",
+  "number": "1.20.1",
+  "title": "Derivative formulas: constant and power functions.",
+  "body": " Derivative formulas: constant and power functions      Constant functions  For all we have . In other words, if is the constant function , then is the zero function defined as for all .    Identity function  We have . In other words, if is the identity function , then is the constant function defined as for all .    Power functions  Let be a real number. We have .      "
+},
+{
+  "id": "s_der_rules-4",
+  "level": "2",
+  "url": "s_der_rules.html#s_der_rules-4",
+  "type": "Remark",
+  "number": "1.20.2",
+  "title": "Power functions.",
+  "body": " Power functions  Although we state the power function formula for general , for now we will only make use of it when is a rational number: , , where and are integers. Indeed, as of yet we have not ever defined what the expression means for an arbitrary real number . We can make sense of , , and even , but what does or mean? We will have to wait until Math 220-2 to give a precise and general definition.  "
+},
+{
+  "id": "eg_der_power",
+  "level": "2",
+  "url": "s_der_rules.html#eg_der_power",
+  "type": "Example",
+  "number": "1.20.3",
+  "title": "Power function formula: radicals.",
+  "body": " Power function formula: radicals   Let . Compute .    The key is to convert the formula of from radical to power form: We then use the power formula to compute the derivative: . Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation.   "
+},
+{
+  "id": "th_der_rules",
+  "level": "2",
+  "url": "s_der_rules.html#th_der_rules",
+  "type": "Theorem",
+  "number": "1.20.4",
+  "title": "Derivative rules.",
+  "body": " Derivative rules      Linear combination  For all constants , we have .    Product rule  We have .    Quotient rule  We have .       With all of our mastery of limit techniques, it turns out that the proofs of these three statements are not so difficult. We provide a proof of (1) and (2).   Proof of (1)  Assume and are differentiable at . We have .    Proof of (2)  Assume and are differentiable at . We have , where this last step uses both the definition of the derivative and the fact that , since and are continuous by .    "
+},
+{
+  "id": "s_der_rules-7",
+  "level": "2",
+  "url": "s_der_rules.html#s_der_rules-7",
+  "type": "Remark",
+  "number": "1.20.5",
+  "title": "Linear combination rule.",
+  "body": " Linear combination rule  Note that our linear combination rule for derivatives implies the following three rules: . Indeed, the first follows from taking in , the second from taking , and the third from taking and .  "
+},
+{
+  "id": "s_der_rules-8",
+  "level": "2",
+  "url": "s_der_rules.html#s_der_rules-8",
+  "type": "Remark",
+  "number": "1.20.6",
+  "title": "Product and quotient rule.",
+  "body": " Product and quotient rule  The product and quotient rules for the derivative might come as somewhat of a surprise. In particular, mark well the following non-equalities : . In plain English: it is simply not the case that the derivative of a product is the product of the derivatives; and it is not the case that the derivative of a quotient is the quotient of the derivatives. This of course is in stark contrast to the product and quotient rules for the limit.  "
+},
+{
+  "id": "eg_der_rules",
+  "level": "2",
+  "url": "s_der_rules.html#eg_der_rules",
+  "type": "Example",
+  "number": "1.20.7",
+  "title": "Derivative rules.",
+  "body": " Derivative rules   Compute a formula for for the given .    , where are fixed constants.                    We compute .    We compute .    If we go straight into using derivative rules, we would have to use the product and quotient rules, which would be time consuming. Instead, realizing that powers of appear in all terms (above and below), we first do some algebraic preparation: . We can now handle the derivative computation just by using the linear combination rule and power function formulas: .      "
+},
+{
+  "id": "th_der_poly",
+  "level": "2",
+  "url": "s_der_rules.html#th_der_poly",
+  "type": "Theorem",
+  "number": "1.20.8",
+  "title": "Derivative: polynomials.",
+  "body": " Derivative: polynomials   Given a polynomial , where are fixed constants, we have .   "
+},
+{
+  "id": "d_der_higher_order",
+  "level": "2",
+  "url": "s_der_rules.html#d_der_higher_order",
+  "type": "Definition",
+  "number": "1.20.9",
+  "title": "Higher order derivatives.",
+  "body": " Higher order derivatives   Let be a function with derivative . Continuing to compute derivatives in succession yields the higher order derivatives of . In particular, the second derivative is defined as , and denoted as or ; and the third derivative is defined as , and is denoted or .  More generally, for any , the -th derivative of is the result of applying the derivative operation times in succession, and is denoted or    "
+},
+{
+  "id": "eg_higher_ders",
+  "level": "2",
+  "url": "s_der_rules.html#eg_higher_ders",
+  "type": "Example",
+  "number": "1.20.10",
+  "title": "Higher-order derivatives.",
+  "body": " Higher-order derivatives   Let . Compute formulas for , , and .    We compute the derivatives in succession: .   "
+},
+{
+  "id": "s_der_rate_change",
+  "level": "1",
+  "url": "s_der_rate_change.html",
+  "type": "Section",
+  "number": "1.21",
+  "title": "Derivative as rate of change",
+  "body": " Derivative as rate of change     Understand and use the rate of change interpretation of the derivative.    Apply the rate of change interpretation to the position, velocity, and acceleration functions of an object.      Rate of change  Recall that the key to understanding the rate of change interpretation of the derivative is to use the particular formulation , and to interpret the difference quotient as the average rate of change of between and . The idea is that as , the average rate of change computed as by gets closer and closer to an instantaneous rate of change of at . This is the motivation behind the definition of instantaneous rate of change given in .   Rate of change interpretations   Suppose quantity is modeled as a function of some other quantity . Roughly speaking, the derivative computes the (instantaneous) rate of change of with respect to . We elaborate below.   Difference quotient  Let and be particular values of quantity satisfying . The difference quotient computes the average rate of change of as the quantity varies from to : , . For each choice of , the difference quotient gives an approximation of the instantaneous rate of change of with respect to at .    Rate of change of with respect to  Let be a particular value of the quantity . The value of the derivative at is the (instantaneous) rate of change of with respect to at the particular input : ,         Height versus age   Suppose the height (in meters) of individuals in a population is modeled as a function of their age (in years).   Interpret the two statements below in terms of the height and age of people. Your interpretation should include units, and should address all numeric details in the statements. .    What does the following sequence of statements tell us about the relation of height versus age? Be specific. .         The statement asserts that the height of a 12-year old in the population is 1.5 meters.  The statement asserts that the rate of growth of a 12 year old in the population is meters per year.    The sequence of statements tells us that the rates of growth for 12-, 15-, and 18-year olds are, respectively, 0.06, 0.025, and 0.001 meters per year. This is consistent with the fact that as we grow older, our rate of growth slows, approaching a rate of zero around age 18.        Position, velocity, acceleration    Suppose an object moves along an oriented axis with origin . To simplify the units discussion, we assume below that distance is measured in meters (m) and time is measured in seconds (s).   Position  At any given time , the position  of the object is its directed distance (positive or negative) to the origin.    Displacement  Given times , the displacement of the object from time to time is the difference , often denoted as for short.    Velocity  At any given time the velocity  of the object is defined as rate of change of position with respect to time at . In other words, we have . Values of velocity can be positive or negative. We define the speed  of the object at time as     Acceleration  At any given time we define the acceleration  of the object as the rate of change of its velocity with respect to time at . In other words, .        Drone   Dudley gets his hands on the remote control for a drone and pilots it for a glorious 3 seconds. Luckily, the drone can only move directly up and down. The altitude (in meters) of the drone seconds after Dudley takes control is given as .   Derive formulas for the velocity , speed , and acceleration of the drone seconds after Dudley takes control.    Find the time intervals when the drone is ascending, and the time intervals when it is descending.    Describe the end of Dudley's flight at time seconds. Where is the drone? Did a fatal crash happen?    Compute (a) the displacement of the drone over the time interval , and (b) the total distance traveled.          We compute .    The drone ascending or descending is equivalent to the velocity being positive or negative. It will help here to factor our expression of : . From this we can easily sketch a graph of as follows:  Graph of velocity function   And from the graph of we see easily that is positive on and negative on . Thus the drone ascends for the first second, then descends for the remaining two seconds.    At time , the height of the drone is and the velocity is . This means that the downward velocity of the drone has slowed to 0 m per s upon impact. Dudley landed the drone safely, apparently!    The total displacement is given as . To compute the total distance traveled, we must separate the interval into the separate intervals where the drone ascends and descends. The basic principle here is that if movement is always in the same direction (up or down in our case) over a certain time interval, then displacement is equal to distance traveled.  Over the time interval the drone ascends from a height meters to a height of meters. Since the drone is always moving the same direction here, the total distance traveled over this time interval is meters.  Over the time interval the drone descends from a height of meters, to a height of meters. Again, since the drone is always moving in the same direction, the distance traveled over this time interval is 4 meters.  We conclude that in sum the drone has traveled a distance of meters.         Rates of change in economics  Derivative play a crucial role in economics, where this notion is often described in that field's particular jargon as some variety of marginal .   Marginal cost, revenue, profit   Suppose the cost (in dollars) of making a product is modeled as a function of the total quantity of the good produced. The marginal cost function is defined as . Thus computes the marginal cost (in dollars per unit producion) at a current level of production : this is the rate of change of cost with respect to quantity produced at the given production level .  We get notions of marginal revenue and marginal profit by replacing the cost function above with a revenue or profit function.     Marginals   Suppose the cost (in dollars) for a farmer to produce barrels of milk on a given day is given by . Suppose further that farmer can charge a price of when producing barrels of milk.   Determine the marginal cost of producing 100 barrels of milk, and give an easy to understand interpretation of what this means.    Determine the marginal profit of producing 100 barrels of milk.     Estimate the change in profit that would result in going from 100 barrels a day to 103 barrels of day.          By definition, marginal cost (with respect to barrels $b$ produced) is given as . In particular, we have . This tells us that as the farmer steps milk production from barrels, the cost increases at a rate of 128 dollars per barrel.    Let be the revenue earned when producing barrels of milk, under that assumption that all barrels will be purchased. We have . Lastly, since profit is is defined as revenue minus cost, we have and thus marginal profit is . The marginal profit at a production level of 100 barrels is thus . This tells us that increasing the production from 100 barrels results in the farmer's profit decreasing at a rate of 78 dollars per barrel. What's going on here is that although revenue will increase by increasing production, the rate at which it increases is less than the rate at which cost increases.     Assuming that the rate of change of profit is constant , equal to dollars per barrel, for production levels near 100 barrels, as we increase our production from 100 barrels, the profit decreases at a constant rate of 78 dollars per barrel. Thus we estimate that profit would decrease by dollars if we increase production from 100 to 103 barrels.  The reason this is an estimate and not necessarily the exact change in profit, is that our simplifying assumption need not be the case! That is, the rate of profit is not necessarily constant as a function of . Indeed, looking at the formula above, it most definitely is not in our case! And in fact, using our formula for we can compute exactly as .        "
+},
+{
+  "id": "s_der_rate_change-2",
+  "level": "2",
+  "url": "s_der_rate_change.html#s_der_rate_change-2",
+  "type": "Objectives",
+  "number": "1.21",
+  "title": "",
+  "body": "   Understand and use the rate of change interpretation of the derivative.    Apply the rate of change interpretation to the position, velocity, and acceleration functions of an object.    "
+},
+{
+  "id": "proc_rate_of_change",
+  "level": "2",
+  "url": "s_der_rate_change.html#proc_rate_of_change",
+  "type": "Procedure",
+  "number": "1.21.1",
+  "title": "Rate of change interpretations.",
+  "body": " Rate of change interpretations   Suppose quantity is modeled as a function of some other quantity . Roughly speaking, the derivative computes the (instantaneous) rate of change of with respect to . We elaborate below.   Difference quotient  Let and be particular values of quantity satisfying . The difference quotient computes the average rate of change of as the quantity varies from to : , . For each choice of , the difference quotient gives an approximation of the instantaneous rate of change of with respect to at .    Rate of change of with respect to  Let be a particular value of the quantity . The value of the derivative at is the (instantaneous) rate of change of with respect to at the particular input : ,       "
+},
+{
+  "id": "eg_height_age",
+  "level": "2",
+  "url": "s_der_rate_change.html#eg_height_age",
+  "type": "Example",
+  "number": "1.21.2",
+  "title": "Height versus age.",
+  "body": " Height versus age   Suppose the height (in meters) of individuals in a population is modeled as a function of their age (in years).   Interpret the two statements below in terms of the height and age of people. Your interpretation should include units, and should address all numeric details in the statements. .    What does the following sequence of statements tell us about the relation of height versus age? Be specific. .         The statement asserts that the height of a 12-year old in the population is 1.5 meters.  The statement asserts that the rate of growth of a 12 year old in the population is meters per year.    The sequence of statements tells us that the rates of growth for 12-, 15-, and 18-year olds are, respectively, 0.06, 0.025, and 0.001 meters per year. This is consistent with the fact that as we grow older, our rate of growth slows, approaching a rate of zero around age 18.     "
+},
+{
+  "id": "d_pos_vel_acc",
+  "level": "2",
+  "url": "s_der_rate_change.html#d_pos_vel_acc",
+  "type": "Definition",
+  "number": "1.21.3",
+  "title": "",
+  "body": "  Suppose an object moves along an oriented axis with origin . To simplify the units discussion, we assume below that distance is measured in meters (m) and time is measured in seconds (s).   Position  At any given time , the position  of the object is its directed distance (positive or negative) to the origin.    Displacement  Given times , the displacement of the object from time to time is the difference , often denoted as for short.    Velocity  At any given time the velocity  of the object is defined as rate of change of position with respect to time at . In other words, we have . Values of velocity can be positive or negative. We define the speed  of the object at time as     Acceleration  At any given time we define the acceleration  of the object as the rate of change of its velocity with respect to time at . In other words, .      "
+},
+{
+  "id": "eg_dynamics_drone",
+  "level": "2",
+  "url": "s_der_rate_change.html#eg_dynamics_drone",
+  "type": "Example",
+  "number": "1.21.4",
+  "title": "Drone.",
+  "body": " Drone   Dudley gets his hands on the remote control for a drone and pilots it for a glorious 3 seconds. Luckily, the drone can only move directly up and down. The altitude (in meters) of the drone seconds after Dudley takes control is given as .   Derive formulas for the velocity , speed , and acceleration of the drone seconds after Dudley takes control.    Find the time intervals when the drone is ascending, and the time intervals when it is descending.    Describe the end of Dudley's flight at time seconds. Where is the drone? Did a fatal crash happen?    Compute (a) the displacement of the drone over the time interval , and (b) the total distance traveled.          We compute .    The drone ascending or descending is equivalent to the velocity being positive or negative. It will help here to factor our expression of : . From this we can easily sketch a graph of as follows:  Graph of velocity function   And from the graph of we see easily that is positive on and negative on . Thus the drone ascends for the first second, then descends for the remaining two seconds.    At time , the height of the drone is and the velocity is . This means that the downward velocity of the drone has slowed to 0 m per s upon impact. Dudley landed the drone safely, apparently!    The total displacement is given as . To compute the total distance traveled, we must separate the interval into the separate intervals where the drone ascends and descends. The basic principle here is that if movement is always in the same direction (up or down in our case) over a certain time interval, then displacement is equal to distance traveled.  Over the time interval the drone ascends from a height meters to a height of meters. Since the drone is always moving the same direction here, the total distance traveled over this time interval is meters.  Over the time interval the drone descends from a height of meters, to a height of meters. Again, since the drone is always moving in the same direction, the distance traveled over this time interval is 4 meters.  We conclude that in sum the drone has traveled a distance of meters.      "
+},
+{
+  "id": "d_marginals",
+  "level": "2",
+  "url": "s_der_rate_change.html#d_marginals",
+  "type": "Definition",
+  "number": "1.21.5",
+  "title": "Marginal cost, revenue, profit.",
+  "body": " Marginal cost, revenue, profit   Suppose the cost (in dollars) of making a product is modeled as a function of the total quantity of the good produced. The marginal cost function is defined as . Thus computes the marginal cost (in dollars per unit producion) at a current level of production : this is the rate of change of cost with respect to quantity produced at the given production level .  We get notions of marginal revenue and marginal profit by replacing the cost function above with a revenue or profit function.   "
+},
+{
+  "id": "eg_marginal",
+  "level": "2",
+  "url": "s_der_rate_change.html#eg_marginal",
+  "type": "Example",
+  "number": "1.21.6",
+  "title": "Marginals.",
+  "body": " Marginals   Suppose the cost (in dollars) for a farmer to produce barrels of milk on a given day is given by . Suppose further that farmer can charge a price of when producing barrels of milk.   Determine the marginal cost of producing 100 barrels of milk, and give an easy to understand interpretation of what this means.    Determine the marginal profit of producing 100 barrels of milk.     Estimate the change in profit that would result in going from 100 barrels a day to 103 barrels of day.          By definition, marginal cost (with respect to barrels $b$ produced) is given as . In particular, we have . This tells us that as the farmer steps milk production from barrels, the cost increases at a rate of 128 dollars per barrel.    Let be the revenue earned when producing barrels of milk, under that assumption that all barrels will be purchased. We have . Lastly, since profit is is defined as revenue minus cost, we have and thus marginal profit is . The marginal profit at a production level of 100 barrels is thus . This tells us that increasing the production from 100 barrels results in the farmer's profit decreasing at a rate of 78 dollars per barrel. What's going on here is that although revenue will increase by increasing production, the rate at which it increases is less than the rate at which cost increases.     Assuming that the rate of change of profit is constant , equal to dollars per barrel, for production levels near 100 barrels, as we increase our production from 100 barrels, the profit decreases at a constant rate of 78 dollars per barrel. Thus we estimate that profit would decrease by dollars if we increase production from 100 to 103 barrels.  The reason this is an estimate and not necessarily the exact change in profit, is that our simplifying assumption need not be the case! That is, the rate of profit is not necessarily constant as a function of . Indeed, looking at the formula above, it most definitely is not in our case! And in fact, using our formula for we can compute exactly as .      "
 },
 {
   "id": "appendix-notation",
