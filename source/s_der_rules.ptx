@@ -52,16 +52,85 @@
  Although we state the power function formula for general <m>r\in \R</m>, for now we will only make use of it when <m>r</m> is a rational number: <ie/>, <m>r=\frac{m}{n}</m>, where <m>m</m> and <m>n</m> are integers. Indeed, as of yet we have not ever defined what the expression <m>x^r</m> means for an arbitrary real number <m>r</m>. We can make sense of <m>x^5</m>, <m>x^{-7}</m>, and even <m>x^{-3/2}</m>, but what does <m>x^\pi</m> or <m>x^{\sqrt{2}}</m> mean? We will have to wait until Math 220-2 to give a precise and general definition. 
 </p>
 </remark>
-<example xml:id="eg_der_power">
-<title>Power function formula: radicals</title>
+<example xml:id="eg_power_rule_reciprocal">
+<title>Power rule: reciprocal power</title>
 <statement>
 <p>
-Let <m>f(x)=\sqrt[3]{x^2}</m>. Compute <m>f'(x)</m>. 
+Let <m>f(x)=\dfrac{1}{x^2}</m>. 
+<ol>
+    <li>
+        <p>
+            Compute <m>f'(x)</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            Compute <m>f'(-5)</m>. 
+        </p>
+    </li>
+</ol>
 </p>
 </statement>
 <solution>
 <p>
-The key is to convert the formula of <m>f</m> from radical to power form: 
+<ol>
+    <li>
+        <p>
+            The key here is to make explicit that <m>f</m> is a power function using algebra: 
+<me>
+    f(x)=\frac{1}{x^2}=x^{-2}
+</me>.
+Now it is a simple matter of applying the power function formula for the derivative: 
+<md>
+    <mrow>f'(x) \amp =\left( x^{-2}\right)'</mrow>
+    <mrow> \amp = -2x^{-2-1} \amp (\text{power func.})</mrow>
+    <mrow> \amp = -2x^{-3}</mrow>
+    <mrow> \amp =-\frac{2}{x^3}</mrow>
+</md>.
+Note that our answer was technically complete once we had <m>f'(x)=-2x^{-3}</m>. However, we usually prefer power expressions that use <em>positive</em> exponents, especially if we wish to evaluate the expression, as in the next part. 
+        </p>
+    </li>
+    <li>
+        <p>
+            We have 
+            <md>
+                <mrow>f'(-5) \amp -\frac{2}{(-5)^3}</mrow>
+                <mrow> \amp =\frac{2}{125}</mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+
+
+</p>
+</solution>
+</example>
+
+<example xml:id="eg_der_power">
+<title>Power function formula: radicals</title>
+<statement>
+<p>
+Let <m>f(x)=\sqrt[3]{x^2}</m>. 
+<ol>
+    <li>
+        <p>
+            Compute <m>f'(x)</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            Compute <m>f'(27)</m>. 
+        </p>
+    </li>
+</ol> 
+</p>
+</statement>
+<solution>
+<p>
+    <ol>
+        <li>
+            <p>
+                The key is to convert the formula of <m>f</m> from radical to power form: 
 <me>
     f(x)=(x^2)^{1/3}=x^{2/3}.
 </me>
@@ -71,8 +140,20 @@ We then use the power formula to compute the derivative:
     <mrow> \amp \frac{2}{3x^{1/3}}</mrow>
     <mrow> \amp = \frac{2}{3\sqrt[3]{x}}</mrow>
 </md>.
-Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation. 
-
+Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation. In particular, it is usually easier to evaluate the expression if it is given in radical form, as opposed to power form, as the next part illustrates.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>f'(27) \amp = \frac{2}{3\sqrt[3]{27}}</mrow>
+                    <mrow> \amp = \frac{2}{3\cdot 3} </mrow>
+                    <mrow> \amp = \frac{2}{9}</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
 </p>
 </solution>
 </example>
@@ -257,7 +338,31 @@ Compute a formula for <m>f'</m> for the given <m>f</m>.
         </p>
     </statement>
 </theorem>
-
+<principle xml:id="mantra_prod_quot">
+    <title>Never use the product/quotient rule when the scalar multiple rule will do</title>
+    <statement>
+        <p>
+            Consider the two functions 
+            <md>
+                <mrow>f(x) \amp = 5x^7 \amp g(x)\amp = \frac{8}{x^3}</mrow>
+            </md>.
+            It is true that <m>f</m> is a product of two functions, and that <m>g</m> is a quotient of two functions, and thus we <em>could</em> use the product and quotient rules, respectively, to compute their derivatives:
+            <md>
+                <mrow>f'(x) \amp =(5)'x^7+5(x^7)' \amp g'(x)\amp=\frac{(8)'x^3-8(x^3)'}{x^6}</mrow>
+                <mrow> \amp = 0+35x^6 \amp \amp = \frac{0-24x^2}{x^6}</mrow>
+                <mrow> \amp = 35x^6 \amp \amp =-\frac{24}{x^4}</mrow>
+            </md>.
+            However, there is a much easier way to compute both derivatives: namely, by dealing with the constants appearing using the <em>scalar multiple rule</em>: 
+            <md>
+                <mrow>f(x) \amp = 5x^7 \amp g(x)\amp = \frac{8}{x^3}=8x^{-3}</mrow>
+                <mrow>f'(x) \amp = (5x^7)' \amp g'(x)\amp =(8x^{-3})' </mrow>
+                <mrow>f'(x) \amp = 5(x^7)' \amp g'(x)\amp =8(x^{-3})' \amp (\text{scalar. mult. rule}) </mrow>
+                <mrow> \amp = 35x^6 \amp \amp =-24x^{-4}</mrow>
+            </md>.
+            The point here is that the product and quotient rules are involved enough that we should avoid using them whenever a simpler rule is available to us. In other words, only resort to the product/quotient rule if the the expression is a product/quotient of two <em>nonconstant</em> functions.
+        </p>
+    </statement>
+</principle>
 <definition xml:id="d_der_higher_order">
 <title>Higher order derivatives</title>
 <statement>
