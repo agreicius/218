@@ -3796,7 +3796,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.20",
   "title": "Derivative: rules",
-  "body": " Derivative: rules  We now examine how the operation of taking the derivative of a function interacts with our basic function operations: , scalar multiplication, addition, multiplication, and quotients. We will make heavy use of the Leibniz notation , which denotes the operation of taking the derivative with respect to . In this context we will either write , where is the name of a function, or else , where blah denotes some expression in . In the latter case, the expression in question is understood to define a function, with the usual implied domain convention. Thus for example denotes the derivative of the constant function ; and denotes the derivative of the identity function .   Derivative formulas: constant and power functions      Constant functions  For all we have . In other words, if is the constant function , then is the zero function defined as for all .    Identity function  We have . In other words, if is the identity function , then is the constant function defined as for all .    Power functions  Let be a real number. We have .        Power functions  Although we state the power function formula for general , for now we will only make use of it when is a rational number: , , where and are integers. Indeed, as of yet we have not ever defined what the expression means for an arbitrary real number . We can make sense of , , and even , but what does or mean? We will have to wait until Math 220-2 to give a precise and general definition.    Power rule: reciprocal power   Let .   Compute .    Compute .          The key here is to make explicit that is a power function using algebra: . Now it is a simple matter of applying the power function formula for the derivative: . Note that our answer was technically complete once we had . However, we usually prefer power expressions that use positive exponents, especially if we wish to evaluate the expression, as in the next part.    We have .        Power function formula: radicals   Let .   Compute .    Compute .          The key is to convert the formula of from radical to power form: We then use the power formula to compute the derivative: . Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation. In particular, it is usually easier to evaluate the expression if it is given in radical form, as opposed to power form, as the next part illustrates.    We have .        Derivative rules      Linear combination  For all constants , we have .    Product rule  We have .    Quotient rule  We have .       With all of our mastery of limit techniques, it turns out that the proofs of these three statements are not so difficult. We provide a proof of (1) and (2).   Proof of (1)  Assume and are differentiable at . We have .    Proof of (2)  Assume and are differentiable at . We have , where this last step uses both the definition of the derivative and the fact that , since and are continuous by .      Linear combination rule  Note that our linear combination rule for derivatives implies the following three rules: . Indeed, the first follows from taking in , the second from taking , and the third from taking and .    Product and quotient rule  The product and quotient rules for the derivative might come as somewhat of a surprise. In particular, mark well the following non-equalities : . In plain English: it is simply not the case that the derivative of a product is the product of the derivatives; and it is not the case that the derivative of a quotient is the quotient of the derivatives. This of course is in stark contrast to the product and quotient rules for the limit.    Derivative rules   Compute a formula for for the given .    , where are fixed constants.                    We compute .    We compute .    If we go straight into using derivative rules, we would have to use the product and quotient rules, which would be time consuming. Instead, realizing that powers of appear in all terms (above and below), we first do some algebraic preparation: . We can now handle the derivative computation just by using the linear combination rule and power function formulas: . For good measure, let's see what the computation looks like using just the derivative rules: . Let's stop here. We have fully computed the derivative at this point, and yet the expression doesn't look much like the first answer we got! The two expressions are indeed equal, as we now verify using some additional algebra. Starting from where we left off, we have        The first part of provides a formula for computing the derivative of a general polynomial. This is deserving of an official result.   Derivative: polynomials   Given a polynomial , where are fixed constants, we have .     Never use the product\/quotient rule when the scalar multiple rule will do   Consider the two functions . It is true that is a product of two functions, and that is a quotient of two functions, and thus we could use the product and quotient rules, respectively, to compute their derivatives: . However, there is a much easier way to compute both derivatives: namely, by dealing with the constants appearing using the scalar multiple rule : . The point here is that the product and quotient rules are involved enough that we should avoid using them whenever a simpler rule is available to us. In other words, only resort to the product\/quotient rule if the the expression is a product\/quotient of two nonconstant functions.     Higher order derivatives   Let be a function with derivative . Continuing to compute derivatives in succession yields the higher order derivatives of . In particular, the second derivative is defined as , and denoted as or ; and the third derivative is defined as , and is denoted or .  More generally, for any , the -th derivative of is the result of applying the derivative operation times in succession, and is denoted or      Higher-order derivatives   Let . Compute formulas for , , and .    We compute the derivatives in succession: .    "
+  "body": " Derivative: rules  We now examine how the operation of taking the derivative of a function interacts with our basic function operations: , scalar multiplication, addition, multiplication, and quotients. We will make heavy use of the Leibniz notation , which denotes the operation of taking the derivative with respect to . In this context we will either write , where is the name of a function, or else , where blah denotes some expression in . In the latter case, the expression in question is understood to define a function, with the usual implied domain convention. Thus for example denotes the derivative of the constant function ; and denotes the derivative of the identity function .   Derivative formulas: constant and power functions      Constant functions  For all we have . In other words, if is the constant function , then is the zero function defined as for all .    Identity function  We have . In other words, if is the identity function , then is the constant function defined as for all .    Power functions  Let be a real number. We have .        Power functions  Although we state the power function formula for general , for now we will only make use of it when is a rational number: , , where and are integers. Indeed, as of yet we have not ever defined what the expression means for an arbitrary real number . We can make sense of , , and even , but what does or mean? We will have to wait until Math 220-2 to give a precise and general definition.    Power function formula: radicals   Let . Compute .    The key is to convert the formula of from radical to power form: We then use the power formula to compute the derivative: . Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation.     Derivative rules      Linear combination  For all constants , we have .    Product rule  We have .    Quotient rule  We have .       With all of our mastery of limit techniques, it turns out that the proofs of these three statements are not so difficult. We provide a proof of (1) and (2).   Proof of (1)  Assume and are differentiable at . We have .    Proof of (2)  Assume and are differentiable at . We have , where this last step uses both the definition of the derivative and the fact that , since and are continuous by .      Linear combination rule  Note that our linear combination rule for derivatives implies the following three rules: . Indeed, the first follows from taking in , the second from taking , and the third from taking and .    Product and quotient rule  The product and quotient rules for the derivative might come as somewhat of a surprise. In particular, mark well the following non-equalities : . In plain English: it is simply not the case that the derivative of a product is the product of the derivatives; and it is not the case that the derivative of a quotient is the quotient of the derivatives. This of course is in stark contrast to the product and quotient rules for the limit.    Derivative rules   Compute a formula for for the given .    , where are fixed constants.                    We compute .    We compute .    If we go straight into using derivative rules, we would have to use the product and quotient rules, which would be time consuming. Instead, realizing that powers of appear in all terms (above and below), we first do some algebraic preparation: . We can now handle the derivative computation just by using the linear combination rule and power function formulas: .       The first part of provides a formula for computing the derivative of a general polynomial. This is deserving of an official result.   Derivative: polynomials   Given a polynomial , where are fixed constants, we have .     Higher order derivatives   Let be a function with derivative . Continuing to compute derivatives in succession yields the higher order derivatives of . In particular, the second derivative is defined as , and denoted as or ; and the third derivative is defined as , and is denoted or .  More generally, for any , the -th derivative of is the result of applying the derivative operation times in succession, and is denoted or      Higher-order derivatives   Let . Compute formulas for , , and .    We compute the derivatives in succession: .    "
 },
 {
   "id": "th_der_formulas_basic",
@@ -3817,31 +3817,31 @@ var ptx_lunr_docs = [
   "body": " Power functions  Although we state the power function formula for general , for now we will only make use of it when is a rational number: , , where and are integers. Indeed, as of yet we have not ever defined what the expression means for an arbitrary real number . We can make sense of , , and even , but what does or mean? We will have to wait until Math 220-2 to give a precise and general definition.  "
 },
 {
-  "id": "eg_power_rule_reciprocal",
-  "level": "2",
-  "url": "s_der_rules.html#eg_power_rule_reciprocal",
-  "type": "Example",
-  "number": "1.20.3",
-  "title": "Power rule: reciprocal power.",
-  "body": " Power rule: reciprocal power   Let .   Compute .    Compute .          The key here is to make explicit that is a power function using algebra: . Now it is a simple matter of applying the power function formula for the derivative: . Note that our answer was technically complete once we had . However, we usually prefer power expressions that use positive exponents, especially if we wish to evaluate the expression, as in the next part.    We have .      "
-},
-{
   "id": "eg_der_power",
   "level": "2",
   "url": "s_der_rules.html#eg_der_power",
   "type": "Example",
-  "number": "1.20.4",
+  "number": "1.20.3",
   "title": "Power function formula: radicals.",
-  "body": " Power function formula: radicals   Let .   Compute .    Compute .          The key is to convert the formula of from radical to power form: We then use the power formula to compute the derivative: . Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation. In particular, it is usually easier to evaluate the expression if it is given in radical form, as opposed to power form, as the next part illustrates.    We have .      "
+  "body": " Power function formula: radicals   Let . Compute .    The key is to convert the formula of from radical to power form: We then use the power formula to compute the derivative: . Note that the last two steps, strictly speaking, are unnecessary for this exercise, since no specific instructions were given regarding the form of the final answer. However, it is good to get in the habit of converting fluently between power and radical notation.   "
 },
 {
   "id": "th_der_rules",
   "level": "2",
   "url": "s_der_rules.html#th_der_rules",
   "type": "Theorem",
-  "number": "1.20.5",
+  "number": "1.20.4",
   "title": "Derivative rules.",
   "body": " Derivative rules      Linear combination  For all constants , we have .    Product rule  We have .    Quotient rule  We have .       With all of our mastery of limit techniques, it turns out that the proofs of these three statements are not so difficult. We provide a proof of (1) and (2).   Proof of (1)  Assume and are differentiable at . We have .    Proof of (2)  Assume and are differentiable at . We have , where this last step uses both the definition of the derivative and the fact that , since and are continuous by .    "
+},
+{
+  "id": "s_der_rules-7",
+  "level": "2",
+  "url": "s_der_rules.html#s_der_rules-7",
+  "type": "Remark",
+  "number": "1.20.5",
+  "title": "Linear combination rule.",
+  "body": " Linear combination rule  Note that our linear combination rule for derivatives implies the following three rules: . Indeed, the first follows from taking in , the second from taking , and the third from taking and .  "
 },
 {
   "id": "s_der_rules-8",
@@ -3849,15 +3849,6 @@ var ptx_lunr_docs = [
   "url": "s_der_rules.html#s_der_rules-8",
   "type": "Remark",
   "number": "1.20.6",
-  "title": "Linear combination rule.",
-  "body": " Linear combination rule  Note that our linear combination rule for derivatives implies the following three rules: . Indeed, the first follows from taking in , the second from taking , and the third from taking and .  "
-},
-{
-  "id": "s_der_rules-9",
-  "level": "2",
-  "url": "s_der_rules.html#s_der_rules-9",
-  "type": "Remark",
-  "number": "1.20.7",
   "title": "Product and quotient rule.",
   "body": " Product and quotient rule  The product and quotient rules for the derivative might come as somewhat of a surprise. In particular, mark well the following non-equalities : . In plain English: it is simply not the case that the derivative of a product is the product of the derivatives; and it is not the case that the derivative of a quotient is the quotient of the derivatives. This of course is in stark contrast to the product and quotient rules for the limit.  "
 },
@@ -3866,34 +3857,25 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_der_rules.html#eg_der_rules",
   "type": "Example",
-  "number": "1.20.8",
+  "number": "1.20.7",
   "title": "Derivative rules.",
-  "body": " Derivative rules   Compute a formula for for the given .    , where are fixed constants.                    We compute .    We compute .    If we go straight into using derivative rules, we would have to use the product and quotient rules, which would be time consuming. Instead, realizing that powers of appear in all terms (above and below), we first do some algebraic preparation: . We can now handle the derivative computation just by using the linear combination rule and power function formulas: . For good measure, let's see what the computation looks like using just the derivative rules: . Let's stop here. We have fully computed the derivative at this point, and yet the expression doesn't look much like the first answer we got! The two expressions are indeed equal, as we now verify using some additional algebra. Starting from where we left off, we have       "
+  "body": " Derivative rules   Compute a formula for for the given .    , where are fixed constants.                    We compute .    We compute .    If we go straight into using derivative rules, we would have to use the product and quotient rules, which would be time consuming. Instead, realizing that powers of appear in all terms (above and below), we first do some algebraic preparation: . We can now handle the derivative computation just by using the linear combination rule and power function formulas: .      "
 },
 {
   "id": "th_der_poly",
   "level": "2",
   "url": "s_der_rules.html#th_der_poly",
   "type": "Theorem",
-  "number": "1.20.9",
+  "number": "1.20.8",
   "title": "Derivative: polynomials.",
   "body": " Derivative: polynomials   Given a polynomial , where are fixed constants, we have .   "
-},
-{
-  "id": "mantra_prod_quot",
-  "level": "2",
-  "url": "s_der_rules.html#mantra_prod_quot",
-  "type": "Dictum",
-  "number": "1.20.10",
-  "title": "Never use the product\/quotient rule when the scalar multiple rule will do.",
-  "body": " Never use the product\/quotient rule when the scalar multiple rule will do   Consider the two functions . It is true that is a product of two functions, and that is a quotient of two functions, and thus we could use the product and quotient rules, respectively, to compute their derivatives: . However, there is a much easier way to compute both derivatives: namely, by dealing with the constants appearing using the scalar multiple rule : . The point here is that the product and quotient rules are involved enough that we should avoid using them whenever a simpler rule is available to us. In other words, only resort to the product\/quotient rule if the the expression is a product\/quotient of two nonconstant functions.   "
 },
 {
   "id": "d_der_higher_order",
   "level": "2",
   "url": "s_der_rules.html#d_der_higher_order",
   "type": "Definition",
-  "number": "1.20.11",
+  "number": "1.20.9",
   "title": "Higher order derivatives.",
   "body": " Higher order derivatives   Let be a function with derivative . Continuing to compute derivatives in succession yields the higher order derivatives of . In particular, the second derivative is defined as , and denoted as or ; and the third derivative is defined as , and is denoted or .  More generally, for any , the -th derivative of is the result of applying the derivative operation times in succession, and is denoted or    "
 },
@@ -3902,7 +3884,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_der_rules.html#eg_higher_ders",
   "type": "Example",
-  "number": "1.20.12",
+  "number": "1.20.10",
   "title": "Higher-order derivatives.",
   "body": " Higher-order derivatives   Let . Compute formulas for , , and .    We compute the derivatives in succession: .   "
 },
