@@ -186,7 +186,46 @@
     </statement>
     <solution>
     <p>
-    
+    <ol>
+        <li>
+            <p>
+                We will show that <m>f</m> is differentiable at all points except <m>a=0</m>. 
+            </p>
+            <p>
+             Since <m>f(x)=\abs{x}=x</m> for all positive <m>x</m>, it follows that 
+             <me>
+                f'(x)=\frac{d}{dx}(x)=1
+             </me>
+             for all <m>x\gt; 0</m>, and hence that <m>f'(a)=1</m> for all <m>a&gt; 0</m>. In particular, we see that <m>f</m> is differentiable at all positive points <m>a&gt; 0</m>. 
+            </p>
+            <p>
+                A similar argument shows that <m>f'(a)=-1</m> for all <m>a&lt; 0</m>, and in particular that <m>f</m> is differentiable at all points <m>a&lt; 0</m>. 
+            </p>
+            <p>
+            To show that <m>f</m> is not differentiable at <m>a=0</m>, we show that the limit 
+            <me>
+                \lim\limits_{h\to 0}\frac{f(0+h)-f(0)}{h}
+            </me>
+            does not exist; and we do so by showing that the left and right limits are not equal. Indeed we have 
+            <md>
+                <mrow>\lim\limits_{h\to 0^+}\frac{f{0+h}-f(0)}{h}\amp =\lim\limits_{h\to 0^+}\frac{\abs{h}}{h}</mrow>
+                <mrow> \amp = \lim\limits_{h\to 0^+}\frac{h}{h} \amp (h&gt; 0)</mrow>
+                <mrow> \amp = \lim\limits_{h\to 0^+}1=1</mrow>
+            </md>
+            and
+            <md>
+                <mrow>\lim\limits_{h\to 0^-}\frac{\abs{0+h}-f(0)}{h}\amp =\lim\limits_{h\to 0^-}\frac{-h}{h}</mrow>
+                <mrow> \amp = \lim\limits_{h\to 0^-}-1=-1</mrow>
+            </md>.
+            Since the left and right limits do not exist, we see that the limit <m>\lim\limits_{h\to 0}\frac{f(0+h)-f(0)}{h}</m> does not exist, and hence that <m>f</m> is not differentiable at <m>a=0</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Geometrically, we see that <m>f(x)=\abs{x}</m> is not differentiable at <m>a=0</m>, as its graph has a corner point there. More precisely, there is no well-defined tangent line to the graph of <m>f</m> at <m>a=0</m>. Indeed, approaching <m>a=0</m> from the left, suggests that a tangent line at <m>a=0</m> would have equation <m>y=-x</m>; whereas approaching from the right, suggests the tangent line would have equation <m>y=x</m>. 
+            </p>
+        </li>
+    </ol>
     </p>
     </solution>
     </example>
@@ -199,7 +238,21 @@
     </statement>
     <solution>
     <p>
-    
+    We claim that <m>f'(x)</m> exists for all <m>x\ne 0</m> and thus that the domain of <m>f'</m> is 
+    <me>
+        \{x\in \R\mid x\ne 0\}=(-\infty, 0)\cup (0,\infty)
+    </me>.
+    (Note that we do not consider differentiability at <m>x=0</m> since <m>f</m> is not defined there.)
+    Indeed, for any <m>x\ne 0</m>, we will show that <m>f'(x)=-1/x^2</m>: 
+    <md>
+        <mrow>f'(x) \amp = \lim\limits_{h\to 0}\frac{f(x+h)-f(x)}{h}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0}\frac{\frac{x-(x+h)}{x(x+h)}}{h}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0}\frac{-h}{h\, x(x+h)}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0}-\frac{1}{x(x+h)}</mrow>
+        <mrow> \amp = -\frac{1}{x\cdot x} \amp \text{(alg. eval.)}</mrow>
+        <mrow> \amp = -\frac{1}{x^2}</mrow>
+    </md>.
     </p>
     </solution>
     </example>
