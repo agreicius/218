@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_chain" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Chain rule</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Understand and apply the chain rule for computing derivatives of compositions of functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Incorporate the chain rule with our existing rules and formulas to compute derivatives of complicated functions. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <p>
+        Our current list of <xref ref="th_der_rules" text="custom">derivative rules</xref> take into account how the derivative operation interacts with various function arithmetic operations: <eg/>, addition, scalar multiplication, product, quotient. We round out this discussion by considering another very important function operation: namely, function composition. 
+    </p>
+    <theorem xml:id="th_chain_rule">
+        <title>Chain rule</title>
+        
+        <statement>
+           <p>
+           Assume that the function <m>f</m> is defined as the composition of the functions <m>g</m> and <m>u</m>, so that <m>f(x)=g(u(x))</m>. If <m>u</m> is differentiable at <m>x</m>, and <m>g</m> is differentiable at <m>u(x)</m>, then <m>f</m> is differentiable at <m>x</m>, and we have 
+           <mdn>
+            <mrow xml:id="eq_chain_u">f'(x) \amp = g'(u(x))u'(x)</mrow>
+           </mdn>.
+           Alternatively, using Leibniz notation, we have 
+           <mdn>
+            <mrow xml:id="eq_chain_Leib">\frac{df}{dx} \amp = \frac{df}{du}\frac{du}{dx}</mrow>
+           </mdn>.
+        </p>
+        </statement>
+    </theorem>
+    <p>
+        The main difficulty in using the chain rule is being able to recognize how a given function <m>f</m> can be described as a composition of functions <m>f(x)=g(u(x))</m>. The procedure below is designed to help you identify the inner function <m>u</m> in this representation. You do not need to use it when computing derivatives with the chain rule, but it may help you get the hang of this technique. See the first computation in <xref ref="eg_chain_rules"/> for an illustration of <xref ref="proc_chain"/>. 
+    </p>
+    <algorithm xml:id="proc_chain">
+        <title>Chain rule</title>
+        <statement>
+            <p>
+              To compute the derivative of a function <m>f</m> that is built from other functions using composition, proceed as follows. 
+              <ol>
+                <li>
+                    <title>Identify inner function</title>
+                    <p>
+                        Identify a function <m>u=u(x)</m> so that <m>f(x)=g(u(x))</m> for some function <m>g</m>. The function <m>u(x)</m> might be easily identified as an <q>inner function</q>, or may be a common expression that appears in the definition of <m>f</m>. 
+                    </p>
+                </li>
+                <li>
+                    <title>Assemble ingredients</title>
+                    <p>
+                        Compute 
+                        <md>
+                            <mrow>\frac{dg}{du} \amp = g'(u)</mrow>
+                            <mrow>\frac{du}{dx} \amp = u'(x)</mrow>
+                        </md>,
+                        where <m>g'(u)</m> is computed treating <m>u</m> simply as a new variable name.
+                    </p>
+                </li>
+                <li>
+                    <title>Use chain rule</title>
+                    <p>
+                        Compute 
+                        <md>
+                            <mrow>f'(x) \amp = g'(u) u'(x)</mrow>
+                            <mrow> \amp = g'(u(x))u'(x)</mrow>
+                        </md>,
+                        making sure to leave your final answer entirely in terms of <m>x</m>. 
+                    </p>
+                </li>
+              </ol>  
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_chain_rules">
+    <title>Chain rule</title>
+    <statement>
+    <p>
+        Compute the derivative of the given function. Your answer should be a chain of equalities with steps justified. 
+        <ol>
+            <li>
+                <p>
+                    <m>h(s)=\sqrt{3s^2+1}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>f(x)=\frac{1}{x^2+2x+3}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>g(x)=\sqrt{\sqrt{x}}</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>f(t)=(t^3-t+1)^{100}\sqrt{t^2+t+1}</m>
+                </p>
+            </li>
+        </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                We will illustrate <xref ref="proc_chain"/> for this example. We declare 
+                <me>
+                    u=3s^2+1
+                </me>,
+                from whence we have 
+                <md>
+                    <mrow>f(s) \amp = \sqrt{u}</mrow>
+                    <mrow>u'(s) \amp = 6s</mrow>
+                </md>.
+                We now compute 
+                <md>
+                    <mrow>f'(s) \amp = \frac{d}{du}(\sqrt{u})\cdot u'(s) \amp \text{(chain rule)}</mrow>
+                    <mrow> \amp = \frac{1}{2\sqrt{u}}\cdot 6s</mrow>
+                    <mrow> \amp = \frac{3s}{\sqrt{3s^2+1}}</mrow>
+                </md>.
+                Note that we are careful to leave our final answer entirely in terms of the original variable. 
+            </p>
+        </li>
+        <li>
+            <p>
+                That this is a chain rule computation is more clearly seen after a little algebra: 
+                <me>
+                    f(x)=\frac{1}{x^2+2x+3}=(x^2+2x+3)^{-1}
+                </me>.
+                Thus we have <m>f(x)=\frac{1}{u}</m>, where <m>u=x^2+2x+3</m>. Following <xref ref="proc_chain"/>, we have 
+        
+                <md>
+                    <mrow>f'(x) \amp = \frac{d}{du}\left(\frac{1}{u}\right)\cdot u'(x) </mrow>
+                    <mrow> \amp =   (-1)(u)^{-2}\cdot (X^2+2X+3)' \amp </mrow>
+                    <mrow> \amp = -(x^2+2x+3)^{-2}(2x+2)</mrow>
+                    <mrow> \amp = -\frac{2x+2}{(x^2+2x+3)^2}</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have <m>g(x)=\sqrt{u}</m>, where <m>u=\sqrt{x}</m>. Using the chain rule, we thus have 
+                <md>
+                    <mrow>g'(x) \amp =\frac{d}{du}(\sqrt{u})\cdot u'(x)</mrow>
+                    <mrow> \amp = \frac{1}{2\sqrt{u}}\cdot \frac{1}{2\sqrt{x}} \amp (\frac{d}{dx}(\sqrt{x})=1/(2\sqrt{x}))</mrow>
+                    <mrow> \amp = \frac{1}{2\sqrt{\sqrt{x}}}\cdot \frac{1}{2\sqrt{x}}</mrow>
+                    <mrow> \amp =\frac{1}{4\sqrt{x\sqrt{x}}}</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Here we must use the chain rule and the product rule. Let <m>g(t)=(t^3-t+1)^{100}</m> and <m>h(t)=\sqrt{t^2+t+1}</m>. We have 
+                <md>
+                    <mrow>f'(t) \amp =g'(t)h(t)+g(t)h'(t)</mrow>
+                    <mrow> \amp = 100(t^3-t+1)^{99}(t^3-t+1)'h(t)+g(t)\cdot \frac{1}{2\sqrt{t^2+t+1}}\cdot (t^2+t+1)</mrow>
+                    <mrow> \amp = 100(t^3-t+1)^{99}(3t^2-1)\sqrt{t^2+t+1}</mrow>
+                    <mrow> \amp + (t^3-t+1)^{100}\cdot \frac{2t+1}{2\sqrt{t^2+t+1}}</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <remark>
+        <title><q>Blah formulation</q> of the chain rule</title>
+        <p>
+            The main purpose of <xref ref="proc_chain"/> is to give you a streamlined, procedural way of identifying a function as a composition of an inner function <m>u</m> and outer function <m>g</m>, and then applying the chain rule appropriately. As you get more accustomed to these computations, you may be able proceed more fluidly. A slightly more casual approach might be described as the <q>blah formulation</q> of the chain rule. Here is how it works: 
+            <ul>
+                <li>
+                    <p>
+                        We describe a function of the form <m>f(x)=g(u(x))</m> as <q><m>g</m>-of-blah</q>, where <q>blah</q> stands for <m>u(x)</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We remember the chain rule 
+                        <me>
+                            f'(x)=g(u(x))u'(x)
+                        </me>
+                        by reciting its <em>blah formulation</em>: the derivative of <m>g</m>-of-blah is the derivative of <m>g</m>, evaluated at blah, times the derivative of blah.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The computation is finished by computing the derivative of <m>g</m>, evaluating this at blah, and multiplying by the derivative of blah. 
+                    </p>
+                </li>
+            </ul>
+        Consider the application of the chain rule formula to <m>f(x)=\sqrt{x^2+1}</m>. We consider this function as the square root of blah, where blah is <m>x^2+1</m>. The chain rule then says the derivative of <m>f</m> should be the derivative of the square root function, evaluated at blah, times the derivative of blah. This yields 
+        <me>
+            f'(x)=\frac{1}{2\sqrt{x^2+1}}\cdot (2x)=\frac{x}{\sqrt{x^2+1}}
+        </me>.
+        </p>
+    </remark>
+    <remark>
+        <title>Chain rule enhanced formulas</title>
+        <p>
+        Using the chain rule in combination of our existing derivative formulas, leads to simple generalizations of these formulas where we replace the variable <m>x</m> with an arbitrary differentiable function <m>u(x)</m>. We call these <q>chain rule enhanced formulas</q>. 
+    </p>
+    <p>
+        For example, starting with the power formula 
+        <me>
+            \frac{d}{dx}(x^r)=rx^{r-1}
+        </me>,
+        replacing <m>x</m> with an arbitrary differentiable function <m>u=u(x)</m>, and using the chain rule, we obtain the chain rule enhanced formula 
+        <men xml:id="eq_chain_power">
+            \frac{d}{dx} u^r=ru^{r-1}\cdot u'(x)
+        </men>.
+        We can expressed the formula <xref ref="eq_chain_power"/> using our blah formulation of the chain rule as follows:
+        <me>
+            \text{the derivative of blah-to-the-r, is r times blah-to-the-(r-1), times the derivative of blah}
+        </me>.
+        We get various <m>n</m>-th root derivative formulas by setting <m>r=1/n</m> for various values of <m>n</m>. For example we have 
+        <mdn>
+            <mrow>\frac{d}{dx}\sqrt{u} \amp =\frac{1}{2\sqrt{u}}\cdot u'(x)=\frac{u'(x)}{2\sqrt{u}}</mrow>
+            <mrow>\frac{d}{dx}\sqrt[3]{u} \amp = \frac{1}{3\sqrt[3]{u^2}}\cdot u'(x)=\frac{u'(x)}{3\sqrt[3]{u^2}}</mrow>
+        </mdn>, 
+        and more generally 
+        <men xml:id="eq_chain_nth_root">
+            \frac{d}{dx}\sqrt[n]{u}=\frac{1}{n\sqrt[n]{u^{n-1}}}\cdot u'(x)=\frac{u'(x)}{n\sqrt[n]{u^{n-1}}}
+        </men>.
+        Similarly, for <m>n=1,2,\dots</m>, we have 
+        <men xml:id="eq_chain_recip_power">
+            \frac{d}{dx}\frac{1}{u^n}=-\frac{1}{nu^{n+1}}\cdot u'(x)=-\frac{u'(x)}{nu^{n+1}}
+        </men>.
+        
+    </p>
+        
+    </remark>
+    <p>
+        We end this section with an application of the chain to a physical setting, where we investigate the rate of change of volume of an inflating balloon. Not surprisingly this depends both on the current radius of the balloon, and how fast that radius itself is expanding. The chain rule makes this observation much more precise! This is a first example of what is called a <em>related rates</em> problem. We will see more of these in <xref ref="s_related_rates_I"/>. 
+    </p>
+    <example xml:id="eg_chain_spher_balloon">
+    <title>Inflating a balloon</title>
+    <statement>
+    <p>
+    The volume <m>V</m> (in cm<m>^3</m>) of a spherical inflatable balloon is computed as <m>V=\frac{4}{3}\pi r^3</m>, where <m>r</m> is the radius of the balloon (in cm). 
+    <ol>
+        <li>
+            <p>
+                Compute the rate of change of the volume <m>V</m> with respect to the radius <m>r</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Suppose now that while inflating the balloon, the radius <m>r</m> is given by the function <m>r=h(t)</m>. Compute the rate of change of <m>V</m> with respect to <m>t</m>. Leave your answer in terms of <m>h</m> and <m>h'</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\frac{dV}{dr} \amp =\frac{4}{3}\pi \frac{d}{dr}(r^3) \amp \text{(scal. mult.)}</mrow>
+                    <mrow> \amp = 4\pi\, r^2 </mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                When <m>r=h(t)</m> is a function of time, the volume <m>V</m> of the ballon is also a function of time:
+                <me>
+                    V=V(t)=\frac{4}{3}\pi r^3=\frac{4}{3}\pi (h(t))^3
+                </me>.
+                Using the chain rule, we have 
+                <md>
+                    <mrow>\frac{dV}{dt} \amp = \frac{4}{3}\pi \frac{d}{dt}((h(t)^3)' \amp \text{(scal. mult.)}</mrow>
+                    <mrow> \amp =\frac{4}{3}\pi \cdot 3 (h(t))^2\, h'(t) \amp \text{(chain)}</mrow>
+                    <mrow> \amp =\underset{\frac{dV}{dr}}{\underbrace{4\pi r^2}}\cdot \underset{\frac{dr}{dt}}{\underbrace{h'(t)}} </mrow>
+                </md>.
+                We thus see that at any given time <m>t_0</m>, the rate of change with respect to <m>t</m> is the product of the rate of change of volume with respect to <m>r</m> for the radius value at <m>t_0</m> (<ie/>, for <m>r_0=h(t_0)</m>) and the rate of change of <m>r</m> with respect to time at that time <m>t_0</m>. (Of course this is just as the chain rule predicts: $\frac{dV}{dt}=\frac{dV}{dr}\cdot \frac{dr}{dt}$.) This makes general sense, physically. The rate of change of the radius is acting as a multiplier for the rate of change of the volume with respect to <m>t</m>: in particular the greater the rate at which the radius increases, the greater the rate at which the volume increases. 
+            </p>
+        </li>
+        
+    </ol>
+    </p>
+    </solution>
+    </example>
+    
+    
+    
+
+</section>

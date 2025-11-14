@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_implicit" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Implicit differentiation</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Explore the connection between curves, graphs of equations, and graphs of functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Identify points on curves near which the graph of the curve can be <em>implicitly</em> realized as the graph of a function. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the technique of implicit differentiation to deduce facts about derivatives of implicitly defined functions.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand the role of the chain rule in the technique of implicit differentiation. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use implicit differentiation to deduce geometric properties of graphs of equations. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <p>
+        We begin this section with some simple observations about curves <m>\mathcal{C}</m> in <m>\R^2</m>. Currently our main way of defining such a curve is as the graph of an equation. For example, let <m>\mathcal{C}</m> be the unit circle centered at the origin is defined as the graph of the equation 
+        <me>
+            x^2+y^2=1
+        </me>. 
+        That is, <m>\mathcal{C}</m> is the set of all points <m>P=(x,y)</m> satisfying <m>x^2+y^2=1</m>. We call this an <em>implicit</em> description of the circle <m>\mathcal{C}</m> as its points are not given to us <em>explicitly</em> via some formula; rather, to produce actual points on <m>\mathcal{C}</m> it is up to us to find solutions to the equation (<eg/>, <m>P=(-1,0)</m>, <m>Q=(\sqrt{2}/2, \sqrt{2}/2)</m>). 
+    </p>
+        <figure xml:id="fig_graph_circle">
+            <caption>Graph of <m>x^2+y^2=1</m></caption>
+            <image xml:id="im_graph_circle" width="50%">
+                <shortdescription>Graph of unit circle</shortdescription>
+                <sageplot>
+                var('x y')
+                C=implicit_plot(x^2+y^2-1,(x,-1.2,1.2),(y,-1.2,1.2))
+                P=point((-1,0),size=50, color='red')
+                Q=point((sqrt(2)/2, sqrt(2)/2),size=50, color='red')
+                t1=text(r"$Q$",(.8,.8),fontsize=16, color="black")
+                t2=text(r"$P$",(-1.1,.2),fontsize=16, color="black")
+                C+P+Q+t1+t2
+                </sageplot>
+            </image>
+        </figure>
+    <p>
+        A similar way of defining a curve in <m>\R^2</m> is as the graph of a <em>function</em>. In other words, given a function <m>f\colon D\rightarrow \R</m>, we define its graph to be the curve <m>\mathcal{C}</m> consisting of all points of the form <m>P=(x,f(x))</m>, where <m>x\in D</m>.  Note that this description gives an explicit formula for producing points on the curve: namely, given any <m>a</m> in the domain, the point <m>P=(a,f(a))</m> lies on the graph. 
+    </p>
+    <figure xml:id="fig_graph_fun">
+        <caption>Graph of the function <m>f(x)=x^2</m></caption>
+        <image xml:id="im_graph_fun" width="50%">
+            <shortdescription>Graph of function x squared</shortdescription>
+            <sageplot>
+            C=plot(x^2,x,-2,2)
+            C
+            </sageplot>
+        </image>
+    </figure>
+    <p>
+        The graph of a <em>function</em> can also be understood as the graph of an <em>equation</em>: indeed, the set of points of the form <m>P=(x,f(x))</m> are precisely the the set of solutions <m>(x,y)</m> to the equation
+        <me>
+            y=f(x)
+        </me>.
+        In other words, all curves that are graphs of functions can also be thought of as 
+        graphs of equations. However, not all graphs of equations are graphs of functions! Indeed, our circle above is an example of a curve that is a graph of an equation, but not the graph of a function. How do I know? It fails the vertical line test!
+    </p>
+    <p>
+        Life is somewhat easier for us when a curve does happen to given as the graph of a function. For example, in this scenario, we have a systematic way of determining what the tangent line to a given point is. That technique is not in general available to us for the circle <m>x^2+y^2=1</m>, as that curve is not the graph of any function <m>f</m>. So how can we answer questions about tangent lines to that curve. The next example illustrates a technique that we call <em>implicit differentiation</em>. We give a formal description of the technique in <xref ref="proc_implicit_diff"/>. 
+    </p>
+    <example xml:id="eg_implicit_circle">
+    <title>Implicit differentiation: circle</title>
+    <statement>
+    <p>
+        Use implicit differentiation to compute an equation of the tangent line to the circle <m>\mathcal{C}\colon x^2+y^2=1</m> at the point <m>P=\left(-\frac{1}{3}, \frac{2\sqrt{2}}{3}\right)</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+        The segment of <m>\mathcal{C}</m> consisting of points lying very close to <m>P</m> does pass the vertical line test, and thus we can think of the <m>y</m>-coordinate value of points on this segment as being given by a function <m>y=y(x)</m> of the <m>x</m>-coordinate. The slope of the tangent line to <m>\mathcal{C}</m> at <m>P</m> is then given by <m>y'(-1/3)</m>. In order to deduce information about <m>y'(x)</m> we take the derivative of both sides of the defining equation of <m>\mathcal{C}</m>, making sure to treat <m>y</m> not as an independent variable, but rather a function of <m>x</m>: 
+        <md>
+            <mrow>x^2+(y(x))^2=1 \amp \implies \frac{d}{dx}(x^2+(y(x))^2)=\frac{d}{dx}(1) </mrow>
+            <mrow> \amp \implies 2x+2 y(x) y'(x)=0 \amp \text{(chain rule)}</mrow>
+            <mrow> \amp \implies y'(x)=-\frac{x}{y(x)}</mrow>
+        </md>.
+        Evaluating the last equation at <m>x=-1/3</m>, we conclude that 
+        <md>
+            <mrow>y'(-1/3) \amp = -\frac{-1/3}{y(-1/3)}</mrow>
+            <mrow> \amp = -\frac{-1/3}{2\sqrt{2}/3}</mrow>
+            <mrow> \amp = \frac{1}{2\sqrt{2}}</mrow>
+            <mrow> \amp =\frac{\sqrt{2}}{4}</mrow>
+        </md>.
+        Note that <m>y(-1/3)=2\sqrt{2}/3</m> since by definition <m>y(-1/3)</m> is the <m>y</m>-coordinate  of the point <m>P=(-1/3, 2\sqrt{2}/3)</m>. 
+    </p>
+    <p>
+        We conclude that the tangent line to <m>\mathcal{C}</m> at <m>P</m> has slope <m>y'(-1/3)=\sqrt{2}/4</m>. Thus 
+        <me>
+            y-\frac{2\sqrt{2}}{3}=\frac{\sqrt{2}}{4}(x+1/3)
+        </me>. Below you find a graph of <m>\mathcal{C}</m> and the tangent line to <m>P</m>. 
+    </p>
+        <image xml:id="im_graph_circle_eg" width="50%">
+            <shortdescription>Graph of unit circle</shortdescription>
+            <sageplot>
+            var('x y')
+            C=implicit_plot(x^2+y^2-1,(x,-1.2,1.2),(y,-1.2,1.2))
+            P=point((-1/3,sqrt(8)/3),size=50, color='red')
+            t2=text(r"$P$",(-.4,1),fontsize=16, color="black")
+            L=plot((x+1/3)/sqrt(8)+sqrt(8)/3,(x,-1,1/2),color="green")
+            C+P+t2+L
+            </sageplot>
+        </image>
+    
+    </solution>
+    </example>
+    <p>
+        We formalize our reasoning in <xref ref="eg_implicit_circle"/> with a procedure. 
+    </p>
+    <algorithm xml:id="proc_implicit_diff">
+        <title>Implicit differentiation</title>
+        <statement>
+            <p>
+                Suppose <m>\mathcal{C}</m> is a curve in <m>\R^2</m> defined by an equation of the form 
+                <men xml:id="eq_implicit">
+                    F_1(x,y)=F_2(x,y)
+                </men>,
+                and let <m>P=(a,b)</m> be a point on <m>\mathcal{C}</m> such that near <m>P</m> the curve <m>\mathcal{C}</m> satisfies the vertical line test.
+                <ol>
+                    <li>
+                        <p>
+                            We can think of the portion of <m>\mathcal{C}</m> near <m>P</m> as the graph of an implicit function <m>y=f(x)</m> relating <m>y</m> as a function of <m>x</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Under the assumption in (1), we can compute the derivative of this implicit function <m>f</m> at <m>x=a</m> as follows:
+                            <ul>
+                                <li>
+                                    <p>
+                                        Replace (mentally or explicitly) each instance of <m>y</m> in <xref ref="eq_implicit"/> with <m>y(x)</m>, to emphasize that we now treat <m>y</m> as a function of <m>x</m>. 
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Take the derivative of both sides of <xref ref="eq_implicit"/>, with respect to <m>x</m>, taking care to treat <m>y=y(x)</m> as a function of <m>x</m>. You will make frequent use of the chain rule, as well as potentially the product and quotient rules, when doing so.  
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Attempt to solve for <m>y'(x)</m> in terms of <m>x</m> and <m>y</m>, yielding an expression of the form 
+                                        <me>
+                                            f'(x)=y'(x)=G(x, y(x))
+                                        </me>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Compute
+                                        <me>
+                                            f'(a)=y'(a)=G(a,y(a))=G(a,b)
+                                        </me>.
+                                        
+                                    </p>
+                                </li>
+                            </ul>  
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_implicit_Ts">
+    <title>Tschirnhausen cubic</title>
+    <statement>
+    <p>
+    The curve <m>\mathcal{C}</m> defined by the equation <m>x^2=y^3+3y^2</m> is called Tschirnhausen's cubic. 
+    <ol>
+        <li>
+            <p>
+                Verify that <m>P=(2,1)</m> is a point on <m>\mathcal{C}</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Use implicit differentiation to find an equation of the tangent line to <m>\mathcal{C}</m> at the point <m>P=(2,1)</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Assuming <m>y=y(x)</m> is can be understood as a function of <m>x</m> for points on <m>\mathcal{C}</m> near <m>(2,1)</m>, compute <m>y''(2)</m>.  
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    To verify that <m>P=(2,1)</m> lies on <m>\mathcal{C}</m>, we simply evaluate the left- (LHS)and right-hand sides (RHS) of the defining equation and verify that they are equal: 
+                    <md>
+                        <mrow> \text{LHS}\amp = 4 </mrow>
+                        <mrow> \text{RHS} \amp = 1^3+3\cdot 1^2=4</mrow>
+                    </md>.    
+                </p>
+            </li>
+            <li>
+                <p>
+                    Following <xref ref="proc_implicit_diff"/> we write <m>y=y(x)</m> for each instance of <m>y</m> in the defining equation of <m>\mathcal{C}</m> and then take the derivative of both sides of the equation with respect to <m>x</m>: 
+                    <md>
+                        <mrow>x^2=(y(x))^3+3(y(x))^2 \amp \implies \frac{d}{dx}(x^2)=\frac{d}{dx}((y(x))^3+3(y(x))^2) </mrow>
+                        <mrow> \amp \implies 2x=3y(x)^2y'(x)+6y(x)y'(x)</mrow>
+                        <mrow> \amp \implies y'(x)=\frac{2x}{3y(x)^2+6y(x)}</mrow>
+                    </md>.
+                    The slope of the tangent line to <m>\mathcal{C}</m> at <m>P</m> is thus given by 
+                    <md>
+                        <mrow>y'(2) \amp =\frac{2\cdot 2}{3(y(2)^2+6y(2))}</mrow>
+                        <mrow> \amp = \frac{4}{3\cdot 1^2+6\cdot 1</mrow>
+                        <mrow> \amp = \frac{4}{9}</mrow>
+                    </md>.
+                    The equation of the tangent line, using point-slope form for this <m>P</m>, is 
+                    <me>
+                        y-1=\frac{4}{9}(x-2)
+                    </me>.
+                    Below you find a graph of <m>\mathcal{C}</m> and the tangent line to <m>\mathcal{C}</m> at <m>P</m>. 
+                </p>
+                <image xml:id="im_tschirn">
+                    <shortdescription>Tschirnhausen cubic</shortdescription>
+                    <sageplot>
+                    var('x y')
+                    C=implicit_plot(x^2-y^3-3*y^2, (x,-4,4),(y,-3.5,3.5))
+                    P=point((2,1),size=50)
+                    L=plot(4/9*(x-2)+1,x,-3,4, color="green", thickness=2)
+                    C+P+L
+                    </sageplot>
+                </image>
+            </li>
+            <li>
+                <p>
+                    To deduce information about <m>y''(x)</m> we take the derivative with respect to <m>x</m> of both sides of the equation we derived for <m>y'(x)</m>:  
+                    <md>
+                        <mrow>y'(x)=\frac{2x}{3y(x)^2+6y(x)} \amp \implies \frac{d}{dx}(y'(x))=\frac{d}{dx}\left(\frac{2x}{3y(x)^2+6y(x)}\right)</mrow>
+                        <mrow> \amp \implies y''(x)=\frac{(2x)'(3y(x)^2+6y(x))-(2x)(3y(x)^2+6y(x))'}{(3y(x)^2+6y(x))^2}</mrow>
+                        <mrow> \amp \implies y''(x)=\frac{2(3y(x)^2+6y(x))-(2x)(6y(x)y'(x)+6y'(x))}{(3y(x)^2+6y(x))^2}</mrow>
+                    </md>.
+                    We then compute 
+                    <md>
+                        <mrow>y''(2) \amp = \frac{2(3y(2)^2+6y(2))-(2\cdot 2)(6y(2)y'(2)+6y'(2))}{(3y(2)^2+6y(2))^2}</mrow>
+                        <mrow> \amp = \frac{2(3\cdot 1^2+6\cdot 1)-4(6\cdot 1\cdot (4/9)+6\cdot (4/9))}{(3\cdot 1^2+6\cdot 1)^2} \amp (y(2)=1, y'(2)=4/9)</mrow>
+                        <mrow> \amp = \frac{18-4(48/9)}{81}</mrow>
+                        <mrow> \amp = \frac{162-192}{729}</mrow>
+                        <mrow> \amp = -\frac{30}{729}</mrow>
+                        <mrow> \amp = -\frac{10}{243}</mrow>
+                    </md>.
+                </p>
+            </li>
+        </ol>
+    </p>
+    
+    
+    </solution>
+    </example>
+    <example xml:id="eg_implicit_ellipse">
+    <title>Ellipse tangents</title>
+    <statement>
+    <p>
+    Let <m>\mathcal{C}</m> be the ellipse defined by the equation <m>5x^2-6xy+2y^2=1</m>.  Find all points <m>P</m> on <m>\mathcal{C}</m> where the tangent line to <m>\mathcal{C}</m> at <m>P</m> is horizontal. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Applying <xref ref="proc_implicit_diff"/> we have:
+    <md>
+        <mrow>5x^2-6xy(x)+2(y(x))^2=1 \amp \implies \frac{d}{dx}(5x^2-6xy(x)+2(y(x))^2)=\frac{d}{dx}(1) </mrow>
+        <mrow> \amp \implies 10x-6(x\, y(x))'+4y(x)y'(x)=0</mrow>
+        <mrow> \amp \implies 10x-6(y(x)+xy'(x))+4y(x)y'(x)=0</mrow>
+        <mrow> \amp \implies 10x-6y(x)-6xy'(x)+4y(x)y'(x)=0</mrow>
+        <mrow> \amp \implies y'(x)=\frac{6y(x)-10x}{4y(x)-6x}</mrow>
+    </md>.
+    We look for point <m>P=(x,y)</m> where <m>y'(x)=0</m>, making the tangent line horizontal. According to our derivation above, for this to be the case we need need <m>6y-10x=0</m>, or equivalently, <m>y=\frac{5}{3}x</m>. Substituting this back in to the defining equation of <m>\mathcal{C}</m>, we see that 
+    <me>
+        5x^2-6x(5x/3)+2(5x/3)^2=1
+    </me>,
+    or 
+    <me>
+        \frac{5}{9}x^2=1
+    </me>.
+    We conclude that <m>x=\pm 3/\sqrt{5}</m>. Using <m>y=\frac{5}{3}x</m>, we see that the points 
+    <md>
+        <mrow>P \amp =(3/\sqrt{5},5/\sqrt{5})\amp Q\amp=(-3/\sqrt{5},-5/\sqrt{5})</mrow>
+    </md>
+    are the two points where the tangent lines to <m>\mathcal{C}</m> are horizontal. Below you find a graph of <m>\mathcal{C}</m>, the points <m>P</m> and <m>Q</m>, and their horizontal tangent lines.  
+    </p>
+    <image xml:id="im_ellipse">
+        <shortdescription>A rotated ellipse</shortdescription>
+        <sageplot>
+        var('x y')
+        C=implicit_plot(5*x^2-6*x*y+2*y^2-1,(x,-3,3),(y,-3,3))
+        P=point((3/sqrt(5),5/sqrt(5)),size=50, color="red")
+        Q=point((-3/sqrt(5),-5/sqrt(5)),size=50, color="red")
+        L=plot(5/sqrt(5),x,-3,3,color="green")
+        M=plot(-5/sqrt(5),x,-3,3,color="green")
+        C+P+Q+L+M
+        </sageplot>
+    </image>
+    </solution>
+    </example>
+    <example xml:id="eg_implicit_trig">
+    <title>Implicit: trig equation</title>
+    <statement>
+    <p>
+    Let the curve <m>\mathcal{C}</m> be defined by the equation <m>x\sin(y^2+y)+y=4x</m>. 
+    <ol>
+        <li>
+            <p>
+                Verify that <m>P=(0,0)</m> is a point on this curve. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Find an equation of the tangent line to <m>\mathcal{C}</m> at <m>P</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                It is easily seen that the point <m>P=(0,0)</m> satisfies the defining equation of <m>\mathcal{C}</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We apply <xref ref="proc_implicit_diff"/>:
+                <md>
+                    <mrow>\amp  x\sin((y(x))^2+y(x))+y(x) =4x  </mrow>
+                    <mrow>\amp \frac{d}{dx}(x\sin((y(x))^2+y(x))+y(x))=\frac{d}{dx}(4x)  </mrow>
+                    <mrow> \amp  \sin((y(x))^2+y(x))+x(\sin((y(x))^2+y(x))'+y'(x)=4 </mrow>
+                    <mrow>\amp  \sin((y(x))^2+y(x))+x\cos((y(x))^2+y(x))(2y(x)y'(x)+y'(x))+y'(x) =4</mrow>
+                </md>.
+                For the point <m>P=(0,0)</m>, we have <m>x=0</m> and <m>y=y(0)=0</m>. Evaluating the last equation above at these values, we see that 
+                <me>
+                    \sin(0)+0+y'(0)=4
+                </me>,
+                and thus <m>y'(0)=4</m>. It follows that the tangent line to <m>\mathcal{C}</m> at <m>P=(0,0)</m> has defining equation <m>y=4x</m>. Below we graph <m>\mathcal{C}</m> and the tangent line at <m>P</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    <image xml:id="im_implicit_trig">
+        <shortdescription>Implicit function with trig equation</shortdescription>
+        <sageplot>
+            var('x y')
+            C=implicit_plot(x*sin(y^2+y)+y-4*x,(x,-5,5),(y,-5,5))
+            P=point((0,0),color="red", size=50)
+            L=plot(4*x,x,-1,1,color="green", thickness=1.5)
+            C+P+L
+        </sageplot>
+    </image>
+    </solution>
+    </example>
+    
+    
+
+</section>

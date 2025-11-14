@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_related_rates_II" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Related rates II</title>
+    <p>
+        We continue practicing the use of <xref ref="proc_related_rates"/> to solve related rates problems. 
+    </p>
+    <example xml:id="eg_two_trains">
+    <title>Two trains</title>
+    <statement>
+    <p>
+    At time 1 pm a red train is traveling east toward a station at a rate of 50 km/h, while a blue train is traveling north away from the station at 100 km/h. At this moment the red train is 1 km from the station and the blue train is 0.25 km from the station. At what rate is the distance between the two trains changing at this moment in time? Take care to interpret the sign (<m>\pm</m>) of your numeric answer. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+        We define 
+        <md>
+            <mrow>r(t) \amp = \begin{array}{c}
+            \text{dist. btwn. red train and station}\\
+             t \text{ hours after noon}
+            \end{array}
+            </mrow>
+            <mrow>b(t) \amp = \begin{array}{c}
+                \text{dist. btwn. blue train and station}\\
+                 t \text{ hours after noon}
+                \end{array}
+            </mrow>
+            <mrow>d(t) \amp = \begin{array}{c}
+                \text{dist. btwn. red and blue trains}\\
+                 t \text{ hours after noon}
+                \end{array}
+                </mrow>
+        </md>.
+    </p>
+        <figure xml:id="fig_two_trains">
+            <caption>Functions <m>r(t)</m>, <m>b(t)</m>, <m>d(t)</m>.</caption>
+            <image source="im_two_trains.png" width="50%">
+                <shortdescription>Diagram of red and blue trains</shortdescription>
+            </image>
+        </figure>
+        <p>
+            It follows easily from <xref ref="fig_two_trains"/> that  
+        <men xml:id="eq_two_trains">
+            d(t)^2=r(t)^2+b(t)^2
+        </men>.
+        In terms of our introduced function notation, the given information of the problem is expressed as follows: 
+        <md>
+            <mrow>r(1) \amp = 1 \amp r'(1)\amp =-50</mrow>
+            <mrow>b(1) \amp = \frac{1}{4} \amp b'(1)\amp =100 </mrow>
+        </md>.
+        Note that <m>r'(1)</m> is <em>negative</em> as the distance between the red train and the station is decreasing at 1 pm. Furthermore, from <xref ref="eq_two_trains"/> it follows that 
+        <md>
+            <mrow>d(1) \amp = \sqrt{r(1)^2+b(1)^2}</mrow>
+            <mrow> \amp =\sqrt{1+1/16} </mrow>
+            <mrow> \amp = \sqrt{17}/4</mrow>
+        </md>.
+        Now, taking the derivative of both sides of <xref ref="eq_two_trains"/>, we see that  
+        <me>
+            2d(t)d'(t)=2r(t)r'(t)+2b(t)b'(t)
+        </me>,
+        and hence 
+        <me>
+            d'(t)=\frac{r(t)r'(t)+b(t)b'(t)}{d(t)}
+        </me>.
+        Finally, we compute 
+        <md>
+            <mrow>d'(1) \amp = \frac{r(1)r'(1)+b(1)b'(1)}{d(1)}</mrow>
+            <mrow> \amp = \frac{-50+100/4}{\sqrt{17}/4}</mrow>
+            <mrow> \amp = -\frac{100}{\sqrt{17}}</mrow>
+        </md>.
+        We conclude that at 1 pm, the distance between the two trains is decreasing at a rate of <m>100/\sqrt{17}</m> meters per second.
+    </p>
+    </solution>
+    </example>
+    <example xml:id="eg_related_rates_similar">
+    <title>Using similar triangles</title>
+    <statement>
+    <p>
+    A light shines from the top of a pole 20 meters high. A ball is dropped from the same height at a point 12 meters away from the light pole. How fast is the shadow of the ball moving along the ground <m>1/2</m> second later? Assume the ball falls a distance of <m>10\, t^2</m> meters in <m>t</m> seconds.   
+    </p>
+    </statement>
+    <solution>
+    <p>
+     We define 
+     <md>
+        <mrow>h(t) \amp = \begin{array}{l}
+        \text{height of ball}\\
+         t \text{ seconds after drop}
+        \end{array}
+        </mrow>
+        <mrow>s(t) \amp = \begin{array}{l}
+            \text{dist. btwn. shadow and where ball lands}\\
+             t \text{ seconds after drop}
+            \end{array}
+        </mrow>
+    </md>.
+    </p>
+    <figure xml:id="fig_lamp_ball">
+        <caption>Functions <m>h(t)</m> and <m>s(t)</m></caption>
+        <image source="im_lamp_ball.png" width="50%">
+            <shortdescription>Diagram of lamp, ball, and shadow</shortdescription>
+        </image>
+    </figure>
+    <p>
+        Since after <m>t</m> seconds the ball has dropped <m>10\, t^2</m> meters, and since its original height is 20 meters, we have 
+        <me>
+            h(t)=20-10\, t^2
+        </me>.
+        Next using the two similar right triangles in <xref ref="fig_lamp_ball"/>, we see that 
+        <men xml:id="eq_lamp_ball">
+            \frac{h(t)}{20}=\frac{s(t)}{s(t)+12}
+        </men>.
+        We wish to compute <m>s'(1/2)</m>. To do so we take the derivative of both sides of <xref ref="eq_lamp_ball"/>:
+        <me>
+            \frac{h'(t)}{20}=\frac{s'(t)(s(t)+12)-s(t)s'(t)}{(s(t)+12)^2}
+        </me>.
+        From this it follows that 
+        <me>
+            s'(t)=\frac{h'(t)(s(t)+12)^2}{240}=-\frac{t}{12}(s(t)+12)^2
+        </me>, 
+        where we have used the fact that <m>h'(t)=-2\cdot 10\, t=-20\, t</m>. Lastly, to compute <m>s'(1/2)</m>, we need to compute <m>s(1/2)</m>. This is determined by evaluating <xref ref="eq_lamp_ball"/> at <m>t=1/2</m> and solving for <m>s(1/2)</m>. Since <m>h(1/2)=20-10\cdot 1/4=35/2</m>, we have 
+        <md>
+            <mrow>\frac{h(1/2)}{20}=\frac{s(1/2)}{s(1/2)+12} \amp \implies \frac{35/2}{20}=\frac{s(1/2)}{s(1/2)+12} </mrow>
+            <mrow> \amp \implies \frac{35}{40}(s(1/2)+12)=s(1/2)</mrow>
+            <mrow> \amp \implies \frac{84}{8}=\frac{1}{8}s(1/2)</mrow>
+            <mrow> \amp \implies s(1/2)=84</mrow>
+        </md>.
+        We conclude that 
+        <md>
+            <mrow>s'(1/2) \amp =-\frac{1/2}{12}(84+12)^2</mrow>
+            <mrow> \amp = -\frac{96^2}{24}</mrow>
+            <mrow> \amp = -\frac{1152}{5}</mrow>
+            <mrow> \amp = -384</mrow>
+        </md>.
+        We conclude that <m>1/2</m>-second after the drop the ball's shadow is traveling at a rate of 384 meters per second toward the lamp. 
+    </p>
+    </solution>
+    </example>
+    
+    
+    
+
+</section>

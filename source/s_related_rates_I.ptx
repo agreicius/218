@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_related_rates_I" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Related rates I</title>
+    <p>
+        Any time two functions are related via an equation, we can <em>deduce</em> an equation involving those functions and their derivatives by taking the derivative of both sides. When doing empirical modeling, this simple observation allows us to take an established relationship between two quantities and deduce a relationship between the rates of change of these quantities. This type of argument is at the heart of so-called <em>related rates</em> problems. Our example with the inflatable balloon provides a particularly easy introduction to this method, as here one quantity (volume) can be expressed entirely in terms of the other: in other words, the starting relation here is just a formula. 
+    </p>
+    <example xml:id="eg_balloon">
+    <title>Inflating a balloon (redux)</title>
+    <statement>
+    <p>
+        The volume <m>V</m> (in cm<m>^3</m>) of a spherical inflatable balloon is computed as <m>V=\frac{4}{3}\pi r^3</m>, where <m>r</m> is the radius of the balloon (in cm). 
+    </p>
+    <p>
+        What is the rate of change at time <m>t_0</m>, assuming that the volume at this point is <m>36000 \pi</m> and the rate of inflation at <m>t_0</m> is <m>0.05</m> cm per s?
+    </p>
+    </statement>
+    <solution>
+            <p>
+                Letting <m>V(t)</m> and <m>r(t)</m> be the volume and radius of the balloon after <m>t</m> seconds, we have 
+                <men xml:id="eq_volume_balloon">
+                    V(t)=\frac{4}{3}\pi (r(t))^3
+                </men>
+                and hence 
+                <men xml:id="eq_volume_balloon_der">
+                    V'(t)=4\pi\, r(t)^2\,  r'(t)
+                </men>.
+                It follows that the rate of change of volume <m>t_0</m> seconds after inflating is 
+                <me>
+                    V'(t_0)=4\pi \, r(t_0)^2\, r'(t_0)
+                </me>.
+                We are told that <m>r'(t_0)=0.05=1/20</m>. Thus it remains only to determine <m>r(t_0)</m>, the radius of the balloon at this time. We can derive this from the given fact that <m>V(t_0)=36000\pi</m>. Indeed, we have 
+                <me>
+                    r(t_0)^3=\frac{3}{4}V(t_0)/\pi=27000
+                </me>,
+                or <m>r(t_0)=30</m> cm. We conclude that 
+                <me>
+                    V'(t_0)=4\pi \, r(t_0)^2\,  r'(t_0)=4\pi (30)^2\cdot \frac{1}{20}=180 \pi \text{cm^3 per second}
+                </me>.
+                That is, at time <m>t_0</m> the volume is increasing at a rate of <m>180\pi</m> cm<m>^3</m> per second.
+            </p>
+    </solution>
+    </example>
+    <p>
+        The next example is more involved as now the relationship between the relevant quantities is not directly given in terms of a formula. 
+    </p>
+    <example xml:id="eg_sliding_ladder">
+    <title>Sliding ladder</title>
+    <statement>
+    <p>
+    A ladder of length 5 meters leans against a vertical wall; the base of the ladder lies 3 meters from the wall. An unfortunate nudge from passerby Dudley causes the base to slide away from the wall at a rate of 1.25 m/s. How quickly is the top of the ladder sliding towards the floor at this moment? 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Define 
+    <md>
+        <mrow>b(t) \amp = \text{dist. btwn. base and wall } t \text{ sec. after nudge}</mrow>
+        <mrow>h(t) \amp = \text{height of top of ladder } t \text{ sec. after nudge}</mrow>
+    </md>. 
+</p>
+<figure xml:id="fig_sliding_ladder_ht">
+    <caption>Functions <m>b(t)</m> and <m>h(t)</m></caption>
+    <image width="25%" source="im_sliding_ladder.png">
+        <shortdescription>Diagram of sliding ladder</shortdescription>
+    </image>
+</figure>
+<p>
+    We see easily from <xref ref="fig_sliding_ladder_ht"/> that
+    <men xml:id="eq_sliding_ladder_ht">
+        b(t)^2+h(t)^2=5^2
+    </men>.
+    In terms of our introduced notation we have 
+    <md>
+        <mrow>b(0) \amp = 3 \text{ m}</mrow>
+        <mrow>b'(0) \amp = \frac{5}{4} \text{ m/s}</mrow>
+    </md>,
+    and we wish to compute <m>h'(0)</m>. Taking the derivative of both sides of <xref ref="eq_sliding_ladder_ht"/>, we have 
+    <md>
+        <mrow>2b(t)b'(t)+2h(t)h'(t) \amp =0</mrow>
+        <mrow>h'(t) \amp = -\frac{b(t)b'(t)}{h(t)}</mrow>
+    </md>,
+     and thus 
+     <me>
+        h'(0)=-\frac{b(0)b'(0)}{h(0)}=-\frac{3\cdot(5/4)}{h(0)}
+     </me>.
+     It remains to compute <m>h(0)</m>. Evaluating <xref ref="eq_sliding_ladder_ht"/> at <m>t=0</m>, we see that 
+     <me>
+        h(0)^2+9=25
+     </me>,
+     and thus <m>h(0)=4</m>. We conclude that 
+     <me>
+        h'(0)=-\frac{15/4}{4}=-\frac{15}{16} \text{ m/s}
+     </me>.
+     In plain English, at the moment of the nudge the top of the ladder slides toward the ground at a rate of <m>15/16</m> meters per second. 
+    </p>
+    </solution>
+    </example>
+    <algorithm xml:id="proc_related_rates">
+        <title>Related rates</title>
+        <statement>
+            <p>
+             The following steps are useful for modeling and solving a related rates problem. 
+             <ol>
+                <li>
+                    <title>Model the problem</title>
+                    <ol>
+                        <li>
+                            <p>
+                                Clearly define and name all important quantities in the problem. 
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Constant or static quantities should be assigned either a constant symbol or an explicit value. 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Varying quantities should be modeled as functions of a common input quantity. Denote these quantities using function notation, taking care to define what the input variable is.  
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            A careful drawing, labeled using the function names we've introduced, often clarifies the role of different quantities in the problem. 
+                                        </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Express the numeric information provided by the problem in terms of the function notation you introduced in Step 1a.     
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Identify what the problem is asking us to compute in terms of the function notation introduced in Step 1a. We are almost always interested in some <em>rate of change</em>, and this should be expressed as the derivative of one of the functions we defined, or a specific value of that derivative.  
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                             Establish an equation that <em>relates</em> the various functions we are interested in. 
+                             <ul>
+                                <li>
+                                    <p>
+                                        This should be an equation relating <em>functions</em> of some common variable. As such this equation will look like a function identity. 
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        A careful drawing, labeled using the function names we've introduced, will often help to derive this equation. 
+                                    </p>
+                                </li>
+                             </ul>     
+                            </p>
+                        </li>                        
+                    </ol>
+                </li>
+                <li>
+                    <title>Do calculus</title>
+                    <ol>
+                        <li>
+                            <p>
+                                From the equation you established in Step 1d, derive a new equation that relates the derivative you are interested in with known values of functions and/or derivatives of those functions. This usually amounts to computing the derivative of both sides of the original equation. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Use the new equation you derived in Step 2a to solve for the derivative function (or specific value thereof) you are interested in.     
+                            </p>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <title>Summarize</title>
+                    <ol>
+                        <li>
+                            <p>
+                                Communicate the answer you derived in Step 2 in a plain English sentence that makes use of the language/context of the stated problem. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Make sure that you do indeed answer the problem posed and include units details if applicable. 
+                            </p>
+                        </li>
+                    </ol>
+                </li>
+             </ol>   
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_ladder_angle">
+    <title>Sliding ladder: angle of inclination</title>
+    <statement>
+    <p>
+        Continuing with the setup as in <xref ref="eg_sliding_ladder"/>, at what rate is the angle between the ladder and the ground changing at the moment when the base begins sliding?  
+    </p>
+    </statement>
+    <solution>
+    <p>
+        We define
+        <md>
+            <mrow>b(t) \amp = \text{dist. btwn. base and wall } t \text{ sec. after nudge}</mrow>
+            <mrow>\theta(t) \amp = \text{angle btwn. ladder and floor  } t \text{ sec. after nudge}</mrow>
+        </md>.
+    </p>
+    <figure xml:id="fig_sliding_ladder_angle">
+        <caption>Functions <m>b(t)</m> and <m>\theta(t)</m></caption>
+        <image width="20%" source="im_sliding_ladder_angle.png">
+            <shortdescription>Sliding ladder diagram with angle</shortdescription>
+        </image>
+    </figure>
+        <p>
+        We wish to compute <m>\theta'(0)</m> the rate of change of the angle with respect to time at the moment of the nudge. 
+        As illustrated by <xref ref="fig_sliding_ladder_angle"/> we have 
+        <men xml:id="eq_sliding_ladder_angle">
+            \cos (\theta(t))=\frac{b(t)}{5}
+        </men>.
+        Taking the derivative of both sides with respect to <m>t</m> yields 
+        <men xml:id="eq_sliding_ladder_angle_der">
+            -\sin(\theta(t))\theta'(t)=\frac{b'(t)}{5}
+        </men>, 
+        and thus 
+        <me>
+            \theta'(t)=-\frac{b'(t)}{5\sin (\theta(t))}
+        </me>.
+        We now compute 
+        <me>
+            \theta'(0)=-\frac{b'(0)}{5\sin(\theta(0))}=-\frac{5/4}{5\sin(\theta(1))}
+        </me>,
+        using the given fact that <m>b'(0)=1.25</m> m/s. It remains to compute <m>\sin(\theta(0))</m>. At time <m>t=0</m> we have <m>\sin(\theta(0))=\frac{4}{5}</m>, as illustrated in <xref ref="fig_sliding_ladder_initial"/>. 
+        </p>
+        <figure xml:id="fig_sliding_ladder_initial">
+            <caption>Diagram at time <m>t=0</m></caption>
+            <image width="20%" source="im_sliding_ladder_angle_init.png">
+                <shortdescription>Sliding ladder diagram with angle initially</shortdescription>
+            </image>
+        </figure>
+        <p>We conclude that 
+        <me>
+            \theta'(0)=-\frac{5/4}{5\cdot 4/5}=-\frac{5}{16} \text{ rad/s}
+        </me>.
+        In plain English: at the moment of the nudge, the angle between the ladder and floor is decreasing at a rate of <m>5/16</m> radians per second.     
+    </p>
+    </solution>
+    </example>
+    <example xml:id="eg_stretched_rubber">
+    <title>Stretched rubber sheet</title>
+    <statement>
+    <p>
+        A 20 m<m>^2</m> rectangular rubber sheet is placed in a stretching machine. Four seconds after the machine is turned on, the width of the rubber sheet is 10 meters and expanding at a rate of 0.25 m/s. Is the height of the rubber sheet shrinking or expanding at this moment in time? How quickly is it shrinking or expanding. (Assume that during the shrinking process the area of the sheet remains constant and the sheet always maintains a rectangular shape.)  
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We define 
+    <md>
+        <mrow>w(t) \amp = \text{width of sheet } t \text{ sec. after mach. turned on}</mrow>
+        <mrow>h(t) \amp = \text{height of sheet } t \text{ sec. after mach. turned on}</mrow>
+    </md>.
+    In terms of our introduced notation, we have 
+    <md>
+        <mrow>w(4) \amp = 10 \text{ m}</mrow>
+        <mrow>w'(4) \amp = 1/4 \text{ m/s}</mrow>
+    </md>.
+    We wish to compute <m>h'(4)</m>, the rate of change of the height of the sheet with respect to time 4 seconds after the stretching begins.  
+    Since 
+    <men xml:id="eq_stretch_sheet">
+        20=w(t)h(t)
+    </men>
+    for all <m>t\geq 0</m>, taking the derivative of both sides of this equation with respect to <m>t</m> yields 
+    <men xml:id="eq_sheet_stretch_der">
+        0=w'(t)h(t)+w(t)h'(t)
+    </men>.
+    Thus we have <m>h'(t)=-\frac{w'(t)h(t)}{w(t)}</m>, and 
+    <me>
+        h'(1)=-\frac{w'(1)h(1)}{w(1)}=-\frac{1/4\cdot 2}{10}=-\frac{1}{20} \text{ m/s}
+    </me>,
+    where we have computed <m>h(1)=20/w(1)=20/10=2</m>, using <xref ref="eq_stretch_sheet"/>. In plain English: four seconds after the stretching begins, the height of the rubber sheet is decreasing at rate of <m>1/20</m> meters per second. 
+    </p>
+    </solution>
+    </example>
+    
+    
+    
+
+</section>
