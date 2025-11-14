@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Related rates I</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.18';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.cefb0224014f3333.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c50cdcad467c8d3e.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_implicit.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_related_rates_II.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_related_rates_I"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Related rates I</span>
+</h2>
+<div class="para" id="s_related_rates_I-2">Any time two functions are related via an equation, we can <em class="emphasis">deduce</em> an equation involving those functions and their derivatives by taking the derivative of both sides. When doing empirical modeling, this simple observation allows us to take an established relationship between two quantities and deduce a relationship between the rates of change of these quantities. This type of argument is at the heart of so-called <em class="emphasis">related rates</em> problems. Our example with the inflatable balloon provides a particularly easy introduction to this method, as here one quantity (volume) can be expressed entirely in terms of the other: in other words, the starting relation here is just a formula.<div class="autopermalink" data-description="Paragraph"><a href="#s_related_rates_I-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_balloon"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inflating a balloon (redux).</span>
+</h3>
+<div class="para" id="eg_balloon-2-1">The volume <span class="process-math">\(V\)</span> (in cm<span class="process-math">\(^3\)</span>) of a spherical inflatable balloon is computed as <span class="process-math">\(V=\frac{4}{3}\pi r^3\text{,}\)</span> where <span class="process-math">\(r\)</span> is the radius of the balloon (in cm).<div class="autopermalink" data-description="Paragraph"><a href="#eg_balloon-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="eg_balloon-2-2">What is the rate of change at time <span class="process-math">\(t_0\text{,}\)</span> assuming that the volume at this point is <span class="process-math">\(36000 \pi\)</span> and the rate of inflation at <span class="process-math">\(t_0\)</span> is <span class="process-math">\(0.05\)</span> cm per s?<div class="autopermalink" data-description="Paragraph"><a href="#eg_balloon-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_balloon-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_balloon-3-1">
+<div class="para">Letting <span class="process-math">\(V(t)\)</span> and <span class="process-math">\(r(t)\)</span> be the volume and radius of the balloon after <span class="process-math">\(t\)</span> seconds, we have</div>
+<div class="displaymath process-math" id="eq_volume_balloon">
+\begin{equation}
+V(t)=\frac{4}{3}\pi (r(t))^3\tag{1.107}
+\end{equation}
+</div>
+<div class="para">and hence</div>
+<div class="displaymath process-math" id="eq_volume_balloon_der">
+\begin{equation}
+V'(t)=4\pi\, r(t)^2\,  r'(t)\text{.}\tag{1.108}
+\end{equation}
+</div>
+<div class="para">It follows that the rate of change of volume <span class="process-math">\(t_0\)</span> seconds after inflating is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V'(t_0)=4\pi \, r(t_0)^2\, r'(t_0)\text{.}
+\end{equation*}
+</div>
+<div class="para">We are told that <span class="process-math">\(r'(t_0)=0.05=1/20\text{.}\)</span> Thus it remains only to determine <span class="process-math">\(r(t_0)\text{,}\)</span> the radius of the balloon at this time. We can derive this from the given fact that <span class="process-math">\(V(t_0)=36000\pi\text{.}\)</span> Indeed, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r(t_0)^3=\frac{3}{4}V(t_0)/\pi=27000\text{,}
+\end{equation*}
+</div>
+<div class="para">or <span class="process-math">\(r(t_0)=30\)</span> cm. We conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V'(t_0)=4\pi \, r(t_0)^2\,  r'(t_0)=4\pi (30)^2\cdot \frac{1}{20}=180 \pi \text{cm^3 per second}\text{.}
+\end{equation*}
+</div>
+<div class="para">That is, at time <span class="process-math">\(t_0\)</span> the volume is increasing at a rate of <span class="process-math">\(180\pi\)</span> cm<span class="process-math">\(^3\)</span> per second.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_balloon-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.24.1.1"><a href="#eg_balloon-3" title="Copy heading and permalink for Solution 1.24.1.1" aria-label="Copy heading and permalink for Solution 1.24.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.24.1: Inflating a balloon (redux)"><a href="#eg_balloon" title="Copy heading and permalink for Example 1.24.1: Inflating a balloon (redux)" aria-label="Copy heading and permalink for Example 1.24.1: Inflating a balloon (redux)">🔗</a></div></article><div class="para" id="s_related_rates_I-4">The next example is more involved as now the relationship between the relevant quantities is not directly given in terms of a formula.<div class="autopermalink" data-description="Paragraph"><a href="#s_related_rates_I-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_sliding_ladder"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sliding ladder.</span>
+</h3>
+<div class="para" id="eg_sliding_ladder-2-1">A ladder of length 5 meters leans against a vertical wall; the base of the ladder lies 3 meters from the wall. An unfortunate nudge from passerby Dudley causes the base to slide away from the wall at a rate of 1.25 m/s. How quickly is the top of the ladder sliding towards the floor at this moment?<div class="autopermalink" data-description="Paragraph"><a href="#eg_sliding_ladder-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_sliding_ladder-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_sliding_ladder-3-1">
+<div class="para">Define</div>
+<div class="displaymath process-math" id="eg_sliding_ladder-3-1-1">
+\begin{align*}
+b(t) \amp = \text{dist. btwn. base and wall } t \text{ sec. after nudge}\\
+h(t) \amp = \text{height of top of ladder } t \text{ sec. after nudge}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_sliding_ladder-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_sliding_ladder_ht"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/im_sliding_ladder.png" class="contained" alt="Diagram of sliding ladder"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Functions <span class="process-math">\(b(t)\)</span> and <span class="process-math">\(h(t)\)</span><div class="autopermalink" data-description="Figure 1.24.3"><a href="#fig_sliding_ladder_ht" title="Copy heading and permalink for Figure 1.24.3" aria-label="Copy heading and permalink for Figure 1.24.3">🔗</a></div></figcaption></figure><div class="para logical" id="eg_sliding_ladder-3-3">
+<div class="para">We see easily from <a href="s_related_rates_I.html#fig_sliding_ladder_ht" class="xref" data-knowl="./knowl/xref/fig_sliding_ladder_ht.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.24.3">Figure 1.24.3</a> that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html" id="eq_sliding_ladder_ht">
+\begin{equation}
+b(t)^2+h(t)^2=5^2\text{.}\tag{1.109}
+\end{equation}
+</div>
+<div class="para">In terms of our introduced notation we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html" id="eg_sliding_ladder-3-3-3">
+\begin{align*}
+b(0) \amp = 3 \text{ m}\\
+b'(0) \amp = \frac{5}{4} \text{ m/s}\text{,}
+\end{align*}
+</div>
+<div class="para">and we wish to compute <span class="process-math">\(h'(0)\text{.}\)</span> Taking the derivative of both sides of <a href="s_related_rates_I.html#eq_sliding_ladder_ht" class="xref" data-knowl="./knowl/xref/eq_sliding_ladder_ht.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.109">(1.109)</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html" id="eg_sliding_ladder-3-3-6">
+\begin{align*}
+2b(t)b'(t)+2h(t)h'(t) \amp =0\\
+h'(t) \amp = -\frac{b(t)b'(t)}{h(t)}\text{,}
+\end{align*}
+</div>
+<div class="para">and thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html">
+\begin{equation*}
+h'(0)=-\frac{b(0)b'(0)}{h(0)}=-\frac{3\cdot(5/4)}{h(0)}\text{.}
+\end{equation*}
+</div>
+<div class="para">It remains to compute <span class="process-math">\(h(0)\text{.}\)</span> Evaluating <a href="s_related_rates_I.html#eq_sliding_ladder_ht" class="xref" data-knowl="./knowl/xref/eq_sliding_ladder_ht.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.109">(1.109)</a> at <span class="process-math">\(t=0\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html">
+\begin{equation*}
+h(0)^2+9=25\text{,}
+\end{equation*}
+</div>
+<div class="para">and thus <span class="process-math">\(h(0)=4\text{.}\)</span> We conclude that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html ./knowl/xref/eq_sliding_ladder_ht.html">
+\begin{equation*}
+h'(0)=-\frac{15/4}{4}=-\frac{15}{16} \text{ m/s}\text{.}
+\end{equation*}
+</div>
+<div class="para">In plain English, at the moment of the nudge the top of the ladder slides toward the ground at a rate of <span class="process-math">\(15/16\)</span> meters per second.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_sliding_ladder-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.24.2.1"><a href="#eg_sliding_ladder-3" title="Copy heading and permalink for Solution 1.24.2.1" aria-label="Copy heading and permalink for Solution 1.24.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.24.2: Sliding ladder"><a href="#eg_sliding_ladder" title="Copy heading and permalink for Example 1.24.2: Sliding ladder" aria-label="Copy heading and permalink for Example 1.24.2: Sliding ladder">🔗</a></div></article><article class="algorithm theorem-like" id="proc_related_rates"><h3 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Related rates.</span>
+</h3>
+<div class="para logical" id="proc_related_rates-2-1">
+<div class="para">The following steps are useful for modeling and solving a related rates problem.</div>
+<ol class="decimal" id="proc_related_rates-2-1-1">
+<li id="proc_related_rates-2-1-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Model the problem.</span></span><div class="para" id="p-derived-proc_related_rates-2-1-1-1"><ol class="lower-alpha lower-alpha-level-1" id="proc_related_rates-2-1-1-1-2">
+<li id="proc_related_rates-2-1-1-1-2-1">
+<div class="para logical" id="proc_related_rates-2-1-1-1-2-1-1">
+<div class="para">Clearly define and name all important quantities in the problem.</div>
+<ul class="disc" id="proc_related_rates-2-1-1-1-2-1-1-1">
+<li id="proc_related_rates-2-1-1-1-2-1-1-1-1">
+<div class="para" id="proc_related_rates-2-1-1-1-2-1-1-1-1-1">Constant or static quantities should be assigned either a constant symbol or an explicit value.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_related_rates-2-1-1-1-2-1-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-1-2-1-1-1-2">
+<div class="para" id="proc_related_rates-2-1-1-1-2-1-1-1-2-1">Varying quantities should be modeled as functions of a common input quantity. Denote these quantities using function notation, taking care to define what the input variable is.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_related_rates-2-1-1-1-2-1-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-1-2-1-1-1-3">
+<div class="para" id="proc_related_rates-2-1-1-1-2-1-1-1-3-1">A careful drawing, labeled using the function names we’ve introduced, often clarifies the role of different quantities in the problem.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-1-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_related_rates-2-1-1-1-2-1-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#proc_related_rates-2-1-1-1-2-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-1-2-2">
+<div class="para" id="proc_related_rates-2-1-1-1-2-2-1">Express the numeric information provided by the problem in terms of the function notation you introduced in Step 1a.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#proc_related_rates-2-1-1-1-2-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-1-2-3">
+<div class="para" id="proc_related_rates-2-1-1-1-2-3-1">Identify what the problem is asking us to compute in terms of the function notation introduced in Step 1a. We are almost always interested in some <em class="emphasis">rate of change</em>, and this should be expressed as the derivative of one of the functions we defined, or a specific value of that derivative.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.c"><a href="#proc_related_rates-2-1-1-1-2-3" title="Copy heading and permalink for Item 1.c" aria-label="Copy heading and permalink for Item 1.c">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-1-2-4">
+<div class="para logical" id="proc_related_rates-2-1-1-1-2-4-1">
+<div class="para">Establish an equation that <em class="emphasis">relates</em> the various functions we are interested in.</div>
+<ul class="disc" id="proc_related_rates-2-1-1-1-2-4-1-2">
+<li id="proc_related_rates-2-1-1-1-2-4-1-2-1">
+<div class="para" id="proc_related_rates-2-1-1-1-2-4-1-2-1-1">This should be an equation relating <em class="emphasis">functions</em> of some common variable. As such this equation will look like a function identity.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-4-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_related_rates-2-1-1-1-2-4-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-1-2-4-1-2-2">
+<div class="para" id="proc_related_rates-2-1-1-1-2-4-1-2-2-1">A careful drawing, labeled using the function names we’ve introduced, will often help to derive this equation.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-4-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_related_rates-2-1-1-1-2-4-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.d"><a href="#proc_related_rates-2-1-1-1-2-4" title="Copy heading and permalink for Item 1.d" aria-label="Copy heading and permalink for Item 1.d">🔗</a></div>
+</li>
+</ol></div>
+<div class="autopermalink" data-description="Item 1: Model the problem"><a href="#proc_related_rates-2-1-1-1" title="Copy heading and permalink for Item 1: Model the problem" aria-label="Copy heading and permalink for Item 1: Model the problem">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Do calculus.</span></span><div class="para" id="p-derived-proc_related_rates-2-1-1-2"><ol class="lower-alpha lower-alpha-level-1" id="proc_related_rates-2-1-1-2-2">
+<li id="proc_related_rates-2-1-1-2-2-1">
+<div class="para" id="proc_related_rates-2-1-1-2-2-1-1">From the equation you established in Step 1d, derive a new equation that relates the derivative you are interested in with known values of functions and/or derivatives of those functions. This usually amounts to computing the derivative of both sides of the original equation.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#proc_related_rates-2-1-1-2-2-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-2-2-2">
+<div class="para" id="proc_related_rates-2-1-1-2-2-2-1">Use the new equation you derived in Step 2a to solve for the derivative function (or specific value thereof) you are interested in.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#proc_related_rates-2-1-1-2-2-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+</ol></div>
+<div class="autopermalink" data-description="Item 2: Do calculus"><a href="#proc_related_rates-2-1-1-2" title="Copy heading and permalink for Item 2: Do calculus" aria-label="Copy heading and permalink for Item 2: Do calculus">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-3">
+<span class="heading li--heading"><span class="title li--heading-title">Summarize.</span></span><div class="para" id="p-derived-proc_related_rates-2-1-1-3"><ol class="lower-alpha lower-alpha-level-1" id="proc_related_rates-2-1-1-3-2">
+<li id="proc_related_rates-2-1-1-3-2-1">
+<div class="para" id="proc_related_rates-2-1-1-3-2-1-1">Communicate the answer you derived in Step 2 in a plain English sentence that makes use of the language/context of the stated problem.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.a"><a href="#proc_related_rates-2-1-1-3-2-1" title="Copy heading and permalink for Item 3.a" aria-label="Copy heading and permalink for Item 3.a">🔗</a></div>
+</li>
+<li id="proc_related_rates-2-1-1-3-2-2">
+<div class="para" id="proc_related_rates-2-1-1-3-2-2-1">Make sure that you do indeed answer the problem posed and include units details if applicable.<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1-1-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.b"><a href="#proc_related_rates-2-1-1-3-2-2" title="Copy heading and permalink for Item 3.b" aria-label="Copy heading and permalink for Item 3.b">🔗</a></div>
+</li>
+</ol></div>
+<div class="autopermalink" data-description="Item 3: Summarize"><a href="#proc_related_rates-2-1-1-3" title="Copy heading and permalink for Item 3: Summarize" aria-label="Copy heading and permalink for Item 3: Summarize">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_related_rates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 1.24.4: Related rates"><a href="#proc_related_rates" title="Copy heading and permalink for Procedure 1.24.4: Related rates" aria-label="Copy heading and permalink for Procedure 1.24.4: Related rates">🔗</a></div></article><article class="example example-like" id="eg_ladder_angle"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sliding ladder: angle of inclination.</span>
+</h3>
+<div class="para" id="eg_ladder_angle-2-1">Continuing with the setup as in <a href="s_related_rates_I.html#eg_sliding_ladder" class="xref" data-knowl="./knowl/xref/eg_sliding_ladder.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.24.2: Sliding ladder">Example 1.24.2</a>, at what rate is the angle between the ladder and the ground changing at the moment when the base begins sliding?<div class="autopermalink" data-description="Paragraph"><a href="#eg_ladder_angle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_ladder_angle-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_ladder_angle-3-1">
+<div class="para">We define</div>
+<div class="displaymath process-math" id="eg_ladder_angle-3-1-1">
+\begin{align*}
+b(t) \amp = \text{dist. btwn. base and wall } t \text{ sec. after nudge}\\
+\theta(t) \amp = \text{angle btwn. ladder and floor  } t \text{ sec. after nudge}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_ladder_angle-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_sliding_ladder_angle"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="external/im_sliding_ladder_angle.png" class="contained" alt="Sliding ladder diagram with angle"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Functions <span class="process-math">\(b(t)\)</span> and <span class="process-math">\(\theta(t)\)</span><div class="autopermalink" data-description="Figure 1.24.6"><a href="#fig_sliding_ladder_angle" title="Copy heading and permalink for Figure 1.24.6" aria-label="Copy heading and permalink for Figure 1.24.6">🔗</a></div></figcaption></figure><div class="para logical" id="eg_ladder_angle-3-3">
+<div class="para">We wish to compute <span class="process-math">\(\theta'(0)\)</span> the rate of change of the angle with respect to time at the moment of the nudge. As illustrated by <a href="s_related_rates_I.html#fig_sliding_ladder_angle" class="xref" data-knowl="./knowl/xref/fig_sliding_ladder_angle.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.24.6">Figure 1.24.6</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_angle.html ./knowl/xref/fig_sliding_ladder_initial.html" id="eq_sliding_ladder_angle">
+\begin{equation}
+\cos (\theta(t))=\frac{b(t)}{5}\text{.}\tag{1.110}
+\end{equation}
+</div>
+<div class="para">Taking the derivative of both sides with respect to <span class="process-math">\(t\)</span> yields</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_angle.html ./knowl/xref/fig_sliding_ladder_initial.html" id="eq_sliding_ladder_angle_der">
+\begin{equation}
+-\sin(\theta(t))\theta'(t)=\frac{b'(t)}{5}\text{,}\tag{1.111}
+\end{equation}
+</div>
+<div class="para">and thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_angle.html ./knowl/xref/fig_sliding_ladder_initial.html">
+\begin{equation*}
+\theta'(t)=-\frac{b'(t)}{5\sin (\theta(t))}\text{.}
+\end{equation*}
+</div>
+<div class="para">We now compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sliding_ladder_angle.html ./knowl/xref/fig_sliding_ladder_initial.html">
+\begin{equation*}
+\theta'(0)=-\frac{b'(0)}{5\sin(\theta(0))}=-\frac{5/4}{5\sin(\theta(1))}\text{,}
+\end{equation*}
+</div>
+<div class="para">using the given fact that <span class="process-math">\(b'(0)=1.25\)</span> m/s. It remains to compute <span class="process-math">\(\sin(\theta(0))\text{.}\)</span> At time <span class="process-math">\(t=0\)</span> we have <span class="process-math">\(\sin(\theta(0))=\frac{4}{5}\text{,}\)</span> as illustrated in <a href="s_related_rates_I.html#fig_sliding_ladder_initial" class="xref" data-knowl="./knowl/xref/fig_sliding_ladder_initial.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.24.7">Figure 1.24.7</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_ladder_angle-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_sliding_ladder_initial"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="external/im_sliding_ladder_angle_init.png" class="contained" alt="Sliding ladder diagram with angle initially"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Diagram at time <span class="process-math">\(t=0\)</span><div class="autopermalink" data-description="Figure 1.24.7"><a href="#fig_sliding_ladder_initial" title="Copy heading and permalink for Figure 1.24.7" aria-label="Copy heading and permalink for Figure 1.24.7">🔗</a></div></figcaption></figure><div class="para logical" id="eg_ladder_angle-3-5">
+<div class="para">We conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\theta'(0)=-\frac{5/4}{5\cdot 4/5}=-\frac{5}{16} \text{ rad/s}\text{.}
+\end{equation*}
+</div>
+<div class="para">In plain English: at the moment of the nudge, the angle between the ladder and floor is decreasing at a rate of <span class="process-math">\(5/16\)</span> radians per second.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_ladder_angle-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.24.5.1"><a href="#eg_ladder_angle-3" title="Copy heading and permalink for Solution 1.24.5.1" aria-label="Copy heading and permalink for Solution 1.24.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.24.5: Sliding ladder: angle of inclination"><a href="#eg_ladder_angle" title="Copy heading and permalink for Example 1.24.5: Sliding ladder: angle of inclination" aria-label="Copy heading and permalink for Example 1.24.5: Sliding ladder: angle of inclination">🔗</a></div></article><article class="example example-like" id="eg_stretched_rubber"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stretched rubber sheet.</span>
+</h3>
+<div class="para" id="eg_stretched_rubber-2-1">A 20 m<span class="process-math">\(^2\)</span> rectangular rubber sheet is placed in a stretching machine. Four seconds after the machine is turned on, the width of the rubber sheet is 10 meters and expanding at a rate of 0.25 m/s. Is the height of the rubber sheet shrinking or expanding at this moment in time? How quickly is it shrinking or expanding. (Assume that during the shrinking process the area of the sheet remains constant and the sheet always maintains a rectangular shape.)<div class="autopermalink" data-description="Paragraph"><a href="#eg_stretched_rubber-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_stretched_rubber-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_stretched_rubber-3-1">
+<div class="para">We define</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_stretch_sheet.html" id="eg_stretched_rubber-3-1-1">
+\begin{align*}
+w(t) \amp = \text{width of sheet } t \text{ sec. after mach. turned on}\\
+h(t) \amp = \text{height of sheet } t \text{ sec. after mach. turned on}\text{.}
+\end{align*}
+</div>
+<div class="para">In terms of our introduced notation, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_stretch_sheet.html" id="eg_stretched_rubber-3-1-2">
+\begin{align*}
+w(4) \amp = 10 \text{ m}\\
+w'(4) \amp = 1/4 \text{ m/s}\text{.}
+\end{align*}
+</div>
+<div class="para">We wish to compute <span class="process-math">\(h'(4)\text{,}\)</span> the rate of change of the height of the sheet with respect to time 4 seconds after the stretching begins. Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_stretch_sheet.html" id="eq_stretch_sheet">
+\begin{equation}
+20=w(t)h(t)\tag{1.112}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(t\geq 0\text{,}\)</span> taking the derivative of both sides of this equation with respect to <span class="process-math">\(t\)</span> yields</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_stretch_sheet.html" id="eq_sheet_stretch_der">
+\begin{equation}
+0=w'(t)h(t)+w(t)h'(t)\text{.}\tag{1.113}
+\end{equation}
+</div>
+<div class="para">Thus we have <span class="process-math">\(h'(t)=-\frac{w'(t)h(t)}{w(t)}\text{,}\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_stretch_sheet.html">
+\begin{equation*}
+h'(1)=-\frac{w'(1)h(1)}{w(1)}=-\frac{1/4\cdot 2}{10}=-\frac{1}{20} \text{ m/s}\text{,}
+\end{equation*}
+</div>
+<div class="para">where we have computed <span class="process-math">\(h(1)=20/w(1)=20/10=2\text{,}\)</span> using <a href="s_related_rates_I.html#eq_stretch_sheet" class="xref" data-knowl="./knowl/xref/eq_stretch_sheet.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.112">(1.112)</a>. In plain English: four seconds after the stretching begins, the height of the rubber sheet is decreasing at rate of <span class="process-math">\(1/20\)</span> meters per second.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_stretched_rubber-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.24.8.1"><a href="#eg_stretched_rubber-3" title="Copy heading and permalink for Solution 1.24.8.1" aria-label="Copy heading and permalink for Solution 1.24.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.24.8: Stretched rubber sheet"><a href="#eg_stretched_rubber" title="Copy heading and permalink for Example 1.24.8: Stretched rubber sheet" aria-label="Copy heading and permalink for Example 1.24.8: Stretched rubber sheet">🔗</a></div></article><div class="autopermalink" data-description="Section 1.24: Related rates I"><a href="#s_related_rates_I" title="Copy heading and permalink for Section 1.24: Related rates I" aria-label="Copy heading and permalink for Section 1.24: Related rates I">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_implicit.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_related_rates_II.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

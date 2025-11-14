@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Implicit differentiation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.18';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.cefb0224014f3333.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c50cdcad467c8d3e.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_chain.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_related_rates_I.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_implicit"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implicit differentiation</span>
+</h2>
+<article class="objectives goal-like" id="s_implicit-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_implicit-2-1">
+<li id="s_implicit-2-1-1">
+<div class="para" id="s_implicit-2-1-1-1">Explore the connection between curves, graphs of equations, and graphs of functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.23.1"><a href="#s_implicit-2-1-1" title="Copy heading and permalink for Objective 1.23.1" aria-label="Copy heading and permalink for Objective 1.23.1">🔗</a></div>
+</li>
+<li id="s_implicit-2-1-2">
+<div class="para" id="s_implicit-2-1-2-1">Identify points on curves near which the graph of the curve can be <em class="emphasis">implicitly</em> realized as the graph of a function.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.23.2"><a href="#s_implicit-2-1-2" title="Copy heading and permalink for Objective 1.23.2" aria-label="Copy heading and permalink for Objective 1.23.2">🔗</a></div>
+</li>
+<li id="s_implicit-2-1-3">
+<div class="para" id="s_implicit-2-1-3-1">Use the technique of implicit differentiation to deduce facts about derivatives of implicitly defined functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.23.3"><a href="#s_implicit-2-1-3" title="Copy heading and permalink for Objective 1.23.3" aria-label="Copy heading and permalink for Objective 1.23.3">🔗</a></div>
+</li>
+<li id="s_implicit-2-1-4">
+<div class="para" id="s_implicit-2-1-4-1">Understand the role of the chain rule in the technique of implicit differentiation.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.23.4"><a href="#s_implicit-2-1-4" title="Copy heading and permalink for Objective 1.23.4" aria-label="Copy heading and permalink for Objective 1.23.4">🔗</a></div>
+</li>
+<li id="s_implicit-2-1-5">
+<div class="para" id="s_implicit-2-1-5-1">Use implicit differentiation to deduce geometric properties of graphs of equations.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.23.5"><a href="#s_implicit-2-1-5" title="Copy heading and permalink for Objective 1.23.5" aria-label="Copy heading and permalink for Objective 1.23.5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 1.23"><a href="#s_implicit-2" title="Copy heading and permalink for Objectives 1.23" aria-label="Copy heading and permalink for Objectives 1.23">🔗</a></div></article><div class="para logical" id="s_implicit-3">
+<div class="para">We begin this section with some simple observations about curves <span class="process-math">\(\mathcal{C}\)</span> in <span class="process-math">\(\R^2\text{.}\)</span> Currently our main way of defining such a curve is as the graph of an equation. For example, let <span class="process-math">\(\mathcal{C}\)</span> be the unit circle centered at the origin is defined as the graph of the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2+y^2=1\text{.}
+\end{equation*}
+</div>
+<div class="para">That is, <span class="process-math">\(\mathcal{C}\)</span> is the set of all points <span class="process-math">\(P=(x,y)\)</span> satisfying <span class="process-math">\(x^2+y^2=1\text{.}\)</span> We call this an <em class="emphasis">implicit</em> description of the circle <span class="process-math">\(\mathcal{C}\)</span> as its points are not given to us <em class="emphasis">explicitly</em> via some formula; rather, to produce actual points on <span class="process-math">\(\mathcal{C}\)</span> it is up to us to find solutions to the equation (e.g., <span class="process-math">\(P=(-1,0)\text{,}\)</span> <span class="process-math">\(Q=(\sqrt{2}/2, \sqrt{2}/2)\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_graph_circle"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/sageplot/im_graph_circle.svg" role="img" class="contained" alt="Graph of unit circle"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(x^2+y^2=1\)</span><div class="autopermalink" data-description="Figure 1.23.1"><a href="#fig_graph_circle" title="Copy heading and permalink for Figure 1.23.1" aria-label="Copy heading and permalink for Figure 1.23.1">🔗</a></div></figcaption></figure><div class="para" id="s_implicit-5">A similar way of defining a curve in <span class="process-math">\(\R^2\)</span> is as the graph of a <em class="emphasis">function</em>. In other words, given a function <span class="process-math">\(f\colon D\rightarrow \R\text{,}\)</span> we define its graph to be the curve <span class="process-math">\(\mathcal{C}\)</span> consisting of all points of the form <span class="process-math">\(P=(x,f(x))\text{,}\)</span> where <span class="process-math">\(x\in D\text{.}\)</span>  Note that this description gives an explicit formula for producing points on the curve: namely, given any <span class="process-math">\(a\)</span> in the domain, the point <span class="process-math">\(P=(a,f(a))\)</span> lies on the graph.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_graph_fun"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/sageplot/im_graph_fun.svg" role="img" class="contained" alt="Graph of function x squared"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of the function <span class="process-math">\(f(x)=x^2\)</span><div class="autopermalink" data-description="Figure 1.23.2"><a href="#fig_graph_fun" title="Copy heading and permalink for Figure 1.23.2" aria-label="Copy heading and permalink for Figure 1.23.2">🔗</a></div></figcaption></figure><div class="para logical" id="s_implicit-7">
+<div class="para">The graph of a <em class="emphasis">function</em> can also be understood as the graph of an <em class="emphasis">equation</em>: indeed, the set of points of the form <span class="process-math">\(P=(x,f(x))\)</span> are precisely the the set of solutions <span class="process-math">\((x,y)\)</span> to the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y=f(x)\text{.}
+\end{equation*}
+</div>
+<div class="para">In other words, all curves that are graphs of functions can also be thought of as graphs of equations. However, not all graphs of equations are graphs of functions! Indeed, our circle above is an example of a curve that is a graph of an equation, but not the graph of a function. How do I know? It fails the vertical line test!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_implicit-8">Life is somewhat easier for us when a curve does happen to given as the graph of a function. For example, in this scenario, we have a systematic way of determining what the tangent line to a given point is. That technique is not in general available to us for the circle <span class="process-math">\(x^2+y^2=1\text{,}\)</span> as that curve is not the graph of any function <span class="process-math">\(f\text{.}\)</span> So how can we answer questions about tangent lines to that curve. The next example illustrates a technique that we call <em class="emphasis">implicit differentiation</em>. We give a formal description of the technique in <a href="s_implicit.html#proc_implicit_diff" class="xref" data-knowl="./knowl/xref/proc_implicit_diff.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.23.4: Implicit differentiation">Procedure 1.23.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_implicit_circle"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implicit differentiation: circle.</span>
+</h3>
+<div class="para" id="eg_implicit_circle-2-1">Use implicit differentiation to compute an equation of the tangent line to the circle <span class="process-math">\(\mathcal{C}\colon x^2+y^2=1\)</span> at the point <span class="process-math">\(P=\left(-\frac{1}{3}, \frac{2\sqrt{2}}{3}\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_circle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_implicit_circle-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_implicit_circle-3-1">
+<div class="para">The segment of <span class="process-math">\(\mathcal{C}\)</span> consisting of points lying very close to <span class="process-math">\(P\)</span> does pass the vertical line test, and thus we can think of the <span class="process-math">\(y\)</span>-coordinate value of points on this segment as being given by a function <span class="process-math">\(y=y(x)\)</span> of the <span class="process-math">\(x\)</span>-coordinate. The slope of the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P\)</span> is then given by <span class="process-math">\(y'(-1/3)\text{.}\)</span> In order to deduce information about <span class="process-math">\(y'(x)\)</span> we take the derivative of both sides of the defining equation of <span class="process-math">\(\mathcal{C}\text{,}\)</span> making sure to treat <span class="process-math">\(y\)</span> not as an independent variable, but rather a function of <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eg_implicit_circle-3-1-13">
+\begin{align*}
+x^2+(y(x))^2=1 \amp \implies \frac{d}{dx}(x^2+(y(x))^2)=\frac{d}{dx}(1) \\
+\amp \implies 2x+2 y(x) y'(x)=0 \amp \text{(chain rule)}\\
+\amp \implies y'(x)=-\frac{x}{y(x)}\text{.}
+\end{align*}
+</div>
+<div class="para">Evaluating the last equation at <span class="process-math">\(x=-1/3\text{,}\)</span> we conclude that</div>
+<div class="displaymath process-math" id="eg_implicit_circle-3-1-15">
+\begin{align*}
+y'(-1/3) \amp = -\frac{-1/3}{y(-1/3)}\\
+\amp = -\frac{-1/3}{2\sqrt{2}/3}\\
+\amp = \frac{1}{2\sqrt{2}}\\
+\amp =\frac{\sqrt{2}}{4}\text{.}
+\end{align*}
+</div>
+<div class="para">Note that <span class="process-math">\(y(-1/3)=2\sqrt{2}/3\)</span> since by definition <span class="process-math">\(y(-1/3)\)</span> is the <span class="process-math">\(y\)</span>-coordinate  of the point <span class="process-math">\(P=(-1/3, 2\sqrt{2}/3)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_circle-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="eg_implicit_circle-3-2">
+<div class="para">We conclude that the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P\)</span> has slope <span class="process-math">\(y'(-1/3)=\sqrt{2}/4\text{.}\)</span> Thus</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y-\frac{2\sqrt{2}}{3}=\frac{\sqrt{2}}{4}(x+1/3)\text{.}
+\end{equation*}
+</div>
+<div class="para">Below you find a graph of <span class="process-math">\(\mathcal{C}\)</span> and the tangent line to <span class="process-math">\(P\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_circle-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/sageplot/im_graph_circle_eg.svg" role="img" class="contained" alt="Graph of unit circle"></div>
+<div class="autopermalink" data-description="Solution 1.23.3.1"><a href="#eg_implicit_circle-3" title="Copy heading and permalink for Solution 1.23.3.1" aria-label="Copy heading and permalink for Solution 1.23.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.23.3: Implicit differentiation: circle"><a href="#eg_implicit_circle" title="Copy heading and permalink for Example 1.23.3: Implicit differentiation: circle" aria-label="Copy heading and permalink for Example 1.23.3: Implicit differentiation: circle">🔗</a></div></article><div class="para" id="s_implicit-10">We formalize our reasoning in <a href="s_implicit.html#eg_implicit_circle" class="xref" data-knowl="./knowl/xref/eg_implicit_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.23.3: Implicit differentiation: circle">Example 1.23.3</a> with a procedure.<div class="autopermalink" data-description="Paragraph"><a href="#s_implicit-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="proc_implicit_diff"><h3 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implicit differentiation.</span>
+</h3>
+<div class="para logical" id="proc_implicit_diff-2-1">
+<div class="para">Suppose <span class="process-math">\(\mathcal{C}\)</span> is a curve in <span class="process-math">\(\R^2\)</span> defined by an equation of the form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_implicit.html ./knowl/xref/eq_implicit.html" id="eq_implicit">
+\begin{equation}
+F_1(x,y)=F_2(x,y)\text{,}\tag{1.106}
+\end{equation}
+</div>
+<div class="para">and let <span class="process-math">\(P=(a,b)\)</span> be a point on <span class="process-math">\(\mathcal{C}\)</span> such that near <span class="process-math">\(P\)</span> the curve <span class="process-math">\(\mathcal{C}\)</span> satisfies the vertical line test.</div>
+<ol class="decimal" id="proc_implicit_diff-2-1-8">
+<li id="proc_implicit_diff-2-1-8-1">
+<div class="para" id="proc_implicit_diff-2-1-8-1-1">We can think of the portion of <span class="process-math">\(\mathcal{C}\)</span> near <span class="process-math">\(P\)</span> as the graph of an implicit function <span class="process-math">\(y=f(x)\)</span> relating <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#proc_implicit_diff-2-1-8-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="proc_implicit_diff-2-1-8-2">
+<div class="para logical" id="proc_implicit_diff-2-1-8-2-1">
+<div class="para">Under the assumption in (1), we can compute the derivative of this implicit function <span class="process-math">\(f\)</span> at <span class="process-math">\(x=a\)</span> as follows:</div>
+<ul class="disc" id="proc_implicit_diff-2-1-8-2-1-3">
+<li id="proc_implicit_diff-2-1-8-2-1-3-1">
+<div class="para" id="proc_implicit_diff-2-1-8-2-1-3-1-1">Replace (mentally or explicitly) each instance of <span class="process-math">\(y\)</span> in <a href="s_implicit.html#eq_implicit" class="xref" data-knowl="./knowl/xref/eq_implicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.106">(1.106)</a> with <span class="process-math">\(y(x)\text{,}\)</span> to emphasize that we now treat <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1-8-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_implicit_diff-2-1-8-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="proc_implicit_diff-2-1-8-2-1-3-2">
+<div class="para" id="proc_implicit_diff-2-1-8-2-1-3-2-1">Take the derivative of both sides of <a href="s_implicit.html#eq_implicit" class="xref" data-knowl="./knowl/xref/eq_implicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.106">(1.106)</a>, with respect to <span class="process-math">\(x\text{,}\)</span> taking care to treat <span class="process-math">\(y=y(x)\)</span> as a function of <span class="process-math">\(x\text{.}\)</span> You will make frequent use of the chain rule, as well as potentially the product and quotient rules, when doing so.<div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1-8-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_implicit_diff-2-1-8-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="proc_implicit_diff-2-1-8-2-1-3-3">
+<div class="para logical" id="proc_implicit_diff-2-1-8-2-1-3-3-1">
+<div class="para">Attempt to solve for <span class="process-math">\(y'(x)\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> yielding an expression of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x)=y'(x)=G(x, y(x))\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1-8-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_implicit_diff-2-1-8-2-1-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="proc_implicit_diff-2-1-8-2-1-3-4">
+<div class="para logical" id="proc_implicit_diff-2-1-8-2-1-3-4-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(a)=y'(a)=G(a,y(a))=G(a,b)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1-8-2-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#proc_implicit_diff-2-1-8-2-1-3-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#proc_implicit_diff-2-1-8-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_implicit_diff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 1.23.4: Implicit differentiation"><a href="#proc_implicit_diff" title="Copy heading and permalink for Procedure 1.23.4: Implicit differentiation" aria-label="Copy heading and permalink for Procedure 1.23.4: Implicit differentiation">🔗</a></div></article><article class="example example-like" id="eg_implicit_Ts"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Tschirnhausen cubic.</span>
+</h3>
+<div class="para logical" id="eg_implicit_Ts-2-1">
+<div class="para">The curve <span class="process-math">\(\mathcal{C}\)</span> defined by the equation <span class="process-math">\(x^2=y^3+3y^2\)</span> is called Tschirnhausen’s cubic.</div>
+<ol class="decimal" id="eg_implicit_Ts-2-1-3">
+<li id="eg_implicit_Ts-2-1-3-1">
+<div class="para" id="eg_implicit_Ts-2-1-3-1-1">Verify that <span class="process-math">\(P=(2,1)\)</span> is a point on <span class="process-math">\(\mathcal{C}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_implicit_Ts-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_implicit_Ts-2-1-3-2">
+<div class="para" id="eg_implicit_Ts-2-1-3-2-1">Use implicit differentiation to find an equation of the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at the point <span class="process-math">\(P=(2,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_implicit_Ts-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_implicit_Ts-2-1-3-3">
+<div class="para" id="eg_implicit_Ts-2-1-3-3-1">Assuming <span class="process-math">\(y=y(x)\)</span> is can be understood as a function of <span class="process-math">\(x\)</span> for points on <span class="process-math">\(\mathcal{C}\)</span> near <span class="process-math">\((2,1)\text{,}\)</span> compute <span class="process-math">\(y''(2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_implicit_Ts-2-1-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_implicit_Ts-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_implicit_Ts-3-1">
+<ol class="decimal" id="eg_implicit_Ts-3-1-1">
+<li id="eg_implicit_Ts-3-1-1-1">
+<div class="para logical" id="eg_implicit_Ts-3-1-1-1-1">
+<div class="para">To verify that <span class="process-math">\(P=(2,1)\)</span> lies on <span class="process-math">\(\mathcal{C}\text{,}\)</span> we simply evaluate the left- (LHS)and right-hand sides (RHS) of the defining equation and verify that they are equal:</div>
+<div class="displaymath process-math" id="eg_implicit_Ts-3-1-1-1-1-3">
+\begin{align*}
+\text{LHS}\amp = 4 \\
+\text{RHS} \amp = 1^3+3\cdot 1^2=4\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_implicit_Ts-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_implicit_Ts-3-1-1-2">
+<div class="para logical" id="eg_implicit_Ts-3-1-1-2-1">
+<div class="para">Following <a href="s_implicit.html#proc_implicit_diff" class="xref" data-knowl="./knowl/xref/proc_implicit_diff.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.23.4: Implicit differentiation">Procedure 1.23.4</a> we write <span class="process-math">\(y=y(x)\)</span> for each instance of <span class="process-math">\(y\)</span> in the defining equation of <span class="process-math">\(\mathcal{C}\)</span> and then take the derivative of both sides of the equation with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html" id="eg_implicit_Ts-3-1-1-2-1-6">
+\begin{align*}
+x^2=(y(x))^3+3(y(x))^2 \amp \implies \frac{d}{dx}(x^2)=\frac{d}{dx}((y(x))^3+3(y(x))^2) \\
+\amp \implies 2x=3y(x)^2y'(x)+6y(x)y'(x)\\
+\amp \implies y'(x)=\frac{2x}{3y(x)^2+6y(x)}\text{.}
+\end{align*}
+</div>
+<div class="para">The slope of the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P\)</span> is thus given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html" id="eg_implicit_Ts-3-1-1-2-1-9">
+\begin{align*}
+y'(2) \amp =\frac{2\cdot 2}{3(y(2)^2+6y(2))}\\
+\amp = \frac{4}{3\cdot 1^2+6\cdot 1\\
+\amp = \frac{4}{9}\text{.}
+\end{align*}
+</div>
+<div class="para">The equation of the tangent line, using point-slope form for this <span class="process-math">\(P\text{,}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html">
+\begin{equation*}
+y-1=\frac{4}{9}(x-2)\text{.}
+\end{equation*}
+</div>
+<div class="para">Below you find a graph of <span class="process-math">\(\mathcal{C}\)</span> and the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/im_tschirn.svg" role="img" class="contained" alt="Tschirnhausen cubic"></div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_implicit_Ts-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_implicit_Ts-3-1-1-3">
+<div class="para logical" id="eg_implicit_Ts-3-1-1-3-1">
+<div class="para">To deduce information about <span class="process-math">\(y''(x)\)</span> we take the derivative with respect to <span class="process-math">\(x\)</span> of both sides of the equation we derived for <span class="process-math">\(y'(x)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eg_implicit_Ts-3-1-1-3-1-4">
+\begin{align*}
+y'(x)=\frac{2x}{3y(x)^2+6y(x)} \amp \implies \frac{d}{dx}(y'(x))=\frac{d}{dx}\left(\frac{2x}{3y(x)^2+6y(x)}\right)\\
+\amp \implies y''(x)=\frac{(2x)'(3y(x)^2+6y(x))-(2x)(3y(x)^2+6y(x))'}{(3y(x)^2+6y(x))^2}\\
+\amp \implies y''(x)=\frac{2(3y(x)^2+6y(x))-(2x)(6y(x)y'(x)+6y'(x))}{(3y(x)^2+6y(x))^2}\text{.}
+\end{align*}
+</div>
+<div class="para">We then compute</div>
+<div class="displaymath process-math" id="eg_implicit_Ts-3-1-1-3-1-5">
+\begin{align*}
+y''(2) \amp = \frac{2(3y(2)^2+6y(2))-(2\cdot 2)(6y(2)y'(2)+6y'(2))}{(3y(2)^2+6y(2))^2}\\
+\amp = \frac{2(3\cdot 1^2+6\cdot 1)-4(6\cdot 1\cdot (4/9)+6\cdot (4/9))}{(3\cdot 1^2+6\cdot 1)^2} \amp (y(2)=1, y'(2)=4/9)\\
+\amp = \frac{18-4(48/9)}{81}\\
+\amp = \frac{162-192}{729}\\
+\amp = -\frac{30}{729}\\
+\amp = -\frac{10}{243}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_implicit_Ts-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_Ts-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.23.5.1"><a href="#eg_implicit_Ts-3" title="Copy heading and permalink for Solution 1.23.5.1" aria-label="Copy heading and permalink for Solution 1.23.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.23.5: Tschirnhausen cubic"><a href="#eg_implicit_Ts" title="Copy heading and permalink for Example 1.23.5: Tschirnhausen cubic" aria-label="Copy heading and permalink for Example 1.23.5: Tschirnhausen cubic">🔗</a></div></article><article class="example example-like" id="eg_implicit_ellipse"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ellipse tangents.</span>
+</h3>
+<div class="para" id="eg_implicit_ellipse-2-1">Let <span class="process-math">\(\mathcal{C}\)</span> be the ellipse defined by the equation <span class="process-math">\(5x^2-6xy+2y^2=1\text{.}\)</span>  Find all points <span class="process-math">\(P\)</span> on <span class="process-math">\(\mathcal{C}\)</span> where the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P\)</span> is horizontal.<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_ellipse-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_implicit_ellipse-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_implicit_ellipse-3-1">
+<div class="para">Applying <a href="s_implicit.html#proc_implicit_diff" class="xref" data-knowl="./knowl/xref/proc_implicit_diff.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.23.4: Implicit differentiation">Procedure 1.23.4</a> we have:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html" id="eg_implicit_ellipse-3-1-2">
+\begin{align*}
+5x^2-6xy(x)+2(y(x))^2=1 \amp \implies \frac{d}{dx}(5x^2-6xy(x)+2(y(x))^2)=\frac{d}{dx}(1) \\
+\amp \implies 10x-6(x\, y(x))'+4y(x)y'(x)=0\\
+\amp \implies 10x-6(y(x)+xy'(x))+4y(x)y'(x)=0\\
+\amp \implies 10x-6y(x)-6xy'(x)+4y(x)y'(x)=0\\
+\amp \implies y'(x)=\frac{6y(x)-10x}{4y(x)-6x}\text{.}
+\end{align*}
+</div>
+<div class="para">We look for point <span class="process-math">\(P=(x,y)\)</span> where <span class="process-math">\(y'(x)=0\text{,}\)</span> making the tangent line horizontal. According to our derivation above, for this to be the case we need need <span class="process-math">\(6y-10x=0\text{,}\)</span> or equivalently, <span class="process-math">\(y=\frac{5}{3}x\text{.}\)</span> Substituting this back in to the defining equation of <span class="process-math">\(\mathcal{C}\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html">
+\begin{equation*}
+5x^2-6x(5x/3)+2(5x/3)^2=1\text{,}
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html">
+\begin{equation*}
+\frac{5}{9}x^2=1\text{.}
+\end{equation*}
+</div>
+<div class="para">We conclude that <span class="process-math">\(x=\pm 3/\sqrt{5}\text{.}\)</span> Using <span class="process-math">\(y=\frac{5}{3}x\text{,}\)</span> we see that the points</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html" id="eg_implicit_ellipse-3-1-12">
+\begin{align*}
+P \amp =(3/\sqrt{5},5/\sqrt{5})\amp Q\amp=(-3/\sqrt{5},-5/\sqrt{5})
+\end{align*}
+</div>
+<div class="para">are the two points where the tangent lines to <span class="process-math">\(\mathcal{C}\)</span> are horizontal. Below you find a graph of <span class="process-math">\(\mathcal{C}\text{,}\)</span> the points <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> and their horizontal tangent lines.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_ellipse-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/im_ellipse.svg" role="img" class="contained" alt="A rotated ellipse"></div>
+<div class="autopermalink" data-description="Solution 1.23.6.1"><a href="#eg_implicit_ellipse-3" title="Copy heading and permalink for Solution 1.23.6.1" aria-label="Copy heading and permalink for Solution 1.23.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.23.6: Ellipse tangents"><a href="#eg_implicit_ellipse" title="Copy heading and permalink for Example 1.23.6: Ellipse tangents" aria-label="Copy heading and permalink for Example 1.23.6: Ellipse tangents">🔗</a></div></article><article class="example example-like" id="eg_implicit_trig"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implicit: trig equation.</span>
+</h3>
+<div class="para logical" id="eg_implicit_trig-2-1">
+<div class="para">Let the curve <span class="process-math">\(\mathcal{C}\)</span> be defined by the equation <span class="process-math">\(x\sin(y^2+y)+y=4x\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_implicit_trig-2-1-3">
+<li id="eg_implicit_trig-2-1-3-1">
+<div class="para" id="eg_implicit_trig-2-1-3-1-1">Verify that <span class="process-math">\(P=(0,0)\)</span> is a point on this curve.<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_trig-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_implicit_trig-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_implicit_trig-2-1-3-2">
+<div class="para" id="eg_implicit_trig-2-1-3-2-1">Find an equation of the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_trig-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_implicit_trig-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_implicit_trig-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_implicit_trig-3-1">
+<ol class="decimal" id="eg_implicit_trig-3-1-1">
+<li id="eg_implicit_trig-3-1-1-1">
+<div class="para" id="eg_implicit_trig-3-1-1-1-1">It is easily seen that the point <span class="process-math">\(P=(0,0)\)</span> satisfies the defining equation of <span class="process-math">\(\mathcal{C}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_trig-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_implicit_trig-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_implicit_trig-3-1-1-2">
+<div class="para logical" id="eg_implicit_trig-3-1-1-2-1">
+<div class="para">We apply <a href="s_implicit.html#proc_implicit_diff" class="xref" data-knowl="./knowl/xref/proc_implicit_diff.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 1.23.4: Implicit differentiation">Procedure 1.23.4</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html" id="eg_implicit_trig-3-1-1-2-1-2">
+\begin{align*}
+\amp  x\sin((y(x))^2+y(x))+y(x) =4x  \\
+\amp \frac{d}{dx}(x\sin((y(x))^2+y(x))+y(x))=\frac{d}{dx}(4x)  \\
+\amp  \sin((y(x))^2+y(x))+x(\sin((y(x))^2+y(x))'+y'(x)=4 \\
+\amp  \sin((y(x))^2+y(x))+x\cos((y(x))^2+y(x))(2y(x)y'(x)+y'(x))+y'(x) =4\text{.}
+\end{align*}
+</div>
+<div class="para">For the point <span class="process-math">\(P=(0,0)\text{,}\)</span> we have <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=y(0)=0\text{.}\)</span> Evaluating the last equation above at these values, we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_implicit_diff.html">
+\begin{equation*}
+\sin(0)+0+y'(0)=4\text{,}
+\end{equation*}
+</div>
+<div class="para">and thus <span class="process-math">\(y'(0)=4\text{.}\)</span> It follows that the tangent line to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(P=(0,0)\)</span> has defining equation <span class="process-math">\(y=4x\text{.}\)</span> Below we graph <span class="process-math">\(\mathcal{C}\)</span> and the tangent line at <span class="process-math">\(P\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_trig-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_implicit_trig-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_implicit_trig-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/im_implicit_trig.svg" role="img" class="contained" alt="Implicit function with trig equation"></div>
+<div class="autopermalink" data-description="Solution 1.23.7.1"><a href="#eg_implicit_trig-3" title="Copy heading and permalink for Solution 1.23.7.1" aria-label="Copy heading and permalink for Solution 1.23.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.23.7: Implicit: trig equation"><a href="#eg_implicit_trig" title="Copy heading and permalink for Example 1.23.7: Implicit: trig equation" aria-label="Copy heading and permalink for Example 1.23.7: Implicit: trig equation">🔗</a></div></article><div class="autopermalink" data-description="Section 1.23: Implicit differentiation"><a href="#s_implicit" title="Copy heading and permalink for Section 1.23: Implicit differentiation" aria-label="Copy heading and permalink for Section 1.23: Implicit differentiation">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_chain.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_related_rates_I.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
