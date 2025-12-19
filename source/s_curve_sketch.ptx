@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_curve_sketch_I" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Curve sketching</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Bring all our calculus tools to bear on the analysis of a real-valued function <m>f</m>. In more detail: determine the domain, the <m>y</m>-intercept and any <m>x</m>-intercepts; compute the limit of the function at endpoints of the domain and determine whether there are horizontal asymptotes; determine whether there are vertical asymptotes; find and classify all critical points of <m>f</m>; determine the intervals of monotonicity; determine intervals of constant concavity; identify any inflection points.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Express the results of our analysis of a function's behavior in the form of a detailed sketch. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <introduction>
+        <p>
+        In this section,
+        we focus on sketching accurate graphs of algebraic functions by hand. To do so we will assemble a host of information about the function, starting from elementary properties like domain and intercepts, and moving to more sophisticated ones like local and global extrema, intervals of monotonicity, inflection points, and end behavior. These latter properties are revealed to us through the use of calculus tools: more specifically, from an analysis of the first and second derivatives of the function, and limits at infinity (or endpoints). <xref ref="proc_curve_sketching"/> enumerates a fairly complete list of the details our resulting sketch should capture. The examples that follow indicate how to systematically extract all of those details through a calculus-aided investigation. 
+    </p>
+    </introduction>
+    <subsection xml:id="ss_curve_sketching">
+    <title>Curve sketching</title>
+    
+    
+    <algorithm xml:id="proc_curve_sketching">
+        <title>Curve sketching</title>
+        
+        <statement>
+            <p>
+            When asked to give an accurate sketch of the graph of a function <m>f</m>, we seek to produce a sketch that accurately reflects the following properties: 
+            <ol>
+                <li>
+                    <p>
+                        the domain <m>D</m> of <m>f</m>;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>x</m>- and <m>y</m>-intercepts of <m>f</m>;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        horizontal asymptotes, and more generally, the <q>endpoint</q> behavior of <m>f</m> (<ie/>, limits of <m>f(x)</m> as <m>x</m> approaches endpoints of <m>D</m>); 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        vertical asymptotes;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        critical points of <m>f</m>, classified as points where <m>f</m> attains a local maximum value, a local minimum value, or neither; 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        intervals of monotonicity of <m>f</m> (<ie/>, intervals where <m>f</m> is either increasing or decreasing);
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        intervals of constant concavity of <m>f</m>; 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        inflection points of <m>f</m>.
+                    </p>
+                </li>
+            </ol>        
+            </p>
+        </statement>
+    </algorithm>
+<example xml:id="eg_curve_poly">
+<title>Curve sketch: polynomial</title>
+<statement>
+<p>
+Provide a graph of <m>f(x)=3x^5-5x^3</m> that includes all the details listed in <xref ref="proc_curve_sketching"/>. 
+</p>
+</statement>
+<solution>
+    <p>
+        <term>Domain and intercepts</term>. 
+        The domain of <m>f</m> is <m>\R=(-\infty, \infty)</m>. The <m>y</m>-intercept of the graph of <m>f</m> is <m>(0,f(0))=(0,0)</m>. 
+    </p>    
+    <p>
+        To find the <m>x</m>-intercepts we solve: 
+        <md>
+            <mrow>f(x) \amp =0</mrow>
+            <mrow>x^3(3x^2-5) \amp =0</mrow>
+            <mrow>x=0 \amp\text{ or } x^2=\frac{5}{3} </mrow>
+            <mrow>x=0 \amp\text{ or } x=\pm\sqrt{5/3} </mrow>
+        </md>.
+        Thus the <m>x</m>-intercepts are 
+        <me>
+            (0,0), (\sqrt{5/3},0), (-\sqrt{5/3},0)
+        </me>.
+    </p>
+    <p>
+        <term>Endpoint behavior and vertical asymptotes</term>.
+        Since <m>f</m> is continuous at all points of <m>\R</m>, there are no vertical asymptotes. 
+    </p>
+    <p>
+        For endpoint behavior, we compute 
+        <md>
+            <mrow>\lim_{x\to \pm \infty}f(x) \amp = \lim\limits_{x\to \pm \infty}\frac{3x^5-5x^3}{1} </mrow>
+            <mrow> \amp = \lim\limits_{x\to \pm \infty}3x^5 \amp (<xref ref="th_rational_function"/>)</mrow>
+            <mrow> \amp = \pm \infty</mrow>         
+        </md>.
+        In particular, we see that there are no horizontal asymptotes of the graph of <m>f</m>. 
+    </p>
+<p>
+<term>Critical points and intervals of monotonicity</term>.
+We saw in <xref ref="eg_first_der_test_poly"/> that the critical points of <m>f</m> are <m>x=-1,0,1</m>, that <m>f(-1)</m> is a local maximum value, <m>f(1)</m> is a local minimum value, and <m>f(0)</m> is neither, that <m>f</m> is increasing on the intervals <m>(-\infty, -1]</m> and <m>[1,\infty)</m> and decreasing on the interval <m>[-1,1]</m>. All of this information is summarized by the sign diagram of <m>f'</m>.
+</p>
+<image xml:id="im_sign_diag_poly_2" width="70%">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (0,0) -- (7,0);
+        \path foreach \X/\Y  in 
+         {2/-1, 4/0, 6/1}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$+$};
+       \draw(3,.5) node{$-$};
+       \draw(5,.5) node{$-$};
+       \draw(7,.5) node{$+$};
+       \draw(1,-.5) node{$\nearrow$};
+       \draw(3,-.5) node{$\searrow$};
+       \draw(5,-.5) node{$\searrow$};
+       \draw(7,-.5) node{$\nearrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+<term>Concavity and inflection points</term>.
+We analyzed the concavity of <m>f</m> in  <xref ref="eg_concavity_poly"/>. The sign diagram we produced there gives a nice summary of the situation. 
+</p>
+<image xml:id="im_sign_diag_second_2" width="70%">
+    <shortdescription>Sign diagram for second derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (0,0) -- (7,0);
+        \path foreach \X/\Y  in 
+         {2/-\frac{1}{\sqrt{2}}, 4/0, 6/\frac{1}{\sqrt{2}}}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f''\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$-$};
+       \draw(3,.5) node{$+$};
+       \draw(5,.5) node{$-$};
+       \draw(7,.5) node{$+$};
+       \draw(1,-.5) node{$\cap$};
+       \draw(3,-.5) node{$\cup$};
+       \draw(5,-.5) node{$\cap$};
+       \draw(7,-.5) node{$\cup$};
+        \end{tikzpicture}
+
+    </latex-image>
+</image>
+<p>
+    In particular, observe that we have inflection points at the inputs <m>x=-1/\sqrt{2}, 0, 1/\sqrt{2}</m>. 
+</p>
+<p>
+<term>Important points</term>.
+Our analysis is more or less complete. We should first, however, make a table of values (to the best of our abilities) for all important points on our graph. 
+<me>
+    \begin{array}{r|l}
+    x \amp f(x) \\
+    \hline 
+    0\amp 0 \\
+    -1 \amp 2 \\
+    1 \amp -2 \\
+    -\frac{1}{\sqrt{2}} \amp -(3(2)^{-5/2}+5(2)^{-3/2}) \\
+    \frac{1}{\sqrt{2}} \amp (3(2)^{-5/2}+5(2)^{-3/2})
+    \end{array}
+</me>.
+Finally we put everything together into a single sketch. 
+</p>
+<image xml:id="im_curve_sketch_poly" width="70%">
+    <shortdescription>Graph of function</shortdescription>
+    <sageplot>
+    f(x)=3*x^5-5*x^3
+    P=point((0,0),color="red", size=50)
+    Q=point((-1/sqrt(2),f(-1/sqrt(2))),color="red", size=50)
+    R=point((1/sqrt(2),f(1/sqrt(2))), color="red", size=50)
+    S=point((-1,f(-1)),color="red", size=50)
+    T=point((1,f(1)),color="red", size=50)
+    C=plot(f(x),x,-1.5,1.5)
+    P+Q+R+C+S+T
+    </sageplot>
+</image> 
+</solution>
+</example>
+<example xml:id="eg_curve_rational">
+<title>Curve sketching: rational function</title>
+<statement>
+<p>
+    Provide a graph of <m>f(x)=\frac{x^2}{x^2+3}</m> that includes all the details listed in <xref ref="proc_curve_sketching"/>. 
+</p>
+</statement>
+<solution>
+<p>
+For the sake of space, our solution will be slightly more terse than in the previous example. We first observe that the domain of <m>f</m> is <m>\R</m> and that <m>(0,0)</m> is both the <m>x</m>- and <m>y</m>-intercept. 
+</p>
+<p>
+    Since <m>f</m> is continuous everywhere on <m>\R</m>, it has not vertical asymptotes. Using <xref ref="th_rational_function"/>, we see easily that <m>\lim\limits_{x\to \pm \infty}f(x)=1</m>, and thus that <m>y=1</m> is a horizontal asymptote of <m>f</m>. 
+</p>
+<p>
+    Next we compute 
+<md>
+    <mrow>f'(x) \amp = \frac{6x}{(x^2+3)^2}</mrow>
+    <mrow>f''(x) \amp = \frac{18(x-1)(x+1)}{(x^2+3)^3} </mrow>
+</md>.
+The sign diagrams for <m>f'</m> and <m>f''</m> are given below. 
+</p>
+<sidebyside valign="middle" widths="40% 60%">
+    <image xml:id="im_sign_der_rat">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (0,0) -- (4,0);
+        \path foreach \X/\Y  in 
+         {2/0}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$-$};
+       \draw(3,.5) node{$+$};
+       \draw(1,-.5) node{$\searrow$};
+       \draw(3,-.5) node{$\nearrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<image xml:id="im_sign_2der_rat">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+         \begin{tikzpicture}
+        \draw (0,0) -- (6,0);
+        \path foreach \X/\Y  in 
+         {2/-1, 4/0}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f''\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$-$};
+       \draw(3,.5) node{$+$};
+       \draw(5,.5) node{$-$};
+       \draw(1,-.5) node{$\cap$};
+       \draw(3,-.5) node{$\cup$};
+       \draw(5,-.5) node{$\cap$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+</sidebyside>
+<p>
+    We see then that <m>f</m> has a single critical point at <m>x=0</m>, that <m>f(0)</m> is a local minimum value of <m>f</m>, and that <m>f</m> is decreasing on <m>(-\infty, 0)</m> and increasing on <m>(0,\infty)</m>. Furthermore, <m>f</m> has inflection points at <m>x=-1</m> and <m>x=1</m>, is concave down on <m>(-\infty, -1)</m> and <m>(1,\infty)</m>, and concave up on <m>(-1,1)</m>.
+    </p>
+    <p>To finish our analysis we make a table of values of important points: 
+    <me>
+        \begin{array}{r|l}
+        x\amp f(x) \\
+        \hline
+        0 \amp 0 \\
+        -1 \amp \frac{1}{4} \\
+        1  \amp \frac{1}{4}
+        \end{array}
+    </me>.
+  Putting everything together, we obtain a graph like the following.    
+</p>
+<image xml:id="im_curve_sketch_rat" width="100%">
+    <shortdescription>Graph of function</shortdescription>
+    <sageplot>
+    f(x)=x^2/(x^2+3)
+    L=plot(1,x,-7,7, color='red', linestyle="dashed")
+    C=plot(f(x),x,-7,7)
+    P=point((0,0),color='red', size=50)
+    Q=point((-1,1/4),color='red', size=50)
+    R=point((1,1/4),color='red', size=50)
+    P+Q+R+C+L
+    </sageplot>
+</image>
+
+</solution>
+</example>
+
+<example xml:id="eg_curve_radical">
+<title>Curve sketching: algebraic function</title>
+<statement>
+<p>
+    Provide a graph of <m>f(x)=\frac{\sqrt{x}}{x-1}</m> that includes all the details listed in <xref ref="proc_curve_sketching"/>. 
+</p>
+</statement>
+<solution>
+<p>
+    The domain of <m>f</m> is <m>D=[0,1)\cup (1,\infty)</m>, and <m>(0,0)</m> is both the <m>y</m>-intercept and the sole <m>x</m>-intercept. 
+</p>
+<p>
+    Since <m>f</m> is continuous at <m>x=0</m>, we have 
+    <me>
+        \lim\limits_{x\to 0^+}f(x)=f(0)=0
+    </me>.
+     Next we compute 
+    <md>
+        <mrow>\lim\limits_{x\to \infty}f(x) \amp = \lim\limits_{x\to \infty}\frac{\sqrt{x}}{x(1-1/x)} </mrow>
+        <mrow> \amp =\lim\limits_{x\to \infty}\frac{1}{\sqrt{x}}\cdot \frac{1}{1-1/x} </mrow>
+        <mrow> \amp = \lim\limits_{x\to \infty}\frac{1}{\sqrt{x}}\lim\limits_{x\to \infty}\frac{1}{1-1/x}</mrow>
+        <mrow> \amp = 0\cdot \frac{1}{\lim\limits_{x\to \infty}1-\lim\limits_{x\to \infty}1/x}</mrow>
+        <mrow> \amp = 0\cdot 1=0</mrow>
+    </md>.
+    Thus <m>y=0</m> is a horizontal asymptote of <m>f</m>. 
+</p>
+<p>
+    The only candidate for a vertical asymptote of <m>f</m> is <m>x=1</m>. We compute 
+    <md>
+        <mrow>\lim\limits_{x\to 1^-}\frac{\sqrt{x}}{x-1} \amp = -\infty \amp (\text{type } 1/0)</mrow>
+        <mrow>\lim\limits_{x\to 1^+}\frac{\sqrt{x}}{x-1} \amp = \infty \amp (\text{type } 1/0)</mrow>
+    </md>.
+    In particular, we see that <m>x=1</m> is a vertical asymptote of the graph of <m>f</m>. 
+</p>
+<p>
+    Moving on, after some careful simplification, we see that 
+    <md>
+        <mrow>f'(x) \amp =-\frac{x+1}{2\sqrt{x}(x-1)^2} </mrow>
+        <mrow>f''(x) \amp = \frac{3x^2+6x-1}{4x^{3/2}(x-1)^3}</mrow>
+    </md> 
+    for all <m>x&gt; 0</m>. Note that both <m>f'</m> and <m>f''</m> are both undefined at <m>0</m>. It follows that <m>x=0</m> is the only critical point of <m>f</m>. We now compute the sign diagram of <m>f'</m>. 
+    </p>
+     <image xml:id="im_sign_der_rad" width="50%">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (1,0) -- (5,0);
+        \path foreach \X/\Y  in 
+         {1/0, 3/1}
+           { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(2,.5) node{$-$};
+       \draw(4,.5) node{$-$};
+       \draw(2,-.5) node{$\searrow$};
+       \draw(4,-.5) node{$\searrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    Not in particular that <m>f</m> is decreasing on its entire domain. 
+</p>
+<p>
+    To produce the sign diagram of <m>f''</m> we first solve
+    <md>
+        <mrow>f''(x) \amp = 0</mrow>
+        <mrow>3x^2+6x-1 \amp = 0 </mrow>
+        <mrow>x \amp = \frac{-6\pm \sqrt{48}}{6}</mrow>
+        <mrow> \amp = -1\pm \frac{2\sqrt{3}}{3}</mrow>
+    </md>.
+    Since only <m>-1+2\sqrt{3}/3</m> lies in the domain of <m>f</m>, we obtain the following sign diagram for <m>f''</m>. 
+</p>
+ <image xml:id="im_sign_2nd_der_rad" width="70%">
+    <shortdescription>Sign diagram for second derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (1,0) -- (7,0);
+        \path foreach \X/\Y  in 
+         {1/0, 3/-1+\frac{2\sqrt{3}}{3},5/1}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f''\colon$};
+            \draw (.25,-1) node{$f\colon $};
+       \draw(2,.5) node{$+$};
+       \draw(4,.5) node{$-$};
+       \draw(6,.5) node{$+$};
+       \draw(2,-1) node{$\cup$};
+       \draw(4,-1) node{$\cap$};
+       \draw(6,-1) node{$\cup$};
+        \end{tikzpicture}
+
+    </latex-image>
+</image>
+<p>
+    Putting it all together, we get a graph like the following.
+</p>
+<image xml:id="im_curve_sketch_rad" width="100%">
+    <shortdescription>Graph of f</shortdescription>
+    <sageplot>
+f(x)=sqrt(x)/(x-1)
+C=plot(f(x),x,0,3,detect_poles=show, ymin=-10, ymax=10, aspect_ratio=1/10)
+P=point((-1+2*sqrt(3)/3,f(-1+2*sqrt(3)/3)),color="red", size=50)
+L=line([(1,-10),(1,10)],color="red",linestyle="dotted")
+M=line([(0,0),(3,0)],color="red",linestyle="dotted")
+C+M+P+L
+    </sageplot>
+</image>
+<p>
+    Observe how easy it would be to overlook the inflection point (the sole point plotted above in red) without our careful analysis. 
+</p>
+</solution>
+</example>
+</subsection>
+<subsection xml:id="ss_from_derivative">
+<title>Curve sketching from derivative</title>
+<p>
+    As the proceeding examples amply illustrate, the <em>shape</em> of the graph of a function is essentially determined by the behavior of its first and second derivatives <m>f'</m> and <m>f''</m>. In more detail, <m>f'</m> tells us where the function <m>f</m> is increasing or decreasing, and where it has critical points and local maxima and minima; and <m>f''</m> tells us where the function is concave up or down. That information allows us to give a fairly accurate account of the shape of the graph of <m>f</m>. The only thing it is missing are actual values of <m>f</m> that allow us to <q>pin</q> our curve to the coordinate system at an actual plotted point. The next examples illustrate this. 
+</p>
+<example xml:id="eg_g_from_gprime">
+      <statement>
+        <p>
+          Let <m>g</m> be a continuous function with domain <m>D=\R</m> whose derivative <m>g'</m> is shown in <xref ref="fig_g_from_gprime" />. 
+        </p>
+        <figure xml:id="fig_g_from_gprime">
+          <caption>Graph of <m>g'</m>, the derivative of <m>g</m>.</caption>
+        <image width="60%">
+            <sageplot>
+        g1=plot(-(x+1),x,-3,1.94)
+        g2=plot(2,x,2.07,4)
+        C=circle((2,2),.07)
+        P=circle((2,-3),.07)
+        g1+g2+C+P
+          </sageplot>
+        </image>
+        </figure>
+        <p>
+            Produce a sketch of <m>g</m> that correctly reflects where <m>g</m> is increasing or decreasing, where it has critical points and local extrema, and where it is concave up, concave down, or neither. 
+        </p>
+      </statement>
+      <solution>
+       <p>
+          Let us make some organized deductions from the graph of <m>g'</m>.
+          <ul>
+            <li>
+                <p>
+                    Since <m>g'</m> is positive on the intervals <m>(-\infty, -2)</m> and <m>(2,\infty)</m>, the function <m>g</m> is increasing there; similarly, since <m>g'</m> is negative on <m>(-2,2)</m> the function <m>g</m> is decreasing there. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Since <m>g'</m> has a zero at <m>x=-2</m>, the function <m>g</m> has a critical point at <m>x=2</m>. Furthermore, since <m>g'</m> is positive for <m>x&lt; -2</m> and negative for <m>x&gt; -2</m>, <m>f</m> has a local maximum value at <m>x=2</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Since <m>g'</m> is not defined at <m>x=2</m>, we see that <m>g</m> is not differentiable at <m>x=2</m>, making this another critical point of <m>g</m>. As above, since <m>g'</m> is negative to the left of <m>x=2</m> and positive to the right, we see that <m>g</m> has a local minimum at <m>x=2</m>.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    By definition, <m>g</m> is concave up on all intervals where <m>g'</m> is increasing, and concave down on all intervals where <m>g'</m> is decreasing. Looking at the graph of <m>g'</m>, we see that it is decreasing on <m>(-\infty, 2)</m>, and constant on <m>(2,\infty)</m>; in particular, <m>g'</m> is never increasing. We conclude that <m>g</m> is concave down on <m>(-\infty, 2)</m>. The fact that <m>g'(x)=2</m> for all <m>x&gt; 2</m> tells us that <m>g</m> is linear on <m>(2,\infty)</m> with constant slope <m>2</m>.
+                </p>
+            </li>
+          </ul> 
+          Putting our observations about <m>g</m> together, we produce the following sketch of the graph of <m>g</m>. 
+        </p>
+          <figure xml:id="fig_g_from_gprime_graph">
+            <caption>A possible graph of <m>g</m></caption>
+            <image width="60%">
+                <shortdescription>Graph of g</shortdescription>
+                <sageplot>
+                g1=plot(-(x+1)^2/2+9/2+1,x,-3,2)
+                g2=plot(2*(x-2)+1,x,2,4)
+                g1+g2
+                </sageplot>
+            </image>
+          </figure>
+        <p>
+            Note that our graph of <m>g</m> is not the only one with a derivative <m>g'</m> satisfying the given conditions. Indeed, if <m>g</m> is one solution to our problem, so is <m>h(x)=g(x)+C</m> for any constant <m>C</m>. Graphically, speaking this is just the fact that shifting our given graph of <m>g</m> up or down does not change the  <em>shape</em> of its graph, only its <em>location</em> in the <m>xy</m>-plane. In <xref ref="fig_g_from_gprime_graph2"/> we provide two more possible graphs of functions whose derivatives would be equal to <m>g'</m>. 
+        </p>
+      </solution>
+    </example>
+    <figure xml:id="fig_g_from_gprime_graph2">
+            <caption>Two possible graphs of <m>g</m> with derivative as in <xref ref="fig_g_from_gprime"/></caption>
+            <image width="60%">
+                <shortdescription>Graph of g shifted up and down</shortdescription>
+                <sageplot>
+                g1=plot(-(x+1)^2/2+9/2+2,x,-3,2)
+                g2=plot(2*(x-2)+2,x,2,4)
+                h1=plot(-(x+1)^2/2+9/2-3,x,-3,2, color='red')
+                h2=plot(2*(x-2)-3,x,2,4, color='red')
+                g1+g2+h1+h2
+                </sageplot>
+            </image>
+          </figure>
+</subsection>
+
+
+</section>
