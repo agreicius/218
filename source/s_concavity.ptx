@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_concavity" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Concavity and inflection points</title>
+
+    <example xml:id="eg_concavity_logistic_growth">
+    <title>Logistic growth</title>
+    <statement>
+    <p>
+    A <em>logistic function</em> is often used to model a quantity <m>Q=f(t)</m> whose growth is prevented from being unlimited by some external factors. These functions are used, for example, to model the growth of a population, or the growth of sales of a product. Below you find the graph of this type of function. 
+    </p>
+    <figure xml:id="fig_logistic_growth">
+        <caption>Graph of logsitic growth function <m>Q=f(t)</m></caption>
+        <image width="65%">
+            <shortdescription>Graph of logistic growth function</shortdescription>
+            <sageplot>
+                l1=[r"$t_1$",r"$t_2$",r"$t_3$",r"$t_4$",r"$t_5$",r"$t_6$"]
+                l2=[r"$\frac{L}{2}$", r"$L$"]
+                f=plot(1/(1+exp(-(x-2))),x,0,6.5, ticks=[list(range(1,7)),[1/2,1]], tick_formatter=[l1,l2])
+                L=plot(1,x,0,6.5,color="red",linestyle="dashed", axes_labels=["$t$","$Q$"])
+                f+L
+            </sageplot>
+        </image>
+    </figure>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    What does the apparent horizontal asymptote of <m>f</m> tells us about the quantity <m>Q</m> as a function of time?
+                </p>
+            </li>
+            <li>
+                <p>
+                    Give a detailed <em>qualitative</em> description of the rate of change of <m>Q</m> with respect to <m>t</m> over the interval <m>[0,t_2]</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Give a detailed <em>qualitative</em> description of the rate of change of <m>Q</m> with respect to <m>t</m> over the interval <m>[t_2,t_6]</m>. Explain why this description makes sense in light of the long term growth of <m>Q</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Do you notice anything interesting about the value of <m>f</m> at <m>t_2</m>? 
+                </p>
+            </li>
+        </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+               The function <m>Q(t)</m> is increasing on its entire domain, with a horizontal asymptote of <m>y=L</m>, meaning that <m>\lim\limits_{t\to \infty}Q(t)=L</m>. This means the quantity <m>Q</m> is always growing, approaches a ceiling value of <m>L</m>, but never reaches that value. (The value <m>L</m> in a logistic function like this is called the <term>carrying capacity</term> of <m>Q</m> in modeling contexts.)
+            </p>
+        </li>
+        <li>
+            <p>
+                As always, the rate of change of <m>Q</m> with respect to <m>t</m> is the derivative function <m>\frac{dQ}{dt}=Q'(t)</m>.  We see that for <m>t\in [0,t_2]</m> the slope of the tangent line to the graph of <m>Q</m> at <m>t</m> is positive, and gets more positive as <m>t</m> increases. This means that <m>Q'(t)</m> is positive and increasing. In terms of <m>Q</m>, this means that <m>Q</m> is increasing <em>at an increasing rate</em> over this interval.   
+            </p>
+        </li>
+        <li>
+            <p>
+                Similar reasoning shows that for <m>t\in [t_2, t_6]</m> the rate of change <m>Q'(t)</m> is positive but getting less positive (<ie/>, <m>Q'</m> is decreasing). In terms of <m>Q</m>, this means that <m>Q</m> is increasing <em>at a decreasing rate</em> over this interval. This makes sense in terms of the limiting value <m>L</m> of <m>Q</m>: since <m>Q</m> cannot exceed this value, its rate of increase must level off as it gets closer in value to <m>L</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                It appears that <m>Q(t_2)=\frac{L}{2}</m>. As it turns out, this is a special property that holds for all logistic functions. In more detail, our previous analysis identifies <m>t_2</m> as the unique inflection point of the function <m>Q(t)</m>. (See <xref ref="d_concav_inflect"/>.) In the modeling context <m>t_2</m> is sometimes called a <term>point of diminishing returns</term>, since the rate of increase of <m>Q</m> levels off after that point. It turns out that for any logistic function the value of the function at this point in time is always equal to <m>L/2</m>, half of the carrying capacity <m>L</m>. 
+            </p>
+            <p>
+                This property of logistic functions is useful for predicting the ceiling value of a quantity you are studying. Imagine you take daily measurements of a growing population of bacteria that you believe is accurately modeled by a logistic function. From that data you can compute the <em>average rate of change</em> over each day, which you interpret as an <em>estimate</em> of the <em>instantaneous rate of change</em> of growth each day. On the first day that you notice your rate of growth estimate has decreased from the previous day, you conclude that you have reached (approximately) the point of diminishing returns. If the population on that day is <m>Q_0</m>, you estimate that the ceiling of the population is <m>2Q_0</m>.    
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <definition xml:id="d_concav_inflect">
+        <title>Concavity and inflection points</title>
+        <statement>
+            <p>
+                Assume <m>f</m> is differentiable on the open interval <m>I</m>.
+                <ul>
+                    <li>
+                        <p>
+                        <m>f</m> is <term>concave up</term> on <m>I</m> if <m>f'</m> is increasing on <m>I</m>.    
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>f</m> is <term>concave down</term> on <m>I</m> if <m>f'</m> is decreasing on <m>I</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If the graph of <m>f</m> has a well-defined tangent line at <m>P=(c,f(c))</m>, and if the concavity of <m>f</m> changes at <m>x=c</m>, then <m>P</m> is called an <term>inflection point</term> of <m>f</m>, and we say that <m>f</m> has an inflection point at the input <m>c</m>.  
+                        </p>
+                    </li>
+                </ul> 
+            </p>
+        </statement>
+    </definition>
+<remark>
+<title>Concavity</title>
+<p>
+    Graphically speaking, a function will be concave up over an interval <m>I</m> if the graph of <m>f</m> over <m>I</m> bends upward (or is <q>smiley</q>), and it is concave down if the graph of <m>f</m> over <m>I</m> bends downward (or is <q>frowny</q>). 
+</p>
+</remark>
+<remark>
+<title>Inflection points</title>
+<p>
+The somewhat convoluted definition of an inflection point is designed to allow inflection points to exist at an input <m>c</m> even if the function <m>f</m> is not differentiable at <m>c</m>. 
+</p>
+<p>
+    For example, the function <m>f=\sqrt[3]{x}</m> is not differentiable at <m>x=0</m>, but the graph of <m>f</m> still has a well-defined tangent line at the point <m>P=(0,0)</m>: the issue is only that that tangent line is vertical. Our definition allows for <m>P</m> to potentially be an inflection point. Indeed, we see that <m>P</m> is an inflection point: <m>f'(x)=\frac{1}{3\sqrt[3]{x^2}}</m> is increasing for <m>x&lt; 0</m> and decreasing for <m>x&gt; 0</m>; thus <m>f</m> is concave up to the left of <m>x=0</m> and concave down to the right of <m>x=0</m>.  
+</p>
+<p>
+    On the other hand, consider the function
+    <me>
+        f(x)=\begin{cases} x^2 \amp \text{if } x\leq 1\\
+        2-x^2 \amp \text{if } x\geq 1
+        \end{cases}
+    </me>.
+    Although the concavity changes at <m>x=1</m> (from up to down), the graph of <m>f</m> does not have a tangent line at <m>x=1</m>, and thus <m>P=(1,1)</m> does not qualify as an inflection point.
+</p>
+</remark>
+<p>
+    Applying <xref ref="th_monoton"/> to <m>f'</m>, we immediately derive the following theorem. 
+</p>
+<theorem xml:id="th_concavity">
+    <statement>
+        <p>
+            Assume <m>f</m> is twice differentiable on the open interval <m>I</m>. 
+            <ol>
+                <li>
+                    <p>
+                        If <m>f''(x)&gt; 0</m> for all <m>x\in I</m>, then <m>f</m> is concave up on <m>I</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If <m>f''(x)&lt; 0</m> for all <m>x\in I</m>, then <m>f</m> is concave down on <m>I</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If <m>f</m> has an inflection point at <m>x=c</m>, then <m>f''(c)=0</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</theorem>
+<algorithm xml:id="proc_concavity">
+    <title>Concavity and inflection points</title>
+    <statement>
+        <p>
+            Assume <m>f</m> is defined on a set <m>D</m>. To determine intervals of constant concavity of <m>f</m> and identify inflection points proceed as follows. 
+            <ol>
+                <li>
+                    <p>
+                        Make a sign diagram of <m>f''</m> over <m>D</m>. Indicate on your real line any inputs where <m>f''</m> is zero or undefined. 
+                        <ol>
+                            <li>
+                                <p>
+                                    Label the top part of the diagram <m>f''</m> and indicate with <m>\pm</m> the sign of <m>f''</m> on a given interval.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    (Optional). Label the bottom part of the diagram <m>f</m> and indicate with <m>\cup</m> or <m>\cap</m> the concavity of <m>f</m> on the given interval. 
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       For each input <m>c</m> where <m>f''</m> is either zero or undefined, decide using <xref ref="d_concav_inflect"/> and <xref ref="th_concavity"/> whether <m>f</m> has an inflection point at <m>c</m>.  
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</algorithm>
+<example xml:id="eg_concavity_rad">
+<title>Concavity: radical function</title>
+<statement>
+<p>
+Let <m>f(x)=\sqrt[3]{x}</m>. Find the intervals of constant concavity of <m>f</m> and identify any inputs <m>x=c</m> where <m>f</m> has an inflection point. 
+</p>
+</statement>
+<solution>
+<p>
+We readily compute 
+<md>
+    <mrow>f'(x) \amp =\frac{1}{3}x^{-2/3}</mrow>
+    <mrow>f''(x) \amp =\frac{-2}{9}x^{-5/3}</mrow>
+</md>
+for <m>x\ne 0</m>. (Note that neither <m>f'</m> nor <m>f''</m> are defined at <m>x=0</m>.) From the formula for <m>f''(x)</m>, we see that 
+<md>
+    <mrow>x&lt; 0 \amp \implies f''(x)&gt; 0</mrow>
+    <mrow>x&gt; 0 \amp \implies f''(x)&lt; 0</mrow>
+</md>.
+We conclude that <m>f</m> is concave up on <m>(-\infty, 0)</m> and concave down on <m>(0,\infty)</m>, and that the point <m>P=(0,0)</m> is the sole inflection point of <m>f</m>. 
+</p>
+</solution>
+</example>
+<example xml:id="eg_concavity_poly">
+    <title>Concavity: polynomial</title>
+    <statement>
+    <p>
+    Let <m>f(x)=3x^5-5x^3</m>. Find the intervals of constant concavity of <m>f</m> and identify any inputs <m>x=c</m> where <m>f</m> has an inflection point. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We compute 
+    <md>
+        <mrow>f'(x) \amp = 15x^4-15x^2</mrow>
+        <mrow>f''(x) \amp = 60x^3-30x=30x(2x^2-1)</mrow>
+        <mrow> \amp =60x^3(\sqrt{2}x-1)(\sqrt{2}x+1)</mrow>
+    </md>.
+    Below you find a sign diagram for <m>f''</m>. 
+    </p>
+    <image xml:id="im_sign_diag_second" width="70%">
+    <shortdescription>Sign diagram for second derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (0,0) -- (7,0);
+        \path foreach \X/\Y  in 
+         {2/-\frac{1}{\sqrt{2}}, 4/0, 6/\frac{1}{\sqrt{2}}}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f''\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$-$};
+       \draw(3,.5) node{$+$};
+       \draw(5,.5) node{$-$};
+       \draw(7,.5) node{$+$};
+       \draw(1,-.5) node{$\cap$};
+       \draw(3,-.5) node{$\cup$};
+       \draw(5,-.5) node{$\cap$};
+       \draw(7,-.5) node{$\cup$};
+        \end{tikzpicture}
+
+    </latex-image>
+</image>
+<p>
+    We conclude that <m>f</m> is concave down on the intervals $(-\infty, -1/\sqrt{2})$ and $(0,1/\sqrt{2})$, and concave up on the intervals $(-1/\sqrt{2},0)$ and $(1/\sqrt{2},\infty)$. 
+</p>
+<p>
+    It follows that <m>f</m> has inflection points at the inputs <m>x=-1/\sqrt{2},0, 1/\sqrt{2}</m>. 
+</p>
+    </solution>
+    </example>
+    <theorem xml:id="th_second_der">
+        <title>Second derivative test</title>
+        <statement>
+            <p>
+                Assume <m>f''</m> is continuous on an open interval containing <m>c</m>. 
+                <ol>
+                    <li>
+                        <p>
+                            If <m>f'(c)=0</m> and <m>f''(c)&gt; 0</m>, then <m>f(c)</m> is a local minimum value of <m>f</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If <m>f'(c)=0</m> and <m>f''(c)&lt; 0</m>, then <m>f(c)</m> is a local maximum value of <m>f</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If <m>f'(c)=0</m> and <m>f''(c)=0</m>, then nothing can be concluded about the critical point <m>c</m>. In other words, our text is <em>inconclusive</em> in this case. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </theorem>
+    <example xml:id="eg_second_der">
+    <title>Second derivative test: polynomial</title>
+    <statement>
+    <p>
+    Let <m>f(x)=3x^5-5x^3</m>. Find all critical points of <m>f</m>, and for each critical point <m>c</m> <em>attempt</em> to use <xref ref="th_second_der"/> to classify <m>f(c)</m> as a local maximum value or local minimum value.  
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We have seen previously in <xref ref="eg_monoton_poly"/> that the critical points of <m>f</m> are <m>x=-1,0,1</m>. We apply the second derivative test to each, using <m>f''(x)=30x^3(2x^2-1)</m>: 
+    <md>
+        <mrow> f''(-1)=-30 \amp \implies f(-1) \text{ is a local max. value} </mrow>
+        <mrow> f''(1)=30 \amp \implies f(1) \text{ is a local min. value} </mrow>
+        <mrow>f''(0)=0 \amp \implies \text{ 2nd der. test inconclusive}</mrow>
+    </md>.
+        Note that although the second derivative test is inconclusive for the critical point <m>x=0</m>, we were able to show using the first derivative test in <xref ref="eg_first_der_test_poly"/> that in fact <m>f(0)</m> is neither a local maximum nor local minimum value. This illustrates an important difference between the first derivative and second derivative tests: the former is always inconclusive, whereas the latter is sometimes inconclusive. 
+    </p>
+    </solution>
+    </example>
+    
+    
+</section>

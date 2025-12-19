@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_applied_opt_II" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Applied optimization II</title>
+
+<example xml:id="eg_dudley_walk">
+<title>Snowy campus walk</title>
+<statement>
+<p>
+Dudley stands at the southeast corner of a 1 km<m>^2</m> square field on campus that is currently covered in snow. He is hurrying to get to his calculus course taking place in the mathematics building at the northwest corner of the field. Dudley plans on first walking (at constant speed) along some portion of the ploughed east-west path that runs along the southern border of the field, and then cutting across the snowy field to head directly toward the mathematics building (at constant speed). Because of the snowy conditions, Dudley can move twice as fast on the ploughed path than he can when walking across the field. 
+
+If Dudley wants to get to the mathematics building as quickly as possible, how far along the ploughed path should he walk before cutting across the field?  
+</p>
+</statement>
+<solution>
+<figure xml:id="fig_dudley_walk">
+        <caption>Dudley's snowy walk</caption>
+        <image width="70%" source="dudley_path.png">
+            <shortdescription>Dudley's snowy walk</shortdescription>
+        </image>
+    </figure>
+<p>
+Let <m>x</m> be the distance Dudley walks along the east-west ploughed path, in which he walks a distance of <m>\sqrt{1+(1-x)^2}</m> through the snowy field. Let <m>s</m> be the constant speed at which Dudley can walk through the snowy field; it follows that he moves at maximum speed <m>2s</m> along the ploughed path. Using the (distance)=(rate)<m>\times</m>(time) formula for objects traveling at constant speed, we see that the total time <m>T</m> it takes for Dudley to get to the math building taking such a path is 
+<me>
+    T=f(x)=\frac{x}{2s}+\frac{\sqrt{1+(1-x)^2}}{s}
+</me>.
+We wish to find the minimum value of <m>f</m> on the interval <m>[0,1]</m>. We follow <xref ref="proc_extreme"/>. Since <m>f</m> is differentiable everywhere, its critical points are the solutions to <m>f'(x)=0</m>. We solve (treating <m>s</m> as a constant): 
+<md>
+    <mrow>f'(x) \amp =0</mrow>
+    <mrow>\frac{1}{2s}\amp +\frac{-2(1-x)}{2s\sqrt{1+(1-x)^2}} = 0 </mrow>
+    <mrow>\frac{1}{2s} \amp= \frac{1-x}{s\sqrt{1+(1-x)^2}} </mrow>
+    <mrow>2(1-x) \amp =\sqrt{1+(1-x)^2}</mrow>
+    <mrow> 4(1-x)^2\amp =1+(1-x)^2 </mrow>
+    <mrow> 3(1-x)^2 \amp= 1 </mrow>
+    <mrow>(1-x)^2 \amp = \frac{1}{3}</mrow>
+    <mrow> (1-x) \amp = \pm \frac{1}{\sqrt{3}} </mrow>
+    <mrow>  x \amp = 1 \pm \frac{1}{\sqrt{3}} </mrow>
+</md>.
+Thus the only critical point of <m>f</m> in <m>[0,1]</m> is <m>1-\frac{1}{\sqrt{3}}</m>. After evaluating <m>f</m> at the critical point and the endpoints and doing some careful algebra, we see that  
+<md>
+    <mrow>f(0) \amp = \frac{\sqrt{2}}{s}=</mrow>
+    <mrow>f(1-1/\sqrt{3}) \amp = \frac{1}{s}\left(\frac{1+\sqrt{3}}{2}\right)</mrow>
+    <mrow>f(1) \amp = \frac{3}{2s}</mrow>
+</md>.
+Although not totally obvious, you can show by hand that 
+<me>
+    \frac{1+\sqrt{3}}{2} &lt; \sqrt{2} &lt; \frac{3}{2}
+</me>
+from whence it follows that <m>f(1-1/\sqrt{3})</m> is the minimal value of <m>T=f(x)</m> on <m>[0,1]</m>. Thus Dudley should travel a distance of <m>1-1/\sqrt{3}</m> km along the ploughed path before heading across the snowy field. Godspeed, Dudley! 
+</p>
+</solution>
+</example>
+<example xml:id="eg_TV_revenue">
+<title>Optimizing revenue</title>
+<statement>
+<p>
+The starting price of a certain model of television is $450. At this price point there are 1000 weekly sales of the television. A marketing team discovers that for each discount of $10 applied to the TV price, the number of weekly sales increases by 100 per week. How should the company price the television in order to maximize weekly revenue? 
+</p>
+</statement>
+<solution>
+<p>
+Let <m>d</m> be the number of ten-dollar discounts applied to the starting price. According to our marketers, the number of weekly sales <m>S</m> if applying <m>d</m> ten-dollar discounts to the price is 
+<me>
+    S=1000+100d
+</me>.
+Thus as a function of <m>d</m>, our weekly revenue is 
+<me>
+    R=(\text{no. sales})\times (\text{price})=(1000+100d)(450-10d)
+</me>.
+We wish to maximize the function <m>R=f(d)=(1000+100d)(450-10d)</m> for <m>d\in [0, 45]</m>. (We have <m>d\leq 45</m> as we do not want the price of the television to be negative!)
+</p>
+<p>
+    We apply <xref ref="proc_extreme"/>. We first compute 
+    <md>
+        <mrow>f'(d) \amp = 100(450-10d)-10(1000+100d) \amp \text{(prod. rule)}</mrow>
+        <mrow> \amp = 1000(35-2d)</mrow>
+    </md>.
+    It follows that the only critical point of <m>f</m> in <m>[0,45]</m> is <m>d=35/2</m>. Now evaluate at the endpoints and the critical point: 
+    <md>
+        <mrow>f(0) \amp = 450\cdot 1000=450,000</mrow>
+        <mrow>f(35/2) \amp = 756, 250</mrow>
+        <mrow>f(45) \amp = 0</mrow>
+    </md>
+    Thus revenue is maximized when offering <m>35/2</m> ten-dollar discounts to the price of the televion. In other words, the television should be offered at a price of 
+    <me>
+        450-10\cdot 35/2=275
+    </me>
+    dollars. 
+    
+</p>
+</solution>
+</example>
+
+    
+
+</section>

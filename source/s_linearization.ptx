@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_linearize" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Linearization</title>
+<objectives>
+    <ol>
+        <li>
+            <p>
+                Define the linearization <m>L(x)</m> of a function <m>f(x)</m> at an input <m>a</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Understand the linearization of a function in terms of the tangent line to the graph of <m>f</m> at the point <m>(a,f(a)</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Investigate linearization as an approximation tool. Discuss in what sense a linearization <m>L(x)</m> is a good approximation of a function <m>f(x)</m>. 
+            </p>
+        </li>
+    </ol>
+</objectives>
+<definition xml:id="d_linearization">
+<title>Linearization of a function</title>
+<statement>
+<p>
+    Assume <m>f</m> is differentiable at the input <m>a</m>. The <term>linearization of <m>f</m> centered at <m>a</m></term> is the affine function <m>L(x)</m> defined as 
+    <men xml:id="eq_linearization">
+        L(x)=f'(a)(x-a)+f(a)
+    </men>.
+</p>
+</statement>
+</definition>
+<remark>
+<title>Linearization</title>
+<p>
+It is important to observe the <q>centered at <m>a</m></q> modifier in <xref ref="d_linearization"/>. In other words, the function <m>L(x)</m> defined in <xref ref="eq_linearization"/> depends both on <m>f</m> and the specific input <m>a</m>. 
+</p>
+</remark>
+<example xml:id="eg_linearization_quadratic">
+<title>Linearization: quadratic</title>
+<statement>
+<p>
+    Let <m>f(x)=3-(x-2)^2</m>. Compute the linearization <m>L_1</m> of <m>f</m> centered at <m>a=1</m>, and the linearization <m>L_2</m> of <m>f</m> centered at <m>b=2</m>. 
+</p>
+</statement>
+<solution>
+<p>
+First compute <m>f'(x)=-2(x-2)</m>. Using <xref ref="eq_linearization"/>, we have
+<md>
+    <mrow>L_1(x) \amp = f'(a)(x-a)+f(a)</mrow>
+    <mrow> \amp = 2(x-1)+2 \amp (f'(1)=2, f(1)=2)</mrow>
+    <mrow>L_2(x) \amp = f'(b)(x-b)+f(b)</mrow>
+    <mrow> \amp = 0(x-2)+3 \amp (f'(2)=0, f(2)=3)</mrow>
+    <mrow> \amp = 3</mrow>
+</md>.
+Thus the linearization of <m>f</m> centered at <m>1</m> is <m>L_1(x)=2(x-1)+2</m>, and the linearization centered at <m>2</m> is the constant function <m>L_2(x)=3</m>. 
+</p>
+</solution>
+</example>
+<remark>
+<title>Linearization and tangent lines</title>
+<p>
+    You may have noticed a resemblance to the formula for the linearization <m>L</m> of <m>f</m> centered at <m>a</m>, and the tangent line to the graph of <m>f</m> at <m>x=a</m>. To be precise: the <em>graph</em> of the linearization function <m>L</m> is precisely the tangent line to the graph of <m>f</m> at the point <m>P=(a,f(a))</m>.   
+ </p>
+ <p>
+    By way of illustration, we graph the function <m>f(x)=3-(x-2)^2</m> in <xref ref="eg_linearization_quadratic"/> along with the linearizations <m>L_1</m> and <m>L_2</m> centered at <m>1</m> and <m>2</m>, respectively. 
+ </p>
+ <figure xml:id="fig_linearization_tangent">
+    <caption>Linearizations of <m>f(x)=3-(x-2)^2</m></caption>
+    <image width="75%" xml:id="im_linearization_tangent">
+        <shortdescription>Linearizations of a quadratic function</shortdescription>
+        <sageplot>
+        f=plot(3-(x-2)^2,x,-1,4)
+        L=plot(2*(x-1)+2,x,-1,3, color="green")
+        M=plot(3,x,-1,4,color="green")
+        P=point((1,2),size=50, color="red")
+        Q=point((2,3),size=50, color="red")
+        t1=text("$L_1(x)$", (2,5), color="black", fontsize="16")
+        t2=text("$L_2(x)$", (3,3.5), color="black", fontsize="16")
+        f+L+M+P+Q+t1+t2
+        </sageplot>
+    </image>
+ </figure>
+</remark>
+<remark>
+<title>Linear approximation</title>
+<p>
+Assume <m>f</m> is differentiable at <m>a</m>, and let <m>L(x)=f'(a)(x-a)+f(a)</m> be the linearization of <m>f</m> centered at <m>a</m>. As we can show, the differentiability of <m>f</m> at <m>a</m> ensures that values of the linearization <m>L</m> are close to values of <m>f</m> for inputs <m>x</m> near <m>a</m>. Indeed, we have 
+<md>
+    <mrow>f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a} \amp \implies  0=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}-\lim\limits_{x\to a}f'(a) \amp \left(\lim\limits_{x\to a}f'(a)=f'(a)\right)</mrow>
+    <mrow> \amp \implies \lim_{x\to a}\frac{f(x)-f(a)-f'(a)(x-a)}{x-a}=0</mrow>
+    <mrow> \amp \implies \lim_{x\to a}\frac{f(x)-L(x)}{x-a}=0 \amp (L(x)=f'(a)(x-a)-f(a))</mrow>
+</md>.
+Consider what the limit statement 
+<men xml:id="eq_linearization_tangent">
+    \lim_{x\to a}\frac{f(x)-L(x)}{x-a}=0
+</men>
+tells us. Since <m>\lim\limits_{x\to a}x-a=0</m>, the numerator <m>f(x)-L(x)</m> must be close to zero for <m>x</m> close to <m>a</m>. Furthermore, we must have <m>f(x)-L(x)</m> approaching zero <em>faster</em> than <m>x-a</m> approaches zero. More precisely, invoking the epsilon-delta definition of the limit, we can show that for any <m>\epsilon &gt; 0</m>, we have 
+<me>
+    \abs{f(x)-L(x)}&lt; \epsilon \abs{x-a}
+</me>
+for all <m>x</m> sufficiently close to <m>a</m>. After we introduce the <em>mean value theorem</em>, we will be able to give an even better quantitative description of just how good an approximation <m>L(x)</m> is to <m>f(x)</m>. 
+</p>
+</remark>
+<algorithm xml:id="proc_lin_approx">
+    <title>Linear approximation</title>
+    <statement>
+        <p>
+            Assume <m>f</m> is is differentiable at <m>a</m>, and let <m>L(x)=f'(a)(x-a)+f(a)</m> be the linearization of <m>f</m> centered at <m>a</m>. 
+            <ol>
+                <li>
+                    <p>
+                        For inputs <m>x</m> close to <m>a</m>, <m>L(x)</m> is a good approximation of <m>f(x)</m>: that is, we have 
+                        <me>
+                            f(x)\approx L(x)
+                        </me>
+                        for <m>x</m> close to <m>a</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        In paricular for an input <m>b</m> close to <m>a</m>, we have 
+                        <me>
+                            f(b)\approx L(b)=f'(a)(b-a)+f(a)
+                        </me>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</algorithm>
+<example xml:id="eg_linear_approx_quadratic">
+<title>Linear approximation: quadratic</title>
+<statement>
+<p>
+Let <m>f(x)=3-(x-2)^2</m>. 
+<ol>
+    <li>
+        <p>
+            Use the linearization <m>L_1(x)</m> of <m>f</m> centered at <m>1</m> to <em>estimate</em> <m>f(0.5)</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Compare your estimate of <m>f(0.5)</m> with the actual value. How close are the two? 
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            Recall that we computed <m>L_1(x)=2(x-1)+2</m>. Thus we have 
+            <md>
+                <mrow>f(1/2) \amp \approx L_1(1/2)</mrow>
+                <mrow> \amp = 2(-1/2)+2</mrow>
+                <mrow> \amp = 1</mrow> 
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            The exact value is <m>f(1/2)=3-(1/2-2)^2=3-9/4=3/4</m>. Thus our estimate is off by <m>1/4</m>: <ie/>, <m>\abs{L_1(1/2)-f(1/2)}=1/4</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+<example xml:id="eg_linear_approx_cuberoot"> 
+<title>Linear approximation: cube-root</title>
+<statement>
+<p>
+Use linear approximation to estimate <m>\sqrt[3]{8.05}</m>. 
+</p>
+</statement>
+<solution>
+<p>
+To use linear approximation, we need to compute the linearization of a function <m>f</m> centered at some input <m>a</m>. We take <m>f(x)\sqrt[3]{x}</m>, and <m>a=8</m>. Why <m>a=8</m>? I can compute <m>f(8)</m> and <m>f'(8)</m> easily by hand, and <m>8.05</m> is reasonably close to <m>8</m>. We first compute 
+<md>
+    <mrow>f'(x) \amp =(x^{1/3})'</mrow>
+    <mrow> \amp =\frac{1}{3}x^{-2/3}</mrow>
+</md>.
+The linearization of <m>f</m> centered at <m>a=8</m> is then 
+<md>
+    <mrow>L(x) \amp = f'(8)(x-8)+f(8)</mrow>
+    <mrow> \amp =\frac{1}{12}(x-8)+2 \amp (8^{1/3}=2, 8^{-2/3}=1/(\sqrt[3]{8})^2=1/4)</mrow>
+</md>
+Lastly, we estimate 
+<md>
+    <mrow>f(8.05) \amp \approx L(8.05)</mrow>
+    <mrow> \amp = \frac{1}{12}\cdot 0.05+2</mrow>
+    <mrow> \amp \frac{1}{240}+2 \amp (0.05=1/20)</mrow>
+    <mrow> \amp = \frac{481}{240}</mrow>
+</md>.
+Using technology we see that 
+<md>
+    <mrow>f(8.05) \amp = 2.0041580\dots </mrow>
+    <mrow>\frac{481}{240} \amp = 2.0041666\dots</mrow>
+</md>.
+ Our estimate ended up being pretty close! 
+</p>
+</solution>
+</example>
+<example xml:id="eg_linear_approx_trig"> 
+    <title>Linear approximation: trig</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\tan(\pi x)</m>. Use linear approximation to estimate <m>f(0.251)</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We compute the linearization <m>L</m> of <m>f</m> centered at <m>a=\frac{1}{4}=0.25</m>. First we compute the derivative of <m>f</m>:
+    <md>
+        <mrow>f'(x) \amp = \sec^2(\pi x) (\pi x)' \amp \text{(chain)}</mrow>
+        <mrow> \amp = \pi \sec^2(\pi x)</mrow>
+    </md>.
+    It follows that the linearization centered at <m>\frac{1}{4}</m> is 
+    <md>
+        <mrow>L(x) \amp = f'(1/4)(x-1/4)+f(1/4)</mrow>
+        <mrow> \amp = 2\pi(x-1/4)+1 \amp (\tan(\pi/4)=1, \sec^2(\pi/4)=1/(\sqrt{2}/2)^2=2) </mrow>
+    </md>.
+    Lastly we estimate 
+    <md>
+        <mrow>f(0.251) \amp \approx L(0.251)</mrow>
+        <mrow> \amp = 2\pi (0.251-0.25)+1 \amp (1/4=0.25)</mrow>
+        <mrow> \amp = 2\pi(0.001)+1</mrow>
+        <mrow> \amp = \frac{\pi}{500}+1</mrow>
+    </md>. 
+
+    </p>
+    </solution>
+    </example>
+    <example xml:id="eg_linear_approx_marshmallow">
+    <title>Linear approximation: marshmallow</title>
+    <statement>
+    <p>
+    Dudley places a cylindrical marshmallow in the microwave, causing it to expand such a manner that the ratio of its height and radius is preserved. Initially the height and radius of the marshmallow are both equal to 2 centimeters; when Dudley removes the marshmallow the height and radius are both equal to 2.1 centimeters. 
+    <ol>
+        <li>
+            <p>
+                Use linear approximation to <em>estimate</em> the change in volume of the marshmallow. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Compare your estimate with the actual change in volume. 
+            </p>
+        </li>
+    </ol>   
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Since the radius <m>r</m> and height <m>h</m> of the marshmallow are initially equal, and since the marshmallow expands in such a way that the ratio of radius to height is preserved, we see that we always have <m>r=h</m>, and thus 
+    <me>
+        V=\pi r^2 h=\pi x^3
+    </me>,
+     where <m>x=r=h</m>. We thus treat volume <m>V=f(x)=\pi x^3</m> as a function of the common dimension <m>x</m> specifying both radius and height. 
+     <ol>
+        <li>
+            <p>
+                To estimate the change in volume, we compute the linearization <m>L</m> of <m>V=f(x)</m> centered at <m>2</m>. Since <m>f'(x)=3\pi x^2</m>, we have 
+                <me>
+                    L(x)=f'(2)(x-2)+f(2)=12\pi (x-2)+8\pi
+                </me>.
+                It follows that the change of volume <m>\Delta V=f(2.1)-f(2)</m> can be estimated as 
+                <md>
+                    <mrow>\Delta V \amp = f(2.1)-f(2)</mrow>
+                    <mrow> \amp \approx L(2.1)-f(2) \amp (L(2.1)\approx f(2.1)</mrow>
+                    <mrow> \amp = 12\pi(0.1)=\frac{12\pi }{10}=1.2\, \pi</mrow>. 
+                </md>               
+            </p>
+        </li>
+        <li>
+            <p>
+                The exact change of volume is 
+                <md>
+                    <mrow>f(2.1)-f(2) \amp = \pi (2.1)^3-8\pi </mrow>
+                    <mrow> \amp = (1.261) \pi </mrow>
+                </md>.
+            </p>
+        </li>
+     </ol>
+    </p>
+    </solution>
+    </example>
+    
+
+
+
+    
+
+</section>

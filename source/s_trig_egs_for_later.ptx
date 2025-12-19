@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <example xml:id="eg_first_der_test_trig">
+        <title>Monotonicity and critical points: trig</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=2\cos x+\sqrt{2}\cos^2 x</m> and let <m>I=[\pi/2, 3\pi/2]</m>.
+                <ol>
+                    <li>
+                        <p>
+                            Find all critical points of <m>f</m>, and for each critical point <m>a</m> classify <m>f(a)</m> as a local maximum value of <m>f</m>, a local minimum value of <m>f</m>, or neither.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Apply <xref ref="proc_intervals_monoto"/> to find the intervals of monotonicity of <m>f</m> within <m>I</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                We first compute
+                <md>
+                    <mrow>f'(x) \amp = -2\sin x-\sqrt{2}\cos x\sin x=-2\sin x(1+\sqrt{2}\cos x) </mrow>
+                </md>.
+                Since <m>f</m> is differentiable everywhere, critical points of <m>f</m> are solutions to <m>f'(x)=0</m>.
+                We thus solve:
+                <md>
+                    <mrow>f'(x) \amp =0</mrow>
+                    <mrow>-2\sin x(1+\sqrt{2}\cos x) \amp = 0</mrow>
+                    <mrow>\sin x =0 \amp\text{ or } 1+\sqrt{2}\cos x=0 </mrow>
+                    <mrow>\sin x =0 \amp \text{ or } \cos x=-\frac{1}{\sqrt{2}} </mrow>
+                </md>.
+                We have <m>\sin x=0</m> if and only if <m>x=\pi n</m> for some integer <m>n\in \Z</m>.
+                Only one of these solutions lies in <m>I=[\pi/2,3\pi /2]</m>: namely, <m>x=\pi</m>.
+                Next, observing that <m>1/\sqrt{2}=\sqrt{2}/2</m>, and recalling facts about the unit circle, we see that <m>x</m> solves <m>\cos x=-1/\sqrt{2}=-\sqrt{2}/2</m> if and only if
+                <me>
+                    x=\frac{3\pi }{4}+2\pi n \text{ or } x=\frac{5\pi }{4}+2\pi n
+                </me>
+                for some integer <m>n\in \Z</m>.
+                There are exactly two such solutions lying in <m>[\pi/2, 3\pi/2]</m>: namely, <m>x=3\pi/4</m> and <m>x=5\pi /4</m>.
+                In conclusion, the critical points of <m>f</m> are <m>3\pi/4, \pi, 5\pi/4</m>.
+            </p>
+
+            <p>
+                To finish the problem essentially all we have to do is produce the sign diagram of <m>f'</m>.
+            </p>
+
+            <figure xml:base="fig_first_der_test_trig">
+                <caption>Sign diagram for <m>f'(x)</m></caption>
+                <image xml:id="im_first_der_test_trig">
+                    <shortdescription>
+                        Sign diagram of derivative of trig function
+                    </shortdescription>
+                    <latex-image>
+    \begin{tikzpicture}
+        \draw (0,0) -- (10.5,0);
+        \path foreach \X/\Y  in 
+         {1/\frac{\pi}{2}, 3/\frac{3\pi}{4}, 5/\pi, 7/\frac{5\pi}{4}, 9/\frac{3\pi}{2}}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (0,.5) node {$f'\colon$};
+            \draw (0,-.5) node{$f\colon $};
+       \draw(2,.5) node{$-$};
+       \draw(4,.5) node{$+$};
+       \draw(6,.5) node{$-$};
+       \draw(8,.5) node{$+$};
+       \draw(2,-.5) node{$\searrow$};
+       \draw(4,-.5) node{$\nearrow$};
+       \draw(6,-.5) node{$\searrow$};
+       \draw(8,-.5) node{$\nearrow$};
+    \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+
+            <p>
+                This was produced by performing the following test point evaluations:
+                <md>
+                    <mrow>f'(2\pi/3) \amp = -2(\sqrt{3}/2)(1-\sqrt{2}/2)&lt; 0 </mrow>
+                    <mrow>f'(5\pi/6) \amp = -2(1/2)(1-\sqrt{6}/2)&gt; 0 \amp (\sqrt{6}&gt; 2)</mrow>
+                    <mrow>f'(7\pi/6) \amp = -2(-1/2)(1-\sqrt{2}/2)&lt;  0 \amp (\sqrt{6}&gt; 2)</mrow>
+                    <mrow>f'(4\pi/3) \amp = -2(-\sqrt{3}/2)(1-\sqrt{2}/2)&gt; 0 </mrow>
+                </md>.
+            </p>
+
+            <p>
+                It follows that <m>f(3\pi/4)</m> is a local minimum value, <m>f(\pi)</m> is a local maximum value, and <m>f(5\pi/4)</m> is a local minimum value of <m>f</m>.
+            </p>
+
+            <p>
+                Furthermore, we see that within the interval <m>[\pi,3\pi/2]</m> the function <m>f</m> is increasing on <m>[\pi,3\pi/4]</m> and <m>[\pi, 5\pi /4]</m>,  and decreasing on <m>[3\pi/4, \pi]</m> and <m>[5\pi/4, 3\pi /2]</m>.
+            </p>
+
+            <p>
+                We verify our conclusions below with the actual graph of <m>f</m> on <m>[\pi, 3\pi/2]</m>.
+            </p>
+
+            <figure xml:id="fig_first_der_test_trig">
+                <caption>Graph of <m>f(x)=2\cos x+\sqrt{2}\cos^2 x</m></caption>
+                <image>
+                    <shortdescription>
+                        Graph of the trig function of the example
+                    </shortdescription>
+                    <sageplot>
+            f=plot(2*cos(x)+sqrt(2)*(cos(x))^2,x,pi/2, 3*pi/2, tick_formatter=[pi,None], ticks=[[pi/4,pi/2,3*pi/4, pi, 5*pi/4, 3*pi/2],[-1/4,-1/2,-3/4]])
+            L=plot(0,x,0,3*pi/2, color="black")
+            f+L
+                    </sageplot>
+                </image>
+            </figure>
+        </solution>
+    </example>
+
+    <example xml:id="eg_extreme_trig">
+    <title>Extreme values: trig</title>
+    <statement>
+    <p>
+        Let <m>f(x)=x+2\cos x</m>. Find the absolute maximum and minimum values of <m>f</m> on the interval <m>I=[0,2\pi]</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    The function <m>f</m> is easily seen to be differentiable everywhere, with <m>f'(x)=1-2\sin x</m>. To find critical points, we solve: 
+    <md>
+        <mrow>f'(x) \amp =0</mrow>
+        <mrow>1-2\sin x \amp = 0</mrow>
+        <mrow>\sin x \amp = \frac{1}{2}</mrow>
+    </md>.
+    Reactivating our trig expertise, we realize that the solutions to the last equation come in two infinite lists: 
+    <md>
+        <mrow>x \amp = \frac{\pi}{6}+2\pi n, \hspace{10pt} n \in \Z</mrow>
+        <mrow>x \amp= \frac{5\pi}{6}+2\pi n, \hspace{10pt} n \in \Z </mrow>
+    </md>.
+    Thus the solutions lying in the interior <m>(0,2\pi)</m> of the given interval are 
+    <me>
+        x=\frac{\pi}{6}, \frac{5\pi}{6}
+    </me>.
+    Now evaluate <m>f</m> at our candidates, the two critical points and the two endpoints: 
+    <md>
+        <mrow>f(0) \amp = 2</mrow>
+        <mrow>f(\pi/6) \amp =\frac{\pi}{6}+2\cos(\pi/6)=\frac{\pi}{6}+\sqrt{3}</mrow>
+        <mrow>f(5\pi/6) \amp = 5\pi/6+2\cos(5\pi/6)=5\pi/6-\sqrt{3}</mrow>
+        <mrow>f(2\pi) \amp = 2\pi+2=2(\pi+1)</mrow>
+    </md>.
+    Admittedly, comparing these values is somewhat challenging without the use of technology. It turns out that 
+    <me>
+        f(5\pi/6)\leq f(2)\leq f(\pi/6)\leq f(2\pi)
+    </me>,
+     and thus that <m>f(5\pi/6)=5\pi/6-\sqrt{3}</m> is the absolute minimum value of <m>f</m> on <m>I</m>, and <m>f(2\pi)=2\pi+2</m> is the absolute maximum value of <m>f</m> on <m>I</m>. Below you find a graph of <m>f</m> that bears out our analysis. 
+    </p>
+    <image xml:id="im_extreme_trig" width="50%">
+        <shortdescription>Graph of example function revealing the extreme values.</shortdescription>
+        <sageplot>
+            f(x)=x+2*cos(x)
+            plot(f(x),x,0,2*pi, tick_formatter=(pi,None),ticks=[[pi/6, 5*pi/6, 2*pi],[2,4,6,8]], aspect_ratio=.7)
+        </sageplot>
+    </image>
+    </solution>
+    </example>
+

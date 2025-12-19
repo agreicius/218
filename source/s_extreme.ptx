@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_extreme" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Extreme value theorem</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Use the derivative to investigate optimization questions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand the extreme value theorem in the context of optimization. 
+                </p>
+            </li>
+            <li>
+                <p>
+                Define absolute and local maximum and minimum values of a function on a given set <m>D</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Identify extreme values of a function graphically. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Introduce the notion of critical points as potential inputs where a function attains a local (or absolute) maximum or minimum. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Develop a procedure that determines the absolute maximum and minimum values of a continuous function on a closed finite interval. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <p>
+        In our remaining lessons, we will frequently take up what are called <em>optimization</em> questions. Roughly speaking, these are questions related to the maximum and minimum values of a function on a given set. Optimization problems are naturally important in modeling situations: when modeling a quantity <m>q</m> as a function <m>q=f(s)</m> of some other quantity <m>s</m>, we naturally are interested in knowing whether it attains a maximal or minimal value, what that maximal or minimal value is (if it exists), and which inputs <m>s</m> produces this value. The <xref ref="th_extreme" text="custom">extreme value theorem</xref> represents a wonderfully straightforward answer to this first flavor of optimization problem: it tells us that if <m>f</m> is continuous on the closed interval <m>[a,b]</m>, then there is guaranteed to be both a maximal and minimal value. A shortcoming of this theorem is that it gives no indication of what exactly these maximum/minimum values are (or how to find them)! We amend this situation in <xref ref="proc_extreme"/>. 
+    </p>
+    <p>
+        The statement of the extreme value theorem involves the notion of an absolute maximum/minimum value of a function <m>f</m> on a given set <m>D</m>. Imagining this is intuitively clear to the reader, we launch straight into a discussion of the extreme value theorem. Afterward, we give precise definitions both for absolute and <em>local</em> maximum and minimum values. If you would like to see those definitions first, see <xref ref="d_extrema"/>.
+    </p>
+    <theorem xml:id="th_extreme">
+        <title>Extreme value theorem</title>
+        <statement>
+            <p>
+                If <m>f</m> is continuous on the closed interval <m>I=[a,b]</m>, then there are inputs <m>c</m> and <m>d</m> for which <m>f(c)</m> is the absolute maximum value of <m>f</m> on <m>I</m> and <m>f(d)</m> is the absolute minimum value of <m>f</m> on <m>I</m>. In plain English: a continuous function always attains a maximum and minimum value over a closed interval <m>[a,b]</m>. 
+            </p>
+        </statement>
+        <proof>
+            <p>
+                The proof of this intuitive statement is just beyond our reach in terms of our current conceptual framework: we are missing only the notion of least upper bounds. In later math courses, like real analysis and topology, you develop an exceedingly important concept called <em>compactness</em> that allows you to eventually give a beautiful one-line proof of the extreme value theorem.   
+            </p>
+        </proof>
+    </theorem>
+    <p>
+        Although we do not give an actual proof the extreme value theorem, you can catch a glimmer of its truth by treating it graphically. Try the following: pick an interval <m>[a,b]</m> in the <m>xy</m>-plane; pick endpoint values <m>f(a)</m> and <m>f(b)</m> for an arbitrary function <m>f</m> and graph the corresponding points; now trace out the rest of the graph of your arbitrary <m>f</m>, making it as wildly behaved as you like, but with the restriction that you pencil never leaves the paper (<m>f</m> is continuous) and the start and end values are <m>f(a)</m> and <m>f(b)</m>. You will see that now matter what function you end up sketching, it will always have reach a well-defined highest point (corresponding to the maximum value) and a well-defined lowest point (corresponding to the minimum value). The restriction that we cannot lift our pencil prevents our graph from going arbitrarily high (or low), or from getting arbitrarily close to a highest point but not actually hitting it.  
+    </p>
+    <p>
+        Perhaps a more illustrative means of understanding the role of continuity in the extreme value theorem is to consider examples where this condition is removed. 
+    </p>
+    <example xml:id="eg_extreme_discontinuous">
+    <title>Extreme values: discontinuous</title>
+    <statement>
+    <p>
+    The functions <m>f</m> and <m>g</m> graphed below illustrate how crucial continuity is to the extreme value theorem. 
+    </p>
+    <figure xml:id="fig_extreme_disc">
+        <caption>Extreme values and discontinuous functions</caption>
+        <sidebyside valign="bottom">
+            <figure xml:id="fig_extreme_asym">
+                <caption>Graph of <m>f</m></caption>
+                <image xml:id="im_extreme_asym">
+                    <shortdescription>Graph of f has a vertical asymptote</shortdescription>
+                    <sageplot>
+                        f=plot(1/(x-2),x,1,3,xmin=1, ymin=-4, ymax=4,detect_poles=show, aspect_ratio=.4)
+                        A=plot(0,x,0,3)
+                        L=line(((2,-5),(2,5)),color="red", linestyle="dotted")
+                        t=text("$f(x)$", (2.75,4),color="black", fontsize="16")
+                        P=point((2,0),size=50)
+                        f+L+A+t+P
+                    </sageplot>   
+                </image>
+            </figure>
+            <figure xml:id="fig_extreme_remove">
+                <caption>Graph of <m>g</m></caption>
+                <image xml:id="im_extreme_remove">
+                    <shortdescription>Graph of g has a removable discontinuity</shortdescription>
+                    <sageplot>
+                        f=plot(3*(x-1)^2,x,1,1.99)
+                        g=plot(3*((x-3))^2,x,2.01,3)
+                        A=plot(0,x,0,3)
+                        C=circle((2,3),.05,color="blue")
+                        t=text("$g(x)$", (2.75,2),color="black", fontsize="16")
+                        P=point((2,1),size=50)
+                        f+A+t+P+g+C
+                    </sageplot>   
+                </image>
+            </figure>
+        </sidebyside>
+    </figure>
+    <p>
+        The function <m>f</m> has infinite one-sided limits at <m>2</m>, and as a consequence has neither a maximum nor a minimum value on the closed interval <m>[1,3]</m>. 
+    </p>
+    <p>
+        The function <m>g</m> has values that get arbitrarily close to but not equal to <m>5</m>, thanks to the removable discontinuity. As a result, <m>g</m> has no maximum value on the interval: we have <m>g(x)&lt; 5</m> for all <m>x\in [1,3]</m>, and for any value <m>L</m> less than <m>5</m>, there is an input <m>c\in [1,3]</m> with <m>g(c)&gt; L</m>. 
+    </p>
+    </statement>
+    </example>
+    <example xml:id="eg_extreme_open">
+    <title>Extreme values: open interval</title>
+    <statement>
+    <p>
+    As illustrated below, the function <m>f(x)=x/(x^2-1)</m> has no absolute maximum or minimum value on the <em>open</em> interval <m>(-1, 1)</m> despite being continuous on this interval. This illustrates why the extreme value theorem insists that the finite interval in question must be <em>closed</em>.
+    </p>
+    <figure xml:id="fig_extreme_open">
+        <caption>Graph of <m>f(x)=x/(x^2-1)</m></caption>
+        <image xml:id="im_extreme_open" width="50%">
+            <shortdescription>Graph of the tangent function</shortdescription>
+            <sageplot>
+                f=plot(x/(x^2-1), x,-1,1, detect_poles=show, ymin=-7, ymax=7, aspect_ratio=.2)
+                L=line(((-1,-10),(-1,10)), color="red", linestyle="dotted")
+                M=line(((1,-10),(1,10)), color="red", linestyle="dotted")
+                f+L+M
+            </sageplot>
+        </image>
+    </figure> 
+    </statement>
+    </example>
+    
+    <definition xml:id="d_extrema">
+        <title>Extreme values</title>
+        <statement>
+            <p>
+               Assume <m>f</m> is defined on the set <m>D\subseteq \mathbb{R}</m>, and let <m>a</m> be an element of <m>D</m>.
+               <ul>
+                <li>
+                    <p>
+                       <m>f(a)</m> is an absolute maximum value of <m>f</m> on <m>D</m> if <m>f(a)\geq f(x)</m> for all <m>x\in D</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       <m>f(a)</m> is an absolute minimum value of <m>f</m> on <m>D</m> if <m>f(a)\leq f(x)</m> for all <m>x\in D</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       <m>f(a)</m> is a local maximum value of <m>f</m> on <m>D</m> if <m>f(a)\geq f(x)</m> for all <m>x\in D</m> sufficiently close to <m>a</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       <m>f(a)</m> is a local minimum value of <m>f</m> on <m>D</m> if <m>f(a)\leq f(x)</m> for all <m>x\in D</m> sufficiently close to <m>a</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>f(a)</m> is an extreme value of <m>f</m> on <m>D</m> if it is an absolute or local maximum or minimum value of <m>f</m> on <m>D</m>. 
+                    </p>
+                </li>
+               </ul> 
+            </p>
+        </statement>
+    </definition>
+    <remark xml:id="rm_abs_local">
+    <title>Absolute max/min implies local max/min</title>
+    <p>
+        Assume <m>f</m> is defined on an interval <m>I</m>. Observe that as pure logical consequence of the definitions, if <m>f(a)</m> is an absolute maximum or minimum value of <m>f</m> on <m>I</m>, then it is also a local maximum or minimum value of <m>f</m> on <m>I</m>. Indeed, if <m>f(a)\geq f(x)</m> (resp. <m>f(a)\leq f(x)</m>) for <em>all</em> <m>x\in I</m>, then the inequality certainly holds for all <m>x\in I</m> <em>sufficiently close</em> to <m>a</m>. 
+    </p>
+    </remark>
+    
+    <remark>
+        <title>Local extreme values</title>
+        <p>
+            In <xref ref="d_extrema"/> the phrase <q>sufficiently close to <m>a</m></q> is used as a convenient, but slightly less than rigorous shorthand. 
+            To be more precise in this definition we treat interior and endpoints of the set <m>D</m> separately.
+        </p>
+            <p>Given an interior point <m>a\in D</m>, we say that <m>f(a)</m> is a local maximum (resp., minimum) value of <m>f</m> on <m>D</m> if there is an open interval <m>I=(c,d)\subseteq D</m> containing <m>a</m> such that <m>f(a)</m> is an absolute maximum (resp., minimum) value on <m>I</m>.
+        </p>
+        <p>
+            Similarly, if <m>a</m> is a left (resp., right) endpoint of <m>D</m>, then <m>f(a)</m> is a local maximum (resp., minimum) value of <m>f</m> on <m>D</m> if there is a half-open interval <m>I=[a,c)</m> (resp., <m>I=(c,a]</m>) contained in <m>D</m> such that <m>f(a)</m> is an absolute maximum (resp., minimum) value on <m>I</m>.
+        </p>
+        <p>
+            In summary, for <m>f(a)</m> to be a local maximum or minimum value on <m>D</m> means simply that there is some interval (or half-interval in the endpoint case) <m>I</m> contained in <m>D</m> on which <m>f(a)</m> is an absolute maximum or minimum value. Thus to identify graphically the local extreme values of a function <m>f</m>, look for inputs <m>a</m> such that when we restrict our gaze to the segment of the graph of <m>f</m> lying over a small interval around <m>a</m>, <m>f(a)</m> is seen to be an absolute maximum or minimum value.  
+        </p> 
+    </remark>
+    <example xml:id="eg_local_extrema">
+    <title>Local and absolute extreme values</title>
+    <statement>
+    <p>
+    A graph of the function <m>f</m> on the interval <m>I=[-4,4]</m> is graphed below. 
+    <ol>
+        <li>
+            <p>
+                Identify all and any inputs <m>a</m> where <m>f(a)</m> has a local maximum or minimum value of <m>f</m> on <m>I</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Decide whether <m>f</m> has an absolute maximum value on <m>I</m>, and whether <m>f</m> has an absolute minimum value on <m>I</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    <figure xml:id="fig_local_extrema">
+        <caption>Graph of <m>f</m></caption>
+        <image xml:id="im_local_extrema" width="40%">
+            <shortdescription>Graph of function with various local extrema</shortdescription>
+            <sageplot>
+                f=plot(-x-2,x,-4,-1, ticks=[[-4,-3,-2,-1,1,2,3,4],[-6,-5,-4,-3,-2,-1,1,2,3,6]])
+                g=plot(-(x-1)^2+3,-1,3.99)
+                C=circle((4,-6),0.1)
+                P=point((4,-2),color="blue", size=50)
+                t=text("$f(x)$",(-2.5,2), color="black", fontsize=16)
+                f+g+C+P+t
+            </sageplot>
+        </image>
+    </figure>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+               The function <m>f</m> has a local maximum value at the left endpoint <m>a=-4</m>: indeed, we have <m>2=f(-4)\geq f(x)</m> for all <m>x\in [-4,-3)</m> (thus for all <m>x</m> sufficiently close to <m>-4</m>). The value <m>f(4)</m> at the right endpoint, somewhat surprisingly, is also a local max: for all <m>x\in (3,4]</m> we have <m>-2=f(4)\geq f(x)</m>.
+            </p>
+            <p>
+                Additionally, we see that <m>-1=f(-1)</m> is a local minimum value of <m>f</m>, since <m>f(-1)\leq f(x)</m> for all <m>x\in (-2,0)</m>. Finally, <m>f(1)=3</m> is easily seen to be the absolute maximum value of <m>f</m> on <m>[-4,4]</m>. It follows from <xref ref="rm_abs_local"/> that <m>f(1)</m> is also a local minimum value of <m>f</m> on <m>I</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                We have already observed that <m>3=f(1)</m> is the absolute maximum value of <m>f</m> on <m>I</m>. We claim that there is no absolute minimum value. To see why, first note that <m>f(x)&gt; -4</m> for all <m>x\in I</m>. Thus, if <m>L</m> were an absolute minimum value of <m>f</m> on <m>I</m> we would have <m>L&gt; -4</m>. However, since <m>\lim_{x\to 4^+}f(x)=-4</m>, for any <m>L&gt; 4</m>, we can find an <m>x\in I</m> such that 
+                <me>
+                    L&gt; f(x) &gt; -4
+                </me>.
+                It follows that <m>f</m> has no absolute minimum value on <m>I</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    
+    
+    <theorem xml:id="th_crit_pt">
+        <title>Critical points and extreme values</title>
+        <creator>Fermat</creator>
+        <statement>
+            <p>
+                Assume <m>f</m> is defined on <m>D</m> and that <m>a</m> is an interior point of <m>D</m>. If <m>f(a)</m> is a local maximum or minimum value of <m>f</m> on <m>D</m>, and if <m>f</m> is differentiable at <m>a</m>, then <m>f'(a)=0</m>.  
+            </p>
+        </statement>
+        <proof>
+            <p>
+                We will show that if <m>f(a)</m> is a local maximum value of <m>f</m> on <m>D</m> and <m>f</m> is differentiable at <m>a</m>, then <m>f'(a)=0</m>. The argument for the case where <m>f(a)</m> is a local minimum is exactly similar. 
+            </p>
+            <p>
+                Firstly, since <m>f(a)</m> is assumed to be a local maximum value, we can find an interval <m>(c,d)\subseteq D</m> containing <m>a</m> such that <m>f(a)\geq f(x)</m> for all <m>x\in (c,d)</m>.  
+            </p>
+            <p>
+                Next, since <m>f</m> is differentiable at <m>a</m>, the limit 
+                <me>
+                    \lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}
+                </me>
+                exists, and we have 
+                <me>
+                    f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}
+                </me>.
+                Observe further that using <xref ref="th_limit_left_right"/> we have 
+                <me>
+                    f'(a)=\lim\limits_{x\to a^-}\frac{f(x)-f(a)}{x-a} \text{ and } f'(a)=\lim\limits_{x\to a^+}\frac{f(x)-f(a)}{x-a}
+                </me>.
+                Next, since <m>f(x)\leq f(a)</m> for all <m>x</m> sufficiently close to <m>a</m> (more precisely, for all <m>x\in (c,d)</m>), <m>f(x)-f(a)\leq 0</m> for all <m>x</m> sufficiently close to <m>a</m>. It follows that 
+                <md>
+                    <mrow> \frac{f(x)-f(a)}{x-a} \amp \geq 0 \ \text{ as } x\to a^- \amp (x&lt; a \implies x-a&lt; 0) </mrow>
+                    <mrow> \frac{f(x)-f(a)}{x-a} \amp \leq 0 \ \text{ as } x\to a^+ \amp (x&gt; a \implies x-a&gt; 0) </mrow>
+                </md>,
+                and thus, taking limits, that 
+                
+                <md>
+                    <mrow>f'(a)\amp =\lim\limits_{x\to a^-}\frac{f(x)-f(a)}{x-a}\geq 0 </mrow>
+                    <mrow>f'(a)\amp =\lim\limits_{x\to a^+}\frac{f(x)-f(a)}{x-a}\leq 0 </mrow>
+                </md>.
+                Since <m>0\leq f'(a)\leq 0</m>, we conclude that <m>f'(a)=0</m>, as desired.
+            </p>
+        </proof>
+    </theorem>
+    <p>
+        According to <xref ref="th_crit_pt"/>, points <m>a</m> where either <m>f</m> is not differentiable, or where <m>f'(a)=0</m> are important to us, as these are candidates where the value <m>f(a)</m> is potentially a local maximum or minimum. Accordingly, we give such inputs a special name: critical points. 
+    </p>
+    <definition xml:id="d_crit_pt">
+    <title>Critical point</title>
+    <statement>
+    <p>
+    Let <m>f</m> be defined on <m>D</m>. An element <m>a\in D</m> is a <term>critical point</term> of <m>f</m> if either <m>f'(a)=0</m> or <m>f</m> is not differentiable at <m>a</m>. 
+    </p>
+    </statement>
+    </definition>
+    <p>
+        Let us now do some synthesis of the above theory. Assume <m>f</m> is continuous on the closed interval <m>I=[a,b]</m>. 
+        <ul>
+            <li>
+                <p>
+                    According to <xref ref="th_extreme"/> there are inputs <m>c</m> and <m>d</m> in <m>I</m> where <m>f</m> attains its absolute maximum and minimum values, respectively.
+                </p>
+            </li>
+            <li>
+                <p>
+                    In particular, <m>f(c)</m> and <m>f(d)</m> are <em>local</em> extreme values of the function. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    According to <xref ref="th_crit_pt"/>, if <m>c</m> and <m>d</m> are interior points of <m>I</m>, then they must be critical points of <m>f</m>: <ie/>, <m>f</m> is either not differentiable at there, or <m>f'</m> is equal to zero there.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    We conclude that the inputs <m>c</m> and <m>d</m> where <m>f</m> attains its absolute extreme values are either one of the endpoints, <m>a</m> or <m>b</m> of the interval, or one of the critical points of <m>f</m> in the interior <m>(a,b)</m> of the interval. 
+                </p>
+            </li>
+        </ul>  
+        Our synthesis gives rise to the following procedure for finding the absolute extreme values of a continuous function on a closed interval. 
+    </p>
+    <algorithm xml:id="proc_extreme">
+        <title>Extreme value theorem</title>
+        <statement>
+            <p>
+                Assume <m>f</m> is continuous on the closed interval <m>I=[a,b]</m>. To determine the absolute maximum and minimum values of <m>f</m> on <m>I</m>, proceed as follows. 
+                <ol>
+                    
+                    <li>
+                        <title>Identify candidate inputs</title>
+                        <p>
+                            The candidate inputs where <m>f</m> potentially attains a maximum or minimum value consist of (i) the endpoints <m>a</m> and <m>b</m> of the interval <m>I</m> along with the set of all critical points of <m>f</m> lying in <m>(a,b)</m>. We determine the latter by finding all solutions to the equation 
+                            <men xml:id="eq_extreme">
+                                f'(x)=0
+                            </men>
+                            lying in <m>(a,b)</m>, and identifying all elements of <m>(a,b)</m> where <m>f</m> is not differentiable.
+                        </p>
+                    </li>
+                    <li>
+                        <title>Evaluate <m>f</m></title>
+                        <p>
+                           Evaluate <m>f</m> at all candidate inputs you found in Step 1.  
+                        </p>
+                    </li>
+                    <li>
+                        <title>Compare values</title>
+                        <p>
+                            Compare the values of <m>f</m> computed in Step 2. The maximum value in that set is the absolute maximum value of <m>f</m> on <m>I</m>; the minimum value in that set is the minimum value of <m>f</m> on <m>I</m>.   
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_extreme_factored_poly">
+    <title>Extreme values: factored polynomial</title>
+    <statement>
+    <p>
+        Let <m>f(x)=(x-2)^5(x-3)^5</m>. Find the absolute maximum and minimum values of <m>f</m> on the interval <m>I=[0,4]</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    First compute 
+    <me>
+        f'(x)=5(x-2)^4(x-3)^5+5(x-2)^5(x-3)^4
+    </me>.
+    Note that <m>f</m>   is differentiable everywhere on the interval <m>I</m>, so to find critical points we find all solutions to 
+    <me>
+        f'(x)=0
+    </me>
+    lying in <m>(0,4)</m>. The key technique for solving this equation is <em>factoring</em>:
+    <md>
+        <mrow> f'(x)\amp =0 </mrow>
+        <mrow>5(x-2)^4(x-3)^5+5(x-2)^5(x-3)^4 \amp = 0</mrow>
+        <mrow>5(x-2)^4(x-3)^4((x-2)+(x-3)) \amp =0  </mrow>
+        <mrow>5(x-2)^4(x-3)^4(2x-5) \amp = 0 </mrow>
+    </md>. 
+    We now see that the last equality holds if and only if 
+    <me>
+        x=2,3,\frac{5}{2}
+    </me>.
+    These are thus our critical points. We now evaluate <m>f</m> at these critical points, as well as at the endpoints of the interval: 
+    <md>
+        <mrow>f(0) \amp = (-2)^5\cdot (-3)^5=2^5\cdot 3^5 </mrow>
+        <mrow>f(2) \amp = 0</mrow>
+        <mrow>f(5/2) \amp = (1/2)^5(-1/2)^5=-\frac{1}{2^10}</mrow>
+        <mrow>f(3) \amp = 0</mrow>
+        <mrow>f(4) \amp = 2^5\cdot 1^5=2^5</mrow>
+    </md>.
+    Comparing these values, we conclude that <m>f(0)=2^5\cdot 3^5</m> is the absolute maximum value of <m>f</m> on <m>I</m>, and <m>f(5/2)=-1/2^{10}</m> is the absolute minimum value of <m>f</m> on <m>I</m>. 
+    </p>
+    </solution>
+    </example>
+    <example xml:id="eg_extreme_rational">
+    <title>Extreme values: rational function</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\frac{x-2}{x^2+1}</m>. Find the absolute maximum and minimum values of <m>f</m> on the interval <m>I=[-10,10]</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    First observe that since <m>x^2+1&gt; 0</m> for all <m>x\in \R</m>, the domain of <m>f</m> is <m>\R</m>. Since <m>f</m> is a rational function, it is continuous everywhere on its domain, hence continuous on <m>[-10, 10]</m>.
+    </p>
+    <p>
+       Additionally, <m>f</m> is easily seen to be differentiable everywhere with derivative
+       <md>
+        <mrow>f'(x) \amp =\frac{(x-2)'(x^2+1)-(x-2)(x^2+1)'}{(x^2+1)^2}</mrow>
+        <mrow> \amp =\frac{x^2+1-2x(x-2)}{(x^2+1)^2}</mrow>
+        <mrow> \amp =\frac{x^2+1-2x^2+4x}{(x^2+1)^2}</mrow>
+        <mrow> \amp =\frac{-x^2+4x+1}{(x^2+1)^2}</mrow>
+       </md>.
+       We now following <xref ref="proc_extreme"/>. Since <m>f</m> is differentiable everywhere, its critical points are the solutions to <m>f'(x)=0</m>, which we now solve:
+       <md>
+        <mrow>f'(x) \amp = 0</mrow>
+        <mrow>\frac{-x^2+4x+1}{(x^2+1)^2} \amp =0</mrow>
+        <mrow>x^2-4x-1 \amp = 0</mrow>
+        <mrow>x \amp =2\pm \sqrt{5}</mrow>
+       </md>.
+       To complete the procedure, we evaluate <m>f</m> at the candidate inputs <m>-10, 2-\sqrt{5},2+\sqrt{5},10</m>:
+       <md>
+        <mrow>f(-10) \amp = \frac{-12}{101}\approx -0.1188</mrow>
+        <mrow>f(2-\sqrt{5}) \amp = \frac{-\sqrt{5}}{(2-\sqrt{5})^2+1}\approx -2.12</mrow>
+        <mrow>f(2+\sqrt{5}) \amp = \frac{\sqrt{5}}{(2+\sqrt{5})^2+1}\approx 0.12 </mrow>
+        <mrow>f(10) \amp = \frac{8}{101}\approx 0.0792</mrow>
+       </md>.
+       We conclude that <m>f(2-\sqrt{5})\approx -2.12</m> is the minimum value of <m>f</m> on <m>I</m> and <m>f(2+\sqrt{5})\approx 0.12</m> is the maximum value of <m>f</m> on <m>I</m>. Below you find a graph of <m>f</m> that bears out our analysis. 
+    </p>
+    <image xml:id="im_extreme_trig" width="80%">
+        <shortdescription>Graph of example function revealing the extreme values.</shortdescription>
+        <sageplot>
+            f(x)=(x-2)/(x^2+1)
+            plot(f(x),x,-10,10,ymin=-2.5, ymax=0.5)
+        </sageplot>
+    </image>
+    
+    </solution>
+    </example>
+    
+    
+    <example xml:id="eg_extreme_graphs">
+    <title>Distance between graphs</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\sqrt[3]{x}</m> and <m>g(x)=3x</m>. Find the maximum vertical distance between the graphs of <m>f</m> and <m>g</m> on the interval <m>I=\left[-\frac{1}{\sqrt{27}}, \frac{1}{\sqrt{27}}\right]</m>
+    </p>
+    </statement>
+    <solution>
+    <p>
+        The vertical distance point <m>(x,f(x))</m> and <m>(x,g(x))</m> on the two graphs is measured by <m>\abs{f(x)-g(x)}</m>. Thus we are interested in the extreme values of <m>h(x)=f(x)-g(x)</m> on the interval <m>I</m>. For <m>x\ne 0</m> we have 
+        <me>
+            h'(x)=f'(x)-g'(x)=\frac{1}{3}x^{-2/3}-3=\frac{1}{3(\sqrt[3]{x})^2}-3
+        </me>.
+        Note that <m>h</m> is not differentiable at <m>x=0</m>, and thus this is one of our critical points. To find the others we solve: 
+        <md>
+            <mrow>f'(x) \amp = 0</mrow>
+            <mrow> \frac{1}{3(\sqrt[3]{x})^2}-3\amp = 0 </mrow>
+            <mrow>(\sqrt[3]{x})^2 \amp= \frac{1}{9} </mrow>
+            <mrow>\sqrt[3]{x} \amp =\pm \frac{1}{3}</mrow>
+            <mrow> x \amp = \pm \frac{1}{27} </mrow>
+        </md>.
+        We now evaluate <m>h</m> at our three critical points, as well as the endpoints: 
+        <md>
+            <mrow>h(-1/\sqrt{27}) \amp = (-1/27^{1/2})^{1/3}+3/\sqrt{27} </mrow>
+            <mrow> \amp = -(1/\sqrt{3})+1/\sqrt{3}=0</mrow>
+            <mrow>h(-1/27) \amp = (-1/27)^{1/3}+3/27=-\frac{2}{9}</mrow>
+            <mrow>h(1/27) \amp = (1/27)^{1/3}-3/27=\frac{2}{9}</mrow>
+            <mrow>h(1/\sqrt{27}) \amp = (1/27^{1/2})^{1/3}-3/\sqrt{27} </mrow>
+            <mrow> \amp = (1/\sqrt{3})-1/\sqrt{3}=0</mrow>
+        </md>.
+        We conclude that <m>-\frac{2}{9}\leq h(x)\leq \frac{2}{9}</m> on <m>I</m>, or equivalently, <m>\abs{f(x)-g(x)}\leq \frac{2}{9}</m>. Thus the vertical maximal distance between the two graphs is <m>2/9</m> and this occurs at the inputs <m>x=\pm 1/27</m>. Below you find two diagrams that illustrate this result: the first depitcts the graphs of <m>f</m> and <m>g</m> separately, and the second is a graph of the difference function <m>h(x)=f(x)-g(x)</m>.   
+    </p>
+    <figure xml:id="fig_dist_f_g">
+        <caption>Comparing graphs of <m>f</m> and <m>g</m></caption>
+        <sidebyside valign="bottom">
+            <figure xml:id="fig_graph_f_g">
+                <caption>Graphs of <m>f</m> and <m>g</m></caption>
+                <image xml:id="im_graph_f_g">
+                    <shortdescription>Graphs of f and g</shortdescription>
+                   <sageplot>
+                    l1=[r"$-\frac{1}{\sqrt{27}}$", r"$-\frac{1}{27}$",r"$\frac{1}{27}$", r"$\frac{1}{\sqrt{27}}$"]
+                    l2=[r"$-\frac{4}{9}$",r"$-\frac{2}{9}$","",r"$\frac{2}{9}$",r"$\frac{4}{9}$" ]
+                    P=plot((real_nth_root(x, 3),3*x),x,-1/sqrt(27),1/sqrt(27), color=["blue","red"],ticks=[[-1/sqrt(27),-1/27,1/27,1/sqrt(27)],[2*x/9 for x in range(-2,3)]], tick_formatter=[l1,l2], aspect_ratio=.3)
+                    t1=text("$f(x)$",(1/27, 4/9),color="black")
+                    t2=text("$g(x)$",(4/27, 3/9),color="black")
+                    P+t1+t2
+                   </sageplot> 
+                </image>
+            </figure>
+            <figure xml:id="fig_graph_f_g_h">
+                <caption>Graphs of <m>f</m> and <m>g</m></caption>
+                <image xml:id="im_graph_f_g_h">
+                    <shortdescription>Graphs of f, g, and h</shortdescription>
+                   <sageplot>
+                    l1=[r"$-\frac{1}{\sqrt{27}}$", r"$-\frac{1}{27}$",r"$\frac{1}{27}$", r"$\frac{1}{\sqrt{27}}$"]
+                    l2=[r"$-\frac{4}{9}$",r"$-\frac{2}{9}$","",r"$\frac{2}{9}$",r"$\frac{4}{9}$" ]
+                    P=plot((real_nth_root(x, 3),3*x,real_nth_root(x, 3)-3*x),x,-1/sqrt(27),1/sqrt(27), color=["blue","red","green"],ticks=[[-1/sqrt(27),-1/27,1/27,1/sqrt(27)],[2*x/9 for x in range(-2,3)]], tick_formatter=[l1,l2], aspect_ratio=.3)
+                    t1=text("$f(x)$",(1/27, 4/9),color="black")
+                    t2=text("$g(x)$",(4/27, 3/9),color="black")
+                    t3=text("$h(x)=f(x)-g(x)$",(5/27,1.3/9),color="black")
+                    P+t1+t2+t3
+                   </sageplot> 
+                </image>
+            </figure>
+        </sidebyside>
+    </figure>
+    </solution>
+    </example>
+    
+    
+
+
+    
+
+</section>

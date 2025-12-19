@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_first_der_test" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Monotonicity and first derivative test</title>
+
+    <definition xml:id="d_monotonic">
+        <title>Increasing, decreasing, monotonic</title>
+
+        <statement>
+            <p>
+                Assume <m>f</m> is defined on the interval <m>I</m>.
+                <ul>
+                    <li>
+                        <p>
+                            <m>f</m> is <term>increasing</term> on <m>I</m> if <m>a&lt; b</m> implies <m>f(a)&lt; f(b)</m> for all <m>a,b\in I</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <m>f</m> is <term>decreasing</term> on <m>I</m> if <m>a&lt; b</m> implies <m>f(a)&gt; f(b)</m> for all <m>a,b\in I</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <m>f</m> is <term>monotonic</term> on <m>I</m> if it is either increasing on <m>I</m> or decreasing on <m>I</m>.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </statement>
+    </definition>
+
+    <theorem xml:id="th_monoton">
+        <title>Derivative and monotonicity</title>
+
+        <statement>
+            <p>
+                Assume <m>f</m> is continuous on the interval <m>I</m>.
+                <ol>
+                    <li>
+                        <p>
+                            If <m>f'(x)=0</m> for all interior points <m>x\in I</m>, then <m>f</m> is a constant function on <m>I</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            If <m>f'(x)&gt; 0</m> for all interior points <m>x\in I</m>, then <m>f</m> is increasing on <m>I</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            If <m>f'(x)&lt; 0</m> for all interior points <m>x\in I</m>, then <m>f</m> is decreasing on <m>I</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+
+
+        <proof>
+            <p>
+                Statement (1) is identical to <xref ref="cor_constant_functions"/>, which we have already proved.
+            </p>
+
+            <p>
+                The proofs of (2) and (3) are nearly identical.
+                We prove (2).
+                Assume <m>f'(x)&gt; 0</m> for all interior points <m>x\in I</m>.
+                Suppose <m>a,b\in I</m> satisfy <m>a&lt; b</m>.
+                Since the function <m>f</m> is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>, the mean value theorem implies
+                <me>
+                    f'(c)=\frac{f(b)-f(a)}{b-a}
+                </me>
+                for some <m>c\in (a,b)</m>.
+                But then, after a little algebra, we see that
+                <me>
+                    f(b)=f'(c)(b-a)+f(a)&gt; f(a)
+                </me>,
+                since <m>f'(c)&gt; 0</m> by assumption.
+                Thus we have shown
+                <me>
+                    a&lt; b\implies f(a)&lt; f(b)
+                </me>
+                for all <m>a,b\in I</m>.
+                In other words, <m>f</m> is increasing on <m>I</m>.
+            </p>
+        </proof>
+    </theorem>
+
+    <p>
+        Before putting <xref ref="th_monoton"/> to good analytic work on some example functions, we first illustrate that we cannot apply the theorem if the underlying set is not an <em>interval</em>.
+    </p>
+
+    <example xml:id="eg_monoton_recip">
+        <title>Monotonicity: reciprocal</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=\frac{1}{x}</m> with domain <m>D=\R-\{0\}</m>.
+                Observe that <m>f'(x)=-1/x^2</m> is negative for all <m>x\in D</m>.
+                However it is not true that <m>f</m> is decreasing on its entire domain <m>D</m>: indeed, we have <m>-1&lt; 1</m>,  and yet <m>-1=f(-1)\not&gt; f(1)=1</m>.
+            </p>
+
+            <p>
+                What went wrong here? Why couldn't we apply <xref ref="th_monoton"/>? The answer is that <m>D</m> is not an interval! In fact we have
+                <me>
+                    D=\underset{I_1}{(-\infty, 0)}\cup \underset{I_2}{(0,\infty)}
+                </me>,
+                a union of two intervals.
+                We are permitted to apply <xref ref="th_monoton"/> to <m>I_1</m> and <m>I_2</m> separately to conclude that <m>f</m> is decreasing on each of these intervals, but this does not imply that it is increasing on their union.
+            </p>
+        </statement>
+    </example>
+
+    <p>
+        According to <xref ref="th_monoton"/> determining the sets on which a function <m>f</m> is increasing/decreasing essentially amounts to solving the inequalities <m>f'(x)&gt; 0</m> and <m>f'(x)&lt; 0</m>.
+        This is most efficiently done using a <em>sign diagram</em> of <m>f'</m>, as illustrated in the next example and defined more precisely in <xref ref="proc_intervals_monoto"/>.
+    </p>
+
+    <example xml:id="eg_monoton_poly">
+        <title>Monotonicity: polynomial</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=3x^5-5x^3</m>.
+                Find all intervals where <m>f</m> is increasing, and all intervals where <m>f</m> is decreasing.
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                We compute
+                <me>
+                    f'(x)=15x^4-15x^2=15x^2(x^2-1)=15x^2(x-1)(x+1)
+                </me>.
+                Since <m>f'</m> is continuous, and since <m>0,1,-1</m> are the only roots of <m>f'</m>, the intermediate value theorem implies that <m>f'</m> is either always positive or always negative on each of the resulting intervals <m>(-\infty,-1),(-1,0),(0,1),(1,\infty)</m>.
+                This means we can determine the sign of <m>f'</m> on each interval by evaluating it at one test point.
+                It is easy to see that
+                <md>
+                    <mrow>f'(-2) \amp &gt; 0</mrow>
+                    <mrow>f'(-1/2)  \amp &lt; 0 </mrow>
+                    <mrow>f'(1/2) \amp &lt; 0</mrow>
+                    <mrow>f'(2) \amp &gt; 0</mrow>
+                </md>.
+                Thus the sign of <m>f'</m> for various portions of the real line is described by the following <em>sign diagram</em>.
+            </p>
+
+            <image xml:id="im_sign_diag_poly" width="70%">
+                <shortdescription>
+                    Sign diagram for derivative of f
+                </shortdescription>
+                <latex-image>
+        \begin{tikzpicture}
+        \draw (0,0) -- (7,0);
+        \path foreach \X/\Y  in 
+         {2/-1, 4/0, 6/1}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$+$};
+       \draw(3,.5) node{$-$};
+       \draw(5,.5) node{$-$};
+       \draw(7,.5) node{$+$};
+       \draw(1,-.5) node{$\nearrow$};
+       \draw(3,-.5) node{$\searrow$};
+       \draw(5,-.5) node{$\searrow$};
+       \draw(7,-.5) node{$\nearrow$};
+        \end{tikzpicture}
+                </latex-image>
+            </image>
+
+            <p>
+                Note that underneath the information about the sign of <m>f'</m>, we have indicated the implied increasing/decreasing behavior of <m>f</m>.
+            </p>
+
+            <p>
+                From the sign diagram we conclude that <m>f</m> is increasing on the intervals <m>(-\infty, -1]</m> and <m>[1,\infty)</m>, and decreasing on the interval <m>[-1,1]</m>.
+            </p>
+        </solution>
+    </example>
+
+    <p>
+        Let's give a formal description of the technique used in the example above.
+    </p>
+
+    <algorithm xml:id="proc_intervals_monoto">
+        <title>Intervals of monotonicity</title>
+
+        <statement>
+            <p>
+                Assume <m>f</m> is continuous on <m>D</m>.
+                To determine the intervals where <m>f</m> is increasing or decreasing, proceed as follows.
+                <ol>
+                    <li>
+                        <p>
+                            Find all critical points of <m>f</m> in <m>D</m>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Draw a real line representation of <m>D</m> that includes the critical points you found in Step 1.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Make a <term>sign diagram</term> of your real line representation of <m>D</m>.
+                            <ol>
+                                <li>
+                                    <p>
+                                        Label the top part of this diagram <m>f'</m> and indicate with <m>\pm</m> the sign of <m>f'</m> on a given interval.
+                                    </p>
+                                </li>
+
+                                <li>
+                                    <p>
+                                        (Optional).
+                                        Label the bottom part of the diagam <m>f</m> and indicate with arrows whether <m>f</m> is increasing or decreasing on a given interval.
+                                    </p>
+                                </li>
+                            </ol>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </algorithm>
+
+    <theorem xml:id="th_first_der_test">
+        <title>First derivative test</title>
+
+        <statement>
+            <p>
+                Assume that <m>c</m> is a critical point of the function <m>f</m>, and that <m>f</m> is differentiable near, but not necessarily at <m>c</m>.
+                <ol>
+                    <li>
+                        <p>
+                            If the sign of <m>f'</m> changes from positive to negative at <m>c</m>, then <m>f(c)</m> is a local maximum value of <m>f</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            If the sign of <m>f'</m> changes from negative to positive at <m>c</m>, then <m>f(c)</m> is a local minimum value of <m>f</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            If <m>f'</m> is nonzero near <m>c</m> and the sign does not change at <m>c</m>, then <m>f(c)</m> is neither a local maximum value nor a local minimum value of <m>f</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </theorem>
+
+    <algorithm xml:id="proc_class_crit_pts">
+        <title>Classify critical points: first derivative test</title>
+
+        <statement>
+            <p>
+                Let <m>f</m> be continuous on the set <m>D</m>.
+                To find and classify all critical points of <m>f</m> as corresponding to a local maximum value of <m>f</m>, a local minimum value of <m>f</m>, or neither, proceed as follows.
+                <ol>
+                    <li>
+                        <p>
+                            Find all critical points of <m>f</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Make a sign diagram of <m>f'</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            For each critical point <m>a</m> of <m>f</m>, use <xref ref="th_first_der_test"/> and your sign diagram to determine whether <m>f(a)</m> is a local maximum value of <m>f</m>, local minimum value of <m>f</m>, or neither.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </algorithm>
+
+    <example xml:id="eg_first_der_test_poly">
+        <title>Classifying critical points: polynomial</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=3x^5-5x^3</m>.
+                Find all critical points of <m>f</m>, and for each critical point <m>a</m> classify <m>f(a)</m> as a local maximum value of <m>f</m>, a local minimum value of <m>f</m>, or neither.
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                In the course of the sign diagram from <xref ref="eg_monoton_poly"/> we saw that <m>x=-1,0,1</m> were the critical points of <m>f</m>.
+                Since the sign of <m>f'</m> switches from positive to negative at <m>-1</m>, <m>f(-1)</m> is a local maximum value of <m>f</m>; since the sign of <m>f'</m> switches from negative to positive at <m>1</m>, <m>f(1)</m> is a local minimum value of <m>f</m>.
+                Since <m>f'(x)\ne 0</m> for <m>x</m> close to <m>0</m> and since the sign of <m>f'</m> does not switch at <m>x=0</m>, we see that <m>f(0)</m> is neither a local maximum nor a local minimum value.
+            </p>
+        </solution>
+    </example>
+
+    <example xml:id="eg_first_der_test_rational">
+        <title>Monotonicity and critical points: rational</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=\tfrac{x^2+10x+1}{x-2}</m>.
+                <ol>
+                    <li>
+                        <p>
+                            Find all critical points of <m>f</m>, and for each critical point <m>a</m> classify <m>f(a)</m> as a local maximum value of <m>f</m>, a local minimum value of <m>f</m>, or neither.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Apply <xref ref="proc_class_crit_pts"/> to find the intervals of monotonicity of <m>f</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                First observe that the domain of <m>f</m> is <m>D=\R-\{2\}</m>.
+                <ol>
+                    <li>
+                        <p>
+                            The derivative of <m>f</m> is
+                            <me>
+                                f'(x)=\frac{x^2-4x-21}{(x-2)^2}=\frac{(x-7)(x+3)}{(x-2)^2}
+                            </me>.
+                            From the formula for <m>f'</m> we see that <m>f</m> is differentiable everywhere, and thus that its only critical points are the solutions to <m>f'(x)=0</m>.
+                            From the factorization of the numerator, we see easily that <m>x=7</m> and <m>x=-3</m> are the critical points of <m>f</m>.
+                            To classify these critical points we produce a sign diagram of <m>f'</m>.
+                        </p>
+
+                        <image>
+                            <latex-image>
+               \begin{tikzpicture}
+                    \draw (-5,0) -- (9,0);
+                    \draw (-5,.5) node {$f'\colon$};
+                    \draw (-5,-.5) node{$f\colon $};
+               \draw(-3,0) node[circle,blue,fill,inner sep=1mm,
+                   label=below:{$-3$}] {};
+                \draw[color=blue, thick] (2,0) circle  (1mm) {};
+                \node[below=4pt] at (2,0) {$2$};
+               \draw(7,0) node[circle,blue,fill,inner sep=1mm,
+                   label=below:{$7$}] {};
+                \draw(-4,.5) node{$+$};
+                \draw(-4,-.5) node{$\nearrow$};    
+                \draw(-.5,.5) node{$-$};
+                \draw(-.5,-.5) node{$\searrow$};
+               \draw(4.5,.5) node{$-$};
+               \draw(4.5,-.5) node{$\searrow$};
+               \draw(8,.5) node{$+$};
+               \draw(8,-.5) node{$\nearrow$};
+                \end{tikzpicture}
+                            </latex-image>
+                        </image>
+
+                        <p>
+                            From the sign diagram, we see that <m>f</m> has a loca maximum value at <m>x=-3</m> and a local minimum value at <m>x=7</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            The sign diagram above further reveals that <m>f</m> is increasing on the intervals <m>(-\infty, -3)</m> and <m>(7,\infty)</m>, and decreasing on the intervals <m>(-3,2)</m> and <m>(2,7)</m>.
+                        </p>
+                    </li>
+                </ol>
+                Our analysis above is born out by the graph of <m>f</m> given below.
+            </p>
+
+            <image xml:id="im_first_der_test_rational">
+                <shortdescription>
+                    Graph of rational function f
+                </shortdescription>
+                <sageplot>
+        plot((x^2+10*x+1)/(x-2),x,-5,20, ymin=-30, ymax=100, detect_poles=True)
+                </sageplot>
+            </image>
+        </solution>
+    </example>
+
+    <example xml:id="eg_first_der_test_rad">
+        <title>Monotonicity and critical points: radical</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=x\, \sqrt{7-x^2}</m>.
+                Find all critical points of <m>f</m>, and for each critical point <m>a</m> classify <m>f(a)</m> as a local maximum value of <m>f</m>, local minimum value of <m>f</m>, or neither.
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                Note first that the implied domain <m>D</m> of <m>f</m> is
+                <me>
+                    D=\{x\in \R\colon 7-x^2\geq 0\}=\{x\in \R\colon -\sqrt{7}\leq x\leq \sqrt{7}\}=[-\sqrt{7},\sqrt{7}]
+                </me>.
+                Following <xref ref="proc_class_crit_pts"/>, we first determine the critical points of <m>f</m>.
+                Note first that in this case <m>f</m> is not differentiable at <m>\pm \sqrt{7}</m>, making these critical points.
+                Next, for all <m>x\ne \pm \sqrt{7}</m>, we compute <m>f'(x)</m> using the product and chain rules:
+                <md>
+                    <mrow>f'(x) \amp =\sqrt{7-x^2}-\frac{x^2}{\sqrt{7-x^2}} </mrow>
+                    <mrow> \amp =\frac{1}{\sqrt{7-x^2}}(7-x^2-x^2)</mrow>
+                    <mrow> \amp \frac{7-2x^2}{\sqrt{7-x^2}}</mrow>
+                </md>.
+                It follows that we have <m>f'(x)=0</m> if and only if <m>7-2x^2=0</m>, or equivalently, <m>x=\pm \sqrt{7/2}</m>.
+                We conclude that there are in total four critical points: <m>x=\pm \sqrt{7}</m> (where <m>f</m> is not differentiable), and <m>x=\pm\sqrt{7/2}</m>.
+            </p>
+
+            <image xml:id="im_first_der_test_rad" width="70%">
+                <shortdescription>
+                    Sign diagram for derivative of example function
+                </shortdescription>
+                <latex-image>
+            \begin{tikzpicture}
+            \begin{tikzpicture}
+            \draw (1,0) -- (7,0);
+            \path foreach \X/\Y  in 
+             {1/-\sqrt{7}, 3/-\sqrt{\frac{7}{2}}, 5/\sqrt{\frac{7}{2}}, 7/\sqrt{7}}
+                { (\X,0) node[circle,fill,inner sep=0.5mm,
+                   label=below:{$\Y$}]  {}};
+                \draw (0,.5) node {$f'\colon$};
+                \draw (0,-1) node{$f\colon $};
+           \draw(2,.5) node{$-$};
+           \draw(4,.5) node{$+$};
+           \draw(6,.5) node{$-$};
+           \draw(2,-1) node{$\searrow$};
+           \draw(4,-1) node{$\nearrow$};
+           \draw(6,-1) node{$\searrow$};
+    \end{tikzpicture}
+            \end{tikzpicture}
+                </latex-image>
+            </image>
+
+            <p>
+                This diagram was the result of the following test point evaluations of <m>f'</m>:
+                <md>
+                    <mrow>f'(-2) \amp = -\frac{1}{\sqrt{3}}&lt; 0 </mrow>
+                    <mrow>f'(0) \amp = \frac{7}{\sqrt{7}}&gt; 0</mrow>
+                    <mrow>f'(2) \amp = -\frac{1}{\sqrt{3}}&lt; 0 </mrow>
+                </md>.
+                Note that <m>\sqrt{7/2}&lt; 2&lt; \sqrt{7}</m>.
+            </p>
+
+            <p>
+                We conclude that <m>f(-\sqrt{7})</m> and <m>f(\sqrt{7/2})</m> are local maximum values, and <m>f(-\sqrt{7/2}</m> and <m>f(\sqrt{7}</m> are local minimum values.
+                These conclusions are verified by the actual graph of <m>f</m>.
+            </p>
+
+            <figure xml:id="fig_im_first_der_test_rad_graph">
+                <caption>Graph of <m>f(x)=x\, \sqrt{7-x^2}</m></caption>
+                <image>
+                    <shortdescription>
+                        Graph of the original function of the example
+                    </shortdescription>
+                    <sageplot>
+                l=[r"$-\sqrt{7}$",r"$-\sqrt{\frac{7}{2}}$",r"$\sqrt{\frac{7}{2}}$", r"$\sqrt{7}$"]
+                f=plot(x*sqrt(7-x^2),x,-sqrt(7),sqrt(7), ticks=[[-sqrt(7),-sqrt(7/2),sqrt(7/2),sqrt(7)],[-3,-2,-1,1,2,3]], tick_formatter=[l,None])
+                f
+                    </sageplot>
+                </image>
+            </figure>
+        </solution>
+    </example>
+</section>

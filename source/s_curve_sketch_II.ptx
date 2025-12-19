@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_curve_sketch_II" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Curve sketching II</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Bring all our calculus tools to bear on the analysis of a real-valued function <m>f</m>. In more detail: determine the domain, the <m>y</m>-intercept and any <m>x</m>-intercepts; compute the limit of the function at endpoints of the domain and determine whether there are horizontal asymptotes; determine whether there are vertical asymptotes; find and classify all critical points of <m>f</m>; determine the intervals of monotonicity; determine intervals of constant concavity; identify any inflection points.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Express the results of our analysis of a function's behavior in the form of a detailed sketch. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    
+<example xml:id="eg_curve_trig">
+<title>Curve sketch: trig</title>
+<statement>
+<p>
+Provide a graph of <m>f(x)=\sin x+\sin^2 x</m> that includes all the details listed in <xref ref="proc_curve_sketching"/> to the <em>best of your abilities</em>.  
+</p>
+</statement>
+<solution>
+<p>
+Although the domain of <m>f</m> is <m>\R</m>, observe that since <m>f(x+2\pi)=f(x)</m> for all <m>x\in \R</m>, we can obtain a graph of <m>f</m> by producing a careful sketch on the interval <m>[0,2\pi]</m> and then <q>copying and pasting</q> this graph over all other intervals <m>[2\pi n, 2\pi(n+1)]</m>. This means for the moment our analysis will be restricted to just the interval <m>[0,2\pi]</m>. The <m>y</m>-intercept, as always, is <m>(0,f(0))=(0,0)</m>. To find the <m>x</m>-intercepts in <m>[0,2\pi]</m> we solve: 
+ <md>
+    <mrow>f(x) \amp =0</mrow>
+    <mrow>\sin x(1+\sin x) \amp = 0</mrow>
+    <mrow>\sin x= 0 \amp \text{ or } \sin x=-1</mrow>
+    <mrow>x \amp =0, \pi, 3\pi/2,2\pi</mrow>
+ </md>. 
+Next we compute 
+<md>
+    <mrow>f'(x) \amp = \cos x(1+2\sin x)</mrow>
+    <mrow>f''(x) \amp = -\sin x+2\cos^2(x)-2\sin^2 x=2-\sin x-4\sin^2 x </mrow>
+</md>.
+From the factored form of <m>f'</m>, we see solve 
+<md>
+    <mrow>f'(x) \amp = 0</mrow>
+    <mrow>\cos x=0 \amp \text{ or } \sin x=-\frac{1}{2}</mrow>
+    <mrow>x \amp =\frac{\pi}{2}, \frac{7\pi}{6},\frac{3\pi}{2},\frac{11\pi}{6}</mrow>
+</md>.
+With a little work, choosing our test points carefully, we produce the following sign diagram for <m>f'</m> on the interval <m>[0,2\pi]</m>. 
+</p>
+<image xml:id="im_sign_der_trig">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+         \begin{tikzpicture}
+        \draw (0,0) -- (9,0);
+        \path foreach \X/\Y  in 
+         {2/\frac{\pi}{2},4/\frac{7\pi}{6},6/\frac{3\pi}{2},8/\frac{11\pi}{6}}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(1,.5) node{$+$};
+       \draw(3,.5) node{$-$};
+       \draw(5,.5) node{$+$};
+       \draw(7,.5) node{$-$};
+       \draw(9,.5) node{$+$};
+       \draw(1,-.5) node{$\nearrow$};
+       \draw(3,-.5) node{$\searrow$};
+       \draw(5,-.5) node{$\nearrow$};
+       \draw(7,-.5) node{$\searrow$};
+       \draw(9,-.5) node{$\nearrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    The diagram clearly indicates the intervals of monotonicity within <m>[0,2\pi]</m>, and indicates that <m>f</m> attains in alternating manner local maximum/minimum values at these inputs. 
+</p>
+<p>
+    From this information, and the table of values 
+    <me>
+        \begin{array}{r|l}
+        x \amp f(x) \\
+        \hline
+        0 \amp 0 \\
+        \pi \amp 0 \\
+        \frac{3\pi}{2} \amp 0 \\
+        2\pi \amp 0 \\
+        \frac{\pi}{2} \amp 2 \\
+        \frac{7\pi}{6} \amp -\frac{1}{4} \\
+        \frac{11\pi}{6}\amp -\frac{1}{4}
+        \end{array}  
+    </me>
+we can obtain the following sketch of <m>f</m> on <m>[0,2\pi]</m>. 
+</p>
+<image xml:id="im_curve_sketch_trig_interval" width="70%">
+    <shortdescription>Graph of f on restricted domain</shortdescription>
+    <sageplot>
+f(x)=sin(x)+(sin(x))^2
+C=plot(f(x), x,0,2*pi, ticks=[[pi*n/2 for n in range(0,5)],[1,2]],tick_formatter=[pi,None])
+P=point((pi/2, f(pi/2)), color="red", size=50)
+Q=point((7*pi/6, f(7*pi/6)), color="red", size=50)
+R=point((3*pi/2, f(3*pi/2)), color="red", size=50)
+S=point((11*pi/6, f(11*pi/6)), color="red", size=50)
+T=point((0,0),color="red", size=50)
+U=point((2*pi,0),color="red",size=50)
+V=point((pi,0),color="red",size=50)
+C+P+Q+R+S+T+U+V
+    </sageplot>
+</image>
+<p>
+    As mentioned above, using the periodicity of <m>f</m>, we get a full sketch of <m>f</m> on <m>\R</m> by <q>cutting and pasting</q>.
+</p>
+<image xml:id="im_curve_sketch_trig_full" width="70%">
+    <shortdescription>Graph of f over all reals</shortdescription>
+    <sageplot>
+f(x)=sin(x)+(sin(x))^2
+C=plot(f(x), x,-2*pi,4*pi, ticks=[[pi*n/2 for n in range(-5,9)],[1,2]],tick_formatter=[pi,None])
+C
+    </sageplot>
+</image>
+<p>
+    Note that as a result of the periodicity of <m>f</m>, the absolute maximum and minimum values of <m>f</m> on the domain <m>\R</m> are equal to the absolute maximum and minimum values of <m>f</m> on the interval <m>[0,2\pi]</m>. From our table of values above, which includes evaluations at all critical points in <m>[0,2\pi]</m>, along with <xref ref="proc_extreme"/>, we see that <m>f(\pi/2)=2</m> is the absolute maximum value of <m>f</m> on <m>\R</m>, and <m>f(7\pi/6)=f(11\pi/6)=-1/4</m> is the absolute minimum value.  
+</p>
+<p>
+    What about the concavity of <m>f</m> and inflection points? The second derivative 
+    <me>
+        f''(x)=-4\sin ^2(x)-\sin x+2
+    </me>
+    is somewhat complicated, making a precise sign diagram for <m>f''</m> difficult to produce. Our graph of <m>f</m> above seems to suggest four inflection points within the interval <m>[0,2\pi]</m>. 
+</p>
+<image xml:id="im_trig_inflect" width="70%">
+    <shortdescription>Graph with inflection points</shortdescription>
+    <sageplot>
+f(x)=sin(x)+(sin(x))^2
+C=plot(f(x), x,0,2*pi, ticks=[[pi*n/2 for n in range(0,5)],[1,2]],tick_formatter=[pi,None])
+P=point((arcsin((-1+sqrt(33))/8), f(arcsin((-1+sqrt(33))/8))), color="red", size=50)
+Q=point((pi-arcsin((-1+sqrt(33))/8), f(arcsin((-1+sqrt(33))/8))), color="red", size=50)
+R=point((2*pi+arcsin((-1-sqrt(33))/8), f(arcsin((-1-sqrt(33))/8))), color="red", size=50)
+S=point((pi-arcsin((-1-sqrt(33))/8), f(arcsin((-1-sqrt(33))/8))), color="red", size=50)
+C+P+Q+R+S
+    </sageplot>
+</image>
+<p>
+    Can we at least verify this algebraically? Yes, we can! 
+</p>
+<p>
+    Let <m>u=\sin x</m>, so that <m>f''(x)=-4u^2-u+2</m>. We can solve <m>f''(x)=0</m> for <m>u</m> using the quadratic equation: 
+    <me>
+        u=\frac{-1\pm \sqrt{33}}{8}
+    </me>.
+    Thus we have a potential inflection point at points <m>x\in [0,2\pi]</m> satisfying 
+    <md>
+        <mrow>\sin x \amp =\frac{-1+\sqrt{33}}{8} \amp \sin x\amp =\frac{-1-\sqrt{33}}{8} </mrow>
+    </md>.
+    Each of the equations above has two solutions within <m>[0,2\pi]</m>, and these correspond to the four inflection points we see in our graph of <m>f</m> over <m>[0,2\pi]</m>. 
+    
+</p>
+</solution>
+</example>
+<example xml:id="eg_curve_radical">
+<title>Curve sketching: rational function</title>
+<statement>
+<p>
+    Provide a graph of <m>f(x)=\frac{\sqrt{x}}{x-1}</m> that includes all the details listed in <xref ref="proc_curve_sketching"/>. 
+</p>
+</statement>
+<solution>
+<p>
+    The domain of <m>f</m> is <m>D=[0,1)\cup (1,\infty)</m>, and <m>(0,0)</m> is both the <m>y</m>-intercept and the sole <m>x</m>-intercept. 
+</p>
+<p>
+    Since <m>f</m> is continuous at <m>x=0</m>, we have 
+    <me>
+        \lim\limits_{x\to 0^+}f(x)=f(0)=0
+    </me>.
+     Next we compute 
+    <md>
+        <mrow>\lim\limits_{x\to \infty}f(x) \amp = \lim\limits_{x\to \infty}\frac{\sqrt{x}}{x(1-1/x)} </mrow>
+        <mrow> \amp =\lim\limits_{x\to \infty}\frac{1}{\sqrt{x}}\cdot \frac{1}{1-1/x} </mrow>
+        <mrow> \amp = \lim\limits_{x\to \infty}\frac{1}{\sqrt{x}}\lim\limits_{x\to \infty}\frac{1}{1-1/x}</mrow>
+        <mrow> \amp = 0\cdot \frac{1}{\lim\limits_{x\to \infty}1-\lim\limits_{x\to \infty}1/x}</mrow>
+        <mrow> \amp = 0\cdot 1=0</mrow>
+    </md>.
+    Thus <m>y=0</m> is a horizontal asymptote of <m>f</m>. 
+</p>
+<p>
+    The only candidate for a vertical asymptote of <m>f</m> is <m>x=1</m>. We compute 
+    <md>
+        <mrow>\lim\limits_{x\to 1^-}\frac{\sqrt{x}}{x-1} \amp = -\infty \amp (\text{type } 1/0)</mrow>
+        <mrow>\lim\limits_{x\to 1^+}\frac{\sqrt{x}}{x-1} \amp = \infty \amp (\text{type } 1/0)</mrow>
+    </md>.
+    In particular, we see that <m>x=1</m> is a vertical asymptote of the graph of <m>f</m>. 
+</p>
+<p>
+    Moving on, after some careful simplification, we see that 
+    <md>
+        <mrow>f'(x) \amp =-\frac{x+1}{2\sqrt{x}(x-1)^2} </mrow>
+        <mrow>f''(x) \amp = \frac{3x^2+6x-1}{4x^{3/2}(x-1)^3}</mrow>
+    </md> 
+    for all <m>x&gt; 0</m>. Note that both <m>f'</m> and <m>f''</m> are both undefined at <m>0</m>. It follows that <m>x=0</m> is the only critical point of <m>f</m>. We now compute the sign diagram of <m>f'</m>. 
+    </p>
+     <image xml:id="im_sign_der_rad" width="50%">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (1,0) -- (5,0);
+        \path foreach \X/\Y  in 
+         {1/0, 3/1}
+           { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(2,.5) node{$-$};
+       \draw(4,.5) node{$-$};
+       \draw(2,-.5) node{$\searrow$};
+       \draw(4,-.5) node{$\searrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    Not in particular that <m>f</m> is decreasing on its entire domain. 
+</p>
+<p>
+    To produce the sign diagram of <m>f''</m> we first solve
+    <md>
+        <mrow>f''(x) \amp = 0</mrow>
+        <mrow>3x^2+6x-1 \amp = 0 </mrow>
+        <mrow>x \amp = \frac{-6\pm \sqrt{48}}{6}</mrow>
+        <mrow> \amp = -1\pm \frac{2\sqrt{3}}{3}</mrow>
+    </md>.
+    Since only <m>-1+2\sqrt{3}/3</m> lies in the domain of <m>f</m>, we obtain the following sign diagram for <m>f''</m>. 
+</p>
+ <image xml:id="im_sign_2nd_der_rad" width="70%">
+    <shortdescription>Sign diagram for second derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (1,0) -- (7,0);
+        \path foreach \X/\Y  in 
+         {1/0, 3/-1+\frac{2\sqrt{3}}{3},5/1}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (.25,.5) node {$f''\colon$};
+            \draw (.25,-1) node{$f\colon $};
+       \draw(2,.5) node{$+$};
+       \draw(4,.5) node{$-$};
+       \draw(6,.5) node{$+$};
+       \draw(2,-1) node{$\cup$};
+       \draw(4,-1) node{$\cap$};
+       \draw(6,-1) node{$\cup$};
+        \end{tikzpicture}
+
+    </latex-image>
+</image>
+<p>
+    Putting it all together, we get a graph like the following.
+</p>
+<image xml:id="im_curve_sketch_rad" width="100%">
+    <shortdescription>Graph of f</shortdescription>
+    <sageplot>
+f(x)=sqrt(x)/(x-1)
+C=plot(f(x),x,0,3,detect_poles=show, ymin=-10, ymax=10, aspect_ratio=1/10)
+P=point((-1+2*sqrt(3)/3,f(-1+2*sqrt(3)/3)),color="red", size=50)
+L=line([(1,-10),(1,10)],color="red",linestyle="dotted")
+M=line([(0,0),(3,0)],color="red",linestyle="dotted")
+C+M+P+L
+    </sageplot>
+</image>
+<p>
+    Observe how easy it would be to overlook the inflection point (the sole point plotted above in red) without our careful analysis. 
+</p>
+</solution>
+</example>
+
+
+</section>
