@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_applied_opt_I" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Applied optimization</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                   Model real world questions as an optimization problem about a function <m>f</m>.  
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use calculus techniques to fully analyze a modeled optimization problem and provide an answer in the form of a complete sentence. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <p>
+        In this section we apply our optimization techniques to real-world problems. Optimization problems occur in real life when we have a quantity <m>q</m> that is given as a function <m>q=f(a)</m> as some other quantity <m>a</m>, and whose value we wish to either maximize or minimize (or just <q>optimize</q> for short). As with the related rates problems we discussed in <xref ref="s_related_rates_I"/>, the most challenging aspect of these <q>applied optimization</q> problems it to take the given scenario, described in plain English, and modeling it with mathematical functions that we can run through our optimization techniques. Let's begin with an example and then try and describe the general steps to solving one of these problems with a procedure. 
+    </p>
+    <example xml:id="eg_square_to_box">
+    <title>Box of maximum volume</title>
+    <statement>
+    <p>
+    A square piece of cardboard of dimension <m>2</m> meters is made into a box by cutting squares of equal dimension out of each corner and folding up the sides. (See <xref ref="fig_square_to_box"/>.) Find the dimension of the cutout squares that maximizes the volume of the resulting box. 
+    </p>
+    <figure xml:id="fig_square_to_box">
+        <caption>A box from a square</caption>
+        <image width="70%" source="square_to_box.png">
+            <shortdescription>A square to a box</shortdescription>
+        </image>
+    </figure>
+    </statement>
+    <solution>
+        <figure xml:id="fig_square_to_box_detail">
+            <caption>More detailed square-to-box diagram</caption>
+            <image width="70%" source="square_to_box_detail.png">
+            <shortdescription>More detailed square-to-box diagram</shortdescription>
+        </image>
+        </figure>
+    <p>
+    Let <m>x</m> be the dimension of the cutout squares. The resulting box would have height <m>x</m>, and width and length both equal to <m>2-2x</m>. Its volume would thus be 
+    <me>
+        V=f(x)=x(2-2x)(2-2x)=4x(x-1)^2
+    </me>.
+    Since the cutout square dimension <m>x</m> can range from <m>0</m> to <m>1</m>,  we see that we wish to find the minimal value of <m>V=f(x)</m> on the interval <m>[0,1]</m>. We have reduced the question to an extreme value theorem problem! 
+    </p>
+    <p>
+        Following <xref ref="proc_extreme"/>, we compute 
+        <md>
+            <mrow>f'(x) \amp =4((x-1)^2+2x(x-1))</mrow>
+            <mrow> \amp = 4(x-1)(3x-1)</mrow>
+        </md>.
+        From this factored form we see easily that the critical points of <m>f</m> are <m>x=1</m> and <m>x=\frac{1}{3}</m>. Now evaluate <m>f</m> at the endpoints of <m>[0,1]</m> and the critical points:
+        <md>
+            <mrow>f(0) \amp = 0</mrow>
+            <mrow>f(1/3) \amp = 4\cdot \frac{1}{3}(-2/3)^2</mrow>
+            <mrow> \amp = \frac{16}{9}</mrow>
+            <mrow>f(1) \amp = 0</mrow>
+        </md>.
+        We conclude that choosing the dimension of the cutout square to be <m>x=1/3</m> meters results in a box of largest possible volume. 
+    </p>
+    </solution>
+    </example>
+    
+    <algorithm xml:id="proc_applied_opt">
+        <title>Applied optimization</title>
+        <statement>
+            <p>
+                The following steps are useful for modeling and solving a word problem involving optimization. 
+                <ol>
+                   <li>
+                       <title>Model the problem</title>
+                       <p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Make a detailed, labeled diagram summarizing the situation described.
+                                </p>
+                            </li>
+                           <li>
+                               <p>
+                                   Clearly define and name all important quantities in the problem.
+                               </p>
+                           </li>
+                           <li>
+                            <p>
+                                Write down any important equations or formulas involving the quantities at play.
+                            </p>
+                           </li>   
+                           <li>
+                               <p>
+                                Identify the quantity <m>q</m> that is to be optimized.
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Look for language suggesting maximum or minimum values: <eg/>, <q>largest</q>, <q>most</q>, <q>greatest</q>, <q>smallest</q>, <q>least</q>, <etc/>. 
+                                        </p>
+                                    </li>
+                                </ul> 
+                               </p>
+                           </li>                  
+                       </ol>
+                    </p>
+                   </li>
+                   <li>
+                    <title>Solve optimization problem</title>
+                    <p>
+                    <ol>
+                        <li>
+                            <p>
+                                Express the quantity we wish to optimize as a function <m>q=f(x)</m> of exactly one variable. 
+                                <ul>
+                                    <li>
+                                        <p>
+                                            If the quantity appears to be given as a function of more than one independent variable, look for a <em>constraint equation</em> that allows us to reduce to exactly one independent variable. 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Make explicit what the domain <m>D</m> of this function is, using the context of the problem. 
+                                        </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Translate the given word problem as one of our types of optimization problems (<eg/>, EVT, find/classify critical points, curve sketching, <etc/>) for the function <m>q=f(x)</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Use an appropriate procedure (<eg/>, EVT procedure, find/classify critical points, curve sketching, <etc/>) to solve the given optimization problem. 
+                                <ul>
+                                    <li>
+                                        <p>
+                                        The domain <m>D</m> of <m>f</m> plays an important role in this step. In particular, pay attention to whether or not <m>D</m> is a closed finite interval.  
+                                        </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                    </ol>
+                    </p>
+                   </li>
+                   <li>
+                       <title>Summarize</title>
+                      <p> <ol>
+                           <li>
+                               <p>
+                                   Communicate the answer you derived in Step 2 in a plain English sentence that makes use of the language/context of the stated problem. 
+                               </p>
+                           </li>
+                           <li>
+                               <p>
+                                   Make sure that you do indeed answer the problem posed and include units details if applicable. 
+                               </p>
+                           </li>
+                       </ol>
+                    </p>
+                   </li>
+                </ol>   
+               </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_fence_perimeter">
+    <title>Minimal fence perimeter</title>
+    <statement>
+    <p>
+    Farmer Dudley is building a rectangular pen for his iguanas. He will use the 50 meter long side of his barn as one side of the pen, and will construct fencing for the remaining three sides of the pen. The pen must have a total area of 200 m<m>^2</m>. What is the minimum length of fencing Dudley must build to create an iguana pen matching these specifications.   
+    </p>
+    </statement>
+    <solution>
+        <figure xml:id="fig_dud_pen">
+            <caption>Dudley's iguana pen</caption>
+            <image width="50%" source="dudley_pen.png">
+            <shortdescription>Dudley's iguana pen</shortdescription>
+        </image>
+        </figure>
+    <p>
+    Let <m>x</m> and <m>y</m> be the dimensions of the pen, where <m>x</m> is the length of the barn that Dudley makes use of. Since the area <m>A=xy</m> of the pen must be 200 m<m>^2</m>, we see that <m>x</m> and <m>y</m> must satisfy
+    <men xml:id="eq_const_Dud">
+        A=200=xy
+    </men>.
+    (This is often called a constraint equation.) The quantity that Dudley wishes to minimize is the length <m>L</m> of fence he must build, which is 
+    <me>
+        L=x+2y
+    </me>.
+    Our constraint equation <xref ref="eq_const_Dud"/> implies that <m>y=200/x</m>, and hence that 
+    <me>
+        L=f(x)=x+\frac{400}{x}
+    </me>.
+    Lastly, the constraint equation implies that <m>x</m> cannot be equal to zero; and since Dudley is using the barn side as one edge of his pen, we must have <m>x\leq 50</m>. Thus, we wish to find the minimal value of <m>L=f(x)</m> on the domain <m>D=(0,50]</m>. 
+    </p>
+    <p>
+        We first find the critical points of <m>f</m> on this domain, since they are potential points where <m>f</m> attains a <em>local</em> minimum value. We solve 
+        <md>
+            <mrow>f'(x)\amp = 0 </mrow>
+            <mrow>1-\frac{400}{x^2} \amp = 0</mrow>
+            <mrow>x^2 \amp =400</mrow>
+            <mrow>x \amp =\pm 20</mrow>
+        </md>. 
+        Thus the only critical point of <m>f</m> lying in <m>D</m> is <m>x=20</m>. The question now, is whether <m>f(20)</m> is the absolute minimum value of <m>f</m> on <m>D</m>. Note that we cannot apply <xref ref="proc_extreme"/> to answer this question, since our domain <m>D</m> is not a finite closed interval! Instead we look at the sign diagram of <m>f'</m>.
+    </p>
+    <image xml:id="im_sign_der_Dud_pen" width="50%">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (1,0) -- (6,0);
+        \path foreach \X/\Y  in 
+         {1/0, 3/20, 5/50}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (.25,.5) node {$f'\colon$};
+            \draw (.25,-.5) node{$f\colon $};
+       \draw(2,.5) node{$-$};
+       \draw(4,.5) node{$+$};
+       \draw(2,-.5) node{$\searrow$};
+       \draw(4,-.5) node{$\nearrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    From this sign diagram we conclude that <m>f</m> is decreasing on the interval <m>(0,20]</m> and increasing on the interval <m>[20,50]</m>. It follows that 
+    <me>
+        f(20)=20+20=40
+    </me>
+     must be the absolute minimum value of <m>f</m> on <m>D</m>, since for any other <m>x\in D</m>, we have <m>f(x)&gt; f(20)</m>. We conclude that minimal length of fencing Dudley can build to make his pen is <m>40</m> meters. 
+</p>
+<p>
+     We conclude with a graph of <m>f</m>, the simple shape of which makes more tangible our logic above in arguing that <m>f</m> attains its absolute minimum value at <m>x=20</m>. 
+</p>
+<image xml:id="im_graph_dud" width="60%">
+    <shortdescription>Graph of f</shortdescription>
+    <sageplot>
+f=plot(x+400/x,x,0,50,detect_poles=show, ticks=[[20],[20,40,60,80]], ymin=0,ymax=80, axes_labels=["$x$","$L$"])
+f
+    </sageplot>
+</image>
+    </solution>
+    </example>
+    
+    <p>
+        As we saw in the last example it is often the case that the domain <m>D</m> of the function we wish to optimize is <em>not</em> of the simple form <m>[a,b]</m>, where <xref ref="proc_extreme"/> applies. In <xref ref="eg_fence_perimeter"/>, we were optimizing a function on the interval <m>(0,50]</m>, and had to rely on our wits a bit to convince ourselves that we have found an absolute extreme value. The following generalization of the extreme value theorem gives a more systematic procedure for finding absolute extreme values in such situations. 
+    </p>
+    <algorithm xml:id="proc_gen_EVT">
+        <title>Generalized extreme value theorem</title>
+        <statement>
+            <p>
+            Let <m>I</m> be an interval of any sort (<ie/>, <m>I</m> can be open, closed, or neither, and <m>I</m> can be finite or infinite), and let <m>a</m> and <m>b</m> be the (possibly infinite) left and right endpoints of <m>I</m>. Assume <m>f</m> is continuous on <m>I</m>. To investigate whether <m>f</m> attains a maximum or minimum value on <m>I</m>, proceed as follows. 
+            <ol>
+                <li>
+                    <title>Identify candidate inputs</title>
+                    <p>
+                        The candidate inputs where <m>f</m> potentially attains a local maximum or minimum value consist of the (i) any finite endpoints of <m>I</m> that are elements of <m>I</m>, and (ii) any critical points of <m>f</m> lying in <m>I</m>. 
+                    </p>
+                </li>
+                <li>
+                    <title>Evaluate <m>f</m></title>
+                    <p>
+                        Evaluate <m>f</m> at all candidates you found in Step 1. Let <m>m</m> be the minimum of these values, and let <m>M</m> be the maximum of these values. 
+                    </p>
+                </li>
+                <li>
+                    <title>Evaluate endpoint limits</title>
+                    <p>
+                        Evaluate the two endpoint limits <m>\lim\limits_{x\to a^+}f(x)</m> and <m>\lim\limits_{x\to b^-}f(x)</m>. (In the case where the given endpoint is infinite, the one-sided limit is understood simply as the corresponding limit at infinity.)
+                    </p>
+                </li>
+                <li>
+                    <title>Compare <m>m</m>, <m>M</m>, and endpoint limits</title>
+                    <p>
+                        Assume that each limit in Step 3 either exists or is infinite. 
+                        <ul>
+                            <li>
+                                <p>
+                                    If neither of the endpoint limits from Step 3 is less than <m>m</m> or equal to <m>-\infty</m>, then <m>m</m> is the absolute minimum value of <m>f</m> on <m>I</m>. Otherwise, there is no absolute minimum value. 
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    If neither of the endpoint limits from Step 3 is greater than <m>M</m> or equal to <m>\infty</m>, then <m>M</m> is the absolute maximum value of <m>f</m> on <m>I</m>. Otherwise, there is no absolute maximum value. 
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ol>
+            </p>
+        </statement>
+    </algorithm>
+    <example xml:id="eg_fence_perimeter_2">
+    <title>Minimal fence perimeter (reprise)</title>
+    <statement>
+    <p>
+    Let's use <xref ref="proc_gen_EVT"/> to complete the last steps of our argument in <xref ref="eg_fence_perimeter"/>. We were trying to find the absolute minimum value of <m>f(x)=x+\frac{400}{x}</m> on the half-open interval <m>I=(0,50]</m>, and had determined that <m>x=20</m> was the sole critical point of <m>f</m>. <xref ref="proc_gen_EVT"/> instructs us to evaluate <m>f</m> at <m>x=20</m> and <m>x=50</m>, and compute the limit at <m>0</m>: 
+    <md>
+        <mrow>\lim\limits_{x\to 0^+ }f(x) \amp = \lim\limits_{x\to 0^+ }x+\frac{400}{x}=\infty \amp (\text{type } 0+\infty) </mrow>
+        <mrow>f(20) \amp = 20+20=40</mrow>
+        <mrow>f(50)\amp =50+400/50=58 </mrow>
+    </md>.
+    We conclude that <m>f(20)=40</m> is the absolute minimum value of <m>f</m> on <m>(0,50]</m> (and that <m>f</m> has no absolute maximum value). 
+    </p>
+    </statement>
+    </example>
+    
+    <example xml:id="eg_point_parab">
+    <title>Closest point on parabola</title>
+    <statement>
+    <p>
+    Find the <m>Q</m> on the parabola <m>y=1-x^2</m> whose distance to <m>P=(-3,1)</m> is the smallest possible. The distance between two points <m>P_1=(x_1,y_1)</m> and <m>P_2=(x_2,y_2)</m> in <m>\R^2</m> is defined as 
+    <me>
+        d(P_1,P_2)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}
+    </me>.
+    </p>
+    </statement>
+    <solution>
+        <figure xml:id="fig_point_parbola">
+            <caption>Distance between <m>P</m> and points on parabola <m>y=1-x^2</m></caption>
+            <image xml:id="im_point_parabola" width="60%">
+                <shortdescription>Diagram of point P and parabola</shortdescription>
+                <sageplot>
+                C=plot(1-x^2, x,-3,2, ymax=2, ymin=-5)
+                P=point((-3,1),color="red", size=50)
+                Q=point((-2,-3),color="red", size=50)
+                L=line([(-3,1),(-2,-3)],color="red", linestyle="dotted")
+                t1=text("$P$", (-3,1.5), color="black", fontsize=16)
+                t2=text("$Q=(x,1-x^2)$", (-1.75,-3.5), color="black", fontsize=16)
+                C+P+Q+L+t1+t2
+                </sageplot>
+            </image>
+        </figure>
+    <p>
+        The distance from <m>P</m> to an arbitrary point 
+        <me>
+            Q=(x,y)=(x,1-x^2)
+        </me>
+        on <m>\mathcal{C}</m> is given by 
+        <me>
+            d=f(x)=\sqrt{(-3-x)^2+(1-(1-x^2))^2}=\sqrt{(x+3)^2+x^4}
+        </me>.
+        Since the <m>x</m>-coordinate of <m>Q</m> can be any real number, we wish to find the minimum value of <m>f</m> on <m>\R=(-\infty, \infty)</m>. We follow <xref ref="proc_gen_EVT"/>. 
+    </p>
+    <p>
+        Since <m>f</m> is differentiable everywhere, its critical points are solutions to <m>f'(x)=0</m>. We solve: 
+        <md>
+            <mrow>f'(x) \amp = 0</mrow>
+            <mrow>\frac{2(x+3)+4x^3}{2\sqrt{(x+3)^2+x^4}} \amp = 0 </mrow>
+            <mrow>4x^3+2x+6 \amp =0</mrow>
+        </md>,
+        where the last step follows from the fact that a quotient is equal to zero precisely when its numerator is equal to zero. 
+    </p>
+    <p>
+        Let <m>g(x)=4x^3+2x+6</m>. In general it is not so easy to find roots of a cubic polynomial. However, recall the fact that if <m>g</m> has an <em>integer</em> root, it must be a divisor of <m>6</m>. Trying a few divisors (<m>\pm 1, \pm 2, \pm 3, \pm 6</m>), we easily see that <m>g(-1)=0</m>, and hence that <m>(x+1)</m> is a factor of <m>g(x)</m>, Using polynomial long division, we see that 
+        <me>
+            g(x)=(x+1)(4x^2-4x-3).
+        </me>
+        Furthermore, using the quadratic formula, we see that the <m>4x^2-4x-3</m> has no real roots. Thus the root of <m>g</m> (and only critical point of <m>f</m>) is <m>x=-1</m>. 
+    </p>
+    <p>
+        According to <xref ref="proc_gen_EVT"/>, to investigate extreme values of <m>f</m> on <m>(-\infty, \infty)</m> we should evaluate <m>f</m> at <m>x=-1</m> and compute the limits of <m>f</m> at <m>\pm \infty</m>: 
+        <md>
+            <mrow>f(-1) \amp = \sqrt{4+1}=\sqrt{5}</mrow>
+            <mrow>\lim\limits_{x\to \pm \infty}f(x) \amp =\lim\limits_{x\to \pm \infty}\sqrt{(x+3)^2+x^4}=\infty \amp (\text{type } \sqrt{\infty})</mrow>
+        </md>,
+        where the limit at infinity computations follow from the fact that <m>(x+3)^2+x^4\to \infty</m> as <m>x\to \pm \infty</m>. 
+    </p>
+    <p>
+        We conclude that <m>f(-1)=\sqrt{5}</m> is the absolute minimum value of <m>f</m>, and thus that <m>Q=(-1,0)</m> is the point on <m>\mathcal{C}</m> closest to <m>P</m>. 
+    </p>
+    </solution>
+    </example>
+    
+    <example xml:id="eg_dudley_walk">
+<title>Snowy campus walk</title>
+<statement>
+<p>
+Dudley stands at the southeast corner of a 1 km<m>^2</m> square field on campus that is currently covered in snow. He is hurrying to get to his calculus course taking place in the mathematics building at the northwest corner of the field. Dudley plans on first walking (at constant speed) along some portion of the ploughed east-west path that runs along the southern border of the field, and then cutting across the snowy field to head directly toward the mathematics building (at constant speed). Because of the snowy conditions, Dudley can move twice as fast on the ploughed path than he can when walking across the field. 
+
+If Dudley wants to get to the mathematics building as quickly as possible, how far along the ploughed path should he walk before cutting across the field?  
+</p>
+</statement>
+<solution>
+<figure xml:id="fig_dudley_walk">
+        <caption>Dudley's snowy walk</caption>
+        <image width="70%" source="dudley_path.png">
+            <shortdescription>Dudley's snowy walk</shortdescription>
+        </image>
+    </figure>
+<p>
+Let <m>x</m> be the distance Dudley walks along the east-west ploughed path, in which he walks a distance of <m>\sqrt{1+(1-x)^2}</m> through the snowy field. Let <m>s</m> be the constant speed at which Dudley can walk through the snowy field; it follows that he moves at maximum speed <m>2s</m> along the ploughed path. Using the (distance)=(rate)<m>\times</m>(time) formula for objects traveling at constant speed, we see that the total time <m>T</m> it takes for Dudley to get to the math building taking such a path is 
+<me>
+    T=f(x)=\frac{x}{2s}+\frac{\sqrt{1+(1-x)^2}}{s}
+</me>.
+We wish to find the minimum value of <m>f</m> on the interval <m>[0,1]</m>. We follow <xref ref="proc_extreme"/>. Since <m>f</m> is differentiable everywhere, its critical points are the solutions to <m>f'(x)=0</m>. We solve (treating <m>s</m> as a constant): 
+<md>
+    <mrow>f'(x) \amp =0</mrow>
+    <mrow>\frac{1}{2s}\amp +\frac{-2(1-x)}{2s\sqrt{1+(1-x)^2}} = 0 </mrow>
+    <mrow>\frac{1}{2s} \amp= \frac{1-x}{s\sqrt{1+(1-x)^2}} </mrow>
+    <mrow>2(1-x) \amp =\sqrt{1+(1-x)^2}</mrow>
+    <mrow> 4(1-x)^2\amp =1+(1-x)^2 </mrow>
+    <mrow> 3(1-x)^2 \amp= 1 </mrow>
+    <mrow>(1-x)^2 \amp = \frac{1}{3}</mrow>
+    <mrow> (1-x) \amp = \pm \frac{1}{\sqrt{3}} </mrow>
+    <mrow>  x \amp = 1 \pm \frac{1}{\sqrt{3}} </mrow>
+</md>.
+Thus the only critical point of <m>f</m> in <m>[0,1]</m> is <m>1-\frac{1}{\sqrt{3}}</m>. After evaluating <m>f</m> at the critical point and the endpoints and doing some careful algebra, we see that  
+<md>
+    <mrow>f(0) \amp = \frac{\sqrt{2}}{s}=</mrow>
+    <mrow>f(1-1/\sqrt{3}) \amp = \frac{1}{s}\left(\frac{1+\sqrt{3}}{2}\right)</mrow>
+    <mrow>f(1) \amp = \frac{3}{2s}</mrow>
+</md>.
+Although not totally obvious, you can show by hand that 
+<me>
+    \frac{1+\sqrt{3}}{2} &lt; \sqrt{2} &lt; \frac{3}{2}
+</me>
+from whence it follows that <m>f(1-1/\sqrt{3})</m> is the minimal value of <m>T=f(x)</m> on <m>[0,1]</m>. Thus Dudley should travel a distance of <m>1-1/\sqrt{3}</m> km along the ploughed path before heading across the snowy field. Godspeed, Dudley! 
+</p>
+</solution>
+</example>
+<example xml:id="eg_TV_revenue">
+<title>Optimizing revenue</title>
+<statement>
+<p>
+The starting price of a certain model of television is $450. At this price point there are 1000 weekly sales of the television. A marketing team discovers that for each discount of $10 applied to the TV price, the number of weekly sales increases by 100 per week. How should the company price the television in order to maximize weekly revenue? 
+</p>
+</statement>
+<solution>
+<p>
+Let <m>d</m> be the number of ten-dollar discounts applied to the starting price. According to our marketers, the number of weekly sales <m>S</m> if applying <m>d</m> ten-dollar discounts to the price is 
+<me>
+    S=1000+100d
+</me>.
+Thus as a function of <m>d</m>, our weekly revenue is 
+<me>
+    R=(\text{no. sales})\times (\text{price})=(1000+100d)(450-10d)
+</me>.
+We wish to maximize the function <m>R=f(d)=(1000+100d)(450-10d)</m> for <m>d\in [0, 45]</m>. (We have <m>d\leq 45</m> as we do not want the price of the television to be negative!)
+</p>
+<p>
+    We apply <xref ref="proc_extreme"/>. We first compute 
+    <md>
+        <mrow>f'(d) \amp = 100(450-10d)-10(1000+100d) \amp \text{(prod. rule)}</mrow>
+        <mrow> \amp = 1000(35-2d)</mrow>
+    </md>.
+    It follows that the only critical point of <m>f</m> in <m>[0,45]</m> is <m>d=35/2</m>. Now evaluate at the endpoints and the critical point: 
+    <md>
+        <mrow>f(0) \amp = 450\cdot 1000=450,000</mrow>
+        <mrow>f(35/2) \amp = 756, 250</mrow>
+        <mrow>f(45) \amp = 0</mrow>
+    </md>
+    Thus revenue is maximized when offering <m>35/2</m> ten-dollar discounts to the price of the televion. In other words, the television should be offered at a price of 
+    <me>
+        450-10\cdot 35/2=275
+    </me>
+    dollars. 
+    
+</p>
+</solution>
+</example>
+
+
+</section>
