@@ -1576,9 +1576,9 @@ var ptx_lunr_docs = [
   "body": "   Simplify the expression and express your answer in the simplest radical form where  and are integers.  Answer:  ,  , and                       "
 },
 {
-  "id": "",
+  "id": "exs_algebraic_func-9",
   "level": "2",
-  "url": "sec_algebraic_func.html#",
+  "url": "sec_algebraic_func.html#exs_algebraic_func-9",
   "type": "Exercise",
   "number": "9",
   "title": "",
@@ -4238,6 +4238,717 @@ var ptx_lunr_docs = [
   "number": "1.25.3",
   "title": "Using similar triangles.",
   "body": " Using similar triangles   A light shines from the top of a pole 20 meters high. A ball is dropped from the same height at a point 12 meters away from the light pole. How fast is the shadow of the ball moving along the ground second later? Assume the ball falls a distance of meters in seconds.    We define .   Functions and   Diagram of lamp, ball, and shadow    Since after seconds the ball has dropped meters, and since its original height is 20 meters, we have . Next using the two similar right triangles in , we see that . We wish to compute . To do so we take the derivative of both sides of : . From this it follows that , where we have used the fact that . Lastly, to compute , we need to compute . This is determined by evaluating at and solving for . Since , we have . We conclude that . We conclude that -second after the drop the ball's shadow is traveling at a rate of 384 meters per second toward the lamp.   "
+},
+{
+  "id": "s_extreme",
+  "level": "1",
+  "url": "s_extreme.html",
+  "type": "Section",
+  "number": "2.1",
+  "title": "Extreme value theorem",
+  "body": " Extreme value theorem     Use the derivative to investigate optimization questions.    Understand the extreme value theorem in the context of optimization.    Define absolute and local maximum and minimum values of a function on a given set .    Identify extreme values of a function graphically.    Introduce the notion of critical points as potential inputs where a function attains a local (or absolute) maximum or minimum.    Develop a procedure that determines the absolute maximum and minimum values of a continuous function on a closed finite interval.     In our remaining lessons, we will frequently take up what are called optimization questions. Roughly speaking, these are questions related to the maximum and minimum values of a function on a given set. Optimization problems are naturally important in modeling situations: when modeling a quantity as a function of some other quantity , we naturally are interested in knowing whether it attains a maximal or minimal value, what that maximal or minimal value is (if it exists), and which inputs produces this value. The extreme value theorem represents a wonderfully straightforward answer to this first flavor of optimization problem: it tells us that if is continuous on the closed interval , then there is guaranteed to be both a maximal and minimal value. A shortcoming of this theorem is that it gives no indication of what exactly these maximum\/minimum values are (or how to find them)! We amend this situation in .  The statement of the extreme value theorem involves the notion of an absolute maximum\/minimum value of a function on a given set . Imagining this is intuitively clear to the reader, we launch straight into a discussion of the extreme value theorem. Afterward, we give precise definitions both for absolute and local maximum and minimum values. If you would like to see those definitions first, see .   Extreme value theorem   If is continuous on the closed interval , then there are inputs and for which is the absolute maximum value of on and is the absolute minimum value of on . In plain English: a continuous function always attains a maximum and minimum value over a closed interval .    The proof of this intuitive statement is just beyond our reach in terms of our current conceptual framework: we are missing only the notion of least upper bounds. In later math courses, like real analysis and topology, you develop an exceedingly important concept called compactness that allows you to eventually give a beautiful one-line proof of the extreme value theorem.    Although we do not give an actual proof the extreme value theorem, you can catch a glimmer of its truth by treating it graphically. Try the following: pick an interval in the -plane; pick endpoint values and for an arbitrary function and graph the corresponding points; now trace out the rest of the graph of your arbitrary , making it as wildly behaved as you like, but with the restriction that you pencil never leaves the paper ( is continuous) and the start and end values are and . You will see that now matter what function you end up sketching, it will always have reach a well-defined highest point (corresponding to the maximum value) and a well-defined lowest point (corresponding to the minimum value). The restriction that we cannot lift our pencil prevents our graph from going arbitrarily high (or low), or from getting arbitrarily close to a highest point but not actually hitting it.  Perhaps a more illustrative means of understanding the role of continuity in the extreme value theorem is to consider examples where this condition is removed.   Extreme values: discontinuous   The functions and graphed below illustrate how crucial continuity is to the extreme value theorem.   Extreme values and discontinuous functions    Graph of   Graph of f has a vertical asymptote      Graph of   Graph of g has a removable discontinuity       The function has infinite one-sided limits at , and as a consequence has neither a maximum nor a minimum value on the closed interval .  The function has values that get arbitrarily close to but not equal to , thanks to the removable discontinuity. As a result, has no maximum value on the interval: we have for all , and for any value less than , there is an input with .     Extreme values: open interval   As illustrated below, the function has no absolute maximum or minimum value on the open interval despite being continuous on this interval. This illustrates why the extreme value theorem insists that the finite interval in question must be closed .   Graph of   Graph of the tangent function        Extreme values   Assume is defined on the set , and let be an element of .    is an absolute maximum value of on if for all .     is an absolute minimum value of on if for all .     is a local maximum value of on if for all sufficiently close to .     is a local minimum value of on if for all sufficiently close to .     is an extreme value of on if it is an absolute or local maximum or minimum value of on .        Absolute max\/min implies local max\/min  Assume is defined on an interval . Observe that as pure logical consequence of the definitions, if is an absolute maximum or minimum value of on , then it is also a local maximum or minimum value of on . Indeed, if (resp. ) for all  , then the inequality certainly holds for all  sufficiently close to .    Local extreme values  In the phrase sufficiently close to is used as a convenient, but slightly less than rigorous shorthand. To be more precise in this definition we treat interior and endpoints of the set separately.  Given an interior point , we say that is a local maximum (resp., minimum) value of on if there is an open interval containing such that is an absolute maximum (resp., minimum) value on .  Similarly, if is a left (resp., right) endpoint of , then is a local maximum (resp., minimum) value of on if there is a half-open interval (resp., ) contained in such that is an absolute maximum (resp., minimum) value on .  In summary, for to be a local maximum or minimum value on means simply that there is some interval (or half-interval in the endpoint case) contained in on which is an absolute maximum or minimum value. Thus to identify graphically the local extreme values of a function , look for inputs such that when we restrict our gaze to the segment of the graph of lying over a small interval around , is seen to be an absolute maximum or minimum value.    Local and absolute extreme values   A graph of the function on the interval is graphed below.   Identify all and any inputs where has a local maximum or minimum value of on .    Decide whether has an absolute maximum value on , and whether has an absolute minimum value on .      Graph of   Graph of function with various local extrema          The function has a local maximum value at the left endpoint : indeed, we have for all (thus for all sufficiently close to ). The value at the right endpoint, somewhat surprisingly, is also a local max: for all we have .  Additionally, we see that is a local minimum value of , since for all . Finally, is easily seen to be the absolute maximum value of on . It follows from that is also a local minimum value of on     We have already observed that is the absolute maximum value of on . We claim that there is no absolute minimum value. To see why, first note that for all . Thus, if were an absolute minimum value of on we would have . However, since , for any , we can find an such that . It follows that has no absolute minimum value on .        Critical points and extreme values  Fermat   Assume is defined on and that is an interior point of . If is a local maximum or minimum value of on , and if is differentiable at , then .    We will show that if is a local maximum value of on and is differentiable at , then . The argument for the case where is a local minimum is exactly similar.  Firstly, since is assumed to be a local maximum value, we can find an interval containing such that for all .  Next, since is differentiable at , the limit exists, and we have . Observe further that using we have . Next, since for all sufficiently close to (more precisely, for all ), for all sufficiently close to . It follows that , and thus, taking limits, that . Since , we conclude that , as desired.    According to , points where either is not differentiable, or where are important to us, as these are candidates where the value is potentially a local maximum or minimum. Accordingly, we give such inputs a special name: critical points.   Critical point   Let be defined on . An element is a critical point of if either or is not differentiable at .    Let us now do some synthesis of the above theory. Assume is continuous on the closed interval .   According to there are inputs and in where attains its absolute maximum and minimum values, respectively.    In particular, and are local extreme values of the function.    According to , if and are interior points of , then they must be critical points of : , is either not differentiable at there, or is equal to zero there.    We conclude that the inputs and where attains its absolute extreme values are either one of the endpoints, or of the interval, or one of the critical points of in the interior of the interval.   Our synthesis gives rise to the following procedure for finding the absolute extreme values of a continuous function on a closed interval.   Extreme value theorem   Assume is continuous on the closed interval . To determine the absolute maximum and minimum values of on , proceed as follows.   Identify candidate inputs  The candidate inputs where potentially attains a maximum or minimum value consist of (i) the endpoints and of the interval along with the set of all critical points of lying in . We determine the latter by finding all solutions to the equation lying in , and identifying all elements of where is not differentiable.    Evaluate  Evaluate at all candidate inputs you found in Step 1.    Compare values  Compare the values of computed in Step 2. The maximum value in that set is the absolute maximum value of on ; the minimum value in that set is the minimum value of on .        Extreme values: factored polynomial   Let . Find the absolute maximum and minimum values of on the interval .    First compute . Note that is differentiable everywhere on the interval , so to find critical points we find all solutions to lying in . The key technique for solving this equation is factoring : . We now see that the last equality holds if and only if . These are thus our critical points. We now evaluate at these critical points, as well as at the endpoints of the interval: . Comparing these values, we conclude that is the absolute maximum value of on , and is the absolute minimum value of on .     Extreme values: rational function   Let . Find the absolute maximum and minimum values of on the interval .    First observe that since for all , the domain of is . Since is a rational function, it is continuous everywhere on its domain, hence continuous on .  Additionally, is easily seen to be differentiable everywhere with derivative . We now following . Since is differentiable everywhere, its critical points are the solutions to , which we now solve: . To complete the procedure, we evaluate at the candidate inputs : . We conclude that is the minimum value of on and is the maximum value of on . Below you find a graph of that bears out our analysis.   Graph of example function revealing the extreme values.       Distance between graphs   Let and . Find the maximum vertical distance between the graphs of and on the interval     The vertical distance point and on the two graphs is measured by . Thus we are interested in the extreme values of on the interval . For we have . Note that is not differentiable at , and thus this is one of our critical points. To find the others we solve: . We now evaluate at our three critical points, as well as the endpoints: . We conclude that on , or equivalently, . Thus the vertical maximal distance between the two graphs is and this occurs at the inputs . Below you find two diagrams that illustrate this result: the first depitcts the graphs of and separately, and the second is a graph of the difference function .   Comparing graphs of and    Graphs of and   Graphs of f and g      Graphs of and   Graphs of f, g, and h         "
+},
+{
+  "id": "s_extreme-2",
+  "level": "2",
+  "url": "s_extreme.html#s_extreme-2",
+  "type": "Objectives",
+  "number": "2.1",
+  "title": "",
+  "body": "   Use the derivative to investigate optimization questions.    Understand the extreme value theorem in the context of optimization.    Define absolute and local maximum and minimum values of a function on a given set .    Identify extreme values of a function graphically.    Introduce the notion of critical points as potential inputs where a function attains a local (or absolute) maximum or minimum.    Develop a procedure that determines the absolute maximum and minimum values of a continuous function on a closed finite interval.    "
+},
+{
+  "id": "th_extreme",
+  "level": "2",
+  "url": "s_extreme.html#th_extreme",
+  "type": "Theorem",
+  "number": "2.1.1",
+  "title": "Extreme value theorem.",
+  "body": " Extreme value theorem   If is continuous on the closed interval , then there are inputs and for which is the absolute maximum value of on and is the absolute minimum value of on . In plain English: a continuous function always attains a maximum and minimum value over a closed interval .    The proof of this intuitive statement is just beyond our reach in terms of our current conceptual framework: we are missing only the notion of least upper bounds. In later math courses, like real analysis and topology, you develop an exceedingly important concept called compactness that allows you to eventually give a beautiful one-line proof of the extreme value theorem.   "
+},
+{
+  "id": "eg_extreme_discontinuous",
+  "level": "2",
+  "url": "s_extreme.html#eg_extreme_discontinuous",
+  "type": "Example",
+  "number": "2.1.2",
+  "title": "Extreme values: discontinuous.",
+  "body": " Extreme values: discontinuous   The functions and graphed below illustrate how crucial continuity is to the extreme value theorem.   Extreme values and discontinuous functions    Graph of   Graph of f has a vertical asymptote      Graph of   Graph of g has a removable discontinuity       The function has infinite one-sided limits at , and as a consequence has neither a maximum nor a minimum value on the closed interval .  The function has values that get arbitrarily close to but not equal to , thanks to the removable discontinuity. As a result, has no maximum value on the interval: we have for all , and for any value less than , there is an input with .   "
+},
+{
+  "id": "eg_extreme_open",
+  "level": "2",
+  "url": "s_extreme.html#eg_extreme_open",
+  "type": "Example",
+  "number": "2.1.4",
+  "title": "Extreme values: open interval.",
+  "body": " Extreme values: open interval   As illustrated below, the function has no absolute maximum or minimum value on the open interval despite being continuous on this interval. This illustrates why the extreme value theorem insists that the finite interval in question must be closed .   Graph of   Graph of the tangent function      "
+},
+{
+  "id": "d_extrema",
+  "level": "2",
+  "url": "s_extreme.html#d_extrema",
+  "type": "Definition",
+  "number": "2.1.6",
+  "title": "Extreme values.",
+  "body": " Extreme values   Assume is defined on the set , and let be an element of .    is an absolute maximum value of on if for all .     is an absolute minimum value of on if for all .     is a local maximum value of on if for all sufficiently close to .     is a local minimum value of on if for all sufficiently close to .     is an extreme value of on if it is an absolute or local maximum or minimum value of on .      "
+},
+{
+  "id": "rm_abs_local",
+  "level": "2",
+  "url": "s_extreme.html#rm_abs_local",
+  "type": "Remark",
+  "number": "2.1.7",
+  "title": "Absolute max\/min implies local max\/min.",
+  "body": " Absolute max\/min implies local max\/min  Assume is defined on an interval . Observe that as pure logical consequence of the definitions, if is an absolute maximum or minimum value of on , then it is also a local maximum or minimum value of on . Indeed, if (resp. ) for all  , then the inequality certainly holds for all  sufficiently close to .  "
+},
+{
+  "id": "s_extreme-12",
+  "level": "2",
+  "url": "s_extreme.html#s_extreme-12",
+  "type": "Remark",
+  "number": "2.1.8",
+  "title": "Local extreme values.",
+  "body": " Local extreme values  In the phrase sufficiently close to is used as a convenient, but slightly less than rigorous shorthand. To be more precise in this definition we treat interior and endpoints of the set separately.  Given an interior point , we say that is a local maximum (resp., minimum) value of on if there is an open interval containing such that is an absolute maximum (resp., minimum) value on .  Similarly, if is a left (resp., right) endpoint of , then is a local maximum (resp., minimum) value of on if there is a half-open interval (resp., ) contained in such that is an absolute maximum (resp., minimum) value on .  In summary, for to be a local maximum or minimum value on means simply that there is some interval (or half-interval in the endpoint case) contained in on which is an absolute maximum or minimum value. Thus to identify graphically the local extreme values of a function , look for inputs such that when we restrict our gaze to the segment of the graph of lying over a small interval around , is seen to be an absolute maximum or minimum value.  "
+},
+{
+  "id": "eg_local_extrema",
+  "level": "2",
+  "url": "s_extreme.html#eg_local_extrema",
+  "type": "Example",
+  "number": "2.1.9",
+  "title": "Local and absolute extreme values.",
+  "body": " Local and absolute extreme values   A graph of the function on the interval is graphed below.   Identify all and any inputs where has a local maximum or minimum value of on .    Decide whether has an absolute maximum value on , and whether has an absolute minimum value on .      Graph of   Graph of function with various local extrema          The function has a local maximum value at the left endpoint : indeed, we have for all (thus for all sufficiently close to ). The value at the right endpoint, somewhat surprisingly, is also a local max: for all we have .  Additionally, we see that is a local minimum value of , since for all . Finally, is easily seen to be the absolute maximum value of on . It follows from that is also a local minimum value of on     We have already observed that is the absolute maximum value of on . We claim that there is no absolute minimum value. To see why, first note that for all . Thus, if were an absolute minimum value of on we would have . However, since , for any , we can find an such that . It follows that has no absolute minimum value on .      "
+},
+{
+  "id": "th_crit_pt",
+  "level": "2",
+  "url": "s_extreme.html#th_crit_pt",
+  "type": "Theorem",
+  "number": "2.1.11",
+  "title": "Critical points and extreme values.",
+  "body": " Critical points and extreme values  Fermat   Assume is defined on and that is an interior point of . If is a local maximum or minimum value of on , and if is differentiable at , then .    We will show that if is a local maximum value of on and is differentiable at , then . The argument for the case where is a local minimum is exactly similar.  Firstly, since is assumed to be a local maximum value, we can find an interval containing such that for all .  Next, since is differentiable at , the limit exists, and we have . Observe further that using we have . Next, since for all sufficiently close to (more precisely, for all ), for all sufficiently close to . It follows that , and thus, taking limits, that . Since , we conclude that , as desired.   "
+},
+{
+  "id": "d_crit_pt",
+  "level": "2",
+  "url": "s_extreme.html#d_crit_pt",
+  "type": "Definition",
+  "number": "2.1.12",
+  "title": "Critical point.",
+  "body": " Critical point   Let be defined on . An element is a critical point of if either or is not differentiable at .   "
+},
+{
+  "id": "proc_extreme",
+  "level": "2",
+  "url": "s_extreme.html#proc_extreme",
+  "type": "Procedure",
+  "number": "2.1.13",
+  "title": "Extreme value theorem.",
+  "body": " Extreme value theorem   Assume is continuous on the closed interval . To determine the absolute maximum and minimum values of on , proceed as follows.   Identify candidate inputs  The candidate inputs where potentially attains a maximum or minimum value consist of (i) the endpoints and of the interval along with the set of all critical points of lying in . We determine the latter by finding all solutions to the equation lying in , and identifying all elements of where is not differentiable.    Evaluate  Evaluate at all candidate inputs you found in Step 1.    Compare values  Compare the values of computed in Step 2. The maximum value in that set is the absolute maximum value of on ; the minimum value in that set is the minimum value of on .      "
+},
+{
+  "id": "eg_extreme_factored_poly",
+  "level": "2",
+  "url": "s_extreme.html#eg_extreme_factored_poly",
+  "type": "Example",
+  "number": "2.1.14",
+  "title": "Extreme values: factored polynomial.",
+  "body": " Extreme values: factored polynomial   Let . Find the absolute maximum and minimum values of on the interval .    First compute . Note that is differentiable everywhere on the interval , so to find critical points we find all solutions to lying in . The key technique for solving this equation is factoring : . We now see that the last equality holds if and only if . These are thus our critical points. We now evaluate at these critical points, as well as at the endpoints of the interval: . Comparing these values, we conclude that is the absolute maximum value of on , and is the absolute minimum value of on .   "
+},
+{
+  "id": "eg_extreme_rational",
+  "level": "2",
+  "url": "s_extreme.html#eg_extreme_rational",
+  "type": "Example",
+  "number": "2.1.15",
+  "title": "Extreme values: rational function.",
+  "body": " Extreme values: rational function   Let . Find the absolute maximum and minimum values of on the interval .    First observe that since for all , the domain of is . Since is a rational function, it is continuous everywhere on its domain, hence continuous on .  Additionally, is easily seen to be differentiable everywhere with derivative . We now following . Since is differentiable everywhere, its critical points are the solutions to , which we now solve: . To complete the procedure, we evaluate at the candidate inputs : . We conclude that is the minimum value of on and is the maximum value of on . Below you find a graph of that bears out our analysis.   Graph of example function revealing the extreme values.     "
+},
+{
+  "id": "eg_extreme_graphs",
+  "level": "2",
+  "url": "s_extreme.html#eg_extreme_graphs",
+  "type": "Example",
+  "number": "2.1.16",
+  "title": "Distance between graphs.",
+  "body": " Distance between graphs   Let and . Find the maximum vertical distance between the graphs of and on the interval     The vertical distance point and on the two graphs is measured by . Thus we are interested in the extreme values of on the interval . For we have . Note that is not differentiable at , and thus this is one of our critical points. To find the others we solve: . We now evaluate at our three critical points, as well as the endpoints: . We conclude that on , or equivalently, . Thus the vertical maximal distance between the two graphs is and this occurs at the inputs . Below you find two diagrams that illustrate this result: the first depitcts the graphs of and separately, and the second is a graph of the difference function .   Comparing graphs of and    Graphs of and   Graphs of f and g      Graphs of and   Graphs of f, g, and h        "
+},
+{
+  "id": "s_mean_value",
+  "level": "1",
+  "url": "s_mean_value.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Mean value theorem",
+  "body": " Mean value theorem     Derive Rolle's theorem and the mean value theorem (MVT) as consequences of .    Interpret Rolle's theorem and the MVT both geometrically (in terms of tangent lines) and physically (in terms of instantaneous rates of change).    Derive consequences of the MVT to various mathematical applications: , characterization of functions satisfying for all , existence of roots of functions within specific intervals, inequalities.      Rolle's theorem   Assume is continuous on and differentiable on . If , then there is an input satisfying .    Let be the common value of at the endpoints. If for all inputs ( , is a constant function), then for all inputs , and our desired conclusion is trivially satisfied.  Assume now that is not constant. Since is continuous on there are points and in where attains its absolute maximum and minimum values. Since is not constant on , we must have or . Assume without loss of generality that is an absolute extreme value of on . The input must be an interior point of , since and . Since is differentiable everywhere on , implies , as desired.     Interpretations of Rolle's theorem  Let satisfy the assumptions of Rolle's theorem on the interval .  Geometrically, we interpret Rolle's theorem as follows: if the endpoints of the graph of over lie on the same horizontal line, then there is an input for which the tangent line to the graph of at is horizontal.  In terms of rate of change, we interpret Rolle's theorem as follows: if the average rate of change of between and is equal to zero, then there is an input where the instantaneous rate of change is equal to zero.   Rolle's theorem turns out to be a special case of the mean value theorem , where the function in question satisfies . As a peculiar twist, however, the mean value theorem can also be seen as just a tilted version of Rolle's theorem. In logical terms, the two theorems, though quite different in content, are logically equivalent!   Mean value theorem (MVT)   Assume is continuous on and differentiable on . There is an input satisfying .    We employ a little trick that reveals MVT to be a simple consequence of Rolle's theorem. Define . As is easily verified, is continuous on , differentiable on and satisfies . Applying Rolle's theorem to on , we conlude that for some . We conclude, using we conclude that , or equivalently , as desired.     Speeding motorist   While traveling in Ontario, Dudley pilots his motor car along Queen Elizabeth Way (aka the QEW). The posted speed limit along this stretch of motorway is 120 km per hr. At 12 pm Dudley passes St. Catherines, and by 12:25 pm he reaches Hamilton, which is 60 km down the road. Prove: at some point during this excursion Dudley has exceeded the speed limit!         Constant function characterization   Assume is continuous on an interval . If satisfies for all interior points , then is a constant function on . As a consequence, a function is constant on an interval if and only if its derivative is the zero function on .    Take any two distinct points . We may assume without loss of generality that . The assumptions on guarantee that it is both continuous (since differentiable) on and differentiable on the interior of . The mean value theorem then implies that we have for some . By assumption, however, we have . But then . We have shown that for any we have . In other words, is a constant function on , as desired.     Functions with identical derivatives   Assume and are continuous on an interval . If for all interior points , then there is a constant satisfying for all . In plain English, if two functions have identical derivative functions over an interval , then they differ by a constant.    Let . Since for all interior points , we conclude by that is a constant function on : , there is a constant such that for all . But then , as desired.     Number of roots   Show that the function has exactly one root in the interval .    Since is continuous everywhere, and satisfies and , the intermediate value theorem implies there is an element satisfying : , has at least one root . It remains to show that is the only root of in .  Suppose by contradiction that had two distinct roots . Without loss of generality, we can assume . Since is differentiable everywhere, the mean value theorem would imply that there exists satifying , where we have used the fact that since and are roots of . But this is impossible since, as the derivative satisfies for all . (See diagram below.) Since we have reached a contradiction, we conclude that there is only one root of lying in , as desired.   Graph of   Graph of derivative of f        Interesting inequality   Prove that for all .    Consider . We wish to show that for all .    Let . The desired inequality is equivalent to the inequality for all , which we now endeavor to demonstrate. First observe that for all . Indeed, we have . Next, since is continuous on and differentiable on , given any , the mean value theorem implies that there exists a satisfying . This implies , since and . We have shown that for all , and hence that for all .    For the curious, we end with a useful corollary of the mean value theorem that yields a numerically more precise description of how good of an approximation the linearization of a function centered at is for near . This result (and its proof) will not be assessed on any quiz or exam in this course.   Taylor's theorem ( )   Assume is twice differentiable on an interval containing as in interior point. Let be the linearization of centered at . For all we have . As a result, if for some constant and all , then we have for all .    See text.    "
+},
+{
+  "id": "s_mean_value-2",
+  "level": "2",
+  "url": "s_mean_value.html#s_mean_value-2",
+  "type": "Objectives",
+  "number": "2.2",
+  "title": "",
+  "body": "   Derive Rolle's theorem and the mean value theorem (MVT) as consequences of .    Interpret Rolle's theorem and the MVT both geometrically (in terms of tangent lines) and physically (in terms of instantaneous rates of change).    Derive consequences of the MVT to various mathematical applications: , characterization of functions satisfying for all , existence of roots of functions within specific intervals, inequalities.    "
+},
+{
+  "id": "th_rolles",
+  "level": "2",
+  "url": "s_mean_value.html#th_rolles",
+  "type": "Theorem",
+  "number": "2.2.1",
+  "title": "Rolle’s theorem.",
+  "body": " Rolle's theorem   Assume is continuous on and differentiable on . If , then there is an input satisfying .    Let be the common value of at the endpoints. If for all inputs ( , is a constant function), then for all inputs , and our desired conclusion is trivially satisfied.  Assume now that is not constant. Since is continuous on there are points and in where attains its absolute maximum and minimum values. Since is not constant on , we must have or . Assume without loss of generality that is an absolute extreme value of on . The input must be an interior point of , since and . Since is differentiable everywhere on , implies , as desired.   "
+},
+{
+  "id": "s_mean_value-4",
+  "level": "2",
+  "url": "s_mean_value.html#s_mean_value-4",
+  "type": "Remark",
+  "number": "2.2.2",
+  "title": "Interpretations of Rolle’s theorem.",
+  "body": " Interpretations of Rolle's theorem  Let satisfy the assumptions of Rolle's theorem on the interval .  Geometrically, we interpret Rolle's theorem as follows: if the endpoints of the graph of over lie on the same horizontal line, then there is an input for which the tangent line to the graph of at is horizontal.  In terms of rate of change, we interpret Rolle's theorem as follows: if the average rate of change of between and is equal to zero, then there is an input where the instantaneous rate of change is equal to zero.  "
+},
+{
+  "id": "th_mean_value",
+  "level": "2",
+  "url": "s_mean_value.html#th_mean_value",
+  "type": "Theorem",
+  "number": "2.2.3",
+  "title": "Mean value theorem (MVT).",
+  "body": " Mean value theorem (MVT)   Assume is continuous on and differentiable on . There is an input satisfying .    We employ a little trick that reveals MVT to be a simple consequence of Rolle's theorem. Define . As is easily verified, is continuous on , differentiable on and satisfies . Applying Rolle's theorem to on , we conlude that for some . We conclude, using we conclude that , or equivalently , as desired.   "
+},
+{
+  "id": "eg_mvt_speeding",
+  "level": "2",
+  "url": "s_mean_value.html#eg_mvt_speeding",
+  "type": "Example",
+  "number": "2.2.4",
+  "title": "Speeding motorist.",
+  "body": " Speeding motorist   While traveling in Ontario, Dudley pilots his motor car along Queen Elizabeth Way (aka the QEW). The posted speed limit along this stretch of motorway is 120 km per hr. At 12 pm Dudley passes St. Catherines, and by 12:25 pm he reaches Hamilton, which is 60 km down the road. Prove: at some point during this excursion Dudley has exceeded the speed limit!       "
+},
+{
+  "id": "cor_constant_functions",
+  "level": "2",
+  "url": "s_mean_value.html#cor_constant_functions",
+  "type": "Corollary",
+  "number": "2.2.5",
+  "title": "Constant function characterization.",
+  "body": " Constant function characterization   Assume is continuous on an interval . If satisfies for all interior points , then is a constant function on . As a consequence, a function is constant on an interval if and only if its derivative is the zero function on .    Take any two distinct points . We may assume without loss of generality that . The assumptions on guarantee that it is both continuous (since differentiable) on and differentiable on the interior of . The mean value theorem then implies that we have for some . By assumption, however, we have . But then . We have shown that for any we have . In other words, is a constant function on , as desired.   "
+},
+{
+  "id": "cor_same_derivative",
+  "level": "2",
+  "url": "s_mean_value.html#cor_same_derivative",
+  "type": "Corollary",
+  "number": "2.2.6",
+  "title": "Functions with identical derivatives.",
+  "body": " Functions with identical derivatives   Assume and are continuous on an interval . If for all interior points , then there is a constant satisfying for all . In plain English, if two functions have identical derivative functions over an interval , then they differ by a constant.    Let . Since for all interior points , we conclude by that is a constant function on : , there is a constant such that for all . But then , as desired.   "
+},
+{
+  "id": "eg_mean_roots",
+  "level": "2",
+  "url": "s_mean_value.html#eg_mean_roots",
+  "type": "Example",
+  "number": "2.2.7",
+  "title": "Number of roots.",
+  "body": " Number of roots   Show that the function has exactly one root in the interval .    Since is continuous everywhere, and satisfies and , the intermediate value theorem implies there is an element satisfying : , has at least one root . It remains to show that is the only root of in .  Suppose by contradiction that had two distinct roots . Without loss of generality, we can assume . Since is differentiable everywhere, the mean value theorem would imply that there exists satifying , where we have used the fact that since and are roots of . But this is impossible since, as the derivative satisfies for all . (See diagram below.) Since we have reached a contradiction, we conclude that there is only one root of lying in , as desired.   Graph of   Graph of derivative of f      "
+},
+{
+  "id": "eg_mean_inequality",
+  "level": "2",
+  "url": "s_mean_value.html#eg_mean_inequality",
+  "type": "Example",
+  "number": "2.2.9",
+  "title": "Interesting inequality.",
+  "body": " Interesting inequality   Prove that for all .    Consider . We wish to show that for all .    Let . The desired inequality is equivalent to the inequality for all , which we now endeavor to demonstrate. First observe that for all . Indeed, we have . Next, since is continuous on and differentiable on , given any , the mean value theorem implies that there exists a satisfying . This implies , since and . We have shown that for all , and hence that for all .   "
+},
+{
+  "id": "cor_mean_taylor",
+  "level": "2",
+  "url": "s_mean_value.html#cor_mean_taylor",
+  "type": "Corollary",
+  "number": "2.2.10",
+  "title": "Taylor’s theorem (<span class=\"process-math\">\\(k=1\\)<\/span>).",
+  "body": " Taylor's theorem ( )   Assume is twice differentiable on an interval containing as in interior point. Let be the linearization of centered at . For all we have . As a result, if for some constant and all , then we have for all .    See text.   "
+},
+{
+  "id": "s_linearize",
+  "level": "1",
+  "url": "s_linearize.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Linearization",
+  "body": " Linearization     Define the linearization of a function at an input .    Understand the linearization of a function in terms of the tangent line to the graph of at the point .    Investigate linearization as an approximation tool. Discuss in what sense a linearization is a good approximation of a function .    Use the mean value theorem to give a quantitative measure of how well a linearization approximates a function near a given input.     Recall our graphical interpretation of the derivative of a function at an input : namely, is the slope of the tangent line to the graph of at the point .   Two tangent lines to the graph of a function   Linearizations of a quadratic function     In this section we revisit this interpretation from a slightly different standpoint. Namely, we consider the tangent line as an approximation of the graph of near . We can get an idea of how this works by looking at the example in . The line is the tangent line to the graph of at the point . For inputs  close to , the point on the graph of is close to the point on with the same -coordinate. In this sense is a decent approximation of the graph of , but only for points where is close to . For example, the line visibly does not do a good job of approximating the graph of near the other depicted point . In contrast, the tangent line at does approximate the graph of well for points near .  We now recast this whole discussion in the language of functions and their approximations. Recall that as a consequence of the graphical interpretation of , we know that the tangent line to the graph of at a point has equation , or equivalently, . Put another way, the tangent line is the graph of the function . As a result, treating as an approximation of the graph of is equivalent to treating the linear function as an approximation of the function near the input . We call the linearization of at .   Linearization of a function   Assume is differentiable at the input . The linearization of centered at is the linear function defined as .     Linearization  It is important to observe the centered at modifier in . In other words, the function defined in depends both on and the specific input .    Linearization: quadratic   Let . Compute the linearization of centered at , and the linearization of centered at .    First compute . Using , we have . Thus the linearization of centered at is , and the linearization centered at is the constant function .     Linearization and tangent lines  You may have noticed a resemblance to the formula for the linearization of centered at , and the tangent line to the graph of at . To be precise: the graph of the linearization function is precisely the tangent line to the graph of at the point .  By way of illustration, we graph the function in along with the linearizations and centered at and , respectively.   Linearizations of   Linearizations of a quadratic function       Linear approximation  Assume is differentiable at , and let be the linearization of centered at . As we can show, the differentiability of at ensures that values of the linearization are close to values of for inputs near . Indeed, we have . Consider what the limit statement tells us. Since , the numerator must be close to zero for close to . Furthermore, we must have approaching zero faster than approaches zero. More precisely, invoking the epsilon-delta definition of the limit, we can show that for any , we have for all sufficiently close to . After we introduce the mean value theorem , we will be able to give an even better quantitative description of just how good an approximation is to .    Linear approximation   Assume is is differentiable at , and let be the linearization of centered at .   For inputs close to , is a good approximation of : that is, we have for close to .    In paricular for an input close to , we have .        Linear approximation: quadratic   Let .   Use the linearization of centered at to estimate  .    Compare your estimate of with the actual value. How close are the two?          Recall that we computed . Thus we have .    The exact value is . Thus our estimate is off by : , .        Linear approximation: cube-root   Use linear approximation to estimate .    To use linear approximation, we need to compute the linearization of a function centered at some input . We take , and . Why ? I can compute and easily by hand, and is reasonably close to . We first compute . The linearization of centered at is then Lastly, we estimate . Using technology we see that . Our estimate ended up being pretty close!     Linear approximation: trig   Let . Use linear approximation to estimate .    We compute the linearization of centered at . First we compute the derivative of : . It follows that the linearization centered at is . Lastly we estimate .     Linear approximation: marshmallow   Dudley places a cylindrical marshmallow in the microwave, causing it to expand such a manner that the ratio of its height and radius is preserved. Initially the height and radius of the marshmallow are both equal to 2 centimeters; when Dudley removes the marshmallow the height and radius are both equal to 2.1 centimeters.   Use linear approximation to estimate the change in volume of the marshmallow.    Compare your estimate with the actual change in volume.       Since the radius and height of the marshmallow are initially equal, and since the marshmallow expands in such a way that the ratio of radius to height is preserved, we see that we always have , and thus , where . We thus treat volume as a function of the common dimension specifying both radius and height.   To estimate the change in volume, we compute the linearization of centered at . Since , we have . It follows that the change of volume can be estimated as     The exact change of volume is .       "
+},
+{
+  "id": "s_linearize-2",
+  "level": "2",
+  "url": "s_linearize.html#s_linearize-2",
+  "type": "Objectives",
+  "number": "2.3",
+  "title": "",
+  "body": "   Define the linearization of a function at an input .    Understand the linearization of a function in terms of the tangent line to the graph of at the point .    Investigate linearization as an approximation tool. Discuss in what sense a linearization is a good approximation of a function .    Use the mean value theorem to give a quantitative measure of how well a linearization approximates a function near a given input.    "
+},
+{
+  "id": "fig_tangent_interp",
+  "level": "2",
+  "url": "s_linearize.html#fig_tangent_interp",
+  "type": "Figure",
+  "number": "2.3.1",
+  "title": "",
+  "body": " Two tangent lines to the graph of a function   Linearizations of a quadratic function    "
+},
+{
+  "id": "d_linearization",
+  "level": "2",
+  "url": "s_linearize.html#d_linearization",
+  "type": "Definition",
+  "number": "2.3.2",
+  "title": "Linearization of a function.",
+  "body": " Linearization of a function   Assume is differentiable at the input . The linearization of centered at is the linear function defined as .   "
+},
+{
+  "id": "s_linearize-8",
+  "level": "2",
+  "url": "s_linearize.html#s_linearize-8",
+  "type": "Remark",
+  "number": "2.3.3",
+  "title": "Linearization.",
+  "body": " Linearization  It is important to observe the centered at modifier in . In other words, the function defined in depends both on and the specific input .  "
+},
+{
+  "id": "eg_linearization_quadratic",
+  "level": "2",
+  "url": "s_linearize.html#eg_linearization_quadratic",
+  "type": "Example",
+  "number": "2.3.4",
+  "title": "Linearization: quadratic.",
+  "body": " Linearization: quadratic   Let . Compute the linearization of centered at , and the linearization of centered at .    First compute . Using , we have . Thus the linearization of centered at is , and the linearization centered at is the constant function .   "
+},
+{
+  "id": "s_linearize-10",
+  "level": "2",
+  "url": "s_linearize.html#s_linearize-10",
+  "type": "Remark",
+  "number": "2.3.5",
+  "title": "Linearization and tangent lines.",
+  "body": " Linearization and tangent lines  You may have noticed a resemblance to the formula for the linearization of centered at , and the tangent line to the graph of at . To be precise: the graph of the linearization function is precisely the tangent line to the graph of at the point .  By way of illustration, we graph the function in along with the linearizations and centered at and , respectively.   Linearizations of   Linearizations of a quadratic function     "
+},
+{
+  "id": "s_linearize-11",
+  "level": "2",
+  "url": "s_linearize.html#s_linearize-11",
+  "type": "Remark",
+  "number": "2.3.7",
+  "title": "Linear approximation.",
+  "body": " Linear approximation  Assume is differentiable at , and let be the linearization of centered at . As we can show, the differentiability of at ensures that values of the linearization are close to values of for inputs near . Indeed, we have . Consider what the limit statement tells us. Since , the numerator must be close to zero for close to . Furthermore, we must have approaching zero faster than approaches zero. More precisely, invoking the epsilon-delta definition of the limit, we can show that for any , we have for all sufficiently close to . After we introduce the mean value theorem , we will be able to give an even better quantitative description of just how good an approximation is to .  "
+},
+{
+  "id": "proc_lin_approx",
+  "level": "2",
+  "url": "s_linearize.html#proc_lin_approx",
+  "type": "Procedure",
+  "number": "2.3.8",
+  "title": "Linear approximation.",
+  "body": " Linear approximation   Assume is is differentiable at , and let be the linearization of centered at .   For inputs close to , is a good approximation of : that is, we have for close to .    In paricular for an input close to , we have .      "
+},
+{
+  "id": "eg_linear_approx_quadratic",
+  "level": "2",
+  "url": "s_linearize.html#eg_linear_approx_quadratic",
+  "type": "Example",
+  "number": "2.3.9",
+  "title": "Linear approximation: quadratic.",
+  "body": " Linear approximation: quadratic   Let .   Use the linearization of centered at to estimate  .    Compare your estimate of with the actual value. How close are the two?          Recall that we computed . Thus we have .    The exact value is . Thus our estimate is off by : , .      "
+},
+{
+  "id": "eg_linear_approx_cuberoot",
+  "level": "2",
+  "url": "s_linearize.html#eg_linear_approx_cuberoot",
+  "type": "Example",
+  "number": "2.3.10",
+  "title": "Linear approximation: cube-root.",
+  "body": " Linear approximation: cube-root   Use linear approximation to estimate .    To use linear approximation, we need to compute the linearization of a function centered at some input . We take , and . Why ? I can compute and easily by hand, and is reasonably close to . We first compute . The linearization of centered at is then Lastly, we estimate . Using technology we see that . Our estimate ended up being pretty close!   "
+},
+{
+  "id": "eg_linear_approx_trig",
+  "level": "2",
+  "url": "s_linearize.html#eg_linear_approx_trig",
+  "type": "Example",
+  "number": "2.3.11",
+  "title": "Linear approximation: trig.",
+  "body": " Linear approximation: trig   Let . Use linear approximation to estimate .    We compute the linearization of centered at . First we compute the derivative of : . It follows that the linearization centered at is . Lastly we estimate .   "
+},
+{
+  "id": "eg_linear_approx_marshmallow",
+  "level": "2",
+  "url": "s_linearize.html#eg_linear_approx_marshmallow",
+  "type": "Example",
+  "number": "2.3.12",
+  "title": "Linear approximation: marshmallow.",
+  "body": " Linear approximation: marshmallow   Dudley places a cylindrical marshmallow in the microwave, causing it to expand such a manner that the ratio of its height and radius is preserved. Initially the height and radius of the marshmallow are both equal to 2 centimeters; when Dudley removes the marshmallow the height and radius are both equal to 2.1 centimeters.   Use linear approximation to estimate the change in volume of the marshmallow.    Compare your estimate with the actual change in volume.       Since the radius and height of the marshmallow are initially equal, and since the marshmallow expands in such a way that the ratio of radius to height is preserved, we see that we always have , and thus , where . We thus treat volume as a function of the common dimension specifying both radius and height.   To estimate the change in volume, we compute the linearization of centered at . Since , we have . It follows that the change of volume can be estimated as     The exact change of volume is .      "
+},
+{
+  "id": "s_first_der_test",
+  "level": "1",
+  "url": "s_first_der_test.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Monotonicity and first derivative test",
+  "body": " Monotonicity and first derivative test   Increasing, decreasing, monotonic   Assume is defined on the interval .    is increasing on if implies for all .     is decreasing on if implies for all .     is monotonic on if it is either increasing on or decreasing on .        Derivative and monotonicity   Assume is continuous on the interval .   If for all interior points , then is a constant function on .    If for all interior points , then is increasing on .    If for all interior points , then is decreasing on .       Statement (1) is identical to , which we have already proved.  The proofs of (2) and (3) are nearly identical. We prove (2). Assume for all interior points . Suppose satisfy . Since the function is continuous on and differentiable on , the mean value theorem implies for some . But then, after a little algebra, we see that , since by assumption. Thus we have shown for all . In other words, is increasing on .    Before putting to good analytic work on some example functions, we first illustrate that we cannot apply the theorem if the underlying set is not an interval .   Monotonicity: reciprocal   Let with domain . Observe that is negative for all . However it is not true that is decreasing on its entire domain : indeed, we have , and yet .  What went wrong here? Why couldn't we apply ? The answer is that is not an interval! In fact we have , a union of two intervals. We are permitted to apply to and separately to conclude that is decreasing on each of these intervals, but this does not imply that it is increasing on their union.    According to determining the sets on which a function is increasing\/decreasing essentially amounts to solving the inequalities and . This is most efficiently done using a sign diagram of , as illustrated in the next example and defined more precisely in .   Monotonicity: polynomial   Let . Find all intervals where is increasing, and all intervals where is decreasing.    We compute . Since is continuous, and since are the only roots of , the intermediate value theorem implies that is either always positive or always negative on each of the resulting intervals . This means we can determine the sign of on each interval by evaluating it at one test point. It is easy to see that . Thus the sign of for various portions of the real line is described by the following sign diagram .   Sign diagram for derivative of f    Note that underneath the information about the sign of , we have indicated the implied increasing\/decreasing behavior of .  From the sign diagram we conclude that is increasing on the intervals and , and decreasing on the interval .    Let's give a formal description of the technique used in the example above.   Intervals of monotonicity   Assume is continuous on . To determine the intervals where is increasing or decreasing, proceed as follows.   Find all critical points of in     Draw a real line representation of that includes the critical points you found in Step 1.    Make a sign diagram of your real line representation of .   Label the top part of this diagram and indicate with the sign of on a given interval.    (Optional). Label the bottom part of the diagam and indicate with arrows whether is increasing or decreasing on a given interval.           First derivative test   Assume that is a critical point of the function , and that is differentiable near, but not necessarily at .   If the sign of changes from positive to negative at , then is a local maximum value of .    If the sign of changes from negative to positive at , then is a local minimum value of .    If is nonzero near and the sign does not change at , then is neither a local maximum value nor a local minimum value of .        Classify critical points: first derivative test   Let be continuous on the set . To find and classify all critical points of as corresponding to a local maximum value of , a local minimum value of , or neither, proceed as follows.   Find all critical points of .    Make a sign diagram of .    For each critical point of , use and your sign diagram to determine whether is a local maximum value of , local minimum value of , or neither.        Classifying critical points: polynomial   Let . Find all critical points of , and for each critical point classify as a local maximum value of , a local minimum value of , or neither.    In the course of the sign diagram from we saw that were the critical points of . Since the sign of switches from positive to negative at , is a local maximum value of ; since the sign of switches from negative to positive at , is a local minimum value of . Since for close to and since the sign of does not switch at , we see that is neither a local maximum nor a local minimum value.     Monotonicity and critical points: rational   Let .   Find all critical points of , and for each critical point classify as a local maximum value of , a local minimum value of , or neither.    Apply to find the intervals of monotonicity of .       First observe that the domain of is .   The derivative of is . From the formula for we see that is differentiable everywhere, and thus that its only critical points are the solutions to . From the factorization of the numerator, we see easily that and are the critical points of . To classify these critical points we produce a sign diagram of .     From the sign diagram, we see that has a loca maximum value at and a local minimum value at .    The sign diagram above further reveals that is increasing on the intervals and , and decreasing on the intervals and .   Our analysis above is born out by the graph of given below.   Graph of rational function f       Monotonicity and critical points: radical   Let . Find all critical points of , and for each critical point classify as a local maximum value of , local minimum value of , or neither.    Note first that the implied domain of is . Following , we first determine the critical points of . Note first that in this case is not differentiable at , making these critical points. Next, for all , we compute using the product and chain rules: . It follows that we have if and only if , or equivalently, . We conclude that there are in total four critical points: (where is not differentiable), and .   Sign diagram for derivative of example function    This diagram was the result of the following test point evaluations of : . Note that .  We conclude that and are local maximum values, and and are local minimum values. These conclusions are verified by the actual graph of .   Graph of   Graph of the original function of the example       "
+},
+{
+  "id": "d_monotonic",
+  "level": "2",
+  "url": "s_first_der_test.html#d_monotonic",
+  "type": "Definition",
+  "number": "2.4.1",
+  "title": "Increasing, decreasing, monotonic.",
+  "body": " Increasing, decreasing, monotonic   Assume is defined on the interval .    is increasing on if implies for all .     is decreasing on if implies for all .     is monotonic on if it is either increasing on or decreasing on .      "
+},
+{
+  "id": "th_monoton",
+  "level": "2",
+  "url": "s_first_der_test.html#th_monoton",
+  "type": "Theorem",
+  "number": "2.4.2",
+  "title": "Derivative and monotonicity.",
+  "body": " Derivative and monotonicity   Assume is continuous on the interval .   If for all interior points , then is a constant function on .    If for all interior points , then is increasing on .    If for all interior points , then is decreasing on .       Statement (1) is identical to , which we have already proved.  The proofs of (2) and (3) are nearly identical. We prove (2). Assume for all interior points . Suppose satisfy . Since the function is continuous on and differentiable on , the mean value theorem implies for some . But then, after a little algebra, we see that , since by assumption. Thus we have shown for all . In other words, is increasing on .   "
+},
+{
+  "id": "eg_monoton_recip",
+  "level": "2",
+  "url": "s_first_der_test.html#eg_monoton_recip",
+  "type": "Example",
+  "number": "2.4.3",
+  "title": "Monotonicity: reciprocal.",
+  "body": " Monotonicity: reciprocal   Let with domain . Observe that is negative for all . However it is not true that is decreasing on its entire domain : indeed, we have , and yet .  What went wrong here? Why couldn't we apply ? The answer is that is not an interval! In fact we have , a union of two intervals. We are permitted to apply to and separately to conclude that is decreasing on each of these intervals, but this does not imply that it is increasing on their union.   "
+},
+{
+  "id": "eg_monoton_poly",
+  "level": "2",
+  "url": "s_first_der_test.html#eg_monoton_poly",
+  "type": "Example",
+  "number": "2.4.4",
+  "title": "Monotonicity: polynomial.",
+  "body": " Monotonicity: polynomial   Let . Find all intervals where is increasing, and all intervals where is decreasing.    We compute . Since is continuous, and since are the only roots of , the intermediate value theorem implies that is either always positive or always negative on each of the resulting intervals . This means we can determine the sign of on each interval by evaluating it at one test point. It is easy to see that . Thus the sign of for various portions of the real line is described by the following sign diagram .   Sign diagram for derivative of f    Note that underneath the information about the sign of , we have indicated the implied increasing\/decreasing behavior of .  From the sign diagram we conclude that is increasing on the intervals and , and decreasing on the interval .   "
+},
+{
+  "id": "proc_intervals_monoto",
+  "level": "2",
+  "url": "s_first_der_test.html#proc_intervals_monoto",
+  "type": "Procedure",
+  "number": "2.4.5",
+  "title": "Intervals of monotonicity.",
+  "body": " Intervals of monotonicity   Assume is continuous on . To determine the intervals where is increasing or decreasing, proceed as follows.   Find all critical points of in     Draw a real line representation of that includes the critical points you found in Step 1.    Make a sign diagram of your real line representation of .   Label the top part of this diagram and indicate with the sign of on a given interval.    (Optional). Label the bottom part of the diagam and indicate with arrows whether is increasing or decreasing on a given interval.         "
+},
+{
+  "id": "th_first_der_test",
+  "level": "2",
+  "url": "s_first_der_test.html#th_first_der_test",
+  "type": "Theorem",
+  "number": "2.4.6",
+  "title": "First derivative test.",
+  "body": " First derivative test   Assume that is a critical point of the function , and that is differentiable near, but not necessarily at .   If the sign of changes from positive to negative at , then is a local maximum value of .    If the sign of changes from negative to positive at , then is a local minimum value of .    If is nonzero near and the sign does not change at , then is neither a local maximum value nor a local minimum value of .      "
+},
+{
+  "id": "proc_class_crit_pts",
+  "level": "2",
+  "url": "s_first_der_test.html#proc_class_crit_pts",
+  "type": "Procedure",
+  "number": "2.4.7",
+  "title": "Classify critical points: first derivative test.",
+  "body": " Classify critical points: first derivative test   Let be continuous on the set . To find and classify all critical points of as corresponding to a local maximum value of , a local minimum value of , or neither, proceed as follows.   Find all critical points of .    Make a sign diagram of .    For each critical point of , use and your sign diagram to determine whether is a local maximum value of , local minimum value of , or neither.      "
+},
+{
+  "id": "eg_first_der_test_poly",
+  "level": "2",
+  "url": "s_first_der_test.html#eg_first_der_test_poly",
+  "type": "Example",
+  "number": "2.4.8",
+  "title": "Classifying critical points: polynomial.",
+  "body": " Classifying critical points: polynomial   Let . Find all critical points of , and for each critical point classify as a local maximum value of , a local minimum value of , or neither.    In the course of the sign diagram from we saw that were the critical points of . Since the sign of switches from positive to negative at , is a local maximum value of ; since the sign of switches from negative to positive at , is a local minimum value of . Since for close to and since the sign of does not switch at , we see that is neither a local maximum nor a local minimum value.   "
+},
+{
+  "id": "eg_first_der_test_rational",
+  "level": "2",
+  "url": "s_first_der_test.html#eg_first_der_test_rational",
+  "type": "Example",
+  "number": "2.4.9",
+  "title": "Monotonicity and critical points: rational.",
+  "body": " Monotonicity and critical points: rational   Let .   Find all critical points of , and for each critical point classify as a local maximum value of , a local minimum value of , or neither.    Apply to find the intervals of monotonicity of .       First observe that the domain of is .   The derivative of is . From the formula for we see that is differentiable everywhere, and thus that its only critical points are the solutions to . From the factorization of the numerator, we see easily that and are the critical points of . To classify these critical points we produce a sign diagram of .     From the sign diagram, we see that has a loca maximum value at and a local minimum value at .    The sign diagram above further reveals that is increasing on the intervals and , and decreasing on the intervals and .   Our analysis above is born out by the graph of given below.   Graph of rational function f     "
+},
+{
+  "id": "eg_first_der_test_rad",
+  "level": "2",
+  "url": "s_first_der_test.html#eg_first_der_test_rad",
+  "type": "Example",
+  "number": "2.4.10",
+  "title": "Monotonicity and critical points: radical.",
+  "body": " Monotonicity and critical points: radical   Let . Find all critical points of , and for each critical point classify as a local maximum value of , local minimum value of , or neither.    Note first that the implied domain of is . Following , we first determine the critical points of . Note first that in this case is not differentiable at , making these critical points. Next, for all , we compute using the product and chain rules: . It follows that we have if and only if , or equivalently, . We conclude that there are in total four critical points: (where is not differentiable), and .   Sign diagram for derivative of example function    This diagram was the result of the following test point evaluations of : . Note that .  We conclude that and are local maximum values, and and are local minimum values. These conclusions are verified by the actual graph of .   Graph of   Graph of the original function of the example      "
+},
+{
+  "id": "s_concavity",
+  "level": "1",
+  "url": "s_concavity.html",
+  "type": "Section",
+  "number": "2.5",
+  "title": "Concavity and inflection points",
+  "body": " Concavity and inflection points   Logistic growth   A logistic function is often used to model a quantity whose growth is prevented from being unlimited by some external factors. These functions are used, for example, to model the growth of a population, or the growth of sales of a product. Below you find the graph of this type of function.   Graph of logsitic growth function   Graph of logistic growth function        What does the apparent horizontal asymptote of tells us about the quantity as a function of time?    Give a detailed qualitative description of the rate of change of with respect to over the interval .    Give a detailed qualitative description of the rate of change of with respect to over the interval . Explain why this description makes sense in light of the long term growth of .    Do you notice anything interesting about the value of at ?          The function is increasing on its entire domain, with a horizontal asymptote of , meaning that . This means the quantity is always growing, approaches a ceiling value of , but never reaches that value. (The value in a logistic function like this is called the carrying capacity of in modeling contexts.)    As always, the rate of change of with respect to is the derivative function . We see that for the slope of the tangent line to the graph of at is positive, and gets more positive as increases. This means that is positive and increasing. In terms of , this means that is increasing at an increasing rate over this interval.    Similar reasoning shows that for the rate of change is positive but getting less positive ( , is decreasing). In terms of , this means that is increasing at a decreasing rate over this interval. This makes sense in terms of the limiting value of : since cannot exceed this value, its rate of increase must level off as it gets closer in value to .    It appears that . As it turns out, this is a special property that holds for all logistic functions. In more detail, our previous analysis identifies as the unique inflection point of the function . (See .) In the modeling context is sometimes called a point of diminishing returns , since the rate of increase of levels off after that point. It turns out that for any logistic function the value of the function at this point in time is always equal to , half of the carrying capacity .  This property of logistic functions is useful for predicting the ceiling value of a quantity you are studying. Imagine you take daily measurements of a growing population of bacteria that you believe is accurately modeled by a logistic function. From that data you can compute the average rate of change over each day, which you interpret as an estimate of the instantaneous rate of change of growth each day. On the first day that you notice your rate of growth estimate has decreased from the previous day, you conclude that you have reached (approximately) the point of diminishing returns. If the population on that day is , you estimate that the ceiling of the population is .        Concavity and inflection points   Assume is differentiable on the open interval .    is concave up on if is increasing on .     is concave down on if is decreasing on .    If the graph of has a well-defined tangent line at , and if the concavity of changes at , then is called an inflection point of , and we say that has an inflection point at the input .        Concavity  Graphically speaking, a function will be concave up over an interval if the graph of over bends upward (or is smiley ), and it is concave down if the graph of over bends downward (or is frowny ).    Inflection points  The somewhat convoluted definition of an inflection point is designed to allow inflection points to exist at an input even if the function is not differentiable at .  For example, the function is not differentiable at , but the graph of still has a well-defined tangent line at the point : the issue is only that that tangent line is vertical. Our definition allows for to potentially be an inflection point. Indeed, we see that is an inflection point: is increasing for and decreasing for ; thus is concave up to the left of and concave down to the right of .  On the other hand, consider the function . Although the concavity changes at (from up to down), the graph of does not have a tangent line at , and thus does not qualify as an inflection point.   Applying to , we immediately derive the following theorem.    Assume is twice differentiable on the open interval .   If for all , then is concave up on .    If for all , then is concave down on .    If has an inflection point at , then .        Concavity and inflection points   Assume is defined on a set . To determine intervals of constant concavity of and identify inflection points proceed as follows.   Make a sign diagram of over . Indicate on your real line any inputs where is zero or undefined.   Label the top part of the diagram and indicate with the sign of on a given interval.    (Optional). Label the bottom part of the diagram and indicate with or the concavity of on the given interval.       For each input where is either zero or undefined, decide using and whether has an inflection point at .        Concavity: radical function   Let . Find the intervals of constant concavity of and identify any inputs where has an inflection point.    We readily compute for . (Note that neither nor are defined at .) From the formula for , we see that . We conclude that is concave up on and concave down on , and that the point is the sole inflection point of .     Concavity: polynomial   Let . Find the intervals of constant concavity of and identify any inputs where has an inflection point.    We compute . Below you find a sign diagram for .   Sign diagram for second derivative of f    We conclude that is concave down on the intervals $(-\\infty, -1\/\\sqrt{2})$ and $(0,1\/\\sqrt{2})$, and concave up on the intervals $(-1\/\\sqrt{2},0)$ and $(1\/\\sqrt{2},\\infty)$.  It follows that has inflection points at the inputs .     Second derivative test   Assume is continuous on an open interval containing .   If and , then is a local minimum value of .    If and , then is a local maximum value of .    If and , then nothing can be concluded about the critical point . In other words, our text is inconclusive in this case.        Second derivative test: polynomial   Let . Find all critical points of , and for each critical point  attempt to use to classify as a local maximum value or local minimum value.    We have seen previously in that the critical points of are . We apply the second derivative test to each, using : . Note that although the second derivative test is inconclusive for the critical point , we were able to show using the first derivative test in that in fact is neither a local maximum nor local minimum value. This illustrates an important difference between the first derivative and second derivative tests: the former is always inconclusive, whereas the latter is sometimes inconclusive.    "
+},
+{
+  "id": "eg_concavity_logistic_growth",
+  "level": "2",
+  "url": "s_concavity.html#eg_concavity_logistic_growth",
+  "type": "Example",
+  "number": "2.5.1",
+  "title": "Logistic growth.",
+  "body": " Logistic growth   A logistic function is often used to model a quantity whose growth is prevented from being unlimited by some external factors. These functions are used, for example, to model the growth of a population, or the growth of sales of a product. Below you find the graph of this type of function.   Graph of logsitic growth function   Graph of logistic growth function        What does the apparent horizontal asymptote of tells us about the quantity as a function of time?    Give a detailed qualitative description of the rate of change of with respect to over the interval .    Give a detailed qualitative description of the rate of change of with respect to over the interval . Explain why this description makes sense in light of the long term growth of .    Do you notice anything interesting about the value of at ?          The function is increasing on its entire domain, with a horizontal asymptote of , meaning that . This means the quantity is always growing, approaches a ceiling value of , but never reaches that value. (The value in a logistic function like this is called the carrying capacity of in modeling contexts.)    As always, the rate of change of with respect to is the derivative function . We see that for the slope of the tangent line to the graph of at is positive, and gets more positive as increases. This means that is positive and increasing. In terms of , this means that is increasing at an increasing rate over this interval.    Similar reasoning shows that for the rate of change is positive but getting less positive ( , is decreasing). In terms of , this means that is increasing at a decreasing rate over this interval. This makes sense in terms of the limiting value of : since cannot exceed this value, its rate of increase must level off as it gets closer in value to .    It appears that . As it turns out, this is a special property that holds for all logistic functions. In more detail, our previous analysis identifies as the unique inflection point of the function . (See .) In the modeling context is sometimes called a point of diminishing returns , since the rate of increase of levels off after that point. It turns out that for any logistic function the value of the function at this point in time is always equal to , half of the carrying capacity .  This property of logistic functions is useful for predicting the ceiling value of a quantity you are studying. Imagine you take daily measurements of a growing population of bacteria that you believe is accurately modeled by a logistic function. From that data you can compute the average rate of change over each day, which you interpret as an estimate of the instantaneous rate of change of growth each day. On the first day that you notice your rate of growth estimate has decreased from the previous day, you conclude that you have reached (approximately) the point of diminishing returns. If the population on that day is , you estimate that the ceiling of the population is .      "
+},
+{
+  "id": "d_concav_inflect",
+  "level": "2",
+  "url": "s_concavity.html#d_concav_inflect",
+  "type": "Definition",
+  "number": "2.5.3",
+  "title": "Concavity and inflection points.",
+  "body": " Concavity and inflection points   Assume is differentiable on the open interval .    is concave up on if is increasing on .     is concave down on if is decreasing on .    If the graph of has a well-defined tangent line at , and if the concavity of changes at , then is called an inflection point of , and we say that has an inflection point at the input .      "
+},
+{
+  "id": "s_concavity-4",
+  "level": "2",
+  "url": "s_concavity.html#s_concavity-4",
+  "type": "Remark",
+  "number": "2.5.4",
+  "title": "Concavity.",
+  "body": " Concavity  Graphically speaking, a function will be concave up over an interval if the graph of over bends upward (or is smiley ), and it is concave down if the graph of over bends downward (or is frowny ).  "
+},
+{
+  "id": "s_concavity-5",
+  "level": "2",
+  "url": "s_concavity.html#s_concavity-5",
+  "type": "Remark",
+  "number": "2.5.5",
+  "title": "Inflection points.",
+  "body": " Inflection points  The somewhat convoluted definition of an inflection point is designed to allow inflection points to exist at an input even if the function is not differentiable at .  For example, the function is not differentiable at , but the graph of still has a well-defined tangent line at the point : the issue is only that that tangent line is vertical. Our definition allows for to potentially be an inflection point. Indeed, we see that is an inflection point: is increasing for and decreasing for ; thus is concave up to the left of and concave down to the right of .  On the other hand, consider the function . Although the concavity changes at (from up to down), the graph of does not have a tangent line at , and thus does not qualify as an inflection point.  "
+},
+{
+  "id": "th_concavity",
+  "level": "2",
+  "url": "s_concavity.html#th_concavity",
+  "type": "Theorem",
+  "number": "2.5.6",
+  "title": "",
+  "body": "  Assume is twice differentiable on the open interval .   If for all , then is concave up on .    If for all , then is concave down on .    If has an inflection point at , then .      "
+},
+{
+  "id": "proc_concavity",
+  "level": "2",
+  "url": "s_concavity.html#proc_concavity",
+  "type": "Procedure",
+  "number": "2.5.7",
+  "title": "Concavity and inflection points.",
+  "body": " Concavity and inflection points   Assume is defined on a set . To determine intervals of constant concavity of and identify inflection points proceed as follows.   Make a sign diagram of over . Indicate on your real line any inputs where is zero or undefined.   Label the top part of the diagram and indicate with the sign of on a given interval.    (Optional). Label the bottom part of the diagram and indicate with or the concavity of on the given interval.       For each input where is either zero or undefined, decide using and whether has an inflection point at .      "
+},
+{
+  "id": "eg_concavity_rad",
+  "level": "2",
+  "url": "s_concavity.html#eg_concavity_rad",
+  "type": "Example",
+  "number": "2.5.8",
+  "title": "Concavity: radical function.",
+  "body": " Concavity: radical function   Let . Find the intervals of constant concavity of and identify any inputs where has an inflection point.    We readily compute for . (Note that neither nor are defined at .) From the formula for , we see that . We conclude that is concave up on and concave down on , and that the point is the sole inflection point of .   "
+},
+{
+  "id": "eg_concavity_poly",
+  "level": "2",
+  "url": "s_concavity.html#eg_concavity_poly",
+  "type": "Example",
+  "number": "2.5.9",
+  "title": "Concavity: polynomial.",
+  "body": " Concavity: polynomial   Let . Find the intervals of constant concavity of and identify any inputs where has an inflection point.    We compute . Below you find a sign diagram for .   Sign diagram for second derivative of f    We conclude that is concave down on the intervals $(-\\infty, -1\/\\sqrt{2})$ and $(0,1\/\\sqrt{2})$, and concave up on the intervals $(-1\/\\sqrt{2},0)$ and $(1\/\\sqrt{2},\\infty)$.  It follows that has inflection points at the inputs .   "
+},
+{
+  "id": "th_second_der",
+  "level": "2",
+  "url": "s_concavity.html#th_second_der",
+  "type": "Theorem",
+  "number": "2.5.10",
+  "title": "Second derivative test.",
+  "body": " Second derivative test   Assume is continuous on an open interval containing .   If and , then is a local minimum value of .    If and , then is a local maximum value of .    If and , then nothing can be concluded about the critical point . In other words, our text is inconclusive in this case.      "
+},
+{
+  "id": "eg_second_der",
+  "level": "2",
+  "url": "s_concavity.html#eg_second_der",
+  "type": "Example",
+  "number": "2.5.11",
+  "title": "Second derivative test: polynomial.",
+  "body": " Second derivative test: polynomial   Let . Find all critical points of , and for each critical point  attempt to use to classify as a local maximum value or local minimum value.    We have seen previously in that the critical points of are . We apply the second derivative test to each, using : . Note that although the second derivative test is inconclusive for the critical point , we were able to show using the first derivative test in that in fact is neither a local maximum nor local minimum value. This illustrates an important difference between the first derivative and second derivative tests: the former is always inconclusive, whereas the latter is sometimes inconclusive.   "
+},
+{
+  "id": "s_curve_sketch_I",
+  "level": "1",
+  "url": "s_curve_sketch_I.html",
+  "type": "Section",
+  "number": "2.6",
+  "title": "Curve sketching",
+  "body": " Curve sketching     Bring all our calculus tools to bear on the analysis of a real-valued function . In more detail: determine the domain, the -intercept and any -intercepts; compute the limit of the function at endpoints of the domain and determine whether there are horizontal asymptotes; determine whether there are vertical asymptotes; find and classify all critical points of ; determine the intervals of monotonicity; determine intervals of constant concavity; identify any inflection points.    Express the results of our analysis of a function's behavior in the form of a detailed sketch.      In this section, we focus on sketching accurate graphs of algebraic functions by hand. To do so we will assemble a host of information about the function, starting from elementary properties like domain and intercepts, and moving to more sophisticated ones like local and global extrema, intervals of monotonicity, inflection points, and end behavior. These latter properties are revealed to us through the use of calculus tools: more specifically, from an analysis of the first and second derivatives of the function, and limits at infinity (or endpoints). enumerates a fairly complete list of the details our resulting sketch should capture. The examples that follow indicate how to systematically extract all of those details through a calculus-aided investigation.    Curve sketching   Curve sketching   When asked to give an accurate sketch of the graph of a function , we seek to produce a sketch that accurately reflects the following properties:   the domain of ;     - and -intercepts of ;    horizontal asymptotes, and more generally, the endpoint behavior of ( , limits of as approaches endpoints of );    vertical asymptotes;    critical points of , classified as points where attains a local maximum value, a local minimum value, or neither;    intervals of monotonicity of ( , intervals where is either increasing or decreasing);    intervals of constant concavity of ;    inflection points of .        Curve sketch: polynomial   Provide a graph of that includes all the details listed in .     Domain and intercepts . The domain of is . The -intercept of the graph of is .  To find the -intercepts we solve: . Thus the -intercepts are .   Endpoint behavior and vertical asymptotes . Since is continuous at all points of , there are no vertical asymptotes.  For endpoint behavior, we compute . In particular, we see that there are no horizontal asymptotes of the graph of .   Critical points and intervals of monotonicity . We saw in that the critical points of are , that is a local maximum value, is a local minimum value, and is neither, that is increasing on the intervals and and decreasing on the interval . All of this information is summarized by the sign diagram of .   Sign diagram for derivative of f     Concavity and inflection points . We analyzed the concavity of in . The sign diagram we produced there gives a nice summary of the situation.   Sign diagram for second derivative of f    In particular, observe that we have inflection points at the inputs .   Important points . Our analysis is more or less complete. We should first, however, make a table of values (to the best of our abilities) for all important points on our graph. . Finally we put everything together into a single sketch.   Graph of function       Curve sketching: rational function   Provide a graph of that includes all the details listed in .    For the sake of space, our solution will be slightly more terse than in the previous example. We first observe that the domain of is and that is both the - and -intercept.  Since is continuous everywhere on , it has not vertical asymptotes. Using , we see easily that , and thus that is a horizontal asymptote of .  Next we compute . The sign diagrams for and are given below.    Sign diagram for derivative of f     Sign diagram for derivative of f     We see then that has a single critical point at , that is a local minimum value of , and that is decreasing on and increasing on . Furthermore, has inflection points at and , is concave down on and , and concave up on .  To finish our analysis we make a table of values of important points: . Putting everything together, we obtain a graph like the following.   Graph of function       Curve sketching: algebraic function   Provide a graph of that includes all the details listed in .    The domain of is , and is both the -intercept and the sole -intercept.  Since is continuous at , we have . Next we compute . Thus is a horizontal asymptote of .  The only candidate for a vertical asymptote of is . We compute . In particular, we see that is a vertical asymptote of the graph of .  Moving on, after some careful simplification, we see that for all . Note that both and are both undefined at . It follows that is the only critical point of . We now compute the sign diagram of .   Sign diagram for derivative of f    Not in particular that is decreasing on its entire domain.  To produce the sign diagram of we first solve . Since only lies in the domain of , we obtain the following sign diagram for .   Sign diagram for second derivative of f    Putting it all together, we get a graph like the following.   Graph of f    Observe how easy it would be to overlook the inflection point (the sole point plotted above in red) without our careful analysis.      Curve sketching from derivative  As the proceeding examples amply illustrate, the shape of the graph of a function is essentially determined by the behavior of its first and second derivatives and . In more detail, tells us where the function is increasing or decreasing, and where it has critical points and local maxima and minima; and tells us where the function is concave up or down. That information allows us to give a fairly accurate account of the shape of the graph of . The only thing it is missing are actual values of that allow us to pin our curve to the coordinate system at an actual plotted point. The next examples illustrate this.    Let be a continuous function with domain whose derivative is shown in .   Graph of , the derivative of .      Produce a sketch of that correctly reflects where is increasing or decreasing, where it has critical points and local extrema, and where it is concave up, concave down, or neither.    Let us make some organized deductions from the graph of .   Since is positive on the intervals and , the function is increasing there; similarly, since is negative on the function is decreasing there.    Since has a zero at , the function has a critical point at . Furthermore, since is positive for and negative for , has a local maximum value at .    Since is not defined at , we see that is not differentiable at , making this another critical point of . As above, since is negative to the left of and positive to the right, we see that has a local minimum at .    By definition, is concave up on all intervals where is increasing, and concave down on all intervals where is decreasing. Looking at the graph of , we see that it is decreasing on , and constant on ; in particular, is never increasing. We conclude that is concave down on . The fact that for all tells us that is linear on with constant slope .   Putting our observations about together, we produce the following sketch of the graph of .   A possible graph of   Graph of g     Note that our graph of is not the only one with a derivative satisfying the given conditions. Indeed, if is one solution to our problem, so is for any constant . Graphically, speaking this is just the fact that shifting our given graph of up or down does not change the shape of its graph, only its location in the -plane. In we provide two more possible graphs of functions whose derivatives would be equal to .     Two possible graphs of with derivative as in   Graph of g shifted up and down      "
+},
+{
+  "id": "s_curve_sketch_I-2",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#s_curve_sketch_I-2",
+  "type": "Objectives",
+  "number": "2.6",
+  "title": "",
+  "body": "   Bring all our calculus tools to bear on the analysis of a real-valued function . In more detail: determine the domain, the -intercept and any -intercepts; compute the limit of the function at endpoints of the domain and determine whether there are horizontal asymptotes; determine whether there are vertical asymptotes; find and classify all critical points of ; determine the intervals of monotonicity; determine intervals of constant concavity; identify any inflection points.    Express the results of our analysis of a function's behavior in the form of a detailed sketch.    "
+},
+{
+  "id": "proc_curve_sketching",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#proc_curve_sketching",
+  "type": "Procedure",
+  "number": "2.6.1",
+  "title": "Curve sketching.",
+  "body": " Curve sketching   When asked to give an accurate sketch of the graph of a function , we seek to produce a sketch that accurately reflects the following properties:   the domain of ;     - and -intercepts of ;    horizontal asymptotes, and more generally, the endpoint behavior of ( , limits of as approaches endpoints of );    vertical asymptotes;    critical points of , classified as points where attains a local maximum value, a local minimum value, or neither;    intervals of monotonicity of ( , intervals where is either increasing or decreasing);    intervals of constant concavity of ;    inflection points of .      "
+},
+{
+  "id": "eg_curve_poly",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#eg_curve_poly",
+  "type": "Example",
+  "number": "2.6.2",
+  "title": "Curve sketch: polynomial.",
+  "body": " Curve sketch: polynomial   Provide a graph of that includes all the details listed in .     Domain and intercepts . The domain of is . The -intercept of the graph of is .  To find the -intercepts we solve: . Thus the -intercepts are .   Endpoint behavior and vertical asymptotes . Since is continuous at all points of , there are no vertical asymptotes.  For endpoint behavior, we compute . In particular, we see that there are no horizontal asymptotes of the graph of .   Critical points and intervals of monotonicity . We saw in that the critical points of are , that is a local maximum value, is a local minimum value, and is neither, that is increasing on the intervals and and decreasing on the interval . All of this information is summarized by the sign diagram of .   Sign diagram for derivative of f     Concavity and inflection points . We analyzed the concavity of in . The sign diagram we produced there gives a nice summary of the situation.   Sign diagram for second derivative of f    In particular, observe that we have inflection points at the inputs .   Important points . Our analysis is more or less complete. We should first, however, make a table of values (to the best of our abilities) for all important points on our graph. . Finally we put everything together into a single sketch.   Graph of function     "
+},
+{
+  "id": "eg_curve_rational",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#eg_curve_rational",
+  "type": "Example",
+  "number": "2.6.3",
+  "title": "Curve sketching: rational function.",
+  "body": " Curve sketching: rational function   Provide a graph of that includes all the details listed in .    For the sake of space, our solution will be slightly more terse than in the previous example. We first observe that the domain of is and that is both the - and -intercept.  Since is continuous everywhere on , it has not vertical asymptotes. Using , we see easily that , and thus that is a horizontal asymptote of .  Next we compute . The sign diagrams for and are given below.    Sign diagram for derivative of f     Sign diagram for derivative of f     We see then that has a single critical point at , that is a local minimum value of , and that is decreasing on and increasing on . Furthermore, has inflection points at and , is concave down on and , and concave up on .  To finish our analysis we make a table of values of important points: . Putting everything together, we obtain a graph like the following.   Graph of function     "
+},
+{
+  "id": "eg_curve_radical",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#eg_curve_radical",
+  "type": "Example",
+  "number": "2.6.4",
+  "title": "Curve sketching: algebraic function.",
+  "body": " Curve sketching: algebraic function   Provide a graph of that includes all the details listed in .    The domain of is , and is both the -intercept and the sole -intercept.  Since is continuous at , we have . Next we compute . Thus is a horizontal asymptote of .  The only candidate for a vertical asymptote of is . We compute . In particular, we see that is a vertical asymptote of the graph of .  Moving on, after some careful simplification, we see that for all . Note that both and are both undefined at . It follows that is the only critical point of . We now compute the sign diagram of .   Sign diagram for derivative of f    Not in particular that is decreasing on its entire domain.  To produce the sign diagram of we first solve . Since only lies in the domain of , we obtain the following sign diagram for .   Sign diagram for second derivative of f    Putting it all together, we get a graph like the following.   Graph of f    Observe how easy it would be to overlook the inflection point (the sole point plotted above in red) without our careful analysis.   "
+},
+{
+  "id": "eg_g_from_gprime",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#eg_g_from_gprime",
+  "type": "Example",
+  "number": "2.6.5",
+  "title": "",
+  "body": "  Let be a continuous function with domain whose derivative is shown in .   Graph of , the derivative of .      Produce a sketch of that correctly reflects where is increasing or decreasing, where it has critical points and local extrema, and where it is concave up, concave down, or neither.    Let us make some organized deductions from the graph of .   Since is positive on the intervals and , the function is increasing there; similarly, since is negative on the function is decreasing there.    Since has a zero at , the function has a critical point at . Furthermore, since is positive for and negative for , has a local maximum value at .    Since is not defined at , we see that is not differentiable at , making this another critical point of . As above, since is negative to the left of and positive to the right, we see that has a local minimum at .    By definition, is concave up on all intervals where is increasing, and concave down on all intervals where is decreasing. Looking at the graph of , we see that it is decreasing on , and constant on ; in particular, is never increasing. We conclude that is concave down on . The fact that for all tells us that is linear on with constant slope .   Putting our observations about together, we produce the following sketch of the graph of .   A possible graph of   Graph of g     Note that our graph of is not the only one with a derivative satisfying the given conditions. Indeed, if is one solution to our problem, so is for any constant . Graphically, speaking this is just the fact that shifting our given graph of up or down does not change the shape of its graph, only its location in the -plane. In we provide two more possible graphs of functions whose derivatives would be equal to .   "
+},
+{
+  "id": "fig_g_from_gprime_graph2",
+  "level": "2",
+  "url": "s_curve_sketch_I.html#fig_g_from_gprime_graph2",
+  "type": "Figure",
+  "number": "2.6.8",
+  "title": "",
+  "body": " Two possible graphs of with derivative as in   Graph of g shifted up and down    "
+},
+{
+  "id": "s_applied_opt_I",
+  "level": "1",
+  "url": "s_applied_opt_I.html",
+  "type": "Section",
+  "number": "2.7",
+  "title": "Applied optimization",
+  "body": " Applied optimization     Model real world questions as an optimization problem about a function .    Use calculus techniques to fully analyze a modeled optimization problem and provide an answer in the form of a complete sentence.     In this section we apply our optimization techniques to real-world problems. Optimization problems occur in real life when we have a quantity that is given as a function as some other quantity , and whose value we wish to either maximize or minimize (or just optimize for short). As with the related rates problems we discussed in , the most challenging aspect of these applied optimization problems it to take the given scenario, described in plain English, and modeling it with mathematical functions that we can run through our optimization techniques. Let's begin with an example and then try and describe the general steps to solving one of these problems with a procedure.   Box of maximum volume   A square piece of cardboard of dimension meters is made into a box by cutting squares of equal dimension out of each corner and folding up the sides. (See .) Find the dimension of the cutout squares that maximizes the volume of the resulting box.   A box from a square   A square to a box       More detailed square-to-box diagram   More detailed square-to-box diagram    Let be the dimension of the cutout squares. The resulting box would have height , and width and length both equal to . Its volume would thus be . Since the cutout square dimension can range from to , we see that we wish to find the minimal value of on the interval . We have reduced the question to an extreme value theorem problem!  Following , we compute . From this factored form we see easily that the critical points of are and . Now evaluate at the endpoints of and the critical points: . We conclude that choosing the dimension of the cutout square to be meters results in a box of largest possible volume.     Applied optimization   The following steps are useful for modeling and solving a word problem involving optimization.   Model the problem     Make a detailed, labeled diagram summarizing the situation described.    Clearly define and name all important quantities in the problem.    Write down any important equations or formulas involving the quantities at play.    Identify the quantity that is to be optimized.   Look for language suggesting maximum or minimum values: , largest , most , greatest , smallest , least , .          Solve optimization problem     Express the quantity we wish to optimize as a function of exactly one variable.   If the quantity appears to be given as a function of more than one independent variable, look for a constraint equation that allows us to reduce to exactly one independent variable.    Make explicit what the domain of this function is, using the context of the problem.       Translate the given word problem as one of our types of optimization problems ( , EVT, find\/classify critical points, curve sketching, ) for the function .    Use an appropriate procedure ( , EVT procedure, find\/classify critical points, curve sketching, ) to solve the given optimization problem.   The domain of plays an important role in this step. In particular, pay attention to whether or not is a closed finite interval.          Summarize     Communicate the answer you derived in Step 2 in a plain English sentence that makes use of the language\/context of the stated problem.    Make sure that you do indeed answer the problem posed and include units details if applicable.           Minimal fence perimeter   Farmer Dudley is building a rectangular pen for his iguanas. He will use the 50 meter long side of his barn as one side of the pen, and will construct fencing for the remaining three sides of the pen. The pen must have a total area of 200 m . What is the minimum length of fencing Dudley must build to create an iguana pen matching these specifications.     Dudley's iguana pen   Dudley's iguana pen    Let and be the dimensions of the pen, where is the length of the barn that Dudley makes use of. Since the area of the pen must be 200 m , we see that and must satisfy . (This is often called a constraint equation.) The quantity that Dudley wishes to minimize is the length of fence he must build, which is . Our constraint equation implies that , and hence that . Lastly, the constraint equation implies that cannot be equal to zero; and since Dudley is using the barn side as one edge of his pen, we must have . Thus, we wish to find the minimal value of on the domain .  We first find the critical points of on this domain, since they are potential points where attains a local minimum value. We solve . Thus the only critical point of lying in is . The question now, is whether is the absolute minimum value of on . Note that we cannot apply to answer this question, since our domain is not a finite closed interval! Instead we look at the sign diagram of .   Sign diagram for derivative of f    From this sign diagram we conclude that is decreasing on the interval and increasing on the interval . It follows that must be the absolute minimum value of on , since for any other , we have . We conclude that minimal length of fencing Dudley can build to make his pen is meters.  We conclude with a graph of , the simple shape of which makes more tangible our logic above in arguing that attains its absolute minimum value at .   Graph of f      As we saw in the last example it is often the case that the domain of the function we wish to optimize is not of the simple form , where applies. In , we were optimizing a function on the interval , and had to rely on our wits a bit to convince ourselves that we have found an absolute extreme value. The following generalization of the extreme value theorem gives a more systematic procedure for finding absolute extreme values in such situations.   Generalized extreme value theorem   Let be an interval of any sort ( , can be open, closed, or neither, and can be finite or infinite), and let and be the (possibly infinite) left and right endpoints of . Assume is continuous on . To investigate whether attains a maximum or minimum value on , proceed as follows.   Identify candidate inputs  The candidate inputs where potentially attains a local maximum or minimum value consist of the (i) any finite endpoints of that are elements of , and (ii) any critical points of lying in .    Evaluate  Evaluate at all candidates you found in Step 1. Let be the minimum of these values, and let be the maximum of these values.    Evaluate endpoint limits  Evaluate the two endpoint limits and . (In the case where the given endpoint is infinite, the one-sided limit is understood simply as the corresponding limit at infinity.)    Compare , , and endpoint limits  Assume that each limit in Step 3 either exists or is infinite.   If neither of the endpoint limits from Step 3 is less than or equal to , then is the absolute minimum value of on . Otherwise, there is no absolute minimum value.    If neither of the endpoint limits from Step 3 is greater than or equal to , then is the absolute maximum value of on . Otherwise, there is no absolute maximum value.           Minimal fence perimeter (reprise)   Let's use to complete the last steps of our argument in . We were trying to find the absolute minimum value of on the half-open interval , and had determined that was the sole critical point of . instructs us to evaluate at and , and compute the limit at : . We conclude that is the absolute minimum value of on (and that has no absolute maximum value).     Closest point on parabola   Find the on the parabola whose distance to is the smallest possible. The distance between two points and in is defined as .     Distance between and points on parabola   Diagram of point P and parabola     The distance from to an arbitrary point on is given by . Since the -coordinate of can be any real number, we wish to find the minimum value of on . We follow .  Since is differentiable everywhere, its critical points are solutions to . We solve: , where the last step follows from the fact that a quotient is equal to zero precisely when its numerator is equal to zero.  Let . In general it is not so easy to find roots of a cubic polynomial. However, recall the fact that if has an integer root, it must be a divisor of . Trying a few divisors ( ), we easily see that , and hence that is a factor of , Using polynomial long division, we see that Furthermore, using the quadratic formula, we see that the has no real roots. Thus the root of (and only critical point of ) is .  According to , to investigate extreme values of on we should evaluate at and compute the limits of at : , where the limit at infinity computations follow from the fact that as .  We conclude that is the absolute minimum value of , and thus that is the point on closest to .     Snowy campus walk   Dudley stands at the southeast corner of a 1 km square field on campus that is currently covered in snow. He is hurrying to get to his calculus course taking place in the mathematics building at the northwest corner of the field. Dudley plans on first walking (at constant speed) along some portion of the ploughed east-west path that runs along the southern border of the field, and then cutting across the snowy field to head directly toward the mathematics building (at constant speed). Because of the snowy conditions, Dudley can move twice as fast on the ploughed path than he can when walking across the field. If Dudley wants to get to the mathematics building as quickly as possible, how far along the ploughed path should he walk before cutting across the field?     Dudley's snowy walk   Dudley's snowy walk    Let be the distance Dudley walks along the east-west ploughed path, in which he walks a distance of through the snowy field. Let be the constant speed at which Dudley can walk through the snowy field; it follows that he moves at maximum speed along the ploughed path. Using the (distance)=(rate) (time) formula for objects traveling at constant speed, we see that the total time it takes for Dudley to get to the math building taking such a path is . We wish to find the minimum value of on the interval . We follow . Since is differentiable everywhere, its critical points are the solutions to . We solve (treating as a constant): . Thus the only critical point of in is . After evaluating at the critical point and the endpoints and doing some careful algebra, we see that . Although not totally obvious, you can show by hand that from whence it follows that is the minimal value of on . Thus Dudley should travel a distance of km along the ploughed path before heading across the snowy field. Godspeed, Dudley!     Optimizing revenue   The starting price of a certain model of television is $450. At this price point there are 1000 weekly sales of the television. A marketing team discovers that for each discount of $10 applied to the TV price, the number of weekly sales increases by 100 per week. How should the company price the television in order to maximize weekly revenue?    Let be the number of ten-dollar discounts applied to the starting price. According to our marketers, the number of weekly sales if applying ten-dollar discounts to the price is . Thus as a function of , our weekly revenue is . We wish to maximize the function for . (We have as we do not want the price of the television to be negative!)  We apply . We first compute . It follows that the only critical point of in is . Now evaluate at the endpoints and the critical point: Thus revenue is maximized when offering ten-dollar discounts to the price of the televion. In other words, the television should be offered at a price of dollars.    "
+},
+{
+  "id": "s_applied_opt_I-2",
+  "level": "2",
+  "url": "s_applied_opt_I.html#s_applied_opt_I-2",
+  "type": "Objectives",
+  "number": "2.7",
+  "title": "",
+  "body": "   Model real world questions as an optimization problem about a function .    Use calculus techniques to fully analyze a modeled optimization problem and provide an answer in the form of a complete sentence.    "
+},
+{
+  "id": "eg_square_to_box",
+  "level": "2",
+  "url": "s_applied_opt_I.html#eg_square_to_box",
+  "type": "Example",
+  "number": "2.7.1",
+  "title": "Box of maximum volume.",
+  "body": " Box of maximum volume   A square piece of cardboard of dimension meters is made into a box by cutting squares of equal dimension out of each corner and folding up the sides. (See .) Find the dimension of the cutout squares that maximizes the volume of the resulting box.   A box from a square   A square to a box       More detailed square-to-box diagram   More detailed square-to-box diagram    Let be the dimension of the cutout squares. The resulting box would have height , and width and length both equal to . Its volume would thus be . Since the cutout square dimension can range from to , we see that we wish to find the minimal value of on the interval . We have reduced the question to an extreme value theorem problem!  Following , we compute . From this factored form we see easily that the critical points of are and . Now evaluate at the endpoints of and the critical points: . We conclude that choosing the dimension of the cutout square to be meters results in a box of largest possible volume.   "
+},
+{
+  "id": "proc_applied_opt",
+  "level": "2",
+  "url": "s_applied_opt_I.html#proc_applied_opt",
+  "type": "Procedure",
+  "number": "2.7.4",
+  "title": "Applied optimization.",
+  "body": " Applied optimization   The following steps are useful for modeling and solving a word problem involving optimization.   Model the problem     Make a detailed, labeled diagram summarizing the situation described.    Clearly define and name all important quantities in the problem.    Write down any important equations or formulas involving the quantities at play.    Identify the quantity that is to be optimized.   Look for language suggesting maximum or minimum values: , largest , most , greatest , smallest , least , .          Solve optimization problem     Express the quantity we wish to optimize as a function of exactly one variable.   If the quantity appears to be given as a function of more than one independent variable, look for a constraint equation that allows us to reduce to exactly one independent variable.    Make explicit what the domain of this function is, using the context of the problem.       Translate the given word problem as one of our types of optimization problems ( , EVT, find\/classify critical points, curve sketching, ) for the function .    Use an appropriate procedure ( , EVT procedure, find\/classify critical points, curve sketching, ) to solve the given optimization problem.   The domain of plays an important role in this step. In particular, pay attention to whether or not is a closed finite interval.          Summarize     Communicate the answer you derived in Step 2 in a plain English sentence that makes use of the language\/context of the stated problem.    Make sure that you do indeed answer the problem posed and include units details if applicable.         "
+},
+{
+  "id": "eg_fence_perimeter",
+  "level": "2",
+  "url": "s_applied_opt_I.html#eg_fence_perimeter",
+  "type": "Example",
+  "number": "2.7.5",
+  "title": "Minimal fence perimeter.",
+  "body": " Minimal fence perimeter   Farmer Dudley is building a rectangular pen for his iguanas. He will use the 50 meter long side of his barn as one side of the pen, and will construct fencing for the remaining three sides of the pen. The pen must have a total area of 200 m . What is the minimum length of fencing Dudley must build to create an iguana pen matching these specifications.     Dudley's iguana pen   Dudley's iguana pen    Let and be the dimensions of the pen, where is the length of the barn that Dudley makes use of. Since the area of the pen must be 200 m , we see that and must satisfy . (This is often called a constraint equation.) The quantity that Dudley wishes to minimize is the length of fence he must build, which is . Our constraint equation implies that , and hence that . Lastly, the constraint equation implies that cannot be equal to zero; and since Dudley is using the barn side as one edge of his pen, we must have . Thus, we wish to find the minimal value of on the domain .  We first find the critical points of on this domain, since they are potential points where attains a local minimum value. We solve . Thus the only critical point of lying in is . The question now, is whether is the absolute minimum value of on . Note that we cannot apply to answer this question, since our domain is not a finite closed interval! Instead we look at the sign diagram of .   Sign diagram for derivative of f    From this sign diagram we conclude that is decreasing on the interval and increasing on the interval . It follows that must be the absolute minimum value of on , since for any other , we have . We conclude that minimal length of fencing Dudley can build to make his pen is meters.  We conclude with a graph of , the simple shape of which makes more tangible our logic above in arguing that attains its absolute minimum value at .   Graph of f     "
+},
+{
+  "id": "proc_gen_EVT",
+  "level": "2",
+  "url": "s_applied_opt_I.html#proc_gen_EVT",
+  "type": "Procedure",
+  "number": "2.7.7",
+  "title": "Generalized extreme value theorem.",
+  "body": " Generalized extreme value theorem   Let be an interval of any sort ( , can be open, closed, or neither, and can be finite or infinite), and let and be the (possibly infinite) left and right endpoints of . Assume is continuous on . To investigate whether attains a maximum or minimum value on , proceed as follows.   Identify candidate inputs  The candidate inputs where potentially attains a local maximum or minimum value consist of the (i) any finite endpoints of that are elements of , and (ii) any critical points of lying in .    Evaluate  Evaluate at all candidates you found in Step 1. Let be the minimum of these values, and let be the maximum of these values.    Evaluate endpoint limits  Evaluate the two endpoint limits and . (In the case where the given endpoint is infinite, the one-sided limit is understood simply as the corresponding limit at infinity.)    Compare , , and endpoint limits  Assume that each limit in Step 3 either exists or is infinite.   If neither of the endpoint limits from Step 3 is less than or equal to , then is the absolute minimum value of on . Otherwise, there is no absolute minimum value.    If neither of the endpoint limits from Step 3 is greater than or equal to , then is the absolute maximum value of on . Otherwise, there is no absolute maximum value.         "
+},
+{
+  "id": "eg_fence_perimeter_2",
+  "level": "2",
+  "url": "s_applied_opt_I.html#eg_fence_perimeter_2",
+  "type": "Example",
+  "number": "2.7.8",
+  "title": "Minimal fence perimeter (reprise).",
+  "body": " Minimal fence perimeter (reprise)   Let's use to complete the last steps of our argument in . We were trying to find the absolute minimum value of on the half-open interval , and had determined that was the sole critical point of . instructs us to evaluate at and , and compute the limit at : . We conclude that is the absolute minimum value of on (and that has no absolute maximum value).   "
+},
+{
+  "id": "eg_point_parab",
+  "level": "2",
+  "url": "s_applied_opt_I.html#eg_point_parab",
+  "type": "Example",
+  "number": "2.7.9",
+  "title": "Closest point on parabola.",
+  "body": " Closest point on parabola   Find the on the parabola whose distance to is the smallest possible. The distance between two points and in is defined as .     Distance between and points on parabola   Diagram of point P and parabola     The distance from to an arbitrary point on is given by . Since the -coordinate of can be any real number, we wish to find the minimum value of on . We follow .  Since is differentiable everywhere, its critical points are solutions to . We solve: , where the last step follows from the fact that a quotient is equal to zero precisely when its numerator is equal to zero.  Let . In general it is not so easy to find roots of a cubic polynomial. However, recall the fact that if has an integer root, it must be a divisor of . Trying a few divisors ( ), we easily see that , and hence that is a factor of , Using polynomial long division, we see that Furthermore, using the quadratic formula, we see that the has no real roots. Thus the root of (and only critical point of ) is .  According to , to investigate extreme values of on we should evaluate at and compute the limits of at : , where the limit at infinity computations follow from the fact that as .  We conclude that is the absolute minimum value of , and thus that is the point on closest to .   "
+},
+{
+  "id": "eg_dudley_walk",
+  "level": "2",
+  "url": "s_applied_opt_I.html#eg_dudley_walk",
+  "type": "Example",
+  "number": "2.7.11",
+  "title": "Snowy campus walk.",
+  "body": " Snowy campus walk   Dudley stands at the southeast corner of a 1 km square field on campus that is currently covered in snow. He is hurrying to get to his calculus course taking place in the mathematics building at the northwest corner of the field. Dudley plans on first walking (at constant speed) along some portion of the ploughed east-west path that runs along the southern border of the field, and then cutting across the snowy field to head directly toward the mathematics building (at constant speed). Because of the snowy conditions, Dudley can move twice as fast on the ploughed path than he can when walking across the field. If Dudley wants to get to the mathematics building as quickly as possible, how far along the ploughed path should he walk before cutting across the field?     Dudley's snowy walk   Dudley's snowy walk    Let be the distance Dudley walks along the east-west ploughed path, in which he walks a distance of through the snowy field. Let be the constant speed at which Dudley can walk through the snowy field; it follows that he moves at maximum speed along the ploughed path. Using the (distance)=(rate) (time) formula for objects traveling at constant speed, we see that the total time it takes for Dudley to get to the math building taking such a path is . We wish to find the minimum value of on the interval . We follow . Since is differentiable everywhere, its critical points are the solutions to . We solve (treating as a constant): . Thus the only critical point of in is . After evaluating at the critical point and the endpoints and doing some careful algebra, we see that . Although not totally obvious, you can show by hand that from whence it follows that is the minimal value of on . Thus Dudley should travel a distance of km along the ploughed path before heading across the snowy field. Godspeed, Dudley!   "
+},
+{
+  "id": "eg_TV_revenue",
+  "level": "2",
+  "url": "s_applied_opt_I.html#eg_TV_revenue",
+  "type": "Example",
+  "number": "2.7.13",
+  "title": "Optimizing revenue.",
+  "body": " Optimizing revenue   The starting price of a certain model of television is $450. At this price point there are 1000 weekly sales of the television. A marketing team discovers that for each discount of $10 applied to the TV price, the number of weekly sales increases by 100 per week. How should the company price the television in order to maximize weekly revenue?    Let be the number of ten-dollar discounts applied to the starting price. According to our marketers, the number of weekly sales if applying ten-dollar discounts to the price is . Thus as a function of , our weekly revenue is . We wish to maximize the function for . (We have as we do not want the price of the television to be negative!)  We apply . We first compute . It follows that the only critical point of in is . Now evaluate at the endpoints and the critical point: Thus revenue is maximized when offering ten-dollar discounts to the price of the televion. In other words, the television should be offered at a price of dollars.   "
 },
 {
   "id": "appendix-notation",

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Extreme value theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.7';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.991c135ccf182bf5.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c2757fc695bc848c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch_218-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_mean_value.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Math 218-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_extreme.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Extreme value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_mean_value.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_linearize.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_first_der_test.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Monotonicity and first derivative test</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_concavity.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Concavity and inflection points</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_curve_sketch_I.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Curve sketching</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_from_derivative" class="internal"><span class="title">Curve sketching from derivative</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_applied_opt_I.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Applied optimization</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_extreme"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme value theorem</span>
+</h2>
+<article class="objectives goal-like" id="s_extreme-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_extreme-2-1">
+<li id="s_extreme-2-1-1">
+<div class="para" id="s_extreme-2-1-1-1">Use the derivative to investigate optimization questions.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.1.1"><a href="#s_extreme-2-1-1" title="Copy heading and permalink for Objective 2.1.1" aria-label="Copy heading and permalink for Objective 2.1.1">🔗</a></div>
+</li>
+<li id="s_extreme-2-1-2">
+<div class="para" id="s_extreme-2-1-2-1">Understand the extreme value theorem in the context of optimization.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.1.2"><a href="#s_extreme-2-1-2" title="Copy heading and permalink for Objective 2.1.2" aria-label="Copy heading and permalink for Objective 2.1.2">🔗</a></div>
+</li>
+<li id="s_extreme-2-1-3">
+<div class="para" id="s_extreme-2-1-3-1">Define absolute and local maximum and minimum values of a function on a given set <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.1.3"><a href="#s_extreme-2-1-3" title="Copy heading and permalink for Objective 2.1.3" aria-label="Copy heading and permalink for Objective 2.1.3">🔗</a></div>
+</li>
+<li id="s_extreme-2-1-4">
+<div class="para" id="s_extreme-2-1-4-1">Identify extreme values of a function graphically.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.1.4"><a href="#s_extreme-2-1-4" title="Copy heading and permalink for Objective 2.1.4" aria-label="Copy heading and permalink for Objective 2.1.4">🔗</a></div>
+</li>
+<li id="s_extreme-2-1-5">
+<div class="para" id="s_extreme-2-1-5-1">Introduce the notion of critical points as potential inputs where a function attains a local (or absolute) maximum or minimum.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.1.5"><a href="#s_extreme-2-1-5" title="Copy heading and permalink for Objective 2.1.5" aria-label="Copy heading and permalink for Objective 2.1.5">🔗</a></div>
+</li>
+<li id="s_extreme-2-1-6">
+<div class="para" id="s_extreme-2-1-6-1">Develop a procedure that determines the absolute maximum and minimum values of a continuous function on a closed finite interval.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-2-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.1.6"><a href="#s_extreme-2-1-6" title="Copy heading and permalink for Objective 2.1.6" aria-label="Copy heading and permalink for Objective 2.1.6">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 2.1"><a href="#s_extreme-2" title="Copy heading and permalink for Objectives 2.1" aria-label="Copy heading and permalink for Objectives 2.1">🔗</a></div></article><div class="para" id="s_extreme-3">In our remaining lessons, we will frequently take up what are called <em class="emphasis">optimization</em> questions. Roughly speaking, these are questions related to the maximum and minimum values of a function on a given set. Optimization problems are naturally important in modeling situations: when modeling a quantity <span class="process-math">\(q\)</span> as a function <span class="process-math">\(q=f(s)\)</span> of some other quantity <span class="process-math">\(s\text{,}\)</span> we naturally are interested in knowing whether it attains a maximal or minimal value, what that maximal or minimal value is (if it exists), and which inputs <span class="process-math">\(s\)</span> produces this value. The <a href="s_extreme.html#th_extreme" class="xref" data-knowl="./knowl/xref/th_extreme.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.1: Extreme value theorem">extreme value theorem</a> represents a wonderfully straightforward answer to this first flavor of optimization problem: it tells us that if <span class="process-math">\(f\)</span> is continuous on the closed interval <span class="process-math">\([a,b]\text{,}\)</span> then there is guaranteed to be both a maximal and minimal value. A shortcoming of this theorem is that it gives no indication of what exactly these maximum/minimum values are (or how to find them)! We amend this situation in <a href="s_extreme.html#proc_extreme" class="xref" data-knowl="./knowl/xref/proc_extreme.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.1.13: Extreme value theorem">Procedure 2.1.13</a>.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_extreme-4">The statement of the extreme value theorem involves the notion of an absolute maximum/minimum value of a function <span class="process-math">\(f\)</span> on a given set <span class="process-math">\(D\text{.}\)</span> Imagining this is intuitively clear to the reader, we launch straight into a discussion of the extreme value theorem. Afterward, we give precise definitions both for absolute and <em class="emphasis">local</em> maximum and minimum values. If you would like to see those definitions first, see <a href="s_extreme.html#d_extrema" class="xref" data-knowl="./knowl/xref/d_extrema.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.6: Extreme values">Definition 2.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_extreme"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme value theorem.</span>
+</h3>
+<div class="para" id="th_extreme-2-1">If <span class="process-math">\(f\)</span> is continuous on the closed interval <span class="process-math">\(I=[a,b]\text{,}\)</span> then there are inputs <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> for which <span class="process-math">\(f(c)\)</span> is the absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span> and <span class="process-math">\(f(d)\)</span> is the absolute minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> In plain English: a continuous function always attains a maximum and minimum value over a closed interval <span class="process-math">\([a,b]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_extreme-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.1.1: Extreme value theorem"><a href="#th_extreme" title="Copy heading and permalink for Theorem 2.1.1: Extreme value theorem" aria-label="Copy heading and permalink for Theorem 2.1.1: Extreme value theorem">🔗</a></div></article><details id="th_extreme-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_extreme-3-1">The proof of this intuitive statement is just beyond our reach in terms of our current conceptual framework: we are missing only the notion of least upper bounds. In later math courses, like real analysis and topology, you develop an exceedingly important concept called <em class="emphasis">compactness</em> that allows you to eventually give a beautiful one-line proof of the extreme value theorem.<div class="autopermalink" data-description="Paragraph"><a href="#th_extreme-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.1.1.1"><a href="#th_extreme-3" title="Copy heading and permalink for Proof 2.1.1.1" aria-label="Copy heading and permalink for Proof 2.1.1.1">🔗</a></div></article></details><div class="para" id="s_extreme-6">Although we do not give an actual proof the extreme value theorem, you can catch a glimmer of its truth by treating it graphically. Try the following: pick an interval <span class="process-math">\([a,b]\)</span> in the <span class="process-math">\(xy\)</span>-plane; pick endpoint values <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\)</span> for an arbitrary function <span class="process-math">\(f\)</span> and graph the corresponding points; now trace out the rest of the graph of your arbitrary <span class="process-math">\(f\text{,}\)</span> making it as wildly behaved as you like, but with the restriction that you pencil never leaves the paper (<span class="process-math">\(f\)</span> is continuous) and the start and end values are <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\text{.}\)</span> You will see that now matter what function you end up sketching, it will always have reach a well-defined highest point (corresponding to the maximum value) and a well-defined lowest point (corresponding to the minimum value). The restriction that we cannot lift our pencil prevents our graph from going arbitrarily high (or low), or from getting arbitrarily close to a highest point but not actually hitting it.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_extreme-7">Perhaps a more illustrative means of understanding the role of continuity in the extreme value theorem is to consider examples where this condition is removed.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_extreme_discontinuous"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme values: discontinuous.</span>
+</h3>
+<div class="para" id="eg_extreme_discontinuous-2-1">The functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> graphed below illustrate how crucial continuity is to the extreme value theorem.<div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_discontinuous-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_extreme_disc"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
+<div class="sbspanel sbspanel--bottom bottom" style=""><figure class="figure figure-like" id="fig_extreme_asym"><img src="generated/sageplot/im_extreme_asym.svg" role="img" class="contained" alt="Graph of f has a vertical asymptote"><figcaption><span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f\)</span><div class="autopermalink" data-description="Figure 2.1.3.(a)"><a href="#fig_extreme_asym" title="Copy heading and permalink for Figure 2.1.3.(a)" aria-label="Copy heading and permalink for Figure 2.1.3.(a)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--bottom bottom" style=""><figure class="figure figure-like" id="fig_extreme_remove"><img src="generated/sageplot/im_extreme_remove.svg" role="img" class="contained" alt="Graph of g has a removable discontinuity"><figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(g\)</span><div class="autopermalink" data-description="Figure 2.1.3.(b)"><a href="#fig_extreme_remove" title="Copy heading and permalink for Figure 2.1.3.(b)" aria-label="Copy heading and permalink for Figure 2.1.3.(b)">🔗</a></div></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Extreme values and discontinuous functions<div class="autopermalink" data-description="Figure 2.1.3"><a href="#fig_extreme_disc" title="Copy heading and permalink for Figure 2.1.3" aria-label="Copy heading and permalink for Figure 2.1.3">🔗</a></div></figcaption></figure> <div class="para" id="eg_extreme_discontinuous-2-3">The function <span class="process-math">\(f\)</span> has infinite one-sided limits at <span class="process-math">\(2\text{,}\)</span> and as a consequence has neither a maximum nor a minimum value on the closed interval <span class="process-math">\([1,3]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_discontinuous-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="eg_extreme_discontinuous-2-4">The function <span class="process-math">\(g\)</span> has values that get arbitrarily close to but not equal to <span class="process-math">\(3\text{,}\)</span> thanks to the removable discontinuity. As a result, <span class="process-math">\(g\)</span> has no maximum value on the interval: we have <span class="process-math">\(g(x)&lt; 3\)</span> for all <span class="process-math">\(x\in [1,3]\text{,}\)</span> and for any value <span class="process-math">\(L\)</span> less than <span class="process-math">\(3\text{,}\)</span> there is an input <span class="process-math">\(c\in [1,3]\)</span> with <span class="process-math">\(g(c)&gt; L\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_discontinuous-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.1.2: Extreme values: discontinuous"><a href="#eg_extreme_discontinuous" title="Copy heading and permalink for Example 2.1.2: Extreme values: discontinuous" aria-label="Copy heading and permalink for Example 2.1.2: Extreme values: discontinuous">🔗</a></div></article><article class="example example-like" id="eg_extreme_open"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme values: open interval.</span>
+</h3>
+<div class="para" id="eg_extreme_open-2-1">As illustrated below, the function <span class="process-math">\(f(x)=x/(x^2-1)\)</span> has no absolute maximum or minimum value on the <em class="emphasis">open</em> interval <span class="process-math">\((-1, 1)\)</span> despite being continuous on this interval. This illustrates why the extreme value theorem insists that the finite interval in question must be <em class="emphasis">closed</em>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_open-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_extreme_open"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/sageplot/im_extreme_open.svg" role="img" class="contained" alt="Graph of the tangent function"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x)=x/(x^2-1)\)</span><div class="autopermalink" data-description="Figure 2.1.5"><a href="#fig_extreme_open" title="Copy heading and permalink for Figure 2.1.5" aria-label="Copy heading and permalink for Figure 2.1.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 2.1.4: Extreme values: open interval"><a href="#eg_extreme_open" title="Copy heading and permalink for Example 2.1.4: Extreme values: open interval" aria-label="Copy heading and permalink for Example 2.1.4: Extreme values: open interval">🔗</a></div></article><article class="definition definition-like" id="d_extrema"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme values.</span>
+</h3>
+<div class="para logical" id="d_extrema-2-1">
+<div class="para">Assume <span class="process-math">\(f\)</span> is defined on the set <span class="process-math">\(D\subseteq \mathbb{R}\text{,}\)</span> and let <span class="process-math">\(a\)</span> be an element of <span class="process-math">\(D\text{.}\)</span>
+</div>
+<ul class="disc" id="d_extrema-2-1-5">
+<li id="d_extrema-2-1-5-1">
+<div class="para" id="d_extrema-2-1-5-1-1">
+<span class="process-math">\(f(a)\)</span> is an absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if <span class="process-math">\(f(a)\geq f(x)\)</span> for all <span class="process-math">\(x\in D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_extrema-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_extrema-2-1-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="d_extrema-2-1-5-2">
+<div class="para" id="d_extrema-2-1-5-2-1">
+<span class="process-math">\(f(a)\)</span> is an absolute minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if <span class="process-math">\(f(a)\leq f(x)\)</span> for all <span class="process-math">\(x\in D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_extrema-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_extrema-2-1-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="d_extrema-2-1-5-3">
+<div class="para" id="d_extrema-2-1-5-3-1">
+<span class="process-math">\(f(a)\)</span> is a local maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if <span class="process-math">\(f(a)\geq f(x)\)</span> for all <span class="process-math">\(x\in D\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_extrema-2-1-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_extrema-2-1-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="d_extrema-2-1-5-4">
+<div class="para" id="d_extrema-2-1-5-4-1">
+<span class="process-math">\(f(a)\)</span> is a local minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if <span class="process-math">\(f(a)\leq f(x)\)</span> for all <span class="process-math">\(x\in D\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_extrema-2-1-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_extrema-2-1-5-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="d_extrema-2-1-5-5">
+<div class="para" id="d_extrema-2-1-5-5-1">
+<span class="process-math">\(f(a)\)</span> is an extreme value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if it is an absolute or local maximum or minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_extrema-2-1-5-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_extrema-2-1-5-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_extrema-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.1.6: Extreme values"><a href="#d_extrema" title="Copy heading and permalink for Definition 2.1.6: Extreme values" aria-label="Copy heading and permalink for Definition 2.1.6: Extreme values">🔗</a></div></article><article class="remark remark-like" id="rm_abs_local"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absolute max/min implies local max/min.</span>
+</h3>
+<div class="para" id="rm_abs_local-2">Assume <span class="process-math">\(f\)</span> is defined on an interval <span class="process-math">\(I\text{.}\)</span> Observe that as pure logical consequence of the definitions, if <span class="process-math">\(f(a)\)</span> is an absolute maximum or minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{,}\)</span> then it is also a local maximum or minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> Indeed, if <span class="process-math">\(f(a)\geq f(x)\)</span> (resp. <span class="process-math">\(f(a)\leq f(x)\)</span>) for <em class="emphasis">all</em> <span class="process-math">\(x\in I\text{,}\)</span> then the inequality certainly holds for all <span class="process-math">\(x\in I\)</span> <em class="emphasis">sufficiently close</em> to <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#rm_abs_local-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.1.7: Absolute max/min implies local max/min"><a href="#rm_abs_local" title="Copy heading and permalink for Remark 2.1.7: Absolute max/min implies local max/min" aria-label="Copy heading and permalink for Remark 2.1.7: Absolute max/min implies local max/min">🔗</a></div></article><article class="remark remark-like" id="s_extreme-12"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Local extreme values.</span>
+</h3>
+<div class="para" id="s_extreme-12-2">In <a href="s_extreme.html#d_extrema" class="xref" data-knowl="./knowl/xref/d_extrema.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.6: Extreme values">Definition 2.1.6</a> the phrase “sufficiently close to <span class="process-math">\(a\)</span>” is used as a convenient, but slightly less than rigorous shorthand. To be more precise in this definition we treat interior and endpoints of the set <span class="process-math">\(D\)</span> separately.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_extreme-12-3">Given an interior point <span class="process-math">\(a\in D\text{,}\)</span> we say that <span class="process-math">\(f(a)\)</span> is a local maximum (resp., minimum) value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if there is an open interval <span class="process-math">\(I=(c,d)\subseteq D\)</span> containing <span class="process-math">\(a\)</span> such that <span class="process-math">\(f(a)\)</span> is an absolute maximum (resp., minimum) value on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-12-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_extreme-12-4">Similarly, if <span class="process-math">\(a\)</span> is a left (resp., right) endpoint of <span class="process-math">\(D\text{,}\)</span> then <span class="process-math">\(f(a)\)</span> is a local maximum (resp., minimum) value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> if there is a half-open interval <span class="process-math">\(I=[a,c)\)</span> (resp., <span class="process-math">\(I=(c,a]\)</span>) contained in <span class="process-math">\(D\)</span> such that <span class="process-math">\(f(a)\)</span> is an absolute maximum (resp., minimum) value on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-12-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_extreme-12-5">In summary, for <span class="process-math">\(f(a)\)</span> to be a local maximum or minimum value on <span class="process-math">\(D\)</span> means simply that there is some interval (or half-interval in the endpoint case) <span class="process-math">\(I\)</span> contained in <span class="process-math">\(D\)</span> on which <span class="process-math">\(f(a)\)</span> is an absolute maximum or minimum value. Thus to identify graphically the local extreme values of a function <span class="process-math">\(f\text{,}\)</span> look for inputs <span class="process-math">\(a\)</span> such that when we restrict our gaze to the segment of the graph of <span class="process-math">\(f\)</span> lying over a small interval around <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(f(a)\)</span> is seen to be an absolute maximum or minimum value.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-12-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.1.8: Local extreme values"><a href="#s_extreme-12" title="Copy heading and permalink for Remark 2.1.8: Local extreme values" aria-label="Copy heading and permalink for Remark 2.1.8: Local extreme values">🔗</a></div></article><article class="example example-like" id="eg_local_extrema"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Local and absolute extreme values.</span>
+</h3>
+<div class="para logical" id="eg_local_extrema-2-1">
+<div class="para">A graph of the function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\(I=[-4,4]\)</span> is graphed below.</div>
+<ol class="decimal" id="eg_local_extrema-2-1-3">
+<li id="eg_local_extrema-2-1-3-1">
+<div class="para" id="eg_local_extrema-2-1-3-1-1">Identify all and any inputs <span class="process-math">\(a\)</span> where <span class="process-math">\(f(a)\)</span> has a local maximum or minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_local_extrema-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_local_extrema-2-1-3-2">
+<div class="para" id="eg_local_extrema-2-1-3-2-1">Decide whether <span class="process-math">\(f\)</span> has an absolute maximum value on <span class="process-math">\(I\text{,}\)</span> and whether <span class="process-math">\(f\)</span> has an absolute minimum value on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_local_extrema-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_local_extrema"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/sageplot/im_local_extrema.svg" role="img" class="contained" alt="Graph of function with various local extrema"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f\)</span><div class="autopermalink" data-description="Figure 2.1.10"><a href="#fig_local_extrema" title="Copy heading and permalink for Figure 2.1.10" aria-label="Copy heading and permalink for Figure 2.1.10">🔗</a></div></figcaption></figure><div class="solutions"><details id="eg_local_extrema-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_local_extrema-3-1">
+<ol class="decimal" id="eg_local_extrema-3-1-1">
+<li id="eg_local_extrema-3-1-1-1">
+<div class="para" id="eg_local_extrema-3-1-1-1-1">The function <span class="process-math">\(f\)</span> has a local maximum value at the left endpoint <span class="process-math">\(a=-4\text{:}\)</span> indeed, we have <span class="process-math">\(2=f(-4)\geq f(x)\)</span> for all <span class="process-math">\(x\in [-4,-3)\)</span> (thus for all <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(-4\)</span>). The value <span class="process-math">\(f(4)\)</span> at the right endpoint, somewhat surprisingly, is also a local max: for all <span class="process-math">\(x\in (3,4]\)</span> we have <span class="process-math">\(-2=f(4)\geq f(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="eg_local_extrema-3-1-1-1-2">Additionally, we see that <span class="process-math">\(-1=f(-1)\)</span> is a local minimum value of <span class="process-math">\(f\text{,}\)</span> since <span class="process-math">\(f(-1)\leq f(x)\)</span> for all <span class="process-math">\(x\in (-2,0)\text{.}\)</span> Finally, <span class="process-math">\(f(1)=3\)</span> is easily seen to be the absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\([-4,4]\text{.}\)</span> It follows from <a href="s_extreme.html#rm_abs_local" class="xref" data-knowl="./knowl/xref/rm_abs_local.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 2.1.7: Absolute max/min implies local max/min">Remark 2.1.7</a> that <span class="process-math">\(f(1)\)</span> is also a local minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-3-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_local_extrema-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_local_extrema-3-1-1-2">
+<div class="para logical" id="eg_local_extrema-3-1-1-2-1">
+<div class="para">We have already observed that <span class="process-math">\(3=f(1)\)</span> is the absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> We claim that there is no absolute minimum value. To see why, first note that <span class="process-math">\(f(x)&gt; -4\)</span> for all <span class="process-math">\(x\in I\text{.}\)</span> Thus, if <span class="process-math">\(L\)</span> were an absolute minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span> we would have <span class="process-math">\(L&gt; -4\text{.}\)</span> However, since <span class="process-math">\(\lim_{x\to 4^+}f(x)=-4\text{,}\)</span> for any <span class="process-math">\(L&gt; 4\text{,}\)</span> we can find an <span class="process-math">\(x\in I\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L&gt; f(x) &gt; -4\text{.}
+\end{equation*}
+</div>
+<div class="para">It follows that <span class="process-math">\(f\)</span> has no absolute minimum value on <span class="process-math">\(I\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_local_extrema-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_local_extrema-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.1.9.1"><a href="#eg_local_extrema-3" title="Copy heading and permalink for Solution 2.1.9.1" aria-label="Copy heading and permalink for Solution 2.1.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.1.9: Local and absolute extreme values"><a href="#eg_local_extrema" title="Copy heading and permalink for Example 2.1.9: Local and absolute extreme values" aria-label="Copy heading and permalink for Example 2.1.9: Local and absolute extreme values">🔗</a></div></article><article class="theorem theorem-like" id="th_crit_pt"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="creator">(Fermat)</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Critical points and extreme values.</span>
+</h3>
+<div class="para" id="th_crit_pt-3-1">Assume <span class="process-math">\(f\)</span> is defined on <span class="process-math">\(D\)</span> and that <span class="process-math">\(a\)</span> is an interior point of <span class="process-math">\(D\text{.}\)</span> If <span class="process-math">\(f(a)\)</span> is a local maximum or minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\text{,}\)</span> and if <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(a\text{,}\)</span> then <span class="process-math">\(f'(a)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_crit_pt-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.1.11: Critical points and extreme values"><a href="#th_crit_pt" title="Copy heading and permalink for Theorem 2.1.11: Critical points and extreme values" aria-label="Copy heading and permalink for Theorem 2.1.11: Critical points and extreme values">🔗</a></div></article><details id="th_crit_pt-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_crit_pt-4-1">We will show that if <span class="process-math">\(f(a)\)</span> is a local maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> and <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(a\text{,}\)</span> then <span class="process-math">\(f'(a)=0\text{.}\)</span> The argument for the case where <span class="process-math">\(f(a)\)</span> is a local minimum is exactly similar.<div class="autopermalink" data-description="Paragraph"><a href="#th_crit_pt-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="th_crit_pt-4-2">Firstly, since <span class="process-math">\(f(a)\)</span> is assumed to be a local maximum value, we can find an interval <span class="process-math">\((c,d)\subseteq D\)</span> containing <span class="process-math">\(a\)</span> such that <span class="process-math">\(f(a)\geq f(x)\)</span> for all <span class="process-math">\(x\in (c,d)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_crit_pt-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="th_crit_pt-4-3">
+<div class="para">Next, since <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(a\text{,}\)</span> the limit</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_limit_left_right.html">
+\begin{equation*}
+\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}
+\end{equation*}
+</div>
+<div class="para">exists, and we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_limit_left_right.html">
+\begin{equation*}
+f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}\text{.}
+\end{equation*}
+</div>
+<div class="para">Observe further that using <a href="s_limits_naive.html#th_limit_left_right" class="xref" data-knowl="./knowl/xref/th_limit_left_right.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.11.15: One-sided limits test">Theorem 1.11.15</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_limit_left_right.html">
+\begin{equation*}
+f'(a)=\lim\limits_{x\to a^-}\frac{f(x)-f(a)}{x-a} \text{ and } f'(a)=\lim\limits_{x\to a^+}\frac{f(x)-f(a)}{x-a}\text{.}
+\end{equation*}
+</div>
+<div class="para">Next, since <span class="process-math">\(f(x)\leq f(a)\)</span> for all <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\)</span> (more precisely, for all <span class="process-math">\(x\in (c,d)\)</span>), <span class="process-math">\(f(x)-f(a)\leq 0\)</span> for all <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span> It follows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_limit_left_right.html" id="th_crit_pt-4-3-14">
+\begin{align*}
+\frac{f(x)-f(a)}{x-a} \amp \geq 0 \ \text{ as } x\to a^- \amp (x&lt; a \implies x-a&lt; 0) \\
+\frac{f(x)-f(a)}{x-a} \amp \leq 0 \ \text{ as } x\to a^+ \amp (x&gt; a \implies x-a&gt; 0) \text{,}
+\end{align*}
+</div>
+<div class="para">and thus, taking limits, that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_limit_left_right.html" id="th_crit_pt-4-3-15">
+\begin{align*}
+f'(a)\amp =\lim\limits_{x\to a^-}\frac{f(x)-f(a)}{x-a}\geq 0 \\
+f'(a)\amp =\lim\limits_{x\to a^+}\frac{f(x)-f(a)}{x-a}\leq 0 \text{.}
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(0\leq f'(a)\leq 0\text{,}\)</span> we conclude that <span class="process-math">\(f'(a)=0\text{,}\)</span> as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_crit_pt-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.1.11.1"><a href="#th_crit_pt-4" title="Copy heading and permalink for Proof 2.1.11.1" aria-label="Copy heading and permalink for Proof 2.1.11.1">🔗</a></div></article></details><div class="para" id="s_extreme-15">According to <a href="s_extreme.html#th_crit_pt" class="xref" data-knowl="./knowl/xref/th_crit_pt.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.11: Critical points and extreme values">Theorem 2.1.11</a>, points <span class="process-math">\(a\)</span> where either <span class="process-math">\(f\)</span> is not differentiable, or where <span class="process-math">\(f'(a)=0\)</span> are important to us, as these are candidates where the value <span class="process-math">\(f(a)\)</span> is potentially a local maximum or minimum. Accordingly, we give such inputs a special name: critical points.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_crit_pt"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Critical point.</span>
+</h3>
+<div class="para" id="d_crit_pt-2-1">Let <span class="process-math">\(f\)</span> be defined on <span class="process-math">\(D\text{.}\)</span> An element <span class="process-math">\(a\in D\)</span> is a <dfn class="terminology">critical point</dfn> of <span class="process-math">\(f\)</span> if either <span class="process-math">\(f'(a)=0\)</span> or <span class="process-math">\(f\)</span> is not differentiable at <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_crit_pt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.1.12: Critical point"><a href="#d_crit_pt" title="Copy heading and permalink for Definition 2.1.12: Critical point" aria-label="Copy heading and permalink for Definition 2.1.12: Critical point">🔗</a></div></article><div class="para logical" id="s_extreme-17">
+<div class="para">Let us now do some synthesis of the above theory. Assume <span class="process-math">\(f\)</span> is continuous on the closed interval <span class="process-math">\(I=[a,b]\text{.}\)</span>
+</div>
+<ul class="disc" id="s_extreme-17-3">
+<li id="s_extreme-17-3-1">
+<div class="para" id="s_extreme-17-3-1-1">According to <a href="s_extreme.html#th_extreme" class="xref" data-knowl="./knowl/xref/th_extreme.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.1: Extreme value theorem">Theorem 2.1.1</a> there are inputs <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> in <span class="process-math">\(I\)</span> where <span class="process-math">\(f\)</span> attains its absolute maximum and minimum values, respectively.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-17-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_extreme-17-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_extreme-17-3-2">
+<div class="para" id="s_extreme-17-3-2-1">In particular, <span class="process-math">\(f(c)\)</span> and <span class="process-math">\(f(d)\)</span> are <em class="emphasis">local</em> extreme values of the function.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-17-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_extreme-17-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_extreme-17-3-3">
+<div class="para" id="s_extreme-17-3-3-1">According to <a href="s_extreme.html#th_crit_pt" class="xref" data-knowl="./knowl/xref/th_crit_pt.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.11: Critical points and extreme values">Theorem 2.1.11</a>, if <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> are interior points of <span class="process-math">\(I\text{,}\)</span> then they must be critical points of <span class="process-math">\(f\text{:}\)</span> i.e., <span class="process-math">\(f\)</span> is either not differentiable at there, or <span class="process-math">\(f'\)</span> is equal to zero there.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-17-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_extreme-17-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_extreme-17-3-4">
+<div class="para" id="s_extreme-17-3-4-1">We conclude that the inputs <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> where <span class="process-math">\(f\)</span> attains its absolute extreme values are either one of the endpoints, <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> of the interval, or one of the critical points of <span class="process-math">\(f\)</span> in the interior <span class="process-math">\((a,b)\)</span> of the interval.<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-17-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_extreme-17-3-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Our synthesis gives rise to the following procedure for finding the absolute extreme values of a continuous function on a closed interval.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_extreme-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="proc_extreme"><h3 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme value theorem.</span>
+</h3>
+<div class="para logical" id="proc_extreme-2-1">
+<div class="para">Assume <span class="process-math">\(f\)</span> is continuous on the closed interval <span class="process-math">\(I=[a,b]\text{.}\)</span> To determine the absolute maximum and minimum values of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{,}\)</span> proceed as follows.</div>
+<ol class="decimal" id="proc_extreme-2-1-5">
+<li id="proc_extreme-2-1-5-1">
+<span class="heading li--heading"><span class="title li--heading-title">Identify candidate inputs.</span></span><div class="para logical" id="proc_extreme-2-1-5-1-2">
+<div class="para">The candidate inputs where <span class="process-math">\(f\)</span> potentially attains a maximum or minimum value consist of (i) the endpoints <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> of the interval <span class="process-math">\(I\)</span> along with the set of all critical points of <span class="process-math">\(f\)</span> lying in <span class="process-math">\((a,b)\text{.}\)</span> We determine the latter by finding all solutions to the equation</div>
+<div class="displaymath process-math" id="eq_extreme">
+\begin{equation}
+f'(x)=0\tag{2.1}
+\end{equation}
+</div>
+<div class="para">lying in <span class="process-math">\((a,b)\text{,}\)</span> and identifying all elements of <span class="process-math">\((a,b)\)</span> where <span class="process-math">\(f\)</span> is not differentiable.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_extreme-2-1-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Identify candidate inputs"><a href="#proc_extreme-2-1-5-1" title="Copy heading and permalink for Item 1: Identify candidate inputs" aria-label="Copy heading and permalink for Item 1: Identify candidate inputs">🔗</a></div>
+</li>
+<li id="proc_extreme-2-1-5-2">
+<span class="heading li--heading"><span class="title li--heading-title">Evaluate <span class="process-math">\(f\)</span>.</span></span><div class="para" id="proc_extreme-2-1-5-2-2">Evaluate <span class="process-math">\(f\)</span> at all candidate inputs you found in Step 1.<div class="autopermalink" data-description="Paragraph"><a href="#proc_extreme-2-1-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Evaluate f"><a href="#proc_extreme-2-1-5-2" title="Copy heading and permalink for Item 2: Evaluate f" aria-label="Copy heading and permalink for Item 2: Evaluate f">🔗</a></div>
+</li>
+<li id="proc_extreme-2-1-5-3">
+<span class="heading li--heading"><span class="title li--heading-title">Compare values.</span></span><div class="para" id="proc_extreme-2-1-5-3-2">Compare the values of <span class="process-math">\(f\)</span> computed in Step 2. The maximum value in that set is the absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{;}\)</span> the minimum value in that set is the minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_extreme-2-1-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3: Compare values"><a href="#proc_extreme-2-1-5-3" title="Copy heading and permalink for Item 3: Compare values" aria-label="Copy heading and permalink for Item 3: Compare values">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_extreme-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 2.1.13: Extreme value theorem"><a href="#proc_extreme" title="Copy heading and permalink for Procedure 2.1.13: Extreme value theorem" aria-label="Copy heading and permalink for Procedure 2.1.13: Extreme value theorem">🔗</a></div></article><article class="example example-like" id="eg_extreme_factored_poly"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme values: factored polynomial.</span>
+</h3>
+<div class="para" id="eg_extreme_factored_poly-2-1">Let <span class="process-math">\(f(x)=(x-2)^5(x-3)^5\text{.}\)</span> Find the absolute maximum and minimum values of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\(I=[0,4]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_factored_poly-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_extreme_factored_poly-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_extreme_factored_poly-3-1">
+<div class="para">First compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x)=5(x-2)^4(x-3)^5+5(x-2)^5(x-3)^4\text{.}
+\end{equation*}
+</div>
+<div class="para">Note that <span class="process-math">\(f\)</span>   is differentiable everywhere on the interval <span class="process-math">\(I\text{,}\)</span> so to find critical points we find all solutions to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x)=0
+\end{equation*}
+</div>
+<div class="para">lying in <span class="process-math">\((0,4)\text{.}\)</span> The key technique for solving this equation is <em class="emphasis">factoring</em>:</div>
+<div class="displaymath process-math" id="eg_extreme_factored_poly-3-1-7">
+\begin{align*}
+f'(x)\amp =0 \\
+5(x-2)^4(x-3)^5+5(x-2)^5(x-3)^4 \amp = 0\\
+5(x-2)^4(x-3)^4((x-2)+(x-3)) \amp =0  \\
+5(x-2)^4(x-3)^4(2x-5) \amp = 0 \text{.}
+\end{align*}
+</div>
+<div class="para">We now see that the last equality holds if and only if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x=2,3,\frac{5}{2}\text{.}
+\end{equation*}
+</div>
+<div class="para">These are thus our critical points. We now evaluate <span class="process-math">\(f\)</span> at these critical points, as well as at the endpoints of the interval:</div>
+<div class="displaymath process-math" id="eg_extreme_factored_poly-3-1-10">
+\begin{align*}
+f(0) \amp = (-2)^5\cdot (-3)^5=2^5\cdot 3^5 \\
+f(2) \amp = 0\\
+f(5/2) \amp = (1/2)^5(-1/2)^5=-\frac{1}{2^10}\\
+f(3) \amp = 0\\
+f(4) \amp = 2^5\cdot 1^5=2^5\text{.}
+\end{align*}
+</div>
+<div class="para">Comparing these values, we conclude that <span class="process-math">\(f(0)=2^5\cdot 3^5\)</span> is the absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(f(5/2)=-1/2^{10}\)</span> is the absolute minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_factored_poly-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.1.14.1"><a href="#eg_extreme_factored_poly-3" title="Copy heading and permalink for Solution 2.1.14.1" aria-label="Copy heading and permalink for Solution 2.1.14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.1.14: Extreme values: factored polynomial"><a href="#eg_extreme_factored_poly" title="Copy heading and permalink for Example 2.1.14: Extreme values: factored polynomial" aria-label="Copy heading and permalink for Example 2.1.14: Extreme values: factored polynomial">🔗</a></div></article><article class="example example-like" id="eg_extreme_rational"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme values: rational function.</span>
+</h3>
+<div class="para" id="eg_extreme_rational-2-1">Let <span class="process-math">\(f(x)=\frac{x-2}{x^2+1}\text{.}\)</span> Find the absolute maximum and minimum values of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\(I=[-10,10]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_rational-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_extreme_rational-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="eg_extreme_rational-3-1">First observe that since <span class="process-math">\(x^2+1&gt; 0\)</span> for all <span class="process-math">\(x\in \R\text{,}\)</span> the domain of <span class="process-math">\(f\)</span> is <span class="process-math">\(\R\text{.}\)</span> Since <span class="process-math">\(f\)</span> is a rational function, it is continuous everywhere on its domain, hence continuous on <span class="process-math">\([-10, 10]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_rational-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="eg_extreme_rational-3-2">
+<div class="para">Additionally, <span class="process-math">\(f\)</span> is easily seen to be differentiable everywhere with derivative</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_extreme.html" id="eg_extreme_rational-3-2-2">
+\begin{align*}
+f'(x) \amp =\frac{(x-2)'(x^2+1)-(x-2)(x^2+1)'}{(x^2+1)^2}\\
+\amp =\frac{x^2+1-2x(x-2)}{(x^2+1)^2}\\
+\amp =\frac{x^2+1-2x^2+4x}{(x^2+1)^2}\\
+\amp =\frac{-x^2+4x+1}{(x^2+1)^2}\text{.}
+\end{align*}
+</div>
+<div class="para">We now following <a href="s_extreme.html#proc_extreme" class="xref" data-knowl="./knowl/xref/proc_extreme.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.1.13: Extreme value theorem">Procedure 2.1.13</a>. Since <span class="process-math">\(f\)</span> is differentiable everywhere, its critical points are the solutions to <span class="process-math">\(f'(x)=0\text{,}\)</span> which we now solve:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_extreme.html" id="eg_extreme_rational-3-2-6">
+\begin{align*}
+f'(x) \amp = 0\\
+\frac{-x^2+4x+1}{(x^2+1)^2} \amp =0\\
+x^2-4x-1 \amp = 0\\
+x \amp =2\pm \sqrt{5}\text{.}
+\end{align*}
+</div>
+<div class="para">To complete the procedure, we evaluate <span class="process-math">\(f\)</span> at the candidate inputs <span class="process-math">\(-10, 2-\sqrt{5},2+\sqrt{5},10\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_extreme.html" id="eg_extreme_rational-3-2-9">
+\begin{align*}
+f(-10) \amp = \frac{-12}{101}\approx -0.1188\\
+f(2-\sqrt{5}) \amp = \frac{-\sqrt{5}}{(2-\sqrt{5})^2+1}\approx -2.12\\
+f(2+\sqrt{5}) \amp = \frac{\sqrt{5}}{(2+\sqrt{5})^2+1}\approx 0.12 \\
+f(10) \amp = \frac{8}{101}\approx 0.0792\text{.}
+\end{align*}
+</div>
+<div class="para">We conclude that <span class="process-math">\(f(2-\sqrt{5})\approx -2.12\)</span> is the minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span> and <span class="process-math">\(f(2+\sqrt{5})\approx 0.12\)</span> is the maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> Below you find a graph of <span class="process-math">\(f\)</span> that bears out our analysis.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_rational-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/sageplot/im_extreme_trig.svg" role="img" class="contained" alt="Graph of example function revealing the extreme values."></div>
+<div class="autopermalink" data-description="Solution 2.1.15.1"><a href="#eg_extreme_rational-3" title="Copy heading and permalink for Solution 2.1.15.1" aria-label="Copy heading and permalink for Solution 2.1.15.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.1.15: Extreme values: rational function"><a href="#eg_extreme_rational" title="Copy heading and permalink for Example 2.1.15: Extreme values: rational function" aria-label="Copy heading and permalink for Example 2.1.15: Extreme values: rational function">🔗</a></div></article><article class="example example-like" id="eg_extreme_graphs"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Distance between graphs.</span>
+</h3>
+<div class="para" id="eg_extreme_graphs-2-1">Let <span class="process-math">\(f(x)=\sqrt[3]{x}\)</span> and <span class="process-math">\(g(x)=3x\text{.}\)</span> Find the maximum vertical distance between the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> on the interval <span class="process-math">\(I=\left[-\frac{1}{\sqrt{27}}, \frac{1}{\sqrt{27}}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_graphs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_extreme_graphs-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_extreme_graphs-3-1">
+<div class="para">The vertical distance point <span class="process-math">\((x,f(x))\)</span> and <span class="process-math">\((x,g(x))\)</span> on the two graphs is measured by <span class="process-math">\(\abs{f(x)-g(x)}\text{.}\)</span> Thus we are interested in the extreme values of <span class="process-math">\(h(x)=f(x)-g(x)\)</span> on the interval <span class="process-math">\(I\text{.}\)</span> For <span class="process-math">\(x\ne 0\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+h'(x)=f'(x)-g'(x)=\frac{1}{3}x^{-2/3}-3=\frac{1}{3(\sqrt[3]{x})^2}-3\text{.}
+\end{equation*}
+</div>
+<div class="para">Note that <span class="process-math">\(h\)</span> is not differentiable at <span class="process-math">\(x=0\text{,}\)</span> and thus this is one of our critical points. To find the others we solve:</div>
+<div class="displaymath process-math" id="eg_extreme_graphs-3-1-10">
+\begin{align*}
+f'(x) \amp = 0\\
+\frac{1}{3(\sqrt[3]{x})^2}-3\amp = 0 \\
+(\sqrt[3]{x})^2 \amp= \frac{1}{9} \\
+\sqrt[3]{x} \amp =\pm \frac{1}{3}\\
+x \amp = \pm \frac{1}{27} \text{.}
+\end{align*}
+</div>
+<div class="para">We now evaluate <span class="process-math">\(h\)</span> at our three critical points, as well as the endpoints:</div>
+<div class="displaymath process-math" id="eg_extreme_graphs-3-1-12">
+\begin{align*}
+h(-1/\sqrt{27}) \amp = (-1/27^{1/2})^{1/3}+3/\sqrt{27} \\
+\amp = -(1/\sqrt{3})+1/\sqrt{3}=0\\
+h(-1/27) \amp = (-1/27)^{1/3}+3/27=-\frac{2}{9}\\
+h(1/27) \amp = (1/27)^{1/3}-3/27=\frac{2}{9}\\
+h(1/\sqrt{27}) \amp = (1/27^{1/2})^{1/3}-3/\sqrt{27} \\
+\amp = (1/\sqrt{3})-1/\sqrt{3}=0\text{.}
+\end{align*}
+</div>
+<div class="para">We conclude that <span class="process-math">\(-\frac{2}{9}\leq h(x)\leq \frac{2}{9}\)</span> on <span class="process-math">\(I\text{,}\)</span> or equivalently, <span class="process-math">\(\abs{f(x)-g(x)}\leq \frac{2}{9}\text{.}\)</span> Thus the vertical maximal distance between the two graphs is <span class="process-math">\(2/9\)</span> and this occurs at the inputs <span class="process-math">\(x=\pm 1/27\text{.}\)</span> Below you find two diagrams that illustrate this result: the first depitcts the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> separately, and the second is a graph of the difference function <span class="process-math">\(h(x)=f(x)-g(x)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_graphs-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_dist_f_g"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
+<div class="sbspanel sbspanel--bottom bottom" style=""><figure class="figure figure-like" id="fig_graph_f_g"><img src="generated/sageplot/im_graph_f_g.svg" role="img" class="contained" alt="Graphs of f and g"><figcaption><span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span><div class="autopermalink" data-description="Figure 2.1.17.(a)"><a href="#fig_graph_f_g" title="Copy heading and permalink for Figure 2.1.17.(a)" aria-label="Copy heading and permalink for Figure 2.1.17.(a)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--bottom bottom" style=""><figure class="figure figure-like" id="fig_graph_f_g_h"><img src="generated/sageplot/im_graph_f_g_h.svg" role="img" class="contained" alt="Graphs of f, g, and h"><figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span><div class="autopermalink" data-description="Figure 2.1.17.(b)"><a href="#fig_graph_f_g_h" title="Copy heading and permalink for Figure 2.1.17.(b)" aria-label="Copy heading and permalink for Figure 2.1.17.(b)">🔗</a></div></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Comparing graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span><div class="autopermalink" data-description="Figure 2.1.17"><a href="#fig_dist_f_g" title="Copy heading and permalink for Figure 2.1.17" aria-label="Copy heading and permalink for Figure 2.1.17">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.1.16.1"><a href="#eg_extreme_graphs-3" title="Copy heading and permalink for Solution 2.1.16.1" aria-label="Copy heading and permalink for Solution 2.1.16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.1.16: Distance between graphs"><a href="#eg_extreme_graphs" title="Copy heading and permalink for Example 2.1.16: Distance between graphs" aria-label="Copy heading and permalink for Example 2.1.16: Distance between graphs">🔗</a></div></article><div class="autopermalink" data-description="Section 2.1: Extreme value theorem"><a href="#s_extreme" title="Copy heading and permalink for Section 2.1: Extreme value theorem" aria-label="Copy heading and permalink for Section 2.1: Extreme value theorem">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch_218-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_mean_value.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
