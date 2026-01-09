@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exponential functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.7';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.991c135ccf182bf5.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c2757fc695bc848c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_applied_opt_I.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_alg_func" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Math 218-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_extreme.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Extreme value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_mean_value.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_linearize.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_first_der_test.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Monotonicity and first derivative test</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_concavity.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Concavity and inflection points</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_curve_sketch_I.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Curve sketching</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_from_derivative" class="internal"><span class="title">Curve sketching from derivative</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_applied_opt_I.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Applied optimization</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_expfunctions.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Exponential functions</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-3" class="internal"><span class="title">Motivating exponential functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-4" class="internal"><span class="title">Defining Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-5" class="internal"><span class="title">Growth of exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-6" class="internal"><span class="title">Finding Formulas for Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-7" class="internal"><span class="title">Properties of Exponential Functions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_expfunctions"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exponential functions</span>
+</h2>
+<article class="objectives goal-like" id="sec_expfunctions-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="sec_expfunctions-2-1">
+<li id="sec_expfunctions-2-1-1">
+<div class="para" id="sec_expfunctions-2-1-1-1">Discover how exponential functions can describe percent growth or decay.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.8.1"><a href="#sec_expfunctions-2-1-1" title="Copy heading and permalink for Objective 2.8.1" aria-label="Copy heading and permalink for Objective 2.8.1">🔗</a></div>
+</li>
+<li id="sec_expfunctions-2-1-2">
+<div class="para" id="sec_expfunctions-2-1-2-1">Learn the definition of exponential functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.8.2"><a href="#sec_expfunctions-2-1-2" title="Copy heading and permalink for Objective 2.8.2" aria-label="Copy heading and permalink for Objective 2.8.2">🔗</a></div>
+</li>
+<li id="sec_expfunctions-2-1-3">
+<div class="para" id="sec_expfunctions-2-1-3-1">Find the formula for an exponential function given two points on the graph of the function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.8.3"><a href="#sec_expfunctions-2-1-3" title="Copy heading and permalink for Objective 2.8.3" aria-label="Copy heading and permalink for Objective 2.8.3">🔗</a></div>
+</li>
+<li id="sec_expfunctions-2-1-4">
+<div class="para" id="sec_expfunctions-2-1-4-1">Understand how the values of the coefficient and base of an exponential function affect the shape of the graph.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 2.8.4"><a href="#sec_expfunctions-2-1-4" title="Copy heading and permalink for Objective 2.8.4" aria-label="Copy heading and permalink for Objective 2.8.4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 2.8"><a href="#sec_expfunctions-2" title="Copy heading and permalink for Objectives 2.8" aria-label="Copy heading and permalink for Objectives 2.8">🔗</a></div></article><section class="subsection" id="sec_expfunctions-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Motivating exponential functions</span>
+</h3>
+<div class="para" id="sec_expfunctions-3-2">When deciding how to model a quantity <span class="process-math">\(q\)</span> as a function of <span class="process-math">\(q=f(a)\)</span> of some other quantity <span class="process-math">\(a\text{,}\)</span> our choice of function is governed by how the output quantity <span class="process-math">\(q\)</span> changes as the input quantity <span class="process-math">\(a\)</span> changes. Recall that the instantaneous rate of change of a function <span class="process-math">\(q=f(a)\)</span> at a specific input <span class="process-math">\(a\)</span> is given by the derivative <span class="process-math">\(f'(a)\text{;}\)</span> and that the derivative <span class="process-math">\(f'(a)\)</span> can be estimated by computing average rates of change over small intervals about <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-3-3">We can distinguish between different types of functions by examining their rate of change at different inputs. For example, the rate of change of a constant functions <span class="process-math">\(f(x)=c\)</span> is zero everywhere, reflecting the fact that the output value of a constant function never changes! Similarly, a linear function <span class="process-math">\(f(x)=ax+b\)</span> has constant rate of change <span class="process-math">\(f'(x)=a\text{,}\)</span> and a quadratic function <span class="process-math">\(f(x)=ax^2+bx+c\)</span> has a linear rate of change function <span class="process-math">\(f'(x)=2ax+b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-3-4">In this section we will define and start to explore exponential functions. These functions exhibit a fundamentally different kind of rate of change behavior that also happens to be ubiquitous in real-world empirical phenomena, making them exceptionally useful for modeling purposes.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_expfunctions-3-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Motivating example: percent rate of change.</span>
+</h4>
+<div class="para logical" id="sec_expfunctions-3-5-2-1">
+<div class="para">Suppose that a credit card company is offering a <span class="process-math">\(10\%\)</span> annual interest rate on a one-time loan. If you take out a loan for <span class="process-math">\(\$100\)</span> and don’t make any payments, after one year you still owe the original <span class="process-math">\(\$100\text{,}\)</span> plus 10% of <span class="process-math">\(\$100\text{,}\)</span> so your balance after a year is:</div>
+<div class="displaymath process-math" id="sec_expfunctions-3-5-2-1-5">
+\begin{equation*}
+100+0.1(100) = 100+(1+0.01) = 100(1.1)\text{.}
+\end{equation*}
+</div>
+<div class="para">If we instead borrowed <span class="process-math">\(\$100,000\text{,}\)</span> after 1 year we again owe the original <span class="process-math">\(\$100,000\text{,}\)</span> but now we also owe 10% of <span class="process-math">\(\$100,000\text{,}\)</span> and thus the balance after a year is:</div>
+<div class="displaymath process-math" id="sec_expfunctions-3-5-2-1-9">
+\begin{equation*}
+100000+0.1(100000) = 100000(1.1)\text{.}
+\end{equation*}
+</div>
+<div class="para">If we were to borrow <span class="process-math">\(P\)</span> dollars, we reason the same way that after a year the balance on the loan is</div>
+<div class="displaymath process-math" id="sec_expfunctions-3-5-2-1-11">
+\begin{equation*}
+P+0.1P = P(1.1)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_expfunctions-3-5-2-2">If we go another year without paying anything toward the loan, we repeat our calculations for a second year. Let’s diagram out what happens over two years if we borrow <span class="process-math">\(100\)</span> dollars initially.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r0 l0 t0 lines">Start</th>
+<th scope="col" class="l m b1 r0 l0 t0 lines">After first year</th>
+<th scope="col" class="l m b1 r0 l0 t0 lines">After second year</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100(1.1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100(1.1)(1.1) = 100(1.1)^2\)</span></td>
+</tr>
+</table></div> <div class="para" id="sec_expfunctions-3-5-2-4">If we started by borrowing <span class="process-math">\(\$100,000\text{,}\)</span> the sequence of debts would be as described below.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r0 l0 t0 lines">Start</th>
+<th scope="col" class="l m b1 r0 l0 t0 lines">After first year</th>
+<th scope="col" class="l m b1 r0 l0 t0 lines">After second year</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100000\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100000(1.1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100000(1.1)(1.1) = 100000(1.1)^2\)</span></td>
+</tr>
+</table></div> <div class="para" id="sec_expfunctions-3-5-2-6">Using the same reasoning, if we borrow <span class="process-math">\(P\)</span> dollars without paying anything back, the sequence of debts over two years follows the same pattern.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-5-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r0 l0 t0 lines">Start</th>
+<th scope="col" class="l m b1 r0 l0 t0 lines">After first year</th>
+<th scope="col" class="l m b1 r0 l0 t0 lines">After second year</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P(1.1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P(1.1)(1.1) = P(1.1)^2\)</span></td>
+</tr>
+</table></div> <div class="para logical" id="sec_expfunctions-3-5-2-8">
+<div class="para">What will happen after 3 years? Adding <span class="process-math">\(10\%\)</span> to the loan balance of <span class="process-math">\(P(1.1)^2\)</span> after two years, the original loan <span class="process-math">\(P\)</span> will have grown to</div>
+<div class="displaymath process-math" id="sec_expfunctions-3-5-2-8-4">
+\begin{equation*}
+P(1.1)^3\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-5-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="sec_expfunctions-3-5-2-9">
+<div class="para">Here we see a new kind of pattern developing: annual growth of <span class="process-math">\(10\%\)</span> is leading to <em class="emphasis">powers</em> of the base <span class="process-math">\(1.1\text{,}\)</span> where the power to which we raise <span class="process-math">\(1.1\)</span> corresponds to the number of years the loan has grown. Note that the change occurs in the <em class="emphasis">exponent</em> of the formula:</div>
+<div class="displaymath process-math" id="sec_expfunctions-3-5-2-9-6">
+\begin{equation*}
+P(1.1)^t
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(t\)</span> is the number of years since we took out the loan. Each additional year results in an additional multiplication by <span class="process-math">\(1.1\text{,}\)</span> so for each year that passes, the power of the base <span class="process-math">\(1.1\)</span> will increase by <span class="process-math">\(1\text{.}\)</span> This type of change is an example of <em class="emphasis">exponential growth</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-3-5-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.8.1: Motivating example: percent rate of change"><a href="#sec_expfunctions-3-5" title="Copy heading and permalink for Example 2.8.1: Motivating example: percent rate of change" aria-label="Copy heading and permalink for Example 2.8.1: Motivating example: percent rate of change">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Motivating exponential functions"><a href="#sec_expfunctions-3" title="Copy heading and permalink for Subsection: Motivating exponential functions" aria-label="Copy heading and permalink for Subsection: Motivating exponential functions">🔗</a></div></section><section class="subsection" id="sec_expfunctions-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Defining Exponential Functions</span>
+</h3>
+<div class="para" id="sec_expfunctions-4-2">The pattern described by the example above is new to us. We have yet to see a function where the variable is in the exponent. It turns out that such functions are not <a href="sec_algebraic_func.html#ss_alg_func" class="internal" title="Subsection: Algebraic functions">algebraic</a>, although proving this to be the case is not straightforward. We call a function <dfn class="terminology">transcendental</dfn> if it is not algebraic. In this course we will eventually introduce four different types of transcendental functions: exponential, logarithmic, trigonometric, and inverse trigonometric functions. We begin with exponential functions, which we will now endeavor to define as best we can. Exponential functions look similar to power functions, but with the roles of constant and variable reversed in the base and exponent.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_expfunctions-4-3"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exponential Functions.</span>
+</h4>
+<div class="para logical" id="sec_expfunctions-4-3-2-1">
+<div class="para">An <dfn class="terminology">exponential function</dfn> is a function <span class="process-math">\(f\colon \R\rightarrow \R\)</span> that can be written in the form</div>
+<div class="displaymath process-math" id="sec_expfunctions-4-3-2-1-3">
+\begin{equation*}
+f(x) = Ab^x
+\end{equation*}
+</div>
+<div class="para">for some real numbers <span class="process-math">\(A\)</span> and <span class="process-math">\(b\)</span> such that <span class="process-math">\(A\neq 0, b&gt; 0\text{,}\)</span> and <span class="process-math">\(b\neq 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-4-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.8.2: Exponential Functions"><a href="#sec_expfunctions-4-3" title="Copy heading and permalink for Definition 2.8.2: Exponential Functions" aria-label="Copy heading and permalink for Definition 2.8.2: Exponential Functions">🔗</a></div></article><article class="remark remark-like" id="sec_expfunctions-4-4"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Power functions versus exponential functions.</span>
+</h4>
+<div class="para logical" id="sec_expfunctions-4-4-2">
+<div class="para">It is easy to conflate a power functions <span class="process-math">\(f(x)=cx^k\)</span> with an exponential function <span class="process-math">\(g(x)=Ab^x\text{,}\)</span> since both are defined using the power operation. The key difference between the two types of functions is the precise <em class="emphasis">position</em> of the input variable <span class="process-math">\(x\text{:}\)</span>
+</div>
+<ul class="disc" id="sec_expfunctions-4-4-2-5">
+<li id="sec_expfunctions-4-4-2-5-1">
+<div class="para" id="sec_expfunctions-4-4-2-5-1-1">in a power function <span class="process-math">\(f(x)=cx^k\text{,}\)</span> the input variable <span class="process-math">\(x\)</span> appears as the <em class="emphasis">base</em> of the power expression;<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-4-4-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_expfunctions-4-4-2-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec_expfunctions-4-4-2-5-2">
+<div class="para" id="sec_expfunctions-4-4-2-5-2-1">in an exponential function <span class="process-math">\(g(x)=Ab^x\text{,}\)</span> the input variable <span class="process-math">\(x\)</span> appears as the <em class="emphasis">exponent</em> of the power expression. Hence the name.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-4-4-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_expfunctions-4-4-2-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-4-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.8.3: Power functions versus exponential functions"><a href="#sec_expfunctions-4-4" title="Copy heading and permalink for Remark 2.8.3: Power functions versus exponential functions" aria-label="Copy heading and permalink for Remark 2.8.3: Power functions versus exponential functions">🔗</a></div></article><article class="remark remark-like" id="rem_exp_domain"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Domain of exponential function.</span>
+</h4>
+<div class="para" id="rem_exp_domain-2">As defined, the domain of an exponential function <span class="process-math">\(f(x)=A b^x\)</span> is <span class="process-math">\(\R\text{,}\)</span> the set of all real numbers. The conscientious reader may object, however, that when defining power expressions like <span class="process-math">\(b^x\text{,}\)</span> we only did so for <em class="emphasis">rational</em> exponents of the form <span class="process-math">\(x=m/n\text{,}\)</span> where <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are integers. For example, we have given no definition of the power expression <span class="process-math">\(3^{\sqrt{2}}\text{.}\)</span> To that conscientious reader we say: you are absolutely justified! Of course there is a perfectly rigorous way to define <span class="process-math">\(b^x\)</span> for all <span class="process-math">\(x\in \R\)</span> (not just rational <span class="process-math">\(x\)</span>), but for now you will just have to take this on faith. For the time being, we are more focused on detailing the important properties of exponetial functions so that you can make use of them in modeling situations.<div class="autopermalink" data-description="Paragraph"><a href="#rem_exp_domain-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.8.4: Domain of exponential function"><a href="#rem_exp_domain" title="Copy heading and permalink for Remark 2.8.4: Domain of exponential function" aria-label="Copy heading and permalink for Remark 2.8.4: Domain of exponential function">🔗</a></div></article><div class="para" id="sec_expfunctions-4-6">Since exponential functions involve a power expression of the form <span class="process-math">\(a^b\text{,}\)</span> you in order to facilitate working with them, you may want to review the various rules governing power expressions articulated in <a href="sec_algebraic_func.html#th_power_identities" class="xref" data-knowl="./knowl/xref/th_power_identities.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.4.5: Power identities">Theorem 1.4.5</a>. The next example illustrates how these can be put to use.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_exp_find_base"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Standard form of exponential functions.</span>
+</h4>
+<div class="para logical" id="eg_exp_find_base-2-1">
+<div class="para">Each function below is exponential. Write it in the standard form <span class="process-math">\(f(x)=Ab^x\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_exp_find_base-2-1-2">
+<li id="eg_exp_find_base-2-1-2-1">
+<div class="para" id="eg_exp_find_base-2-1-2-1-1">
+<span class="process-math">\(\displaystyle f(x)=3\cdot 2^{2x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_exp_find_base-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-2-1-2-2">
+<div class="para" id="eg_exp_find_base-2-1-2-2-1">
+<span class="process-math">\(\displaystyle f(x)=\dfrac{4}{5\cdot 3^{x}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_exp_find_base-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-2-1-2-3">
+<div class="para" id="eg_exp_find_base-2-1-2-3-1">
+<span class="process-math">\(\displaystyle f(x)=6^{x/5}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_exp_find_base-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-2-1-2-4">
+<div class="para" id="eg_exp_find_base-2-1-2-4-1">
+<span class="process-math">\(\displaystyle f(x)=\sqrt[3]{\dfrac{8^x}{27}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_exp_find_base-2-1-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-2-1-2-5">
+<div class="para" id="eg_exp_find_base-2-1-2-5-1">
+<span class="process-math">\(\displaystyle f(x)=2^{x-1}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-2-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#eg_exp_find_base-2-1-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_exp_find_base-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_exp_find_base-3-1">
+<ol class="decimal" id="eg_exp_find_base-3-1-1">
+<li id="eg_exp_find_base-3-1-1-1">
+<div class="para logical" id="eg_exp_find_base-3-1-1-1-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="eg_exp_find_base-3-1-1-1-1-1">
+\begin{align*}
+f(x) \amp = 3\cdot 2^{4x}\\
+\amp =3\cdot (2^4)^x\\
+\amp =3\cdot 16^x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_exp_find_base-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-3-1-1-2">
+<div class="para logical" id="eg_exp_find_base-3-1-1-2-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="eg_exp_find_base-3-1-1-2-1-1">
+\begin{align*}
+f(x) \amp = \dfrac{4}{5\cdot 3^{x}}\\
+\amp = \dfrac{4}{5}\cdot 3^{-x}\\
+\amp = \dfrac{4}{5}(3^{-1})^x\\
+\amp = \dfrac{4}{5}\cdot \left(\dfrac{1}{3}\right)^x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_exp_find_base-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-3-1-1-3">
+<div class="para logical" id="eg_exp_find_base-3-1-1-3-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="eg_exp_find_base-3-1-1-3-1-1">
+\begin{align*}
+f(x) \amp = 6^{x/5}\\
+\amp = (6^{1/5})^x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_exp_find_base-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-3-1-1-4">
+<div class="para logical" id="eg_exp_find_base-3-1-1-4-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="eg_exp_find_base-3-1-1-4-1-1">
+\begin{align*}
+f(x) \amp = \sqrt[3]{\dfrac{8^x}{27}}\\
+\amp = \left(\dfrac{8^x}{27}\right)^{1/3}\\
+\amp = \dfrac{(8^x)^{1/3}}{27^{1/3}}\\
+\amp = \dfrac{8^{x/3}}{3}\\
+\amp = \dfrac{1}{3}\cdot (8^{1/3})^x\\
+\amp = \dfrac{1}{3}\cdot 2^x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_exp_find_base-3-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="eg_exp_find_base-3-1-1-5">
+<div class="para logical" id="eg_exp_find_base-3-1-1-5-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="eg_exp_find_base-3-1-1-5-1-1">
+\begin{align*}
+f(x) \amp = 2^{x-1}\\
+\amp = 2^x\cdot 2^{-1}\\
+\amp = \dfrac{1}{2}\cdot 2^x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-3-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#eg_exp_find_base-3-1-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_find_base-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.8.5.1"><a href="#eg_exp_find_base-3" title="Copy heading and permalink for Solution 2.8.5.1" aria-label="Copy heading and permalink for Solution 2.8.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.8.5: Standard form of exponential functions"><a href="#eg_exp_find_base" title="Copy heading and permalink for Example 2.8.5: Standard form of exponential functions" aria-label="Copy heading and permalink for Example 2.8.5: Standard form of exponential functions">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Defining Exponential Functions"><a href="#sec_expfunctions-4" title="Copy heading and permalink for Subsection: Defining Exponential Functions" aria-label="Copy heading and permalink for Subsection: Defining Exponential Functions">🔗</a></div></section><section class="subsection" id="sec_expfunctions-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Growth of exponential Functions</span>
+</h3>
+<div class="para" id="sec_expfunctions-5-2">Let’s look at another practical application of exponential functions in order to better understand their properties:<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex_APCPrev3-1-1"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="ex_APCPrev3-1-1-1-1">Suppose that at age 25 you receive a signing bonus of $20,000 at your new job<details class="ptx-footnote" aria-live="polite" id="ex_APCPrev3-1-1-1-1-1"><summary class="ptx-footnote__number" title="Footnote 2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ex_APCPrev3-1-1-1-1-1">Congratulations!</div></details> and you can choose between one of two ways to use the money: you can invest it in a mutual fund that will, on average, earn 8% interest annually, or you can purchase a used car that will, on average, depreciate 12% annually. Let’s explore how the $20,000 changes over time.<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_APCPrev3-1-1-1-2">Let <span class="process-math">\(M(t)\)</span> denote the value of the $20,000 after <span class="process-math">\(t\)</span> years if it is invested in the mutual fund. Let <span class="process-math">\(C(t)\)</span> denote the value of the car <span class="process-math">\(t\)</span> years after it is purchased.<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_APCPrev3-1-1-1-3">
+<div class="para">We know that <span class="process-math">\(M(0)=20000\)</span> since when <span class="process-math">\(t=0\text{,}\)</span> you are starting with $20,000. After one year you will have 8% more, so that</div>
+<div class="displaymath process-math" id="ex_APCPrev3-1-1-1-3-3">
+\begin{equation*}
+M(1) = 20000+0.8(20000) = 20000(1.08) = 21600\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_APCPrev3-1-1-1-4">
+<div class="para">In general, a quantity increasing by 8% annually will be multiplied by 1.08 each year, so that</div>
+<div class="displaymath process-math" id="ex_APCPrev3-1-1-1-4-1">
+\begin{equation*}
+M(2) = 20000(1.08)^2 = 23,328\qquad\text{ and } \qquad M(3) = 20000(1.08)^3 = 25194.24\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_APCPrev3-1-1-1-5">
+<div class="para">A formula for <span class="process-math">\(M(t)\)</span> after <span class="process-math">\(t\)</span> years is then</div>
+<div class="displaymath process-math" id="ex_APCPrev3-1-1-1-5-3">
+\begin{equation*}
+M(t) = 20000(1.08)^t\text{.}
+\end{equation*}
+</div>
+<div class="para">A graph of <span class="process-math">\(M(t)\)</span> is</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="ex_APCPrev3-1-1-1-6"><div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/APCPreview3-1-1-M.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="process-math">\(M(t) = 20000(1.08)^t\)</span> describes 8% annual growth over <span class="process-math">\(t\)</span> years.<div class="autopermalink" data-description="Figure 2.8.7"><a href="#ex_APCPrev3-1-1-1-6" title="Copy heading and permalink for Figure 2.8.7" aria-label="Copy heading and permalink for Figure 2.8.7">🔗</a></div></figcaption></figure> <div class="para logical" id="ex_APCPrev3-1-1-1-7">
+<div class="para">Let’s now look at the value of the car. We know that <span class="process-math">\(C(0) = 20000\text{.}\)</span> After one year, the value of the car will be 12% <em class="emphasis">less</em> than it was originally worth, so that</div>
+<div class="displaymath process-math" id="ex_APCPrev3-1-1-1-7-3">
+\begin{equation*}
+C(1) = 20000-0.12(20000) = 20000(1-0.12) = 20000(0.88)= 17600\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_APCPrev3-1-1-1-8">
+<div class="para">Note that if a quantity depreciates (meaning decreases by) 12% annually, after a given year, <span class="process-math">\((100-12)\% = 88\%\)</span> of that quantity remains. So for each year that passes, we multiply by another <span class="process-math">\(0.88\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex_APCPrev3-1-1-1-8-3">
+\begin{equation*}
+C(2) =20000(0.88)^2= 15488\qquad\text{ and } \qquad C(3) = 20000(0.88)^3= 13629.44\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_APCPrev3-1-1-1-9">
+<div class="para">A formula for <span class="process-math">\(C(t)\)</span> after <span class="process-math">\(t\)</span> years is then</div>
+<div class="displaymath process-math" id="ex_APCPrev3-1-1-1-9-3">
+\begin{equation*}
+C(t) = 20000(0.88)^t\text{.}
+\end{equation*}
+</div>
+<div class="para">A graph of <span class="process-math">\(C(t)\)</span> is</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPrev3-1-1-1-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="ex_APCPrev3-1-1-1-10"><div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/APCPreview3-1-1-C.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="process-math">\(C(t) = 20000(0.88)^t\)</span> describes 12% annual depreciation over <span class="process-math">\(t\)</span> years.<div class="autopermalink" data-description="Figure 2.8.8"><a href="#ex_APCPrev3-1-1-1-10" title="Copy heading and permalink for Figure 2.8.8" aria-label="Copy heading and permalink for Figure 2.8.8">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 2.8.6"><a href="#ex_APCPrev3-1-1" title="Copy heading and permalink for Example 2.8.6" aria-label="Copy heading and permalink for Example 2.8.6">🔗</a></div></article><div class="para" id="sec_expfunctions-5-4">Note the very different behavior of the two functions: 8% growth results in an increasing, concave up function, while 12% depreciation results in a decreasing, concave up function. Both functions have a coefficient of <span class="process-math">\(A=20000\text{.}\)</span> The only difference in the formula is in the base <span class="process-math">\(b\)</span> of the exponential function: growth corresponds to a base of <span class="process-math">\(b=1.08&gt;1\text{,}\)</span> while depreciation corresponds to a base of <span class="process-math">\(b=0.88\lt 1\text{.}\)</span> This is <em class="emphasis">not</em> a coincidence. Bases larger than 1 will increase as the exponent increases, while bases between 0 and 1 will decrease as the exponent increases.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-5-5">For an exponential function <span class="process-math">\(f(x)=Ab^x\text{,}\)</span> we note that <span class="process-math">\(f(0) = A\cdot b^0 = A\cdot 1 = A\text{,}\)</span> so an exponential function has <span class="process-math">\(y\)</span>-intercept equal to the coefficient <span class="process-math">\(A\text{.}\)</span> This is sometimes called the <em class="emphasis">initial value</em> of the quantity being modeled. In the example above, <span class="process-math">\(M(0) = 20000\)</span> and <span class="process-math">\(C(0)=20000\)</span> are the initial quantity of your bonus that you either invested or paid for the car.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-5-6">Note that because a positive number raised to any power is always positive (for instance, <span class="process-math">\(2^{10} = 1024\)</span> and <span class="process-math">\(2^{-10} = \frac{1}{2^{10}} = \frac{1}{1024}\)</span>), the expression <span class="process-math">\(b^x\)</span> is also always positive. An exponential function <span class="process-math">\(f(x) = Ab^x\)</span> will then always be positive when the coefficient <span class="process-math">\(A\)</span> is positive and will always be negative when <span class="process-math">\(A\)</span> is negative. In particular, <span class="process-math">\(f(x) = Ab^x\)</span> is never zero, and thus has no <span class="process-math">\(x\)</span>-intercepts. In the example above, <span class="process-math">\(M(t)\)</span> and <span class="process-math">\(C(t)\)</span> both have positive coefficient <span class="process-math">\(A=20000\text{,}\)</span> so these two quantities will always be positive for any value of <span class="process-math">\(t\text{.}\)</span> This makes sense intuitively in both examples: the values of the mutual fund and car cannot be negative.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-5-7">Again looking at <a href="sec_expfunctions.html#ex_APCPrev3-1-1" class="xref" data-knowl="./knowl/xref/ex_APCPrev3-1-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.8.6">Example 2.8.6</a>, we call <span class="process-math">\(1.08\)</span> the "growth factor" of <span class="process-math">\(M\)</span> and similarly <span class="process-math">\(0.88\)</span> the growth factor of <span class="process-math">\(C\)</span> because we are multiplying by that factor for each 1-unit increase in time. In addition, we note that these values stem from the actual growth rates: <span class="process-math">\(8\% = 0.08\)</span> for <span class="process-math">\(M\text{,}\)</span> so that the growth factor is <span class="process-math">\(1+0.08\text{,}\)</span> and <span class="process-math">\(-12\% = -0.12\)</span> for <span class="process-math">\(C\text{,}\)</span> so that the growth factor is <span class="process-math">\(1-0.12\text{,}\)</span> the latter growth rate being negative because value is deprecating. In general, for a function of the form <span class="process-math">\(f(x) = Ab^x\text{,}\)</span> we call <span class="process-math">\(b\)</span> the <em class="emphasis">growth factor</em>. Moreover, if <span class="process-math">\(b = 1+r\text{,}\)</span> we call <span class="process-math">\(r\)</span> the <em class="emphasis">growth rate</em>. Whenever <span class="process-math">\(b&gt; 1\text{,}\)</span> we often say that the function <span class="process-math">\(f\)</span> is exhibiting <em class="emphasis">exponential growth</em>, whereas if <span class="process-math">\(0\lt b\lt 1\text{,}\)</span> we say <span class="process-math">\(f\)</span> exhibits <em class="emphasis">exponential decay</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec_expfunctions-5-8"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_expfunctions-5-8-1-1">In your own words, explain the difference between growth factor and growth rate. Use the context of <a href="sec_expfunctions.html#ex_APCPrev3-1-1" class="xref" data-knowl="./knowl/xref/ex_APCPrev3-1-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.8.6">Example 2.8.6</a> to help you explain.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.9"><a href="#sec_expfunctions-5-8" title="Copy heading and permalink for Checkpoint 2.8.9" aria-label="Copy heading and permalink for Checkpoint 2.8.9">🔗</a></div></article><div class="para" id="sec_expfunctions-5-9">Let’s compare linear and exponential functions to best illustrate this new growth pattern.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex_linvsexpgrowthpattern"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Growth patters: linear versus exponential Functions.</span>
+</h4>
+<div class="para" id="ex_linvsexpgrowthpattern-2-1">In the tables below, we see output for two different functions <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> that correspond to equally spaced inputs:<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
+<div class="sbspanel fixed-width sbspanel--top top" style=""><figure class="table table-like" id="ex_linvsexpgrowthpattern-2-2-1"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(r(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+</tr>
+</table>
+<figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Table of values for <span class="process-math">\(r(t)\)</span><div class="autopermalink" data-description="Table 2.8.11: Table of values for r(t)"><a href="#ex_linvsexpgrowthpattern-2-2-1" title="Copy heading and permalink for Table 2.8.11: Table of values for r(t)" aria-label="Copy heading and permalink for Table 2.8.11: Table of values for r(t)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel fixed-width sbspanel--top top" style=""><figure class="table table-like" id="ex_linvsexpgrowthpattern-2-2-2"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="l m b0 r0 l0 t0 lines">6.75</td>
+<td class="l m b0 r0 l0 t0 lines">5.0625</td>
+</tr>
+</table>
+<figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Table of values for <span class="process-math">\(s(t)\)</span><div class="autopermalink" data-description="Table 2.8.12: Table of values for s(t)"><a href="#ex_linvsexpgrowthpattern-2-2-2" title="Copy heading and permalink for Table 2.8.12: Table of values for s(t)" aria-label="Copy heading and permalink for Table 2.8.12: Table of values for s(t)">🔗</a></div></figcaption></figure></div>
+</div></div> <div class="para logical" id="ex_linvsexpgrowthpattern-2-3">
+<div class="para">In the left-hand table, we see a function that exhibits constant average rate of change since the change in output is always <span class="process-math">\(\Delta r = -2\)</span> for any change in input of <span class="process-math">\(\Delta t = 3\text{.}\)</span> Said differently, <span class="process-math">\(r\)</span> is a linear function with slope</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-3-4">
+\begin{equation*}
+m =\frac{\Delta r}{\Delta t} =  -\frac{2}{3}\text{.}
+\end{equation*}
+</div>
+<div class="para">Since its <span class="process-math">\(y\)</span>-intercept is <span class="process-math">\((0,12)\text{,}\)</span> the function’s formula is</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-3-7">
+\begin{equation*}
+y=r(t) = -\frac{2}{3}t+12\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_linvsexpgrowthpattern-2-4">The difference between one output and the next is always a constant <span class="process-math">\(-2\text{,}\)</span> as long as the input increases by 3.<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_linvsexpgrowthpattern-2-5">
+<div class="para">By contrast, the function <span class="process-math">\(s\)</span> given by the right-hand table does not exhibit constant average rate of change:</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-5-2">
+\begin{equation*}
+AV_{[0,3]} = \frac{9-12}{3-0} = -1, AV_{[3,6]} = \frac{6.75-9}{6-3} = -0.75, AV_{[6,9]} = \frac{5.0625-6.75}{9-6} = -0.5625\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_linvsexpgrowthpattern-2-6">Thus the difference between one output and the next is <em class="emphasis">not constant</em> as the input increases by a constant amount and <span class="process-math">\(s(t)\)</span> is <em class="emphasis">not</em> a linear function.<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_linvsexpgrowthpattern-2-7">
+<div class="para">Instead, observe that in the table for <span class="process-math">\(s(t)\text{,}\)</span> <em class="emphasis">each output is a multiple of the previous output</em>. The first two outputs have a ratio of</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-7-3">
+\begin{equation*}
+\frac{9}{12} = \frac{3}{4}\text{.}
+\end{equation*}
+</div>
+<div class="para">The second and third outputs have a ratio of</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-7-4">
+\begin{equation*}
+\frac{6.75}{9} = 0.75 = \frac{3}{4}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_linvsexpgrowthpattern-2-8">
+<div class="para">The third and fourth outputs have a ratio of</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-8-1">
+\begin{equation*}
+\frac{5.0625}{6.75} = 0.75 = \frac{3}{4}\text{.}
+\end{equation*}
+</div>
+<div class="para">For <span class="process-math">\(r(t)\text{,}\)</span> we see that when the input increases by 3, the output is multiplied by <span class="process-math">\(\frac{3}{4}\text{.}\)</span> As a formula,</div>
+<div class="displaymath process-math" id="ex_linvsexpgrowthpattern-2-8-4">
+\begin{equation*}
+s(t) = 12\left(\frac{3}{4}\right)^{t/3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_linvsexpgrowthpattern-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.8.10: Growth patters: linear versus exponential Functions"><a href="#ex_linvsexpgrowthpattern" title="Copy heading and permalink for Example 2.8.10: Growth patters: linear versus exponential Functions" aria-label="Copy heading and permalink for Example 2.8.10: Growth patters: linear versus exponential Functions">🔗</a></div></article><div class="para" id="sec_expfunctions-5-11">Summarizing the key difference between linear and exponential change:<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-5-12">\fbox{ Whereas the <em class="emphasis">differences</em> in the outputs of a linear function are constant, the <em class="emphasis">ratios</em> in the outputs of the exponential function are constant (over equally spaced inputs). }<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec_expfunctions-5-13"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_expfunctions-5-13-1-1">In <a href="sec_expfunctions.html#ex_linvsexpgrowthpattern" class="xref" data-knowl="./knowl/xref/ex_linvsexpgrowthpattern.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.8.10: Growth patters: linear versus exponential Functions">Example 2.8.10</a>, the exponent of <span class="process-math">\(\frac{3}{4}\)</span> is <span class="process-math">\(t/3\text{.}\)</span> Why does this translate to multiplying by <span class="process-math">\(\frac{3}{4}\)</span> when <span class="process-math">\(t\)</span> increases by <span class="process-math">\(3\text{?}\)</span> What would happen if we used <span class="process-math">\(3t\)</span> as the exponent instead?<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-5-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.13"><a href="#sec_expfunctions-5-13" title="Copy heading and permalink for Checkpoint 2.8.13" aria-label="Copy heading and permalink for Checkpoint 2.8.13">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Growth of exponential Functions"><a href="#sec_expfunctions-5" title="Copy heading and permalink for Subsection: Growth of exponential Functions" aria-label="Copy heading and permalink for Subsection: Growth of exponential Functions">🔗</a></div></section><section class="subsection" id="sec_expfunctions-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding Formulas for Exponential Functions</span>
+</h3>
+<div class="para" id="sec_expfunctions-6-2">We now do some algebra. Recall that we can find the formula of a linear function from knowing only two points that lie on the line. Similarly, if we know two points on the graph of an exponential function, we can determine the function’s formula. We demonstrate two different methods for doing so in the next example and the following exercise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex_APCExample3-1-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="ex_APCExample3-1-6-1-1">Suppose that <span class="process-math">\(p\)</span> is an exponential function and we know that <span class="process-math">\(p(2)=11\)</span> and <span class="process-math">\(p(5) = 18\text{.}\)</span> Determine the exact values of <span class="process-math">\(A\)</span> and <span class="process-math">\(b\)</span> for which <span class="process-math">\(p(t) = Ab^t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_APCExample3-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_APCExample3-1-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex_APCExample3-1-6-2-1">
+<div class="para">Since we know that <span class="process-math">\(p(t) = Ab^t\text{,}\)</span> the two data points give us two equations in the unknowns <span class="process-math">\(A\)</span> and <span class="process-math">\(b\text{.}\)</span> First, using <span class="process-math">\(t=2\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="ex_APCExample3-1-6-2-1-5">
+\begin{equation*}
+Ab^2 = 11\text{,}
+\end{equation*}
+</div>
+<div class="para">and using <span class="process-math">\(t=5\)</span> we also have</div>
+<div class="displaymath process-math" id="ex_APCExample3-1-6-2-1-7">
+\begin{equation*}
+Ab^5 = 18\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCExample3-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex_APCExample3-1-6-2-2">
+<div class="para">Because we know that the ratios of outputs of an exponential function corresponding to equally-spaced inputs must be constant, we consider the ratio of our outputs <span class="process-math">\(\frac{18}{11}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex_APCExample3-1-6-2-2-2">
+\begin{equation*}
+\frac{18}{11} = \frac{Ab^5}{Ab^2} = \frac{b^5}{b^2} =b^3\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCExample3-1-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex_APCExample3-1-6-2-3">
+<div class="para">Solving for <span class="process-math">\(b\text{,}\)</span> we find that</div>
+<div class="displaymath process-math" id="ex_APCExample3-1-6-2-3-2">
+\begin{equation*}
+b = \sqrt[3]{\frac{18}{11}}\approx 1.1784\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCExample3-1-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex_APCExample3-1-6-2-4">
+<div class="para">Using the exact value <span class="process-math">\(b = \sqrt[3]{\frac{18}{11}}\)</span> and substituting this value for <span class="process-math">\(b\)</span> in <span class="process-math">\(Ab^2 = 11\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" id="ex_APCExample3-1-6-2-4-4">
+\begin{equation*}
+A\left(\sqrt[3]{\frac{18}{11}}\right)^2 = 11  \Rightarrow  A = \frac{11}{\left(\frac{18}{11}\right)^{2/3}}\approx 7.9215
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCExample3-1-6-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex_APCExample3-1-6-2-5">
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="ex_APCExample3-1-6-2-5-1">
+\begin{equation*}
+p(t) =  \frac{11}{\left(\frac{18}{11}\right)^{2/3}}\left(\sqrt[3]{\frac{18}{11}}\right)^t\approx 7.9215(1.1784)^t
+\end{equation*}
+</div>
+<div class="para">and a plot of <span class="process-math">\(y=p(x)\)</span> confirms that the function indeed passes through <span class="process-math">\((2,11)\)</span> and <span class="process-math">\((5,18)\text{:}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCExample3-1-6-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/APCExample3-1-6.png" class="contained"></div>
+<div class="autopermalink" data-description="Solution 2.8.14.1"><a href="#ex_APCExample3-1-6-2" title="Copy heading and permalink for Solution 2.8.14.1" aria-label="Copy heading and permalink for Solution 2.8.14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.8.14"><a href="#ex_APCExample3-1-6" title="Copy heading and permalink for Example 2.8.14" aria-label="Copy heading and permalink for Example 2.8.14">🔗</a></div></article><article class="exercise exercise-like" id="sec_expfunctions-6-4"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Another Approach.</span>
+</h4>
+<div class="para logical" id="sec_expfunctions-6-4-2-1">
+<div class="para">In <a href="sec_expfunctions.html#ex_APCExample3-1-6" class="xref" data-knowl="./knowl/xref/ex_APCExample3-1-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.8.14">Example 2.8.14</a>, we saw that as the input <span class="process-math">\(t\)</span> increases by <span class="process-math">\(5-2=3\text{,}\)</span> the ratio of the outputs is <span class="process-math">\(\frac{18}{11}\text{.}\)</span> Since the ratio of outputs is constant for exponential functions, another increase of <span class="process-math">\(3\)</span> in <span class="process-math">\(t\)</span> will result in multiplication by another <span class="process-math">\(\frac{18}{11}\text{,}\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_APCExample3-1-6.html" id="sec_expfunctions-6-4-2-1-8">
+\begin{equation*}
+p(t) = A\left(\frac{18}{11}\right)^{t/3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-6-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_expfunctions-6-4-2-2">From here, use the fact that <span class="process-math">\(p(2)=11\)</span> (or <span class="process-math">\(p(5)=18\text{;}\)</span> you can use either) to find <span class="process-math">\(A\text{.}\)</span> Verify that this value of <span class="process-math">\(A\)</span> is the same as was found in <a href="sec_expfunctions.html#ex_APCExample3-1-6" class="xref" data-knowl="./knowl/xref/ex_APCExample3-1-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.8.14">Example 2.8.14</a>. (You will probably want to write what you found as a decimal.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-6-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="sec_expfunctions-6-4-2-3">
+<div class="para">Lastly, observe that:</div>
+<div class="displaymath process-math" id="sec_expfunctions-6-4-2-3-1">
+\begin{equation*}
+\left(\frac{18}{11}\right)^{t/3} = \left(\frac{18}{11}\right)^{(1/3)\cdot t} =\left(\sqrt[3]{\frac{18}{11}}\right)^t
+\end{equation*}
+</div>
+<div class="para">so that the base of the two functions is the same if we isolate <span class="process-math">\(t\)</span> in the exponent.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-6-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.15: Another Approach"><a href="#sec_expfunctions-6-4" title="Copy heading and permalink for Checkpoint 2.8.15: Another Approach" aria-label="Copy heading and permalink for Checkpoint 2.8.15: Another Approach">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Finding Formulas for Exponential Functions"><a href="#sec_expfunctions-6" title="Copy heading and permalink for Subsection: Finding Formulas for Exponential Functions" aria-label="Copy heading and permalink for Subsection: Finding Formulas for Exponential Functions">🔗</a></div></section><section class="subsection" id="sec_expfunctions-7"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of Exponential Functions</span>
+</h3>
+<div class="para" id="sec_expfunctions-7-2">We’ve seen in our examples so far that exponential function arise when modeling quantities that change by a percent of their value. In this section, we will explore how this affects the shape of such functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_exp_graph"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exponential functions: graphical properties.</span>
+</h4>
+<div class="para logical" id="eg_exp_graph-2-1">
+<div class="para">Use the Desmos interactive in <a href="sec_expfunctions.html#fig_desmos_exp" class="xref" data-knowl="./knowl/xref/fig_desmos_exp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.8.17">Figure 2.8.17</a> to answer the following questions.</div>
+<ol class="decimal" id="eg_exp_graph-2-1-2">
+<li id="eg_exp_graph-2-1-2-1">
+<div class="para" id="eg_exp_graph-2-1-2-1-1">The Desmos graph is initially set to <span class="process-math">\(A=1\)</span> and <span class="process-math">\(b=2\text{.}\)</span> Describe the shape of the resulting function <span class="process-math">\(f(x) = 2^x\text{.}\)</span> Is the function positive? Negative? Increasing? Decreasing? Concave up? Concave down?<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_graph-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_exp_graph-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_exp_graph-2-1-2-2">
+<div class="para" id="eg_exp_graph-2-1-2-2-1">Experiment setting <span class="process-math">\(A\)</span> to any nonzero number (try both positive and negative) and setting <span class="process-math">\(b\)</span> to either a number between 0 and 1, or a number greater than 1. How do these different choices affect the shape of the graph?<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_graph-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_exp_graph-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_exp_graph-2-1-2-3">
+<div class="para" id="eg_exp_graph-2-1-2-3-1">Why can’t we use <span class="process-math">\(A=0\text{?}\)</span> Set <span class="process-math">\(A=0\)</span> in the Desmos graph. How does this change the shape of the graph? Would you call this graph "exponential?"<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_graph-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_exp_graph-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_exp_graph-2-1-2-4">
+<div class="para" id="eg_exp_graph-2-1-2-4-1">Why can’t we have <span class="process-math">\(b=1\text{?}\)</span> Set <span class="process-math">\(A\)</span> to any nonzero number and <span class="process-math">\(b=1\text{.}\)</span> How does this change the shape of the graph? Would you call this graph "exponential?"<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_graph-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_exp_graph-2-1-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="eg_exp_graph-2-1-2-5">
+<div class="para" id="eg_exp_graph-2-1-2-5-1">Set <span class="process-math">\(b=-0.5\text{.}\)</span> It’s going to look very strange (if Desmos shows you anything; sometimes it doesn’t). Think about what values we can have for the exponent <span class="process-math">\(x\)</span> in the expression <span class="process-math">\(f(x) = A(-0.5)^x\text{.}\)</span> What would happen with <span class="process-math">\(x=\frac{1}{2}\text{?}\)</span> <span class="process-math">\(x=-\frac{1}{4}\text{?}\)</span> <span class="process-math">\(x=\frac{97}{6}\text{?}\)</span> There are infinitely many values of <span class="process-math">\(x\)</span> for which a negative base would result in an undefined expression. This is why the definition of an exponential function excludes <span class="process-math">\(b\lt 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_graph-2-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#eg_exp_graph-2-1-2-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_exp_graph-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_desmos_exp"><iframe src="https://www.desmos.com/calculator/r9fyqvhwpa" id="fig_desmos_exp-2" width="600" height="750"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><a class="external" href="https://www.desmos.com/calculator/r9fyqvhwpa" target="_blank">Desmos interactive</a>: graphs of exponential functions<div class="autopermalink" data-description="Figure 2.8.17"><a href="#fig_desmos_exp" title="Copy heading and permalink for Figure 2.8.17" aria-label="Copy heading and permalink for Figure 2.8.17">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 2.8.16: Exponential functions: graphical properties"><a href="#eg_exp_graph" title="Copy heading and permalink for Example 2.8.16: Exponential functions: graphical properties" aria-label="Copy heading and permalink for Example 2.8.16: Exponential functions: graphical properties">🔗</a></div></article><div class="para" id="sec_expfunctions-7-4">If we consider an exponential function <span class="process-math">\(f\)</span> with a growth factor <span class="process-math">\(b&gt; 1\text{,}\)</span> such as the function pictured to the left below, then the function is always increasing because higher powers of <span class="process-math">\(b\)</span> are greater than lesser powers (for example, <span class="process-math">\((1.2)^3&gt; (1.2)^2\)</span>). On the other hand, if <span class="process-math">\(0\lt b\lt 1\text{,}\)</span> such as the function pictured to the right below, then the exponential function will be decreasing because higher powers of positive numbers <em class="emphasis">less than 1</em> get smaller (for example, <span class="process-math">\((0.9)^3\lt (0.9)^2\)</span>). If you don’t believe this, plug the numbers into a calculator.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_exp_base"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_exp_base_inc"><img src="generated/sageplot/fig_exp_base_inc-2.svg" role="img" class="contained" alt="Exponential growth function"><figcaption><span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="process-math">\(f(x)=b^x\text{,}\)</span> <span class="process-math">\(b&gt; 1\)</span><div class="autopermalink" data-description="Figure 2.8.18.(a)"><a href="#fig_exp_base_inc" title="Copy heading and permalink for Figure 2.8.18.(a)" aria-label="Copy heading and permalink for Figure 2.8.18.(a)">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_exp_base_dec"><img src="generated/sageplot/fig_exp_base_dec-2.svg" role="img" class="contained" alt="Exponential decay function"><figcaption><span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="process-math">\(f(x)=b^x\text{,}\)</span> <span class="process-math">\(0\lt b\lt 1\)</span><div class="autopermalink" data-description="Figure 2.8.18.(b)"><a href="#fig_exp_base_dec" title="Copy heading and permalink for Figure 2.8.18.(b)" aria-label="Copy heading and permalink for Figure 2.8.18.(b)">🔗</a></div></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x)=b^x\)</span><div class="autopermalink" data-description="Figure 2.8.18"><a href="#fig_exp_base" title="Copy heading and permalink for Figure 2.8.18" aria-label="Copy heading and permalink for Figure 2.8.18">🔗</a></div></figcaption></figure><div class="para logical" id="sec_expfunctions-7-6">
+<div class="para">We also notice that each graph bends upward and is therefore concave up. We can better understand why this is so by considering the average rate of change of both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> on consecutive intervals of width 1, so that the average rate of change can be computed by</div>
+<div class="displaymath process-math" id="sec_expfunctions-7-6-3">
+\begin{equation*}
+AV_{[t,t+1]} = \frac{f(t+1)-f(t)}{1} = f(t+1)-f(t)\text{.}
+\end{equation*}
+</div>
+<div class="para">The tables below give the average rate of change of <span class="process-math">\(f(t) = 2(1.25)^t\)</span> and <span class="process-math">\(g(t) = 8(0.75)^t\)</span> on several consecutive unit intervals:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_exp_growth_emp"><img src="external/APCTable3-1-10.png" class="contained"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Average rate of change of <span class="process-math">\(f(t) = 2(1.25)^t\)</span><div class="autopermalink" data-description="Figure 2.8.19"><a href="#fig_exp_growth_emp" title="Copy heading and permalink for Figure 2.8.19" aria-label="Copy heading and permalink for Figure 2.8.19">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="fig_exp_decay_emp"><img src="external/APCTable3-1-11.png" class="contained"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Average rate of change of <span class="process-math">\(g(t) = 8(0.75)^t\)</span><div class="autopermalink" data-description="Figure 2.8.20"><a href="#fig_exp_decay_emp" title="Copy heading and permalink for Figure 2.8.20" aria-label="Copy heading and permalink for Figure 2.8.20">🔗</a></div></figcaption></figure></div>
+</div></div>
+<div class="para" id="sec_expfunctions-7-8">The exponential function <span class="process-math">\(f\)</span> in <a href="sec_expfunctions.html#fig_exp_growth_emp" class="xref" data-knowl="./knowl/xref/fig_exp_growth_emp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.8.19">Figure 2.8.19</a> is seen to have an average rate of change that is positive and increasing. This suggests that <span class="process-math">\(f\)</span> is <em class="emphasis">increasing at an increasing rate</em>. As a result, the graph of <span class="process-math">\(f\)</span> is concave up.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-7-9">Similarly, the exponential function <span class="process-math">\(g\)</span> in <a href="sec_expfunctions.html#fig_exp_decay_emp" class="xref" data-knowl="./knowl/xref/fig_exp_decay_emp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.8.20">Figure 2.8.20</a> is seen to have an average rate of change that is negative but increasing (getting less negative). This suggests that <span class="process-math">\(g\)</span> is <em class="emphasis">decreasing at a decreasing rate</em>. As a result, the graph of <span class="process-math">\(g\)</span> is also concave up.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-7-10">We summarize a few of these observations here:<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_propertiesofexpfunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of Exponential Functions.</span>
+</h4>
+<div class="para logical" id="thm_propertiesofexpfunctions-2-1">
+<div class="para">For an exponential function of the form <span class="process-math">\(f(x) = Ab^x\)</span> where <span class="process-math">\(A\)</span> and <span class="process-math">\(b\)</span> are both positive with <span class="process-math">\(b\neq 1\text{,}\)</span>
+</div>
+<ol class="decimal" id="thm_propertiesofexpfunctions-2-1-5">
+<li id="thm_propertiesofexpfunctions-2-1-5-1">
+<div class="para" id="thm_propertiesofexpfunctions-2-1-5-1-1">The value of <span class="process-math">\(f(x)\)</span> is never zero for any <span class="process-math">\(x\in\mathbb{R}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_propertiesofexpfunctions-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm_propertiesofexpfunctions-2-1-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm_propertiesofexpfunctions-2-1-5-2">
+<div class="para" id="thm_propertiesofexpfunctions-2-1-5-2-1">If <span class="process-math">\(b&gt; 1\text{,}\)</span> then <span class="process-math">\(f\)</span> is always increasing and concave up.<div class="autopermalink" data-description="Paragraph"><a href="#thm_propertiesofexpfunctions-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm_propertiesofexpfunctions-2-1-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="thm_propertiesofexpfunctions-2-1-5-3">
+<div class="para" id="thm_propertiesofexpfunctions-2-1-5-3-1">If <span class="process-math">\(0\lt b\lt 1\text{,}\)</span> then <span class="process-math">\(f\)</span> is always decreasing and concave up.<div class="autopermalink" data-description="Paragraph"><a href="#thm_propertiesofexpfunctions-2-1-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#thm_propertiesofexpfunctions-2-1-5-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="thm_propertiesofexpfunctions-2-1-5-4">
+<div class="para" id="thm_propertiesofexpfunctions-2-1-5-4-1">The graph of <span class="process-math">\(f\)</span> passes the Horizontal Line Test.<div class="autopermalink" data-description="Paragraph"><a href="#thm_propertiesofexpfunctions-2-1-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#thm_propertiesofexpfunctions-2-1-5-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_propertiesofexpfunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.8.21: Properties of Exponential Functions"><a href="#thm_propertiesofexpfunctions" title="Copy heading and permalink for Theorem 2.8.21: Properties of Exponential Functions" aria-label="Copy heading and permalink for Theorem 2.8.21: Properties of Exponential Functions">🔗</a></div></article><div class="para" id="sec_expfunctions-7-12">Note the last statement: the graph of <span class="process-math">\(f\)</span> passes the Horizontal Line Test. This is because <span class="process-math">\(f\)</span> is either increasing or decreasing and so its graph cannot repeat values. Another way to say this is that exponential functions are one-to-one and that <em class="emphasis">every exponential function has an inverse!</em> Let’s repeat that:<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-7-13">\fbox{ Every exponential function has an inverse!!! }<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_expfunctions-7-14">In the next section, we will define and explore the inverses of exponential functions. They are called <em class="emphasis">logarithms</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec_expfunctions-7-15"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_expfunctions-7-15-1-1">
+<div class="para">Since exponential functions are one-to-one, if <span class="process-math">\(b^c = b^d\text{,}\)</span> then we must have <span class="process-math">\(c=d\text{.}\)</span> Use this property to determine the value of <span class="process-math">\(x\)</span> that satisfies each equation below. This will be useful in the next section when we want to find values of logarithms.</div>
+<ol class="decimal" id="sec_expfunctions-7-15-1-1-4">
+<li id="sec_expfunctions-7-15-1-1-4-1">
+<div class="para" id="sec_expfunctions-7-15-1-1-4-1-1">Find <span class="process-math">\(x\)</span> with <span class="process-math">\(2^x = 8\)</span> by rewriting <span class="process-math">\(8\)</span> as a power of <span class="process-math">\(2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-15-1-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.8.22.1"><a href="#sec_expfunctions-7-15-1-1-4-1" title="Copy heading and permalink for Item 2.8.22.1" aria-label="Copy heading and permalink for Item 2.8.22.1">🔗</a></div>
+</li>
+<li id="sec_expfunctions-7-15-1-1-4-2">
+<div class="para" id="sec_expfunctions-7-15-1-1-4-2-1">Find <span class="process-math">\(x\)</span> with <span class="process-math">\(3^x = \frac{1}{81}\)</span> by rewriting <span class="process-math">\(\frac{1}{81}\)</span> as a power of <span class="process-math">\(3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-15-1-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.8.22.2"><a href="#sec_expfunctions-7-15-1-1-4-2" title="Copy heading and permalink for Item 2.8.22.2" aria-label="Copy heading and permalink for Item 2.8.22.2">🔗</a></div>
+</li>
+<li id="sec_expfunctions-7-15-1-1-4-3">
+<div class="para" id="sec_expfunctions-7-15-1-1-4-3-1">Find <span class="process-math">\(x\)</span> with <span class="process-math">\(\left(\frac{1}{25}\right)^x = 125\)</span> by rewriting <span class="process-math">\(\frac{1}{25}\)</span> and <span class="process-math">\(125\)</span> as powers of <span class="process-math">\(5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-15-1-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.8.22.3"><a href="#sec_expfunctions-7-15-1-1-4-3" title="Copy heading and permalink for Item 2.8.22.3" aria-label="Copy heading and permalink for Item 2.8.22.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_expfunctions-7-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.22"><a href="#sec_expfunctions-7-15" title="Copy heading and permalink for Checkpoint 2.8.22" aria-label="Copy heading and permalink for Checkpoint 2.8.22">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Properties of Exponential Functions"><a href="#sec_expfunctions-7" title="Copy heading and permalink for Subsection: Properties of Exponential Functions" aria-label="Copy heading and permalink for Subsection: Properties of Exponential Functions">🔗</a></div></section><div class="autopermalink" data-description="Section 2.8: Exponential functions"><a href="#sec_expfunctions" title="Copy heading and permalink for Section 2.8: Exponential functions" aria-label="Copy heading and permalink for Section 2.8: Exponential functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_applied_opt_I.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

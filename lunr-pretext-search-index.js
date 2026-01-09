@@ -1450,9 +1450,9 @@ var ptx_lunr_docs = [
   "body": " Fraction arithmetic  The examples above hopefully reactivated your fraction arithmetic skills. Let's summarize some of the definitions and techniques utilized.   Fraction arithmetic    Fraction multiplication     Multiplying by     Fraction addition with like denominators     Fraction addition via like denominators     "
 },
 {
-  "id": "sec_algebraic_func-7-2",
+  "id": "ss_alg_func-2",
   "level": "2",
-  "url": "sec_algebraic_func.html#sec_algebraic_func-7-2",
+  "url": "sec_algebraic_func.html#ss_alg_func-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1468,9 +1468,9 @@ var ptx_lunr_docs = [
   "body": " A summary of algebraic functions    Type  General form  Examples    Linear   ,    Polynomial      Rational      Power  ,     Other  Arithmetic comb. of previous types  ,    "
 },
 {
-  "id": "sec_algebraic_func-7-6",
+  "id": "ss_alg_func-6",
   "level": "2",
-  "url": "sec_algebraic_func.html#sec_algebraic_func-7-6",
+  "url": "sec_algebraic_func.html#ss_alg_func-6",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1486,18 +1486,18 @@ var ptx_lunr_docs = [
   "body": " A summary of transcendental functions    Type  Examples    Exponential     Logarithmic     Trigonometric     Inverse Trigonometric     Other     "
 },
 {
-  "id": "sec_algebraic_func-7-8",
+  "id": "ss_alg_func-8",
   "level": "2",
-  "url": "sec_algebraic_func.html#sec_algebraic_func-7-8",
+  "url": "sec_algebraic_func.html#ss_alg_func-8",
   "type": "Example",
   "number": "1.4.27",
   "title": "Identifying algebraic function types.",
   "body": " Identifying algebraic function types   For each function listed, determine whether it is a linear, power, polynomial, rational, algebraic or transcendental function. Some functions may satisfy more than one classification.                              is a power function of the form with real-number coefficient and rational-number exponent . Since , is also a rational function of the form with the polynomials and . Thus is an algebraic function that is both a power function and a rational function.    The function is not algebraic, because it involves a nonconstant exponent. Therefore the function also fails to be algebraic and thus is transcendental.     is a quotient of algebraic functions, but not a quotient of polynomials , since is not a polynomial. Therefore is an algebraic function, but not a rational function.    This function can be simplified: . After the last simplification it is easy to see that is also a polynomial function, with degree , and coefficients and . Furthermore, since we can write , is a rational function as well, with and . Therefore is an algebraic function that is linear, polynomial, and rational.      "
 },
 {
-  "id": "sec_algebraic_func-7-9",
+  "id": "ss_alg_func-9",
   "level": "2",
-  "url": "sec_algebraic_func.html#sec_algebraic_func-7-9",
+  "url": "sec_algebraic_func.html#ss_alg_func-9",
   "type": "Checkpoint",
   "number": "1.4.28",
   "title": "",
@@ -4949,6 +4949,186 @@ var ptx_lunr_docs = [
   "number": "2.7.13",
   "title": "Optimizing revenue.",
   "body": " Optimizing revenue   The starting price of a certain model of television is $450. At this price point there are 1000 weekly sales of the television. A marketing team discovers that for each discount of $10 applied to the TV price, the number of weekly sales increases by 100 per week. How should the company price the television in order to maximize weekly revenue?    Let be the number of ten-dollar discounts applied to the starting price. According to our marketers, the number of weekly sales if applying ten-dollar discounts to the price is . Thus as a function of , our weekly revenue is . We wish to maximize the function for . (We have as we do not want the price of the television to be negative!)  We apply . We first compute . It follows that the only critical point of in is . Now evaluate at the endpoints and the critical point: Thus revenue is maximized when offering ten-dollar discounts to the price of the televion. In other words, the television should be offered at a price of dollars.   "
+},
+{
+  "id": "sec_expfunctions",
+  "level": "1",
+  "url": "sec_expfunctions.html",
+  "type": "Section",
+  "number": "2.8",
+  "title": "Exponential functions",
+  "body": " Exponential functions     Discover how exponential functions can describe percent growth or decay.    Learn the definition of exponential functions.    Find the formula for an exponential function given two points on the graph of the function.    Understand how the values of the coefficient and base of an exponential function affect the shape of the graph.      Motivating exponential functions  When deciding how to model a quantity as a function of of some other quantity , our choice of function is governed by how the output quantity changes as the input quantity changes. Recall that the instantaneous rate of change of a function at a specific input is given by the derivative ; and that the derivative can be estimated by computing average rates of change over small intervals about .  We can distinguish between different types of functions by examining their rate of change at different inputs. For example, the rate of change of a constant functions is zero everywhere, reflecting the fact that the output value of a constant function never changes! Similarly, a linear function has constant rate of change , and a quadratic function has a linear rate of change function .  In this section we will define and start to explore exponential functions. These functions exhibit a fundamentally different kind of rate of change behavior that also happens to be ubiquitous in real-world empirical phenomena, making them exceptionally useful for modeling purposes.   Motivating example: percent rate of change   Suppose that a credit card company is offering a annual interest rate on a one-time loan. If you take out a loan for and don't make any payments, after one year you still owe the original , plus 10% of , so your balance after a year is: . If we instead borrowed , after 1 year we again owe the original , but now we also owe 10% of , and thus the balance after a year is: . If we were to borrow dollars, we reason the same way that after a year the balance on the loan is   If we go another year without paying anything toward the loan, we repeat our calculations for a second year. Let's diagram out what happens over two years if we borrow dollars initially.    Start  After first year  After second year       If we started by borrowing , the sequence of debts would be as described below.    Start  After first year  After second year       Using the same reasoning, if we borrow dollars without paying anything back, the sequence of debts over two years follows the same pattern.    Start  After first year  After second year       What will happen after 3 years? Adding to the loan balance of after two years, the original loan will have grown to .  Here we see a new kind of pattern developing: annual growth of is leading to powers of the base , where the power to which we raise corresponds to the number of years the loan has grown. Note that the change occurs in the exponent of the formula: where is the number of years since we took out the loan. Each additional year results in an additional multiplication by , so for each year that passes, the power of the base will increase by . This type of change is an example of exponential growth .      Defining Exponential Functions  The pattern described by the example above is new to us. We have yet to see a function where the variable is in the exponent. It turns out that such functions are not algebraic , although proving this to be the case is not straightforward. We call a function transcendental if it is not algebraic. In this course we will eventually introduce four different types of transcendental functions: exponential, logarithmic, trigonometric, and inverse trigonometric functions. We begin with exponential functions, which we will now endeavor to define as best we can. Exponential functions look similar to power functions, but with the roles of constant and variable reversed in the base and exponent.   Exponential Functions   An exponential function is a function that can be written in the form for some real numbers and such that , and .     Power functions versus exponential functions  It is easy to conflate a power functions with an exponential function , since both are defined using the power operation. The key difference between the two types of functions is the precise position of the input variable :   in a power function , the input variable appears as the base of the power expression;    in an exponential function , the input variable appears as the exponent of the power expression. Hence the name.       Domain of exponential function  As defined, the domain of an exponential function is , the set of all real numbers. The conscientious reader may object, however, that when defining power expressions like , we only did so for rational exponents of the form , where and are integers. For example, we have given no definition of the power expression . To that conscientious reader we say: you are absolutely justified! Of course there is a perfectly rigorous way to define for all (not just rational ), but for now you will just have to take this on faith. For the time being, we are more focused on detailing the important properties of exponetial functions so that you can make use of them in modeling situations.   Since exponential functions involve a power expression of the form , you in order to facilitate working with them, you may want to review the various rules governing power expressions articulated in . The next example illustrates how these can be put to use.   Standard form of exponential functions   Each function below is exponential. Write it in the standard form .                                  We have .    We have .    We have .    We have .    We have .         Growth of exponential Functions  Let's look at another practical application of exponential functions in order to better understand their properties:    Suppose that at age 25 you receive a signing bonus of $20,000 at your new job Congratulations! and you can choose between one of two ways to use the money: you can invest it in a mutual fund that will, on average, earn 8% interest annually, or you can purchase a used car that will, on average, depreciate 12% annually. Let's explore how the $20,000 changes over time.  Let denote the value of the $20,000 after years if it is invested in the mutual fund. Let denote the value of the car years after it is purchased.  We know that since when , you are starting with $20,000. After one year you will have 8% more, so that .  In general, a quantity increasing by 8% annually will be multiplied by 1.08 each year, so that .  A formula for after years is then . A graph of is   describes 8% annual growth over years.    Let's now look at the value of the car. We know that . After one year, the value of the car will be 12% less than it was originally worth, so that .  Note that if a quantity depreciates (meaning decreases by) 12% annually, after a given year, of that quantity remains. So for each year that passes, we multiply by another : .  A formula for after years is then . A graph of is   describes 12% annual depreciation over years.      Note the very different behavior of the two functions: 8% growth results in an increasing, concave up function, while 12% depreciation results in a decreasing, concave up function. Both functions have a coefficient of . The only difference in the formula is in the base of the exponential function: growth corresponds to a base of , while depreciation corresponds to a base of . This is not a coincidence. Bases larger than 1 will increase as the exponent increases, while bases between 0 and 1 will decrease as the exponent increases.  For an exponential function , we note that , so an exponential function has -intercept equal to the coefficient . This is sometimes called the initial value of the quantity being modeled. In the example above, and are the initial quantity of your bonus that you either invested or paid for the car.  Note that because a positive number raised to any power is always positive (for instance, and ), the expression is also always positive. An exponential function will then always be positive when the coefficient is positive and will always be negative when is negative. In particular, is never zero, and thus has no -intercepts. In the example above, and both have positive coefficient , so these two quantities will always be positive for any value of . This makes sense intuitively in both examples: the values of the mutual fund and car cannot be negative.  Again looking at Example , we call the \"growth factor\" of and similarly the growth factor of because we are multiplying by that factor for each 1-unit increase in time. In addition, we note that these values stem from the actual growth rates: for , so that the growth factor is , and for , so that the growth factor is , the latter growth rate being negative because value is deprecating. In general, for a function of the form , we call the growth factor . Moreover, if , we call the growth rate . Whenever , we often say that the function is exhibiting exponential growth , whereas if , we say exhibits exponential decay .    In your own words, explain the difference between growth factor and growth rate. Use the context of Example to help you explain.    Let's compare linear and exponential functions to best illustrate this new growth pattern.   Growth patters: linear versus exponential Functions   In the tables below, we see output for two different functions and that correspond to equally spaced inputs:    Table of values for     0  3  6  9            12  10  8  6      Table of values for     0  3  6  9            12  9  6.75  5.0625      In the left-hand table, we see a function that exhibits constant average rate of change since the change in output is always for any change in input of . Said differently, is a linear function with slope . Since its -intercept is , the function's formula is .  The difference between one output and the next is always a constant , as long as the input increases by 3.  By contrast, the function given by the right-hand table does not exhibit constant average rate of change: .  Thus the difference between one output and the next is not constant as the input increases by a constant amount and is not a linear function.  Instead, observe that in the table for , each output is a multiple of the previous output . The first two outputs have a ratio of . The second and third outputs have a ratio of   The third and fourth outputs have a ratio of . For , we see that when the input increases by 3, the output is multiplied by . As a formula,     Summarizing the key difference between linear and exponential change:  \\fbox{ Whereas the differences in the outputs of a linear function are constant, the ratios in the outputs of the exponential function are constant (over equally spaced inputs). }    In Example , the exponent of is . Why does this translate to multiplying by when increases by ? What would happen if we used as the exponent instead?      Finding Formulas for Exponential Functions  We now do some algebra. Recall that we can find the formula of a linear function from knowing only two points that lie on the line. Similarly, if we know two points on the graph of an exponential function, we can determine the function's formula. We demonstrate two different methods for doing so in the next example and the following exercise.    Suppose that is an exponential function and we know that and . Determine the exact values of and for which .    Since we know that , the two data points give us two equations in the unknowns and . First, using , , and using we also have .  Because we know that the ratios of outputs of an exponential function corresponding to equally-spaced inputs must be constant, we consider the ratio of our outputs : .  Solving for , we find that .  Using the exact value and substituting this value for in , we see that   Therefore, and a plot of confirms that the function indeed passes through and :      Another Approach   In Example , we saw that as the input increases by , the ratio of the outputs is . Since the ratio of outputs is constant for exponential functions, another increase of in will result in multiplication by another , so that   From here, use the fact that (or ; you can use either) to find . Verify that this value of is the same as was found in Example . (You will probably want to write what you found as a decimal.)  Lastly, observe that: so that the base of the two functions is the same if we isolate in the exponent.      Properties of Exponential Functions  We've seen in our examples so far that exponential function arise when modeling quantities that change by a percent of their value. In this section, we will explore how this affects the shape of such functions.   Exponential functions: graphical properties   Use the Desmos interactive in to answer the following questions.   The Desmos graph is initially set to and . Describe the shape of the resulting function . Is the function positive? Negative? Increasing? Decreasing? Concave up? Concave down?    Experiment setting to any nonzero number (try both positive and negative) and setting to either a number between 0 and 1, or a number greater than 1. How do these different choices affect the shape of the graph?    Why can't we use ? Set in the Desmos graph. How does this change the shape of the graph? Would you call this graph \"exponential?\"    Why can't we have ? Set to any nonzero number and . How does this change the shape of the graph? Would you call this graph \"exponential?\"    Set . It's going to look very strange (if Desmos shows you anything; sometimes it doesn't). Think about what values we can have for the exponent in the expression . What would happen with ? ? ? There are infinitely many values of for which a negative base would result in an undefined expression. This is why the definition of an exponential function excludes .      Desmos interactive : graphs of exponential functions      If we consider an exponential function with a growth factor , such as the function pictured to the left below, then the function is always increasing because higher powers of are greater than lesser powers (for example, ). On the other hand, if , such as the function pictured to the right below, then the exponential function will be decreasing because higher powers of positive numbers less than 1 get smaller (for example, ). If you don't believe this, plug the numbers into a calculator.   Graph of    ,   Exponential growth function      ,   Exponential decay function        We also notice that each graph bends upward and is therefore concave up. We can better understand why this is so by considering the average rate of change of both and on consecutive intervals of width 1, so that the average rate of change can be computed by . The tables below give the average rate of change of and on several consecutive unit intervals:    Average rate of change of     Average rate of change of     The exponential function in is seen to have an average rate of change that is positive and increasing. This suggests that is increasing at an increasing rate . As a result, the graph of is concave up.  Similarly, the exponential function in is seen to have an average rate of change that is negative but increasing (getting less negative). This suggests that is decreasing at a decreasing rate . As a result, the graph of is also concave up.  We summarize a few of these observations here:   Properties of Exponential Functions   For an exponential function of the form where and are both positive with ,   The value of is never zero for any .    If , then is always increasing and concave up.    If , then is always decreasing and concave up.    The graph of passes the Horizontal Line Test.       Note the last statement: the graph of passes the Horizontal Line Test. This is because is either increasing or decreasing and so its graph cannot repeat values. Another way to say this is that exponential functions are one-to-one and that every exponential function has an inverse! Let's repeat that:  \\fbox{ Every exponential function has an inverse!!! }  In the next section, we will define and explore the inverses of exponential functions. They are called logarithms .    Since exponential functions are one-to-one, if , then we must have . Use this property to determine the value of that satisfies each equation below. This will be useful in the next section when we want to find values of logarithms.   Find with by rewriting as a power of .    Find with by rewriting as a power of .    Find with by rewriting and as powers of .        "
+},
+{
+  "id": "sec_expfunctions-2",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-2",
+  "type": "Objectives",
+  "number": "2.8",
+  "title": "",
+  "body": "   Discover how exponential functions can describe percent growth or decay.    Learn the definition of exponential functions.    Find the formula for an exponential function given two points on the graph of the function.    Understand how the values of the coefficient and base of an exponential function affect the shape of the graph.    "
+},
+{
+  "id": "sec_expfunctions-3-5",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-3-5",
+  "type": "Example",
+  "number": "2.8.1",
+  "title": "Motivating example: percent rate of change.",
+  "body": " Motivating example: percent rate of change   Suppose that a credit card company is offering a annual interest rate on a one-time loan. If you take out a loan for and don't make any payments, after one year you still owe the original , plus 10% of , so your balance after a year is: . If we instead borrowed , after 1 year we again owe the original , but now we also owe 10% of , and thus the balance after a year is: . If we were to borrow dollars, we reason the same way that after a year the balance on the loan is   If we go another year without paying anything toward the loan, we repeat our calculations for a second year. Let's diagram out what happens over two years if we borrow dollars initially.    Start  After first year  After second year       If we started by borrowing , the sequence of debts would be as described below.    Start  After first year  After second year       Using the same reasoning, if we borrow dollars without paying anything back, the sequence of debts over two years follows the same pattern.    Start  After first year  After second year       What will happen after 3 years? Adding to the loan balance of after two years, the original loan will have grown to .  Here we see a new kind of pattern developing: annual growth of is leading to powers of the base , where the power to which we raise corresponds to the number of years the loan has grown. Note that the change occurs in the exponent of the formula: where is the number of years since we took out the loan. Each additional year results in an additional multiplication by , so for each year that passes, the power of the base will increase by . This type of change is an example of exponential growth .   "
+},
+{
+  "id": "sec_expfunctions-4-2",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-4-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "transcendental "
+},
+{
+  "id": "sec_expfunctions-4-3",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-4-3",
+  "type": "Definition",
+  "number": "2.8.2",
+  "title": "Exponential Functions.",
+  "body": " Exponential Functions   An exponential function is a function that can be written in the form for some real numbers and such that , and .   "
+},
+{
+  "id": "sec_expfunctions-4-4",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-4-4",
+  "type": "Remark",
+  "number": "2.8.3",
+  "title": "Power functions versus exponential functions.",
+  "body": " Power functions versus exponential functions  It is easy to conflate a power functions with an exponential function , since both are defined using the power operation. The key difference between the two types of functions is the precise position of the input variable :   in a power function , the input variable appears as the base of the power expression;    in an exponential function , the input variable appears as the exponent of the power expression. Hence the name.     "
+},
+{
+  "id": "rem_exp_domain",
+  "level": "2",
+  "url": "sec_expfunctions.html#rem_exp_domain",
+  "type": "Remark",
+  "number": "2.8.4",
+  "title": "Domain of exponential function.",
+  "body": " Domain of exponential function  As defined, the domain of an exponential function is , the set of all real numbers. The conscientious reader may object, however, that when defining power expressions like , we only did so for rational exponents of the form , where and are integers. For example, we have given no definition of the power expression . To that conscientious reader we say: you are absolutely justified! Of course there is a perfectly rigorous way to define for all (not just rational ), but for now you will just have to take this on faith. For the time being, we are more focused on detailing the important properties of exponetial functions so that you can make use of them in modeling situations.  "
+},
+{
+  "id": "eg_exp_find_base",
+  "level": "2",
+  "url": "sec_expfunctions.html#eg_exp_find_base",
+  "type": "Example",
+  "number": "2.8.5",
+  "title": "Standard form of exponential functions.",
+  "body": " Standard form of exponential functions   Each function below is exponential. Write it in the standard form .                                  We have .    We have .    We have .    We have .    We have .      "
+},
+{
+  "id": "ex_APCPrev3-1-1",
+  "level": "2",
+  "url": "sec_expfunctions.html#ex_APCPrev3-1-1",
+  "type": "Example",
+  "number": "2.8.6",
+  "title": "",
+  "body": "  Suppose that at age 25 you receive a signing bonus of $20,000 at your new job Congratulations! and you can choose between one of two ways to use the money: you can invest it in a mutual fund that will, on average, earn 8% interest annually, or you can purchase a used car that will, on average, depreciate 12% annually. Let's explore how the $20,000 changes over time.  Let denote the value of the $20,000 after years if it is invested in the mutual fund. Let denote the value of the car years after it is purchased.  We know that since when , you are starting with $20,000. After one year you will have 8% more, so that .  In general, a quantity increasing by 8% annually will be multiplied by 1.08 each year, so that .  A formula for after years is then . A graph of is   describes 8% annual growth over years.    Let's now look at the value of the car. We know that . After one year, the value of the car will be 12% less than it was originally worth, so that .  Note that if a quantity depreciates (meaning decreases by) 12% annually, after a given year, of that quantity remains. So for each year that passes, we multiply by another : .  A formula for after years is then . A graph of is   describes 12% annual depreciation over years.     "
+},
+{
+  "id": "sec_expfunctions-5-8",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-5-8",
+  "type": "Checkpoint",
+  "number": "2.8.9",
+  "title": "",
+  "body": "  In your own words, explain the difference between growth factor and growth rate. Use the context of Example to help you explain.   "
+},
+{
+  "id": "ex_linvsexpgrowthpattern",
+  "level": "2",
+  "url": "sec_expfunctions.html#ex_linvsexpgrowthpattern",
+  "type": "Example",
+  "number": "2.8.10",
+  "title": "Growth patters: linear versus exponential Functions.",
+  "body": " Growth patters: linear versus exponential Functions   In the tables below, we see output for two different functions and that correspond to equally spaced inputs:    Table of values for     0  3  6  9            12  10  8  6      Table of values for     0  3  6  9            12  9  6.75  5.0625      In the left-hand table, we see a function that exhibits constant average rate of change since the change in output is always for any change in input of . Said differently, is a linear function with slope . Since its -intercept is , the function's formula is .  The difference between one output and the next is always a constant , as long as the input increases by 3.  By contrast, the function given by the right-hand table does not exhibit constant average rate of change: .  Thus the difference between one output and the next is not constant as the input increases by a constant amount and is not a linear function.  Instead, observe that in the table for , each output is a multiple of the previous output . The first two outputs have a ratio of . The second and third outputs have a ratio of   The third and fourth outputs have a ratio of . For , we see that when the input increases by 3, the output is multiplied by . As a formula,    "
+},
+{
+  "id": "sec_expfunctions-5-13",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-5-13",
+  "type": "Checkpoint",
+  "number": "2.8.13",
+  "title": "",
+  "body": "  In Example , the exponent of is . Why does this translate to multiplying by when increases by ? What would happen if we used as the exponent instead?   "
+},
+{
+  "id": "ex_APCExample3-1-6",
+  "level": "2",
+  "url": "sec_expfunctions.html#ex_APCExample3-1-6",
+  "type": "Example",
+  "number": "2.8.14",
+  "title": "",
+  "body": "  Suppose that is an exponential function and we know that and . Determine the exact values of and for which .    Since we know that , the two data points give us two equations in the unknowns and . First, using , , and using we also have .  Because we know that the ratios of outputs of an exponential function corresponding to equally-spaced inputs must be constant, we consider the ratio of our outputs : .  Solving for , we find that .  Using the exact value and substituting this value for in , we see that   Therefore, and a plot of confirms that the function indeed passes through and :    "
+},
+{
+  "id": "sec_expfunctions-6-4",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-6-4",
+  "type": "Checkpoint",
+  "number": "2.8.15",
+  "title": "Another Approach.",
+  "body": " Another Approach   In Example , we saw that as the input increases by , the ratio of the outputs is . Since the ratio of outputs is constant for exponential functions, another increase of in will result in multiplication by another , so that   From here, use the fact that (or ; you can use either) to find . Verify that this value of is the same as was found in Example . (You will probably want to write what you found as a decimal.)  Lastly, observe that: so that the base of the two functions is the same if we isolate in the exponent.   "
+},
+{
+  "id": "eg_exp_graph",
+  "level": "2",
+  "url": "sec_expfunctions.html#eg_exp_graph",
+  "type": "Example",
+  "number": "2.8.16",
+  "title": "Exponential functions: graphical properties.",
+  "body": " Exponential functions: graphical properties   Use the Desmos interactive in to answer the following questions.   The Desmos graph is initially set to and . Describe the shape of the resulting function . Is the function positive? Negative? Increasing? Decreasing? Concave up? Concave down?    Experiment setting to any nonzero number (try both positive and negative) and setting to either a number between 0 and 1, or a number greater than 1. How do these different choices affect the shape of the graph?    Why can't we use ? Set in the Desmos graph. How does this change the shape of the graph? Would you call this graph \"exponential?\"    Why can't we have ? Set to any nonzero number and . How does this change the shape of the graph? Would you call this graph \"exponential?\"    Set . It's going to look very strange (if Desmos shows you anything; sometimes it doesn't). Think about what values we can have for the exponent in the expression . What would happen with ? ? ? There are infinitely many values of for which a negative base would result in an undefined expression. This is why the definition of an exponential function excludes .      Desmos interactive : graphs of exponential functions     "
+},
+{
+  "id": "fig_exp_base",
+  "level": "2",
+  "url": "sec_expfunctions.html#fig_exp_base",
+  "type": "Figure",
+  "number": "2.8.18",
+  "title": "",
+  "body": " Graph of    ,   Exponential growth function      ,   Exponential decay function      "
+},
+{
+  "id": "fig_exp_growth_emp",
+  "level": "2",
+  "url": "sec_expfunctions.html#fig_exp_growth_emp",
+  "type": "Figure",
+  "number": "2.8.19",
+  "title": "",
+  "body": " Average rate of change of   "
+},
+{
+  "id": "fig_exp_decay_emp",
+  "level": "2",
+  "url": "sec_expfunctions.html#fig_exp_decay_emp",
+  "type": "Figure",
+  "number": "2.8.20",
+  "title": "",
+  "body": " Average rate of change of   "
+},
+{
+  "id": "thm_propertiesofexpfunctions",
+  "level": "2",
+  "url": "sec_expfunctions.html#thm_propertiesofexpfunctions",
+  "type": "Theorem",
+  "number": "2.8.21",
+  "title": "Properties of Exponential Functions.",
+  "body": " Properties of Exponential Functions   For an exponential function of the form where and are both positive with ,   The value of is never zero for any .    If , then is always increasing and concave up.    If , then is always decreasing and concave up.    The graph of passes the Horizontal Line Test.      "
+},
+{
+  "id": "sec_expfunctions-7-15",
+  "level": "2",
+  "url": "sec_expfunctions.html#sec_expfunctions-7-15",
+  "type": "Checkpoint",
+  "number": "2.8.22",
+  "title": "",
+  "body": "  Since exponential functions are one-to-one, if , then we must have . Use this property to determine the value of that satisfies each equation below. This will be useful in the next section when we want to find values of logarithms.   Find with by rewriting as a power of .    Find with by rewriting as a power of .    Find with by rewriting and as powers of .      "
 },
 {
   "id": "appendix-notation",
