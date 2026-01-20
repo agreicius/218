@@ -10,7 +10,7 @@
 <!--*  Authored with PreTeXt                 *-->
 <!--*  pretextbook.org                       *-->
 <!--*  Theme: default-modern                 *-->
-<!--*  Palette:                              *-->
+<!--*  Palette: blue-green                   *-->
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,7 +47,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -80,6 +97,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Functions and single-variable calculus">
 <meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
 <script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
@@ -102,22 +120,22 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.3';
+eBookConfig.runestone_version = '7.9.11';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.47a5fea5694fc0ae.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.59de9dca80a62a76.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.b37c97cbe7a5455b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="changeme" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
-<p class="byline">Ellen Goldstein</p>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -135,7 +153,13 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
 \DeclareMathOperator{\range}{range}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -175,27 +199,27 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a Function?</span></a></div>
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">The Definition of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-7" class="internal"><span class="title">Vertical Line Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and Quadratic Functions</span></a></div>
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6" class="internal"><span class="title">Different Equations of Lines</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7" class="internal"><span class="title">Finding <span class="process-math">\(x\)</span>-intercepts of Quadratic Functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-8" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
@@ -215,10 +239,52 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-5" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Modeling with Quadratic Functions: Falling Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-8" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-7" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -235,10 +301,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_avgchange"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.3</span><span class="space"> </span><span class="title">Average Rate of Change</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Average Rate of Change</span>
 </h2>
 <section class="introduction" id="sec_avgchange-2"><div class="para" id="sec_avgchange-2-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="subsection" id="sec_avgchange-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Learning Goals</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Learning Goals</span>
 </h3>
 <ul class="disc" id="sec_avgchange-3-2">
 <li id="sec_avgchange-3-2-1">
@@ -273,17 +339,17 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 <div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_avgchange-3" title="Copy heading and permalink for Subsection: Learning Goals" aria-label="Copy heading and permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="sec_avgchange-4"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Definition of Average Rate of Change of a Function</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Definition of Average Rate of Change of a Function</span>
 </h3>
 <div class="para" id="sec_avgchange-4-2">In the previous section, we looked at linear and quadratic functions in some depth. We now know that each type of function has a predictable shape. In particular, linear function have a constant slope, while quadratic functions do not. Another way to say this is that linear functions change at a constant rate. In this section, we learn one way to describe how functions change when they do not increase or decrease at a constant rate.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="sec_avgchange-4-3"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_avgchange-4-3-1-1">
-<a href="sec_avgchange.html#tab_polevault" class="xref" data-knowl="./knowl/xref/tab_polevault.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)">Table 1.3.2</a> below shows the height of the winning pole vault at the Olympics<details class="ptx-footnote" aria-live="polite" id="sec_avgchange-4-3-1-1-2"><summary class="ptx-footnote__number" title="Footnote 1.17"><sup> 17 </sup></summary><div class="ptx-footnote__contents" id="sec_avgchange-4-3-1-1-2">
+<a href="sec_avgchange.html#tab_polevault" class="xref" data-knowl="./knowl/xref/tab_polevault.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)">Table 1.3.2</a> below shows the height of the winning pole vault at the Olympics<details class="ptx-footnote" aria-live="polite" id="sec_avgchange-4-3-1-1-2"><summary class="ptx-footnote__number" title="Footnote 1.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec_avgchange-4-3-1-1-2">
 <em class="emphasis">The World Almanac and Book of Facts, 2005</em>,p. 866 (New York). As found in <em class="emphasis">Applied Calculus</em> by Hughes Hallet et al.</div></details> during the 1960s and more recently. Find the rate of change of the winning height between 1960 and 1968, and between 2008 and 2016. In which of these two periods did the height increase faster?<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="table table-like" id="tab_polevault"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.3.2<span class="period">.</span></span><span class="space"> </span>Winning height in men’s Olympic pole vault (approximate)<div class="autopermalink" data-description="Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)"><a href="#tab_polevault" title="Copy heading and permalink for Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)" aria-label="Copy heading and permalink for Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div> <figure class="table table-like" id="tab_polevault"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Winning height in men’s Olympic pole vault (approximate)<div class="autopermalink" data-description="Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)"><a href="#tab_polevault" title="Copy heading and permalink for Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)" aria-label="Copy heading and permalink for Table 1.3.2: Winning height in men’s Olympic pole vault (approximate)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">\toprule Year</td>
 <td class="l m b0 r0 l0 t0 lines">1960</td>
@@ -305,7 +371,7 @@ eBookConfig.enable_chatcodes =  false;
 <td class="l m b0 r0 l0 t0 lines">603</td>
 </tr>
 <tr><td class="l m b0 r0 l0 t0 lines">\bottomrule</td></tr>
-</table></div></figure><div class="solutions"><details id="sec_avgchange-4-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+</table></div></figure><div class="solutions"><details id="sec_avgchange-4-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="sec_avgchange-4-3-2-1">
 <div class="para">To compare the 1960s and the more recent period, we calculate the average change over each time period, similar to how we calculate the slope of a line as <span class="process-math">\(\frac{\text{ rise } }{\text{ run } }\text{:}\)</span>
 </div>
@@ -332,7 +398,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec_avgchange-4-6">We use the symbol <span class="process-math">\(\Delta\)</span> (the Greek letter capital delta) to mean "change in," so <span class="process-math">\(\Delta x\)</span> means "change in <span class="process-math">\(x\)</span> and <span class="process-math">\(\Delta y\)</span> means "change in y." The average rate of change of a dependent quantity is then expressed as a fraction of the change in the dependent variable divided by the amount of change in the independent variable:<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_averagerateofchange"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Average Rate of Change.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Average Rate of Change.</span>
 </h4>
 <div class="para logical" id="d_averagerateofchange-2-1">
 <div class="para">If <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> so <span class="process-math">\(y=f(x)\text{,}\)</span> then</div>
@@ -353,14 +419,14 @@ AV_{[a,b]}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_averagerateofchange-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.3.3: Average Rate of Change"><a href="#d_averagerateofchange" title="Copy heading and permalink for Definition 1.3.3: Average Rate of Change" aria-label="Copy heading and permalink for Definition 1.3.3: Average Rate of Change">🔗</a></div></article><div class="para" id="sec_avgchange-4-8">The quantity <span class="process-math">\(\frac{f(b)-f(a)}{b-a}\)</span> is called a <em class="emphasis">difference quotient</em> because it is the quotient of two differences. This formula may look familiar to you; it resembles the formula we use in <a href="sec_linearandquadraticfunctions.html" class="internal" title="Section 1.2: Linear and Quadratic Functions">Section 1.2</a> to compute the slope of the line between two points. As we will explore later, the average rate of change of a function <span class="process-math">\(f\)</span> on an interval <span class="process-math">\([a,b]\)</span> can be visualized as the slope of the line from <span class="process-math">\((a,f(a))\)</span> to <span class="process-math">\((b,f(b))\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 1.3.3: Average Rate of Change"><a href="#d_averagerateofchange" title="Copy heading and permalink for Definition 1.3.3: Average Rate of Change" aria-label="Copy heading and permalink for Definition 1.3.3: Average Rate of Change">🔗</a></div></article><div class="para" id="sec_avgchange-4-8">The quantity <span class="process-math">\(\frac{f(b)-f(a)}{b-a}\)</span> is called a <em class="emphasis">difference quotient</em> because it is the quotient of two differences. This formula may look familiar to you; it resembles the formula we use in <a href="sec_linearandquadraticfunctions.html" class="internal" title="Section 1.2: Linear and quadratic functions">Section 1.2</a> to compute the slope of the line between two points. As we will explore later, the average rate of change of a function <span class="process-math">\(f\)</span> on an interval <span class="process-math">\([a,b]\)</span> can be visualized as the slope of the line from <span class="process-math">\((a,f(a))\)</span> to <span class="process-math">\((b,f(b))\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_avgchange1"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="ex_avgchange1-1-1">For example, the function graphed below in <a href="sec_avgchange.html#fig_taalmanpage40a" class="xref" data-knowl="./knowl/xref/fig_taalmanpage40a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.5">Figure 1.3.5</a> is increasing until <span class="process-math">\(x=-2\text{,}\)</span> decreasing from <span class="process-math">\(x=-2\)</span> to <span class="process-math">\(x=1\text{,}\)</span> increasing again from <span class="process-math">\(x=1\)</span> until <span class="process-math">\(x=3\text{,}\)</span> and then decreasing after <span class="process-math">\(x=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_avgchange1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <figure class="figure figure-like" id="fig_taalmanpage40a"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage40.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.5<span class="period">.</span></span><span class="space"> </span>A function that both increases and decreases.<div class="autopermalink" data-description="Figure 1.3.5"><a href="#fig_taalmanpage40a" title="Copy heading and permalink for Figure 1.3.5" aria-label="Copy heading and permalink for Figure 1.3.5">🔗</a></div></figcaption></figure> <div class="para" id="ex_avgchange1-1-3">The function is not linear and so has no "slope." In order to discuss how much it increases or decreases, we can look at each interval separately.<div class="autopermalink" data-description="Paragraph"><a href="#ex_avgchange1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A function that both increases and decreases.<div class="autopermalink" data-description="Figure 1.3.5"><a href="#fig_taalmanpage40a" title="Copy heading and permalink for Figure 1.3.5" aria-label="Copy heading and permalink for Figure 1.3.5">🔗</a></div></figcaption></figure> <div class="para" id="ex_avgchange1-1-3">The function is not linear and so has no "slope." In order to discuss how much it increases or decreases, we can look at each interval separately.<div class="autopermalink" data-description="Paragraph"><a href="#ex_avgchange1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ex_avgchange1-1-4">
 <div class="para">On the interval <span class="process-math">\([-2,1]\text{,}\)</span> we calculate the average rate of change of <span class="process-math">\(y\)</span> between <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=1\text{.}\)</span> First, we observe that <span class="process-math">\(f(-2)=4\)</span> and <span class="process-math">\(f(1)=-2\)</span> in order to use these quantities in the formula for Average Rate of Change with <span class="process-math">\(a=-2\)</span> and <span class="process-math">\(b=1\text{:}\)</span>
 </div>
@@ -405,12 +471,12 @@ AV_{[0,2]} = \frac{f(2)-f(0)}{2-0} = \frac{-1-(-1)}{2} = \frac{0}{2} = 0
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_avgchange1-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 1.3.4"><a href="#ex_avgchange1" title="Copy heading and permalink for Example 1.3.4" aria-label="Copy heading and permalink for Example 1.3.4">🔗</a></div></article><article class="exercise exercise-like" id="sec_avgchange-4-10"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_avgchange-4-10-1-1">What is another interval where the function pictured above in <a href="sec_avgchange.html#fig_taalmanpage40a" class="xref" data-knowl="./knowl/xref/fig_taalmanpage40a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.5">Figure 1.3.5</a> has an average rate of change of 0?<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-4-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 1.3.6"><a href="#sec_avgchange-4-10" title="Copy heading and permalink for Checkpoint 1.3.6" aria-label="Copy heading and permalink for Checkpoint 1.3.6">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Definition of Average Rate of Change of a Function"><a href="#sec_avgchange-4" title="Copy heading and permalink for Subsection: Definition of Average Rate of Change of a Function" aria-label="Copy heading and permalink for Subsection: Definition of Average Rate of Change of a Function">🔗</a></div></section><section class="subsection" id="sec_avgchange-5"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Average Change of a Linear Function</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Average Change of a Linear Function</span>
 </h3>
 <div class="para" id="sec_avgchange-5-2">Let’s examine the average change of linear functions using the function <span class="process-math">\(f(x) = 7-3x\text{.}\)</span> Before we begin and without doing any calculations, think about what the average change of a line <em class="emphasis">should</em> be.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -448,12 +514,12 @@ AV_{[4,10]}= \frac{f(10)-f(4)}{10-4} = \frac{-23-(-5)}{6} = \frac{-18}{6} = -3
 <div class="para" id="sec_avgchange-5-6">There was nothing special about this function. The average change of any linear function <span class="process-math">\(f(x) = mx+b\)</span> on any interval is the slope <span class="process-math">\(m\)</span> of the function. In fact, we may take this to be the definition of a linear function, if we want:<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_avgchange-5-7"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Alternate Definition of a Linear Function.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Alternate Definition of a Linear Function.</span>
 </h4>
 <div class="para" id="sec_avgchange-5-7-2-1">A function <span class="process-math">\(f\)</span> is <em class="emphasis">linear</em> provided that its average rate of change is constant on every choice of interval in its domain.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-5-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 1.3.7: Alternate Definition of a Linear Function"><a href="#sec_avgchange-5-7" title="Copy heading and permalink for Definition 1.3.7: Alternate Definition of a Linear Function" aria-label="Copy heading and permalink for Definition 1.3.7: Alternate Definition of a Linear Function">🔗</a></div></article><article class="exercise exercise-like" id="sec_avgchange-5-8"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_avgchange-5-8-1-1">Let <span class="process-math">\(y=g(x)\)</span> be given by the data in the table<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-5-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sec_avgchange-5-8-1-2">
@@ -462,16 +528,16 @@ AV_{[4,10]}= \frac{f(10)-f(4)}{10-4} = \frac{-23-(-5)}{6} = \frac{-18}{6} = -3
 </div> <div class="para" id="sec_avgchange-5-8-1-3">Determine <span class="process-math">\(AV_{[-5,-2]}, AV_{[-1,1]}\text{,}\)</span> and <span class="process-math">\(AV_{[0,4]}\)</span> for the function <span class="process-math">\(g\text{.}\)</span> Could <span class="process-math">\(g\)</span> be a linear function?<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-5-8-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 1.3.8"><a href="#sec_avgchange-5-8" title="Copy heading and permalink for Checkpoint 1.3.8" aria-label="Copy heading and permalink for Checkpoint 1.3.8">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Average Change of a Linear Function"><a href="#sec_avgchange-5" title="Copy heading and permalink for Subsection: Average Change of a Linear Function" aria-label="Copy heading and permalink for Subsection: Average Change of a Linear Function">🔗</a></div></section><section class="subsection" id="sec_avgchange-6"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Visualizing Average Rate of Change</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Visualizing Average Rate of Change</span>
 </h3>
 <div class="para" id="sec_avgchange-6-2">So far we have practiced using the formula for average rate of change from a graph, function, and table. We also established that the average rate of change of a line is its slope. In this section, we connect these two ideas:<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <span class="process-math">\(f\)</span><span class="process-math">\([a,b]\)</span><span class="process-math">\((a,f(a))\)</span><span class="process-math">\((b,f(b))\text{.}\)</span><article class="example example-like" id="sec_avgchange-6-7"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Visualizing Average Rate of Change as Slope.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Visualizing Average Rate of Change as Slope.</span>
 </h4>
 <div class="para" id="sec_avgchange-6-7-2-1">Calculate the average rate of change of the function <span class="process-math">\(f(x) = x^2-x+1\)</span> (a) on the interval <span class="process-math">\([0,3]\)</span> and (b) on the interval <span class="process-math">\([-1,1]\text{.}\)</span> Then (c) illustrate these average rates of change graphically.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-6-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_avgchange-6-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="sec_avgchange-6-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="sec_avgchange-6-7-3-1">
 <ol class="lower-alpha ol-marker-2" id="sec_avgchange-6-7-3-1-1">
 <li id="sec_avgchange-6-7-3-1-1-1">
@@ -501,7 +567,7 @@ AV_{[-1,1]} = \frac{f(1)-f(-1)}{1-(-1)} = \frac{1-3}{2} = \frac{-2}{2} = -1\text
 <li id="sec_avgchange-6-7-3-1-1-3">
 <div class="para" id="sec_avgchange-6-7-3-1-1-3-1">Graphically, the two average rates we found can be represented as slopes of line segments, as follows: <figure class="figure figure-like" id="fig_taalmanpage46l"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage46L.png" class="contained"></div>
 <div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage46R.png" class="contained"></div>
-<span class="process-math">\((-1,f(-1))\)</span><span class="process-math">\((1,f(1))\)</span><span class="process-math">\(-1\text{.}\)</span><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.10<span class="period">.</span></span><span class="space"> </span>The slope between <span class="process-math">\((0,f(0))\)</span> and <span class="process-math">\((3,f(3))\)</span> is 2.<div class="autopermalink" data-description="Figure 1.3.10"><a href="#fig_taalmanpage46l" title="Copy heading and permalink for Figure 1.3.10" aria-label="Copy heading and permalink for Figure 1.3.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-6-7-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((-1,f(-1))\)</span><span class="process-math">\((1,f(1))\)</span><span class="process-math">\(-1\text{.}\)</span><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The slope between <span class="process-math">\((0,f(0))\)</span> and <span class="process-math">\((3,f(3))\)</span> is 2.<div class="autopermalink" data-description="Figure 1.3.10"><a href="#fig_taalmanpage46l" title="Copy heading and permalink for Figure 1.3.10" aria-label="Copy heading and permalink for Figure 1.3.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-6-7-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item c"><a href="#sec_avgchange-6-7-3-1-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
 </li>
@@ -511,17 +577,17 @@ AV_{[-1,1]} = \frac{f(1)-f(-1)}{1-(-1)} = \frac{1-3}{2} = \frac{-2}{2} = -1\text
 <div class="autopermalink" data-description="Solution 1.3.9.1"><a href="#sec_avgchange-6-7-3" title="Copy heading and permalink for Solution 1.3.9.1" aria-label="Copy heading and permalink for Solution 1.3.9.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Example 1.3.9: Visualizing Average Rate of Change as Slope"><a href="#sec_avgchange-6-7" title="Copy heading and permalink for Example 1.3.9: Visualizing Average Rate of Change as Slope" aria-label="Copy heading and permalink for Example 1.3.9: Visualizing Average Rate of Change as Slope">🔗</a></div></article><article class="exercise exercise-like" id="sec_avgchange-6-8"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.11</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_avgchange-6-8-1-1">Copy the graph from Example <a href="sec_avgchange.html#ex_avgchange1" class="xref" data-knowl="./knowl/xref/ex_avgchange1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.3.4">Example 1.3.4</a> on to your paper and visualize the average change on <span class="process-math">\([-2,1], [1,3], [-1,2]\text{,}\)</span> and <span class="process-math">\([0,2]\)</span> as the slope of the line between the endpoints of each interval (one line for each interval). Make sure these appear to be reasonable based on the calculated average rates of change in Example <a href="sec_avgchange.html#ex_avgchange1" class="xref" data-knowl="./knowl/xref/ex_avgchange1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.3.4">Example 1.3.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-6-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <figure class="figure figure-like" id="fig_taalmanpage40again"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/TaalmanPage40.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.12<span class="period">.</span></span><span class="space"> </span>The graph from Example \xautoref{ex_avgchange1}.<div class="autopermalink" data-description="Figure 1.3.12"><a href="#fig_taalmanpage40again" title="Copy heading and permalink for Figure 1.3.12" aria-label="Copy heading and permalink for Figure 1.3.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 1.3.11"><a href="#sec_avgchange-6-8" title="Copy heading and permalink for Checkpoint 1.3.11" aria-label="Copy heading and permalink for Checkpoint 1.3.11">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Visualizing Average Rate of Change"><a href="#sec_avgchange-6" title="Copy heading and permalink for Subsection: Visualizing Average Rate of Change" aria-label="Copy heading and permalink for Subsection: Visualizing Average Rate of Change">🔗</a></div></section><section class="subsection" id="sec_avgchange-7"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Average Change in Context</span>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph from Example \xautoref{ex_avgchange1}.<div class="autopermalink" data-description="Figure 1.3.12"><a href="#fig_taalmanpage40again" title="Copy heading and permalink for Figure 1.3.12" aria-label="Copy heading and permalink for Figure 1.3.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 1.3.11"><a href="#sec_avgchange-6-8" title="Copy heading and permalink for Checkpoint 1.3.11" aria-label="Copy heading and permalink for Checkpoint 1.3.11">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Visualizing Average Rate of Change"><a href="#sec_avgchange-6" title="Copy heading and permalink for Subsection: Visualizing Average Rate of Change" aria-label="Copy heading and permalink for Subsection: Visualizing Average Rate of Change">🔗</a></div></section><section class="subsection" id="sec_avgchange-7"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Average Change in Context</span>
 </h3>
 <div class="para" id="sec_avgchange-7-2">Let’s now return to the question of describing the rate of change of a quantity in context, paying special attention to the units and interpretation for these calculations.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_avgchangefallingball"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.13</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="ex_avgchangefallingball-1-1">
 <div class="para">Let the height function for a ball tossed vertically be given by</div>
@@ -534,7 +600,7 @@ s(t) = 64-16(t-1)^2\text{,}
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_avgchangefallingball-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="ex_avgchangefallingball-1-2">Plotting the function <span class="process-math">\(s(t)\)</span> using Desmos in <a href="sec_avgchange.html#fig_APCEx1-3-1Graph" class="xref" data-knowl="./knowl/xref/fig_APCEx1-3-1Graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.14">Figure 1.3.14</a>, it looks like the ball is thrown from a height of 48 feet, reaches its maximum height of 64 feet after 1 second, and hits the ground after 3 seconds:<div class="autopermalink" data-description="Paragraph"><a href="#ex_avgchangefallingball-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <figure class="figure figure-like" id="fig_APCEx1-3-1Graph"><div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/APCEx1-3-1Graph.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.14<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(s(t) = 64-16(t-1)^2\)</span> graphed with key points labeled.<div class="autopermalink" data-description="Figure 1.3.14"><a href="#fig_APCEx1-3-1Graph" title="Copy heading and permalink for Figure 1.3.14" aria-label="Copy heading and permalink for Figure 1.3.14">🔗</a></div></figcaption></figure> <div class="para logical" id="ex_avgchangefallingball-1-4">
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The function <span class="process-math">\(s(t) = 64-16(t-1)^2\)</span> graphed with key points labeled.<div class="autopermalink" data-description="Figure 1.3.14"><a href="#fig_APCEx1-3-1Graph" title="Copy heading and permalink for Figure 1.3.14" aria-label="Copy heading and permalink for Figure 1.3.14">🔗</a></div></figcaption></figure> <div class="para logical" id="ex_avgchangefallingball-1-4">
 <div class="para">The average rate of change of <span class="process-math">\(s(t)\)</span> on the interval <span class="process-math">\([1.5,2.5]\)</span> is calculated below, using the fact that <span class="process-math">\(s(1.5) = 64-16(1.5-1)^2=60\)</span> and <span class="process-math">\(s(2.5)=64-16(2.5-1)^2 = 28\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -563,7 +629,7 @@ AV_{[a,b]} = \frac{s(b)-s(a)}{b-a} =\frac{ \Delta s}{\Delta t} = \frac{\text{ ch
 <div class="para" id="sec_avgchange-7-6">Here is another context in which we consider an average rate of change:<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-7-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="sec_avgchange-7-7"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.15</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_avgchange-7-7-1-1">According to the US census, the populations of Kent and Ottawa Counties in Michigan from 1960 to 2010, measured in <span class="process-math">\(10\)</span>-year intervals are given in the following tables.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sec_avgchange-7-7-1-2">
@@ -614,7 +680,7 @@ AV_{[a,b]} = \frac{s(b)-s(a)}{b-a} =\frac{ \Delta s}{\Delta t} = \frac{\text{ ch
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-7-7-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_avgchange-7-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="sec_avgchange-7-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="sec_avgchange-7-7-2-1">
 <div class="para">If you have time, attempt the questions yourself, then read the solutions below.</div>
 <ol class="decimal ol-marker-3" id="sec_avgchange-7-7-2-1-1" start="0">
@@ -682,7 +748,7 @@ K(2002)\approx K(2000)+2\cdot 7370.5 = 574,336+14,741 = 589,077\text{.}
 <div class="para" id="sec_avgchange-7-10">This of course assumes that the average increase in population during the next two years remains the same as it has been in the past 10 years.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-7-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection: Average Change in Context"><a href="#sec_avgchange-7" title="Copy heading and permalink for Subsection: Average Change in Context" aria-label="Copy heading and permalink for Subsection: Average Change in Context">🔗</a></div></section><section class="subsection" id="sec_avgchange-8"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Concavity and Average Change of a Quadratic Function</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concavity and Average Change of a Quadratic Function</span>
 </h3>
 <div class="para" id="sec_avgchange-8-2">In contrast to linear functions, quadratic functions do not have a constant rate of change. Instead, their rates of change follow a different pattern. We’ll begin to see this pattern by looking at the graphs of functions whose rates of change are increasing throughout an interval or decreasing throughout an interval.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -691,16 +757,16 @@ K(2002)\approx K(2000)+2\cdot 7370.5 = 574,336+14,741 = 589,077\text{.}
 </div>
 <figure class="figure figure-like" id="fig_TaalmanPage250ICU"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage250ICU.png" class="contained"></div>
 <div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage250DCU.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.16<span class="period">.</span></span><span class="space"> </span>An increasing, concave up function.<div class="autopermalink" data-description="Figure 1.3.16"><a href="#fig_TaalmanPage250ICU" title="Copy heading and permalink for Figure 1.3.16" aria-label="Copy heading and permalink for Figure 1.3.16">🔗</a></div></figcaption></figure><div class="para" id="sec_avgchange-8-5">On the other hand, <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig_TaalmanPage250Decreasing" missing or not unique]</code> below shows graphs that are concave down: they are bending downward because the rate of change of the function is decreasing.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An increasing, concave up function.<div class="autopermalink" data-description="Figure 1.3.16"><a href="#fig_TaalmanPage250ICU" title="Copy heading and permalink for Figure 1.3.16" aria-label="Copy heading and permalink for Figure 1.3.16">🔗</a></div></figcaption></figure><div class="para" id="sec_avgchange-8-5">On the other hand, <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig_TaalmanPage250Decreasing" missing or not unique]</code> below shows graphs that are concave down: they are bending downward because the rate of change of the function is decreasing.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_TaalmanPage250ICUX"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage250ICD.png" class="contained"></div>
 <div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/TaalmanPage250DCD.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.17<span class="period">.</span></span><span class="space"> </span>An increasing, concave down function.<div class="autopermalink" data-description="Figure 1.3.17"><a href="#fig_TaalmanPage250ICUX" title="Copy heading and permalink for Figure 1.3.17" aria-label="Copy heading and permalink for Figure 1.3.17">🔗</a></div></figcaption></figure><div class="para" id="sec_avgchange-8-7">We know that quadratic functions are always either concave up or concave down, so we can expect their rates of change to increase (if the quadratic function in concave up) or for them to decrease (if the quadratic function is concave down). Note that a line is neither concave up nor concave down, and its rate of change is constant.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An increasing, concave down function.<div class="autopermalink" data-description="Figure 1.3.17"><a href="#fig_TaalmanPage250ICUX" title="Copy heading and permalink for Figure 1.3.17" aria-label="Copy heading and permalink for Figure 1.3.17">🔗</a></div></figcaption></figure><div class="para" id="sec_avgchange-8-7">We know that quadratic functions are always either concave up or concave down, so we can expect their rates of change to increase (if the quadratic function in concave up) or for them to decrease (if the quadratic function is concave down). Note that a line is neither concave up nor concave down, and its rate of change is constant.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_avgchange-8-8">Here is an example in the context of a falling object to help us look even further into what pattern rates of change of quadratic functions follow:<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_APC1-5-3"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.18</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="ex_APC1-5-3-1-1">
 <div class="para">Suppose a water balloon is tossed vertically from a fifth story window. Its height, <span class="process-math">\(h\text{,}\)</span> in meters, at time <span class="process-math">\(t\text{,}\)</span> in seconds, is modeled by the function</div>
@@ -711,7 +777,7 @@ h(t) = -5t^2+20t+25\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_APC1-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="ex_APC1-5-3-1-2">Below is a table for values of average rates of change for <span class="process-math">\(h\)</span> on select intervals. Can you spot a pattern?<div class="autopermalink" data-description="Paragraph"><a href="#ex_APC1-5-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="table table-like" id="tab_APC1-5-9"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.3.19<span class="period">.</span></span><span class="space"> </span>Average rates of change for <span class="process-math">\(h\)</span> on several unit-length intervals<div class="autopermalink" data-description="Table 1.3.19: Average rates of change for h on several unit-length intervals"><a href="#tab_APC1-5-9" title="Copy heading and permalink for Table 1.3.19: Average rates of change for h on several unit-length intervals" aria-label="Copy heading and permalink for Table 1.3.19: Average rates of change for h on several unit-length intervals">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div> <figure class="table table-like" id="tab_APC1-5-9"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Average rates of change for <span class="process-math">\(h\)</span> on several unit-length intervals<div class="autopermalink" data-description="Table 1.3.19: Average rates of change for h on several unit-length intervals"><a href="#tab_APC1-5-9" title="Copy heading and permalink for Table 1.3.19: Average rates of change for h on several unit-length intervals" aria-label="Copy heading and permalink for Table 1.3.19: Average rates of change for h on several unit-length intervals">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([a,b]\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(AV_{[a,b]}\)</span></td>
@@ -743,7 +809,7 @@ h(t) = -5t^2+20t+25\text{.}
 <span class="process-math">\(-25\)</span> m/s</td>
 </tr>
 </table></div></figure> <div class="para" id="ex_APC1-5-3-1-4">In <a href="sec_avgchange.html#tab_APC1-5-9" class="xref" data-knowl="./knowl/xref/tab_APC1-5-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.3.19: Average rates of change for h on several unit-length intervals">Table 1.3.19</a> we see an interesting pattern in the average velocities of the ball: they decrease by exactly 10 m/s on each subsequent unit-length interval. Indeed, if we remove the endpoint of each interval and focus on the starting value of each interval, viewing the resulting average rate of change <span class="process-math">\(r\)</span> as a function of the starting value, we may consider the related table, <a href="sec_avgchange.html#tab_APC1-5-10" class="xref" data-knowl="./knowl/xref/tab_APC1-5-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval">Table 1.3.20</a> seen below:<div class="autopermalink" data-description="Paragraph"><a href="#ex_APC1-5-3-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="table table-like" id="tab_APC1-5-10"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.3.20<span class="period">.</span></span><span class="space"> </span>Data from Table 1.3.19,  recast with average velocity <span class="process-math">\(r(a)\)</span> as a function of the starting point <span class="process-math">\(a\)</span> of the interval<div class="autopermalink" data-description="Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval"><a href="#tab_APC1-5-10" title="Copy heading and permalink for Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval" aria-label="Copy heading and permalink for Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div> <figure class="table table-like" id="tab_APC1-5-10"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Data from Table 1.3.19,  recast with average velocity <span class="process-math">\(r(a)\)</span> as a function of the starting point <span class="process-math">\(a\)</span> of the interval<div class="autopermalink" data-description="Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval"><a href="#tab_APC1-5-10" title="Copy heading and permalink for Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval" aria-label="Copy heading and permalink for Table 1.3.20: Data from Table 1.3.19,  recast with average velocity r(a) as a function of the starting point a of the interval">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(r(a)\)</span></td>
@@ -782,12 +848,12 @@ h(t) = -5t^2+20t+25\text{.}
 <div class="autopermalink" data-description="Example 1.3.18"><a href="#ex_APC1-5-3" title="Copy heading and permalink for Example 1.3.18" aria-label="Copy heading and permalink for Example 1.3.18">🔗</a></div></article><div class="para" id="sec_avgchange-8-10">While it takes key ideas from calculus to formalize this observation, for now we will simply note that for a quadratic function, there seems to be a related linear function that tells us something about how the quadratic function changes.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="sec_avgchange-8-11"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.21</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_avgchange-8-11-1-1">Summarize the difference between average rates of change for linear and quadratic functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-8-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 1.3.21"><a href="#sec_avgchange-8-11" title="Copy heading and permalink for Checkpoint 1.3.21" aria-label="Copy heading and permalink for Checkpoint 1.3.21">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Concavity and Average Change of a Quadratic Function"><a href="#sec_avgchange-8" title="Copy heading and permalink for Subsection: Concavity and Average Change of a Quadratic Function" aria-label="Copy heading and permalink for Subsection: Concavity and Average Change of a Quadratic Function">🔗</a></div></section><section class="subsection" id="sec_avgchange-9"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Summary</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Summary</span>
 </h3>
 <div class="para" id="sec_avgchange-9-2">The following terms, symbols, and formulas were introduced in this section:<div class="autopermalink" data-description="Paragraph"><a href="#sec_avgchange-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
