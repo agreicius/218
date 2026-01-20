@@ -128,7 +128,7 @@
     <p>
       The pattern described by the example above is new to us.
       We have yet to see a function where the variable is in the exponent.
-      It turns out that such functions are not <xref ref="ss_alg_func" text="custom"> algebraic</xref>, although proving this to be the case is not straightforward. We call a function <term>transcendental</term> if it is not algebraic. In this course we will eventually introduce four different types of transcendental functions: 
+      It turns out that such functions are not <xref ref="tab_liboffunctions" text="custom"> algebraic</xref>, although proving this to be the case is not straightforward. We call a function <term>transcendental</term> if it is not algebraic. In this course we will eventually introduce four different types of transcendental functions: 
       exponential, logarithmic,
       trigonometric, and inverse trigonometric functions. We begin with exponential functions, which we will now endeavor to define as best we can. 
       Exponential functions look similar to power functions,
@@ -648,7 +648,7 @@
       In this section,
       we will explore how this affects the shape of such functions.
     </p>
-    <example xml:id="eg_exp_graph">
+    <example xml:id="eg_exp_graphical_properties">
       <title>Exponential functions: graphical properties</title>
       <statement>
         <p>
@@ -785,83 +785,122 @@
       Similarly, the exponential function <m>g</m> in <xref ref="fig_exp_decay_emp"/> is seen to have an average rate of change that is negative but increasing (getting less negative). This suggests that <m>g</m> is <em>decreasing at a decreasing rate</em>. As a result, the graph of <m>g</m> is also concave up.
     </p>
     <p>
-      We summarize a few of these observations here:
+      We summarize these properties in the theorem below.
     </p>
     <theorem xml:id="thm_propertiesofexpfunctions">
-      <title>Properties of Exponential Functions</title>
+      <title>Properties of exponential functions</title>
       <statement>
         <p>
-          For an exponential function of the form
-          <m>f(x) = Ab^x</m> where <m>A</m> and <m>b</m> are both positive with <m>b\neq 1</m>,
+          Let <m>A</m> and <m>b</m> be positive real numbers, and let <m>f</m> be the exponential function <m>f(x)=A\, b^x</m>.
           <ol >
             <li>
               <p>
-                The value of <m>f(x)</m> is never zero for any <m>x\in\mathbb{R}</m>.
+                The domain of <m>f</m> is <m>\R</m>.
+              </p>
+              <p>
+                The range of <m>f</m> is <m>(0,\infty)</m>. In particular, <m>f(x)&gt; 0</m> for all <m>x\in \R</m>. 
               </p>
             </li>
             <li>
               <p>
-                If <m>b&gt; 1</m>, then <m>f</m> is always increasing and concave up.
+                We have <m>f(0)=A</m>; <ie/>, the <m>y</m>-intercept of the graph of <m>f</m> is <m>(0,A)</m>. 
               </p>
             </li>
             <li>
               <p>
-                If <m>0\lt b\lt 1</m>, then <m>f</m> is always decreasing and concave up.
+                If <m>b&gt; 1</m>, then <m>f</m> is increasing and concave up on its entire domain. 
               </p>
             </li>
             <li>
               <p>
-                The graph of <m>f</m> passes the Horizontal Line Test.
+                If <m>0\lt b\lt 1</m>, then <m>f</m> is decreasing and concave up on its entire domain. 
               </p>
             </li>
           </ol>
         </p>
       </statement>
+      <proof>
+        <p>
+          Since we did not even give a complete definition of the exponential function <m>f(x)=A\, b^x</m>, we are certainly in no position to prove most of these assertions. Later we will provide derivative formulas that will allow us to derive these. However, those derivative formulas will themselves be given without formal proof. As we intimated in <xref ref="rem_exp_domain"/>, much of what we present in this course about exponential functions must be taken on faith. But keep in mind that this state of affairs is a consequence of a pedagogical choice, and not a deficiency in the mathematical theory! 
+        </p>
+      </proof>
     </theorem>
     <p>
-      Note the last statement:
-      the graph of <m>f</m> passes the Horizontal Line Test.
-      This is because <m>f</m> is either increasing or decreasing and so its graph cannot repeat values.
-      Another way to say this is that exponential functions are one-to-one and that
-      <em>every exponential function has an inverse!</em> Let's repeat that:
+      As a consequence of the properties of <xref ref="thm_propertiesofexpfunctions"/>, it is relatively simple to produce a convincing sketch of an exponential function. 
     </p>
+    <example xml:id="eg_exp_graph">
+    <title>Graphing exponential functions</title>
+    <statement>
     <p>
-      \fbox{ Every exponential function has an inverse!!! }
-    </p>
-    <p>
-      In the next section,
-      we will define and explore the inverses of exponential functions.
-      They are called <em>logarithms</em>.
-    </p>
-    <exercise>
-      <statement>
+    <ol>
+      <li>
         <p>
-          Since exponential functions are one-to-one,
-          if <m>b^c = b^d</m>, then we must have <m>c=d</m>.
-          Use this property to determine the value of <m>x</m> that satisfies each equation below.
-          This will be useful in the next section when we want to find values of logarithms.
-          <ol>
-            <li>
-              <p>
-                Find <m>x</m> with <m>2^x = 8</m> by rewriting <m>8</m> as a power of <m>2</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Find <m>x</m> with <m>3^x = \frac{1}{81}</m> by rewriting
-                <m>\frac{1}{81}</m> as a power of <m>3</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Find <m>x</m> with <m>\left(\frac{1}{25}\right)^x = 125</m> by rewriting
-                <m>\frac{1}{25}</m> and <m>125</m> as powers of <m>5</m>.
-              </p>
-            </li>
-          </ol>
+          Produce a detailed graph of the function <m>f(x)=(1/2)^x</m> by computing a table of values including inputs <m>x=-3,-2,-1,0,1,2</m>.
         </p>
-      </statement>
-    </exercise>
+      </li>
+      <li>
+        <p>
+          Produce a graph of <m>g(x)=(-2)(1/2)^x+3</m> by transforming the graph of <m>f</m> appropriately using shifting and scaling techniques. 
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+      <ol>
+        <li>
+          <p>
+            Note first that according to <xref ref="thm_propertiesofexpfunctions"/>, since the base of <m>f(x)=(1/2)^x</m> lies between 0 and <m>1</m>, the graph of <m>f</m> will be decreasing and concave up on its entire domain. The table of values below, along with the corresponding plotted points, will bear this out. 
+          </p>
+          <table>
+              <title>Values of <m>f(x)</m></title>
+              <tabular>
+                <col halign="right"/><col halign="right"/><col halign="right"/><col halign="right"/><col halign="right"/><col halign="right"/><col halign="right"/>
+                <row>
+                  <cell right="minor"><m>x</m></cell><cell><m>-3</m></cell><cell><m>-2</m></cell><cell><m>-1</m></cell><cell><m>0</m></cell><cell><m>1</m></cell><cell><m>2</m></cell>
+                </row>
+                <row>
+                  <cell right="minor"><m>f(x)</m></cell><cell><m>8</m></cell><cell><m>4</m></cell><cell><m>2</m></cell><cell><m>1</m></cell><cell><m>1/2</m></cell><cell><m>1/4</m></cell>
+                </row>
+              </tabular>
+            </table>
+            <p>
+              Plotting these points and extrapolating to a smooth curve, we obtain the graph below. 
+            </p>
+            <image width="60%">
+              <shortdescription>Graph of exponential function</shortdescription>
+              <sageplot>
+              f(x)=2^(-x)
+              points=[(-3,8),(-2,4),(-1,2),(0,1),(1,1/2),(2,1/4)]
+              p=plot(f(x),x,-3,2)
+              p+=list_plot(points, size=30, color='red')
+              p
+              </sageplot>
+            </image>
+        </li>
+        <li>
+          <p>
+            The graph of <m>g</m> is obtained from that of <m>f</m> by first multiplying the <m>y</m>-coordinates of the points of <m>f</m> by <m>-2</m>, and then adding <m>3</m> to them: that is, by reflecting across the <m>x</m>-axis, scaling vertically by <m>2</m>, and then shifting up by <m>3</m>. The resulting graph is shown below. 
+          </p>
+          <image width="60%">
+            <shortdescription>Graph of transformed exponential function</shortdescription>
+            <sageplot>
+            g(x) = -2*(1/2)^x + 3
+            points_g = [(-3, -2*8 + 3), (-2, -2*4 + 3), (-1, -2*2 + 3), (0, -2*1 + 3), (1, -2*(1/2) + 3), (2, -2*(1/4) + 3)]
+            p_g = plot(g(x), x, -3, 2)
+            p_g += list_plot(points_g, size=30, color='red')
+            p_g
+            </sageplot>
+          </image>
+        </li>
+      </ol>
+    
+    </p>
+    </solution>
+    </example>
+    
+    
   </subsection>
   
 </section>
