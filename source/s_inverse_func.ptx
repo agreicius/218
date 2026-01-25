@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_inverse_func" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>One-to-one and invertible functions</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Use algebraic and geometric methods to determine when a function is one-to-one and invertible and how to deduce information about its inverse.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand inverse functions as a <q>reversing</q> or <q>undoing</q> operation. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Compute formulas for inverse functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Determine the graph of an inverse function from the graph of the original function. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_invertibility">
+    <title>One-to-one functions</title>
+    <p>
+        We saw in <xref ref="th_exp_func_props"/> that exponential growth functions are increasing on their entire domain, and that exponential decay functions are decreasing. As a result, an exponential function <m>f</m> satisfies an important property: given two distinct inputs <m>x_1</m> and <m>x_2</m> (<ie/>, <m>x_1\ne x_2</m>), we the outputs <m>f(x_1)</m> and <m>f(x_2)</m> are distinct (<ie/>, <m>f(x_1)\ne f(x_2)</m>). Why is this true? Take the case where <m>f</m> is an exponential growth function, so that in particular it is increasing on its domain. If <m>x_1\ne x_2</m>, then one of the two inputs is greater than the other. Without loss of generality, we may assume <m>x_1&lt; x_2</m>. But then since <m>f</m> is increasing, we have <m>f(x_1)&lt; f(x_2)</m>, which implies <m>f(x_1)\ne f(x_2)</m>.  
+    </p>
+    <p>
+        A function that satisfies this property of sending distinct inputs to distinct outputs is called <term>one-to-one</term>, as we now make official. 
+    </p>
+    <definition xml:id="d_one-to-one">
+    <title>One-to-one function</title>
+    <statement>
+        <p>
+          A function <m>f</m> is <term>one-to-one</term> on its domain <m>D</m> if <m>f(x_1)\ne f(x_2)</m> for all
+          <m>x_1, x_2\in D</m> with <m>x_1\ne x_2</m>.
+          Using logical shorthand: 
+          <md number="yes">
+            <mrow xml:id="eq_onetoone">x_1\ne x_2 \amp \implies f(x_1)\ne f(x_2)</mrow>
+          </md>,
+          or equivalently, using the contrapositive,
+          <md number="yes">
+            <mrow xml:id="eq_onetoone_contra">f(x_1)=f(x_2) \amp \implies x_1=x_2</mrow>
+          </md>.
+          Given a subset <m>I\subseteq D</m>, we say that <m>f</m> is one-to-one on <m>I</m> if the implication <xref ref="eq_onetoone"/> holds for all <m>x_1, x_2\in I</m>. 
+        </p>
+      </statement>
+</definition>
+<p>
+    Before proceeding in our investigation of one-to-one functions, we hasten to point out that not all functions satisfy this property, as the next example illustrates. 
+</p>
+<example xml:id="eg_non_one_to_one">
+<title>One-to-one functions</title>
+<statement>
+<p>
+Use algebraic methods to determine whether the function <m>f</m> with given domain <m>D</m> is one-to-one. 
+<ol>
+    <li>
+        <p>
+            <m>f(x)=3x+5</m>, <m>D=\R</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>f(x)=x^2</m>, <m>D=\R</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>f(x)=x^2</m>, <m>D=[0,\infty)</m>
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            The function <m>f(x)=3x+5</m> is one-to-one on its domain <m>D=\R</m>.
+            We have 
+            <md number="yes">
+                <mrow>f(x_1)=f(x_2) \amp \implies 3x_1+5=3x_2+5 </mrow>
+                <mrow> \amp \implies 3x_1=3x_2 </mrow>
+                <mrow> \amp \implies x_1=x_2 </mrow>
+            </md>
+            for all <m>x_1,x_2\in \R</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            The function <m>f(x)=x^2</m> is not one-to-one on its domain <m>D=\R</m>, since <m>-1\ne 1</m>, and yet 
+            <md>
+                <mrow>f(-1) \amp = (-1)^2</mrow>
+                <mrow> \amp = 1</mrow>
+                <mrow> \amp = 1^2</mrow>
+                <mrow> \amp = f(1)</mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            The function <m>f(x)=x^2</m> with domain <m>D=[0,\infty)</m>, by contrast, is one-to-one! To see why we examine more carefully what it means for <m>f(x_1)=f(x_2)</m> for arbitrary elements <m>x_1,x_2\in \R</m>. We have 
+            <md>
+                <mrow>f(x_1)=f(x_2) \amp \iff x_1^2=x_2^2 </mrow>
+                <mrow> \amp \iff x_1^2-x_2^2=0</mrow>
+                <mrow> \amp \iff (x_1-x_2)(x_1+x_2)=0</mrow>
+                <mrow> \amp \iff x_1=x_2 \text{ or } x_1=-x_2 </mrow>
+            </md>.
+            Thus <m>f(x_1)=f(x_2)</m> if and only if <m>x_1=\pm x_2</m>. It follows that given distinct elements <m>x_1,x_2\in D=[0,\infty)</m>, we cannot have <m>f(x_1)=f(x_2)</m>, because we cannot have <m>x_1=-x_2</m>.
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+<remark>
+<title>Importance of domain</title>
+<p>
+As the previous illustrates, the role of the domain <m>D</m> of a function is essential in determining whether the function is one-to-one or not. As we saw there, the function <m>f(x)=x^2</m> with domain <m>D=\R</m> is not one-to-one (<eg/>, <m>f(-1)=f(1))</m>, but it is one-to-one on the subset <m>I=[0,\infty)</m>.
+</p>
+</remark>
+<p>
+    As the next example illustrates, knowing that a function is one-to-one allows us to solve certain equations more easily. 
+</p>
+<example xml:id="eg_onetoone_solve">
+<title>Algebra with one-to-one functions</title>
+<statement>
+<p>
+Find all <m>x</m> satisfying <m>2^{3x}=2^{x^2-10}</m>
+</p>
+</statement>
+<solution>
+<p>
+To use properties of one-to-one functions, we first observe that the equation can be expressed as 
+<md>
+    <mrow>f(3x) \amp =f(x^2-10)</mrow>
+</md>
+where <m>f(x)=2^x</m>. Since <m>f</m> is exponential, we know it is one-to-one on its domain <m>\R</m>. Thus we have 
+<md>
+    <mrow>2^{3x}=2^{x^2-10}\amp \iff f(3x)=f(x^2-10)</mrow>
+    <mrow> \amp \iff 3x=x^2-10 \amp (f \text{ one-to-one}) </mrow>
+    <mrow> \amp \iff x^2-3x-10=0</mrow>
+    <mrow> \amp \iff (x-5)(x+2)=0</mrow>
+    <mrow> \amp \iff x=5,-2</mrow>
+</md>.
+Thus the solutions to the equation are <m>x=5</m> and <m>x=-2</m>. 
+</p>
+</solution>
+</example>
+<p>
+    In <xref ref="eg_non_one_to_one"/> we used algebra to decide whether a given function was one-to-one. The <em>horizontal line test</em> provides a convenient graphical method for doing the same. The simple principle of this test can be summarized as follows. 
+    <ul>
+        <li>
+            <p>
+                If <m>f</m> is <em>not</em> one-to-one, then we can find two distinct inputs <m>x_1</m> and <m>x_2</m> whose outputs are equal: <ie/>, <m>f(x_1)=f(x_2)</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Graphically, this means that the points <m>P=(x_1,f(x_1))</m> and <m>Q=(x_2,f(x_2))</m> on the graph of <m>f</m> are distinct (they have different <m>x</m>-coordinates), but have the same <m>y</m>-coordinate <m>y_0=f(x_1)=f(x_2)</m>.  
+            </p>
+        </li>
+        <li>
+            <p>
+                As a result, the horizontal line <m>y=y_0</m> intersects the graph of <m>f</m> in at least two distinct points. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Conversely, if some horizontal line <m>y=y_0</m> intersects the graph of <m>f</m> in at least two distinct points <m>P=(x_1,f(x_1))</m> and <m>Q=(x_2,f(x_2))</m>, then we must have <m>f(x_1)=f(x_2)=y_0</m>, showing that <m>f</m> is not one-to-one.  
+            </p>
+        </li>
+    </ul>
+</p>
+
+<theorem xml:id="th_horizontal_line">
+  <title>Horizontal line test</title>
+  <statement>
+    <p>
+      Let <m>\mathcal{C}\subseteq \R^2</m> be the graph of a function <m>f</m>.  
+    </p>
+    <p>
+        If for all <m>c\in \R</m>, the horizontal line <m>y=c</m> intersects <m>\mathcal{C}</m> in at most one point, then <m>f</m> is one-to-one. 
+    </p>
+    <p>
+    Conversely, if there is horizontal line <m>y=c</m> that intersects <m>\mathcal{C}</m> at more than one point, then <m>f</m> is not one-to-one.
+    </p>
+  </statement>
+</theorem>
+<remark xml:id="rem_hori_vs_verti">
+<title>Horizontal versus vertical line test</title>
+<p>
+The horizontal line test probably reminds you of another line test introduced long ago in this course: namely, the vertical line test (<xref ref="th_vlt"/>). Make sure you do not conflate the two! Recall that the vertical line test is used to determine whether a given curve in the plane was in fact the graph of a function. By contrast, when using the horizontal line test, we know already that the curve <m>\mathcal{C}</m> is the graph of a function <m>f</m>, and wish to ascertain whether that function is one-to-one or not. 
+</p>
+</remark>
+<remark xml:id="rem_hori_line_test">
+<title>Horizontal line test</title>
+<p>
+Similarly to the vertical line test, it might be useful to envision the horizontal line test as a scanning procedure. Imagine scanning your graph <m>\mathcal{C}</m> with a device that produces a green horizontal line <m>L</m> that we move up and down across the entire plane. 
+<ul>
+    <li>
+        <p>
+            If at some moment during the scan our horizontal line <m>L</m> hits two or more points, then our scanner emits a loud error beep, indicating that <m>f</m> has failed the horizontal line test, and  is thus is not one-to-one. 
+        </p>
+    </li>
+    <li>
+        <p>
+            If, on the other hand, we are able to scan the entire vertical range of <m>\mathcal{C}</m> without hearing the error beep, then <m>f</m> has passed the horizontal line test, and thus is one-to-one. 
+        </p>
+    </li>
+</ul>
+</p>
+</remark>
+<p>
+    Let's see how this scanning analogy works when applying the horiztonal line test to <m>f(x)=x^2</m>. As illustrated in <xref ref="fig_hori_line_test"/>, for lines <m>y=c</m> with <m>c\leq 0</m>, our scanner emits no error beep, since such lines intersect the graph of <m>f</m> in at most one point. However, as soon as our scanner line moves above the <m>x</m>-axis, it starts emitting error beeps, as each such line intersects the graph of <m>f</m> in two points. We conclude that <m>f</m> is not one-to-one, just as we did in <xref ref="eg_non_one_to_one"/>.
+</p>
+<figure xml:id="fig_hori_line_test">
+    <caption>Applying horizontal line test to <m>f(x)=x^2</m></caption>
+    <image width="75%">
+        <shortdescription>Visualization of horizontal line test applied to squaring function</shortdescription>
+        <sageplot>
+f(x)=x^2
+g=plot(f(x),x,-3,3, ymin=-3)
+points=[(0,0),(-1,1),(1,1),(-2,4),(2,4)]
+p=list_plot(points, size=50, color='red')
+L=plot([-2,-1,0,1,4],x,-3,3,color='green', thickness=1.5)
+T=[text("$y=-2$",(-.75,-1.75), fontsize=14, color='black'),
+text("$y=-1$",(-1,-.75), fontsize=14, color='black'),
+text("$y=0$",(-1.5,.25), fontsize=14, color='black'),
+text("$y=1$",(-2,1.25), fontsize=14, color='black'),
+text("$y=4$",(-2.5,4.25), fontsize=14, color='black')]
+g+p+L+sum(T)
+        </sageplot>
+    </image>
+</figure>
+<p>
+    Returning to our discussion about exponential functions at the beginning of this section, we observe that we were able to deduct the one-to-one property from another property of exponential functions: namely, their monotonicity. To repeat that argument, if <m>f</m> is increasing (or decreasing) on a subset <m>I</m> of its domain, then clearly it is one-to-one on that set: in the increasing case, values of <m>f</m> increase as the input values increase, thus distinct inputs have distinct outputs; similarly, in the decreasing case, values of <m>f</m> decrease as the input values increase, thus again distinct inputs have distinct outputs. We have thus established the following theorem.  
+</p>
+<theorem xml:id="th_monotonic">
+  <title>Monotonic functions are one-to-one</title>
+  <statement>
+    <p>
+      If <m>f</m> is monotonic on a subset <m>I</m> of its domain <m>D</m>, then <m>f</m> is one-to-one on <m>I</m>. 
+    </p>
+  </statement>
+</theorem>
+<remark>
+<title>One-to-one versus monotonic</title>
+<p>
+It is important to observe that being one-to-one is not in general equivalent to being monotonic. However, in the special case where the function <m>f</m> is <em>continuous</em> and the relevant set <m>I</m> is an <em>interval</em>, then the two conditions are in fact equivalent. Since we deal almost exclusively with continuous functions, you will find that showing a function is monotonic is often the most convenient way to show it is one-to-one. 
+</p>
+<p>
+    As an exercise, come up with a <em>noncontinuous</em> function that is one-to-one on its domain <m>D</m>, but not monotonic. Hint: as always, a piecewise defined function usually is a good place to start! 
+</p>
+</remark>
+<example xml:id="eg_onetoone_monotonic">
+<title>Monotonic functions are one-to-one</title>
+<statement>
+<p>
+Show that the given function <m>f</m> is one-to-one on its domain <m>D</m> using a monotonicity argument. 
+<ol>
+    <li>
+        <title>Linear function</title>
+        
+        
+        <p>
+            <m>f(x)=ax+b</m>, <m>a\ne 0</m>, <m>D=\R</m>
+        </p>
+    </li>
+    <li>
+        <title>Integer power function</title>
+        
+        
+        <p>
+            <m>f(x)=x^{n}</m>, <m>n</m> an <em>odd</em> positive integer, <m>D=\R</m>. 
+        </p>
+    </li>
+    <li>
+        <title><m>n</m>-th root function</title>
+        <p>
+            <m>f(x)=\sqrt[n]{x}=x^{1/n}</m>, <m>n</m> an <em>odd</em> positive integer, <m>D=\R</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            As we have seen before, linear functions with nonzero slope are monotonic. Indeed,  in the case given we have <m>f'(x)=a</m> which is either always positive (if <m>a&gt; 0</m>) or always negative (if <m>a&lt; 0</m>). We conclude that <m>f</m> is either increasing or decreasing on its entire domain, and thus one-to-one by <xref ref="th_monotonic"/>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We might just as well use the vertical line test here, recalling what graphs of power functions <m>f(x)=x^n</m> look like when <m>n</m> is an odd positive integer. (See <xref ref="fig_power_positive_integer_powers"/>.) However, we use a monotonicity argument instead by way of illustration. We have 
+            <md>
+                <mrow>f'(x) \amp =nx^{n-1}</mrow>
+            </md>.
+            Since <m>n</m> is odd, <m>n-1</m> is <em>even</em>, which means that <m>f'(a)&gt; 0</m> for all <m>a\ne 0</m>. As a result <m>f</m> is increasing on the intervals <m>(-\infty, 0)</m> and <m>(0,\infty)</m>. Since furthermore <m>f</m> is strictly negative on <m>(-\infty,0)</m>, is zero at <m>x=0</m>, and is strictly positive on <m>(0,\infty)</m>, we conclude that <m>f</m> is increasing on <m>\R</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            The argument here is similar to the one above. We have
+            <md>
+                <mrow>f'(x) \amp =\frac{1}{n}\, x^{1/n-1}</mrow>
+                <mrow> \amp = \frac{1}{n}\, x^{1/n}x^{-1}</mrow>
+            </md>.
+            Since <m>x^{1/n}</m> and <m>x^{-1}</m> are both negative for <m>x&lt; 0</m> and both positive for <m>x&gt; 0</m>, we see that <m>f'(x)&gt; 0</m> for all <m>x\ne 0</m>. (Note that <m>f'</m> is not defined at <m>x=0</m>.) As above we conclude that <m>f</m> is increasing on the intervals <m>(-\infty, 0)</m> and <m>(0,\infty)</m>, and since <m>f</m> is strictly negative on <m>(-\infty,0)</m>, is zero at <m>x=0</m>, and is strictly positive on <m>(0,\infty)</m>, we conclude that <m>f</m> is increasing on <m>\R</m>.
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+
+</subsection>
+<subsection xml:id="ss_invertible_functions">
+<title>Invertible functions</title>
+<p>
+    As we will see, the one-to-one property is closely related to another important function property: <em>invertibility</em>.
+</p>
+<definition xml:id="d_invertible">
+  <title>Invertible function</title>
+  <statement>
+      <p>
+        A function <m>f\colon A\rightarrow B</m> is <term>invertible</term> if there is a function <m>g\colon B\rightarrow A</m> satisfying the following properties: 
+        <md number="yes">
+            <mrow xml:id="eq_inverse_left"> g(f(a)) \amp = a \text{ for all } a\in A</mrow>
+            <mrow xml:id="eq_inverse_right"> f(g(b)) \amp = b \text{ for all } b\in B</mrow>
+        </md>.
+        The function <m>g</m> in this case is called the <term>inverse function</term> of <m>f</m>, and we write <m>g=f^{-1}</m>. 
+      </p>
+    </statement>
+</definition>
+<warning>
+    <title>Inverse function notation</title>
+    <p>
+        Unfortunately, we use the same superscript notation for an inverse of a function <m>f^{-1}</m> that we use for the <em>reciprocal</em> of a number <m>a^{-1}</m>. It is extremely important that you do not conflate these two operations! In particular, the inverse of a function <m>f^{-1}</m> is not the same thing as its reciprocal function:  that is, 
+        <md>
+            <mrow>f^{-1}(x) \amp \ne \frac{1}{f(x)}</mrow>
+        </md>!!
+        As a simple counterexample, consider the function <m>f(x)=2x</m>. You can easily verify for yourself that the function <m>f^{-1}(x)=\tfrac{1}{2}x</m> satisfies 
+        <md>
+            <mrow>f^{-1}(f(x)) \amp = f(f^{-1}(x))=x</mrow>
+        </md>,
+        and is thus the inverse function of <m>f</m>. But clearly 
+        <md>
+            <mrow> f^{-1} \amp\ne \frac{1}{f} </mrow>
+        </md>   
+        in this case since <m>\tfrac{1}{2}x\ne \frac{1}{2x}</m> for all <m>x\ne -1,1</m>. 
+    </p>
+</warning>
+<remark>
+    <title>Inverse as a reverse function</title>
+    <p>
+        Suppose <m>f\colon A\rightarrow B</m> is invertible with inverse <m>f^{-1}</m>. It is instructive to think of the defining equations <xref ref="eq_inverse_left"/> and <xref ref="eq_inverse_right"/> as saying that the function <m>f^{-1}</m> <q>undoes</q> whatever <m>f</m> does to an input <m>a\in A</m>, and conversely that <m>f</m> <q>undoes</q> whatever <m>f^{-1}</m> does to an input <m>b\in B</m>.
+    </p>
+    <p>
+        In more detail, think of <m>f</m> as an operation that takes inputs <m>a\in A</m> and transforms them into the element <m>f(a)\in B</m>. Similarly, think of <m>f^{-1}</m> as another process that takes inputs <m>b\in B</m> and transforms them into the element <m>f^{-1}(b)\in A</m>. The identity <m>f^{-1}(f(a))=a</m>, can then be understood as saying that if we first apply the process <m>f</m>, yielding <m>f(a)</m>, and then apply the process <m>f^{-1}</m> to this result, yielding <m>f^{-1}(f(a))</m>, we get back our original input <m>a</m>. In other words, the process <m>f^{-1}</m> <em>reverses</em> (or <em>undoes</em>) the process <m>f</m>.  And conversely, the process <m>f</m> reverses (or undoes) the process <m>f^{-1}</m>. <xref ref="fig_inverse_as_reversal"/> gives a schematic representation of this idea of a process and its reverse.  
+    </p>
+    <figure xml:id="fig_inverse_as_reversal">
+        <caption>Conceiving inverse functions as a reversing process</caption>
+       <image width="60%">
+        <shortdescription>Diagram illustrating idea of inverse as a reversing process</shortdescription>
+        <latex-image>
+        \begin{tikzcd}
+        A\arrow[r,"\hspace{2pt}\text{ process } f\hspace{2pt}"] \amp B \arrow[r,"\text{ process } f^{-1}"] \amp A \\
+        a\arrow[r,maps to] \arrow[rr, maps to, bend right=30] \amp \hspace{2pt}f(a)\hspace{2pt} \arrow[r,maps to] \amp f^{-1}(f(a))=a
+        \end{tikzcd}
+        </latex-image>
+    </image>
+    </figure>
+ 
+    
+</remark>
+<p>
+    According to <xref ref="d_invertible"/>, to show that a given function <m>f\colon A\rightarrow B</m> is invertible, we must prove that an inverse function <m>f^{-1}\colon B\rightarrow A</m> exists. If the starting function <m>f</m> is simple enough, we are often able to find a formula for an inverse function <m>f^{-1}</m> via algebra, as the next example illustrates.  
+</p>
+<example xml:id="eg_inverse_compute">
+<title>Computing inverses</title>
+<statement>
+<p>
+For the given function <m>f\colon A\rightarrow B</m>, show that <m>f</m> is invertible by providing an explicit inverse function <m>f^{-1}\colon B\rightarrow A</m>. 
+<ol>
+    <li>
+        <p>
+           <m>f\colon \R\rightarrow \R</m>, <m>f(x)=(-2)x+5</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>f\colon \R\rightarrow \R</m>, <m>f(x)=ax+b</m>, <m>a\ne 0</m>
+        </p>
+    </li>
+    <li>
+        <p>
+           <m>f\colon \R\rightarrow \R</m>, <m>f(x)=(x+2)^3-7</m> 
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            For a function <m>f^{-1}</m> to satisfy the inverse equations <xref ref="eq_inverse_left"/> given any output <m>y=f(x)=(-2)x+5</m>, we need <m>f^{-1}(y)=x</m>. We can determine the formula for <m>f^{-1}(y)</m> by starting with the equation <m>y=(-2)x+5</m>, which expresses <m>y</m> in terms of <m>x</m>, and solving it for <m>x</m> in terms of <m>y</m>: 
+            <md>
+                <mrow>y \amp =(-2)x+5 </mrow>
+                <mrow>y-5 \amp =(-2)x</mrow>
+                <mrow>x \amp = \frac{y-5}{-2}=-\frac{1}{2}y+\frac{5}{2}</mrow>
+            </md>.
+            Thus our inverse function <m>f^{-1}</m> should be defined as 
+            <md number="yes">
+                <mrow>f^{-1}(y) \amp = \frac{y-5}{-2}=-\frac{1}{2}y+\frac{5}{2} </mrow>
+            </md>
+            for all <m>y\in \R</m>. Observe that <m>y</m> is just the name of a variable here, so we are free now to replace it with the more standard variable name <m>x</m>, and write <m>f^{-1}(x)=-\tfrac{x}{2}+\tfrac{5}{2}</m>. 
+        </p>
+        <p>
+            Let's verify that <m>f^{-1}</m> is indeed the inverse function of <m>f</m>. We have 
+            <md number="no">
+                <mrow>f^{-1}(f(x)) \amp = f^{-1}((-2)x+5)</mrow>
+                <mrow> \amp = -\frac{1}{2}(-2x+5)+\frac{5}{2}</mrow>
+                <mrow> \amp = x-\frac{5}{2}+\frac{5}{2}</mrow>
+                <mrow> \amp = x</mrow>
+            </md>
+            and 
+            <md>
+                <mrow> f(f^{-1}(x)) \amp = f\left(-\frac{1}{2}x+\frac{5}{2}\right)</mrow>
+                <mrow> \amp = (-2)\left(-\frac{1}{2}x+\frac{5}{2}\right)+5</mrow>
+                <mrow> \amp = x-5+5</mrow>
+                <mrow> \amp = x</mrow>
+            </md>,
+            as desired.
+        </p>
+    </li>
+    <li>
+        <p>
+            Reasoning exactly as above, doing the same algebra with the undetermined constants <m>a</m> and <m>b</m>, we find that 
+            <md>
+                <mrow>f^{-1}(x) \amp = \frac{x-b}{a}=\frac{1}{a}x-\frac{b}{a}</mrow>
+            </md>.
+            Interestingly, we have shown that (a) all non-constant linear functions are invertible, and (b) the inverse of a linear function is again a linear function! 
+        </p>
+    </li>
+    <li>
+        <p>
+            We use the same algebraic technique as in (a). That is, we start with the equation <m>y=f(x)=(x+2)^3-7</m> and try to solve for <m>x</m> in terms of <m>y</m>. The resulting expression in <m>y</m> yields a formula for <m>f^{-1}(y)</m>. Here goes: 
+            <md>
+                <mrow>y \amp =(x+2)^3-7</mrow>
+                <mrow>y+7 \amp =(x+2)^3</mrow>
+                <mrow>\sqrt[3]{y+7} \amp = x+2</mrow>
+                <mrow>x \amp = \sqrt[3]{y+7}-2</mrow>
+            </md>.
+            Thus we have <m>f^{-1}(y)=\sqrt[3]{y+7}-2</m>. If you prefer, we can replace the variable name <m>y</m> with <m>x</m> and write <m>f^{-1}(x)=\sqrt[3]{x+7}-2</m>. Again, for the sake of illustration, it is worthwhile that our function <m>f^{-1}</m> does indeed satisfy the inverse equations <xref ref="eq_inverse_left"/> and <xref ref="eq_inverse_right"/>. We have
+            <md>
+                <mrow>f^{-1}(f(x)) \amp = f^{-1}((x+2)^3-7)</mrow>
+                <mrow> \amp = \sqrt[3]{(x+2)^3-7+7}-2</mrow>
+                <mrow> \amp = \sqrt[3]{(x+2)^3}-2</mrow>
+                <mrow> \amp = x+2-2 \amp (\sqrt[3]{t^3}=t \text{ for all } t\in \R)</mrow>
+                <mrow> \amp = x</mrow>
+            </md>
+            and
+            <md>
+                <mrow> f(f^{-1}(x)) \amp = f\left(\sqrt[3]{x+7}-2\right)</mrow>
+                <mrow> \amp = \left(\sqrt[3]{x+7}-2+2\right)^3-7</mrow>
+                <mrow> \amp = \left(\sqrt[3]{x+7}\right)^3-7</mrow>
+                <mrow> \amp = x+7-7 \amp (\sqrt[3]{t^3}=t \text{ for all } t\in \R)</mrow>
+                <mrow> \amp = x</mrow>
+            </md>,
+            as desired.
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+<p>
+    Let's formalize the technique we employed in <xref ref="eg_inverse_compute"/> for computing formulas for inverse functions (when they exist). 
+</p>
+<algorithm xml:id="proc_inverse_compute">
+    <title>Computing inverse function formula</title>
+    <statement>
+        <p>
+            Let <m>f\colon A\rightarrow B</m> be an invertible function. To algebraically derive a formula for <m>f^{-1}\colon B\rightarrow A</m> proceed as follows. 
+            <ol>
+                <li>
+                    <p>
+                        Start with the equation 
+                        <md>
+                            <mrow>y \amp =f(x)</mrow>
+                        </md>,
+                        where the right side <m>f(x)</m> is the formula for <m>f</m>. The equation thus expresses an output <m>y</m> in terms of the input <m>x</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Algebraically solve the starting equation <m>y=f(x)</m> for <m>x</m> in terms of <m>y</m>, yielding an equation of the form 
+                        <md number="no">
+                            <mrow> x \amp = g(y)</mrow>
+                        </md>,
+                        where <m>g(y)</m> is an mathematical expression in solely in term of the variable <m>y</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The inverse function <m>f^{-1}</m> then has formula <m>f^{-1}(x)=g(x)</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</algorithm>
+<p>
+    As hinted at above, when the starting invertible function <m>f</m> is complicated enough, the algebra that goes into <xref ref="proc_inverse_compute"/> is often too complicated for us successfully find an explicit formula for the inverse function <m>f^{-1}</m>. Accordingly, it pays to have some alternative methods for determining whether a given function is invertible. The next theorem does exactly this by linking invertibility to the one-to-one property. 
+</p>
+<theorem xml:id="th_inv_equivalence">
+<title>Invertibility equivalence</title>
+<statement>
+<p>
+Let <m>f\colon A\rightarrow B</m> be a function.
+<ol>
+    <li>
+        <p>
+            If <m>f</m> is invertible, then <m>f</m> is one-to-one. 
+        </p>
+    </li>
+    <li>
+        <p>
+            If <m>f</m> is one-to-one, then letting <m>C=\range f</m>, the function <m>f\colon A\rightarrow C</m> is invertible. 
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>f</m> is invertible if and only if <m>f</m> is one-to-one and <m>\range f=B</m>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<proof>
+<p>
+    <ol>
+        <li>
+            <p>
+                Assume <m>f</m> is invertible, and let <m>f^{-1}\colon B\rightarrow A</m> be its inverse. We have 
+                <md>
+                    <mrow>f(x_1)=f(x_2) \amp \implies f^{-1}(f(x_1))=f^{-1}(f(x_2))</mrow>
+                    <mrow> \amp \implies x_1=x_2 \amp (f^{-1}(f(a))=a \text{ for all } a\in A)</mrow>
+                </md>,
+                showing that <m>f</m> is one-to-one. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Assume <m>f</m> is one-to-one. By definition of <m>C=\range f</m>, for every <m>c\in C</m> there is some <m>a\in A</m>, such that <m>f(a)=c</m>. Since furthermore <m>f</m> is one-to-one, there is in fact <em>exactly</em> one <m>a\in A</m> such that <m>f(a)=c</m>. Thus we can define a function <m>f^{-1}\colon C\rightarrow A</m> as follows: given <m>c\in C</m>, <m>f^{-1}(c)=a</m> where <m>a</m> is the unique element of <m>A</m> satisfying <m>f(a)=c</m>. It is now straightforward to verify that <m>f^{-1}</m> satisfies the inverse equations <xref ref="eq_inverse_left"/> and <xref ref="eq_inverse_right"/>.
+            </p>
+            <p>
+                It is worthwhile observing where the one-to-one property comes into play in this argument. If we didn't know that <m>f</m> was one-to-one, then there would be <em>no guarantee</em> that for each <m>c\in C=\range f</m> there was one and only one <m>a\in A</m> satisfying <m>f(a)=c</m>: there could be two such elements, or even more! In that case, our proposed definition of <m>f^{-1}(c)</m> as <em>the</em> element of <m>a</m> satisfying <m>f(a)=c</m> would not be well defined. 
+            </p>
+        </li>
+        <li>
+            <p>
+                This follows immediately from (1) and (2). 
+            </p>
+        </li>
+    </ol>
+</p>
+</proof>
+</theorem>
+<p>
+    Connecting invertibility with the one-to-one property allows us to show a given function is invertible without necessarily having to find an explicit inverse function. For example, each of the functions in <xref ref="eg_inverse_compute"/> can be shown to be invertible simply by showing that they are monotonic, and hence one-to-one.  
+</p>
+<p>
+    Of equal importance is the fact that <xref ref="th_inv_equivalence"/> gives us alternative means for showing that a function <m>f</m> is <em>not</em> invertible. If we only had the definition of invertibility at your disposal, to do this we would have to prove somehow that no inverse function <m>f^{-1}</m> exists. That can be quite an onerous task, when you consider the fact that there are infinitely many functions out there that could serve as <m>f^{-1}</m>. By contrast, using xref="th_inv_equivalence"/>, we can show that <m>f</m> is not invertible simply by showing that (a) <m>f</m> is not one-to-one, or (b) <m>\range f \ne B</m>. 
+</p>
+<example xml:id="eg_invertible_onetoone">
+<title>Invertibility</title>
+<statement>
+<p>
+Determine whether the given function is invertible.
+<ol>
+    <li>
+        <p>
+            <m>p\colon \R\rightarrow \R</m>, <m>p(x)=2x^3+3x^2+6x+5</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>f\colon \R\rightarrow \R</m>, <m>f(x)=x^2</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>g\colon [0,\infty)\rightarrow \R</m>, <m>g(x)=x^2</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>h\colon [0,\infty)\rightarrow [0,\infty)</m>, <m>h(x)=x^2</m>
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            We will show separately that <m>p</m> is one-to-one and <m>\range p=\R</m>. It follows from <xref ref="th_inv_equivalence"/> that <m>p</m> is invertible.
+        </p>
+        <p>
+            We have <m>p'(x)=6x^2+6x+6=6(x^2+x+1)</m>. Since 
+            <m>x^2+x+1=(x+1/2)^2+3/4</m>, we see that <m>p'(x)&gt; 0</m>, and hence that <m>p</m> is increasing on <m>\R</m>. It follows that <m>p</m> is one-to-one. 
+        </p>
+        <p>
+            Since <m>\lim_{x\to \infty}p(x)=\infty</m> and <m>\lim_{x\to -\infty}p(x)=-\infty</m>, and since <m>p</m> is continuous, it follows that <m>\range p=\R</m>. Indeed, given any <m>d\in \R</m>, the limit statements imply that there are numbers <m>a, b</m> with <m>a&lt; b</m> satisfying <m>p(a)&lt; d &lt; p(b)</m>. By the intermediate value theorem, there is an element <m>c\in (a,b)</m> satisfying <m>p(c)=d</m>, as desired. 
+        </p>
+    </li>
+    <li>
+        <p>
+            The function <m>f</m> is not one-to-one, since <m>f(-1)=f(1)=1</m>. Thus it is not invertible. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Although the function <m>g</m> is one-to-one (see <xref ref="eg_non_one_to_one"/>), it is not invertible since <m>\range g=[0,\infty)</m> is not equal to the given codomain <m>\R</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            The function <m>h\colon [0,\infty)\rightarrow [0,\infty)</m> is one-to-one and satisfies 
+            <m>\range h=[0,\infty)</m>. Thus <m>h</m> is invertible. Indeed, it is easy to see that its inverse function is <m>h^{-1}(x)=\sqrt{x}</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+<remark>
+<title>Invertibility equivalence</title>
+<p>
+The function <m>p(x)=2x^3+3x^2+6x+5</m> is a good example of a function that we are able to show is invertible using <xref ref="th_inv_equivalence"/> , but for which it is very difficult to find an explicit formula for the inverse function <m>f^{-1}</m>. Indeed, in order to solve the equation 
+<md>
+    <mrow>y \amp =2x^3+3x^2+6x+5</mrow>
+</md>
+for <m>x</m> in terms of <m>y</m>, we would need some sort of cubic analogue of the quadratic formula. As it turns out, there is such a formula, called <em>Cardano's formula</em>, but it is complicated enough that you in all likelihood have never seen it before. Indeed, even making sense of how to use Cardano's formula requires knoweledge of the complex numbers!
+</p>
+</remark>
+
+<example xml:id="eg_invertible_table">
+<title>Invertibility from tables</title>
+<statement>
+<p>
+From the given table of values determine whether the function <m>f</m> is invertible or else explain why we cannot say for sure. 
+<ol>
+    <li>
+            <table>
+                <title>Table of values for <m>f\colon \R\rightarrow \R</m></title>
+                <tabular>
+                    <row>
+                        <cell right="medium">x</cell> <cell>-1</cell><cell>0</cell><cell>1</cell><cell>2</cell>
+                    </row>
+                    <row>
+                        <cell right="medium">f(x)</cell> <cell>3</cell><cell>-5</cell><cell>1</cell><cell>-5</cell>
+                    </row>
+                </tabular>
+            </table>
+    </li>
+    <li>
+            <table>
+                <title>Table of values for <m>f\colon \{-1,0,1,2\}\rightarrow \{-1,0,1,2\}</m></title>
+                <tabular>
+                    <row>
+                        <cell right="medium">x</cell> <cell>-1</cell><cell>0</cell><cell>1</cell><cell>2</cell>
+                    </row>
+                    <row>
+                        <cell right="medium">f(x)</cell> <cell>2</cell><cell>1</cell><cell>0</cell><cell>-1</cell>
+                    </row>
+                </tabular>
+            </table>
+    </li>
+    <li>
+            <table>
+                <title>Table of values for <m>f\colon \R\rightarrow \R</m></title>
+                <tabular>
+                    <row>
+                        <cell right="medium">x</cell> <cell>-1</cell><cell>0</cell><cell>1</cell><cell>2</cell>
+                    </row>
+                    <row>
+                        <cell right="medium">f(x)</cell> <cell>2</cell><cell>1</cell><cell>0</cell><cell>-1</cell>
+                    </row>
+                </tabular>
+            </table>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            The given function is not one-to-one, since <m>f(0)=f(2)=-5</m>. Thus it is not invertible.
+        </p>
+    </li>
+    <li>
+        <p>
+            Note that by definition the given function has domain <m>\{-1,0,1,2\}</m> and codomain <m>\{-1,0,1,2\}</m>. It is easily verified from the table that <m>f</m> is one-to-one and that furthermore <m>\range f=\{-1,0,1,2\}</m>. Thus <m>f</m> is invertible. 
+        </p>
+    </li>
+    <li>
+        <p>
+            In this case we cannot say for sure whether <m>f</m> is invertible or not. The information from the given table only tells us that <m>f</m> is one-to-one on the subset <m>\{-1,0,1,2\}</m> of its domain <m>\R</m>; it is still possible that <m>f</m> is not one-to-one on all of <m>\R</m>. Additionally, the information from the table does not permit us to determine whether <m>\range f=\R</m>. Indeed, it only tells us that <m>\{-1,0,1,2\}\subseteq \range f</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+
+</subsection>
+<subsection xml:id="ss_relating_func_inv">
+<title>Relating functions and their inverses</title>
+<p>
+    Not surprisingly, if <m>f</m> is an invertible function, then there are many close connections between properties of <m>f</m> and properties of its inverse function <m>f^{-1}</m>, starting with the fact that 
+    <md>
+        <mrow>f(a)=b \amp \iff f^{-1}(b)=a</mrow>
+    </md>.
+    The next theorem compiles a bunch of these similarities for your convenience. A guiding principle here is that we move back and forth between information about <m>f</m> and information about <m>f^{-1}</m> by reversing the roles of inputs and outputs. This is most transparently seen in statement (3) below. Statement (4) is seen to be a direct consequence of (3) once you know that reflecting a point <m>(x,y)</m> through the line <m>y=x</m> yields the point <m>(y,x)</m>, which is not entirely obvious. 
+</p>
+<theorem xml:id="th_inverse_function">
+  <title>Inverse function compendium</title>
+  <statement>
+    <p>
+        Let <m>f</m> be an invertible function.
+      <ol>
+        <li>
+          <p>
+            We have 
+            <md number="yes">
+                <mrow xml:id="eq_inverse_prop1">f^{-1}(f(a))\amp =a </mrow>
+              <mrow xml:id="eq_inverse_prop2">f(f^{-1}(b))\amp =b </mrow>
+            </md>
+            and 
+            <md number="yes">
+                <mrow xml:id="eq_f_finv">f(a)=b \amp \iff f^{-1}(b)=a </mrow>
+            </md>
+            for all <m>a\in \operatorname{domain} f</m> and <m>b\in \range f</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            We have 
+            <md number="yes">
+                <mrow xml:id="eq_range_domain">\range f \amp =\operatorname{domain} f^{-1}</mrow>
+                <mrow xml:id="eq_domain_range">\operatorname{domain} f \amp = \range f^{-1}</mrow>
+            </md>.
+          </p>
+        </li>
+          <li>
+            <p>
+            The point <m>P=(x,y)</m> is on the graph of <m>f</m> if and only if the point <m>Q=(y,x)</m> is on the graph of <m>f^{-1}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The graph of <m>f^{-1}</m> is the reflection of the graph of <m>f</m> through the line <m>y=x</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</theorem>
+<example xml:id="eg_inverse_exp">
+<title>Inverse of exponential function</title>
+<statement>
+<p>
+Let <m>f\colon \R\rightarrow (0,\infty)</m> be defined as <m>f(x)=2^x</m>. 
+<ol>
+    <li>
+        <p>
+            Explain why <m>f</m> is invertible. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Determine <m>\operatorname{domain} f^{-1}</m> and <m>\operatorname{range} f^{-1}</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            Compute a table of values for <m>f</m> including the inputs <m>x=-2,-1,0,1,2,3</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            Compute a table of values of <m>f^{-1}</m> from the table of values for <m>f</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Use your table of values to plot the graphs of <m>f</m> and <m>f^{-1}</m> on the same coordinate system. 
+        </p>
+    </li>
+    
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+           The function <m>f(x)=2^x</m> is increasing on its domain, and hence one-to-one. Furthermore, we saw in the previous section that <m>\range f= (0,\infty)</m>. Thus <m>f</m> is invertible by <xref ref="th_inv_equivalence"/>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We have 
+            <md number="no">
+                <mrow> \operatorname{domain} f^{-1} \amp = \range f =(0,\infty) </mrow>
+                <mrow> \operatorname{range} f^{-1} \amp = \operatorname{domain} f =\R </mrow>
+            </md>.
+            These properties are nicely illustrated in the graph of <m>f</m> and <m>f^{-1}</m> given in <xref ref="fig_graph_f_finv"/>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            The function <m>f</m> has the following table of values: 
+        </p>
+            <table>
+                <title>Table of values for <m>f(x)=2^x</m></title>
+                <tabular>
+                    <row bottom="medium" header="yes">
+                        <cell><m>x</m></cell><cell><m>f(x)</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>-2</m></cell><cell><m>1/4</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>-1</m></cell><cell><m>1/2</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>0</m></cell><cell><m>1</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1</m></cell><cell><m>2</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>2</m></cell><cell><m>4</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>3</m></cell><cell><m>8</m></cell>
+                    </row>
+                </tabular>
+            </table>
+        
+    </li>
+    <li>
+        <p>
+            To obtain a table of values for <m>f^{-1}</m> we simply reverse the roles of input and output. Equivalently, we simply swap the order of the entries in all rows below the header. 
+        </p>
+        <table>
+                <title>Table of values for <m>f^{-1}</m></title>
+                <tabular>
+                    <row header="yes" bottom="medium">
+                        <cell><m>x</m></cell><cell><m>f^{-1}(x)</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1/4</m></cell><cell><m>-2</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1/2</m></cell><cell><m>-1</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1</m></cell><cell><m>0</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>2</m></cell><cell><m>1</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>4</m></cell><cell><m>2</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>8</m></cell><cell><m>3</m></cell>
+                    </row>
+                </tabular>
+            </table>
+    </li>
+    <li>
+        <p>
+            We now use the tables for <m>f</m> and <m>f^{-1}</m> to plot graphs for both functions. You find the result in <xref ref="fig_graph_f_finv"/>. Our diagram includes the line <m>y=x</m>. Observe that the two graphs are indeed reflections of one another through this line, as predicted by <xref ref="th_inverse_function"/>.
+        </p>
+        
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+<figure xml:id="fig_graph_f_finv">
+            <caption>Graphs of <m>f</m> and <m>f^{-1}</m></caption>
+              <image width="100%">
+                <shortdescription>Graph of f and its inverse</shortdescription>
+                <sageplot>
+f(x)=2^x
+g(x)=log(x,2)
+fpoints=[(x,f(x)) for x in [-2,-1,0,1,2,3]]
+gpoints=[(f(x),x) for x in [-2,-1,0,1,2,3]]
+P=plot([f(x),g(x),x],(x,-3,9),ymin=-3,ymax=9,
+color=['blue','red','green'],
+linestyle=['solid','solid','dashed'])
+points1=point(fpoints, size=30, color='black')
+points2=point(gpoints, size=30, color='black')
+t1=text("$f(x)=2^x$", (2,8), color='black', fontsize=14)
+t2=text("$f^{-1}(x)$", (6,3), color='black',fontsize=14)
+P+points1+points2+t1+t2
+                </sageplot>
+            </image>
+        </figure>
+</subsection>
+<exercises xml:id="ex_inverse">
+    <exercise xml:id="ez-changing-inverse-WW1">
+    <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec4/Connally3-2-4-13-Composition-inverse.pg"/>
+  </exercise>
+
+  <exercise xml:id="ez-changing-inverse-WW2">
+    <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec4/Connally3-2-4-15-Composition-inverse.pg"/>
+  </exercise>
+
+  <exercise xml:id="ez-changing-inverse-WW3">
+    <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec4/Connally3-2-4-28-Composition-inverse.pg"/>
+  </exercise>
+
+  <exercise xml:id="ez-changing-inverse-WW4">
+    <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec4/Connally3-2-4-31-Composition-inverse.pg"/>
+  </exercise>
+
+  <exercise xml:id="ez-changing-inverse-WW5">
+    <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec4/Q16.pg"/>
+  </exercise>
+
+  <exercise xml:id="ez-changing-inverse-WW7">
+    <webwork source="Library/LoyolaChicago/Precalc/Chap2Sec4/Q32.pg"/>
+  </exercise>
+</exercises>
+</section>
