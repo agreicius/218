@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_exp_lim_deriv" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Exponential functions: limit and graphical properties</title>
+<objectives>
+    <ul>
+      <li>
+        <p>
+          Investigate the limit behavior of exponential functions, including continuity and limits at infinity. 
+        </p>
+      </li>
+     <li>
+        <p>
+           Draw conclusions about the range of exponential functions using the intermediate value theorem.  
+        </p>
+     </li>
+      <li>
+        <p>
+          Produce accurate graphs of functions involving exponential expressions. 
+        </p>
+      </li>
+    </ul>
+</objectives>
+<subsection xml:id="ss_">
+<title>Limit properties</title>
+<p>
+  Having introduced the basic definitions and properties of exponential functions, we now introduce some proper calculus notions into our analysis, starting with continuity. As with algebraic functions, it turns out that exponential functions are continuous everywhere on their domains. Although we are not in a position to give a formal proof of this fact, continuity of these functions is plainly evident from the graphs we have examined so far, which have no breaks or holes. 
+</p>
+<theorem xml:id="th_exp_continuous">
+<title>Continuity of exponential functions</title>
+<statement>
+<p>
+Let <m>b</m> be a positive real number. The exponential function <m>f(x)=b^x</m> is continuous for all <m>x\in \R</m>. As a result, we have 
+<md number="yes">
+  <mrow>\lim\limits_{x\to c}b^x \amp = b^c</mrow>
+</md>
+for all <m>c\in \R</m>. 
+</p>
+</statement>
+</theorem>
+<example xml:id="eg_exp_limit">
+<title>Exponential limit</title>
+<statement>
+<p>
+Compute <m>\lim\limits_{x\to 3}3\, (25)^{-x/2}+1</m>.  Your answer should be expressed as a rational number. Justify your reasoning. 
+</p>
+</statement>
+<solution>
+<p>
+First observe that since the function <m>f(x)=3\, (25)^{-x/2}+1</m> is the result of combining various continuous functions using multiplication, addition and composition, it is itself continuous on all of <m>\R</m>, and thus satisfies 
+<md>
+  <mrow> \lim\limits_{x\to c}f(x)\amp =f(c)</mrow>
+</md>
+for any <m>c\in \R</m>. Thus 
+<md>
+  <mrow>\lim\limits_{x\to 3} 3\, (25)^{-x/2}+1 \amp =3\, (25)^{-3/2}+1</mrow>
+  <mrow> \amp =\frac{3}{(25^{1/2})^3}+1</mrow>
+  <mrow> \amp =\frac{3}{5^3}+1</mrow>
+  <mrow> \amp =\frac{3}{125}+1</mrow>
+</md>.
+</p>
+</solution>
+</example>
+<p>
+  Continuing with our limit analysis, we next examine the <q>end behavior</q> of an exponential function <m>f</m>: that is, we wish to compute <m>\lim\limits_{x\to \pm \infty}f(x)</m>.
+</p>
+<p>
+  To start, let's consider the two basic exponential functions <m>f(t) = 2^t</m> and
+      <m>g(t) = \left(\frac{1}{2}\right)^t</m> and their respective values at <m>t=10, t=20</m>,
+      and <m>t=30</m>.
+  </p>
+    <table>
+      <title>Table of values for <m>2^x</m> and <m>(1/2)^x</m></title>
+      <tabular>
+        <col halign="right"/><col halign="right"/><col halign="right"/><col halign="right"/>
+        <row bottom="minor">
+          <cell><m>x</m></cell><cell><m>10</m></cell><cell><m>20</m></cell><cell><m>30</m></cell>
+        </row>
+        <row>
+          <cell><m>2^x</m></cell><cell><m>1024</m></cell><cell><m>1,048,576</m></cell><cell><m>1,073,741,824</m></cell>
+        </row>
+        <row>
+          <cell><m>(1/2)^x</m></cell><cell><m>\approx 0.00098</m></cell><cell><m>\approx 0.00000095</m></cell><cell><m>\approx 9.3 \times 10^{-10}</m></cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      For the increasing function <m>f(t) = 2^t</m>,
+      we see that the output of the function gets very large very quickly.
+      In addition,
+      there is no upper bound to how large the function can be.
+      Indeed, we can make the value of <m>f(t)</m> as large as we'd like by taking <m>t</m> sufficiently big.
+      We thus say that as <m>t</m> increases,
+      <m>f(t)</m> <em>increases without bound</em> and conclude
+      <me>
+        \lim_{t\to\infty}2^t = \infty
+      </me>
+      For the decreasing function <m>g(t) = \left(\frac{1}{2}\right)^t</m>,
+      we see that the output <m>g(t)</m> is always positive but getting closer and closer to 0.
+      Indeed, because we can make <m>2^t</m> as large as we like,
+      it follows that we can make its reciprocal
+      <m>\frac{1}{2^t} = \left(\frac{1}{2}\right)^t</m> as small as we'd like.
+      We thus say that as <m>t</m> increases,
+      <m>g(t)</m> <em>approaches 0</em>: <ie/>, 
+      <me>
+        \lim_{t\to\infty}\left(\frac{1}{2}\right)^t = 0
+      </me>.
+    What about the limits of these functions at <m>-\infty</m>? It turns out these limits are essentially equal to the reciprocal of the limits at <m>\infty</m>, thanks to the exponential property <m>b^{-x}=1/b^x</m>. Assuming our results from above, we have 
+    <md number="yes">
+      <mrow>\lim\limits_{x\to -\infty} 2^x \amp = \lim\limits_{x\to \infty}2^{-x} \amp (\lim\limits_{x\to -\infty}f(x)=\lim\limits_{x\to \infty}f(-x)) </mrow>
+      <mrow> \amp = \lim\limits_{x\to \infty}(1/2)^x</mrow>
+      <mrow> \amp = 0</mrow>
+      <mrow>\lim\limits_{x\to -\infty}(1/2)^x \amp =  \lim\limits_{x\to \infty}(1/2)^{-x}  \amp (\lim\limits_{x\to -\infty}f(x)=\lim\limits_{x\to \infty}f(-x))</mrow>
+      <mrow> \amp = \lim\limits_{x\to \infty}2^x </mrow>
+      <mrow> \amp = \infty</mrow>
+    </md>.
+    Our analysis above, examining the special cases <m>b=2</m> and <m>b=1/2</m> generalizes easily to arbitrary positive bases <m>b</m>. The crucial feature of <m>b</m> is whether it is greater than or less than <m>1</m> as the following theorem articulates.
+    </p>
+    <theorem xml:id="th_exp_end_behavior">
+    <title>End behavior of exponential functions</title>
+    <statement>
+    <p>
+    Let <m>f(x)=b^x</m>, where <m>b</m> is a positive real number. 
+    <ol>
+      <li>
+        <title>Exponential growth: <m>b&gt; 1</m></title>
+
+        <p>
+          If <m>b&gt; 1</m>, then 
+          <md number="yes">
+            <mrow>\lim\limits_{x\to \infty}b^x \amp =\infty</mrow>
+            <mrow>\lim\limits_{x\to -\infty}b^x \amp = 0</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <title>Exponential decay: <m>0\lt b\lt 1</m></title>
+        <p>
+          If <m>0\lt b\lt 1</m>, then 
+          <md number="yes">
+            <mrow>\lim\limits_{x\to \infty}b^x \amp = 0</mrow>
+            <mrow>\lim\limits_{x\to -\infty}b^x \amp = \infty</mrow>
+          </md>.
+        </p>
+      </li>
+    </ol>
+    </p>
+    </statement>
+    </theorem>
+    
+
+
+
+</subsection>
+    
+
+</section>
