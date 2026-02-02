@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_log" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Logarithmic functions</title>
+    <objectives>
+        <ul>
+            <li>
+        <p>
+          Define logarithms as the inverses of exponential functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Combine properties of inverse functions and exponential functions to develop properties of logarithmic functions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Recognize key features of graphs of logarithmic functions,
+          including domain, range, and <m>x</m>-intercept.
+        </p>
+      </li>
+      <li>
+        <p>
+          Establish important algebraic properties of logarithms. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Solve equations involving exponential and logarithmic functions.
+        </p>
+      </li>
+        </ul>
+    </objectives>
+    <p>
+        We observed in the previous section that exponential functions are one-to-one (in fact, monotonic), and hence invertible; and in <xref ref="eg_inverse_exp"/> we illustrated how properties of exponential functions <m>f(x)=b^x</m> (specifically graphical properties) can be translated directly to those of their inverse function <m>f^{-1}</m>. Those inverse functions turn out to be important enough to warrant their own name: <em>logarithimic functions</em>. 
+    </p>
+    <definition xml:id="d_log">
+    <title>Logarithmic functions</title>
+    <notation>
+        <usage><m>\log_b</m></usage>
+      <description>base-<m>b</m> logarithmic function</description>
+    </notation>
+    <statement>
+    <p>
+    Let <m>b</m> be a positive real number. The <term>logarithmic function with base <m>b</m></term> (or <term>base-<m>b</m> logarithmic function</term>) is the function
+    <md>
+        <mrow>\log_b\colon (0,\infty) \amp \rightarrow \R</mrow>
+    </md>
+    defined as the inverse of the exponential function <m>f(x)=b^x</m>. 
+    </p>
+    </statement>
+    </definition>
+    <p>
+        This method of defining a new function as the inverse of an existing one, is sometimes off-putting to students. We are accustomed to functions being defined via an explicit formula that allows us to compute its values directly. Note that this is not the case with our definition of logarithmic functions. We do not give you a formula for computing <m>\log_b(x)</m> for a given <m>x</m>; instead, we simply describe <m>\log_b</m> as the inverse function of the exponential function <m>f(x)=b^x</m>. So how do we deal with functions thus defined? The key is to use the many linked properties of a function <m>f</m> and its inverse <m>f^{-1}</m>, as articulated in <xref ref="th_inverse_function"/>. The next theorem does just that, building on the various properties of exponential functions established in <xref ref="th_exp_func_props"/>. Statement (1) of the theorem is a direct applications of equations <xref ref="eq_inverse_left"/>, <xref ref="eq_inverse_right"/>, and <xref ref="eq_f_finv"/> to the special case of <m>f(x)=b^x</m> and <m>f^{-1}(x)=\log_b x</m>. The properties of (2) follow from complementary properties of the exponential function essentially by reversing the roles of input and output. 
+    </p>
+    <theorem xml:id="th_log_props">
+    <title>Logarithm properties: algebraic</title>
+    <statement>
+    <p>
+    Let <m>b</m> be a positive real number. 
+    <ol>
+        <li>
+            <p>
+                We have 
+                <md number="yes">
+                    <mrow xml:id="eq_log_exp_equiv">\log_b(r)=s \amp \text{ if and only if } b^s=r</mrow>
+                    <mrow xml:id="eq_log_right_inv"> \log_b(b^s) \amp =s </mrow>
+                    <mrow xml:id="eq_exp_right_inv"> b^{\log_b(r)} \amp =r </mrow>
+                </md>
+                for all <m>r\in (0,\infty)</m> and <m>s\in \R</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md number="yes">
+                    <mrow xml:id="eq_log_prod">\log_b(rs) \amp =\log_b(r)+\log_b(s) </mrow>
+                    <mrow xml:id="eq_log_quot">\log_b(r/s) \amp =\log_b(r)-\log_b(s)</mrow>
+                    <mrow xml:id="eq_log_power">\log_b(r^c) \amp = c\log_b(r) </mrow>
+                </md>
+                for all <m>r,s\in (0,\infty)</m> and <m>c\in \R</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    </theorem>
+    <p>
+        The equivalence <xref ref="eq_log_exp_equiv"/> is our main tool for computing actual values of <m>\log_b</m>. Let's see how this works with an example. 
+    </p>
+    <example xml:id="eg_log_compute">
+    <title>Computing logarithmic values</title>
+    <statement>
+    <p>
+    Use the equivalence <xref ref="eq_log_exp_equiv"/> to compute the given logarithmic expression. 
+    <ol>
+        <li>
+            <p>
+                <m>\log_2(32)</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\log_3(1/9)</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\log_{1/5}(\sqrt{5})</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                According to <xref ref="eq_log_exp_equiv"/>, we have <m>\log_2(32)=s</m> if and only if <m>2^s=32</m>. Since <m>32=2^{5}</m>, we conclude that <m>\log_2 32=5</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Similarly, <m>\log_3(1/9)</m> is the number <m>s</m> satisfying <m>3^s=1/9</m>. Since <m>1/9=1/3^2=3^{-2}</m>, we see that <m>\log_3(1/9)=-2</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have <m>\sqrt{5}=5^{1/2}=(5^{-1})^{-1/2}=(1/5)^{-1/2}</m>. Equivalently, using <xref ref="eq_log_exp_equiv"/>, we see that <m>\log_{1/5}(\sqrt{5})=-1/2</m>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    
+    </solution>
+    </example>
+    <p>
+        The particular choice of base <m>b=10</m> is frequently used, mainly on account of favoring of a <q>base-10</q> number system. A useful manner of understanding <m>\log_{10} x</m> is as a measure of the length of the decimal expansion of <m>x</m>. This is made clear by looking at some simple examples:
+        <md>
+            <mrow>\log_{10} 10 \amp =\log_{10} 10^1=1 </mrow>
+            <mrow>\log_{10}100 \amp = \log_{10}10^2=2 </mrow>
+            <mrow>\log_{10}1000 \amp =\log_{10}10^3=3 </mrow>
+            <mrow>\log_{10}10000 \amp =\log_{10}10^4=4 </mrow>
+            <mrow>\log_{10}1\underset{ n \text{ zeros}}{\underbrace{00\dots 0}}\amp =\log_{10}10^n=n \amp </mrow>
+        </md>.
+    We see that for powers of <m>10</m>, the base-10 logarithm <m>\log_{10}10^n</m> is equal to <m>n</m>, the number of trailing zeros behind the initial <m>1</m> in the decimal expansion of <m>10^n</m>. Equivalently, <m>\log_{10}10^n</m> is one less than the number of digits in the decimal expansion of <m>10^n</m>. What about for an arbitrary positive number <m>x</m> that is <em>not</em> a perfect power of 10? In that case, we can find an <m>n</m> such that 
+    <md>
+        <mrow>10^n \amp \leq x &lt; 10^{n+1}</mrow>
+    </md>.
+    In terms of decimal expansions, this means that <m>x</m> has at least as many decimals of <m>10^n</m>, and fewer decimals than <m>10^{n+1}</m>: <ie/>, <m>x</m> has <m>n+1</m> digits in its decimal expansion. This fact is reflected in the value <m>\log_{10}x</m>.
+    Since, as we make official below, <m>\log_{10}</m> is an <em>increasing</em> function, the inequality <m>10^n\leq x&lt; 10^{n+1}</m> implies 
+    <md>
+        <mrow> n\amp \leq \log_{10} x &lt; n+1</mrow>
+    </md>.
+    Thus <m>\log_{10} x</m>, <em>rounded to the nearest integer</em> below <m>x</m>, is equal to one less than the number of digits in the decimal expansion of <m>x</m>. Let's verify this with some examples, making use of technology: 
+    <md>
+        <mrow>\log_{10} \underset{\boxed{2} \text{ digits}}{23}\amp \approx \boxed{1}.3617 </mrow>
+        <mrow>\log_{10} \underset{\boxed{3} \text{ digits}}{500} \amp \approx \boxed{2}.6990 </mrow>
+        <mrow>\log_{10} \underset{\boxed{4} \text{ digits}}{7000} \amp \approx \boxed{3}.8451 </mrow>
+        <mrow>\log_{10} \underset{\boxed{6} \text{ digits}}{125000} \amp \approx \boxed{5}.0969 </mrow>
+    </md>.
+    Put another way, the number of digits in the decimal expansion of <m>x</m> is equal to the <em>integer part</em> of <m>\log_{10}x</m>. Because of the prevalence of base-10 logarithms, <m>\log_{10}x</m> is often written simply as <m>\log x</m>. We make this official now. 
+    </p>
+    <definition xml:id="d_log_10">
+    <title>Base-<m>10</m> logarithm</title>
+    <notation>
+        <usage><m>\log x</m></usage>
+      <description>the base-<m>10</m> logarithm</description>
+    </notation>
+    <statement>
+    <p>
+    The <term>base-<m>10</m> logarithm</term> is the logarithmic function <m>\log_{10}</m>, which we will often write simply as <m>\log</m>. 
+    </p>
+    <p>
+        Given a positive real number <m>x</m>, if <m>n</m> is the integer part of <m>\log_{10} x</m>, then <m>x</m> has <m>n+1</m> digits in its decimal expansion. 
+    </p>
+    </statement>
+    </definition>
+    
+    
+
+</section>
