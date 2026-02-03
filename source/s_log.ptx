@@ -32,6 +32,8 @@
       </li>
         </ul>
     </objectives>
+    <subsection xml:id="ss_log_def_alg">
+    <title>Definition and algebraic properties</title>
     <p>
         We observed in the previous section that exponential functions are one-to-one (in fact, monotonic), and hence invertible; and in <xref ref="eg_inverse_exp"/> we illustrated how properties of exponential functions <m>f(x)=b^x</m> (specifically graphical properties) can be translated directly to those of their inverse function <m>f^{-1}</m>. Those inverse functions turn out to be important enough to warrant their own name: <em>logarithimic functions</em>. 
     </p>
@@ -61,6 +63,7 @@
     Let <m>b</m> be a positive real number. 
     <ol>
         <li>
+            <title>Inverse identities</title>
             <p>
                 We have 
                 <md number="yes">
@@ -72,14 +75,27 @@
             </p>
         </li>
         <li>
+            <title>Algebraic identities</title>
             <p>
                 We have 
                 <md number="yes">
                     <mrow xml:id="eq_log_prod">\log_b(rs) \amp =\log_b(r)+\log_b(s) </mrow>
                     <mrow xml:id="eq_log_quot">\log_b(r/s) \amp =\log_b(r)-\log_b(s)</mrow>
+                    <mrow xml:id="eq_log_recip">\log_b(1/s) \amp = -\log_b(s)
+                    </mrow>
                     <mrow xml:id="eq_log_power">\log_b(r^c) \amp = c\log_b(r) </mrow>
                 </md>
                 for all <m>r,s\in (0,\infty)</m> and <m>c\in \R</m>. 
+            </p>
+        </li>
+        <li>
+            <title>Change of base identity</title>
+            <p>
+                Let <m>c</m> be another positive real number. 
+                We have 
+                <md number="yes">
+                    <mrow xml:id="eq_log_change_base"> \log_c x \amp = \frac{\log_b x}{\log_b c} </mrow>
+                </md>.
             </p>
         </li>
     </ol>
@@ -93,7 +109,7 @@
     <title>Computing logarithmic values</title>
     <statement>
     <p>
-    Use the equivalence <xref ref="eq_log_exp_equiv"/> to compute the given logarithmic expression. 
+    Use the equivalence <xref ref="eq_log_exp_equiv"/> to compute the given logarithmic expression without using technology. 
     <ol>
         <li>
             <p>
@@ -137,7 +153,209 @@
     </solution>
     </example>
     <p>
-        The particular choice of base <m>b=10</m> is frequently used, mainly on account of favoring of a <q>base-10</q> number system. A useful manner of understanding <m>\log_{10} x</m> is as a measure of the length of the decimal expansion of <m>x</m>. This is made clear by looking at some simple examples:
+        The identities <xref first="eq_log_prod" last="eq_log_power"/> can be used to simplify logarithmic expressions, as the next example illustrates. 
+    </p>
+    <example xml:id="eg_log_simplify">
+    <title>Simplifying logarithmic expressions</title>
+    <statement>
+    <p>
+    Use the identities <xref first="eq_log_prod" last="eq_log_power"/> to help compute the following logarithmic expressions without using technology. 
+    <ol>
+        <li>
+            <p>
+                <m>\log_{10}2+\log_{10}50</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>2\log_3 6-\log_3 4</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\log_{10}2+\log_{10}50 \amp =\log_{10}(2\cdot 50)</mrow>
+                    <mrow> \amp = \log_{10} 100</mrow>
+                    <mrow> \amp = 2</mrow>
+                </md>,
+                since <m>100=10^2</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>2\log_3 6-\log_3 4 \amp = \log_3 6^2-\log_3 4</mrow>
+                    <mrow> \amp = \log_3(6^2/4)</mrow>
+                    <mrow> \amp = \log_3( 3^2)</mrow>
+                    <mrow> \amp =2</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+         Continuing in our algebraic vein, we can use the identities <xref first="eq_log_exp_equiv" last="eq_exp_right_inv"/> to solve equations involving logarithmic or exponential functions. 
+    </p>
+    <example xml:id="eg_log_exp_solve">
+    <title>Exponential and logarithmic equations</title>
+    <statement>
+    <p>
+    Solve the given equation using the inverse identities <xref first="eq_log_exp_equiv" last="eq_exp_right_inv"/>. If possible, express your answer as a rational number. Otherwise, you may leave the answer in terms of logarithmic or exponential functions. 
+    <ol>
+        <li>
+            <p>
+                <m>2^x=129</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>3^x=9^{2x-1}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>2^{3x}=16^{1-x}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>9\cdot 3^x=7^{2x}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\log_3(x+5)+6=10</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>1+2\log_4(x+1)=2\log_2 x</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+               Since do not recognize 129 as a rational power of <m>2</m>, our answer will be expressed in terms of logarithms. For the sake of illustration, we will solve in two different ways, using <m>\log_2</m> and <m>\log_{10}</m>, respectively. Using <m>\log_2</m>, we have 
+               <md>
+                <mrow>2^x \amp =129</mrow>
+                <mrow>\log_2(2^x) \amp =\log_2(129) </mrow>
+                <mrow>x \amp =\log_2(129) \amp <xref ref="eq_log_right_inv"/></mrow>
+               </md>.
+               Using <m>\log_{10}</m>, we have 
+               <md>
+                <mrow>2^x \amp = 129</mrow>
+                <mrow>\log_{10}(2^x) \amp =\log_{10}129</mrow>
+                <mrow>x\log_{10} 2 \amp = \log_{10} 129 \amp <xref ref="eq_log_power"/></mrow>
+                <mrow>x \amp = \frac{\log_{10}129}{\log_{10}2}</mrow>
+               </md>.
+               Interestingly, our different approaches yield very different looking answers. The change of base identity <xref ref="eq_log_change_base"/> reveals that the two answers are equal. Indeed, taking <m>c=2</m> and <m>b=10</m> in that identity, we see that 
+               <md>
+                <mrow>\log_2 129 \amp =\frac{\log_{10} 129}{\log_{10} 2}</mrow>
+               </md>.
+               Note that <m>\log_2</m> was a natural choice of base here since the original exponential equation involved the base <m>2</m>; and indeed, using <m>\log_2</m> instead of <m>\log_{10}</m> saved us a step in our solution. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>3^x \amp =9^{2x-1} </mrow>
+                    <mrow>3^x \amp =(3^2)^{2x-1} </mrow>
+                    <mrow>3^x \amp =3^{4x-2} </mrow>
+                    <mrow>\log_3(3^x) \amp = \log_3(3^{4x-2})</mrow>
+                    <mrow>x \amp = 4x-2 \amp <xref ref="eq_log_right_inv"/></mrow>
+                    <mrow>-3x \amp = -2 </mrow>
+                    <mrow>x \amp = \frac{2}{3} </mrow>
+                </md>.
+                Note that instead of taking logarithms of both sides to get to the equation <m>x=4x-2</m>, we could have instead gone directly from <m>3^x=3^{4x-2}</m> to <m>x=4x-2</m>. This <q>equating exponents</q> rule, when the base is equal, follows from the one-to-one property of exponential functions. In general, we have <m>b^x=b^y</m> if and only if <m>x=y</m>. Feel free to use this shortcut in your algebra. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>2^{3x} \amp =16^{1-x} </mrow>
+                    <mrow>2^{3x} \amp =(2^4)^{1-x} </mrow>
+                    <mrow>2^{3x} \amp =2^{4-4x} </mrow>
+                    <mrow>3x \amp = 4-4x \amp (2^a=2^b \iff a=b)</mrow>
+                    <mrow>7x \amp =4 </mrow>
+                    <mrow>x \amp =\frac{4}{7} </mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>9\cdot 3^x \amp =7^{2x} </mrow>
+                    <mrow>3^2\cdot 3^x \amp =7^{2x} </mrow>
+                    <mrow>3^{x+2} \amp =7^{2x} </mrow>
+                    <mrow>\log_3(3^{x+2}) \amp =\log_3(7^{2x}) </mrow>
+                    <mrow>x+2 \amp = 2x\log_3 7 \amp <xref ref="eq_log_right_inv"/>, <xref ref="eq_log_power"/></mrow>
+                    <mrow>2 \amp = x(2\log_3 7 -1) </mrow>
+                    <mrow>x \amp = \frac{2}{2\log_3 7 -1} </mrow>
+                </md>.
+                Note how the two distinct bases <m>3</m> and <m>7</m> in this case prevented from expressing our answer in a simpler form. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\log_3(x+5)+6 \amp =10 </mrow>
+                    <mrow>\log_3(x+5) \amp =4 </mrow>
+                    <mrow>3^{\log_3(x+5)} \amp =3^4 </mrow>
+                    <mrow>x+5 \amp =81 \amp <xref ref="eq_exp_right_inv"/> </mrow>
+                    <mrow>x \amp =76 </mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Since the logarithmic functions use different bases here, in order to get somewhere with our algebra, we will want to use a change of base formula. Taking <m>b=4</m> and <m>c=2</m>, we have 
+                <md>
+                    <mrow>\log_4 a \amp =\frac{\log_2 a}{\log_2 4}</mrow>
+                    <mrow> \amp =\frac{\log_2 a}{2}</mrow>
+                </md>,
+                since <m>4=2^2</m>. We now solve: 
+                <md>
+                    <mrow>1+2\log_4(x+1) \amp = 2\log_2 x </mrow>
+                    <mrow>1+2\cdot \frac{\log_2(x+1)}{2} \amp = 2\log_2 x \amp <xref ref="eq_log_change_base"/> </mrow>
+                    <mrow>1+\log_2(x+1) \amp = 2\log_2 x </mrow>
+                    <mrow>1 \amp =\log_2(x^2)-\log_2(x+1)</mrow>
+                    <mrow>1 \amp = \log_2(x^2/(x+1))</mrow>
+                    <mrow>2^1 \amp =2^{\log_2(x^2/(x+1))}</mrow>
+                    <mrow>2 \amp =x^2/(x+1)</mrow>
+                    <mrow>2(x+1) \amp = x^2 </mrow>
+                    <mrow>0 \amp = x^2-2x-2 </mrow>
+                    <mrow>x \amp = \frac{2\pm \sqrt{(-2)^2-4\cdot 1 \cdot (-2)}}{2\cdot 1} \amp </mrow>
+                    <mrow>x \amp = 1\pm \sqrt{3} </mrow>
+                </md>.
+                Since <m>1-\sqrt{3}&lt;0</m>, and the domain of logarithmic functions is <m>(0,\infty)</m>, we discard this solution. Thus <m>x=1+\sqrt{3}</m> is the only solution to the equation. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    
+    <p>
+        Before moving on to graphical properties of logarithmic functions, we consider the special case of the base-<m>10</m> logarithm <m>\log_{10}</m>. This logarithm appears fairly frequently in applications, mainly due to our favoring a base-10 (or decimal) number system. A useful manner of understanding <m>\log_{10} x</m> is as a measure of the length of the decimal expansion of <m>x</m>. This is made clear by looking at some simple examples:
         <md>
             <mrow>\log_{10} 10 \amp =\log_{10} 10^1=1 </mrow>
             <mrow>\log_{10}100 \amp = \log_{10}10^2=2 </mrow>
@@ -178,7 +396,209 @@
     </p>
     </statement>
     </definition>
-    
-    
+    <p>
+        As a fun application of the change of base formula, we can estimate the number of digits in the decimal expansion of a big power of <m>2</m>, as long as we can approximate <m>\log_{2}10</m>. 
+    </p>
+    <example xml:id="eg_power_of_2_base_10">
+    <title>How big is <m>2^n</m>?</title>
+    <statement>
+    <p>
+    Use the change of base formula, and the fact that <m>3 &lt; \log_2 10&lt; 4</m> to derive an approximation for the number of digits in the decimal expansion of <m>2^n</m> for <m>n</m> a positive integer. 
+    </p>
+    <p>
+        Check your result on the integers <m>2^{10}</m> and <m>2^{50}</m>, using technology. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Let <m>d(n)</m> be the number of digits of the decimal expansion of <m>2^n</m>. From our discussion above, we know that <m>d(n)</m> is one more than the integer part of <m>\log 2^n</m>. 
+    Using the change of base formula between from base-<m>10</m> to base-<m>2</m>, we have 
+    <md>
+        <mrow>\log 2^n \amp = \log_{10}2^n </mrow>
+        <mrow> \amp = \frac{\log_2 2^n}{\log_2 10}</mrow>
+        <mrow> \amp = \frac{n}{\log_2 10}</mrow>
+    </md>.
+    Since <m>3\leq \log_2 10\leq 4</m>, we have 
+    <md>
+        <mrow>\frac{n}{4} \amp \leq \log 2^n=\frac{n}{\log_2 10}\leq \frac{n}{3} </mrow>
+    </md>.
+    Putting it all together, we see that 
+    <md>
+        <mrow>\frac{n}{4}\amp \leq d(n) \leq \frac{n}{3}+1 </mrow>
+    </md>
+    In particular, we estimate that <m>2^{10}</m> has between <m>10/4=2.5</m> and <m>10/3+1\approx 4.3</m> digits. More precisely, since the number of digits is an integer, <m>2^{10}</m> should have between <m>3</m> and <m>4</m> digits. In fact, we have 
+    <md>
+        <mrow>2^{10} \amp =(2^{5})^2</mrow>
+        <mrow> \amp =(32)^2</mrow>
+        <mrow> \amp = 1024</mrow>
+    </md>.
+    Our estimate is correct! 
+    </p>
+    <p>
+        Similarly, since <m>50/4=12.5</m> and <m>50/3\approx 16.7</m>, <m>2^{50}</m> should have between <m>13</m> and <m>16</m> digits. In fact, using technology, we find that 
+        <md>
+            <mrow>2^{50} \amp = 1,125,899,906,842,624 </mrow>
+        </md>,
+        which has <m>16</m> digits. Again, our estimate was correct! 
+    </p>
+    <p>
+        You may have noticed that the upper bound of estimates yielded for <m>d(n)</m> happened to be equal to the actual answer. This is just a happy accident for the values of <m>n</m> we chose. For example, <m>2^{12}=4096</m> has <m>4</m> digits, whereas our estimation method predicts between <m>3</m> and <m>5</m> digits. 
+    </p>
+    </solution>
+    </example>
+</subsection>
+<subsection xml:id="ss_log_graph">
+<title>Graphical properties</title>
+<p>
+    Just as with the algebraic properties, we can derive graphical properties of logarithmic functions using their inverse relation to exponential functions. With the exception of the statement about continuity, the following theorem follows almost immediately from <xref ref="th_exp_props_graphical"/> and <xref ref="th_inverse_function"/>. For example, letting <m>f(x)=b^x</m>, since we have 
+    <md>
+        <mrow>\operatorname{domain} f \amp = \R</mrow>
+        <mrow>\range f \amp =(0,\infty)</mrow>
+    </md>,
+     and since <m>\log_b</m> is the inverse of <m>f</m>, we have 
+     <md>
+        <mrow>\operatorname{domain} \log_b \amp = (0,\infty)</mrow>
+        <mrow>\range \log_b \amp = \R</mrow>
+    </md>.
+    Similarly, the monotonic and concavity properties of <m>\log_b</m> can be derived by seeing what happens when you reflect the graph of <m>f(x)=b^x</m> through the line <m>y=x</m> to obtain the graph of <m>\log_b</m>.
+</p>
+<theorem xml:id="th_log_props_graphical">
+<title>Graphical properties of <m>\log_b</m></title>
+<statement>
+<p>
+Let <m>b</m> be a positive real number, <m>b\ne 1</m>. 
+<ol>
+    <li>
+        <p>
+            <m>\log_b</m> is a continuous function.
+        </p>
+    </li>
+    <li>
+        <p>
+            We have <m>\operatorname{domain} \log_b=(0,\infty)</m> and <m>\range \log_b=\R</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            The <m>x</m>-intercept of the graph of <m>\log_b</m> is <m>(1,0)</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+           Assume <m>b&gt; 1</m>.
+           <ul>
+            <li>
+                <p>
+                    <m>\log_b</m> is increasing and concave down on <m>(0,\infty)</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>\lim\limits_{x\to 0^+}\log_b x=-\infty</m> and <m>\lim\limits_{x\to \infty}\log_b x=\infty</m>. As a result, the graph of <m>\log_b</m> has a vertical asymptote at <m>x=0</m>.
+                </p>
+            </li>
+        </ul>
+        </p>
+    </li>
+    <li>
+                <p>
+                    Assume <m>0&lt; b&lt; 1</m>.
+                    <ul>
+                        <li>
+                            <p>
+                                <m>\log_b</m> is decreasing and concave up on <m>(0,\infty)</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>\lim\limits_{x\to 0^+}\log_b x=\infty</m> and <m>\lim\limits_{x\to \infty}\log_b x=-\infty</m>. As a result, the graph of <m>\log_b</m> has a vertical asymptote at <m>x=0</m>.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+</ol>
+</p>
+</statement>
+</theorem>
+<p>
+  As with exponential functions, the graphical properties above can be used to quickly produce a graph of <m>\log_b</m>. Qualitatively, the graphs of any two logarithmic functions with base greater than <m>1</m> look very much alike, differing only in their steepness; indeed, using the change of base formula, since 
+  <md>
+    <mrow>\log_c x \amp =\frac{1}{\log_b c}\log_b x</mrow>
+  </md>,
+  we see that the graph of <m>\log_c x</m> is obtained by vertically scaling the graph of <m>\log_b x</m> by the factor <m>1/(\log_b c)</m>. Similar comments apply to the (less common) case of logarithmic functions with base <m>b</m> satisfying <m>0&lt; b&lt; 1</m>. As such the graphs of <m>\log_2</m> and <m>\log_{1/2}</m> in <xref ref="fig_log_graph"/> can be used as models for the general case. Note how these two graphs appear to be mirror images of one another through the <m>x</m>-axis. This is explained once again by the change of base formula, since we have 
+  <md>
+    <mrow>\log_{1/b} x \amp =\frac{\log_b x}{\log_b (1/b)}</mrow>
+    <mrow> \amp = \frac{\log_b x}{-1}</mrow>
+    <mrow> \amp =-\log_b x</mrow>
+  </md>.
+  Lastly, we observe that just as with exponential functions, it is possible to make our graphs more precise by adding plotted points. Working base-2, or base-<m>1/2</m> this is easily done by plotting points <m>P=(x,y)</m> with <m>x=2^n</m>. Accordingly in the graphs below you find the following plotted points for various <m>n</m>:
+  <md>
+    <mrow>(2^n, \log_2 2^n) \amp = (2^n, n) </mrow>
+    <mrow>(2^n, \log_{1/2} 2^n) \amp = (2^n, -n) </mrow>
+  </md>.
+</p>
+<figure xml:id="fig_log_graph">
+    <caption>Graphs of logarithmic functions</caption>
+    <sidebyside>
+       <figure xml:id="fig_log_base_2">
+        <caption><m>f(x)=\log_2 x</m></caption>
+         <image>
+            <shortdescription>Graph of base-two log function</shortdescription>
+            <sageplot>
+f(x)=log(x,2)
+points=point([(n,f(n)) for n in [1/2,1,2,4,8,16,32]], size=50, color='red')
+P=plot(f(x), (x,0.15,35), ymin=-5.25, ymax=5.25)
+P+points
+            </sageplot>
+        </image>
+       </figure>
 
+       <figure xml:id="fig_log_base_half">
+        <caption><m>f(x)=\log_{1/2} x</m></caption>
+         <image>
+            <shortdescription>Graph of base-one-half log function</shortdescription>
+            <sageplot>
+f(x)=-log(x,2)
+points=point([(n,f(n)) for n in [1/2,1,2,4,8,16,32]], size=50, color='red')
+P=plot(f(x), (x,0.15,35), ymin=-5.25, ymax=5.25)
+P+points
+            </sageplot>
+        </image>
+       </figure>
+    </sidebyside>
+    
+</figure>
+</subsection> 
+<exercises xml:id="ex_log">
+     <exercise xml:id="ez-exp-log-properties-WW1">
+    <webwork source="Library/Rochester/setAlgebra30LogExpEqns/problem9.pg"/>
+  </exercise>
+  <exercise xml:id="ez-exp-log-properties-WW2">
+    <webwork source="Library/Rochester/setAlgebra30LogExpEqns/problem11.pg"/>
+  </exercise>
+<!--  
+  <exercise xml:id="ez-exp-log-properties-WW3">
+    <webwork source="Library/Rochester/setAlgebra30LogExpEqns/srw4_3_48.pg" />
+  </exercise>
+  <exercise xml:id="ez-exp-log-properties-WW7">
+    <webwork source="Library/Rochester/setAlgebra31LogExpEqns/srw4_2_1.pg" />
+  </exercise>
+  <exercise xml:id="ez-exp-log-properties-WW8">
+    <webwork source="Library/Rochester/setAlgebra31LogExpEqns/ur_le_2_11.pg" />
+  </exercise>
+  <exercise xml:id="ez-exp-log-properties-WW9">
+    <webwork source="Library/Rochester/setAlgebra31LogExpEqns/ur_le_2_12.pg" />
+  </exercise>  
+-->  
+  <exercise xml:id="ez-exp-log-properties-WW4">
+    <webwork source="Library/Rochester/setAlgebra30LogExpEqns/srw4_4_11.pg"/>
+  </exercise>
+  <exercise xml:id="ez-exp-log-properties-WW5">
+    <webwork source="Library/Rochester/setAlgebra30LogExpEqns/srw4_4_25.pg"/>
+  </exercise>
+  <!-- <exercise xml:id="ez-exp-log-properties-WW6">
+    <webwork source="Library/Rochester/setAlgebra30LogExpEqns/srw4_4_41.pg"/>
+  </exercise> -->
+</exercises>
 </section>
