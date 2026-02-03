@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.11.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How big is <span class="process-math">\(2^n\text{?}\)</span></span>
+</h4>
+<div class="para">Use the change of base formula, and the fact that <span class="process-math">\(3 &lt; \log_2 10&lt; 4\)</span> to derive an approximation for the number of digits in the decimal expansion of <span class="process-math">\(2^n\)</span> for <span class="process-math">\(n\)</span> a positive integer.<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_of_2_base_10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">Check your result on the integers <span class="process-math">\(2^{10}\)</span> and <span class="process-math">\(2^{50}\text{,}\)</span> using technology.<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_of_2_base_10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(d(n)\)</span> be the number of digits of the decimal expansion of <span class="process-math">\(2^n\text{.}\)</span> From our discussion above, we know that <span class="process-math">\(d(n)\)</span> is one more than the integer part of <span class="process-math">\(\log 2^n\text{.}\)</span> Using the change of base formula between from base-<span class="process-math">\(10\)</span> to base-<span class="process-math">\(2\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\log 2^n \amp = \log_{10}2^n \\
+\amp = \frac{\log_2 2^n}{\log_2 10}\\
+\amp = \frac{n}{\log_2 10}\text{.}
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(3\leq \log_2 10\leq 4\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{n}{4} \amp \leq \log 2^n=\frac{n}{\log_2 10}\leq \frac{n}{3} \text{.}
+\end{align*}
+</div>
+<div class="para">Putting it all together, we see that</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{n}{4}\amp \leq d(n) \leq \frac{n}{3}+1 
+\end{align*}
+</div>
+<div class="para">In particular, we estimate that <span class="process-math">\(2^{10}\)</span> has between <span class="process-math">\(10/4=2.5\)</span> and <span class="process-math">\(10/3+1\approx 4.3\)</span> digits. More precisely, since the number of digits is an integer, <span class="process-math">\(2^{10}\)</span> should have between <span class="process-math">\(3\)</span> and <span class="process-math">\(4\)</span> digits. In fact, we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+2^{10} \amp =(2^{5})^2\\
+\amp =(32)^2\\
+\amp = 1024\text{.}
+\end{align*}
+</div>
+<div class="para">Our estimate is correct!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_of_2_base_10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Similarly, since <span class="process-math">\(50/4=12.5\)</span> and <span class="process-math">\(50/3\approx 16.7\text{,}\)</span> <span class="process-math">\(2^{50}\)</span> should have between <span class="process-math">\(13\)</span> and <span class="process-math">\(16\)</span> digits. In fact, using technology, we find that</div>
+<div class="displaymath process-math">
+\begin{align*}
+2^{50} \amp = 1,125,899,906,842,624 \text{,}
+\end{align*}
+</div>
+<div class="para">which has <span class="process-math">\(16\)</span> digits. Again, our estimate was correct!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_of_2_base_10-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">You may have noticed that the upper bound of estimates yielded for <span class="process-math">\(d(n)\)</span> happened to be equal to the actual answer. This is just a happy accident for the values of <span class="process-math">\(n\)</span> we chose. For example, <span class="process-math">\(2^{12}=4096\)</span> has <span class="process-math">\(4\)</span> digits, whereas our estimation method predicts between <span class="process-math">\(3\)</span> and <span class="process-math">\(5\)</span> digits.<div class="autopermalink" data-description="Paragraph"><a href="#eg_power_of_2_base_10-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.11.7.1"><a href="#eg_power_of_2_base_10-3" title="Copy heading and permalink for Solution 2.11.7.1" aria-label="Copy heading and permalink for Solution 2.11.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.11.7: How big is 2^n"><a href="#eg_power_of_2_base_10" title="Copy heading and permalink for Example 2.11.7: How big is 2^n" aria-label="Copy heading and permalink for Example 2.11.7: How big is 2^n">🔗</a></div></article><span class="incontext"><a class="internal" href="s_log.html#eg_power_of_2_base_10">in-context</a></span>
+</body>
+</html>
