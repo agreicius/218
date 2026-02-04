@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_exp_deriv" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Exponential derivatives</title>
+
+    <objectives>
+        <ol>
+            <li>
+        <p>
+          Introduce the base <m>e</m> in the context of exponential derivatives.
+        </p>
+      </li>
+      <li>
+        <p>
+          Rewrite any exponential function with a base of <m>e</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Establish a derivative formula for exponential functions. 
+        </p>
+      </li>
+      <li>
+        <p>
+            Compute derivatives of functions build from exponential functions and algebraic operations. 
+        </p>
+      </li>
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_derivative">
+    <title>The natural exponential function and its derivative</title>
+    <p>
+      Our previous investigation into exponential functions yields some valuable qualitative information about their derivatives, as we now summarize. Let <m>f(x)=b^x</m>. 
+      <ul>
+        <li>
+            <title>Exponential growth: <m>b&gt; 1</m></title>
+          <p>
+           If <m>b&gt; 1</m>, then <m>f</m> is an increasing function on <m>\R</m>, and hence <m>f'(x)&gt; 0</m> for all <m>x\in \R</m>. 
+          </p>
+          <p>
+            Moreover, since <m>f</m> is concave up on <m>\R</m>, we have <m>f''(x)&gt; 0</m> for all <m>x\in \R</m>, and thus <m>f'</m> is positive and gets more positive as <m>x</m> increases. This last quality can be also be seen as a consequence of the fact that exponential growth functions model percent growth: for each input <m>x</m>, the rate at which <m>f</m> is growing is proportional to its current value <m>f(x)=b^x</m>.
+          </p>
+        </li>
+        <li>
+            <title>Exponential decay: <m>0 &lt; b &lt; 1</m></title>
+            <p>
+             Similar reasoning shows that if <m>0 &lt; b &lt; 1</m>, then because <m>f</m> is a decreasing and concave up function on <m>\R</m>, we have <m>f'(x)&lt; 0</m> and <m>f''(x)&gt; 0</m> for all <m>x\in \R</m>, which means <m>f'</m> is negative but becomes less negative as <m>x</m> increases. 
+            </p>
+        </li>
+      </ul>
+      Thus, qualitatively we have a good grip on <m>f'(x)</m> for an exponential function <m>f(x)=b^x</m>. But can we derive an actual derivative formula? Recall that exponential functions <m>f(x)=b^x</m>, where the input variable appears in the exponent, are not to be confused with power functions <m>g(x)=x^r</m>, where the input appears in the base. In particular, we cannot make use of the power rule <m>g'(x)=rx^{r-1}</m> to differentiate an exponential function <m>f(x)=b^x</m>. As such we must rely on the limit definition of the derivative. Let's see how far we get with this. We have 
+      <md>
+        <mrow>f'(x) \amp =\lim\limits_{h\to 0}\frac{f(x+h)-f(x)}{h}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0}\frac{b^{x+h}-b^x}{h}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0}\frac{b^x\cdot b^h - b^x}{h}</mrow>
+        <mrow> \amp = \lim\limits_{h\to 0} b^x\cdot \frac{b^h - 1}{h}</mrow>
+        <mrow> \amp = b^x \lim\limits_{h\to 0}\frac{b^h-b^0}{h} </mrow>
+      </md>.
+      Interesting! Note that <m>b^x</m> is just <m>f(x)</m>, and the remaining limit expression in the last line is precisely <m>f'(0)</m>, assuming the limit actually exists. As such, assuming the derivative exists, we conclude that 
+      <md>
+        <mrow>f'(x) \amp =f'(0)f(x)</mrow>
+      </md>.
+      Let's reflect a moment on what this discovery means. Setting <m>f'(0)=c</m> for some <m>c\in \R</m>, we see that <m>f'(x)=cf(x)</m>. In terms of rate of change language, this means that the rate of change <m>f'</m> is <em>proportional</em> to the current value <m>f(x)</m>. This is exactly as we expected from our percent growth interpretation of the exponential function!
+    </p>
+    <p>
+        We are certainly getting somewhere, but we are still significantly short of an actual formula. As it turns out, the remaining limit 
+        <md>
+            <mrow>\lim\limits_{h\to 0}\frac{b^h-1}{h} \amp = \lim\limits_{h\to 0}\frac{b^h-b^0}{h} </mrow>
+        </md>
+        is not one we can analytically compute with tools currently at our disposal. We can, however, estimate its value for various choices of base <m>b</m>. We do so below for the choices <m>b=2</m> and <m>b=3</m>.
+    </p>
+    <table>
+        <title>Approximating <m>\lim\limits_{h\to 0}\frac{2^h-1}{h}</m></title>
+        <tabular>
+            <row>
+                <cell right="minor"><m>h</m></cell><cell><m>0.5</m></cell><cell><m>0.1</m></cell><cell><m>0.01</m></cell><cell><m>0.001</m></cell><cell><m>0.0001</m></cell>
+            </row>
+            <row>
+                <cell right="minor"><m>\frac{2^h-1}{h}</m></cell><cell><m>0.8284</m></cell><cell><m>0.7177</m></cell><cell><m>0.6956</m></cell><cell><m>0.6934</m></cell><cell><m>0.6932</m></cell>
+            </row>
+        </tabular>
+    </table>
+    <table>
+        <title>Approximating <m>\lim\limits_{h\to 0}\frac{3^h-1}{h}</m></title>
+        <tabular>
+            <row>
+                <cell right="minor"><m>h</m></cell><cell><m>0.5</m></cell><cell><m>0.1</m></cell><cell><m>0.01</m></cell><cell><m>0.001</m></cell><cell><m>0.0001</m></cell>
+            </row>
+            <row>
+                <cell right="minor"><m>\frac{3^h-1}{h}</m></cell><cell><m>1.4641</m></cell><cell><m>1.1612</m></cell><cell><m>1.1047</m></cell><cell><m>1.0992</m></cell><cell><m>1.0987</m></cell>
+            </row>
+        </tabular>
+    </table>
+    <p>
+        From these tables, we see that 
+        <md number="yes">
+            <mrow> \lim_{h\to 0}\frac{2^h-1}{h} \amp \approx 0.693 \amp </mrow>
+            <mrow>\lim_{h\to 0}\frac{3^h-1}{h} \amp \approx 1.099 \amp </mrow>
+        </md>.
+        So far this is pretty mysterious. Recall that, assuming that the limits exist, we have <m>\lim\limits_{h\to 0}\frac{b^h-1}{h}=f'(0)</m>, where <m>f(x)=b^x</m>. Graphically speaking, this value represents the slope of the tangent line to the graph of <m>f</m> at the point <m>(0,1)</m>. For <m>b=2</m> this slope is approximately <m>0.693</m>, a little less than one. It is no surprise that for <m>b=3</m> the slope at <m>x=0</m> is larger, approximately <m>1.099</m>, since we have seen already that as we increase <m>b</m>, the graph of the exponential function <m>f(x)=b^x</m> gets steeper at each point. This suggests that perhaps there is a base <m>b</m> between <m>2</m> and <m>3</m> for which the corresponding exponential function <m>f(x)=b^x</m> satisfies <m>f'(0)=1</m>. And indeed there is such a base <m>b</m>: this mysterious number is called <m>e</m> and has approximate value <m>e\approx 2.71828</m>. 
+    </p>
+    <figure xml:id="fig_exp_slope_at_0">
+        <caption>Graph of <m>f(x)=b^x</m> with tangent line at <m>x=0</m> with slope <m>m=f'(0)</m></caption>
+        <sbsgroup>   
+        <sidebyside widths="80%">
+               <figure xml:id="fig_exp_slope_2">
+                <caption><m>f(x)=2^x</m></caption>
+                <image>
+                    <shortdescription>Graph of base-two exponential function with tangent at x equals 0</shortdescription>
+                    <sageplot>
+f(x)=2^x
+L=plot(log(2,e)*x+1,(x,-1,1.5), color="red", linestyle="dashed")
+P=plot(f(x),(x,-1,1.5))
+t1=text("$f(x)=2^x$", (1,2.5), color='black', fontsize=14)
+t2=text("$m=0.693\dots$", (0.5,1), color='black', fontsize=14)
+P+L+t1+t2
+                    </sageplot>
+                </image>
+            </figure>
+        </sidebyside>
+        <sidebyside widths="80%">
+            <figure xml:id="fig_exp_slope_3">
+                <caption><m>f(x)=3^x</m></caption>
+                <image>
+                    <shortdescription>Graph of base-three exponential function with tangent at x equals 0</shortdescription>
+                    <sageplot>
+f(x)=3^x
+L=plot(log(3,e)*x+1,(x,-1,1.5), color="red", linestyle="dashed")
+P=plot(f(x),(x,-1,1.5))
+t1=text("$f(x)=3^x$", (1,4), color='black', fontsize=14)
+t2=text("$m=1.099\dots$", (0.5,1), color='black', fontsize=14)
+P+L+t1+t2
+                    </sageplot>
+                </image>
+            </figure>  
+        </sidebyside>
+        <sidebyside widths="80%">
+            <figure xml:id="fig_exp_slope_e">
+                <caption><m>f(x)=e^x</m></caption>
+                <image>
+                    <shortdescription>Graph of base-e exponential function with tangent at x equals 0</shortdescription>
+                    <sageplot>
+f(x)=e^x
+L=plot(log(e,e)*x+1,(x,-1,1.5), color="red", linestyle="dashed")
+P=plot(f(x),(x,-1,1.5))
+t1=text("$f(x)=e^x$", (1,4), color='black', fontsize=14)
+t2=text("$m=1$", (0.5,1), color='black', fontsize=14)
+P+L+t1+t2
+                    </sageplot>
+                </image>
+            </figure>
+        </sidebyside>
+        </sbsgroup>
+    </figure>
+<definition xml:id="d_e_the_number">
+<title>Natural exponential function and <m>e</m></title>
+<statement>
+<p>
+The number <m>e</m> is defined as the unique positive real number satisfying 
+<md>
+    <mrow>\lim\limits_{h\to 0}\frac{e^h-1}{h} \amp = 1</mrow>
+</md>.
+The function <m>f(x)=e^x</m> is called the <term>natural exponential function</term>. 
+</p>
+</statement>
+</definition>
+<p>
+      The real number <m>e</m> is named in honor of the great Swiss mathematician Leonard Euler (1707-1783). Like <m>\pi</m>,
+      <m>e</m> is an irrational number that cannot be written as a ratio of integers, and whose decimal expansion never repeats. Of its many remarkable properties, the one that is of most value to us is its connection to exponential functions <m>f(x)=b^x</m>. Namely, since we showed earlier that  
+      <md>
+        <mrow> f'(x) \amp = f'(0)f(x) \amp f'(0)\amp=\lim\limits_{h\to 0}\frac{b^h-1}{h} </mrow>
+      </md>,
+      and since <m>e</m> is the unique choice of <m>b</m> for which 
+      <md>
+        <mrow>f'(0) \amp =\lim\limits_{h\to 0}\frac{b^h-1}{h}=1</mrow>
+      </md>,
+      we conclude that the natural exponential function <m>f(x)=e^x</m> satisfies 
+      <md>
+        <mrow>f'(x) \amp =f(x)</mrow>
+      </md>. 
+      In other words, <m>f</m> is its own derivative!
+    </p>
+      <theorem xml:id="th_natural_exp">
+      <title>Derivative of natural exponential function</title>
+      <statement>
+      <p>
+      Let <m>f(x)=e^x</m>. We have <m>f'=f</m>. Equivalently, 
+      <md>
+        <mrow>\frac{d}{dx}(e^x) \amp = e^x</mrow>
+      </md>
+      for all <m>x\in \R</m>. 
+      </p>
+      </statement>
+    </theorem>
+</subsection>
+<subsection xml:id="ss_exp_der_gen">
+<title>General derivative formula for <m></m></title>
+
+
+    <p>
+        It is now not so difficult to generalize our base-<m>e</m> derivative formula to arbitrary bases <m>b</m>. This is done by first observing that for any <m>b&gt; 0</m>, we have <m>b=e^{k}</m>, where <m>k=\log_e b</m>, and thus  
+        <md>
+            <mrow>b^x \amp = (e^k)^x=e^{kx} </mrow>
+        </md>.
+        Thus, using the chain rule, we have 
+        <md>
+            <mrow> \frac{d}{dx}(b^x) \amp = \frac{d}{dx}(e^{kx}) </mrow>
+            <mrow> \amp = \frac{d}{dx}e^{kx} \amp (u=kx)</mrow>
+            <mrow> \amp = e^{kx} (kx)' </mrow>
+            <mrow> \amp = e^{kx} \cdot k \amp </mrow>
+            <mrow> \amp = \log_e b\, e^{kx}  </mrow>
+            <mrow> \amp = \log_e b\, b^x</mrow>
+        </md>.
+        Before making this result official, we give a special name to the base-<m>e</m> logarithm <m>\log_e</m>. 
+    </p>
+    <definition xml:id="d_natural_log">
+    <title>Natural logarithm</title>
+    <statement>
+    <p>
+    The base-<m>e</m> logarithmic function <m>\log_e</m> is called the <term>natural logarithm</term>, and is denoted <m>\ln</m>. 
+    </p>
+    </statement>
+    </definition>
+    <theorem xml:id="th_exp_derivative">
+    <title>Exponential derivatives</title>
+    <statement>
+    <p>
+    Let <m>b</m> be a positive real number, and let <m>f(x)=b^x</m>. 
+    <ol>
+        <li>
+            <p>
+                We have <m>b^x=e^{kx}</m> for all <m>x\in \R</m>, where <m>k=\ln b</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We have <m>f'(x)=\ln b\,  b^x</m>. Equivalently, 
+                <md>
+                    <mrow>\frac{d}{dx}(b^x) \amp = \ln b\, b^x</mrow>
+                </md>
+                for all <m>x\in \R</m>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    </theorem>
+    
+    </subsection>
+
+</section>
