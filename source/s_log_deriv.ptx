@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_log_deriv" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Derivative of logarithmic functions</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Derive a general formula for the derivative of the inverse <m>f^{-1}</m> of a function <m>f</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Derive a formula for the derivative of logarithmic functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use exponential and logarithmic derivative formulas to compute derivatives of more general functions involving exponential expressions.  
+                </p>
+            </li>
+
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_log_der">
+    <title>Derivative of inverse functions</title>
+    <p>
+        To derive a derivative formula for the logarithmic functions, we make use once again of the fact that they are, by definition, the inverses of exponential functions. Surely there is a relationship between the derivative of an invertible function <m>f</m> and  its inverse <m>f^{-1}</m>, right? Of course! And the relationship is revealed by the chain rule.  
+    </p>
+    <p>
+        Assume <m>f</m> is invertible. We will start with the inverse function identity <m>f(f^{-1}(x))=x</m> and take the derivative of both sides: 
+        <md>
+            <mrow>f(f^{-1}(x)) \amp = x</mrow>
+            <mrow>\frac{d}{dx} f(f^{-1}(x)) \amp = \frac{d}{dx} x</mrow>
+            <mrow>f'(f^{-1}(x))\cdot (f^{-1})'(x) \amp = 1</mrow>
+            <mrow>(f^{-1})'(x) \amp =\frac{1}{f'(f^{-1}(x))}</mrow>
+        </md>.
+        Amazing! We have just derived a formula for <m>f^{-1}</m> using nothing but the chain rule and the defining property of being an inverse. If you look closely, however, you will see there are two hidden assumptions in our argument. For one thing, for the last line of our derivation to make sense, we need <m>f'(f^{-1}(x))\ne 0</m>. This is not too difficult to deal with: we simply assume that <m>f'</m> is nonzero on its domain in order to apply the formula. The deeper issue at play is that in order to use th chain rule in the first place, we must assume <m>f^{-1}</m> is differentiable! It turns out that this condition is automatic as long as <m>f</m> is differentiable and <m>f'</m> is nonzero, though the proof of this fact is quite subtle, and will not be given here. We will, however, acknowledge this fact as its own important result in our theorem below. 
+    </p>
+        <theorem xml:id="th_IFT">
+        <title>Derivative of inverse function</title>
+        <statement>
+        <p>
+        Let <m>f</m> be invertible and differential on its domain <m>I</m>, and assume that <m>f'(x)\ne 0</m> for all <m>x\in I</m>.
+        <ol>
+            <li>
+                <p>
+                    <m>f^{-1}</m> is differentiable on its domain. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have 
+                   <md number="yes">
+                    <mrow xml:id="eq_IFT"> (f^{-1})'(x) \amp =\frac{1}{f'(f^{-1}(x))}</mrow>
+                   </md>
+                   for all <m>x</m> in the domain of <m>f^{-1}</m>. 
+                </p>
+            </li>
+        </ol>
+        </p>
+        </statement>
+        </theorem>
+<p>
+    We will very soon use <xref ref="th_IFT"/> to derive a formula for the derivative of logarithmic functions. However, the inverse derivative formula is very useful in its own right, and indeed, we will come back to it when discussing inverse trigonometric functions. Accordingly, we provide a procedure for applying the inverse derivative formula in general. Since the roles of input and output are somewhat fluid when going back and forth between a function <m>f</m> and  its inverse <m>f^{-1}</m>, we will use the <q>input/output neutral</q> variable names <m>r</m> and <m>s</m>. 
+</p>
+<algorithm xml:id="proc_IFT">
+  <title>Computing <m>(f^{-1})'(r)</m></title>
+  <statement>
+    <p>
+      Let <m>f</m> be invertible and differentiable on its domain <m>I</m>, and assume <m>f'</m> is nonzero on <m>I</m>. To compute <m>f^{-1}(r)</m> for some <m>r</m> in the domain of <m>f^{-1}</m>, proceed as follows.
+      <ol>
+        <li>
+          <p>
+            Compute <m>f^{-1}(r)=s</m>. In the absence of a formula for <m>f^{-1}</m>,  this is often done by by finding the unique <m>s</m> such that <m>f(s)=r</m> and using the inverse function identity <m>f^{-1}(r)=s</m> if and only if <m>f(s)=r</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>f'(x)</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Use <xref ref="eq_IFT"/> to conclude <m>(f^{-1})'(r)=1/f'(f^{-1}(r))=1/f'(s)</m>. 
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</algorithm>
+<example xml:id="eg_inverse_derivative">
+  <title>Derivative of inverse</title>
+  <statement>
+    <p>
+      Let <m>f</m> be defined as <m>f(x)=x^5+x^3+3x-5</m> on the domain <m>\R</m> of all real numbers.
+      <ol>
+        <li>
+          <p>
+            Show that <m>f</m> is invertible.
+          </p>
+        </li>
+        <li>
+          <p>
+            Plot three points on the graph of <m>f^{-1}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>(f^{-1})'(-5)</m> and <m>(f^{-1})'(-10)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <ol>
+        <li>
+          <p>
+            Since <m>f'(x)=5x^4+3x^2+3</m> is clearly positive for all <m>x\in \R</m>, we see that <m>f</m> is increasing on its domain, and hence is one-to-one. Thus <m>f</m> has an inverse function. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Short of actually plotting points, we can at least produce a table of values for <m>f^{-1}</m> using a table of values of <m>f</m>, using (4) of <xref ref="th_inverse_function"/>.
+            <md>
+              <mrow>  
+                \begin{array}{c|c}
+                x\amp f(x) \\
+                \hline 
+                -1\amp -10\\
+                0 \amp -5 \\
+                1 \amp -2
+                \end{array}
+                
+                \amp \iff 
+              
+                \begin{array}{c|c}
+                x\amp f^{-1}(x) \\
+                \hline 
+                -10\amp -1\\
+                -5 \amp 0 \\
+                 -2\amp 1
+                \end{array}
+              </mrow>
+            </md>
+            By plotting such points, and others with the help of technology, we are able to produce a detailed graph of <m>f^{-1}</m> even in the absence of an explicit formula. See <xref ref="fig_quintic_inv"/>.
+          </p>
+         
+        </li>
+        <li>
+          <p>
+            For <m>r</m> in the domain of <m>f^{-1}</m>, we have by <xref ref="th_IFT"/> 
+            <md>
+              <mrow>(f^{-1})'(r) \amp = \frac{1}{f'(f^{-1}(r))}</mrow>
+              <!-- <mrow> \amp = \frac{1}{5(f^{-1}(r))^4+3(f^{-1}(r))^2+3} \amp (f'(x)=5x^4+3x^2+3)</mrow> -->
+            </md>.
+            Since furthermore, <m>f'(x)=5x^4+3x^2+3</m>, we conclude that 
+            <md>
+              <mrow>(f^{-1})'(r) \amp = \frac{1}{5(f^{-1}(r))^4+3(f^{-1}(r))^2+3}</mrow>
+            </md>
+            for general <m>r</m>.
+        </p>
+        <p>
+            Finally, to compute <m>(f^{-1})'(-5)</m> and <m>(f^{-1})'(-10)</m>, it remains only to compute <m>f^{-1}(-5)</m> and <m>f^{-1}(-10)</m> and plug these into the last expression above. We see using our table of values in (b) that <m>f^{-1}(-5)=0</m> and <m>f^{-1}(-10)=-1</m>. Thus
+            <md>
+              <mrow>(f^{-1})'(-5) \amp = \frac{1}{(5\cdot 0+3\cdot 0+3)}=\frac{1}{3} </mrow>
+              <mrow>(f^{-1})'(-10) \amp = \frac{1}{(5\cdot (-1)^4+3\cdot (-1)^2+3)}=\frac{1}{11} </mrow>
+            </md>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</example>
+<figure xml:id="fig_quintic_inv">
+    <caption>Graph of <m>f(x)=x^5+x^3+3x-5</m> and its inverse <m>f^{-1}</m></caption>
+     <image width="60%" xml:id="im_quintic_and_inverse">
+            <shortdescription>Graph of quintic polynomial and its inverse</shortdescription>
+            <sageplot>
+var('x y')
+f(x)=x^5+x^3+3*x-5
+P=plot(f(x),(x,-1,1.5), axes=True, ymin=-8, ymax=4)
+Q=parametric_plot((f(y),y), (y,0,1.25), color='red', xmin=-4, xmax=3)
+points=point([(f(x/10),x/10) for x in range(0,13)], color="red")
+t1=text("$f^{-1}(x)$", (-2,1.25), color='black', fontsize=14)
+t2=text("$f(x)$", (1.35,-2), color='black', fontsize=14)
+P+points+Q+t1+t2
+            </sageplot>
+          </image>
+</figure>
+    </subsection>
+   <subsection xml:id="ss_der_log">
+   <title>Derivative formula for logarithmic functions</title>
+   <p>
+    With the general inverse derivative formula in hand, it is no bother at all to produce derivative formulas for logarithmic functions. We will use this most often for the natural logarithm <m>\ln</m>. Setting <m>f(x)=e^x</m> and <m>f^{-1}(x)=\ln x</m>, <xref ref="eq_IFT"/> becomes 
+    <md>
+        <mrow>\frac{d}{dx} \ln x \amp =\frac{1}{f'(\ln x)}</mrow>
+    </md>.
+    Since <m>f(x)=e^x</m>, we have <m>f'(x)=e^x</m>, and thus 
+    <md number="no">
+        <mrow> \frac{d}{dx}\ln x \amp = \frac{1}{e^{\ln x}} </mrow>
+        <mrow> \amp =\frac{1}{x} \amp (e^{\ln x}=x)</mrow>
+    </md>.
+    This is a somewhat surprising result. Whereas the natural logarithm is quite a complicated function (in fact, a transcendental one), its derivative <m>1/x</m> is a rational function! Interpreting the derivative as the slope of the tangent line, the fact that <m>f'(x)=1/x</m> for <m>f(x)=\ln x</m> is a precise quantitative description of the fact that the slop of the graph of <m>f(x)=\ln x</m> decreases as <m>x</m> increases. Indeed, since <m>1/x\to 0</m> as <m>x\to \infty</m>, we can say in fact that the slope of <m>\ln x</m> approaches zero as <m>x\to \infty</m>. 
+   </p>
+   <p>
+    In making official our derivative formula for <m>\ln x</m>, we will generalize it slightly to the function <m>g(x)=\ln \abs{x}</m>. Note the difference: whereas the domain of <m>\ln x</m> is <m>(0,\infty)</m>, the domain of <m>g(x)=\ln \abs{x}</m> is <m>\R-\{0\}</m>.
+   </p>
+   <figure xml:id="fig_ln_abs">
+    <caption>Graphs of <m>f(x)=\ln x</m> and <m>g(x)=\ln \abs{x}</m></caption>
+    <sidebyside widths="45% 45%">
+        <figure xml:id="fig_ln">
+            <caption><m>f(x)=\ln x</m></caption>
+            <image width="60%" xml:id="im_ln">
+                <shortdescription>Graph of natural logarithm</shortdescription>
+                <sageplot>
+f(x)=log(x)
+plot(f(x),(x,0.01,5),ymin=-3, ymax=2, xmin=-5)
+                </sageplot>
+            </image>
+        </figure>
+        <figure xml:id="fig_ln_abs_2">
+            <caption><m>g(x)=\ln \abs{x}</m></caption>
+            <image width="60%" xml:id="im_ln_abs">
+                <shortdescription>Graph of natural logarithm of absolute value</shortdescription>
+                <sageplot>
+f(x)=log(x)
+P=plot(f(x),(x,0.01,5),ymin=-3, ymax=2, xmin=-5)
+Q=plot(f(-x),(x,-5,-0.01))
+P+Q
+                </sageplot>
+            </image>
+        </figure>
+    </sidebyside>
+   </figure>
+   <p>
+    We claim that, as with <m>\ln x</m>, we have more generally 
+    <md>
+        <mrow>\frac{d}{dx}\ln \abs{x} \amp =\frac{1}{x}</mrow>
+    </md>
+    for all <m>x\ne 0</m>. To see why, note that if <m>x&gt; 0</m>, then <m>\ln\abs{x}=\ln x</m>, and our formula above applie. And if <m>x&lt; 0</m>, we have <m>\abs{x}=-x</m>, in which case an application of the chain rule tells us that 
+    <md>
+        <mrow>\frac{d}{dx}\ln \abs{x} \amp = \frac{d}{dx}(\ln(-x)) \amp (x&lt; 0) </mrow>
+        <mrow> \amp = \frac{1}{-x}\cdot (-x)' </mrow>
+        <mrow> \amp = \frac{1}{-x}\cdot (-1)</mrow>
+        <mrow> \amp =\frac{1}{x}</mrow>
+    </md>.
+   </p>
+   <theorem xml:id="th_der_ln">
+   <title>Derivative formula for <m>\ln</m></title>
+   <statement>
+   <p>
+   We have 
+   <md number="yes">
+    <mrow xml:id="eq_der_ln">\frac{d}{dx}\ln \abs{x} \amp = \frac{1}{x} </mrow>
+   </md>
+   for all <m>x\ne 0</m>. 
+   </p>
+   <p>
+    More generally, if <m>u(x)</m> is a positive differentiable function, then
+    <md number="yes">
+        <mrow xml:id="eq_der_ln_chain">\frac{d}{dx}\ln (\abs{u(x)}) \amp = \frac{u'(x)}{u(x)}</mrow>
+    </md>.
+   </p>
+   </statement>
+   </theorem>
+   <example xml:id="eg_ln_der">
+   <title>Derivative of natural logarithm</title>
+   <statement>
+   <p>
+   Compute the derivative of the given function. 
+   <ol>
+    <li>
+        <p>
+            <m>f(x)=\ln(\ln{x})</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>g(t)=\ln(\sqrt[3]{t})</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>q(u)=\ln(k u)</m>, <m>k</m> a positive constant. 
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>h(s)=e^{s^2}\ln \sqrt{s}</m>
+        </p>
+    </li>
+   </ol>
+   </p>
+   </statement>
+   <solution>
+   <p>
+   <ol>
+    <li>
+        <p>
+            We compute 
+            <md number="yes">
+                <mrow>f'(x) \amp =\frac{1}{\ln x}\cdot (\ln x)'</mrow>
+                <mrow> \amp = \frac{1}{\ln x}\cdot \frac{1}{x}</mrow>
+                <mrow> \amp = \frac{1}{x\ln x}</mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We will do this two ways. The first uses the chain rule: 
+            <md>
+                <mrow>g'(t) \amp =\frac{d}{dt}\ln(t^{1/3})</mrow>
+                <mrow> \amp = \frac{1}{t^{1/3}}\cdot (t^{1/3})'</mrow>
+                <mrow> \amp = \frac{1}{t^{1/3}}\cdot \frac{1}{3t^{2/3}}</mrow>
+                <mrow> \amp = \frac{1}{3t}</mrow>
+            </md>.
+            The expression at the end is surprisingly simple, until you realize that we could have just as well used some logarithmic properties to avoid the chain rule altogether:
+            <md>
+                <mrow>\frac{d}{dt}g(t) \amp = \frac{d}{dt} \ln t^{1/3}</mrow>
+                <mrow> \amp = \frac{d}{dt} \left(\frac{1}{3}\ln t\right) \amp (\ln a^b=b\ln a)</mrow>
+                <mrow> \amp = \frac{1}{3}\cdot \frac{1}{t}</mrow>
+                <mrow> \amp = \frac{1}{3t}</mrow>
+            </md>.
+            Moral: as usual, keep an eye out for potential shortcuts through algebraic simplification! 
+        </p>
+    </li>
+    <li>
+        <p>
+            Heeding the advice directly above, we avoid the chain rule by using logarithmic properties: 
+            <md>
+                <mrow>\frac{d}{du} q(u) = \frac{d}{du}(\ln(ku)) </mrow>
+                <mrow>\amp =\frac{d}{du}(\ln k+\ln u) \amp (\ln(ab)=\ln a+\ln b) \amp </mrow>
+                <mrow> \amp = 0+ \frac{1}{u} \amp (\ln k \text{ a constant})</mrow>
+                <mrow> \amp =\frac{1}{u}</mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We compute
+            <md>
+                <mrow>h'(s) \amp = \left(e^{s^2}\right)'\ln(\sqrt{s}) + e^{s^2}\cdot \frac{d}{ds}\ln(s^{1/2}) \amp </mrow>
+                <mrow> \amp = 2s e^{s^2}\ln(\sqrt{s}) + e^{s^2}\cdot \frac{1}{s^{1/2}}\cdot (s^{1/2})' </mrow>
+                <mrow> \amp = 2s e^{s^2}\ln(\sqrt{s}) + e^{s^2}\cdot \frac{1}{s^{1/2}}\cdot \frac{1}{2}s^{-1/2}</mrow>
+                <mrow> \amp = 2s e^{s^2}\ln(\sqrt{s}) + \frac{e^{s^2}}{2s} </mrow>
+            </md>.
+        </p>
+    </li>
+   </ol>
+   </p>
+   </solution>
+   </example>
+   <p>
+    We could produce a derivative formula for general logarithmic functions <m>\log_b</m> proceeding exactly as above, by identifying <m>\log_b</m> as the inverse function of <m>f(x)=b^x</m>. Instead, we put our change of base formula to work to come up with a quicker derivation. Given any <m>b&gt; 0</m>, we have 
+    <md>
+        <mrow>\log_b(x) \amp =\frac{\log_e x}{\log_e b} \amp <xref ref="eq_log_change_base"/> </mrow>
+        <mrow> \amp =\frac{\ln x}{\ln b}</mrow>
+    </md>,
+    from whence it follows that 
+    <md>
+        <mrow>\frac{d}{dx}\log_b x \amp = \frac{d}{dx}\left(\frac{\ln x}{\ln b}\right) </mrow>
+        <mrow> \amp = \frac{1}{\ln b}\cdot \frac{d}{dx}(\ln x) </mrow>
+        <mrow> \amp = \frac{1}{\ln b}\cdot \frac{1}{x} </mrow>
+        <mrow> \amp = \frac{1}{x\ln b}</mrow>
+    </md>.
+   </p>
+   <theorem xml:id="th_der_log_b">
+   <title>Derivative of <m>\log_b</m></title>
+   <statement>
+   <p>
+   Let <m>b</m> be a positive real number. We have 
+    <md number="yes">
+        <mrow>\frac{d}{dx}\log_b x \amp = \frac{1}{x\ln b}</mrow>
+    </md>
+   for all <m>x&gt; 0</m>.
+   </p>
+   <p>
+    More generally, if <m>u(x)</m> is a positive differentiable function, then
+     <md number="yes">
+          <mrow>\frac{d}{dx}\log_b (u(x)) \amp = \frac{u'(x)}{\ln(b) u(x)}</mrow>
+     </md>.
+   </p>
+   </statement>
+   </theorem>
+   <example xml:id="eg_der_log_b">
+   <title>General logarithm derivatives</title>
+   <statement>
+   <p>
+   Compute the derivative of the given function. 
+   <ol>
+    <li>
+        <p>
+            <m>f(x)=\log_7(49x^2)</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>g(t)=\ln(\log_2(t^3+1))</m>
+        </p>
+    </li>
+   </ol>
+   </p>
+   </statement>
+   <solution>
+   <p>
+   <ol>
+    <li>
+        <p>
+            We compute
+            <md>
+                <mrow>f'(x) \amp =(\log_7 49+\log_7 x^2)' \amp (\log_7 ab=\log_7 a+\log_7b)</mrow>
+                <mrow> \amp = (2+2\log_7 x)' \amp (49=7^2, \log_7 a^c=c\log_7 a)</mrow>
+                <mrow> \amp = 0 + 2(\log_7 x)'</mrow>
+                <mrow> \amp = 2\cdot \frac{1}{x\ln 7} </mrow>
+                <mrow> \amp = \frac{2}{x\ln 7}</mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We compute
+            <md number="no">
+                <mrow>g'(t) \amp = \frac{1}{\log_2(t^3+1)}\cdot (\log_2(t^3+1))' </mrow>
+                <mrow> \amp = \frac{1}{\log_2(t^3+1)}\cdot \frac{1}{(t^3+1)\ln 2}\cdot (t^3+1)' </mrow>
+                <mrow> \amp = \frac{1}{\log_2(t^3+1)}\cdot \frac{1}{(t^3+1)\ln 2}\cdot 3t^2 </mrow>
+                <mrow> \amp = \frac{3t^2}{\ln(2)(t^3+1)\log_2(t^3+1)} </mrow>
+            </md>.
+        </p>
+    </li>
+   </ol>
+   </p>
+   </solution>
+   </example>
+   <exercises xml:id="ex_log_der">
+  <exercise label="Library__Michigan__Chap3Sec6__Q51.pg">
+    <webwork source="Library/Michigan/Chap3Sec6/Q51.pg"/>
+  </exercise>
+  <exercise label="Library__Michigan__Chap3Sec6__Q01.pg">
+    <webwork source="Library/Michigan/Chap3Sec6/Q01.pg"/>
+  </exercise>
+  
+  <exercise label="Library__Rochester__setDerivatives1__osu_dr_1_11.pg">
+    <webwork source="Library/Rochester/setDerivatives1/osu_dr_1_11.pg"/>
+  </exercise>
+  <exercise label="Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg">
+    <webwork source="Library/UCSB/Stewart5_3_6/Stewart5_3_6_68.pg"/>
+  </exercise>
+   </exercises>
+   
+   </subsection> 
+
+</section>
