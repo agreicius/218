@@ -5905,6 +5905,141 @@ var ptx_lunr_docs = [
   "body": "   Find the derivative of the function . Assume that is a positive constant.                "
 },
 {
+  "id": "s_log_deriv",
+  "level": "1",
+  "url": "s_log_deriv.html",
+  "type": "Section",
+  "number": "2.13",
+  "title": "Derivative of logarithmic functions",
+  "body": " Derivative of logarithmic functions     Derive a general formula for the derivative of the inverse of a function .    Derive a formula for the derivative of logarithmic functions.    Use exponential and logarithmic derivative formulas to compute derivatives of more general functions involving exponential expressions.      Derivative of inverse functions  To derive a derivative formula for the logarithmic functions, we make use once again of the fact that they are, by definition, the inverses of exponential functions. Surely there is a relationship between the derivative of an invertible function and its inverse , right? Of course! And the relationship is revealed by the chain rule.  Assume is invertible. We will start with the inverse function identity and take the derivative of both sides: . Amazing! We have just derived a formula for using nothing but the chain rule and the defining property of being an inverse. If you look closely, however, you will see there are two hidden assumptions in our argument. For one thing, for the last line of our derivation to make sense, we need . This is not too difficult to deal with: we simply assume that is nonzero on its domain in order to apply the formula. The deeper issue at play is that in order to use th chain rule in the first place, we must assume is differentiable! It turns out that this condition is automatic as long as is differentiable and is nonzero, though the proof of this fact is quite subtle, and will not be given here. We will, however, acknowledge this fact as its own important result in our theorem below.   Derivative of inverse function   Let be invertible and differential on its domain , and assume that for all .    is differentiable on its domain.    We have for all in the domain of .       We will very soon use to derive a formula for the derivative of logarithmic functions. However, the inverse derivative formula is very useful in its own right, and indeed, we will come back to it when discussing inverse trigonometric functions. Accordingly, we provide a procedure for applying the inverse derivative formula in general. Since the roles of input and output are somewhat fluid when going back and forth between a function and its inverse , we will use the input\/output neutral variable names and .   Computing   Let be invertible and differentiable on its domain , and assume is nonzero on . To compute for some in the domain of , proceed as follows.   Compute . In the absence of a formula for , this is often done by by finding the unique such that and using the inverse function identity if and only if .    Compute .    Use to conclude .        Derivative of inverse   Let be defined as on the domain of all real numbers.   Show that is invertible.    Plot three points on the graph of .    Compute and .          Since is clearly positive for all , we see that is increasing on its domain, and hence is one-to-one. Thus has an inverse function.    Short of actually plotting points, we can at least produce a table of values for using a table of values of , using (4) of . By plotting such points, and others with the help of technology, we are able to produce a detailed graph of even in the absence of an explicit formula. See .    For in the domain of , we have by  . Since furthermore, , we conclude that for general .  Finally, to compute and , it remains only to compute and and plug these into the last expression above. We see using our table of values in (b) that and . Thus .        Graph of and its inverse   Graph of quintic polynomial and its inverse       Derivative formula for logarithmic functions  With the general inverse derivative formula in hand, it is no bother at all to produce derivative formulas for logarithmic functions. We will use this most often for the natural logarithm . Setting and , becomes . Since , we have , and thus . This is a somewhat surprising result. Whereas the natural logarithm is quite a complicated function (in fact, a transcendental one), its derivative is a rational function! Interpreting the derivative as the slope of the tangent line, the fact that for is a precise quantitative description of the fact that the slop of the graph of decreases as increases. Indeed, since as , we can say in fact that the slope of approaches zero as .  In making official our derivative formula for , we will generalize it slightly to the function . Note the difference: whereas the domain of is , the domain of is .   Graphs of and      Graph of natural logarithm        Graph of natural logarithm of absolute value       We claim that, as with , we have more generally for all . To see why, note that if , then , and our formula above applie. And if , we have , in which case an application of the chain rule tells us that .   Derivative formula for   We have for all .  More generally, if is a positive differentiable function, then .     Derivative of natural logarithm   Compute the derivative of the given function.              , a positive constant.               We compute .    We will do this two ways. The first uses the chain rule: . The expression at the end is surprisingly simple, until you realize that we could have just as well used some logarithmic properties to avoid the chain rule altogether: . Moral: as usual, keep an eye out for potential shortcuts through algebraic simplification!    Heeding the advice directly above, we avoid the chain rule by using logarithmic properties: .    We compute .       We could produce a derivative formula for general logarithmic functions proceeding exactly as above, by identifying as the inverse function of . Instead, we put our change of base formula to work to come up with a quicker derivation. Given any , we have , from whence it follows that .   Derivative of   Let be a positive real number. We have for all .  More generally, if is a positive differentiable function, then .     General logarithm derivatives   Compute the derivative of the given function.                   We compute .    We compute .           Let and . Use the following graph of the function to find the indicated derivatives.   If , then    If , then               is on the curve, we know . The point is on the tangent line, so Thus, . By the chain rule Because is the inverse function of , we know that . Then note that , so . Differentiating both sides of the equation, , so . Thus .          Find the derivative of the function , below.                     For each of the given functions , find the derivative at the given point , first finding .  a) ;  =  =  b) on the interval ;  =  =                               Given that is one-to-one, use the formula to find .                 "
+},
+{
+  "id": "s_log_deriv-2",
+  "level": "2",
+  "url": "s_log_deriv.html#s_log_deriv-2",
+  "type": "Objectives",
+  "number": "2.13",
+  "title": "",
+  "body": "   Derive a general formula for the derivative of the inverse of a function .    Derive a formula for the derivative of logarithmic functions.    Use exponential and logarithmic derivative formulas to compute derivatives of more general functions involving exponential expressions.    "
+},
+{
+  "id": "th_IFT",
+  "level": "2",
+  "url": "s_log_deriv.html#th_IFT",
+  "type": "Theorem",
+  "number": "2.13.1",
+  "title": "Derivative of inverse function.",
+  "body": " Derivative of inverse function   Let be invertible and differential on its domain , and assume that for all .    is differentiable on its domain.    We have for all in the domain of .      "
+},
+{
+  "id": "proc_IFT",
+  "level": "2",
+  "url": "s_log_deriv.html#proc_IFT",
+  "type": "Procedure",
+  "number": "2.13.2",
+  "title": "Computing <span class=\"process-math\">\\((f^{-1})'(r)\\)<\/span>.",
+  "body": " Computing   Let be invertible and differentiable on its domain , and assume is nonzero on . To compute for some in the domain of , proceed as follows.   Compute . In the absence of a formula for , this is often done by by finding the unique such that and using the inverse function identity if and only if .    Compute .    Use to conclude .      "
+},
+{
+  "id": "eg_inverse_derivative",
+  "level": "2",
+  "url": "s_log_deriv.html#eg_inverse_derivative",
+  "type": "Example",
+  "number": "2.13.3",
+  "title": "Derivative of inverse.",
+  "body": " Derivative of inverse   Let be defined as on the domain of all real numbers.   Show that is invertible.    Plot three points on the graph of .    Compute and .          Since is clearly positive for all , we see that is increasing on its domain, and hence is one-to-one. Thus has an inverse function.    Short of actually plotting points, we can at least produce a table of values for using a table of values of , using (4) of . By plotting such points, and others with the help of technology, we are able to produce a detailed graph of even in the absence of an explicit formula. See .    For in the domain of , we have by  . Since furthermore, , we conclude that for general .  Finally, to compute and , it remains only to compute and and plug these into the last expression above. We see using our table of values in (b) that and . Thus .      "
+},
+{
+  "id": "fig_quintic_inv",
+  "level": "2",
+  "url": "s_log_deriv.html#fig_quintic_inv",
+  "type": "Figure",
+  "number": "2.13.4",
+  "title": "",
+  "body": " Graph of and its inverse   Graph of quintic polynomial and its inverse    "
+},
+{
+  "id": "fig_ln_abs",
+  "level": "2",
+  "url": "s_log_deriv.html#fig_ln_abs",
+  "type": "Figure",
+  "number": "2.13.5",
+  "title": "",
+  "body": " Graphs of and      Graph of natural logarithm        Graph of natural logarithm of absolute value      "
+},
+{
+  "id": "th_der_ln",
+  "level": "2",
+  "url": "s_log_deriv.html#th_der_ln",
+  "type": "Theorem",
+  "number": "2.13.6",
+  "title": "Derivative formula for <span class=\"process-math\">\\(\\ln\\)<\/span>.",
+  "body": " Derivative formula for   We have for all .  More generally, if is a positive differentiable function, then .   "
+},
+{
+  "id": "eg_ln_der",
+  "level": "2",
+  "url": "s_log_deriv.html#eg_ln_der",
+  "type": "Example",
+  "number": "2.13.7",
+  "title": "Derivative of natural logarithm.",
+  "body": " Derivative of natural logarithm   Compute the derivative of the given function.              , a positive constant.               We compute .    We will do this two ways. The first uses the chain rule: . The expression at the end is surprisingly simple, until you realize that we could have just as well used some logarithmic properties to avoid the chain rule altogether: . Moral: as usual, keep an eye out for potential shortcuts through algebraic simplification!    Heeding the advice directly above, we avoid the chain rule by using logarithmic properties: .    We compute .      "
+},
+{
+  "id": "th_der_log_b",
+  "level": "2",
+  "url": "s_log_deriv.html#th_der_log_b",
+  "type": "Theorem",
+  "number": "2.13.8",
+  "title": "Derivative of <span class=\"process-math\">\\(\\log_b\\)<\/span>.",
+  "body": " Derivative of   Let be a positive real number. We have for all .  More generally, if is a positive differentiable function, then .   "
+},
+{
+  "id": "eg_der_log_b",
+  "level": "2",
+  "url": "s_log_deriv.html#eg_der_log_b",
+  "type": "Example",
+  "number": "2.13.9",
+  "title": "General logarithm derivatives.",
+  "body": " General logarithm derivatives   Compute the derivative of the given function.                   We compute .    We compute .      "
+},
+{
+  "id": "Library__Michigan__Chap3Sec6__Q51.pg",
+  "level": "2",
+  "url": "s_log_deriv.html#Library__Michigan__Chap3Sec6__Q51.pg",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": "   Let and . Use the following graph of the function to find the indicated derivatives.   If , then    If , then               is on the curve, we know . The point is on the tangent line, so Thus, . By the chain rule Because is the inverse function of , we know that . Then note that , so . Differentiating both sides of the equation, , so . Thus .      "
+},
+{
+  "id": "Library__Michigan__Chap3Sec6__Q01.pg",
+  "level": "2",
+  "url": "s_log_deriv.html#Library__Michigan__Chap3Sec6__Q01.pg",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "   Find the derivative of the function , below.                 "
+},
+{
+  "id": "Library__Rochester__setDerivatives1__osu_dr_1_11.pg",
+  "level": "2",
+  "url": "s_log_deriv.html#Library__Rochester__setDerivatives1__osu_dr_1_11.pg",
+  "type": "Exercise",
+  "number": "3",
+  "title": "",
+  "body": "   For each of the given functions , find the derivative at the given point , first finding .  a) ;  =  =  b) on the interval ;  =  =                           "
+},
+{
+  "id": "Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg",
+  "level": "2",
+  "url": "s_log_deriv.html#Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg",
+  "type": "Exercise",
+  "number": "4",
+  "title": "",
+  "body": "   Given that is one-to-one, use the formula to find .              "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",
