@@ -6040,6 +6040,123 @@ var ptx_lunr_docs = [
   "body": "   Given that is one-to-one, use the formula to find .              "
 },
 {
+  "id": "s_exp_log_sketch",
+  "level": "1",
+  "url": "s_exp_log_sketch.html",
+  "type": "Section",
+  "number": "2.14",
+  "title": "Exponential and logarithmic curve sketching",
+  "body": " Exponential and logarithmic curve sketching     Build on our knowledge of derivative and limit properties of exponential and logarithmic functions to perform curve sketching analyses.    Model real-world phenomena using exponential and logarithmic functions and solve corresponding optimization problems.      Curve sketching  The same techniques for curve sketching developed in can be applied to functions involving exponential and logarithmic expressions. Recall that a complete curve sketch analysis of a function will result in a graph that reflects the various properties enumerated in .   Logarithmic curve sketching   Provide a graph of that includes all the details listed in .    We first compute the domain of . Since is defined if and only if , . We solve: . Here we have used the fact that the function is an increasing function on its domain, and has inverse . (We could also have solved the inequality using our trusty friend the sign diagram.) We conclude that . Note also, that our limit analysis, and the fact that is continuous, implies that the range of is .  Since , has no -intercept. For the -intercept(s), we solve . Thus is the -intercept of the graph of .  Since , for the end behavior of we compute , where the last limit follows since as , and thus as well. We conclude that the graph of has a vertical asymptote at and no horizontal asymptote.  We now determine the critical points of . We have , which is defined for all and never equal to zero on , since . Indeed, since and are positive for all , we see that is positive everywhere, making an increasing function on its domain with no critical points. We have thus also determined the intervals of monotonicity of .  Lastly, we examine the concavity of and possible inflection points. We have . It is easy to see that the numerator above is negative for all , and thus that is concave down throughout its domain. As a result, has no inflection points. We summarize our findings in the graph below.   Graph of natural log of x to the fifth minus 32       Surge function   The function , with domain is an example of a surge function.   Find the - and -intercepts of the graph of .    You may take for granted that . We will develop tools for computing this limit in . Intuitively the idea is that as , the term approaches zero much faster than the term approaches .    Find and classify all critical points of , determine intervals of monotonicity, and identify any absolute extrema of using .    Find the intervals of constant concavity of and identify any inflection points.       We have and if and only if , if and only if (since for all ). Thus is the the sole - and -intercept of the graph of .  For the rest of our analysis, we first need to compute and : . From these formulas it follows easily that is the only critical point of , that if and only , and if and only if , as summarized by the sign diagram below.   Sign diagram for derivative of f    From the sign diagram, we conclude that is a local maximum value of . Comparing to and , we conclude from that is in fact the absolute maximum value of on .  Moving now to concavity, the properties of are summarized by the corresponding sign diagram below.   Sign diagram for second derivative of f    From this we see that is concave down on and concave up on , and hence that the point is an inflection point of the graph of . We summarize our findings in the graph below.   Graph of surge function       "
+},
+{
+  "id": "s_exp_log_sketch-2",
+  "level": "2",
+  "url": "s_exp_log_sketch.html#s_exp_log_sketch-2",
+  "type": "Objectives",
+  "number": "2.14",
+  "title": "",
+  "body": "   Build on our knowledge of derivative and limit properties of exponential and logarithmic functions to perform curve sketching analyses.    Model real-world phenomena using exponential and logarithmic functions and solve corresponding optimization problems.    "
+},
+{
+  "id": "eg_log_curve_sketc",
+  "level": "2",
+  "url": "s_exp_log_sketch.html#eg_log_curve_sketc",
+  "type": "Example",
+  "number": "2.14.1",
+  "title": "Logarithmic curve sketching.",
+  "body": " Logarithmic curve sketching   Provide a graph of that includes all the details listed in .    We first compute the domain of . Since is defined if and only if , . We solve: . Here we have used the fact that the function is an increasing function on its domain, and has inverse . (We could also have solved the inequality using our trusty friend the sign diagram.) We conclude that . Note also, that our limit analysis, and the fact that is continuous, implies that the range of is .  Since , has no -intercept. For the -intercept(s), we solve . Thus is the -intercept of the graph of .  Since , for the end behavior of we compute , where the last limit follows since as , and thus as well. We conclude that the graph of has a vertical asymptote at and no horizontal asymptote.  We now determine the critical points of . We have , which is defined for all and never equal to zero on , since . Indeed, since and are positive for all , we see that is positive everywhere, making an increasing function on its domain with no critical points. We have thus also determined the intervals of monotonicity of .  Lastly, we examine the concavity of and possible inflection points. We have . It is easy to see that the numerator above is negative for all , and thus that is concave down throughout its domain. As a result, has no inflection points. We summarize our findings in the graph below.   Graph of natural log of x to the fifth minus 32     "
+},
+{
+  "id": "eg_surge_sketch",
+  "level": "2",
+  "url": "s_exp_log_sketch.html#eg_surge_sketch",
+  "type": "Example",
+  "number": "2.14.2",
+  "title": "Surge function.",
+  "body": " Surge function   The function , with domain is an example of a surge function.   Find the - and -intercepts of the graph of .    You may take for granted that . We will develop tools for computing this limit in . Intuitively the idea is that as , the term approaches zero much faster than the term approaches .    Find and classify all critical points of , determine intervals of monotonicity, and identify any absolute extrema of using .    Find the intervals of constant concavity of and identify any inflection points.       We have and if and only if , if and only if (since for all ). Thus is the the sole - and -intercept of the graph of .  For the rest of our analysis, we first need to compute and : . From these formulas it follows easily that is the only critical point of , that if and only , and if and only if , as summarized by the sign diagram below.   Sign diagram for derivative of f    From the sign diagram, we conclude that is a local maximum value of . Comparing to and , we conclude from that is in fact the absolute maximum value of on .  Moving now to concavity, the properties of are summarized by the corresponding sign diagram below.   Sign diagram for second derivative of f    From this we see that is concave down on and concave up on , and hence that the point is an inflection point of the graph of . We summarize our findings in the graph below.   Graph of surge function     "
+},
+{
+  "id": "s_lHop_A",
+  "level": "1",
+  "url": "s_lHop_A.html",
+  "type": "Section",
+  "number": "2.15",
+  "title": "L’Hôpital’s rule",
+  "body": " L'Hôpital's rule   Indeterminate forms   Consider a limit expression of the form , where is either a finite number or .  The expression is an indeterminate form of type if .  The expression is an indeterminate form of type if .     Indeterminate forms   Decide whether the following limit expressions have determinate or indeterminate forms. If determinate, compute the limit.                                  As we have and . Thus the limit expression is indetermine, of form .    As we have and (using known properties of ). The form of this limit expression is thus , which is not indeterminate: since the numerator gets arbitrarily small and the denominator gets arbitrarily large, we see the limit is equal to 0. (Note that the denominator being negative is of no consequence here; what is important is that it is large in absolute value.)    As , we have and . The limit expression is thus of form . Again this is a determinate form. We conclude that the limit is equal to , since the numerator gets arbitrarily large (positive), and the denominator gets arbitrarily small (and positive). (Notice that here sign (positive\/negative) does play a role.)    As we have and (from the positive side). As in the previous case, we conclude that the form is determinate and the limit is equal to .    As we have and . The limit expression is thus indeterminate, of form .        A limit expression having an indeterminate form does not mean that the limit does not exist. You should interpret this conclusion as simply saying that our current analysis is not detailed enough to determine whether the limit exists. In this spirit we will be careful not to write expressions like as these suggest we are asserting something more definitive about the limit expression.    L'Hôpital's rule   Let and be differentiable on an open interval containing , where is either a finite number or , and suppose for all in the interval.  If is an indeterminate form of type or , then , provided the limit on the right exists or is equal to .  The same result holds if we replace the limit with a one-sided limit.     Common mistake  In a situation where l'Hôpital's rule applies, do not make the mistake of computing the derivative of the quotient . That is, in general . Not only will this mistake usually result in an incorrect computation, it is also very time consuming to compute .    L'Hôpital's rule   Compute the following limits.                                        .     .        Students tend to fall madly in love with l'Hôpital's rule upon first encountering it. Here are some comments to temper your passion.   Make sure the relevant conditions apply: , (a) and must be differentiable on an open interval containing , and (b) we must have an indeterminate form of type or .    Even if l'Hôpital's rule applies, it may not be useful! In the following examples, applying l'Hôpital's rule either gets us nowhere, or is too cumbersome. .       Indeterminate form limit   Evaluate .    Although this is a situation where l'Hôpital's rule applies, upon applying it once we see that we get essentially the same limit expression back. Instead, we make use of our intuition. Since , it would stand to reason that the term dominates the other exponential terms as . We make this intuition rigorous by forcibly factoring out the dominating term : .    "
+},
+{
+  "id": "d_indeterminate",
+  "level": "2",
+  "url": "s_lHop_A.html#d_indeterminate",
+  "type": "Definition",
+  "number": "2.15.1",
+  "title": "Indeterminate forms.",
+  "body": " Indeterminate forms   Consider a limit expression of the form , where is either a finite number or .  The expression is an indeterminate form of type if .  The expression is an indeterminate form of type if .   "
+},
+{
+  "id": "eg_indeterminate",
+  "level": "2",
+  "url": "s_lHop_A.html#eg_indeterminate",
+  "type": "Example",
+  "number": "2.15.2",
+  "title": "Indeterminate forms.",
+  "body": " Indeterminate forms   Decide whether the following limit expressions have determinate or indeterminate forms. If determinate, compute the limit.                                  As we have and . Thus the limit expression is indetermine, of form .    As we have and (using known properties of ). The form of this limit expression is thus , which is not indeterminate: since the numerator gets arbitrarily small and the denominator gets arbitrarily large, we see the limit is equal to 0. (Note that the denominator being negative is of no consequence here; what is important is that it is large in absolute value.)    As , we have and . The limit expression is thus of form . Again this is a determinate form. We conclude that the limit is equal to , since the numerator gets arbitrarily large (positive), and the denominator gets arbitrarily small (and positive). (Notice that here sign (positive\/negative) does play a role.)    As we have and (from the positive side). As in the previous case, we conclude that the form is determinate and the limit is equal to .    As we have and . The limit expression is thus indeterminate, of form .      "
+},
+{
+  "id": "s_lHop_A-4",
+  "level": "2",
+  "url": "s_lHop_A.html#s_lHop_A-4",
+  "type": "Remark",
+  "number": "2.15.3",
+  "title": "",
+  "body": " A limit expression having an indeterminate form does not mean that the limit does not exist. You should interpret this conclusion as simply saying that our current analysis is not detailed enough to determine whether the limit exists. In this spirit we will be careful not to write expressions like as these suggest we are asserting something more definitive about the limit expression.  "
+},
+{
+  "id": "th_lHop",
+  "level": "2",
+  "url": "s_lHop_A.html#th_lHop",
+  "type": "Theorem",
+  "number": "2.15.4",
+  "title": "L’Hôpital’s rule.",
+  "body": " L'Hôpital's rule   Let and be differentiable on an open interval containing , where is either a finite number or , and suppose for all in the interval.  If is an indeterminate form of type or , then , provided the limit on the right exists or is equal to .  The same result holds if we replace the limit with a one-sided limit.   "
+},
+{
+  "id": "s_lHop_A-6",
+  "level": "2",
+  "url": "s_lHop_A.html#s_lHop_A-6",
+  "type": "Warning",
+  "number": "2.15.5",
+  "title": "Common mistake.",
+  "body": " Common mistake  In a situation where l'Hôpital's rule applies, do not make the mistake of computing the derivative of the quotient . That is, in general . Not only will this mistake usually result in an incorrect computation, it is also very time consuming to compute .  "
+},
+{
+  "id": "eg_lHop",
+  "level": "2",
+  "url": "s_lHop_A.html#eg_lHop",
+  "type": "Example",
+  "number": "2.15.6",
+  "title": "L’Hôpital’s rule.",
+  "body": " L'Hôpital's rule   Compute the following limits.                                        .     .      "
+},
+{
+  "id": "s_lHop_A-8",
+  "level": "2",
+  "url": "s_lHop_A.html#s_lHop_A-8",
+  "type": "Remark",
+  "number": "2.15.7",
+  "title": "",
+  "body": " Students tend to fall madly in love with l'Hôpital's rule upon first encountering it. Here are some comments to temper your passion.   Make sure the relevant conditions apply: , (a) and must be differentiable on an open interval containing , and (b) we must have an indeterminate form of type or .    Even if l'Hôpital's rule applies, it may not be useful! In the following examples, applying l'Hôpital's rule either gets us nowhere, or is too cumbersome. .     "
+},
+{
+  "id": "s_lHop_A-9",
+  "level": "2",
+  "url": "s_lHop_A.html#s_lHop_A-9",
+  "type": "Example",
+  "number": "2.15.8",
+  "title": "Indeterminate form limit.",
+  "body": " Indeterminate form limit   Evaluate .    Although this is a situation where l'Hôpital's rule applies, upon applying it once we see that we get essentially the same limit expression back. Instead, we make use of our intuition. Since , it would stand to reason that the term dominates the other exponential terms as . We make this intuition rigorous by forcibly factoring out the dominating term : .   "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",
