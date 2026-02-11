@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_lHop_B" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>More on indeterminate forms</title>
+    <p>
+      There are other types of indeterminate form limit expression to which l'H&#xf4;pital's rule cannot be directly applied. However, after some algebraic manipulation we can often get the expression into a more tractable form. 
+    </p>
+    <definition xml:id="d_indeterminate_further">
+        <title>More indeterminate forms</title>
+        <statement>
+            <p>
+              Assume <m>a</m> is either a finite number or <m>\pm\infty</m>.
+            </p>
+            <p>
+              If <m>\displaystyle\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=\infty</m>,
+              then <m>\displaystyle\lim_{x\to a}f(x)-g(x)</m> is an
+              <term>indeterminate form of type <m>\infty-\infty</m></term>.
+            </p>
+            <p>
+              If <m>\displaystyle\lim_{x\to a}f(x)=0</m> and <m>\lim_{x\to a}g(x)=\pm\infty</m>,
+              then <m>\displaystyle\lim_{x\to a}f(x)g(x)</m> is an <term>indeterminate</term>
+              form of type <m>0\cdot\infty</m>.
+            </p>
+            <p>
+              If <m>\displaystyle\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0</m>,
+              then <m>\displaystyle\lim_{x\to a}f(x)^{g(x)}</m> is an
+              <term>indeterminate form of type <m>0^0</m></term>.
+            </p>
+            <p>
+              If <m>\displaystyle\lim_{x\to a}f(x)=\infty</m> and <m>\lim_{x\to a}g(x)=0</m>,
+              then <m>\displaystyle\lim_{x\to a}f(x)^{g(x)}</m> is an
+              <term>indeterminate form of type <m>\infty^0</m></term>.
+            </p>
+            <p>
+              If <m>\displaystyle\lim_{x\to a}f(x)=1</m> and <m>\lim_{x\to a}g(x)=\infty</m>,
+              then <m>\displaystyle\lim_{x\to a}f(x)^{g(x)}</m> is an
+              <term>indeterminate form of type <m>1^\infty</m></term>.
+            </p>
+          </statement>
+    </definition>
+    
+    <algorithm xml:id="proc_expanded_lHop">
+      <title>Indeterminate forms</title>
+      <statement>
+        <p>
+          Below you find a variety of potentially useful techniques for dealing with limit expressions of indeterminate form. 
+          <ol>
+            <li>
+              <title>Types <m>0/0, \infty/\infty</m></title>
+              <p>
+                If <m>\displaystyle \lim_{x\to a}\frac{f(x)}{g(x)}</m> is of type <m>0/0</m> or <m>\infty/\infty</m>, we can apply l'H&#xf4;pital's rule. 
+              </p>
+            </li>
+            <li>
+              <title>Type <m>\infty-\infty</m></title>
+              <p>
+                If <m>\lim_{x\to a}f(x)-g(x)</m> is of type <m>\infty- \infty</m>, we can attempt to rewrite the expression as  
+                <me>
+                  \lim_{x\to a}f(x)-g(x)=\lim_{x\to a}\frac{p(x)}{q(x)}
+                </me>,
+                where <m>\displaystyle\lim_{x\to a}\frac{p(x)}{q(x)}</m> is either of type <m>0/0</m> or <m>\infty/\infty</m>, 
+                and then apply l'H&#xf4;pital's rule. 
+              </p>
+            </li>
+            <li>
+              <title>Type <m>0\cdot \infty</m></title>
+              <p>
+                If <m>\lim_{x\to a}f(x)g(x)</m> is of type <m>0\cdot \infty</m>, we can write 
+                <md>
+                  <mrow>\lim_{x\to a}f(x)g(x)\amp =\lim_{x\to a}\frac{f(x)}{1/g(x)} \amp (\text{type } 0/0)</mrow>
+                  <mrow> \amp \text{or}</mrow>
+                  <mrow> \lim_{x\to a}f(x)g(x)\amp= \lim_{x\to a}\frac{g(x)}{1/f(x)} \amp (\text{type }\infty/\infty)</mrow>
+                </md>
+                and then apply l'H&#xf4;pital's rule. 
+              </p>
+            </li>
+            <li>
+              <title>Exponential expressions</title>
+              <p>
+                For any limit expression of the form <m>\displaystyle\lim_{x\to a}f(x)^{g(x)}</m> we can write 
+                <me>
+                  \lim_{x\to a}f(x)^{g(x)}=\lim_{x\to a}e^{g(x)\ln f(x)}
+                </me>, 
+                compute the limit <m>L=\lim_{x\to a}g(x)\ln f(x)</m>, and conclude that 
+                <men xml:id="eq_exp_limit">
+                  \lim_{x\to a}f(x)^{g(x)}=e^{\lim_{x\to a} g(x)\ln f(x)}=e^L
+                </men>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </algorithm>
+    <example xml:id="eg_indeterminate_further">
+      <title>More indeterminate forms</title>
+      <statement>
+          <p>
+              Compute the following limits.
+              <ol>
+                <li>
+                  <p>
+                    <m>\displaystyle\lim_{x\to 0^+}\frac{1}{\sin x}-\frac{1}{x}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\displaystyle\lim_{x\to \infty}2x-\sqrt{4x^2-13x}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\displaystyle\lim_{x\to -\infty}x^22^{x}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\displaystyle\lim_{x\to 0^+}(1+x)^{1/x}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\displaystyle\lim_{x\to \infty}(1+x^2)^{2/x}</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+      </statement>
+      <solution>
+          <p>
+              <ol>
+                <li>
+                  <p>
+                    <md>
+                      <mrow>\lim_{x\to 0^+}\frac{1}{\sin x}-\frac{1}{x} \amp = \lim_{x\to 0^+}\frac{x-\sin x}{x\sin x} \amp (\text{alg. tech.: common denom.})</mrow>
+                      <mrow> \amp =0</mrow>
+                    </md>.
+                    The last equality was shown in <xref ref="eg_lHop"/> with the help of l'H&#xf4;pital's rule. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <md>
+                      <mrow> \lim_{x\to \infty}2x-\sqrt{4x^2-13x}\amp= \lim_{x\to \infty}2x-\sqrt{4x^2-13x}\cdot \frac{2x+\sqrt{4x^2+13x}}{2x+\sqrt{4x^2-13x}} \amp (\text{alg. tech.: conjugate})</mrow>
+                      <mrow> \amp = \lim_{x\to \infty}\frac{4x^2-(4x^2-13x)}{2x+\sqrt{4x^2-13x}}   </mrow>
+                      <mrow> \amp = \lim_{x\to \infty}\frac{13x}{2x+\sqrt{4x^2-13x}}</mrow>
+                      <mrow> \amp = \lim_{x\to \infty}\frac{\cancel{x}}{\cancel{x}}\frac{13}{2+\sqrt{4-13/x}}
+                      </mrow>
+                      <mrow> \amp = \frac{13}{2+\sqrt{4-0}}</mrow>
+                      <mrow> \amp = \frac{13}{4}</mrow>. 
+                    </md>
+                    Note: the step where <m>x</m> is factored out of the numerator and denominator was motivated by the intuition that as <m>x\to \infty</m>, the <m>x^2</m> term in the radical dominates the <m>x</m> term. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <md>
+                      <mrow>\lim_{x\to -\infty}x^22^{x} \amp = \lim_{x\to -\infty}\frac{x^2}{2^{-x}}</mrow>
+                      <mrow> \amp = \lim_{x\to -\infty}\frac{2x}{-\ln 2 \cdot 2^{-x}} \amp (\text{l'Hop }, \infty/\infty)</mrow>
+                      <mrow> \amp = \lim_{x\to -\infty}\frac{2}{(\ln 2)^2\cdot 2^{-x}}</mrow>
+                      <mrow> \amp = \frac{2}{\infty} \amp (2^{-x}\to \infty \text{ as } x\to -\infty)</mrow>
+                      <mrow> \amp = 0</mrow>
+                    </md>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <md>
+                      <mrow>\lim_{x\to 0^+}(1+x)^{1/x} \amp = \lim_{x\to 0^+}e^{\frac{1}{x}\ln (1+x)} \amp (\text{def. of } a^b)</mrow>
+                      <mrow> \amp = e^{\lim_{x\to 0^+}\frac{\ln (1+x)}{x}} \amp <xref ref="eq_exp_limit"/> </mrow>
+                      <mrow> \amp = e^{\lim_{x\to 0^+}\frac{1/(1+x)}{1}} \amp (\text{l'Hop }, 0/0)</mrow>
+                      <mrow> \amp = e^{1}</mrow>
+                      <mrow> \amp = e</mrow>
+                    </md>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <md>
+                      <mrow>\lim_{x\to \infty}(1+x^2)^{2/x} \amp = \lim_{x\to \infty}e^{\frac{2}{x}\ln(1+x^2)} \amp (\text{def. of } a^b)</mrow>
+                      <mrow> \amp = e^{\lim_{x\to \infty}\frac{2\ln(1+x^2)}{x}} \amp <xref ref="eq_exp_limit"/></mrow>
+                      <mrow> \amp = e^{\lim_{x\to \infty}\frac{4x/(1+x^2)}{1}} \amp (\text{l'Hop }, \infty/\infty) </mrow>
+                      <mrow> \amp = e^0 \amp (4x/1+x^2\to 0 \text{ as } x\to \infty)</mrow>
+                      <mrow> \amp = 1</mrow>
+                    </md>.
+                  </p>
+                </li>
+              </ol>
+          </p>
+      </solution>
+  </example>
+</section>

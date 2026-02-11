@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_exp_log_sketch" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Exponential and logarithmic curve sketching</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Build on our knowledge of derivative and limit properties of exponential and logarithmic functions to perform curve sketching analyses. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Model real-world phenomena using exponential and logarithmic functions and solve corresponding optimization problems. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_exp_log_curve_sketching">
+    <title>Curve sketching</title>
+    <p>
+        The same techniques for curve sketching developed in <xref ref="s_curve_sketch_I"/> can be applied to functions involving exponential and logarithmic expressions. Recall that a complete curve sketch analysis of a function will result in a graph that reflects the various properties enumerated in <xref ref="proc_curve_sketching"/>. 
+    </p>
+    <example xml:id="eg_log_curve_sketc">
+    <title>Logarithmic curve sketching</title>
+    <statement>
+    <p>
+    Provide a graph of  <m>f(x)=\ln(x^5-32)</m> that includes all the details listed in <xref ref="proc_curve_sketching"/>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We first compute the domain <m>D</m> of <m>f</m>. Since <m>\ln t</m> is defined if and only if <m>t&gt;0 </m>, <m>D=\{x\in \R\mid x^5-32&gt; 0\}</m>. We solve:
+    <md>
+        <mrow>x^5-32 \amp &gt; 0</mrow>
+        <mrow>x^5 \amp &gt; 32</mrow>
+        <mrow>x \amp &gt; 32^{1/5}</mrow>
+        <mrow>x \amp &gt; 2</mrow>
+    </md>. 
+    Here we have used the fact that the function <m>g(x)=x^5</m> is an increasing function on its domain, and has inverse <m>g^{-1}(x)=x^{1/5}</m>. (We could also have solved the inequality using our trusty friend the sign diagram.) We conclude that <m>D=(2,\infty)</m>.  Note also, that our limit analysis, and the fact that <m>f</m> is continuous, implies that the range of <m>f</m> is <m>\R</m>. 
+    </p>
+    <p>
+        Since <m>0\notin D</m>, <m>f</m> has no <m>y</m>-intercept. For the <m>x</m>-intercept(s), we solve 
+        <md>
+            <mrow>f(x) \amp =0</mrow>
+            <mrow>\ln(x^5-32) \amp = 0</mrow>
+            <mrow>x^5-32\amp = e^0</mrow>
+            <mrow>x^5-32 \amp = 1</mrow>
+            <mrow> x^5 \amp = 33 </mrow>
+            <mrow>x \amp =33^{1/5}=\sqrt[5]{33}</mrow>
+        </md>.
+        Thus <m>(33^{1/5},0)</m> is the <m>x</m>-intercept of the graph of <m>f</m>. 
+    </p>
+    <p>
+        Since <m>D=(2,\infty)</m>, for the end behavior of <m>f</m> we compute 
+        <md>
+            <mrow>\lim\limits_{x\to 2}f(x) \amp = \lim\limits_{x\to 2^+}\ln(x^2-32) </mrow>
+            <mrow> \amp = \lim\limits_{t\to 0^+}\ln t \amp (x\to 2^+\implies x^5-32\to 0^+)
+            </mrow>
+            <mrow> \amp = -\infty </mrow>
+            <mrow>\lim\limits_{x\to \infty}\ln(x^5-32) \amp =\infty </mrow>
+        </md>,
+        where the last limit follows since <m>x^5-32\to \infty</m> as <m>x\to infty</m>, and thus <m>\ln(x^5-32)\to \infty</m> as well. We conclude that the graph of <m>f</m> has a vertical asymptote at <m>x=2</m> and no horizontal asymptote.
+    </p>
+    <p>
+        We now determine the critical points of <m>f</m>. We have 
+        <md>
+            <mrow>f'(x) \amp =\frac{5x^4}{x^5-32}</mrow>
+        </md>,
+        which is defined for all <m>x\in D</m> and never equal to zero on <m>D</m>, since <m>0\notin D</m>. Indeed, since <m>x^4</m> and <m>x^5-32</m> are positive for all <m>x\in D</m>, we see that <m>f'</m> is positive everywhere, making <m>f</m> an increasing function on its domain with no critical points. We have thus also determined the intervals of monotonicity of <m>f</m>.  
+    </p>
+    <p>
+        Lastly, we examine the concavity of <m>f</m> and possible inflection points. We have 
+        <md>
+            <mrow>f''(x) \amp = \frac{20x^3(x^5-32)-5x^4(5x^4)}{(x^5-32)^2} </mrow>
+            <mrow> \amp = \frac{20x^8-640x^3-25x^8}{(x^5-32)^2} </mrow>
+            <mrow> \amp = \frac{-x^3(5x^5+640)}{(x^5-32)^2} </mrow>
+        </md>.
+        It is easy to see that the numerator above is negative for all <m>x\in D</m>, and thus that <m>f</m> is concave down throughout its domain. As a result, <m>f</m> has no inflection points. We summarize our findings in the graph below.
+    </p>
+    <image>
+        <shortdescription>Graph of natural log of x to the fifth minus 32</shortdescription>
+        <sageplot>
+f(x)=log(x^5-32)
+P=point((33^(1/5),0),size=50, color='blue')
+L=line([(2,-5),(2,10)], color='red', linestyle='dashed')
+P+L+plot(f(x),(x,2.0001,5),ymin=-3, ymax=8, xmin=-5)
+        </sageplot>
+    </image>
+    </solution>
+
+    </example>
+    <example xml:id="eg_surge_sketch">
+    <title>Surge function</title>
+    <statement>
+    <p>
+    The function <m>f(x)=xe^{-x}</m>, with domain <m>D=[0,\infty)</m> is an example of a surge function. 
+    <ol>
+        <li>
+            <p>
+               Find the <m>x</m>- and <m>y</m>-intercepts of the graph of <m>f</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+               You may take for granted that <m>\lim\limits_{x\to \infty}f(x)=0</m>. We will develop tools for computing this limit in <xref ref="s_lHop_A"/>. Intuitively the idea is that as <m>x\to \infty</m>, the term <m>e^{-x}</m> approaches zero much faster than the term  <m>x</m> approaches <m>\infty</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Find and classify all critical points of <m>f</m>, determine intervals of monotonicity, and identify any absolute extrema of <m>f</m> using <xref ref="proc_gen_EVT"/>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Find the intervals of constant concavity of <m>f</m> and identify any inflection points.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We have <m>f(0)=0</m> and <m>f(x)=0</m> if and only if <m>xe^{-x}=0</m>, if and only if <m>x=0</m> (since <m>e^{-x}&gt; 0</m> for all <m>x</m>). Thus <m>(0,0)</m> is the the sole <m>x</m>-  and <m>y</m>-intercept of the graph of <m>f</m>. 
+    </p>
+    <p>
+       For the rest of our analysis, we first need to compute <m>f'</m> and <m>f''</m>:
+       <md>
+        <mrow>f'(x) \amp = e^{-x}-xe^{-x}=(1-x)e^{-x}</mrow>
+        <mrow>f''(x)\amp = -e^{-x}-(1-x)e^{-x}=(x-2)e^{-x} </mrow>
+       </md>.
+       From these formulas it follows easily that <m>x=1</m> is the only critical point of <m>f</m>, that <m>f'(x)&gt; 0</m> if and only <m>x&lt; 1</m>, and <m>f'(x)&lt; 0</m> if and only if <m>x&gt; 1</m>, as summarized by the sign diagram below. 
+    </p>
+     <image xml:id="im_sign_surge_der" width="50%">
+    <shortdescription>Sign diagram for derivative of f</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}
+        \draw (-1,0) -- (2,0);
+        \path foreach \X/\Y  in 
+         {1/1}
+            { (\X,0) node[circle,fill, blue, inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (0,-.05)--(0,.05);
+            \draw (-.5,.5) node {$f'\colon$};
+            \draw (-.5,-.5) node{$f\colon $};
+            \draw (0,-.25) node {$0$};
+       \draw(.5,.5) node{$+$};
+       \draw(1.5,.5) node{$-$};
+       \draw(.5,-.5) node{$\nearrow$};
+       \draw(1.5,-.5) node{$\searrow$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    From the sign diagram, we conclude that <m>f(1)=e^{-1}=1/e</m> is a local maximum value of <m>f</m>. Comparing <m>f(1)=1/e</m> to <m>f(0)=0</m> and <m>\lim\limits_{x\to \infty}f(x)=0</m>, we conclude from <xref ref="proc_gen_EVT"/> that <m>f(1)=1/e</m> is in fact the absolute maximum value of <m>f</m> on <m>D</m>. 
+</p>
+<p>
+    Moving now to concavity, the properties of <m>f''</m> are summarized by the corresponding sign diagram below. 
+</p>
+<image xml:id="im_sign_surge_2der" width="50%">
+    <shortdescription>Sign diagram for second derivative of f</shortdescription>
+    <latex-image>
+         \begin{tikzpicture}
+        \draw (-1,0) -- (2,0);
+        \path foreach \X/\Y  in 
+         {1/2}
+            { (\X,0) node[circle,fill, blue, inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (0,-.05)--(0,.05);
+            \draw (-.5,.5) node {$f''\colon$};
+            \draw (-.5,-.5) node{$f\colon $};
+            \draw (0,-.25) node {$0$};
+       \draw(.5,.5) node{$-$};
+       \draw(1.5,.5) node{$+$};
+       \draw(.5,-.5) node{$\cap$};
+       \draw(1.5,-.5) node{$\cup$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    From this we see that <m>f</m> is concave down on <m>(0,2)</m> and concave up on <m>(2,\infty)</m>, and hence that the point <m>P=(2,f(2))=(2, 2/e^2)</m> is an inflection point of the graph of <m>f</m>. We summarize our findings in the graph below.
+</p>
+<image>
+    <shortdescription>Graph of surge function</shortdescription>
+    <sageplot>
+f(x)=x*e^(-x)
+P=point((2,f(2)),size=50, color='blue')
+Q=point((1,1/e),size=50, color='blue')
+t1=text("$(1,1/e)$", (1,(1/e)+.03), color='black',fontsize=14)
+t2=text("$(2,2/e^2)$", (3, 2*e^(-2)), color='black', fontsize=14)
+L=line([(3,0),(10,0)], color='red', linestyle='dashed', thickness=2)
+P+L+plot(f(x),(x,0,10))+Q+t1+t2
+</sageplot>
+</image>
+
+    </solution>
+    </example>
+    
+    </subsection>
+    
+
+</section>

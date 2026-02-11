@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_lHop_A" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>L'H&#xf4;pital's rule</title>
+    <definition xml:id="d_indeterminate">
+        <title>Indeterminate forms</title>
+        
+        <statement>
+            <p>
+              Consider a limit expression of the form
+              <me>
+                \lim_{x\to a}\frac{f(x)}{g(x)}
+              </me>,
+              where <m>a</m> is either a finite number or <m>\pm\infty</m>.
+            </p>
+            <p>
+              The expression is an <em>indeterminate form of type <m>0/0</m></em> if
+              <me>
+                \lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0
+              </me>.
+            </p>
+            <p>
+              The expression is an <em>indeterminate form of type <m>\infty/\infty</m></em> if
+              <me>
+                \lim_{x\to a}f(x)=\pm\infty \text{ and }  \lim_{x\to a}g(x)=\pm\infty
+              </me>.
+            </p>
+          </statement>
+    </definition>
+    <example xml:id="eg_indeterminate">
+        <title>Indeterminate forms</title>
+        
+        
+        <statement>
+            <p>
+                Decide whether the following limit expressions have determinate or indeterminate forms.
+                If determinate, compute the limit.
+                <ol>
+                  <li>
+                    <p>
+                        <m>\displaystyle\lim_{x\to 0}\frac{\sin x}{x}</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to 0+}\frac{\sin x}{\ln x}</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                       <m>\displaystyle\lim_{x\to\infty}\frac{x}{e^{-x}}</m> 
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to (\pi/2)^-}\frac{\tan x}{\cos x}</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to\infty}\frac{e^x}{2^x+3^x}</m>
+                    </p>
+                  </li>
+                </ol>
+              </p>
+        </statement>
+        <solution>
+            <p>
+                <ol>
+                  <li>
+                    <p>
+                      As <m>x\to 0</m> we have <m>\sin x\to 0</m> and <m>x\to 0</m>. Thus the limit expression is indetermine, of form <m>0/0</m>. 
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      As <m>x\to 0^+</m> we have <m>\sin x\to 0</m> and <m>\ln x\to -\infty</m> (using known properties of <m>\ln</m>). The form of this limit expression is thus <m>0/\infty</m>, which is <em>not</em> indeterminate: since the numerator gets arbitrarily small and the denominator gets arbitrarily large, we see the limit is equal to 0. (Note that the denominator being negative is of no consequence here; what is important is that it is large in absolute value.)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      As <m>x\to \infty</m>, we have <m>x\to \infty</m> and <m>e^{-x}\to 0</m>. The limit expression is thus of form <m>\infty/0</m>. Again this is a determinate form. We conclude that the limit is equal to <m>\infty</m>, since the numerator gets arbitrarily large (positive), and the denominator gets arbitrarily small (and positive). (Notice that here sign (positive/negative) does play a role.)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      As <m>x\to \frac{\pi}{2}^-</m> we have <m>\tan x\to \infty</m> and <m>\cos x\to 0</m> (from the positive side). As in the previous case, we conclude that the form is determinate and the limit is equal to <m>\infty</m>.  
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      As <m>x\to \infty</m> we have <m>e^x\to \infty</m> and <m>2^x+3^x\to \infty</m>. The limit expression is thus indeterminate, of form <m>\infty/\infty</m>. 
+                    </p>
+                  </li>
+                </ol>
+            </p>
+        </solution>
+    </example>
+    <remark>
+        <p>
+            A limit expression having an indeterminate form does <em>not</em> mean that the limit does not exist. You should interpret this conclusion as simply saying that our current analysis is not detailed enough to determine whether the limit exists. In this spirit we will be careful not to write expressions like 
+            <md>
+                <mrow>\lim_{x\to\infty}\frac{f(x)}{g(x)}\amp=\frac{0}{0} \amp \lim_{x\to a}\frac{f(x)}{g(x)}\amp =\frac{\infty}{\infty} </mrow>
+            </md>
+            as these suggest we are asserting something more definitive about the limit expression. 
+        </p>
+    </remark>
+    <theorem xml:id="th_lHop">
+        <title>L'H&#xf4;pital's rule</title>
+        <statement>
+          <p>
+            Let <m>f</m> and <m>g</m> be differentiable on an open interval <m>I</m> containing <m>a</m>,
+            where <m>a</m> is either a finite number or <m>\pm\infty</m>,
+            and suppose <m>g'(x)\ne 0</m> for all <m>x\ne a</m> in the interval.
+          </p>
+          <p>
+            If <m>\displaystyle\lim_{x\to a}\frac{f(x)}{g(x)}</m> is an indeterminate form of type <m>0/0</m> or <m>\infty/\infty</m>, then
+            <me>
+              \lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}
+            </me>,
+            provided the limit on the right exists or is equal to <m>\pm\infty</m>.
+          </p>
+          <p>
+            The same result holds if we replace the limit with a one-sided limit.
+          </p>
+        </statement>
+      </theorem>
+      <warning>
+        <title>Common mistake</title>
+        <p>
+            In a situation where l'H&#xf4;pital's rule applies, do <em>not</em> make the mistake of computing the derivative of the quotient <m>\left(f/g\right)'</m>. That is, in general
+            <md>
+                <mrow>\lim_{x\to a}\frac{f(x)}{g(x)} \ne \lim_{x\to a}\left(\frac{f(x)}{g(x)}\right)' \amp </mrow>
+            </md>.
+            Not only will this mistake usually result in an incorrect computation, it is also very time consuming to compute 
+            <md>
+                <mrow>\left(\frac{f}{g}\right)'\amp=\frac{f'g-fg'}{g^2} </mrow>
+            </md>.
+        </p>
+      </warning>
+      <example xml:id="eg_lHop">
+        <title>L'H&#xf4;pital's rule</title>
+        <statement>
+            <p>
+                Compute the following limits.
+                <ol>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to\infty}\frac{\ln x}{x^{1/100}}</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to 0}\frac{2^x-3^{-x}}{4^x-5^{-x}}</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to 1}\frac{\cos(\pi x/2)}{\log_2(x)}</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\lim_{x\to 0}\frac{x-\sin x}{x\sin x}</m>
+                    </p>
+                  </li>
+                </ol>
+              </p>
+        </statement>
+        <solution>
+            <p>
+                <ol>
+                  <li>
+                    <p>
+                      <md>
+                        <mrow>\lim_{x\to\infty}\frac{\ln x}{x^{1/100}} \amp = \lim_{x\to\infty}\frac{(\ln x)'}{(x^{1/100})'} \amp (\text{L'Hop }, \infty/\infty)   </mrow>
+                        <mrow> \amp = \lim_{x\to\infty}\frac{1/x}{\frac{1}{100}x^{-99/100}}</mrow>
+                        <mrow> \amp = \lim_{x\to\infty}100\cdot  \frac{1}{x^{1/100}}</mrow>
+                        <mrow> \amp = 0 \amp (1/\infty)</mrow>
+                      </md>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <md>
+                        <mrow>\lim_{x\to 0}\frac{2^x-3^{-x}}{4^x-5^{-x}} \amp =\lim_{x\to 0}\frac{(2^x-3^{-x})'}{(4^x-5^{-x})'}\amp (\text{L'Hop }, 0/0)</mrow>
+                        <mrow> \amp = \lim_{x\to 0}\frac{\ln 2\cdot  2^x+\ln 3\cdot 3^{-x}}{\ln 4\cdot 4^x+\ln 5\cdot 5^{-x}}</mrow>
+                        <mrow> \amp = \frac{\ln 2+\ln 3}{\ln 4+\ln 5} \amp \text{(evaluation)}</mrow>
+                        <mrow> \amp = \frac{\ln 6}{\ln 20} \amp (\text{log props.})</mrow>
+                      </md>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <md>
+                        <mrow> \lim_{x\to 1}\frac{\cos(\pi x/2)}{\log_2(x)} \amp = \lim_{x\to 1}\frac{(\cos(\pi x/2))'}{(\log_2(x))'} \amp (\text{L'Hop }, 0/0) </mrow>
+                        <mrow> \amp = \lim_{x\to 1}\frac{-\frac{\pi}{2}\sin(\pi x/2)}{\frac{1}{\ln 2}\cdot 1/x}</mrow>
+                        <mrow> \amp =-\ln 2\cdot \frac{\pi}{2} \amp (\text{evaluation})</mrow>
+                      </md>.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <md>
+                        <mrow>\lim_{x\to 0}\frac{x-\sin x}{x\sin x} \amp = \lim_{x\to 0}\frac{(x-\sin x)'}{(x\sin x)'} \amp (\text{L'Hop }, 0/0)</mrow>
+                        <mrow> \amp = \lim_{x\to 0}\frac{1-\cos x}{\sin x+x\cos x}</mrow>
+                        <mrow> \amp =\lim_{x\to 0}\frac{(1-\cos x)'}{(\sin x+x\cos x)'} \amp (\text{L'Hop }, 0/0)</mrow>
+                        <mrow> \amp = \lim_{x\to 0}\frac{\sin x}{2\cos x-x\sin x}</mrow>
+                        <mrow> \amp = \frac{0}{2} \amp \text{(evaluation)}</mrow>
+                        <mrow> \amp = 0</mrow>
+                      </md>.
+                    </p>
+                  </li>
+                </ol>
+            </p>
+        </solution>
+      </example>
+      <remark>
+        <p>
+            Students tend to fall madly in love with l'H&#xf4;pital's rule upon first encountering it. Here are some comments to temper your passion.
+            <ol>
+                <li>
+                    <p>
+                        Make sure the relevant conditions apply: <ie/>, (a) <m>f</m> and <m>g</m> must be differentiable on an open interval containing <m>a</m>, and (b) we must have an indeterminate form of type <m>0/0</m> or <m>\infty/\infty</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Even if l'H&#xf4;pital's rule applies, it may not be useful! In the following examples, applying l'H&#xf4;pital's rule either gets us nowhere, or is too cumbersome. 
+                        <md>
+                            <mrow>\lim_{x\to\infty}\frac{e^x+e^{-x}}{e^{x}-e^{-x}} \amp \amp \lim_{x\to\infty}\frac{x^{24}-2x^{22}+2x^2+7}{3x^{24}+x^{20}-x^2+x+1} </mrow>
+                        </md>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+      </remark>
+      <example>
+        <title>Indeterminate form limit</title>
+        <statement>
+            <p>
+                Evaluate <m>\displaystyle\lim_{x\to\infty}\frac{e^x}{2^x+3^x}</m>. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Although this is a situation where l'H&#xf4;pital's rule applies, upon applying it once we see that we get essentially the same limit expression back. Instead, we make use of our intuition. Since <m>2&lt; e &lt; 3</m>, it would stand to reason that the <m>3^x</m> term <q>dominates</q> the other exponential terms as <m>x\to\infty</m>. We make this intuition rigorous by <q>forcibly</q> factoring out the dominating term <m>3^x</m>:
+                <md>
+                    <mrow>\lim_{x\to\infty}\frac{e^x}{2^x+3^x} \amp =\lim_{x\to\infty}\frac{e^x}{3^x(2^x/3^x+1)}</mrow>
+                    <mrow> \amp = \lim_{x\to\infty}\frac{e^x}{3^x}\cdot \lim_{x\to\infty}\frac{1}{(2/3)^x+1}</mrow>
+                    <mrow> \amp = \lim_{x\to\infty}(e/3)^x\cdot \frac{1}{0+1} \amp ((2/3)^x\to 0)</mrow>
+                    <mrow> \amp = 0\cdot 1 \amp ((e/3)^x\to 0) </mrow>
+                    <mrow> \amp = 0</mrow>
+                </md>.
+            </p>
+        </solution>
+      </example>
+</section>
