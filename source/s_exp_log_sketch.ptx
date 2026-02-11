@@ -76,9 +76,12 @@
             <mrow> \amp = \frac{20x^8-640x^3-25x^8}{(x^5-32)^2} </mrow>
             <mrow> \amp = \frac{-x^3(5x^5+640)}{(x^5-32)^2} </mrow>
         </md>.
-        It is easy to see that the numerator above is negative for all <m>x\in D</m>, and thus that <m>f</m> is concave down throughout its domain. As a result, <m>f</m> has no inflection points. We summarize our findings in the graph below.
+        It is easy to see that the numerator above is negative for all <m>x\in D</m>, and thus that <m>f</m> is concave down throughout its domain. As a result, <m>f</m> has no inflection points. The graph in <xref ref="fig_ln_sketch"/> nicely summarizes our findings. 
     </p>
-    <image>
+    </solution>
+    <figure xml:id="fig_ln_sketch">
+        <caption>Graph of <m>f(x)=\ln(x^5-32)</m></caption>
+        <image>
         <shortdescription>Graph of natural log of x to the fifth minus 32</shortdescription>
         <sageplot>
 f(x)=log(x^5-32)
@@ -87,8 +90,7 @@ L=line([(2,-5),(2,10)], color='red', linestyle='dashed')
 P+L+plot(f(x),(x,2.0001,5),ymin=-3, ymax=8, xmin=-5)
         </sageplot>
     </image>
-    </solution>
-
+    </figure>
     </example>
     <example xml:id="eg_surge_sketch">
     <title>Surge function</title>
@@ -178,9 +180,15 @@ P+L+plot(f(x),(x,2.0001,5),ymin=-3, ymax=8, xmin=-5)
     </latex-image>
 </image>
 <p>
-    From this we see that <m>f</m> is concave down on <m>(0,2)</m> and concave up on <m>(2,\infty)</m>, and hence that the point <m>P=(2,f(2))=(2, 2/e^2)</m> is an inflection point of the graph of <m>f</m>. We summarize our findings in the graph below.
+    From this we see that <m>f</m> is concave down on <m>(0,2)</m> and concave up on <m>(2,\infty)</m>, and hence that the point <m>P=(2,f(2))=(2, 2/e^2)</m> is an inflection point of the graph of <m>f</m>. The graph in <xref ref="fig_surge_sketch"/> reflects the various details of <m>f</m> our analysis has uncovered. 
 </p>
-<image>
+
+
+    </solution>
+    </example>
+    <figure xml:id="fig_surge_sketch">
+        <caption>Graph of the surge function <m>f(x)=xe^{-x}</m></caption>
+        <image>
     <shortdescription>Graph of surge function</shortdescription>
     <sageplot>
 f(x)=x*e^(-x)
@@ -192,10 +200,117 @@ L=line([(3,0),(10,0)], color='red', linestyle='dashed', thickness=2)
 P+L+plot(f(x),(x,0,10))+Q+t1+t2
 </sageplot>
 </image>
-
+    </figure>
+    <p>
+        For our last example we will consider a general <term>logistic growth</term> function 
+        <md>
+            <mrow>f(x) \amp =\frac{A}{1+ce^{-kx}}</mrow>
+        </md>,
+        where <m>A</m>, <m>c</m>, and <m>k</m> are fixed positive constants. As we wil discover in <xref ref="eg_logistic_growth"/>, starting from <m>x=0</m>, the values <m>f(x)</m> of a logistic growth begins growing very rapidly at first, but then level off as they approach a fixed ceiling valhue. Because of this trait, whereas exponential functions <m>f(x)=Ae^{kx}</m> are used to model <em>unconstrained</em> growth, logistic functions are often used to model growth that is constrained by some factor: <eg/>, a population whose growth is constrained by a limited amount of food resources. 
+    </p>
+    <example xml:id="eg_logistic_growth">
+    <title>Logistic growth</title>
+    <statement>
+    <p>
+    A function of the form 
+    <md number="yes">
+        <mrow xml:id="eq_logistic_growth">f(x) \amp =\frac{A}{1+ce^{-kx}}</mrow>
+    </md>,
+    where <m>A</m>, <m>c</m>, and <m>k</m> are fixed positive constants, is called a <term>logistic function</term> (or <term>logistic growth function</term>). 
+    </p>
+    <p>
+        Perform a complete curve sketching analysis of <m>f</m> on the domain <m>D=[0,\infty)</m>, with the additional assumption that <m>c&gt; 1</m>. Include all details enumerated in <xref ref="proc_curve_sketching"/> and identify any any absolute extrema. Some of your details will be expressed in terms of the constants <m>A,c,k</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Since the numerator and denominator in the formula <xref ref="eq_logistic_growth"/> are both positive, <m>f</m> has no zeros on its domain, and hence there is no <m>x</m>-intercept. Since <m>f(0)=A/(1+ce^0)</m>, the <m>y</m>-intercept of the graph of <m>f</m> is <m>(0,A/(1+c)</m>. 
+    </p>
+    <p>
+    The value <m>f(0)=A/(1+c)</m> determines the left end behavior of <m>f</m>. For the right end behavior, we compute the limit 
+    <md>
+        <mrow>\lim\limits_{x\to \infty}f(x) \amp = \lim\limits_{x\to \infty}\frac{A}{1+ce^{-kx}}</mrow>
+        <mrow> \amp =\frac{A}{1+c\lim\limits_{x\to \infty}e^{-kx}}</mrow>
+        <mrow> \amp =\frac{A}{1+0}</mrow>
+        <mrow> \amp =A</mrow>
+    </md>.
+    Thus the graph of <m>f</m> has the horiztontal asymptote <m>y=A</m>. 
+    </p>
+    <p>
+        Continuing with our analysis, we now look at the first and second derivatives of <m>f</m>: 
+        <md>
+            <mrow>f'(x) \amp =-A(1+ce^{-kx})^{-2}(1+ce^{-kx})'</mrow>
+            <mrow> \amp = \frac{ckAe^{-kx}}{(1+ce^{-kx})^2}</mrow>
+            <mrow>f''(x) \amp = ckA\frac{-ke^{-kx}(1+ce^{-kx})^2-2e^{-kx}(1+ce^{-kx})(-cke^{-kx})}{(1+ce^{-kx})^4}</mrow>
+            <mrow> \amp = \frac{ck^2Ae^{-kx}(1+ce^{-kx})(ce^{-kx}-1)}{(1+ce^{-kx})^4}</mrow>
+        </md>.
+        From since the numerator and denominator for <m>f'</m> are both easily seen to be positive for all <m>x\in D</m>, we see that <m>f</m> is increasing on its entire domain, and has no critical points. 
+    </p>
+    <p>
+        Moving to <m>f''</m> we see that the denominator, as well as all of the terms in the numerator, with the exception of <m>(ce^{-kx}-1)</m> are positive. Thus the sign of <m>f''</m> is equal to the sign of <m>g(x)=ce^{-kx}-1</m>. Performing a sign diagram for <m>g</m>, we first solve 
+        <md>
+            <mrow>g(x) \amp = 0</mrow>
+            <mrow>ce^{-kx} \amp =1</mrow>
+            <mrow>e^{-kx} \amp =\frac{1}{c}</mrow>
+            <mrow>-kx \amp = \ln(1/c)=-\ln c</mrow>
+            <mrow>x \amp = \ln(c)/k </mrow>
+        </md>.
+        Note that since we assume <m>c&gt; 1</m>, we have <m>\ln c&gt; 0</m>, whence <m>x=\ln(c)/k&gt; 0</m>. Since <m>g(0)=c-1&gt; 0</m> and <m>g(x)\to -1 </m> as <m>x\to \infty</m>, we conclude that <m>f''</m> has the following sign diagram. 
+    </p>
+    <image xml:id="im_sign_logistic_2der" width="50%">
+    <shortdescription>Sign diagram for second derivative of logistic function</shortdescription>
+    <latex-image>
+         \begin{tikzpicture}
+        \draw (-1,0) -- (2,0);
+        \path foreach \X/\Y  in 
+         {1/\frac{1}{k}\ln c}
+            { (\X,0) node[circle,fill, blue, inner sep=0.5mm,
+               label=below:{$\Y$}] (\Y) {}};
+            \draw (0,-.05)--(0,.05);
+            \draw (-.5,.5) node {$f''\colon$};
+            \draw (-.5,-.5) node{$f\colon $};
+            \draw (0,-.25) node {$0$};
+       \draw(.5,.5) node{$+$};
+       \draw(2.5,.5) node{$-$};
+       \draw(.5,-.5) node{$\cup$};
+       \draw(2.5,-.5) node{$\cap$};
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    We conclude that <m>f''</m> is concave up on <m>(0,\ln(c)/k)</m> and concave down on <m>(\ln(c)/k,\infty)</m>, and thus has an inflection point at 
+    <md>
+        <mrow>P= \amp (\ln(c)/k, f(\ln(c)/k))</mrow>
+        <mrow> \amp =(\ln(c)/k, A/(1+ce^{-\ln c}))</mrow>
+        <mrow> \amp =(\ln(c)/k, A/2)</mrow>
+    </md>.
+    Interestingly, we see that the unique inflection point of the graph of <m>f</m> occurs at the unique point where the <m>y</m>-coordinate is <m>A/2</m>, exactly half of the ceiling value  of the function! 
+</p>
+<p>
+    The graph in <xref ref="fig_logistic_growth_sketch"/> assembles all of the details of our analysis. 
+</p>
     </solution>
     </example>
-    
+    <figure xml:id="fig_logistic_growth_sketch">
+        <caption>Graph of <m>f(x)=\frac{A}{1+ce^{-kx}}</m>, <m>A,k&gt; 0</m>, <m>c&gt; 1</m> </caption>
+        <image>
+    <shortdescription>Graph of logistic growth function</shortdescription>
+    <sageplot>
+A=10
+c=10
+k=1
+f(x)=A/(1+c*e^(-k*x))
+P=point((0,A/(1+c)), size=50, color='blue')
+Q=point((1/k*log(c),A/2), size=50, color='blue')
+t1=text("$(0,\\frac{A}{1+c})$", (0,A/(1+c)+.5), color='black', fontsize=14)
+t2=text("$P=(\\frac{1}{k}\\ln c, \\frac{A}{2})$", (1/k*log(c)-1, A/2+1/2), color='black', fontsize=14)
+L=line([(0,A),(10,A)], color='red', linestyle='dashed',thickness=.5)
+M=line([(0,A/2),(10,A/2)], color='red', linestyle='dashed',thickness=.5)
+K=line([(log(c)/k,0),(log(c)/k,A+1)], color='red', linestyle='dashed', thickness=.5)
+P+Q+L+plot(f(x),(x,0,10),ymin=-1, ymax=A+1, xmin=-1, ticks=[[1/k*log(c)],[A/2,A]], tick_formatter=[["$\\ln(c)/k$"],["$A/2$","$A$"]])+M+K
+    </sageplot>
+</image>
+    </figure>
     </subsection>
     
 
