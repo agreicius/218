@@ -192,13 +192,89 @@ The function <m>f(x)=e^x</m> is called the <term>natural exponential function</t
       </p>
       </statement>
     </theorem>
+    <example xml:id="eg_exp_derivative">
+    <title>Derivatives with natural exponential</title>
+    <statement>
+    <p>
+    Compute the derivative of the given function. 
+    <ol>
+        <li>
+            <p>
+                <m>f(x)=e^{2x}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>g(s)=\frac{1}{e^s+e^{-s}}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>h(t)=\sqrt{e^{\sqrt{t}}}</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                For the first computation, we will make explicit our use of the chain rule. We have 
+                <md>
+                    <mrow>f'(x) \amp = \frac{d}{du}(e^u)\, \frac{d}{dx} u \amp (u=2x)</mrow>
+                    <mrow> \amp = e^u \cdot 2</mrow>
+                    <mrow> \amp = 2e^{2x}</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>\frac{d}{dx}(1/(e^x+e^{-x})) \amp = \frac{d}{dx}(e^x+e^{-x})^{-1} </mrow>
+                    <mrow> \amp = -(e^x+e^{-x})^{-2}(e^x+e^{-x})'</mrow>
+                    <mrow> \amp = -\frac{e^x-e^{-x}}{(e^x+e^{-x})^2}</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have 
+                <md>
+                    <mrow>h'(t) \amp =\frac{d}{dt}((e^{\sqrt{t}})^{1/2})</mrow>
+                    <mrow> \amp = \frac{1}{2}(e^{\sqrt{t}})^{-1/2}(e^{\sqrt{t}})'</mrow>
+                    <mrow> \amp = \frac{e^{\sqrt{t}}(\sqrt{t})'}{2\sqrt{e^{\sqrt{t}}}} </mrow>
+                    <mrow> \amp = \frac{\tfrac{1}{2\sqrt{t}}e^{\sqrt{t}}}{\sqrt{e^{\sqrt{t}}}}</mrow>
+                    <mrow> \amp =\frac{e^{\sqrt{t}}}{4\sqrt{t}\sqrt{e^{\sqrt{t}}}}</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+        Interestingly, the derivative formula for <m>f(x)=e^x</m> is so simple, that sometimes the need to use the chain rule is obscured. Accordingly, we add a chain rule-enhanced version of the exponential derivative formula.
+    </p>
+    <corollary xml:id="cor_exp_der_chain">
+    <title>Exponential derivative with chain rule</title>
+    <statement>
+    <p>
+    Let <m>u(x)</m> be a differentiable function on the interval <m>I</m>. We have 
+    <md number="yes">
+        <mrow xml:id="eq_der_exp_e_chain"> \frac{d}{dx}(e^{u(x)})\amp = u'(x)\, e^{u(x)} </mrow>
+    </md>
+    for all <m>x\in I</m>. 
+    </p>
+    </statement>
+    </corollary>
 </subsection>
 <subsection xml:id="ss_exp_der_gen">
 <title>General derivative formula for <m></m></title>
-
-
     <p>
-        It is now not so difficult to generalize our base-<m>e</m> derivative formula to arbitrary bases <m>b</m>. This is done by first observing that for any <m>b&gt; 0</m>, we have <m>b=e^{k}</m>, where <m>k=\log_e b</m>, and thus  
+        It is not difficult to generalize our base-<m>e</m> exponential derivative formula to arbitrary bases <m>b</m>. This is done by first observing that for any <m>b&gt; 0</m>, we have <m>b=e^{k}</m>, where <m>k=\log_e b</m>, and thus  
         <md>
             <mrow>b^x \amp = (e^k)^x=e^{kx} </mrow>
         </md>.
@@ -221,6 +297,22 @@ The function <m>f(x)=e^x</m> is called the <term>natural exponential function</t
     </p>
     </statement>
     </definition>
+    <remark>
+        <title>Natural logarithm</title>
+        <p>
+            Because the notation for the natural logarithm is significantly different from the standard <m>\log_b</m> notation, we will do well to make note of what the various logarithmic identities mean in terms of <m>\ln=\log_e</m>. We collect them all below. 
+            <md>
+                <mrow>\ln r=s \amp\iff e^s=r </mrow>
+                <mrow>\ln(e^s) \amp = s</mrow>
+                <mrow>e^{\ln r} \amp = r</mrow>
+            </md>
+            for all <m>r\in (0,\infty)</m> and <m>s\in \R</m>. Additionally, we have 
+            <md>
+                <mrow>\ln 1 \amp =0</mrow>
+                <mrow>\ln e \amp =1</mrow>
+            </md>.
+        </p>
+    </remark>
     <theorem xml:id="th_exp_derivative">
     <title>Exponential derivatives</title>
     <statement>
@@ -235,17 +327,105 @@ The function <m>f(x)=e^x</m> is called the <term>natural exponential function</t
         <li>
             <p>
                 We have <m>f'(x)=\ln b\,  b^x</m>. Equivalently, 
-                <md>
-                    <mrow>\frac{d}{dx}(b^x) \amp = \ln b\, b^x</mrow>
+                <md number="yes">
+                    <mrow xml:id="eq_der_exp_b">\frac{d}{dx}(b^x) \amp = \ln b\, b^x</mrow>
                 </md>
                 for all <m>x\in \R</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                More generally, if <m>u(x)</m> is a differentiable function on the interval <m>I</m>, then 
+                <md number="yes">
+                    <mrow xml:id="eq_der_exp_b_chain">\frac{d}{dx} (b^{u(x)}) \amp = u'(x)\, \ln b\, b^{u(x)} </mrow>
+                </md>
+                for all <m>x\in I</m>.
             </p>
         </li>
     </ol>
     </p>
     </statement>
     </theorem>
+    <example xml:id="eg_der_exp_b">
+    <title>General exponential derivatives</title>
+    <statement>
+    <p>
+    Compute the derivative of the given function. 
+    <ol>
+        <li>
+            <p>
+                <m>h(x)=3^{x^2+x+1}</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>s(t)=\frac{5^{3x}}{x+1}</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    <ol>
+        <li>
+            <p>
+                We compute 
+                <md>
+                    <mrow>h'(x) \amp =(x^2+x+1)'3^{x^2+x+1}</mrow>
+                    <mrow> \amp =(2x+1)3^{x^2+x+1}</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                We compute 
+                <md>
+                    <mrow>s'(t) \amp =\frac{(5^{3x})'(x+1)-5^{3x}(x+1)'}{(x+1)^2}</mrow>
+                    <mrow> \amp =\frac{\ln (5)\, 5^{3x}(3x)'(x+1)-5^{3x}}{(x+1)^2}</mrow>
+                    <mrow> \amp =\frac{3\ln (5)\, 5^{3x}(x+1)-5^{3x}}{(x+1)^2}</mrow>
+                    <mrow> \amp =\frac{(3\ln (5)\, (x+1)-1)5^{3x}}{(x+1)^2}</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </solution>
+    </example>
+    <example xml:id="eg_slope_exp">
+    <title>Tangent line to exponential function</title>
+    <statement>
+    <p>
+    Let <m>f(x)=2^x</m>. Find the input <m>a</m> where the tangent line to the point <m>P=(a,f(a))</m> on the graph of <m>f</m> has slope <m>3</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    The slope of the tangent line to the graph of <m>f</m> at a point <m>(a,f(a))</m> is given by <m>f'(a)=\ln(2) 2^a</m>. To find <m>a</m> where this slope is equal to <m>3</m>, we thus solve <m>\ln(2)2^{a}=3</m>:
+    <md>
+        <mrow>\ln(2) 2^a \amp = 3</mrow>
+        <mrow> 2^a \amp =\frac{3}{\ln(2)}</mrow>
+        <mrow>\ln(2^a) \amp = \ln\left(\frac{3}{\ln(2)}\right) </mrow>
+        <mrow>a \ln(2) \amp = \ln(3)-\ln(\ln(2))</mrow>
+        <mrow>a \amp = \frac{\ln(3)-\ln(\ln(2))}{\ln(2)} </mrow>
+    </md>.
+    </p>
+    </solution>
+    </example>
+    <exercises xml:id="ex_exp_der">
+        
     
+    <exercise label="Library__Michigan__Chap3Sec2__Q39.pg">
+    <webwork source="Library/Michigan/Chap3Sec2/Q39.pg"/>
+  </exercise>
+  <exercise label="Library__Michigan__Chap3Sec2__Q01.pg">
+    <webwork source="Library/Michigan/Chap3Sec2/Q01.pg"/>
+  </exercise>
+    <exercise label="Library__Michigan__Chap3Sec2__Q25.pg">
+    <webwork source="Library/Michigan/Chap3Sec2/Q25.pg"/>
+  </exercise>
+    
+    </exercises>
     </subsection>
 
 </section>
