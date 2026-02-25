@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Trigonometric functions via the unit circle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_lHop_A.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_trig_computing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_alg_func" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Math 218-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_extreme.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Extreme value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_mean_value.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_linearize.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_first_der_test.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Monotonicity and first derivative test</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_concavity.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Concavity and inflection points</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_curve_sketch_I.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Curve sketching</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_from_derivative" class="internal"><span class="title">Curve sketching from derivative</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_applied_opt_I.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Applied optimization</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_expfunctions.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Exponential functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-3" class="internal"><span class="title">Motivating exponential functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-4" class="internal"><span class="title">Defining Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-5" class="internal"><span class="title">Growth of exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-6" class="internal"><span class="title">Finding Formulas for Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-7" class="internal"><span class="title">Properties of Exponential Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_expfunctions.html#ex_exp_func" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_lim_deriv.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Exponential functions: limit and graphical properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ss_" class="internal"><span class="title">Limit properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ss_exp_grap" class="internal"><span class="title">Graphing exponential functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ex_exp_lim" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_inverse_func.html" class="internal"><span class="codenumber">2.10</span> <span class="title">One-to-one and invertible functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_invertibility" class="internal"><span class="title">One-to-one functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_invertible_functions" class="internal"><span class="title">Invertible functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_relating_func_inv" class="internal"><span class="title">Relating functions and their inverses</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_inverse_func.html#ex_inverse" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_log.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log.html#ss_log_def_alg" class="internal"><span class="title">Definition and algebraic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log.html#ss_log_graph" class="internal"><span class="title">Graphical properties</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_log.html#ex_log" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_deriv.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Exponential derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_deriv.html#ss_derivative" class="internal"><span class="title">The natural exponential function and its derivative</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_exp_deriv.html#ss_exp_der_gen" class="internal"><span class="title">General derivative formula for <span class="process-math">\(\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_exp_deriv.html#ex_exp_der" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_log_deriv.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Derivative of logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log_deriv.html#ss_log_der" class="internal"><span class="title">Derivative of inverse functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_log_deriv.html#ss_der_log" class="internal"><span class="title">Derivative formula for logarithmic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_log_deriv.html#ex_log_der" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_log_sketch.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Exponential and logarithmic curve sketching</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_log_sketch.html#ss_exp_log_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lHop_A.html" class="internal"><span class="codenumber">2.15</span> <span class="title">L’Hôpital’s rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_indeterminate_forms" class="internal"><span class="title">Indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_lHop" class="internal"><span class="title">L’Hôpital’s rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_other_indeterminate_forms" class="internal"><span class="title">Other indetermiante forms</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="s_unit_circle_trig.html" class="internal"><span class="codenumber">2.16</span> <span class="title">Trigonometric functions via the unit circle</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#s_unit_circle_trig-3" class="internal"><span class="title">Functions defined by circular motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#sec_theunitcircle" class="internal"><span class="title">The unit circle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#s_unit_circle_trig-5" class="internal"><span class="title">The sine and cosine functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_trig_computing.html" class="internal"><span class="codenumber">2.17</span> <span class="title">Computing with trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-3" class="internal"><span class="title"><span class="process-math">\(45-45-90\)</span> and <span class="process-math">\(30-60-90\)</span> Triangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-4" class="internal"><span class="title">Using Reference Triangles to Calculate Values of Sine and Cosine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-5" class="internal"><span class="title">Calculating Values of Sine and Cosine Beyond <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-6" class="internal"><span class="title">Right-Triangle Trigonometry</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_unit_circle_trig"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Trigonometric functions via the unit circle</span>
+</h2>
+<article class="objectives goal-like" id="s_unit_circle_trig-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ul class="disc" id="s_unit_circle_trig-2-1">
+<li id="s_unit_circle_trig-2-1-1">
+<div class="para" id="s_unit_circle_trig-2-1-1-1">Understand how the motion of a point around a circle can define a "circular" function.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_unit_circle_trig-2-1-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-2-1-2">
+<div class="para" id="s_unit_circle_trig-2-1-2-1">Learn terminology associated to circular functions and their properties.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_unit_circle_trig-2-1-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-2-1-3">
+<div class="para" id="s_unit_circle_trig-2-1-3-1">Define radians and how to measure them along the unit circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_unit_circle_trig-2-1-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-2-1-4">
+<div class="para" id="s_unit_circle_trig-2-1-4-1">Define the sine and cosine functions, and how they can be seen as circular functions defined by the unit circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_unit_circle_trig-2-1-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives 2.16"><a href="#s_unit_circle_trig-2" title="Copy heading and permalink for Objectives 2.16" aria-label="Copy heading and permalink for Objectives 2.16">🔗</a></div></article><section class="subsection" id="s_unit_circle_trig-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions defined by circular motion</span>
+</h3>
+<div class="para" id="s_unit_circle_trig-3-2">Certain naturally occurring phenomena eventually repeat themselves, especially when the phenomenon is somehow connected to a circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="s_unit_circle_trig-3-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Desmos: height of a point on a circle.</span>
+</h4>
+<div class="para" id="s_unit_circle_trig-3-3-2-1">Suppose that you are taking a ride on a ferris wheel and we consider your height <span class="process-math">\(h\)</span> above the ground as a function <span class="process-math">\(h=f(d)\)</span> of the distance <span class="process-math">\(d\)</span> that you have traveled around the wheel.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="s_unit_circle_trig-3-3-2-2"><div class="image-box" style="width: 84%; margin-left: 8%; margin-right: 8%;"><img src="external/FerrisWheel.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>How does the height of a point change as the point travels around a wheel?<div class="autopermalink" data-description="Figure 2.16.2"><a href="#s_unit_circle_trig-3-3-2-2" title="Copy heading and permalink for Figure 2.16.2" aria-label="Copy heading and permalink for Figure 2.16.2">🔗</a></div></figcaption></figure>  <div class="para" id="s_unit_circle_trig-3-3-2-3">The animation below illustrates the relationship between height and distance traveled around a circle, where the point is allowed to travel more than once around the circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_desmos_circle_height_distance"><iframe src="https://www.desmos.com/calculator/g1s2zpqsfl" id="interactive_desmos_circle_height_distance" width="360" height="540"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><a class="external" href="https://www.desmos.com/calculator/uo5qirntxg" target="_blank">Desmos interactive</a>: height of point on a circle as function of distance traveled around the circle<div class="autopermalink" data-description="Figure 2.16.3"><a href="#fig_desmos_circle_height_distance" title="Copy heading and permalink for Figure 2.16.3" aria-label="Copy heading and permalink for Figure 2.16.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 2.16.1: Desmos: height of a point on a circle"><a href="#s_unit_circle_trig-3-3" title="Copy heading and permalink for Example 2.16.1: Desmos: height of a point on a circle" aria-label="Copy heading and permalink for Example 2.16.1: Desmos: height of a point on a circle">🔗</a></div></article><div class="para logical" id="s_unit_circle_trig-3-4">
+<div class="para">The natural phenomenon of a point moving around a circle leads to interesting relationships. It is apparent that each point on the circle corresponds to one and only one height, and thus we can view the height of a point as a function of the distance the point has traversed around the circle, say <span class="process-math">\(h=f(d)\text{.}\)</span> This is one example of what is known as a <em class="emphasis">circular function</em>. Such functions arise from</div>
+<ul class="disc" id="s_unit_circle_trig-3-4-3">
+<li id="s_unit_circle_trig-3-4-3-1">
+<div class="para" id="s_unit_circle_trig-3-4-3-1-1">taking any circle in the plane,<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-3-4-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-3-4-3-2">
+<div class="para" id="s_unit_circle_trig-3-4-3-2-1">choosing a starting location for a point on the circle,<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-4-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-3-4-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-3-4-3-3">
+<div class="para" id="s_unit_circle_trig-3-4-3-3-1">letting the point traverse the circle continuously,<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-4-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-3-4-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-3-4-3-4">
+<div class="para" id="s_unit_circle_trig-3-4-3-4-1">and tracking the height of the point as it traverses the circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-4-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-3-4-3-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_unit_circle_trig-3-5">Every circular function has several important features that are connected to the circle that defines the function. For the discussion that follows, we focus on circular functions that result from tracking the <span class="process-math">\(y\)</span>-coordinate of a point moving counterclockwise around a circle of radius <span class="process-math">\(a\)</span> centered at the point <span class="process-math">\((k,m)\text{.}\)</span> Further, we will denote the circumference of the circle by the lowercase letter <span class="process-math">\(p\)</span> (for "period").<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_APCFigure2-1-9"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure2-1-9.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point traversing the circle.<div class="autopermalink" data-description="Figure 2.16.4"><a href="#fig_APCFigure2-1-9" title="Copy heading and permalink for Figure 2.16.4" aria-label="Copy heading and permalink for Figure 2.16.4">🔗</a></div></figcaption></figure><div class="para" id="s_unit_circle_trig-3-7">We assume that the point traversing the circle starts at the point <span class="process-math">\(P\)</span> in <a href="s_unit_circle_trig.html#fig_APCFigure2-1-9" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-1-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.4">Figure 2.16.4</a>. Its height is initially <span class="process-math">\(y=m+a\text{,}\)</span> and then its height decreases to <span class="process-math">\(y=m\)</span> as we traverse to <span class="process-math">\(Q\text{.}\)</span> Continuing, the point’s height falls to <span class="process-math">\(y=m-a\)</span> at <span class="process-math">\(R\text{,}\)</span> and then rises back to <span class="process-math">\(y=m\)</span> at <span class="process-math">\(S\text{,}\)</span> and eventually back up to <span class="process-math">\(y=m+a\)</span> at the top of the circle. If we plot these heights continuously as a function of distance, <span class="process-math">\(d\text{,}\)</span> traversed around the circle, we get the curve shown in <a href="s_unit_circle_trig.html#fig_APCFigure2-1-10" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-1-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.5">Figure 2.16.5</a>. This curve has several important features for which we introduce important terminology.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_APCFigure2-1-10"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/APCFigure2-1-10.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plotting <span class="process-math">\(h\)</span> as a function of <span class="process-math">\(d\text{.}\)</span><div class="autopermalink" data-description="Figure 2.16.5"><a href="#fig_APCFigure2-1-10" title="Copy heading and permalink for Figure 2.16.5" aria-label="Copy heading and permalink for Figure 2.16.5">🔗</a></div></figcaption></figure><div class="para" id="s_unit_circle_trig-3-9">The <em class="emphasis">midline</em> of a circular function is the horizontal line <span class="process-math">\(y=m\)</span> for which half the curve lies above the line and half the curve lies below. If the circular function results from tracking the <span class="process-math">\(y\)</span>-coordinate of a point traversing a circle, <span class="process-math">\(y=m\)</span> corresponds to the <span class="process-math">\(y\)</span>-coordinate of the center of the circle. In addition, the <em class="emphasis">amplitude</em> of a circular function is the maximum deviation of the curve from the midline. Note particularly that the value of the amplitude, <span class="process-math">\(a\text{,}\)</span> corresponds to the radius of the circle that generates the curve.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_unit_circle_trig-3-10">Because we can traverse the circle in either direction and for as far as we wish, the domain of any circular function is the set of all real numbers. From our observations about the midline and amplitude, it follows that the range of a circular function with midline <span class="process-math">\(y=m\)</span> and amplitude <span class="process-math">\(a\)</span> is the interval <span class="process-math">\([m-a,m+a]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_unit_circle_trig-3-11">Note that in <a href="s_unit_circle_trig.html#fig_APCFigure2-1-10" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-1-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.5">Figure 2.16.5</a>, the heights repeat once the point has traveled once around the circle, meaning once the point has traveled a distance of <span class="process-math">\(p\)</span> units. The amount of time <span class="process-math">\(p\)</span> that it takes the circular function to begin repeating is called the <em class="emphasis">period</em>, and we introduce the formal definition of a <em class="emphasis">periodic function</em>. This means a function that repeats itself after a fixed-length interval.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="s_unit_circle_trig-3-12"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_unit_circle_trig-3-12-1-1">Let <span class="process-math">\(f\)</span> be a function whose domain is the set of real numbers. We say that <span class="process-math">\(f\)</span> is <em class="emphasis">periodic</em> provided that there exists a real number <span class="process-math">\(k\)</span> such that <span class="process-math">\(f(x+k) = f(x)\)</span> for every possible choice of <span class="process-math">\(x\text{.}\)</span> The smallest value <span class="process-math">\(p\)</span> for which <span class="process-math">\(f(x+p)=f(x)\)</span> for every choice of <span class="process-math">\(x\)</span> is called the <em class="emphasis">period</em> of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.16.6"><a href="#s_unit_circle_trig-3-12" title="Copy heading and permalink for Definition 2.16.6" aria-label="Copy heading and permalink for Definition 2.16.6">🔗</a></div></article><div class="para" id="s_unit_circle_trig-3-13">For a circular function, the period is always the circumference of the circle that generates the curve. In <a href="s_unit_circle_trig.html#fig_APCFigure2-1-10" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-1-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.5">Figure 2.16.5</a>, we see how the curve has completed one full cycle of behavior every <span class="process-math">\(p\)</span> units, regardless of where we start on the curve.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_unit_circle_trig-3-14">Circular functions arise as models for important phenomena in the world around us, such as in a <em class="emphasis">harmonic oscillator</em>: Consider a mass attached to a spring where the mass sits on a frictionless surface. After setting the mass in motion by stretching or compressing the spring, the mass will oscillate indefinitely back and forth, and its distance from a fixed point on the surface turns out to be given by a circular function. This may seem irrelevant to your everyday life, but it is the model of motion that vibrating particles obey, as well as planets in the solar system: picture the gravitational pull of the sun on a planet as the "spring." The planets oscillate along in their orbits.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="s_unit_circle_trig-3-15"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_unit_circle_trig-3-15-1-1">A weight is placed on a frictionless table next to a wall and attached to a spring that is fixed to the wall. From its natural position of rest, the weight is imparted an initial velocity that sets it in motion. The weight then oscillates back and forth, and we can measure its distance, <span class="process-math">\(h = f(t)\)</span> (in inches) from the wall at any given time, <span class="process-math">\(t\)</span> (in seconds). A graph of <span class="process-math">\(f\)</span> and a table of select values are given below.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="table table-like" id="tab_APC2-1-3"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Select values of <span class="process-math">\(h=f(t)\text{,}\)</span> the height of an oscillating weight<div class="autopermalink" data-description="Table 2.16.8: Select values of h=f(t) the height of an oscillating weight"><a href="#tab_APC2-1-3" title="Copy heading and permalink for Table 2.16.8: Select values of h=f(t) the height of an oscillating weight" aria-label="Copy heading and permalink for Table 2.16.8: Select values of h=f(t) the height of an oscillating weight">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.25\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.75\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.25\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.75\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(6.807\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4.6764\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.381\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.381\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4.464\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(6.087\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\ \)</span></td></tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.25\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.75\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.25\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.75\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(9.913\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(11.536\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(12.619\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(13\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(12.619\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(11.536\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(9.913\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+</tr>
+</table></div></figure> <figure class="figure figure-like" id="fig_APCActivity2-1-3"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCActivity2-1-3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plotting <span class="process-math">\(h\)</span> as a function of <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Figure 2.16.9"><a href="#fig_APCActivity2-1-3" title="Copy heading and permalink for Figure 2.16.9" aria-label="Copy heading and permalink for Figure 2.16.9">🔗</a></div></figcaption></figure> <div class="para" id="s_unit_circle_trig-3-15-1-4">The period of <span class="process-math">\(f\)</span> is 4 units, since we can see from the graph in <a href="s_unit_circle_trig.html#fig_APCActivity2-1-3" class="xref" data-knowl="./knowl/xref/fig_APCActivity2-1-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.9">Figure 2.16.9</a> that the values of <span class="process-math">\(f\)</span> repeat themselves once we move 4 units to the right. The midline is <span class="process-math">\(y=8\)</span> and the amplitude is <span class="process-math">\(5\)</span> since the values of <span class="process-math">\(f\)</span> oscillate back and forth between <span class="process-math">\(3=8-5\)</span> and <span class="process-math">\(13=8+5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-15-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="s_unit_circle_trig-3-15-1-5">Interpreting this in the context of the weight, we see that it oscillates between 3 and 13 inches from the wall, repeating its motion every 4 seconds. At rest, the weight was 8 inches from the wall, and while it oscillates, the longest the spring stretches is 5 inches.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-15-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="s_unit_circle_trig-3-15-1-6">We can use these patterns to predict the distance of the weight from the wall at a future time. For example, <span class="process-math">\(f(6.75)\)</span> will be the same as <span class="process-math">\(f(2.75) = 12.619\text{,}\)</span> since the function repeats every four units. Likewise, <span class="process-math">\(f(11.25) = f(7.25)=f(3.25) = 12.619\text{.}\)</span> Thus the weight will be <span class="process-math">\(12.619\)</span> inches from the wall after <span class="process-math">\(2.75\)</span> seconds, <span class="process-math">\(3.25\)</span> seconds, <span class="process-math">\(6.75\)</span> seconds, <span class="process-math">\(7.25\)</span> seconds, <span class="process-math">\(11.25\)</span> seconds, etc.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-3-15-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.16.7"><a href="#s_unit_circle_trig-3-15" title="Copy heading and permalink for Example 2.16.7" aria-label="Copy heading and permalink for Example 2.16.7">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Functions defined by circular motion"><a href="#s_unit_circle_trig-3" title="Copy heading and permalink for Subsection: Functions defined by circular motion" aria-label="Copy heading and permalink for Subsection: Functions defined by circular motion">🔗</a></div></section><section class="subsection" id="sec_theunitcircle"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The unit circle</span>
+</h3>
+<div class="para" id="sec_theunitcircle-2">As demonstrated in the previous section, certain periodic phenomena are closely linked to circles and circular motion. Rather than regularly work with circles of different center and radius, it turns out to be ideal to work with one standard circle and build all circular functions from it. The <em class="emphasis">unit circle</em> is the circle of radius <span class="process-math">\(1\)</span> that is centered at the origin, <span class="process-math">\((0,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_APCFigure2-2-1"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure2-2-1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Coordinates of a point on the unit circle.<div class="autopermalink" data-description="Figure 2.16.10"><a href="#fig_APCFigure2-2-1" title="Copy heading and permalink for Figure 2.16.10" aria-label="Copy heading and permalink for Figure 2.16.10">🔗</a></div></figcaption></figure><div class="para logical" id="sec_theunitcircle-4">
+<div class="para">If we pick any point <span class="process-math">\((x,y)\)</span> that lies on the unit circle, the point is associated with a right triangle whose horizontal leg has length <span class="process-math">\(|x|\)</span> and whose vertical leg has length <span class="process-math">\(|y|\text{,}\)</span> as seen in <a href="s_unit_circle_trig.html#fig_APCFigure2-2-1" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-2-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.10">Figure 2.16.10</a>. By the Pythagorean Theorem, it follows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_APCFigure2-2-1.html" id="sec_theunitcircle-4-5">
+\begin{equation*}
+x^2+y^2=1\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_theunitcircle-5">This is the equation of the unit circle: a point <span class="process-math">\((x,y)\)</span> lies on the unit circle if and only if <span class="process-math">\(x^2+y^2=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_theunitcircle-6">To study the circular functions generated by the unit circle, we will also animate a point and let it move around the circle:<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_APCFigure2-2-2"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure2-2-2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point traversing the unit circle.<div class="autopermalink" data-description="Figure 2.16.11"><a href="#fig_APCFigure2-2-2" title="Copy heading and permalink for Figure 2.16.11" aria-label="Copy heading and permalink for Figure 2.16.11">🔗</a></div></figcaption></figure><div class="para logical" id="sec_theunitcircle-8">
+<div class="para">Starting at <span class="process-math">\((1,0)\)</span> indicated by <span class="process-math">\(t_0\)</span> in <a href="s_unit_circle_trig.html#fig_APCFigure2-2-2" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-2-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.11">Figure 2.16.11</a>, we see a sequence of points that result from traveling a distance along the circle that is <span class="process-math">\(1/24\)</span> the circumference of the unit circle. Recall that the circumference of a circle of radius <span class="process-math">\(r\)</span> is <span class="process-math">\(C=2\pi r\text{,}\)</span> so the unit circle’s circumference is <span class="process-math">\(C=2\pi (1) = 2\pi\text{.}\)</span> It follows that the distance from <span class="process-math">\(t_0\)</span> to <span class="process-math">\(t_1\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_APCFigure2-2-2.html" id="sec_theunitcircle-8-10">
+\begin{equation*}
+d = \frac{1}{24}\cdot 2\pi = \frac{\pi}{12}\text{.}
+\end{equation*}
+</div>
+<div class="para">As we work to better understand the unit circle, we will commonly use fractional multiples of <span class="process-math">\(\pi\)</span> as these result in natural distances traveled along the unit circle.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ex_APCPreview2-2-1"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="ex_APCPreview2-2-1-1-1">
+<div class="para">In the picture below, there are 24 equally spaced points on the unit circle. Since the circumference of the unit circle is <span class="process-math">\(2\pi\text{,}\)</span> each of the points is</div>
+<div class="displaymath process-math" id="ex_APCPreview2-2-1-1-1-2">
+\begin{equation*}
+\frac{1}{24}\cdot2\pi = \frac{\pi}{12}
+\end{equation*}
+</div>
+<div class="para">units apart (traveled along the circle). Thus, the first point counterclockwise from <span class="process-math">\((1,0)\)</span> corresponds to the distance <span class="process-math">\(t=\frac{\pi}{12}\)</span> traveled along the unit circle. The second point is twice as far, and thus <span class="process-math">\(t = 2\cdot\frac{\pi}{12} = \frac{\pi}{6}\)</span> units along the circle away from <span class="process-math">\((1,0)\text{.}\)</span> <div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/APCFigure2-2-3.png" class="contained"></div>
+</div>
+<ol class="decimal" id="ex_APCPreview2-2-1-1-1-8">
+<li id="ex_APCPreview2-2-1-1-1-8-1">
+<div class="para" id="ex_APCPreview2-2-1-1-1-8-1-1">Label each of the subsequent points on the unit circle with the exact distance they lie counter-clockwise away from <span class="process-math">\((1,0)\text{;}\)</span> write each fraction in lowest terms.<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPreview2-2-1-1-1-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.16.12.1"><a href="#ex_APCPreview2-2-1-1-1-8-1" title="Copy heading and permalink for Item 2.16.12.1" aria-label="Copy heading and permalink for Item 2.16.12.1">🔗</a></div>
+</li>
+<li id="ex_APCPreview2-2-1-1-1-8-2">
+<div class="para" id="ex_APCPreview2-2-1-1-1-8-2-1">Which distance along the unit circle corresponds to <span class="process-math">\(\frac{1}{4}\)</span> of a full rotation around? To <span class="process-math">\(\frac{5}{8}\)</span> of a full rotation?<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPreview2-2-1-1-1-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.16.12.2"><a href="#ex_APCPreview2-2-1-1-1-8-2" title="Copy heading and permalink for Item 2.16.12.2" aria-label="Copy heading and permalink for Item 2.16.12.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_APCPreview2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.16.12"><a href="#ex_APCPreview2-2-1" title="Copy heading and permalink for Checkpoint 2.16.12" aria-label="Copy heading and permalink for Checkpoint 2.16.12">🔗</a></div></article><div class="para" id="sec_theunitcircle-10">The distance our animated point in <a href="s_unit_circle_trig.html#fig_APCFigure2-2-2" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-2-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.11">Figure 2.16.11</a> has traveled can be related to a certain angle it makes with vertex the origin of the circle. In order to explicate this relationship, we introduce some official terminology for angles.<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_angle_terminology"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Angle terminology.</span>
+</h4>
+<div class="para" id="d_angle_terminology-2-1">Two rays intersecting at a common point <span class="process-math">\(P\)</span> are said to form an <dfn class="terminology">angle</dfn> with <dfn class="terminology">vertex</dfn> <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_angle_terminology-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_angle_terminology-2-2">An <dfn class="terminology">oriented angle</dfn> is an angle for which one ray is chosen as the <dfn class="terminology">initial edge</dfn> and the other ray as the <dfn class="terminology">terminal edge</dfn>, and furthermore a <dfn class="terminology">direction</dfn> (clockwise or counterclockwise) is specified, indicating how the initial edge is rotated to reach the terminal edge. The angle is <dfn class="terminology">positive</dfn> if the direction specified is counterclockwise, and <dfn class="terminology">negative</dfn> if the direction specified is clockwise.<div class="autopermalink" data-description="Paragraph"><a href="#d_angle_terminology-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_angle_terminology-2-3">An oriented angle is in <dfn class="terminology">standard position</dfn> if its vertex lies at the origin and its initial edge points along the positive <span class="process-math">\(x\)</span>-axis.<div class="autopermalink" data-description="Paragraph"><a href="#d_angle_terminology-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_angle_terminology-2-4">The <dfn class="terminology">interior</dfn> of an oriented angle is the portion of the plane swept out as the initial edge is rotated in the specified direction to reach the terminal edge.<div class="autopermalink" data-description="Paragraph"><a href="#d_angle_terminology-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_angle_terminology-2-5">A <dfn class="terminology">central angle</dfn> of a circle <span class="process-math">\(C\)</span> is an angle whose vertex <span class="process-math">\(P\)</span> lies at the center of <span class="process-math">\(C\text{.}\)</span> Given an oriented central angle of the circle <span class="process-math">\(C\text{,}\)</span> we call the portion of the circle lying on and in the interior of the angle the <dfn class="terminology">arc intercepted</dfn> by the angle; and we call the angle the <dfn class="terminology">angle subtended</dfn> by the this arc.<div class="autopermalink" data-description="Paragraph"><a href="#d_angle_terminology-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.16.13: Angle terminology"><a href="#d_angle_terminology" title="Copy heading and permalink for Definition 2.16.13: Angle terminology" aria-label="Copy heading and permalink for Definition 2.16.13: Angle terminology">🔗</a></div></article><div class="para" id="sec_theunitcircle-12">
+<a href="s_unit_circle_trig.html#fig_TaalmanPage405a" class="xref" data-knowl="./knowl/xref/fig_TaalmanPage405a.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.14">Figure 2.16.14</a> is a depiction of an oriented angle in standard position, as definied in <a href="s_unit_circle_trig.html#d_angle_terminology" class="xref" data-knowl="./knowl/xref/d_angle_terminology.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.16.13: Angle terminology">Definition 2.16.13</a>. Note that the arrowed arc labeled <span class="process-math">\(\theta\)</span> within the circle indicates the direction of the oriented angle and thus also indicates the initial and terminal edges of the angle. Since the direction is counterclockwise, the oriented angle depicted is positive.<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_TaalmanPage405a"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/TaalmanPage405a.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An angle <span class="process-math">\(\theta\)</span> in standard position.<div class="autopermalink" data-description="Figure 2.16.14"><a href="#fig_TaalmanPage405a" title="Copy heading and permalink for Figure 2.16.14" aria-label="Copy heading and permalink for Figure 2.16.14">🔗</a></div></figcaption></figure><div class="para" id="sec_theunitcircle-14">Having formally introduced angles and their accompanying terminology, we now define a way of <em class="emphasis">measuring</em> these angles. In mathematics it turns out to be most convenient to use a unit of measurement that relates a central angle of a circle to the length of the arc it intercepts. These units are called <em class="emphasis">radians</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_theunitcircle-15"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Radians.</span>
+</h4>
+<div class="para" id="sec_theunitcircle-15-2-1">Let <span class="process-math">\(\theta\)</span> be an oriented angle, let <span class="process-math">\(C\)</span> be a circle of radius <span class="process-math">\(r\)</span> for which <span class="process-math">\(\theta\)</span> is a central angle, and let <span class="process-math">\(s\)</span> be the length of the arc intercepted by <span class="process-math">\(\theta\text{.}\)</span> The <dfn class="terminology">measure</dfn> of <span class="process-math">\(\theta\)</span> is defined as <span class="process-math">\(s/r\)</span> if <span class="process-math">\(\theta\)</span> is positive, and <span class="process-math">\(-s/r\)</span> if <span class="process-math">\(\theta\)</span> is negative.<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.16.15: Radians"><a href="#sec_theunitcircle-15" title="Copy heading and permalink for Definition 2.16.15: Radians" aria-label="Copy heading and permalink for Definition 2.16.15: Radians">🔗</a></div></article><article class="remark remark-like" id="sec_theunitcircle-16"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Radian measure is well defined.</span>
+</h4>
+<div class="para" id="sec_theunitcircle-16-2">If you look hard at our definition of the radian measure of an angle, you might notice that it seems to depend on our choice of circle <span class="process-math">\(C\text{.}\)</span> More specifically, you might ask, does the choice of radius <span class="process-math">\(r\)</span> affect the resulting ratio <span class="process-math">\(s/r\text{?}\)</span> The answer is no, thankfully. Intuitively, this is a consequence of the fact that the perimeter of a circle (and thus of various arcs of the circle) is proportional to the radius <span class="process-math">\(r\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_theunitcircle-16-3">Since the radian measure is independent of the radius <span class="process-math">\(r\)</span> of the circle <span class="process-math">\(C\)</span> chosen, it is most natural to circles of radius <span class="process-math">\(r=1\text{,}\)</span> in which case the radian measure of an angle is simply the length of the arc it intercepts. That said, we keep our more flexible definition in order to better capture the relation of angles and arc lengths in circles of arbitrary radius <span class="process-math">\(r\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-16-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.16.16: Radian measure is well defined"><a href="#sec_theunitcircle-16" title="Copy heading and permalink for Remark 2.16.16: Radian measure is well defined" aria-label="Copy heading and permalink for Remark 2.16.16: Radian measure is well defined">🔗</a></div></article><article class="remark remark-like" id="sec_theunitcircle-17"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Angle versus its measure.</span>
+</h4>
+<div class="para logical" id="sec_theunitcircle-17-2">
+<div class="para">Given an oriented central angle <span class="process-math">\(\theta\)</span> we will usually conflate the angle <span class="process-math">\(\theta\)</span> (which is a union of two rays intersecting at a point) with its measure in radians (which is simply a real number). Thus, if our oriented angle <span class="process-math">\(\theta\)</span> is subtended by an arc of length <span class="process-math">\(s\)</span> of a circle of radius <span class="process-math">\(r\text{,}\)</span> we will write</div>
+<div class="displaymath process-math" id="sec_theunitcircle-17-2-6">
+\begin{align*}
+\theta \amp = \begin{cases}
+\frac{s}{r} \text{ radians} \amp \text{if } \theta \text{ is positive} \\
+-\frac{s}{r} \text{ radians} \amp \text{if } \theta \text{ is negative}.
+\end{cases} \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.16.17: Angle versus its measure"><a href="#sec_theunitcircle-17" title="Copy heading and permalink for Remark 2.16.17: Angle versus its measure" aria-label="Copy heading and permalink for Remark 2.16.17: Angle versus its measure">🔗</a></div></article><div class="para" id="sec_theunitcircle-18">What does it means for an angle to have radian measure <span class="process-math">\(1\text{?}\)</span> Picking the origin of the plane to be the vertex of the circle and choosing our circle <span class="process-math">\(C\)</span> to be the unit circle <span class="process-math">\(x^2+y^2=1\text{,}\)</span> we get a picture as in <a href="s_unit_circle_trig.html#fig_APCFigure2-2-4" class="xref" data-knowl="./knowl/xref/fig_APCFigure2-2-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.18">Figure 2.16.18</a>. In this case, to have radian measure <span class="process-math">\(1\text{,}\)</span> the length of the arc intercepted by <span class="process-math">\(\theta\)</span> is equal to <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_APCFigure2-2-4"><div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/APCFigure2-2-4.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An angle <span class="process-math">\(\theta\)</span> of measure <span class="process-math">\(1\)</span> radian.<div class="autopermalink" data-description="Figure 2.16.18"><a href="#fig_APCFigure2-2-4" title="Copy heading and permalink for Figure 2.16.18" aria-label="Copy heading and permalink for Figure 2.16.18">🔗</a></div></figcaption></figure><div class="para logical" id="sec_theunitcircle-20">
+<div class="para">How would we measure this same angle in degrees? Recall that the perimeter of a circle of radius <span class="process-math">\(r\)</span> is equal to <span class="process-math">\(2\pi r\text{.}\)</span> Thus the perimeter of the unit circle (<span class="process-math">\(r=1\)</span>) is <span class="process-math">\(2\pi\text{.}\)</span> In your mathematical youth you may have reasoned as follows: since traveling around the entire length <span class="process-math">\(2\pi\)</span> of the unit circle corresponds to an angle of <span class="process-math">\(360\)</span> degrees, then traveling an arc of length <span class="process-math">\(s\)</span> of the circle corresponds to an angle of <span class="process-math">\(360\cdot\tfrac{s}{2\pi}\)</span> degrees. That is, measured in degrees, we have</div>
+<div class="displaymath process-math" id="sec_theunitcircle-20-9">
+\begin{align*}
+\theta \amp =360\cdot \frac{s}{2\pi}=180\cdot \frac{s}{\pi} \text{ degrees}\text{.}
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(s\)</span> is equal to the radian measure of <span class="process-math">\(\theta\)</span> with respect to the unit circle (<span class="process-math">\(r=1\)</span>), we conclude that a radian measure of <span class="process-math">\(s\)</span> is equal to a degree measure of <span class="process-math">\(t=\tfrac{180}{\pi}\, s\)</span> degrees, and equivalently, a degree measure of <span class="process-math">\(t\)</span> is equivalent to a radian measure of <span class="process-math">\(s=\frac{\pi}{180}\,t\text{.}\)</span> Let’s make this conversion result official.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_theunitcircle-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="proc_convert_deg_rad"><h4 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between degrees and radians.</span>
+</h4>
+<div class="para logical" id="proc_convert_deg_rad-2-1">
+<div class="para">Let <span class="process-math">\(\theta\)</span> be an angle, let <span class="process-math">\(s\)</span> be its measure in radians, and let <span class="process-math">\(t\)</span> be its measure in degrees. We have</div>
+<div class="displaymath process-math" id="proc_convert_deg_rad-2-1-4">
+\begin{align}
+s \amp =\frac{\pi}{180}\,t\tag{2.55}\\
+t \amp =\frac{180}{\pi}\,s\text{.}\tag{2.56}
+\end{align}
+</div>
+<div class="para">In other words, we think of the ratios <span class="process-math">\(180/\pi\)</span> and <span class="process-math">\(\pi/180\)</span> as conversion factors corresponding to the relation</div>
+<div class="displaymath process-math" id="proc_convert_deg_rad-2-1-7">
+\begin{align}
+180 \text{ degrees} \amp = \pi \text{ radians}\text{.}\tag{2.57}
+\end{align}
+</div>
+<div class="para">Using unit arithmetic we can remember the conversion equations above as follows:</div>
+<div class="displaymath process-math" id="proc_convert_deg_rad-2-1-8">
+\begin{align*}
+x \text{ radians} \amp = x \cancel{\text{ radians}}\cdot \frac{180 \text{ degrees}}{\pi \cancel{\text{ radians}}}=\frac{180}{\pi}x \text{ degrees}\\
+x \text{ degrees} \amp = x \cancel{\text{ degrees}}\cdot \frac{\pi \text{ radians}}{180 \cancel{\text{ degrees}}}=\frac{\pi}{180}x \text{ radians}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_convert_deg_rad-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 2.16.19: Conversion between degrees and radians"><a href="#proc_convert_deg_rad" title="Copy heading and permalink for Procedure 2.16.19: Conversion between degrees and radians" aria-label="Copy heading and permalink for Procedure 2.16.19: Conversion between degrees and radians">🔗</a></div></article><article class="example example-like" id="eg_rad_deg_conv"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between radians and degrees.</span>
+</h4>
+<div class="para logical" id="eg_rad_deg_conv-2-1">
+<ol class="decimal" id="eg_rad_deg_conv-2-1-1">
+<li id="eg_rad_deg_conv-2-1-1-1">
+<div class="para logical" id="eg_rad_deg_conv-2-1-1-1-1">
+<div class="para">Convert the given radian measure to degrees.</div>
+<ol class="lower-alpha lower-alpha-level-1 cols2 multicolumn" id="eg_rad_deg_conv-2-1-1-1-1-1">
+<li id="eg_rad_deg_conv-2-1-1-1-1-1-1">
+<div class="para" id="eg_rad_deg_conv-2-1-1-1-1-1-1-1">
+<span class="process-math">\(\displaystyle \pi/2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-1-1-1-2">
+<div class="para" id="eg_rad_deg_conv-2-1-1-1-1-1-2-1">
+<span class="process-math">\(\displaystyle \pi\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-1-1-1-3">
+<div class="para" id="eg_rad_deg_conv-2-1-1-1-1-1-3-1">
+<span class="process-math">\(\displaystyle 2\pi\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.c"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-3" title="Copy heading and permalink for Item 1.c" aria-label="Copy heading and permalink for Item 1.c">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-1-1-1-4">
+<div class="para" id="eg_rad_deg_conv-2-1-1-1-1-1-4-1">
+<span class="process-math">\(\displaystyle -3\pi/4\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.d"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-4" title="Copy heading and permalink for Item 1.d" aria-label="Copy heading and permalink for Item 1.d">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-1-1-1-5">
+<div class="para" id="eg_rad_deg_conv-2-1-1-1-1-1-5-1">
+<span class="process-math">\(\displaystyle 11\pi/6\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.e"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-5" title="Copy heading and permalink for Item 1.e" aria-label="Copy heading and permalink for Item 1.e">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-1-1-1-6">
+<div class="para" id="eg_rad_deg_conv-2-1-1-1-1-1-6-1">
+<span class="process-math">\(\displaystyle -2\pi/3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.f"><a href="#eg_rad_deg_conv-2-1-1-1-1-1-6" title="Copy heading and permalink for Item 1.f" aria-label="Copy heading and permalink for Item 1.f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_rad_deg_conv-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-2">
+<div class="para logical" id="eg_rad_deg_conv-2-1-1-2-1">
+<div class="para">Convert the given degree measure to radians.</div>
+<ol class="lower-alpha lower-alpha-level-1 cols2 multicolumn" id="eg_rad_deg_conv-2-1-1-2-1-1">
+<li id="eg_rad_deg_conv-2-1-1-2-1-1-1">
+<div class="para" id="eg_rad_deg_conv-2-1-1-2-1-1-1-1">
+<span class="process-math">\(\displaystyle 270\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-2-1-1-2">
+<div class="para" id="eg_rad_deg_conv-2-1-1-2-1-1-2-1">
+<span class="process-math">\(\displaystyle 225\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-2-1-1-3">
+<div class="para" id="eg_rad_deg_conv-2-1-1-2-1-1-3-1">
+<span class="process-math">\(\displaystyle -15\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.c"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-3" title="Copy heading and permalink for Item 2.c" aria-label="Copy heading and permalink for Item 2.c">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-2-1-1-4">
+<div class="para" id="eg_rad_deg_conv-2-1-1-2-1-1-4-1">
+<span class="process-math">\(\displaystyle -360\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.d"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-4" title="Copy heading and permalink for Item 2.d" aria-label="Copy heading and permalink for Item 2.d">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-2-1-1-5">
+<div class="para" id="eg_rad_deg_conv-2-1-1-2-1-1-5-1">
+<span class="process-math">\(\displaystyle 210\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.e"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-5" title="Copy heading and permalink for Item 2.e" aria-label="Copy heading and permalink for Item 2.e">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-2-1-1-2-1-1-6">
+<div class="para" id="eg_rad_deg_conv-2-1-1-2-1-1-6-1">
+<span class="process-math">\(\displaystyle -165\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.f"><a href="#eg_rad_deg_conv-2-1-1-2-1-1-6" title="Copy heading and permalink for Item 2.f" aria-label="Copy heading and permalink for Item 2.f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_rad_deg_conv-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_rad_deg_conv-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_rad_deg_conv-3-1">
+<ol class="decimal" id="eg_rad_deg_conv-3-1-1">
+<li id="eg_rad_deg_conv-3-1-1-1">
+<div class="para logical" id="eg_rad_deg_conv-3-1-1-1-1">
+<div class="para">To convert from radians to degrees, we multiply by the conversion factor <span class="process-math">\(\tfrac{180^\circ}{\pi \text{ rad}}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eg_rad_deg_conv-3-1-1-1-1-2">
+\begin{align*}
+\frac{\pi}{2} \text{ rad} \amp = \frac{\pi}{2}\cdot \frac{180^\circ}{\pi \text{ rad}}=90^\circ\\
+\pi \text{ rad} \amp = \pi \cdot \frac{180^\circ}{\pi \text{ \rad}}=180^\circ \\
+2\pi \text{ rad} \amp = 2\pi \cdot \frac{180^\circ}{\pi \text{ \rad}}=360^\circ\\
+-\frac{3\pi}{4} \text{ rad} \amp = -\frac{3\pi}{4}\cdot \frac{180^\circ}{\pi \text{ rad}}=-135^\circ\\
+\frac{11\pi}{6} \text{ rad} \amp = \frac{11\pi}{6}\cdot \frac{180^\circ}{\pi \text{ rad}}=330^\circ\\
+-\frac{2\pi}{3} \text{ rad} \amp = -\frac{2\pi}{3}\cdot \frac{180^\circ}{\pi \text{ rad}}=-120^\circ\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_rad_deg_conv-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_rad_deg_conv-3-1-1-2">
+<div class="para logical" id="eg_rad_deg_conv-3-1-1-2-1">
+<div class="para">To convert from degrees to radians, we multiply by the conversion factor <span class="process-math">\(\tfrac{\pi \text{ rad}}{180^\circ}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eg_rad_deg_conv-3-1-1-2-1-2">
+\begin{align*}
+270^\circ \amp = 270^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=\frac{3\pi}{2} \text{ rad}\\
+225^\circ \amp = 225^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=\frac{5\pi}{4} \text{ rad}\\
+-15^\circ \amp = -15^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=-\frac{\pi}{12} \text{ rad}\\
+-360^\circ \amp = -360^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=-2\pi \text{ rad}\\
+210^\circ \amp = 210^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=\frac{7\pi}{6} \text{ rad}\\
+-165^\circ \amp = -165^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=-\frac{11\pi}{12} \text{ rad}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_rad_deg_conv-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_rad_deg_conv-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.16.20.1"><a href="#eg_rad_deg_conv-3" title="Copy heading and permalink for Solution 2.16.20.1" aria-label="Copy heading and permalink for Solution 2.16.20.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.16.20: Conversion between radians and degrees"><a href="#eg_rad_deg_conv" title="Copy heading and permalink for Example 2.16.20: Conversion between radians and degrees" aria-label="Copy heading and permalink for Example 2.16.20: Conversion between radians and degrees">🔗</a></div></article><div class="autopermalink" data-description="Subsection: The unit circle"><a href="#sec_theunitcircle" title="Copy heading and permalink for Subsection: The unit circle" aria-label="Copy heading and permalink for Subsection: The unit circle">🔗</a></div></section><section class="subsection" id="s_unit_circle_trig-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The sine and cosine functions</span>
+</h3>
+<div class="para" id="s_unit_circle_trig-5-2">The circular function that tracks the height of a point on the unit circle traversing counterclockwise from <span class="process-math">\((1,0)\)</span> as a function of the corresponding central angle (in radians) is one of the most important functions in mathematics. As such, we give the function a name: the <em class="emphasis">sine</em> function. Just as we can view the height (<span class="process-math">\(y\)</span>-coordinate) as a function of the angle <span class="process-math">\(\theta\text{,}\)</span> the <span class="process-math">\(x\)</span>-coordinate is likewise a function of <span class="process-math">\(\theta\)</span> and is called the <em class="emphasis">cosine</em> function.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_sine_cosine"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sine and cosine functions.</span>
+</h4>
+<div class="para logical" id="d_sine_cosine-2-1">
+<div class="para">Given a real number <span class="process-math">\(\theta\in \R\)</span> we consider the oriented angle in standard position whose measure in radians is <span class="process-math">\(\theta\text{,}\)</span> and we let <span class="process-math">\(P=(x,y)\)</span> be the point where the terminal edge of the angle intersects the unit circle. We define the <dfn class="terminology">cosine</dfn> and <dfn class="terminology">sine</dfn> values of <span class="process-math">\(\theta\text{,}\)</span> denoted <span class="process-math">\(\cos\theta\)</span> and <span class="process-math">\(\sin\theta\text{,}\)</span> as the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-coordinates of <span class="process-math">\(P\text{,}\)</span> respectively: i.e.,</div>
+<div class="displaymath process-math" id="d_sine_cosine-2-1-13">
+\begin{align}
+\cos\theta \amp = x\amp \sin\theta \amp = y\text{.}\tag{2.58}
+\end{align}
+</div>
+<div class="para">Since the coordinates of a point <span class="process-math">\(P\)</span> on the unit circle assume values in <span class="process-math">\([-1,1]\text{,}\)</span> we obtain in this manner functions</div>
+<div class="displaymath process-math" id="d_sine_cosine-2-1-16">
+\begin{align*}
+\cos\colon \R\amp \rightarrow [-1,1]
+\amp \sin\colon \R\amp \rightarrow [-1,1]\text{,}
+\end{align*}
+</div>
+<div class="para">called the <dfn class="terminology">cosine</dfn> and <dfn class="terminology">sine</dfn> functions, respectively.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_sine_cosine-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.16.21: Sine and cosine functions"><a href="#d_sine_cosine" title="Copy heading and permalink for Definition 2.16.21: Sine and cosine functions" aria-label="Copy heading and permalink for Definition 2.16.21: Sine and cosine functions">🔗</a></div></article><figure class="figure figure-like" id="fig_sine_cosine"><div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/TaalmanPage406a.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Unit circle picture of <span class="process-math">\(\cos\theta\)</span> and <span class="process-math">\(\sin\theta\)</span><div class="autopermalink" data-description="Figure 2.16.22"><a href="#fig_sine_cosine" title="Copy heading and permalink for Figure 2.16.22" aria-label="Copy heading and permalink for Figure 2.16.22">🔗</a></div></figcaption></figure><div class="para" id="s_unit_circle_trig-5-5">
+<a href="s_unit_circle_trig.html#d_sine_cosine" class="xref" data-knowl="./knowl/xref/d_sine_cosine.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.16.21: Sine and cosine functions">Definition 2.16.21</a> is an excellent illustration of the fact that functions need not be defined by a simple formula. Indeed, the definition of sine and cosine is one of the most involved recipe-like definitions we have seen so far. <a href="s_unit_circle_trig.html#proc_compute_sin_cos" class="xref" data-knowl="./knowl/xref/proc_compute_sin_cos.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.16.23: Computing \cos and \sin">Procedure 2.16.23</a> highlights this step-by-step nature of the definition of sine and cosine.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="proc_compute_sin_cos"><h4 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span>.</span>
+</h4>
+<div class="para logical" id="proc_compute_sin_cos-2-1">
+<div class="para">Given <span class="process-math">\(\theta\in \R\text{,}\)</span> compute <span class="process-math">\(\cos\theta\)</span> and <span class="process-math">\(\sin\theta\)</span> as follows.</div>
+<ol class="decimal" id="proc_compute_sin_cos-2-1-4">
+<li id="proc_compute_sin_cos-2-1-4-1">
+<div class="para logical" id="proc_compute_sin_cos-2-1-4-1-1">
+<div class="para">Make a unit circle picture as in <a href="s_unit_circle_trig.html#fig_sine_cosine" class="xref" data-knowl="./knowl/xref/fig_sine_cosine.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.16.22">Figure 2.16.22</a>. In more detail:</div>
+<ol class="lower-alpha lower-alpha-level-1" id="proc_compute_sin_cos-2-1-4-1-1-2">
+<li id="proc_compute_sin_cos-2-1-4-1-1-2-1">
+<div class="para" id="proc_compute_sin_cos-2-1-4-1-1-2-1-1">Draw the unit circle <span class="process-math">\(x^2+y^2=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_compute_sin_cos-2-1-4-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#proc_compute_sin_cos-2-1-4-1-1-2-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="proc_compute_sin_cos-2-1-4-1-1-2-2">
+<div class="para" id="proc_compute_sin_cos-2-1-4-1-1-2-2-1">Draw an oriented angle in standard position with radian measure <span class="process-math">\(\theta\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_compute_sin_cos-2-1-4-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#proc_compute_sin_cos-2-1-4-1-1-2-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+<li id="proc_compute_sin_cos-2-1-4-1-1-2-3">
+<div class="para" id="proc_compute_sin_cos-2-1-4-1-1-2-3-1">Draw the point <span class="process-math">\(P=(x,y)\)</span> where the terminal edge of your angle intersects the unit circle.<div class="autopermalink" data-description="Paragraph"><a href="#proc_compute_sin_cos-2-1-4-1-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.c"><a href="#proc_compute_sin_cos-2-1-4-1-1-2-3" title="Copy heading and permalink for Item 1.c" aria-label="Copy heading and permalink for Item 1.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_compute_sin_cos-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#proc_compute_sin_cos-2-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="proc_compute_sin_cos-2-1-4-2">
+<div class="para logical" id="proc_compute_sin_cos-2-1-4-2-1">
+<div class="para">Determine the values of the coordinates of <span class="process-math">\(P=(x,y)\)</span> and conclude</div>
+<div class="displaymath process-math" id="proc_compute_sin_cos-2-1-4-2-1-2">
+\begin{align*}
+\cos\theta \amp = x \amp \sin\theta\amp= y\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_compute_sin_cos-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#proc_compute_sin_cos-2-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_compute_sin_cos-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 2.16.23: Computing \cos and \sin"><a href="#proc_compute_sin_cos" title="Copy heading and permalink for Procedure 2.16.23: Computing \cos and \sin" aria-label="Copy heading and permalink for Procedure 2.16.23: Computing \cos and \sin">🔗</a></div></article><article class="example example-like" id="s_unit_circle_trig-5-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_unit_circle_trig-5-7-1-1">Because an angle of 0 radians in standard position has terminal edge equal to the positive <span class="process-math">\(x\)</span>-axis, it intercepts the unit circle at the point <span class="process-math">\((1,0)\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="s_unit_circle_trig-5-7-1-2"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/0radians.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The terminal edge of an angle of 0 radians intercepts the unit circle at the point <span class="process-math">\((1,0)\text{.}\)</span><div class="autopermalink" data-description="Figure 2.16.25"><a href="#s_unit_circle_trig-5-7-1-2" title="Copy heading and permalink for Figure 2.16.25" aria-label="Copy heading and permalink for Figure 2.16.25">🔗</a></div></figcaption></figure> <div class="para logical" id="s_unit_circle_trig-5-7-1-3">
+<div class="para">Because of this,</div>
+<div class="displaymath process-math" id="s_unit_circle_trig-5-7-1-3-1">
+\begin{equation*}
+\sin(0) = 0\qquad\text{ and } \qquad\cos(0) = 1\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-7-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="s_unit_circle_trig-5-7-1-4">An angle of <span class="process-math">\(-\frac{\pi}{2}\)</span> radians in standard position has terminal edge equal to the <em class="emphasis">negative</em> <span class="process-math">\(y\)</span>-axis, because negative angles are measured clockwise from the positive <span class="process-math">\(x\)</span>-axis. So the terminal edge of the angle <span class="process-math">\(-\frac{\pi}{2}\)</span> intercepts the unit circle at the point <span class="process-math">\((0,-1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-7-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="s_unit_circle_trig-5-7-1-5"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/negativepiover2radians.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The terminal edge of an angle of <span class="process-math">\(-\pi/2\)</span> radians intercepts the unit circle at the point <span class="process-math">\((0,-1)\text{.}\)</span><div class="autopermalink" data-description="Figure 2.16.26"><a href="#s_unit_circle_trig-5-7-1-5" title="Copy heading and permalink for Figure 2.16.26" aria-label="Copy heading and permalink for Figure 2.16.26">🔗</a></div></figcaption></figure> <div class="para logical" id="s_unit_circle_trig-5-7-1-6">
+<div class="para">Because of this,</div>
+<div class="displaymath process-math" id="s_unit_circle_trig-5-7-1-6-1">
+\begin{equation*}
+\sin\left(-\frac{\pi}{2}\right) = -1\qquad\text{ and } \qquad\cos\left(-\frac{\pi}{2}\right) = 0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-7-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.16.24"><a href="#s_unit_circle_trig-5-7" title="Copy heading and permalink for Example 2.16.24" aria-label="Copy heading and permalink for Example 2.16.24">🔗</a></div></article><article class="exercise exercise-like" id="s_unit_circle_trig-5-8"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.27</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Values of Sine and Cosine.</span>
+</h4>
+<div class="para" id="s_unit_circle_trig-5-8-2-1">Sketch the angles <span class="process-math">\(\theta = \frac{\pi}{2}, \pi,\frac{3\pi}{2}\text{,}\)</span> and <span class="process-math">\(2\pi\)</span> in standard position on the unit circle, and determine the coordinates of the point where each intersects the unit circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="s_unit_circle_trig-5-8-2-2">Then, using the definition of <span class="process-math">\(\sin\theta\)</span> and <span class="process-math">\(\cos\theta\)</span> above, determine the values of each function for <span class="process-math">\(\theta = \frac{\pi}{2}, \pi,\frac{3\pi}{2}\text{,}\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> using the coordinates of the points on the unit circle.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.16.27: Values of Sine and Cosine"><a href="#s_unit_circle_trig-5-8" title="Copy heading and permalink for Checkpoint 2.16.27: Values of Sine and Cosine" aria-label="Copy heading and permalink for Checkpoint 2.16.27: Values of Sine and Cosine">🔗</a></div></article><div class="para" id="s_unit_circle_trig-5-9">Here is a Desmos animation showing the sine (green) and cosine (purple) functions generated by the <span class="process-math">\(y\)</span>- and <span class="process-math">\(x\)</span>-coordinate, respectively, of a point moving around the unit circle:<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="s_unit_circle_trig-5-10">
+<div class="para">
+<a class="external" href="https://www.desmos.com/calculator/gpwmrxbwkc" target="_blank">https://www.desmos.com/calculator/gpwmrxbwkc</a>. Because the sine function results from tracking the <span class="process-math">\(y\)</span>-coordinate of a point traversing the unit circle and the cosine function from the <span class="process-math">\(x\)</span>-coordinate, the two functions have several shared properties of circular functions:</div>
+<ul class="disc" id="s_unit_circle_trig-5-10-4">
+<li id="s_unit_circle_trig-5-10-4-1">
+<div class="para" id="s_unit_circle_trig-5-10-4-1-1">the domain of the function is all real numbers;<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-10-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-5-10-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-5-10-4-2">
+<div class="para" id="s_unit_circle_trig-5-10-4-2-1">the range of the function is <span class="process-math">\([-1,1]\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-10-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-5-10-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-5-10-4-3">
+<div class="para" id="s_unit_circle_trig-5-10-4-3-1">the midline of the function is <span class="process-math">\(y=0\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-10-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-5-10-4-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-5-10-4-4">
+<div class="para" id="s_unit_circle_trig-5-10-4-4-1">the amplitude of the function is <span class="process-math">\(a=1\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-10-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-5-10-4-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="s_unit_circle_trig-5-10-4-5">
+<div class="para" id="s_unit_circle_trig-5-10-4-5-1">the period of the function is <span class="process-math">\(p=2\pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-10-4-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#s_unit_circle_trig-5-10-4-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_unit_circle_trig-5-11">There is one more function that we will introduce here: the <em class="emphasis">tangent function</em>.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="s_unit_circle_trig-5-12"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.28</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="s_unit_circle_trig-5-12-1-1">
+<div class="para">For any real number <span class="process-math">\(t\)</span> for which <span class="process-math">\(\cos(t)\neq 0\text{,}\)</span> we define the <em class="emphasis">tangent of <span class="process-math">\(t\text{,}\)</span></em> denoted <span class="process-math">\(\tan(t)\text{,}\)</span> by</div>
+<div class="displaymath process-math" id="s_unit_circle_trig-5-12-1-1-5">
+\begin{equation*}
+\tan(t) = \frac{\sin(t)}{\cos(t)}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.16.28"><a href="#s_unit_circle_trig-5-12" title="Copy heading and permalink for Definition 2.16.28" aria-label="Copy heading and permalink for Definition 2.16.28">🔗</a></div></article><div class="para" id="s_unit_circle_trig-5-13">Here is a Desmos animation showing the tangent function generated by the sine and cosine functions: <a class="external" href="https://www.desmos.com/calculator/znp1tth5kc" target="_blank">https://www.desmos.com/calculator/znp1tth5kc</a><div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="s_unit_circle_trig-5-14"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.16.29</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_unit_circle_trig-5-14-1-1">Here is a Desmos animation showing the tangent function generated by the sine and cosine functions:<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <a class="external" href="https://www.desmos.com/calculator/znp1tth5kc" target="_blank">https://www.desmos.com/calculator/znp1tth5kc</a> <div class="para" id="s_unit_circle_trig-5-14-1-3">Based on the graph of the tangent function, what is its domain? What is its range? Is it periodic, and if so, what is its period?<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-14-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.16.29"><a href="#s_unit_circle_trig-5-14" title="Copy heading and permalink for Checkpoint 2.16.29" aria-label="Copy heading and permalink for Checkpoint 2.16.29">🔗</a></div></article><div class="para" id="s_unit_circle_trig-5-15">If all of this seems like a HUGE amount of material to digest, don’t panic! We will spend the rest of this chapter becoming very familiar with these functions and you will see all of the ideas presented here repeated many times.<div class="autopermalink" data-description="Paragraph"><a href="#s_unit_circle_trig-5-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: The sine and cosine functions"><a href="#s_unit_circle_trig-5" title="Copy heading and permalink for Subsection: The sine and cosine functions" aria-label="Copy heading and permalink for Subsection: The sine and cosine functions">🔗</a></div></section><div class="autopermalink" data-description="Section 2.16: Trigonometric functions via the unit circle"><a href="#s_unit_circle_trig" title="Copy heading and permalink for Section 2.16: Trigonometric functions via the unit circle" aria-label="Copy heading and permalink for Section 2.16: Trigonometric functions via the unit circle">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_lHop_A.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_trig_computing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
