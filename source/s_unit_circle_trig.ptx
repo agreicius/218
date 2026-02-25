@@ -28,7 +28,7 @@
     </ul>
 </objectives>
     <subsection>
-    <title>Functions Defined by Circular Motion</title>
+    <title>Functions defined by circular motion</title>
     <p>
       Certain naturally occurring phenomena eventually repeat themselves,
       especially when the phenomenon is somehow connected to a circle.
@@ -192,8 +192,8 @@
         <table xml:id="tab_APC2-1-3">
           <title>Select values of <m>h=f(t)</m>, the height of an oscillating weight</title>
           <tabular>
-            <row>
-              <cell>\toprule
+            <row >
+              <cell>
                 <m>t</m></cell>
               <cell><m>0.25</m></cell>
               <cell><m>0.5</m></cell>
@@ -204,8 +204,9 @@
               <cell><m>1.75</m></cell>
               <cell><m>2</m></cell>
             </row>
+            
             <row>
-              <cell>\midrule
+              <cell >
                 <m>f(t)</m></cell>
               <cell><m>6.807</m></cell>
               <cell><m>4.6764</m></cell>
@@ -217,10 +218,10 @@
               <cell><m>8</m></cell>
             </row>
             <row>
-              <cell>\midrule</cell>
+              <cell><m>\ </m> </cell>
             </row>
             <row>
-              <cell>\midrule
+              <cell>
                 <m>t</m></cell>
               <cell><m>2.25</m></cell>
               <cell><m>2.5</m></cell>
@@ -232,8 +233,7 @@
               <cell><m>4</m></cell>
             </row>
             <row>
-              <cell>\midrule
-                <m>f(t)</m></cell>
+               <cell> <m>f(t)</m></cell>
               <cell><m>9.913</m></cell>
               <cell><m>11.536</m></cell>
               <cell><m>12.619</m></cell>
@@ -242,9 +242,6 @@
               <cell><m>11.536</m></cell>
               <cell><m>9.913</m></cell>
               <cell><m>8</m></cell>
-            </row>
-            <row>
-              <cell>\bottomrule</cell>
             </row>
           </tabular>
         </table>
@@ -280,7 +277,7 @@
     </example>
   </subsection>
   <subsection xml:id="sec_theunitcircle">
-    <title>The Unit Circle</title>
+    <title>The unit circle</title>
     <p>
       As demonstrated in the previous section,
       certain periodic phenomena are closely linked to circles and circular motion.
@@ -342,10 +339,10 @@
           <m>t=\frac{\pi}{12}</m> traveled along the unit circle.
           The second point is twice as far,
           and thus <m>t = 2\cdot\frac{\pi}{12} = \frac{\pi}{6}</m> units along the circle away from <m>(1,0)</m>.
-        </p>
-        <p>
+        
           <image width="65%" source="APCFigure2-2-3.png"/>
-          <ol marker="labelalphitemsep5pt">
+          
+          <ol >
             <li>
               <p>
                 Label each of the subsequent points on the unit circle with the exact distance they lie counter-clockwise away from <m>(1,0)</m>;
@@ -364,102 +361,227 @@
       </statement>
     </exercise>
     <p>
-      For reasons you will see later,
-      mathematicians prefer to use radians to measure angles,
-      rather than degrees.
-      (This is for similar reasons to why mathematicians prefer the base of <m>e</m> in exponential functions and logarithms.
-      It has to do with derivatives.)
-      Radians are defined by intersecting a <em>central angle</em>,
-      meaning an angle with vertex at the center of the circle,
-      with the perimeter of the circle.
+      The distance our animated point in <xref ref="fig_APCFigure2-2-2"/> has traveled can be related to a certain angle it makes with vertex the origin of the circle. In order to explicate this relationship, we introduce some official terminology for angles. 
+    </p>
+      <definition xml:id="d_angle_terminology">
+      <title>Angle terminology</title>
+      <statement>
+      <p>
+      Two rays intersecting at a common point <m>P</m> are said to form an <term>angle</term> with <term>vertex</term> <m>P</m>. 
+      </p>
+      <p>
+        An <term>oriented angle</term> is an angle for which one ray is chosen as the <term>initial edge</term> and the other ray as the <term>terminal edge</term>, and furthermore a <term>direction</term> (clockwise or counterclockwise) is specified, indicating how the initial edge is rotated to reach the terminal edge. The angle is <term>positive</term> if the direction specified is counterclockwise, and <term>negative</term> if the direction specified is clockwise. 
+      </p>
+      
+      <p>
+        An oriented angle is in <term>standard position</term> if its vertex lies at the origin and its initial edge points along the positive <m>x</m>-axis. 
+      </p>
+      <p>
+        The <term>interior</term> of an oriented angle is the portion of the plane swept out as the initial edge is rotated in the specified direction to reach the terminal edge. 
+      </p>
+      <p>
+        A <term>central angle</term> of a circle <m>C</m> is an angle whose vertex <m>P</m> lies at the center of <m>C</m>. Given an oriented central angle of the circle <m>C</m>, we call the portion of the circle lying on and in the interior of the angle the <term>arc intercepted</term> by the angle; and we call the angle the <term>angle subtended</term> by the this arc. 
+      </p>
+      </statement>
+      </definition>
+      <p>
+        <xref ref="fig_TaalmanPage405a"/> is a depiction of an oriented angle in standard position, as definied in <xref ref="d_angle_terminology"/>. Note that the arrowed arc labeled <m>\theta</m> within the circle indicates the direction of the oriented angle and thus also indicates the initial and terminal edges of the angle. Since the direction is counterclockwise, the oriented angle depicted is positive. 
+      </p>
+      <figure xml:id="fig_TaalmanPage405a">
+      <caption>An angle <m>\theta</m> in standard position.</caption>
+      <image width="37%" source="TaalmanPage405a.png"/>
+    </figure>
+      <p>
+      Having formally introduced angles and their accompanying terminology, we now define a way of <em>measuring</em> these angles. In mathematics it turns out to be most convenient to use a unit of measurement that relates a central angle of a circle to the length of the arc it intercepts. These units are called <em>radians</em>.
     </p>
     <definition>
       <title>Radians</title>
       <statement>
         <p>
-          An angle whose vertex is at the center of a circle measures <em>1 radian</em>
-          provided that the arc the angle intercepts on the circle equals the radius of the circle as in <xref ref="fig_APCFigure2-2-4">Figure</xref>.
+          Let <m>\theta</m> be an oriented angle, let <m>C</m> be a circle of radius <m>r</m> for which <m>\theta</m> is a central angle, and let <m>s</m> be the length of the arc intercepted by <m>\theta</m>. The <term>measure</term> of <m>\theta</m> is defined as <m>s/r</m> if <m>\theta</m> is positive, and <m>-s/r</m> if <m>\theta</m> is negative. 
         </p>
       </statement>
     </definition>
+    <remark>
+      <title>Radian measure is well defined</title>
+      <p>
+        If you look hard at our definition of the radian measure of an angle, you might notice that it seems to depend on our choice of circle <m>C</m>. More specifically, you might ask, does the choice of radius <m>r</m> affect the resulting ratio <m>s/r</m>? The answer is no, thankfully. Intuitively, this is a consequence of the fact that the perimeter of a circle (and thus of various arcs of the circle) is proportional to the radius <m>r</m>. 
+      </p>
+      <p>
+        Since the radian measure is independent of the radius <m>r</m> of the circle <m>C</m> chosen, it is most natural to circles of radius <m>r=1</m>, in which case the radian measure of an angle is simply the length of the arc it intercepts. That said, we keep our more flexible definition in order to better capture the relation of angles and arc lengths in circles of arbitrary radius <m>r</m>. 
+      </p>
+    </remark>
+    <remark>
+      <title>Angle versus its measure</title>
+      <p>
+        Given an oriented central angle <m>\theta</m> we will usually conflate the angle <m>\theta</m> (which is a union of two rays intersecting at a point) with its measure in radians (which is simply a real number). Thus, if our oriented angle <m>\theta</m> is subtended by an arc of length <m>s</m> of a circle of radius <m>r</m>, we will write
+        <md>
+          <mrow>\theta \amp = \begin{cases}
+            \frac{s}{r} \text{ radians} \amp \text{if } \theta \text{ is positive} \\
+            -\frac{s}{r} \text{ radians} \amp \text{if } \theta \text{ is negative}.
+          \end{cases} 
+        </mrow>
+        </md>.
+      </p>
+    </remark>
+    <p>
+      What does it means for an angle to have radian measure <m>1</m>? Picking the origin of the plane to be the vertex of the circle and choosing our circle <m>C</m> to be the unit circle <m>x^2+y^2=1</m>, we get a picture as in <xref ref="fig_APCFigure2-2-4"/>. In this case, to have radian measure <m>1</m>, the length of the arc intercepted by <m>\theta</m> is equal to <m>1</m>. 
+    </p>
     <figure xml:id="fig_APCFigure2-2-4">
       <caption>An angle <m>\theta</m> of measure <m>1</m> radian.</caption>
       <image width="37%" source="APCFigure2-2-4.png"/>
     </figure>
     <p>
-      Click on this link to see an illustration of the definition of a <em>radian</em>,
-      found by taking the radius of the circle and measuring the same length around the perimeter:
+      How would we measure this same angle in degrees? Recall that the perimeter of a circle of radius <m>r</m> is equal to <m>2\pi r</m>. Thus the perimeter of the unit circle (<m>r=1</m>) is <m>2\pi</m>. In your mathematical youth you may have reasoned as follows: since traveling around the entire length <m>2\pi</m> of the unit circle corresponds to an angle of <m>360</m> degrees, then traveling an arc of length <m>s</m> of the circle corresponds to an angle of <m>360\cdot\tfrac{s}{2\pi}</m> degrees. That is, measured in degrees, we have 
+      <md>
+        <mrow>\theta \amp =360\cdot \frac{s}{2\pi}=180\cdot \frac{s}{\pi} \text{ degrees}</mrow>
+      </md>.
+        Since <m>s</m> is equal to the radian measure of <m>\theta</m> with respect to the unit circle (<m>r=1</m>), we conclude that a radian measure of <m>s</m> is equal to a degree measure of <m>t=\tfrac{180}{\pi}\, s</m> degrees, and equivalently, a degree measure of <m>t</m> is equivalent to a radian measure of <m>s=\frac{\pi}{180}\,t</m>. Let's make this conversion result official. 
     </p>
-    <url href="https://en.wikipedia.org/wiki/File:Circle_radians.gif">https://en.wikipedia.org/wiki/File:Circle_radians.gif</url>
-    <p>
-      As seen in <xref ref="fig_APCFigure2-2-4">Figure</xref>,
-      on the unit circle this means that a central angle has measure <m>1</m> radian whenever it intercepts an arc of length <m>1</m> unit along the circumference.
-      Because of this important correspondence between the unit circle and radian measure
-      (one unit of arc length on the unit circle corresponds to <m>1</m> radian),
-      we focus our discussion of radian measure within the unit circle.
-    </p>
-    <p>
-      Since there are <m>2\pi</m> units of length along the unit circle's circumference it follows there are
-      <m>\frac{1}{4}\cdot2\pi = \frac{\pi}{2}</m> units of length in <m>\frac{1}{4}</m> of a revolution.
-      We also know that <m>\frac{1}{4}</m> of a revolution corresponds to a central angle that is a right angle,
-      whose familiar degree measure is
-      <m>90^\circ</m> If we extend to a central angle that intercepts half the circle,
-      we see similarly that <m>\pi</m> radians corresponds to <m>180^\circ</m>;
-      this relationship enables us to convert angle measures from radians to degrees and vice versa.
-    </p>
-    <p>
-      \fbox{
-    </p>
-    <p>
-      <em>Converting between radians and degrees:</em>
-    </p>
-    <p>
-      An angle whose radian measure is <m>1</m> radian has degree measure <m>\frac{180^\circ}{\pi}</m>.
-      An angle whose degree measure is <m>1^\circ</m> has radian measure <m>\frac{\pi}{180}</m>. }}
-    </p>
-    <p>
-      We can place any angle in <em>standard position</em>
-      in the <m>xy</m>-plane by placing its vertex at the origin and its <em>initial edge</em>
-      along the positive side of the <m>x</m>-axis.
-      The angle then opens up in either a counterclockwise or clockwise direction until it reaches its <em>terminal edge</em>.
-      A <em>positive angle</em> is measured counterclockwise from its initial edge,
-      while a <em>negative angle</em>
-      is measured clockwise from its initial edge.
-    </p>
-    <figure xml:id="fig_TaalmanPage405a">
-      <caption>An angle <m>\theta</m> in standard position.</caption>
-      <image width="37%" source="TaalmanPage405a.png"/>
-    </figure>
-    <exercise>
+    <algorithm xml:id="proc_convert_deg_rad">
+      <title>Conversion between degrees and radians</title>
       <statement>
         <p>
-          Return to your labeled unit circle from <xref ref="ex_APCPreview2-2-1">Exercise</xref>.
-          In this exercise,
-          we will determine the radian measure corresponding to some of the labeled points.
-          <ol marker="labelalphitemsep5pt">
-            <li>
-              <p>
-                Locate <m>\frac{\pi}{3}</m> on your circle from <xref ref="ex_APCPreview2-2-1">Exercise</xref>.
-                Draw a ray from <m>(0,0)</m> through that point.
-                The angle from the positive <m>x</m>-axis to that ray is <m>\frac{\pi}{3}</m> radians.
-                Also locate <m>\frac{3\pi}{4}</m> and sketch a similar ray to illustrate an angle of <m>\frac{3\pi}{4}</m> radians.
-              </p>
-            </li>
-            <li>
-              <p>
-                What is the radian measure that corresponds to a <m>45^\circ</m> angle?
-                A <m>30^\circ</m> angle?
-                Draw rays from <m>(0,0)</m> through those points to illustrate angles of those radians on the unit circle,
-                measured from the positive <m>x</m>-axis.
-              </p>
-            </li>
-          </ol>
+          Let <m>\theta</m> be an angle, let <m>s</m> be its measure in radians, and let <m>t</m> be its measure in degrees. We have 
+          <md number="yes">
+            <mrow xml:id="eq_deg_to_rad"> s \amp =\frac{\pi}{180}\,t</mrow>
+            <mrow xml:id="eq_rad_to_deg" >t \amp =\frac{180}{\pi}\,s</mrow>
+          </md>.
+          In other words, we think of the ratios <m>180/\pi</m> and <m>\pi/180</m> as conversion factors corresponding to the relation 
+          <md number="yes">
+            <mrow xml:id="eq_rad_deg_cong_factor">180 \text{ degrees} \amp = \pi \text{ radians}</mrow>
+          </md>.
+          Using unit arithmetic we can remember the conversion equations above as follows:
+          <md>
+            <mrow> x \text{ radians} \amp = x \cancel{\text{ radians}}\cdot \frac{180 \text{ degrees}}{\pi \cancel{\text{ radians}}}=\frac{180}{\pi}x \text{ degrees}</mrow>
+            <mrow>x \text{ degrees} \amp = x \cancel{\text{ degrees}}\cdot \frac{\pi \text{ radians}}{180 \cancel{\text{ degrees}}}=\frac{\pi}{180}x \text{ radians}</mrow>
+          </md>
         </p>
       </statement>
-    </exercise>
+    </algorithm>
+  <example xml:id="eg_rad_deg_conv">
+  <title>Conversion between radians and degrees</title>
+  <statement>
+  <p>
+  <ol>
+    <li>
+      <p>
+        Convert the given radian measure to degrees. 
+        <ol cols="2">
+          <li>
+            <p>
+              <m>\pi/2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\pi</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>2\pi</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-3\pi/4</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>11\pi/6</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-2\pi/3</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </li>
+    <li>
+      <p>
+        Convert the given degree measure to radians. 
+        <ol cols="2">
+          <li>
+            <p>
+              <m>270</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>225</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-15</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-360</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>210</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-165</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </li>
+  </ol>
+  </p>
+  </statement>
+  <solution>
+  <p>
+  <ol>
+    <li>
+      <p>
+        To convert from radians to degrees, we multiply by the conversion factor <m>\tfrac{180^\circ}{\pi \text{ rad}}</m>:
+        <md>
+          <mrow>\frac{\pi}{2} \text{ rad} \amp = \frac{\pi}{2}\cdot \frac{180^\circ}{\pi \text{ rad}}=90^\circ</mrow>
+          <mrow>\pi \text{ rad} \amp = \pi \cdot \frac{180^\circ}{\pi \text{ \rad}}=180^\circ </mrow>
+          <mrow>2\pi \text{ rad} \amp = 2\pi \cdot \frac{180^\circ}{\pi \text{ \rad}}=360^\circ</mrow>
+          <mrow>-\frac{3\pi}{4} \text{ rad} \amp = -\frac{3\pi}{4}\cdot \frac{180^\circ}{\pi \text{ rad}}=-135^\circ</mrow>
+          <mrow>\frac{11\pi}{6} \text{ rad} \amp = \frac{11\pi}{6}\cdot \frac{180^\circ}{\pi \text{ rad}}=330^\circ</mrow>
+          <mrow>-\frac{2\pi}{3} \text{ rad} \amp = -\frac{2\pi}{3}\cdot \frac{180^\circ}{\pi \text{ rad}}=-120^\circ</mrow>
+        </md>.
+      </p>
+    </li>
+    <li>
+      <p>
+        To convert from degrees to radians, we multiply by the conversion factor <m>\tfrac{\pi \text{ rad}}{180^\circ}</m>:
+        <md>
+          <mrow>270^\circ \amp = 270^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=\frac{3\pi}{2} \text{ rad}</mrow>
+          <mrow>225^\circ \amp = 225^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=\frac{5\pi}{4} \text{ rad}</mrow>
+          <mrow>-15^\circ \amp = -15^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=-\frac{\pi}{12} \text{ rad}</mrow>
+          <mrow>-360^\circ \amp = -360^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=-2\pi \text{ rad}</mrow>
+          <mrow>210^\circ \amp = 210^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=\frac{7\pi}{6} \text{ rad}</mrow>
+          <mrow>-165^\circ \amp = -165^\circ \cdot \frac{\pi \text{ rad}}{180^\circ}=-\frac{11\pi}{12} \text{ rad}</mrow>
+        </md>.
+      </p>
+    </li>
+  </ol>
+  </p>
+  </solution>
+  </example>
+    
+    
+    
+    
+  
   </subsection>
   <subsection>
-    <title>The Sine and Cosine Functions</title>
+    <title>The sine and cosine functions</title>
     <p>
       The circular function that tracks the height of a point on the unit circle traversing counterclockwise from <m>(1,0)</m> as a function of the corresponding central angle
       (in radians)
@@ -470,28 +592,77 @@
       the <m>x</m>-coordinate is likewise a function of <m>\theta</m> and is called the
       <em>cosine</em> function.
     </p>
-    <definition>
-      <title>Sine and Cosine Functions</title>
+    <definition xml:id="d_sine_cosine">
+      <title>Sine and cosine functions</title>
       <statement>
         <p>
-          Given any angle <m>\theta</m> measured in radians and in standard position,
-          let <m>(x,y)</m> be the point where the terminal edge of <m>\theta</m> intersects the unit circle.
-          The <em>sine</em> and <em>cosine functions</em>
-          of an angle <m>\theta</m> are the coordinates <m>y</m> and <m>x</m> for <m>\theta</m>:
-          <me>
-            \sin\theta = y \qquad \cos\theta = x
-          </me>
+          Given a real number <m>\theta\in \R</m> we consider the oriented angle in standard position whose measure in radians is <m>\theta</m>, and we let <m>P=(x,y)</m> be the point where the terminal edge of the angle intersects the unit circle. We define the <term>cosine</term> and <term>sine</term> values of <m>\theta</m>, denoted <m>\cos\theta</m> and <m>\sin\theta</m>, as the <m>x</m>- and <m>y</m>-coordinates of <m>P</m>, respectively: <ie/>, 
+          <md number="yes">
+            <mrow xml:id="eq_cos_theta"> \cos\theta \amp = x\amp \sin\theta \amp = y</mrow>
+          </md>.
+          Since the coordinates of a point <m>P</m> on the unit circle assume values in <m>[-1,1]</m>, we obtain in this manner functions 
+          <md>
+            <mrow>\cos\colon \R\amp \rightarrow [-1,1]
+              \amp \sin\colon \R\amp \rightarrow [-1,1]
+            </mrow>
+          </md>,
+          called the <term>cosine</term> and <term>sine</term> functions, respectively. 
         </p>
-        <p>
-          <image width="56%" source="TaalmanPage406a.png"/>
-        </p>
+        
       </statement>
     </definition>
+    <figure xml:id="fig_sine_cosine">
+      <caption>Unit circle picture of <m>\cos\theta</m> and <m>\sin\theta</m></caption>
+      <image width="56%" source="TaalmanPage406a.png"/>
+    </figure>
+    <p>
+      <xref ref="d_sine_cosine"/> is an excellent illustration of the fact that functions need not be defined by a simple formula. Indeed, the definition of sine and cosine is one of the most involved recipe-like definitions we have seen so far. <xref ref="proc_compute_sin_cos"/> highlights this step-by-step nature of the definition of sine and cosine. 
+    </p>
+    <algorithm xml:id="proc_compute_sin_cos">
+      <title>Computing <m>\cos</m> and <m>\sin</m></title>
+      <statement>
+        <p>
+          Given <m>\theta\in \R</m>, compute <m>\cos\theta</m> and <m>\sin\theta</m> as follows. 
+          <ol>
+            <li>
+              <p>
+                Make a unit circle picture as in <xref ref="fig_sine_cosine"/>. In more detail:
+              <ol>
+                <li>
+                  <p>
+                Draw the unit circle <m>x^2+y^2=1</m>.
+              </p>
+                </li>
+                <li>
+                   <p>
+                Draw an oriented angle in standard position with radian measure <m>\theta</m>. 
+              </p>
+                </li>
+                <li>
+              <p>
+                Draw the point <m>P=(x,y)</m> where the terminal edge of your angle intersects the unit circle. 
+              </p>
+            </li>
+              </ol>
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine the values of the coordinates of <m>P=(x,y)</m> and conclude 
+                <md>
+                  <mrow>\cos\theta \amp = x \amp \sin\theta\amp= y</mrow>
+                </md>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </algorithm>
+    
     <example>
       <statement>
         <p>
-          For example,
-          because an angle of 0 radians in standard position has terminal edge equal to the positive <m>x</m>-axis,
+          Because an angle of 0 radians in standard position has terminal edge equal to the positive <m>x</m>-axis,
           it intercepts the unit circle at the point <m>(1,0)</m>:
         </p>
         <figure>
@@ -548,15 +719,6 @@
       <url href="https://www.desmos.com/calculator/gpwmrxbwkc">https://www.desmos.com/calculator/gpwmrxbwkc</url>.
       Because the sine function results from tracking the <m>y</m>-coordinate of a point traversing the unit circle and the cosine function from the <m>x</m>-coordinate,
       the two functions have several shared properties of circular functions:
-    </p>
-    <p>
-      \fbox{
-    </p>
-    <p>
-      <em>Properties of sine and cosine:</em>
-    </p>
-    <p>
-      For both <m>f(t)=\sin(t)</m> and <m>g(t) = \cos(t)</m>,
       <ul>
         <li>
           <p>
@@ -624,37 +786,5 @@
       We will spend the rest of this chapter becoming very familiar with these functions and you will see all of the ideas presented here repeated many times.
     </p>
   </subsection>
-  <subsection>
-    <title>Summary</title>
-    <p>
-      The following terms were introduced in this section:
-    </p>
-    Circular function, midline, amplitude, period, periodic function; unit circle, central angle, radians, standard position, initial edge, terminal edge, positive angle, negative angle; the sine function, the cosine function, the tangent function.
-    <p>
-      <em>Key ideas:</em> The motion of a point around a circle defines circular functions,
-      which have a predictable shape
-      (with a midline, amplitude, and period).
-      Mathematicians use radians instead of degrees to measure angles,
-      based on the length around the perimeter of a circle of radius 1
-      (called a unit circle).
-      We use the unit circle to define two important circular functions:
-      sine and cosine.
-    </p>
-    <p>
-      <em>Other ideas introduced:</em> If you <em>really</em>
-      understand the definitions of sine and cosine,
-      all of their properties and values can be determined by the unit circle.
-      We will get MUCH more practice with this in the next section.
-    </p>
-    <p>
-      \fbox{\fbox{ End of Section 7.1}}
-    </p>
-    <p>
-      \rule{1.1\textwidth}{2pt}
-    </p>
-  </subsection>
-
-
-    
-
+  
 </section>
