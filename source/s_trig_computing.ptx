@@ -7,7 +7,7 @@
       <li>
         <p>
           Derive the side lengths of
-          <m>45-45-90</m> and <m>30-60-90</m> triangles.
+          45-45-90 and 30-60-90 triangles.
         </p>
       </li>
       <li>
@@ -29,13 +29,12 @@
       <li>
         <p>
           Define the remaining trigonometric functions.
-          There are six in all.
         </p>
       </li>
     </ul>
 </objectives>
 <subsection>
-    <title><m>45-45-90</m> and <m>30-60-90</m> Triangles</title>
+    <title>Side lengths of two special right triangles</title>
     <p>
       Our in-depth study of the unit circle is motivated by our desire to better understand the behavior of circular functions.
       Recall that as we traverse a circle,
@@ -44,31 +43,99 @@
       we'd like to be able to identify the exact height of a given point on the unit circle.
       Two special right triangles enable us to determine precisely an important collection of points on the unit circle.
     </p>
-    <theorem xml:id="thm_trianglesidelengths">
-      <title>Side Lengths of Two Important Right Triangles</title>
+    <theorem xml:id="th_special_triangles">
+      <title>Special right triangles</title>
       <statement>
         <p>
-          The <m>45-45-90</m> right triangle and
-          <m>30-60-90</m> right triangle with hypotenuse of length 1 unit have side lengths as shown in the following figures:
-        </p>
-        <p>
-          <image width="75%" source="TaalmanPage403b.png"/>
+            <ol>
+           
+            <li>
+                 <title>45-45-90 triangle</title> 
+                <p>
+                    Let <m>T</m> be a triangle with angles 45,45, and 90 degrees. If the hypotenuse of <m>T</m> has length <m>1</m>, then the two remaining sides of <m>T</m> have length <m>\sqrt{2}/2</m>.
+                </p>
+            </li>
+            <li>
+                <title>30-60-90 triangle</title>
+                <p>
+                    Let <m>T</m> be a triangle with angles 30,60, and 90 degrees. If the hypotenuse of <m>T</m> has length <m>1</m>, then the side of <m>T</m> opposite the 30-degree angle has length <m>1/2</m>, and the side of <m>T</m> opposite the 60-degree angle has length <m>\sqrt{3}/2</m>.
+                </p>
+            </li>
+        </ol>
         </p>
       </statement>
     </theorem>
-    <p>
-      The sides lengths of these triangles is a consequence of the Pythagorean Theorem:
-    </p>
+    <figure xml:id="fig_special_triangles">
+        <caption>Special right triangles</caption>
+        <sidebyside valigns="bottom bottom" widths="30% 50%">
+            <figure xml:id="fig_45_45_90">
+                <caption>45-45-90 triangle</caption>
+                <image>
+                    <shortdescription>45-45-90 triangle</shortdescription>
+                    <sageplot>
+var('t')
+alpha=pi/4
+beta=pi/4
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+T=polygon([(0,0),(a,0),(a,b),(0,0)], color='blue', fill=False,axes=False)
+t1=text("$1$",(a/2,b/2+.05),color="black",fontsize=16)
+t2=text(r"$\frac{\sqrt{2}}{2}$",(a+.05,b/2+.05),color="black",fontsize=16)
+t3=text(r"$\frac{\sqrt{2}}{2}$",(a/2,0-.05),color="black",fontsize=16)
+s1=parametric_plot(.05*c(t), (t,0,alpha), color='red')
+s2=parametric_plot(hyp+.05*c(t), (t,-pi/2-beta, -pi/2), color='red')
+s3=line([(a-.05,0),(a-.05,.05),(a,.05)],color="red")
+a1=text("$45^\circ$",.1*c(alpha/2),color="black",fontsize=16)
+a2=text("$45^\circ$",hyp+.1*c(-pi/2-beta/2),color="black",fontsize=16)
+# a3=text("$90^\circ$",leg+.1*c(3*pi/4),color="black",fontsize=16)
+T+t1+t2+t3+s1+s2+s3+a1+a2
+                    </sageplot>
+
+                </image>
+            </figure>
+<figure xml:id="fig_30-60-90">
+                <caption>30-60-90 triangle</caption>
+                <image>
+                    <shortdescription>45-45-90 triangle</shortdescription>
+                    <sageplot>
+var('t')
+alpha=pi/6
+beta=pi/3
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+T=polygon([(0,0),(a,0),(a,b),(0,0)], color='blue', fill=False,axes=False)
+t1=text("$1$",(a/2,b/2+.05),color="black",fontsize=16)
+t2=text(r"$\frac{\sqrt{3}}{2}$",(a+.05,b/2+.05),color="black",fontsize=16)
+t3=text(r"$\frac{1}{2}$",(a/2,0-.05),color="black",fontsize=16)
+s1=parametric_plot(.05*c(t), (t,0,alpha), color='red')
+s2=parametric_plot(hyp+.05*c(t), (t,-pi/2-beta,-pi/2), color='red')
+s3=line([(a-.05,0),(a-.05,.05),(a,.05)],color="red")
+a1=text("$30^\circ$",.1*c(alpha/2),color="black",fontsize=16)
+a2=text("$60^\circ$",hyp+.1*c(-pi/2-beta/2),color="black",fontsize=16)
+# a3=text("$90^\circ$",leg+.1*c(3*pi/4),color="black",fontsize=16)
+T+t1+t2+t3+s1+s2+s3+a1+a2
+                    </sageplot>
+
+                </image>
+            </figure>
+        </sidebyside>
+    </figure>
     <proof>
       <p>
-        Let's start with the <m>45-45-90</m> triangle.
+        Let's start with the 45-45-90 triangle.
         Suppose a right triangle with a hypotenuse of length 1 has two angles of 45 degrees.
         Then the triangle is an isosceles triangle;
         that is, its two legs have the same length <m>a</m>,
         as shown in <xref ref="fig_TaalmanPage404c">Figure</xref>:
       </p>
       <figure xml:id="fig_TaalmanPage404c">
-        <caption>A <m>45-45-90</m> triangle must have legs of the same length.</caption>
+        <caption>A 45-45-90 triangle must have legs of the same length.</caption>
         <image width="28%" source="TaalmanPage404c.png"/>
       </figure>
       <p>
@@ -88,7 +155,7 @@
         Two of these triangles together make the equilateral triangle in <xref ref="fig_TaalmanPage404d">Figure</xref> below:
       </p>
       <figure xml:id="fig_TaalmanPage404d">
-        <caption>A <m>30-60-90</m> triangle can be doubled to form an equilateral triangle, with all three sides the same length as the hypotenuse.</caption>
+        <caption>A 30-60-90 triangle can be doubled to form an equilateral triangle, with all three sides the same length as the hypotenuse.</caption>
         <image width="32%" source="TaalmanPage404d.png"/>
       </figure>
       <p>
@@ -105,171 +172,248 @@
         Note that we considered only the positive square root in this calculation since <m>b</m> is a length and must be positive.
       </p>
     </proof>
-  </subsection>
-  <subsection>
-    <title>Using Reference Triangles to Calculate Values of Sine and Cosine</title>
     <p>
-      Using <m>45-45-90</m> and <m>30-60-90</m> triangles we can calculate the trigonometric functions of the angles <m>45^\circ = \frac{\pi}{4}</m> radians,
-      <m>30^\circ = \frac{\pi}{6}</m> radians,
-      and <m>60^\circ = \frac{\pi}{3}</m> radians.
+     We now endeavor to use <xref ref="th_special_triangles"/> to compute values of <m>\cos\theta</m> and <m>\sin\theta</m> for <m>\theta=\pi/3, \pi/4, \pi/6</m> radians (equivalently, <m>\theta=30, 45, 60</m> degrees). The method will be to add an appropriate right triangle to the unit circle picture described in Step 1 of <xref ref="proc_compute_sin_cos"/>.
     </p>
     <p>
-      In order to do this,
-      we recall that for a point <m>(x,y)</m> on the unit circle (meaning,
-      the circle of radius 1),
-      we can interpret <m>x=\cos \theta</m> and
-      <m>y=\sin\theta</m> where <m>\theta</m> is measured from the positive <m>x</m>-axis:
+        Let's see how this works with <m>\theta=\pi/4</m>, which has unit circle picture
     </p>
-    <figure>
-      <image width="56%" source="TaalmanPage406a.png"/>
-    </figure>
-    <example xml:id="ex_piover4">
+    <image width="50%">
+        <shortdescription>Unit circle picture for pi over 4</shortdescription>
+        <sageplot>
+var('t')
+alpha=pi/4
+beta=pi/4
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,pi/2+pi/30),color='blue',ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+P=point(c(alpha), size=50, color='blue')
+Rad=line([(1,0),(0,0),hyp],color='blue')
+arc=parametric_plot(.1*c(t),(t,0,alpha), color='red')
+t1=text("$P=(x,y)$",1.1*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{\pi}{4}$",.15*c(alpha/2),color="black",fontsize=16)
+C+P+Rad+arc+t1+t2
+        </sageplot>
+    </image>
+    <p>
+        We now add a right triangle to our unit circle by dropping a perpendicular from <m>P=(x,y)</m> to the <m>x</m>-axis.
+    </p>
+    <image width="50%">
+        <shortdescription>Unit circle picture for pi over 4 with reference triangle</shortdescription>
+        <sageplot>
+var('t')
+alpha=pi/4
+beta=pi/4
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,pi/2+pi/30),color='blue',ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+P=point(c(alpha), size=50, color='blue')
+Rad=line([(1,0),(0,0),hyp],color='blue')
+arc=parametric_plot(.1*c(t),(t,0,alpha), color='red')
+t1=text("$P=(x,y)$",1.1*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{\pi}{4}$",.15*c(alpha/2),color="black",fontsize=16)
+tri=line([(0,0),hyp,(a,0),(0,0)], color='red')
+l1=text(r"$\vert x\vert$",(a/2,+.05),color="black",fontsize=16)
+l2=text(r"$\vert y\vert$",(a+.05,b/2),color="black",fontsize=16)
+l3=text(r"$1$",(a/2,b/2+.05),color="black",fontsize=16)
+C+P+Rad+arc+t1+t2+tri+l1+l2+l3
+        </sageplot>
+    </image>
+        <p>
+        Note that the hypotenuse here has length 1, as it is a radius of the unit circle <m>x^2+y^2=1</m>. The two legs of the right triangle, on the other hand, have length equal to the <em>magnitudes</em> of the <m>x</m>- and <m>y</m>-coordinates of the point <m>P=(x,y)</m>: that is, <m>\abs{x}</m> and <m>\abs{y}</m>, respectively. In this case, since <m>x</m> and <m>y</m> are both positive, we happen to have <m>\abs{x}=x</m> and <m>\abs{y}=y</m>. Since the angle at the origin is <m>\pi/4=45^\circ</m>, it follows that we are working with a 45-45-90 triangle. We conclude that 
+        <md>
+            <mrow>\cos\pi/4 \amp = x \amp (<xref ref="d_sine_cosine" text="global"/>)</mrow>
+            <mrow> \amp = \abs{x} \amp (x\geq 0\implies \abs{x}=x)</mrow>
+            <mrow> \amp = \frac{\sqrt{2}}{2} \amp (<xref ref="th_special_triangles" text="global"/>)</mrow>
+            <mrow>\sin\pi/4 \amp = y \amp (<xref ref="d_sine_cosine" text="global"/>)</mrow>
+            <mrow> \amp = \abs{y} \amp (y\geq 0\implies \abs{y}=y)</mrow>
+            <mrow> \amp = \frac{\sqrt{2}}{2} \amp (<xref ref="th_special_triangles" text="global"/>)</mrow>
+        </md>.
+    The same technique can be used for any angle that appears in one of our two special triangles. The angle <m>\pi/6=30^\circ</m>, for example, has unit circle picture as depicted below, where we have added a useful right triangle.
+    </p>
+        <image xml:id="sageplot_30degrees" width="50%">
+            <shortdescription>Unit circle picture of pi/6 with reference triangle</shortdescription>
+<sageplot>
+var('t')
+alpha=pi/6
+beta=pi/3
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,pi/2+pi/30),color='blue',ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+P=point(c(alpha), size=50, color='blue')
+Rad=line([(1,0),(0,0),hyp],color='blue')
+arc=parametric_plot(.1*c(t),(t,0,alpha), color='red')
+t1=text("$P=(x,y)$",1.1*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{\pi}{6}$",.15*c(alpha/2),color="black",fontsize=16)
+tri=line([(0,0),hyp,(a,0),(0,0)], color='red')
+l1=text(r"$\vert x\vert$",(a/2,+.05),color="black",fontsize=16)
+l2=text(r"$\vert y\vert$",(a+.05,b/2),color="black",fontsize=16)
+l3=text(r"$1$",(a/2,b/2+.05),color="black",fontsize=16)
+C+P+Rad+arc+t1+t2+tri+l1+l2+l3      
+</sageplot>
+        </image>
+    <p>
+    Since the angle of the right triangle at the origin is <m>\pi/6=30^\circ</m>, the angle at <m>P</m> is <m>\pi/3=60^\circ</m>. Using our knowledge of 30-60-90 triangles, we conclude 
+    <md>
+        <mrow>\cos\pi/6 \amp = x \amp \sin\pi/6 \amp = y</mrow>
+        <mrow> \amp = \abs{x} \amp \amp= \abs{y}</mrow>
+        <mrow> \amp = \frac{\sqrt{3}}{2}\amp \amp = \frac{1}{2}</mrow>
+    </md>.
+    Let's do the same thing with <m>\pi/3=60^\circ</m>.
+</p>
+         <image width="50%">
+            <shortdescription>Unit circle picture of pi/3 with reference triangle</shortdescription>
+            <sageplot>
+var('t')
+alpha=pi/3
+beta=pi/6
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,pi/2+pi/30),color='blue',ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+P=point(c(alpha), size=50, color='blue')
+Rad=line([(1,0),(0,0),hyp],color='blue')
+arc=parametric_plot(.1*c(t),(t,0,alpha), color='red')
+t1=text("$P=(x,y)$",1.1*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{\pi}{3}$",.15*c(alpha/2),color="black",fontsize=16)
+tri=line([(0,0),hyp,(a,0),(0,0)], color='red')
+l1=text(r"$\vert x\vert$",(a/2,+.05),color="black",fontsize=16)
+l2=text(r"$\vert y\vert$",(a+.05,b/2),color="black",fontsize=16)
+l3=text(r"$1$",(a/2,b/2+.05),color="black",fontsize=16)
+C+P+Rad+arc+t1+t2+tri+l1+l2+l3      
+            </sageplot>
+        </image>
+    <p>
+    Now the 60-degree angle (<m>\pi/3</m>) is at the origin and the 30-degree angle (<m>\pi/6</m>)is at <m>P</m>. We conclude 
+    <md>
+        <mrow>\cos\pi/3 \amp =x \amp \sin\pi/3 \amp = y</mrow>
+        <mrow> \amp = \abs{x} \amp \amp= \abs{y}</mrow>
+        <mrow> \amp = \frac{1}{2}\amp \amp = \frac{\sqrt{3}}{2}</mrow>
+    </md>.
+    In the three examples above, since the point <m>P=(x,y)</m> resided in the first quadrant of the plane, both its coordinates were positive, and as a result the values of <m>\cos</m> and <m>\sin</m> were also positive. When the angle <m>\theta</m> is such that <m>P</m> lies in any other coordinate, we need to take account of the sign the coordinates of <m>P</m>. Consider <m>\theta=5\pi/6=150^\circ</m>. The unit circle with right triangle picture of this angle is shown below. 
+</p>
+      <image width="75%">
+        <shortdescription>Unit circle picture of 5\pi/6 with reference triangle</shortdescription>
+        <sageplot>
+var('t')
+alpha=2*pi/3
+beta=pi/3
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,pi+pi/30),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+P=point(c(alpha), size=50, color='blue')
+Rad=line([(1,0),(0,0),hyp],color='blue')
+arc=parametric_plot(.1*c(t),(t,0,alpha), color='red')
+arc2=parametric_plot(.1*c(t),(t,pi-beta,pi), color='red')
+t1=text("$P=(x,y)$",1.1*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{2\pi}{3}$",.15*c(alpha/2),color="black",fontsize=16)
+t3=text(r"$\frac{\pi}{3}$",.125*c(pi-beta/2),color="black",fontsize=16)
+tri=line([(0,0),hyp,(a,0),(0,0)], color='red')
+l1=text(r"$\vert x\vert$",(a/2,+.05),color="black",fontsize=16)
+l2=text(r"$\vert y\vert$",(a+.05,b/2),color="black",fontsize=16)
+l3=text(r"$1$",(a/2,b/2+.05),color="black",fontsize=16)
+C+P+Rad+arc+t1+t2+t3+tri+l1+l2+l3    
+        </sageplot>
+      </image>
+<p>
+    The angle of our right triangle is <m>\pi/3=\pi-2\pi/3</m>, or <m>30</m> degrees, making the angle at <m>P</m> equal to 60 degrees. We thus have a 30-60-90 triangle, and conclude that 
+    <md>
+        <mrow>\cos 2\pi/3 \amp = x \amp \sin 2\pi/3\amp = y</mrow>
+        <mrow> \amp = -\abs{x} \amp \amp= \abs{y}</mrow>
+        <mrow> \amp = -\frac{1}{2}\amp \amp = \frac{\sqrt{3}}{2}</mrow>
+    </md>.
+    This example makes clear the important difference between the <em>values</em> of the coordinates (<m>x</m> and <m>y</m>), and their <em>magnitudes</em> (<m>\abs{x}</m> and <m>\abs{y}</m>). We label the sides of the triangles with the magnitudes because these give the <em>lengths</em> of the sides. However, the outputs of <m>\cos</m> and <m>\sin</m> are the actual coordinate values themselves, and not just their magnitudes. Since these values can be positive or negative as the point <m>P</m> makes its way around the unit circle, we need to take careful account of the signs when computing values of <m>\cos</m> and <m>\sin</m>. The diagram in <xref ref="fig_sign_coord_unit_circle"/> is a useful schema for this type of sign accounting. 
+</p>
+<figure xml:id="fig_sign_coord_unit_circle">
+    <caption>Sign chart for coordinates of points in plane based on quadrant</caption>
+<image width="75%">
+    <shortdescription>Sign chart for coordinates of points in plane</shortdescription>
+<sageplot>
+f=plot(0,x,-1,1, ymin=-1, ymax=1, ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+t1=text("Quadrant I", (0.5, 0.75),color='black', fontsize=14)
+t2=text("Quadrant II", (-0.5, 0.75),color='black', fontsize=14)
+t3=text("Quadrant III", (-0.5, -0.75),color='black', fontsize=14)
+t4=text("Quadrant IV", (0.5, -0.75),color='black', fontsize=14)
+t5=text("$(+,+)$", (0.5, 0.5), color='black', fontsize=16)
+t6=text("$(-,+)$", (-0.5, 0.5), color='black', fontsize=16)
+t7=text("$(-,-)$", (-0.5, -0.5), color='black', fontsize=16)
+t8=text("$(+,-)$", (0.5, -0.5), color='black', fontsize=16)
+f+t1+t2+t3+t4+t5+t6+t7+t8
+</sageplot>
+</image>
+</figure>
+   
+    <exercise xml:id="eg_coors_special_points">
       <statement>
         <p>
-          The angle <m>\pi/4</m> radians,
-          drawn in standard position,
-          intersects the unit circle at the point
-          <m>(\cos(\pi/4),\sin(\pi/4))</m> as shown below in <xref ref="fig_APCFigure2-2-9">Figure</xref>:
+          In the diagram below we have specified the coordinates of the three points <m>P_\theta</m> on the unit circle corresponding to the angles <m>\theta=\pi/6, \pi/4, \pi/3</m>, as computed in the examples above.  
         </p>
-        <figure xml:id="fig_APCFigure2-2-9">
-          <caption>A reference triangle for <m>\pi/4</m> radians.</caption>
-          <image width="37%" source="APCFigure2-2-9.png"/>
-        </figure>
         <p>
-          The green triangle drawn in <xref ref="fig_APCFigure2-2-9">Figure</xref>
-          above is often referred to as a
-          <em>reference triangle</em>.
-          This is a <m>45-45-90</m> triangle so we know from <xref ref="thm_trianglesidelengths">Theorem</xref>
-          that the lengths of both legs are <m>x=y=\frac{\sqrt{2}}{2}</m>.
-          Thus the coordinates of the red point are <m>(x,y) = (\cos(\pi/4),\sin(\pi/4))</m>.
-          This implies that
-          <me>
-            x = \cos(\pi/4) = \frac{\sqrt{2}}{2} \text{ and }  y = \sin(\pi/4) = \frac{\sqrt{2}}{2}
-          </me>
-          are the values of <m>\cos(\pi/4)</m> and <m>\sin(\pi/4)</m>.
+            Use symmetry to complete the diagram. In more detail, label each of the remaining points as <m>P_\theta</m>, where <m>\theta</m> indicates the radian measure of the central angle corresponding to the point, and provide explicit coordinates for each point.
         </p>
+            <image width="75%">
+                <shortdescription>Unit circle with coordinates of special points</shortdescription>
+                <sageplot>
+var('t')
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,0,2*pi),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+L=line([(0,0),c(pi/6)], linestyle='dashed', color='black')
+p1=point([c(n*pi/6) for n in range(13)], size=50, color='red')
+p2=point([c(n*pi/4) for n in range(9)], size=50, color='red')
+t1=text(r"$P_{\pi/6}=(\frac{\sqrt{3}}{2},\frac{1}{2})$", 1.3*c(pi/6-.1), color='black', fontsize=14)
+t2=text(r"$P_{\pi/4}=(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$", 1.3*c(pi/4-.1), color='black', fontsize=14)
+t3=text(r"$P_{\pi/3}=(\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.3*c(pi/3-.1), color='black', fontsize=14)
+C+L+p1+p2+t1+t2+t3
+                </sageplot>
+            </image>
       </statement>
-    </example>
+<solution>
     <p>
-      \fbox{In the previous example,
-      we calculated the values of the functions sine and cosine by
-      <ul>
-        <li>
-          <p>
-            Drawing the angle <m>\theta</m> in standard position on the unit circle.
-          </p>
-        </li>
-        <li>
-          <p>
-            Drawing an appropriate <m>45-45-90</m> or <m>30-60-90</m> reference triangle.
-          </p>
-        </li>
-        <li>
-          <p>
-            Finding the lengths of the legs of the reference triangle.
-          </p>
-        </li>
-        <li>
-          <p>
-            Labeling the point <m>(x,y)</m> on the unit circle using the coordinates from the reference triangle.
-          </p>
-        </li>
-        <li>
-          <p>
-            Recalling that the <m>x</m>-coordinate is the value of cosine of the angle <m>\theta</m> and the <m>y</m>-coordinate is the value of sine of the angle <m>\theta</m>
-          </p>
-        </li>
-      </ul>
+       Below you find the completed diagram.  
     </p>
-    <p>
-      Let's see this same process in another example:
-    </p>
-    <example xml:id="ex_piover6">
-      <statement>
-        <p>
-          The angle <m>\pi/6</m> radians,
-          drawn in standard position,
-          intersects the unit circle at the point
-          <m>(\cos(\pi/6),\sin(\pi/6))</m> as shown below in <xref ref="fig_APCFigure2-2-8">Figure</xref>:
-        </p>
-        <figure xml:id="fig_APCFigure2-2-8">
-          <caption>A reference triangle for <m>\pi/6</m> radians.</caption>
-          <image width="37%" source="APCFigure2-2-8.png"/>
-        </figure>
-        <p>
-          The green reference triangle in <xref ref="fig_APCFigure2-2-8">Figure</xref> is a
-          <m>30-60-90</m> triangle so we know from <xref ref="thm_trianglesidelengths">Theorem</xref>
-          that <m>x = \frac{\sqrt{3}}{2}</m> and <m>y = \frac{1}{2}</m>.
-          Thus <m>(x,y) = (\cos(\pi/6),\sin(\pi/6))</m>.
-          This implies that
-          <me>
-            x = \cos(\pi/6) =  \frac{\sqrt{3}}{2}  \text{ and }  y = \sin(\pi/6) = \frac{1}{2}
-          </me>
-          are the values of <m>\cos(\pi/6)</m> and <m>\sin(\pi/6)</m>.
-        </p>
-      </statement>
-    </example>
-    <p>
-      Let's see this same process in one more example:
-    </p>
-    <example xml:id="ex_piover3">
-      <statement>
-        <p>
-          The angle <m>\pi/3</m> radians,
-          drawn in standard position,
-          intersects the unit circle at the point <m>(\cos(\pi/3),\sin(\pi/3))</m>:
-        </p>
-        <figure xml:id="fig_APCFigure2-2-10">
-          <caption>A reference triangle for <m>\pi/3</m> radians.</caption>
-          <image width="37%" source="APCFigure2-2-10.png"/>
-        </figure>
-        <p>
-          The green reference triangle in <xref ref="fig_APCFigure2-2-10">Figure</xref>
-          is a <m>30-60-90</m> triangle too,
-          only with the long and short legs reversed from the previous example.
-          We know from <xref ref="thm_trianglesidelengths">Theorem</xref>
-          that <m>x =\frac{1}{2}</m> and <m>y =  \frac{\sqrt{3}}{2}</m>.
-          Thus <m>(x,y) = (\cos(\pi/3),\sin(\pi/3))</m>.
-          This implies that
-          <me>
-            x = \cos(\pi/3) = \frac{1}{2}  \text{ and }  y = \sin(\pi/3) =  \frac{\sqrt{3}}{2}
-          </me>
-          are the values of <m>\cos(\pi/3)</m> and <m>\sin(\pi/3)</m>.
-        </p>
-      </statement>
-    </example>
-    <p>
-      The above method and examples are enough to determine the values of sine and cosine for all multiples of <m>\pi/6, \pi/4</m>,
-      and <m>\pi/3</m>.
-      The last piece of information needed is that the signs of the coordinates <m>x</m> and <m>y</m> change depending on the quadrant in which the point is located:
-    </p>
-    <figure xml:id="fig_Quadrants">
-      <caption>The four quadrants of the Cartesian plane are labeled counterclockwise from the top right.</caption>
-      <image width="56%" source="Quadrants.png"/>
-    </figure>
-    <p>
-      Both coordinates in Quadrant I are positive.
-      In Quadrant II, the <m>x</m>-coordinate is negative while the <m>y</m>-coordinate is positive.
-      In Quadrant III, both coordinates are negative.
-      In Quadrant IV, the <m>x</m>-coordinate is positive while the <m>y</m>-coordinate is negative.
-    </p>
-    <exercise xml:id="ex_trigvaluesonunitcircle">
-      <statement>
-        <p>
-          In <xref ref="ex_piover4">Example</xref>,
-          <xref ref="ex_piover6">Example</xref>,
-          and <xref ref="ex_piover3">Example</xref>,
-          we found the precise coordinates of the points at <m>t=\pi/6</m>,
-          <m>t=\pi/4</m>,
-          and <m>t=\pi/3</m> radians, shown in Quadrant I below.
-        </p>
-        <p>
-          <em>Use symmetry to label the coordinates of all of the remaining points in Quadrants II-IV, along with their radian measures.</em>
-        </p>
-        <p>
-          <image width="84%" source="APCFigure2-2-11.png"/>
-        </p>
-      </statement>
+    <image>
+        <shortdescription>Completed unit circle diagram of special points</shortdescription>
+        <sageplot>
+var('t')
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,0,2*pi),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+L=line([(0,0),c(pi/6)], linestyle='dashed', color='black')
+p1=point([c(n*pi/6) for n in range(13)], size=50, color='red')
+p2=point([c(n*pi/4) for n in range(9)], size=50, color='red')
+t1=text(r"$P_{\pi/6}=(\frac{\sqrt{3}}{2},\frac{1}{2})$", 1.3*c(pi/6-.1), color='black', fontsize=14)
+t2=text(r"$P_{\pi/4}=(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$", 1.3*c(pi/4-.1), color='black', fontsize=14)
+t3=text(r"$P_{\pi/3}=(\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.3*c(pi/3-.1), color='black', fontsize=14)
+t4=text(r"$P_{5\pi/6}=(-\frac{\sqrt{3}}{2},\frac{1}{2})$", 1.35*c(5*pi/6+.05), color='black', fontsize=14)
+t5=text(r"$P_{3\pi/4}=(-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$", 1.35*c(3*pi/4+.1), color='black', fontsize=14)
+t6=text(r"$P_{2\pi/3}=(-\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.3*c(2*pi/3+.1), color='black', fontsize=14)
+t7=text(r"$P_{7\pi/6}=(-\frac{\sqrt{3}}{2},-\frac{1}{2})$", 1.4*c(7*pi/6-.1), color='black', fontsize=14)
+t8=text(r"$P_{5\pi/4}=(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2})$", 1.4*c(5*pi/4-.1), color='black', fontsize=14)
+t9=text(r"$P_{4\pi/3}=(-\frac{1}{2},-\frac{\sqrt{3}}{2})$", 1.4*c(4*pi/3-.1), color='black', fontsize=14)
+t10=text(r"$P_{11\pi/6}=(\frac{\sqrt{3}}{2},-\frac{1}{2})$", 1.4*c(11*pi/6+.1), color='black', fontsize=14)
+t11=text(r"$P_{3\pi/2}=(0,-1)$", 1.2*c(3*pi/2+.1), color='black', fontsize=14)
+t12=text(r"$P_{0}=(1,0)$", 1.35*c(2*pi+.04), color='black', fontsize=14)
+t13=text(r"$P_{\pi}=(-1,0)$", 1.35*c(pi-.04), color='black', fontsize=14)
+t14=text(r"$P_{\pi/2}=(0,1)$", 1.15*c(pi/2-.051), color='black', fontsize=14)
+t15=text(r"$P_{5\pi/3}=(-\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.35*c(5*pi/3+.2), color='black', fontsize=14)
+t16=text(r"$P_{7\pi/4}=(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2})$", 1.42*c(7*pi/4+.2), color='black', fontsize=14)
+C+L+p1+p2+t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14+t15+t16
+        </sageplot>
+    </image>
+</solution>
     </exercise>
   </subsection>
   <subsection>
@@ -281,8 +425,8 @@
     </p>
     <p>
       For values of <m>\theta</m> that are not between <m>0</m> and <m>2\pi</m>,
-      we can find an angle between <m>0</m> and <m>2\pi</m> with the same terminal edge and calculate the values of sine as cosine with a <m>45-45-90</m> or
-      <m>30-60-90</m> reference triangle as before.
+      we can find an angle between <m>0</m> and <m>2\pi</m> with the same terminal edge and calculate the values of sine as cosine with a 45-45-90 or
+      30-60-90 reference triangle as before.
     </p>
     <example xml:id="ex_fivepioversix">
       <statement>
@@ -312,7 +456,7 @@
         </p>
         <p>
           Luckily for us, this reference triangle is a
-          <m>30-60-90</m> triangle and therefore we already know its side lengths:
+          30-60-90 triangle and therefore we already know its side lengths:
         </p>
         <p>
           <image width="42%" source="TaalmanPage407b.png"/>
@@ -352,7 +496,7 @@
     </exercise>
     <p>
       For angles whose reference triangles are not our convenient
-      <m>30-60-90</m> or <m>45-45-90</m> triangles,
+      30-60-90 or 45-45-90 triangles,
       we must resort to calculating trigonometric values with a calculator.
       This is the same as needing to use a calculator to find the values of
       <m>f(x) = \log_b x</m> for all values of <m>x</m> that are not powers of the base <m>b</m>.
@@ -595,7 +739,7 @@
         </p>
         <p>
           In the right-hand picture above,
-          we see a <m>45-45-90</m> reference triangle with the labeled side lengths of <m>\sqrt{2}/2</m>.
+          we see a 45-45-90 reference triangle with the labeled side lengths of <m>\sqrt{2}/2</m>.
           Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative.
           By the unit-circle definitions of sine and cosine,
           <me>
