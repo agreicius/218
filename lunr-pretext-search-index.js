@@ -6469,7 +6469,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.17",
   "title": "Computing with trigonometric functions",
-  "body": " Computing with trigonometric functions     Derive the side lengths of and triangles.    Use reference triangles to calculate certain values of sine and cosine exactly.    Think critically about the difference between radian and degree measures of angles, and the resulting values of sine and cosine.    See how the alternate definition of sine and cosine via right triangles results in the same values for acute angles.    Define the remaining trigonometric functions. There are six in all.      and Triangles  Our in-depth study of the unit circle is motivated by our desire to better understand the behavior of circular functions. Recall that as we traverse a circle, the height of the point moving along the circle generates a function that depends on distance traveled along the circle. Wherever possible, we'd like to be able to identify the exact height of a given point on the unit circle. Two special right triangles enable us to determine precisely an important collection of points on the unit circle.   Side Lengths of Two Important Right Triangles   The right triangle and right triangle with hypotenuse of length 1 unit have side lengths as shown in the following figures:       The sides lengths of these triangles is a consequence of the Pythagorean Theorem:   Let's start with the triangle. Suppose a right triangle with a hypotenuse of length 1 has two angles of 45 degrees. Then the triangle is an isosceles triangle; that is, its two legs have the same length , as shown in Figure :   A triangle must have legs of the same length.    By the Pythagorean Theorem,   Notice that we considered only the positive square root of since we know that is a length and thus must be positive.  Now suppose that a right triangle has a hypotenuse of length 1, and angles of 30, 60, and 90 degrees. Let be the length of the leg across from the 30-degree angle, and let be the length of the leg across from the 60-degree angle. Two of these triangles together make the equilateral triangle in Figure below:   A triangle can be doubled to form an equilateral triangle, with all three sides the same length as the hypotenuse.    Since this triangle is equilateral, it follows that . By the Pythagorean Theorem,   Note that we considered only the positive square root in this calculation since is a length and must be positive.     Using Reference Triangles to Calculate Values of Sine and Cosine  Using and triangles we can calculate the trigonometric functions of the angles radians, radians, and radians.  In order to do this, we recall that for a point on the unit circle (meaning, the circle of radius 1), we can interpret and where is measured from the positive -axis:       The angle radians, drawn in standard position, intersects the unit circle at the point as shown below in Figure :   A reference triangle for radians.    The green triangle drawn in Figure above is often referred to as a reference triangle . This is a triangle so we know from Theorem that the lengths of both legs are . Thus the coordinates of the red point are . This implies that are the values of and .    \\fbox{In the previous example, we calculated the values of the functions sine and cosine by   Drawing the angle in standard position on the unit circle.    Drawing an appropriate or reference triangle.    Finding the lengths of the legs of the reference triangle.    Labeling the point on the unit circle using the coordinates from the reference triangle.    Recalling that the -coordinate is the value of cosine of the angle and the -coordinate is the value of sine of the angle      Let's see this same process in another example:    The angle radians, drawn in standard position, intersects the unit circle at the point as shown below in Figure :   A reference triangle for radians.    The green reference triangle in Figure is a triangle so we know from Theorem that and . Thus . This implies that are the values of and .    Let's see this same process in one more example:    The angle radians, drawn in standard position, intersects the unit circle at the point :   A reference triangle for radians.    The green reference triangle in Figure is a triangle too, only with the long and short legs reversed from the previous example. We know from Theorem that and . Thus . This implies that are the values of and .    The above method and examples are enough to determine the values of sine and cosine for all multiples of , and . The last piece of information needed is that the signs of the coordinates and change depending on the quadrant in which the point is located:   The four quadrants of the Cartesian plane are labeled counterclockwise from the top right.    Both coordinates in Quadrant I are positive. In Quadrant II, the -coordinate is negative while the -coordinate is positive. In Quadrant III, both coordinates are negative. In Quadrant IV, the -coordinate is positive while the -coordinate is negative.    In Example , Example , and Example , we found the precise coordinates of the points at , , and radians, shown in Quadrant I below.   Use symmetry to label the coordinates of all of the remaining points in Quadrants II-IV, along with their radian measures.          Calculating Values of Sine and Cosine Beyond to  It is important to note that the values of the trigonometric functions depend only on the terminal edge of in standard position, and not on how many times or in what direction the angle rotates around the unit circle. Therefore, angles whose terminal edges intersect the unit circle at the same point will have the same trigonometric function values.  For values of that are not between and , we can find an angle between and with the same terminal edge and calculate the values of sine as cosine with a or reference triangle as before.    For example, the angles , , and all have the same terminal edge (check this for yourself by drawing them all in standard position!) and thus all have the same trigonometric values (this is another way to see that the sine and cosine functions have period as observed in the last section).  Now to actually calculate, say, the sine and cosine of the angle , we have to know the coordinates at which the terminal edge of meets the unit circle. You can look this up on your work from Exercise , or you can follow the method presented here.  As shown below, we can make a reference triangle by dropping down a line from the point where the terminal edge of meets the unit circle.     Luckily for us, this reference triangle is a triangle and therefore we already know its side lengths:     The -coordinate of the point where the terminal edge meets the unit circle tells us that and the -coordinate of that point tells us that .  As mentioned above, the values of sine and cosine at , , and will all be the same, thus and       Verify that , , and all have the same terminal edge by drawing all three in standard position on the same coordinate plane.  Then use the values of and from Exercise to determine the value of . Because the three angles have the same terminal edge, this is also the value of and of .    For angles whose reference triangles are not our convenient or triangles, we must resort to calculating trigonometric values with a calculator. This is the same as needing to use a calculator to find the values of for all values of that are not powers of the base .  One thing to note is that you may need to change the mode of your calculator depending on whether you are working with degrees or radians.    For example, with a calculator in degree mode , we can approximate that and that .      With a calculator in radian mode we can approximate . We can verify that this makes sense with a picture. As shown in the picture below, it does seem realistic that the angle (which is one-fifth of the way clockwise on the bottom half of the unit circle) meets the unit circle at a point whose -coordinate is approximately (relatively close to ).       It is essential to keep track of which units are being used and to check that the answer on a calculator makes sense with the position of the angle on the unit circle. After all, our tools are only as smart as we are!     Do not use a calculator! The values , with 3 measured in radians, and are close to either or . Which is which? Why?      Right-Triangle Trigonometry  There is another standard approach to defining the trigonometric functions, at least for acute angles, meaning angles measure between and . Sine, cosine, and tangent can be defined in terms of side lengths of triangles. Every acute angle can be realized as part of a right triangle with opposite and adjacent sides as labeled in Figure below:   Opposite and adjacent sides to an acute angle. The hypotenuse is opposite the right angle.    For any given acute angle there are many possible right triangles that we could draw, but as illustrated in Figure , all of the possibilities will have the same three angles and thus be similar triangles.   Right triangles with the same acute angles must be similar.    This relationship is key, since the Law of Similar Triangles tells us that the similar triangles may have different side lengths, but always have the same ratios of side lengths:   We have defined three of the functions that result from these ratios already: sine results from the ratio of the opposite side to the hypotenuse, cosine results from the ratio of the adjacent side to the hypotenuse, and tangent results from the ratio of the opposite side to the adjacent side. There are three other trigonometric functions that we have not yet mentioned that result from the reciprocals of these ratios: cosecant, secant, and cotangent, respectively.  In the following definition, \"opp,\" \"adj,\" and \"hyp\" denote the lengths of the opposite side, adjacent side, and hypotenuse, respectively:   Trigonometric functions for acute angles   Given an acute angle , the six trigonometric functions are defined as the following six ratios of side lengths:                                  It is worth noting in particular that for most values of .      For example, consider the angle shown in the right triangle shown below:  The side lengths here are opp , adj , and hyp . The ratios of these side lengths give us        The same angle as in Example can be thought of inside the triangle:     Although all the side lengths are twice as large, their ratios will be exactly the same. Find , , and using the side lengths in the triangle, and simplify in order to verify that they are the same as in Example .    The right-triangle definitions of sine, cosine and tangent for acute angles are compatible with the original definitions via the unit circle. Acute angles in standard position must terminate in the first quadrant, as illustrated below:     If the radius of the circle is 1, then the hypotenuse of the triangle is 1, and so we can see that     The functions cosecant, secant, and cotangent are defined for arbitrary angles as the reciprocals of sine, cosine, and tangent, respectively, just as they are for acute angles.   One thing to notice is that it is not necessary to use the unit circle to define the sine and cosine functions. It is simply convenient. We see from the right-triangle definitions that any size radius will give us the same value for sine and cosine, provided that we take the ratio of the side lengths to the radius. So we could define if we choose to use a circle of radius , instead of radius 1.   Now that we have formally defined all six of the trigonometric functions, here is one more example of calculating the values of the trigonometric functions by hand using a reference triangle:    Sketch the angle in standard position, and then use the unit circle to find the values of all six trigonometric functions of that angle.    Note that . Since radians is one full revolution around the unit circle, the angle opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle, as shown at the left:     In the right-hand picture above, we see a reference triangle with the labeled side lengths of . Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative. By the unit-circle definitions of sine and cosine,   Therefore       Finish Example : Use the values of and calculated there to determine         ,     , and             "
+  "body": " Computing with trigonometric functions     Derive the side lengths of 45-45-90 and 30-60-90 triangles.    Use reference triangles to calculate certain values of sine and cosine exactly.    Think critically about the difference between radian and degree measures of angles, and the resulting values of sine and cosine.    See how the alternate definition of sine and cosine via right triangles results in the same values for acute angles.    Define the remaining trigonometric functions.      Side lengths of two special right triangles  Our in-depth study of the unit circle is motivated by our desire to better understand the behavior of circular functions. Recall that as we traverse a circle, the height of the point moving along the circle generates a function that depends on distance traveled along the circle. Wherever possible, we'd like to be able to identify the exact height of a given point on the unit circle. Two special right triangles enable us to determine precisely an important collection of points on the unit circle.   Special right triangles      45-45-90 triangle  Let be a triangle with angles 45,45, and 90 degrees. If the hypotenuse of has length , then the two remaining sides of have length .    30-60-90 triangle  Let be a triangle with angles 30,60, and 90 degrees. If the hypotenuse of has length , then the side of opposite the 30-degree angle has length , and the side of opposite the 60-degree angle has length .        Special right triangles    45-45-90 triangle   45-45-90 triangle      30-60-90 triangle   45-45-90 triangle        Let's start with the 45-45-90 triangle. Suppose a right triangle with a hypotenuse of length 1 has two angles of 45 degrees. Then the triangle is an isosceles triangle; that is, its two legs have the same length , as shown in Figure :   A 45-45-90 triangle must have legs of the same length.    By the Pythagorean Theorem,   Notice that we considered only the positive square root of since we know that is a length and thus must be positive.  Now suppose that a right triangle has a hypotenuse of length 1, and angles of 30, 60, and 90 degrees. Let be the length of the leg across from the 30-degree angle, and let be the length of the leg across from the 60-degree angle. Two of these triangles together make the equilateral triangle in Figure below:   A 30-60-90 triangle can be doubled to form an equilateral triangle, with all three sides the same length as the hypotenuse.    Since this triangle is equilateral, it follows that . By the Pythagorean Theorem,   Note that we considered only the positive square root in this calculation since is a length and must be positive.   We now endeavor to use to compute values of and for radians (equivalently, degrees). The method will be to add an appropriate right triangle to the unit circle picture described in Step 1 of .  Let's see how this works with , which has unit circle picture   Unit circle picture for pi over 4    We now add a right triangle to our unit circle by dropping a perpendicular from to the -axis.   Unit circle picture for pi over 4 with reference triangle    Note that the hypotenuse here has length 1, as it is a radius of the unit circle . The two legs of the right triangle, on the other hand, have length equal to the magnitudes of the - and -coordinates of the point : that is, and , respectively. In this case, since and are both positive, we happen to have and . Since the angle at the origin is , it follows that we are working with a 45-45-90 triangle. We conclude that . The same technique can be used for any angle that appears in one of our two special triangles. The angle , for example, has unit circle picture as depicted below, where we have added a useful right triangle.   Unit circle picture of pi\/6 with reference triangle    Since the angle of the right triangle at the origin is , the angle at is . Using our knowledge of 30-60-90 triangles, we conclude . Let's do the same thing with .   Unit circle picture of pi\/3 with reference triangle    Now the 60-degree angle ( ) is at the origin and the 30-degree angle ( )is at . We conclude . In the three examples above, since the point resided in the first quadrant of the plane, both its coordinates were positive, and as a result the values of and were also positive. When the angle is such that lies in any other coordinate, we need to take account of the sign the coordinates of . Consider . The unit circle with right triangle picture of this angle is shown below.   Unit circle picture of 5\\pi\/6 with reference triangle    The angle of our right triangle is , or degrees, making the angle at equal to 60 degrees. We thus have a 30-60-90 triangle, and conclude that . This example makes clear the important difference between the values of the coordinates ( and ), and their magnitudes ( and ). We label the sides of the triangles with the magnitudes because these give the lengths of the sides. However, the outputs of and are the actual coordinate values themselves, and not just their magnitudes. Since these values can be positive or negative as the point makes its way around the unit circle, we need to take careful account of the signs when computing values of and . The diagram in is a useful schema for this type of sign accounting.   Sign chart for coordinates of points in plane based on quadrant   Sign chart for coordinates of points in plane       In the diagram below we have specified the coordinates of the three points on the unit circle corresponding to the angles , as computed in the examples above.  Use symmetry to complete the diagram. In more detail, label each of the remaining points as , where indicates the radian measure of the central angle corresponding to the point, and provide explicit coordinates for each point.   Unit circle with coordinates of special points      Below you find the completed diagram.   Completed unit circle diagram of special points        Calculating Values of Sine and Cosine Beyond to  It is important to note that the values of the trigonometric functions depend only on the terminal edge of in standard position, and not on how many times or in what direction the angle rotates around the unit circle. Therefore, angles whose terminal edges intersect the unit circle at the same point will have the same trigonometric function values.  For values of that are not between and , we can find an angle between and with the same terminal edge and calculate the values of sine as cosine with a 45-45-90 or 30-60-90 reference triangle as before.    For example, the angles , , and all have the same terminal edge (check this for yourself by drawing them all in standard position!) and thus all have the same trigonometric values (this is another way to see that the sine and cosine functions have period as observed in the last section).  Now to actually calculate, say, the sine and cosine of the angle , we have to know the coordinates at which the terminal edge of meets the unit circle. You can look this up on your work from Exercise , or you can follow the method presented here.  As shown below, we can make a reference triangle by dropping down a line from the point where the terminal edge of meets the unit circle.     Luckily for us, this reference triangle is a 30-60-90 triangle and therefore we already know its side lengths:     The -coordinate of the point where the terminal edge meets the unit circle tells us that and the -coordinate of that point tells us that .  As mentioned above, the values of sine and cosine at , , and will all be the same, thus and       Verify that , , and all have the same terminal edge by drawing all three in standard position on the same coordinate plane.  Then use the values of and from Exercise to determine the value of . Because the three angles have the same terminal edge, this is also the value of and of .    For angles whose reference triangles are not our convenient 30-60-90 or 45-45-90 triangles, we must resort to calculating trigonometric values with a calculator. This is the same as needing to use a calculator to find the values of for all values of that are not powers of the base .  One thing to note is that you may need to change the mode of your calculator depending on whether you are working with degrees or radians.    For example, with a calculator in degree mode , we can approximate that and that .      With a calculator in radian mode we can approximate . We can verify that this makes sense with a picture. As shown in the picture below, it does seem realistic that the angle (which is one-fifth of the way clockwise on the bottom half of the unit circle) meets the unit circle at a point whose -coordinate is approximately (relatively close to ).       It is essential to keep track of which units are being used and to check that the answer on a calculator makes sense with the position of the angle on the unit circle. After all, our tools are only as smart as we are!     Do not use a calculator! The values , with 3 measured in radians, and are close to either or . Which is which? Why?      Right-Triangle Trigonometry  There is another standard approach to defining the trigonometric functions, at least for acute angles, meaning angles measure between and . Sine, cosine, and tangent can be defined in terms of side lengths of triangles. Every acute angle can be realized as part of a right triangle with opposite and adjacent sides as labeled in Figure below:   Opposite and adjacent sides to an acute angle. The hypotenuse is opposite the right angle.    For any given acute angle there are many possible right triangles that we could draw, but as illustrated in Figure , all of the possibilities will have the same three angles and thus be similar triangles.   Right triangles with the same acute angles must be similar.    This relationship is key, since the Law of Similar Triangles tells us that the similar triangles may have different side lengths, but always have the same ratios of side lengths:   We have defined three of the functions that result from these ratios already: sine results from the ratio of the opposite side to the hypotenuse, cosine results from the ratio of the adjacent side to the hypotenuse, and tangent results from the ratio of the opposite side to the adjacent side. There are three other trigonometric functions that we have not yet mentioned that result from the reciprocals of these ratios: cosecant, secant, and cotangent, respectively.  In the following definition, \"opp,\" \"adj,\" and \"hyp\" denote the lengths of the opposite side, adjacent side, and hypotenuse, respectively:   Trigonometric functions for acute angles   Given an acute angle , the six trigonometric functions are defined as the following six ratios of side lengths:                                  It is worth noting in particular that for most values of .      For example, consider the angle shown in the right triangle shown below:  The side lengths here are opp , adj , and hyp . The ratios of these side lengths give us        The same angle as in Example can be thought of inside the triangle:     Although all the side lengths are twice as large, their ratios will be exactly the same. Find , , and using the side lengths in the triangle, and simplify in order to verify that they are the same as in Example .    The right-triangle definitions of sine, cosine and tangent for acute angles are compatible with the original definitions via the unit circle. Acute angles in standard position must terminate in the first quadrant, as illustrated below:     If the radius of the circle is 1, then the hypotenuse of the triangle is 1, and so we can see that     The functions cosecant, secant, and cotangent are defined for arbitrary angles as the reciprocals of sine, cosine, and tangent, respectively, just as they are for acute angles.   One thing to notice is that it is not necessary to use the unit circle to define the sine and cosine functions. It is simply convenient. We see from the right-triangle definitions that any size radius will give us the same value for sine and cosine, provided that we take the ratio of the side lengths to the radius. So we could define if we choose to use a circle of radius , instead of radius 1.   Now that we have formally defined all six of the trigonometric functions, here is one more example of calculating the values of the trigonometric functions by hand using a reference triangle:    Sketch the angle in standard position, and then use the unit circle to find the values of all six trigonometric functions of that angle.    Note that . Since radians is one full revolution around the unit circle, the angle opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle, as shown at the left:     In the right-hand picture above, we see a 45-45-90 reference triangle with the labeled side lengths of . Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative. By the unit-circle definitions of sine and cosine,   Therefore       Finish Example : Use the values of and calculated there to determine         ,     , and             "
 },
 {
   "id": "s_trig_computing-2",
@@ -6478,16 +6478,25 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.17",
   "title": "",
-  "body": "   Derive the side lengths of and triangles.    Use reference triangles to calculate certain values of sine and cosine exactly.    Think critically about the difference between radian and degree measures of angles, and the resulting values of sine and cosine.    See how the alternate definition of sine and cosine via right triangles results in the same values for acute angles.    Define the remaining trigonometric functions. There are six in all.    "
+  "body": "   Derive the side lengths of 45-45-90 and 30-60-90 triangles.    Use reference triangles to calculate certain values of sine and cosine exactly.    Think critically about the difference between radian and degree measures of angles, and the resulting values of sine and cosine.    See how the alternate definition of sine and cosine via right triangles results in the same values for acute angles.    Define the remaining trigonometric functions.    "
 },
 {
-  "id": "thm_trianglesidelengths",
+  "id": "th_special_triangles",
   "level": "2",
-  "url": "s_trig_computing.html#thm_trianglesidelengths",
+  "url": "s_trig_computing.html#th_special_triangles",
   "type": "Theorem",
   "number": "2.17.1",
-  "title": "Side Lengths of Two Important Right Triangles.",
-  "body": " Side Lengths of Two Important Right Triangles   The right triangle and right triangle with hypotenuse of length 1 unit have side lengths as shown in the following figures:      "
+  "title": "Special right triangles.",
+  "body": " Special right triangles      45-45-90 triangle  Let be a triangle with angles 45,45, and 90 degrees. If the hypotenuse of has length , then the two remaining sides of have length .    30-60-90 triangle  Let be a triangle with angles 30,60, and 90 degrees. If the hypotenuse of has length , then the side of opposite the 30-degree angle has length , and the side of opposite the 60-degree angle has length .      "
+},
+{
+  "id": "fig_special_triangles",
+  "level": "2",
+  "url": "s_trig_computing.html#fig_special_triangles",
+  "type": "Figure",
+  "number": "2.17.2",
+  "title": "",
+  "body": " Special right triangles    45-45-90 triangle   45-45-90 triangle      30-60-90 triangle   45-45-90 triangle      "
 },
 {
   "id": "s_trig_computing-3-5",
@@ -6496,104 +6505,68 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "1",
   "title": "",
-  "body": " Let's start with the triangle. Suppose a right triangle with a hypotenuse of length 1 has two angles of 45 degrees. Then the triangle is an isosceles triangle; that is, its two legs have the same length , as shown in Figure :   A triangle must have legs of the same length.    By the Pythagorean Theorem,   Notice that we considered only the positive square root of since we know that is a length and thus must be positive.  Now suppose that a right triangle has a hypotenuse of length 1, and angles of 30, 60, and 90 degrees. Let be the length of the leg across from the 30-degree angle, and let be the length of the leg across from the 60-degree angle. Two of these triangles together make the equilateral triangle in Figure below:   A triangle can be doubled to form an equilateral triangle, with all three sides the same length as the hypotenuse.    Since this triangle is equilateral, it follows that . By the Pythagorean Theorem,   Note that we considered only the positive square root in this calculation since is a length and must be positive.  "
+  "body": " Let's start with the 45-45-90 triangle. Suppose a right triangle with a hypotenuse of length 1 has two angles of 45 degrees. Then the triangle is an isosceles triangle; that is, its two legs have the same length , as shown in Figure :   A 45-45-90 triangle must have legs of the same length.    By the Pythagorean Theorem,   Notice that we considered only the positive square root of since we know that is a length and thus must be positive.  Now suppose that a right triangle has a hypotenuse of length 1, and angles of 30, 60, and 90 degrees. Let be the length of the leg across from the 30-degree angle, and let be the length of the leg across from the 60-degree angle. Two of these triangles together make the equilateral triangle in Figure below:   A 30-60-90 triangle can be doubled to form an equilateral triangle, with all three sides the same length as the hypotenuse.    Since this triangle is equilateral, it follows that . By the Pythagorean Theorem,   Note that we considered only the positive square root in this calculation since is a length and must be positive.  "
 },
 {
-  "id": "s_trig_computing-4-4",
+  "id": "fig_sign_coord_unit_circle",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-4-4",
+  "url": "s_trig_computing.html#fig_sign_coord_unit_circle",
   "type": "Figure",
-  "number": "2.17.4",
-  "title": "",
-  "body": "  "
-},
-{
-  "id": "ex_piover4",
-  "level": "2",
-  "url": "s_trig_computing.html#ex_piover4",
-  "type": "Example",
   "number": "2.17.5",
   "title": "",
-  "body": "  The angle radians, drawn in standard position, intersects the unit circle at the point as shown below in Figure :   A reference triangle for radians.    The green triangle drawn in Figure above is often referred to as a reference triangle . This is a triangle so we know from Theorem that the lengths of both legs are . Thus the coordinates of the red point are . This implies that are the values of and .   "
+  "body": " Sign chart for coordinates of points in plane based on quadrant   Sign chart for coordinates of points in plane    "
 },
 {
-  "id": "ex_piover6",
+  "id": "eg_coors_special_points",
   "level": "2",
-  "url": "s_trig_computing.html#ex_piover6",
-  "type": "Example",
-  "number": "2.17.7",
-  "title": "",
-  "body": "  The angle radians, drawn in standard position, intersects the unit circle at the point as shown below in Figure :   A reference triangle for radians.    The green reference triangle in Figure is a triangle so we know from Theorem that and . Thus . This implies that are the values of and .   "
-},
-{
-  "id": "ex_piover3",
-  "level": "2",
-  "url": "s_trig_computing.html#ex_piover3",
-  "type": "Example",
-  "number": "2.17.9",
-  "title": "",
-  "body": "  The angle radians, drawn in standard position, intersects the unit circle at the point :   A reference triangle for radians.    The green reference triangle in Figure is a triangle too, only with the long and short legs reversed from the previous example. We know from Theorem that and . Thus . This implies that are the values of and .   "
-},
-{
-  "id": "fig_Quadrants",
-  "level": "2",
-  "url": "s_trig_computing.html#fig_Quadrants",
-  "type": "Figure",
-  "number": "2.17.11",
-  "title": "",
-  "body": " The four quadrants of the Cartesian plane are labeled counterclockwise from the top right.   "
-},
-{
-  "id": "ex_trigvaluesonunitcircle",
-  "level": "2",
-  "url": "s_trig_computing.html#ex_trigvaluesonunitcircle",
+  "url": "s_trig_computing.html#eg_coors_special_points",
   "type": "Checkpoint",
-  "number": "2.17.12",
+  "number": "2.17.6",
   "title": "",
-  "body": "  In Example , Example , and Example , we found the precise coordinates of the points at , , and radians, shown in Quadrant I below.   Use symmetry to label the coordinates of all of the remaining points in Quadrants II-IV, along with their radian measures.       "
+  "body": "  In the diagram below we have specified the coordinates of the three points on the unit circle corresponding to the angles , as computed in the examples above.  Use symmetry to complete the diagram. In more detail, label each of the remaining points as , where indicates the radian measure of the central angle corresponding to the point, and provide explicit coordinates for each point.   Unit circle with coordinates of special points      Below you find the completed diagram.   Completed unit circle diagram of special points     "
 },
 {
   "id": "ex_fivepioversix",
   "level": "2",
   "url": "s_trig_computing.html#ex_fivepioversix",
   "type": "Example",
-  "number": "2.17.13",
+  "number": "2.17.7",
   "title": "",
-  "body": "  For example, the angles , , and all have the same terminal edge (check this for yourself by drawing them all in standard position!) and thus all have the same trigonometric values (this is another way to see that the sine and cosine functions have period as observed in the last section).  Now to actually calculate, say, the sine and cosine of the angle , we have to know the coordinates at which the terminal edge of meets the unit circle. You can look this up on your work from Exercise , or you can follow the method presented here.  As shown below, we can make a reference triangle by dropping down a line from the point where the terminal edge of meets the unit circle.     Luckily for us, this reference triangle is a triangle and therefore we already know its side lengths:     The -coordinate of the point where the terminal edge meets the unit circle tells us that and the -coordinate of that point tells us that .  As mentioned above, the values of sine and cosine at , , and will all be the same, thus and    "
+  "body": "  For example, the angles , , and all have the same terminal edge (check this for yourself by drawing them all in standard position!) and thus all have the same trigonometric values (this is another way to see that the sine and cosine functions have period as observed in the last section).  Now to actually calculate, say, the sine and cosine of the angle , we have to know the coordinates at which the terminal edge of meets the unit circle. You can look this up on your work from Exercise , or you can follow the method presented here.  As shown below, we can make a reference triangle by dropping down a line from the point where the terminal edge of meets the unit circle.     Luckily for us, this reference triangle is a 30-60-90 triangle and therefore we already know its side lengths:     The -coordinate of the point where the terminal edge meets the unit circle tells us that and the -coordinate of that point tells us that .  As mentioned above, the values of sine and cosine at , , and will all be the same, thus and    "
 },
 {
-  "id": "s_trig_computing-5-5",
+  "id": "s_trig_computing-4-5",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-5-5",
+  "url": "s_trig_computing.html#s_trig_computing-4-5",
   "type": "Checkpoint",
-  "number": "2.17.14",
+  "number": "2.17.8",
   "title": "",
   "body": "  Verify that , , and all have the same terminal edge by drawing all three in standard position on the same coordinate plane.  Then use the values of and from Exercise to determine the value of . Because the three angles have the same terminal edge, this is also the value of and of .   "
 },
 {
-  "id": "s_trig_computing-5-8",
+  "id": "s_trig_computing-4-8",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-5-8",
+  "url": "s_trig_computing.html#s_trig_computing-4-8",
   "type": "Example",
-  "number": "2.17.15",
+  "number": "2.17.9",
   "title": "",
   "body": "  For example, with a calculator in degree mode , we can approximate that and that .   "
 },
 {
-  "id": "s_trig_computing-5-9",
+  "id": "s_trig_computing-4-9",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-5-9",
+  "url": "s_trig_computing.html#s_trig_computing-4-9",
   "type": "Example",
-  "number": "2.17.16",
+  "number": "2.17.10",
   "title": "",
   "body": "  With a calculator in radian mode we can approximate . We can verify that this makes sense with a picture. As shown in the picture below, it does seem realistic that the angle (which is one-fifth of the way clockwise on the bottom half of the unit circle) meets the unit circle at a point whose -coordinate is approximately (relatively close to ).      "
 },
 {
-  "id": "s_trig_computing-5-11",
+  "id": "s_trig_computing-4-11",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-5-11",
+  "url": "s_trig_computing.html#s_trig_computing-4-11",
   "type": "Checkpoint",
-  "number": "2.17.17",
+  "number": "2.17.11",
   "title": "",
   "body": "   Do not use a calculator! The values , with 3 measured in radians, and are close to either or . Which is which? Why?   "
 },
@@ -6602,7 +6575,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_trig_computing.html#fig_TaalmanPage402a",
   "type": "Figure",
-  "number": "2.17.18",
+  "number": "2.17.12",
   "title": "",
   "body": " Opposite and adjacent sides to an acute angle. The hypotenuse is opposite the right angle.   "
 },
@@ -6611,16 +6584,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_trig_computing.html#fig_TaalmanPage402b",
   "type": "Figure",
-  "number": "2.17.19",
+  "number": "2.17.13",
   "title": "",
   "body": " Right triangles with the same acute angles must be similar.   "
 },
 {
-  "id": "s_trig_computing-6-9",
+  "id": "s_trig_computing-5-9",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-6-9",
+  "url": "s_trig_computing.html#s_trig_computing-5-9",
   "type": "Definition",
-  "number": "2.17.20",
+  "number": "2.17.14",
   "title": "Trigonometric functions for acute angles.",
   "body": " Trigonometric functions for acute angles   Given an acute angle , the six trigonometric functions are defined as the following six ratios of side lengths:                                  It is worth noting in particular that for most values of .   "
 },
@@ -6629,25 +6602,25 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_trig_computing.html#ex_3-4-5",
   "type": "Example",
-  "number": "2.17.21",
+  "number": "2.17.15",
   "title": "",
   "body": "  For example, consider the angle shown in the right triangle shown below:  The side lengths here are opp , adj , and hyp . The ratios of these side lengths give us     "
 },
 {
-  "id": "s_trig_computing-6-11",
+  "id": "s_trig_computing-5-11",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-6-11",
+  "url": "s_trig_computing.html#s_trig_computing-5-11",
   "type": "Checkpoint",
-  "number": "2.17.22",
+  "number": "2.17.16",
   "title": "",
   "body": "  The same angle as in Example can be thought of inside the triangle:     Although all the side lengths are twice as large, their ratios will be exactly the same. Find , , and using the side lengths in the triangle, and simplify in order to verify that they are the same as in Example .   "
 },
 {
-  "id": "s_trig_computing-6-16",
+  "id": "s_trig_computing-5-16",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-6-16",
+  "url": "s_trig_computing.html#s_trig_computing-5-16",
   "type": "Remark",
-  "number": "2.17.23",
+  "number": "2.17.17",
   "title": "",
   "body": " One thing to notice is that it is not necessary to use the unit circle to define the sine and cosine functions. It is simply convenient. We see from the right-triangle definitions that any size radius will give us the same value for sine and cosine, provided that we take the ratio of the side lengths to the radius. So we could define if we choose to use a circle of radius , instead of radius 1.  "
 },
@@ -6656,16 +6629,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_trig_computing.html#ex_negative11piover4",
   "type": "Example",
-  "number": "2.17.24",
+  "number": "2.17.18",
   "title": "",
-  "body": "  Sketch the angle in standard position, and then use the unit circle to find the values of all six trigonometric functions of that angle.    Note that . Since radians is one full revolution around the unit circle, the angle opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle, as shown at the left:     In the right-hand picture above, we see a reference triangle with the labeled side lengths of . Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative. By the unit-circle definitions of sine and cosine,   Therefore    "
+  "body": "  Sketch the angle in standard position, and then use the unit circle to find the values of all six trigonometric functions of that angle.    Note that . Since radians is one full revolution around the unit circle, the angle opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle, as shown at the left:     In the right-hand picture above, we see a 45-45-90 reference triangle with the labeled side lengths of . Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative. By the unit-circle definitions of sine and cosine,   Therefore    "
 },
 {
-  "id": "s_trig_computing-6-19",
+  "id": "s_trig_computing-5-19",
   "level": "2",
-  "url": "s_trig_computing.html#s_trig_computing-6-19",
+  "url": "s_trig_computing.html#s_trig_computing-5-19",
   "type": "Checkpoint",
-  "number": "2.17.25",
+  "number": "2.17.19",
   "title": "",
   "body": "  Finish Example : Use the values of and calculated there to determine         ,     , and           "
 },
