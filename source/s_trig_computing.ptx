@@ -199,7 +199,7 @@ C+P+Rad+arc+t1+t2
         </sageplot>
     </image>
     <p>
-        We now add a right triangle to our unit circle by dropping a perpendicular from <m>P=(x,y)</m> to the <m>x</m>-axis.
+        We now add a helpful right triangle to our unit circle, called a <term>reference triangle</term>, by dropping a perpendicular from <m>P=(x,y)</m> to the <m>x</m>-axis.
     </p>
     <image width="50%">
         <shortdescription>Unit circle picture for pi over 4 with reference triangle</shortdescription>
@@ -226,7 +226,7 @@ C+P+Rad+arc+t1+t2+tri+l1+l2+l3
         </sageplot>
     </image>
         <p>
-        Note that the hypotenuse here has length 1, as it is a radius of the unit circle <m>x^2+y^2=1</m>. The two legs of the right triangle, on the other hand, have length equal to the <em>magnitudes</em> of the <m>x</m>- and <m>y</m>-coordinates of the point <m>P=(x,y)</m>: that is, <m>\abs{x}</m> and <m>\abs{y}</m>, respectively. In this case, since <m>x</m> and <m>y</m> are both positive, we happen to have <m>\abs{x}=x</m> and <m>\abs{y}=y</m>. Since the angle at the origin is <m>\pi/4=45^\circ</m>, it follows that we are working with a 45-45-90 triangle. We conclude that 
+        The reference triangle will now allow us to determine the coordinates of the point <m>P</m>. Let's see why.  Note that the hypotenuse here has length 1, as it is a radius of the unit circle <m>x^2+y^2=1</m>. The two legs of the right triangle, on the other hand, have length equal to the <em>magnitudes</em> of the <m>x</m>- and <m>y</m>-coordinates of the point <m>P=(x,y)</m>: that is, <m>\abs{x}</m> and <m>\abs{y}</m>, respectively. In this case, since <m>x</m> and <m>y</m> are both positive, we happen to have <m>\abs{x}=x</m> and <m>\abs{y}=y</m>. Since the angle at the origin is <m>\pi/4=45^\circ</m>, it follows that we are working with a 45-45-90 triangle. We conclude that 
         <md>
             <mrow>\cos\pi/4 \amp = x \amp (<xref ref="d_sine_cosine" text="global"/>)</mrow>
             <mrow> \amp = \abs{x} \amp (x\geq 0\implies \abs{x}=x)</mrow>
@@ -417,373 +417,355 @@ C+L+p1+p2+t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14+t15+t16
     </exercise>
   </subsection>
   <subsection>
-    <title>Calculating Values of Sine and Cosine Beyond <m>0</m> to <m>2\pi</m></title>
+    <title>Computing with angles <m>\theta</m> outside of <m>[0,2\pi]</m></title>
     <p>
-      It is important to note that the values of the trigonometric functions depend only on the terminal edge of <m>\theta</m> in standard position,
-      and not on how many times or in what direction the angle rotates around the unit circle.
-      Therefore, angles whose terminal edges intersect the unit circle at the same point will have the same trigonometric function values.
+      You may have noticed that all of our examples of computations of <m>\cos\theta</m> and <m>\sin\theta</m> involved angles <m>\theta</m> between <m>0</m> and <m>2\pi</m>. And yet, by definition of these functions, <m>\theta</m> is allowed to be <em>any</em> real number. How dow we compute these values values of <m>\cos</m> and <m>\sin</m> for <m>\theta=35\pi/2</m>, or <m>\theta=-100\pi/3</m>? 
     </p>
     <p>
-      For values of <m>\theta</m> that are not between <m>0</m> and <m>2\pi</m>,
-      we can find an angle between <m>0</m> and <m>2\pi</m> with the same terminal edge and calculate the values of sine as cosine with a 45-45-90 or
-      30-60-90 reference triangle as before.
+    Let's consider the example <m>\theta=16\pi/6</m>. Note that we have
+    <md>
+        <mrow>2\pi=\frac{12\pi}{6} \amp \leq \theta=\frac{16\pi}{6}\leq  4\pi=\frac{24\pi}{6}</mrow>
+    </md>.
+    Since <m>\theta</m> is between <m>2\pi</m> and <m>4\pi</m>, we visualize <m>\theta</m> as an angle that makes a one full rotation around the unit circle (<m>2\pi</m>) followed by some extra rotation between <m>0</m> and <m>2\pi</m>. Algebraically, we identify this extra rotation by expressing <m>\theta</m> as follows: 
+    <md>
+        <mrow>\theta \amp =\frac{16\pi}{6}=\frac{12\pi}{2}+\frac{4\pi}{6}=\underset{\text{full rot.}}{\underbrace{2\pi}}+\underset{\text{extra rot.}}{\underbrace{\frac{2\pi}{3}}}</mrow>
+    </md>.
+    It follows that the terminal edge of the angle <m>\theta=16\pi/6</m>, is the same as the terminal edge of the angle <m>2\pi/3</m>.  Graphically, we indicate the angle <m>\theta</m> as a counterclockwise spiralling arc ending at the terminal edge corresponding to <m>2\pi/3</m>. 
     </p>
-    <example xml:id="ex_fivepioversix">
-      <statement>
-        <p>
-          For example,
-          the angles <m>\frac{5\pi}{6}</m>, <m>\frac{17\pi}{6}</m>,
-          and <m>-\frac{7\pi}{6}</m> all have the same terminal edge
-          (check this for yourself by drawing them all in standard position!)
-          and thus all have the same trigonometric values
-          (this is another way to see that the sine and cosine functions have period <m>2\pi</m> as observed in the last section).
-        </p>
-        <p>
-          Now to actually calculate, say,
-          the sine and cosine of the angle <m>\frac{5\pi}{6}</m>,
-          we have to know the coordinates <m>(x,y)</m> at which the terminal edge of
-          <m>\frac{5\pi}{6}</m> meets the unit circle.
-          You can look this up on your work from <xref ref="ex_trigvaluesonunitcircle">Exercise</xref>,
-          or you can follow the method presented here.
-        </p>
-        <p>
-          As shown below,
-          we can make a reference triangle by dropping down a line from the point where the terminal edge of
-          <m>\frac{5\pi}{6}</m> meets the unit circle.
-        </p>
-        <p>
-          <image width="37%" source="TaalmanPage407a.png"/>
-        </p>
-        <p>
-          Luckily for us, this reference triangle is a
-          30-60-90 triangle and therefore we already know its side lengths:
-        </p>
-        <p>
-          <image width="42%" source="TaalmanPage407b.png"/>
-        </p>
-        <p>
-          The <m>x</m>-coordinate of the point where the terminal edge meets the unit circle tells us that
-          <m>\cos(5\pi/6) = -\frac{\sqrt{3}}{2}</m> and the <m>y</m>-coordinate of that point tells us that <m>\sin(5\pi/6) = \frac{1}{2}</m>.
-        </p>
-        <p>
-          As mentioned above, the values of sine and cosine at
-          <m>\frac{5\pi}{6}</m>, <m>\frac{17\pi}{6}</m>,
-          and <m>-\frac{7\pi}{6}</m> will all be the same, thus
-          <me>
-            \cos\left(\frac{5\pi}{6}\right) = \cos\left(\frac{17\pi}{6}\right)  = \cos\left(-\frac{7\pi}{6}\right) = -\frac{\sqrt{3}}{2}
-          </me>
-          and
-          <me>
-            \sin\left(\frac{5\pi}{6}\right) = \sin\left(\frac{17\pi}{6}\right)  = \sin\left(-\frac{7\pi}{6}\right) = \frac{1}{2}
-          </me>
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          Verify that <m>\frac{5\pi}{6}</m>, <m>\frac{17\pi}{6}</m>,
-          and <m>-\frac{7\pi}{6}</m> all have the same terminal edge by drawing all three in standard position on the same coordinate plane.
-        </p>
-        <p>
-          Then use the values of <m>\cos(5\pi/6)</m> and
-          <m>\sin(5\pi/6)</m> from <xref ref="ex_fivepioversix">Exercise</xref>
-          to determine the value of <m>\tan(5\pi/6)</m>.
-          Because the three angles have the same terminal edge,
-          this is also the value of <m>\tan(17\pi/6)</m> and of <m>\tan(-7\pi/6)</m>.
-        </p>
-      </statement>
-    </exercise>
-    <p>
-      For angles whose reference triangles are not our convenient
-      30-60-90 or 45-45-90 triangles,
-      we must resort to calculating trigonometric values with a calculator.
-      This is the same as needing to use a calculator to find the values of
-      <m>f(x) = \log_b x</m> for all values of <m>x</m> that are not powers of the base <m>b</m>.
-    </p>
-    <p>
-      One thing to note is that you may need to change the mode of your calculator depending on whether you are working with degrees or radians.
-    </p>
-    <example>
-      <statement>
-        <p>
-          For example, with a calculator in <em>degree mode</em>,
-          we can approximate that <m>\cos 12^\circ\approx 0.978</m> and that <m>\sin 75^\circ\approx 0.966</m>.
-        </p>
-      </statement>
-    </example>
-    <example>
-      <statement>
-        <p>
-          With a calculator in <em>radian mode</em>
-          we can approximate <m>\cos\left(-\frac{\pi}{5}\right)\approx 0.809</m>.
-          We can verify that this makes sense with a picture.
-          As shown in the picture below,
-          it does seem realistic that the angle <m>-\frac{\pi}{5}</m>
-          (which is one-fifth of the way clockwise on the bottom half of the unit circle)
-          meets the unit circle at a point whose <m>x</m>-coordinate is approximately <m>0.809</m>
-          (relatively close to <m>1</m>).
-        </p>
-        <p>
-          <image width="42%" source="TaalmanPage407c.png"/>
-        </p>
-      </statement>
-    </example>
-    <p>
-      It is essential to keep track of which units are being used and to check that the answer on a calculator makes sense with the position of the angle on the unit circle.
-      After all, our tools are only as smart as we are!
-    </p>
-    <exercise>
-      <statement>
-        <p>
-          <em>Do not use a calculator!</em>
-          The values <m>\cos(3)</m>,
-          with 3 measured in radians,
-          and <m>\cos(3^\circ)</m> are close to either <m>1</m> or <m>-1</m>.
-          Which is which?
-          Why?
-        </p>
-      </statement>
-    </exercise>
-  </subsection>
-  <subsection>
-    <title>Right-Triangle Trigonometry</title>
-    <p>
-      There is another standard approach to defining the trigonometric functions,
-      at least for <em>acute</em> angles,
-      meaning angles measure between <m>0^\circ</m> and <m>90^\circ</m>.
-      Sine, cosine,
-      and tangent can be defined in terms of side lengths of triangles.
-      Every acute angle <m>\theta</m> can be realized as part of a right triangle with opposite and adjacent sides as labeled in <xref ref="fig_TaalmanPage402a">Figure</xref> below:
-    </p>
-    <figure xml:id="fig_TaalmanPage402a">
-      <caption>Opposite and adjacent sides to an acute angle. The hypotenuse is opposite the right angle.</caption>
-      <image width="42%" source="TaalmanPage402a.png"/>
+    <figure xml:id="fig_unit_circle_bigangle">
+        <caption>Unit circle picture of <m>16\pi/6</m></caption>
+        <image width="75%">
+            <shortdescription>Unit circle picture of 16 pi over 6</shortdescription>
+            <sageplot>
+var('t')
+alpha=16*pi/6
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,2*pi+pi/30),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+Rad=line([(0,0),hyp],color='blue')
+P=point(c(alpha), size=50, color='blue')
+arc=parametric_plot((0.15*t+.075*(1-t))*c(alpha*t),(t,0,1), color='red')
+arc2=parametric_plot(.3*c(2*pi/3*t),(t,0,1), color='green')
+t1=text("$P=(x,y)$",1.15*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{16\pi}{6}$",.2*c(pi/6),color="black",fontsize=16)
+t3=text(r"$\frac{2\pi}{3}$",.4*c(pi/3), color="black", fontsize=16)
+C+P+Rad+arc+t1+t2+arc2+t3
+            </sageplot>
+        </image>
     </figure>
-    <p>
-      For any given acute angle there are many possible right triangles that we could draw,
-      but as illustrated in <xref ref="fig_TaalmanPage402b">Figure</xref>,
-      all of the possibilities will have the same three angles and thus be similar triangles.
-    </p>
-    <figure xml:id="fig_TaalmanPage402b">
-      <caption>Right triangles with the same acute angles must be similar.</caption>
-      <image width="42%" source="TaalmanPage402b.png"/>
+<p>
+    Since the angles <m>16\pi/6</m> and <m>2\pi/3</m> have the same terminal edge, the associated point <m>P=(x,y)</m> on the unit circle for each angle is the same. Thus we have 
+    <md>
+        <mrow>\cos 16\pi/6 \amp = x \amp \sin 16\pi/6 \amp=y </mrow>
+        <mrow> \amp =\cos 2\pi/3 \amp \amp=\sin 2\pi/3</mrow>
+        <mrow> \amp = -1/2 \amp \amp=\frac{\sqrt{3}}{2}</mrow>
+    </md>.
+    Two angles are called <term>coterminal</term> if they have the same terminal edge. The technique above can be summarized as follows: to compute <m>\cos\theta</m> and <m>\sin\theta</m> for an arbitrary angle <m>\theta</m>, find a <q>covenient</q> angle <m>\alpha</m> that is coterminal with <m>\theta</m>, in which case 
+    <md>
+        <mrow>\cos\theta \amp =\cos\alpha \amp \sin\theta\amp=\sin\alpha</mrow>
+    </md>.
+    A <q>convenient</q> angle usually means an angle <m>\alpha</m> (positive or negative) with <m>\abs{\alpha}\in [0,2\pi]</m>, since these angles are the most familiar to us. The algebraic trick to finding such a convenient coterminal angle is to locate the arbitrary angle <m>\theta</m> between two consecutive multiples of <m>2\pi</m>, and choose <m>\alpha</m> to be the difference between <m>\theta</m> and either one of these multiples. 
+</p>
+<p>
+    Let's try this with a large negative angle. Consider <m>\theta=-11\pi/2</m>. Identifying the nearest multiples of <m>2\pi</m> to the left and right of <m>-11\pi/2</m>, we see that  
+    <md number="yes">
+        <mrow>-4\pi=-8\pi/2 \amp \leq -11\pi/2 \leq -12\pi/2=-6\pi</mrow>
+    </md>,
+    and thus 
+    <md>
+        <mrow>-11\pi/2 \amp = -4\pi -3\pi/2</mrow>
+    </md>.
+    The last equation tells us that the angle <m>\theta=-11\pi/2</m> is the result of taking 2 full <em>clockwise</em> rotations around the circle (the <m>-4\pi</m> term), followed by an extra <em>clockwise</em> rotation of <m>3\pi/2</m> (the <m>-3\pi/2</m> term). As illustrated below, the angle of <m>-3\pi/2</m> is coterminal in turn to the angle <m>\pi/2</m>. 
+</p>
+<figure xml:id="fig_unit_circle_bigneg">
+    <caption>Unit circle picture of <m>-11\pi/2</m></caption>
+    <image width="75%">
+        <shortdescription>Unit circle picture of -11 pi over 2</shortdescription>
+        <sageplot>
+var('t')
+alpha=-11*pi/2
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,2*pi+pi/30),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+Rad=line([(0,0),hyp],color='blue', thickness=2)
+P=point(c(alpha), size=50, color='blue')
+arc=parametric_plot((0.25*t+.075*(1-t))*c(alpha*t),(t,0,1), color='red')
+arc2=parametric_plot(.375*c(pi/2*t),(t,0,1), color='green')
+t1=text("$P=(x,y)$",1.15*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{-11\pi}{2}$",.3*c(-3*pi/4),color="black",fontsize=16)
+t3=text(r"$\frac{\pi}{2}$",.45*c(pi/3), color="black", fontsize=16)
+C+P+Rad+arc+t1+t2+arc2+t3
+        </sageplot>
+    </image>
+</figure>
+<p>
+    Since <m>-11\pi/2</m> is coterminal with <m>\pi/2</m>, we conclude that 
+    <md>
+        <mrow>\cos(-11\pi/2) \amp = \cos (\pi/2) \amp \sin(-11\pi/2)\amp=\sin(\pi/2)</mrow>
+        <mrow> \amp = 0 \amp \amp= 1</mrow>
+    </md>.
+Let's make this technique of computing <m>\cos</m> and <m>\sin</m> values by hand official. 
+</p>
+<algorithm xml:id="proc_cos_sin_compute">
+    <title>Computing trigonometric values by hand</title>
+    <statement>
+        <p>
+           Let <m>\theta\in \R</m>. To compute <m>\cos\theta</m> and <m>\sin\theta</m> by hand, proceed as follows. 
+           <ol>
+            <li>
+                <title>Find convenient coterminal angle</title>
+                <p>
+                    Find an angle <m>\alpha</m> with <m>\abs{\alpha}\in [0,2\pi]</m> such that <m>\theta=2\pi n +\alpha</m> for some <m>n</m>. The angles <m>\theta</m> and <m>\alpha</m> are coterminal.
+                </p>
+            </li>
+            <li>
+                <title>Unit circle picture with reference triangle</title>
+                
+                
+                <p>
+                    Make a unit circle picture of the coterminal angles <m>\theta</m> and <m>\alpha</m> that inludes the point <m>P</m> where the terminal edge intersects the unit circle.
+                </p>
+                <p>
+                    Add a reference triangle to the picture to determine the magnitudes <m>\abs{x}</m> and <m>\abs{y}</m> of the coordinates of <m>P</m>. 
+                </p>
+            </li>
+            <li>
+                <title>Account for sign</title>
+                <p>
+                    Use the quadrant position of <m>P</m> to determine <m>x=\pm \abs{x}</m> and <m>y=\pm \abs{y}</m>
+                </p>
+            </li>
+            <li>
+                <title>Compute values</title>
+                <p>
+                    Conclude that 
+                    <md>
+                        <mrow>\cos\theta \amp = x \amp \sin\theta\amp =y </mrow>
+                    </md>
+                </p>
+            </li>
+           </ol>
+        </p>
+    </statement>
+</algorithm>
+<example xml:id="eg_compute_cos_sin">
+<title>Computing <m>\cos\theta</m> and <m>\sin\theta</m></title>
+<statement>
+<p>
+Compute <m>\cos\theta</m> and <m>\sin\theta</m> for the given <m>\theta</m> using <xref ref="proc_compute_sin_cos"/>. 
+<ol>
+    <li>
+        <p>
+            <m>\theta=-11\pi</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\theta=203\pi/4</m>
+        </p>
+    </li>
+    <li>
+        <p>
+          <m>\theta=-17\pi/6</m>  
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+See <xref ref="fig_comp_sin_cos"/> for the unit circle pictures for each of the angles <m>\theta</m>. 
+<ol>
+    <li>
+        <p>
+            We have 
+            <md>
+                <mrow>-11\pi \amp = -5(2\pi)-\pi</mrow>
+                <mrow> -11\pi\amp =-6(2\pi)+\pi </mrow>
+            </md>.
+            These equations tell us that <m>\theta</m> is coterminal to <m>-\pi</m> and <m>\pi</m>. We can use either one of these angles to compue compute <m>\cos\theta</m>. We choose <m>\pi</m>: 
+            <md>
+                <mrow>\cos \theta \amp =\cos \pi=-1 \amp \sin\theta\amp =\sin \pi=0</mrow>
+            </md> .
+        </p>
+    </li>
+    <li>
+        <p>
+            We have 
+            <md number="yes">
+                <mrow>203\pi/4 \amp =200\pi/4+3\pi/4</mrow>
+                <mrow> \amp = 25(2\pi)+3\pi/4</mrow>
+            </md>.
+            Thus <m>\theta</m> is coterminal to <m>3\pi/4</m>. We conclude that 
+            <md>
+                <mrow>\cos\theta \amp =\cos 3\pi/4 \amp \sin\theta\amp =\sin 3\pi/4</mrow>
+                <mrow> \amp = -\sqrt{2}/2 \amp \amp =\sqrt{2}/2</mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We have 
+            <md>
+                <mrow>-17\pi/6 \amp = -12\pi/6 -5\pi/6</mrow>
+                <mrow> \amp = \amp = -2(2\pi)-5\pi/6</mrow>
+            </md>.
+            Thus <m>\theta</m> is coterminal to <m>-5\pi/6</m>. We conclude that 
+            <md>
+                <mrow>\cos\theta \amp = \cos -5\pi/6 \amp \sin\theta \amp = \sin -5\pi/6</mrow>
+                <mrow> \amp = -\sqrt{3}/2 \amp \amp = -1/2</mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+<figure xml:id="fig_comp_sin_cos">
+    <caption>Unit circle pictures for coterminal angles <m>\theta</m> and <m>\alpha</m></caption>
+    <sbsgroup>
+    <sidebyside widths="52% 45%" valign="middle">
+        
+    <figure xml:id="fig_pimult">
+        <caption><m>\theta=-11\pi</m>, <m>\alpha=\pi</m></caption>
+        <image width="75%">
+            <shortdescription>Unit circle picture of -11 pi and pi</shortdescription>
+            <sageplot>
+var('t')
+alpha=pi
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,2*pi+pi/30),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+Rad=line([(0,0),hyp],color='blue', thickness=2)
+P=point(c(alpha), size=50, color='blue')
+arc=parametric_plot(.2*c(alpha*t),(t,0,1), color='red')
+t1=text("$P=(x,y)$",1.25*c(alpha-.1),color="black",fontsize=16)
+t3=text(r"$\pi$",.3*c(pi/2), color="black", fontsize=16)
+C+P+Rad+arc+t1+t3
+            </sageplot>
+        </image>
+    </figure>    
+    <figure xml:id="fig_big_pi_over_4">
+        <caption><m>\theta=203\pi/4</m>, <m>\alpha=3\pi/4</m></caption>
+        <image>
+            <shortdescription>Unit circle picture of 203 pi over 4 and 3 pi over 4</shortdescription>
+            <sageplot>
+var('t')
+alpha=3*pi/4
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,2*pi+pi/30),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+L=line([(0,0),hyp,leg,(0,0)],color='red')
+P=point(c(alpha), size=50, color='blue')
+arc=parametric_plot(.2*c(alpha*t),(t,0,1), color='red')
+t1=text("$P=(x,y)$",1.15*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{\pi}{4}$",.3*c(pi-pi/8),color="black",fontsize=16)
+t3=text(r"$\frac{3\pi}{4}$",.3*c(alpha/2), color="black", fontsize=16)
+C+P+L+arc+t1+t2+t3
+            </sageplot>
+        </image>
     </figure>
+</sidebyside>
+            
+    <sidebyside width="50%">
+    <figure xml:id="fig_big_pi_six">
+        <caption><m>\theta=-17\pi/6</m>, <m>\alpha=-5\pi/6</m></caption>
+        <image>
+            <shortdescription>Unit circle picture of -17 pi over 6 and -5 pi over 6</shortdescription>
+            <sageplot>
+var('t')
+alpha=-5*pi/6
+a=cos(alpha)
+b=sin(alpha)
+hyp=vector([a,b])
+leg=vector([a,0])
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,-pi/30,2*pi+pi/30),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+L=line([(0,0),hyp,leg,(0,0)],color='red')
+P=point(c(alpha), size=50, color='blue')
+arc=parametric_plot(.2*c(alpha*t),(t,0,1), color='red')
+t1=text("$P=(x,y)$",1.15*c(alpha),color="black",fontsize=16)
+t2=text(r"$\frac{\pi}{6}$",.3*c(pi+pi/12),color="black",fontsize=16)
+t3=text(r"$\frac{-5\pi}{6}$",.3*c(alpha/2.5), color="black", fontsize=16)
+C+P+L+arc+t1+t2+t3
+            </sageplot>
+        </image>
+    </figure>
+   </sidebyside>
+    </sbsgroup>
+</figure>
+<remark>
+    <title>Computing values of <m>\cos</m> and <m>\sin</m> by hand</title>
     <p>
-      This relationship is key,
-      since the Law of Similar Triangles tells us that the similar triangles may have different side lengths,
-      but always have the same <em>ratios</em> of side lengths:
-      <me>
-        \frac{a}{b} = \frac{A}{B},\qquad \frac{a}{c} = \frac{A}{C}, \qquad \frac{b}{c} = \frac{B}{C}
-      </me>
+        In order to complete <m>\cos</m> and <m>\sin</m> computation using <xref ref="proc_compute_sin_cos"/>, we need the reference triangles introduced to have side lengths that we can compute by hand. This means that, for the moment we are only able to compute <m>\cos\theta</m> and <m>\sin\theta</m> by hand for angles <m>\theta</m> that are coterminal with one of the sixteen angles included in <xref ref="fig_unit_circle_familiar"/>. We will refer to these angles as the <term>familiar angles</term>. If in Step 1 of <xref ref="proc_compute_sin_cos"/> we find that <m>\theta</m> is coterminal to an angle <m>\alpha</m> that is <em>not</em> one of these familiar angles, then (at the moment) we are not able to compute <m>\cos\theta</m> and <m>\sin\theta</m> by hand.
     </p>
     <p>
-      We have defined three of the functions that result from these ratios already:
-      sine results from the ratio of the opposite side to the hypotenuse,
-      cosine results from the ratio of the adjacent side to the hypotenuse,
-      and tangent results from the ratio of the opposite side to the adjacent side.
-      There are three other trigonometric functions that we have not yet mentioned that result from the reciprocals of these ratios:
-      cosecant, secant, and cotangent, respectively.
+        For example, the angle <m>\theta=1</m> (measured in radians) lies within the interval <m>[0,2\pi]</m>. But clearly <m>1</m> is not equal to any of the familiar angles in <xref ref="fig_unit_circle_familiar"/>, and thus we are not able to give a simple explicit expression for <m>\cos 1</m> and <m>\sin 1</m> by hand. Of course, it is possible use technology to <em>estimate</em> such values with a decimal approximation: <eg/>, 
+        <md number="yes">
+            <mrow>\cos 1 \amp \approx 0.54 \amp \sin 1\amp \approx 0.84</mrow>
+        </md>.
     </p>
     <p>
-      In the following definition, "opp," "adj," and "hyp" denote the lengths of the opposite side,
-      adjacent side, and hypotenuse, respectively:
+        Even without a calculator in hand, from the approximation <m>\pi\approx 3.14</m>, we see that
+        <md>
+            <mrow> \pi/4 \amp \leq 1\leq \pi/3 </mrow>
+        </md>.
+        This means that if we were to add the point <m>P_1</m> for <m>\theta=1</m> to the unit circle picture in <xref ref="fig_unit_circle_familiar"/>, it would be located between <m>P_{\pi/4}</m> and <m>P_{\pi/3}</m>. But then, for example, the <m>x</m>-coordinate of <m>P_1</m> would be greater than the <m>x</m>-coordinate of <m>P_{\pi/3}</m> and less than the <m>x</m>-coordinate of <m>P_{\pi/4}</m>. Since the value of <m>\cos</m> at these angles is equal to this <m>x</m>-coordinate, we conclude that 
+        <md>
+            <mrow>\cos \pi/3 \amp \leq \cos 1\leq \cos \pi/4</mrow>
+        </md>
+        or equivalently, 
+        <md number="yes">
+            <mrow>\frac{1}{2} \amp \leq \cos 1 \leq \frac{\sqrt{2}}{2}</mrow>
+        </md>.
+        Indeed, the first inequality above <m>0.5\leq \cos 1</m> is born out by our approximation <m>\cos 1\approx 0.54</m>. 
     </p>
-    <definition>
-      <title>Trigonometric functions for acute angles</title>
-      <statement>
-        <p>
-          Given an acute angle <m>\theta</m>,
-          the six <em>trigonometric functions</em>
-          are defined as the following six ratios of side lengths:
-          <ol>
-            <li>
-              <p>
-                <m>\sin\theta = \frac{\text{ opp } }{\text{ hyp } }</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\csc\theta = \frac{\text{ hyp } }{\text{ opp } } = \frac{1}{\sin\theta}</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\cos\theta = \frac{\text{ adj } }{\text{ hyp } }</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\sec\theta = \frac{\text{ hyp } }{\text{ adj } } = \frac{1}{\cos\theta}</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\tan\theta = \frac{\text{ opp } }{\text{ adj } } = \frac{\sin\theta}{\cos\theta}</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\cot\theta = \frac{\text{ adj } }{\text{ opp } } = \frac{\cos\theta}{\sin\theta}</m>
-              </p>
-            </li>
-          </ol>
-        </p>
-        <p>
-          It is worth noting in particular that
-          <m>\cot\theta = \frac{1}{\tan\theta}</m> for most values of <m>\theta</m>.
-        </p>
-      </statement>
-    </definition>
-    <example xml:id="ex_3-4-5">
-      <statement>
-        <p>
-          For example,
-          consider the angle <m>\theta</m> shown in the <m>3-4-5</m> right triangle shown below:
-        </p>
-        <p>
-          The side lengths here are opp<m>=3</m>,
-          adj<m>=4</m>, and hyp<m>=5</m>.
-          The ratios of these side lengths give us
-          <me>
-            \sin\theta = \frac{3}{5},\cos\theta = \frac{4}{5},\tan\theta  = \frac{3}{4}
-          </me>
-          <me>
-            \csc\theta = \frac{5}{3}, \sec\theta = \frac{5}{4},\cot\theta = \frac{4}{3}
-          </me>
-        </p>
-      </statement>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          The same angle <m>\theta</m> as in <xref ref="ex_3-4-5">Example</xref>
-          can be thought of inside the <m>6-8-10</m> triangle:
-        </p>
-        <p>
-          <image width="28%" source="TaalmanPage403ab.png"/>
-        </p>
-        <p>
-          Although all the side lengths are twice as large,
-          their ratios will be exactly the same.
-          Find <m>\sin\theta</m>, <m>\cos\theta</m>,
-          and <m>\tan\theta</m> using the side lengths in the <m>6-8-10</m> triangle,
-          and simplify in order to verify that they are the same as in <xref ref="ex_3-4-5">Example</xref>.
-        </p>
-      </statement>
-    </exercise>
-    <p>
-      The right-triangle definitions of sine,
-      cosine and tangent for acute angles are compatible with the original definitions via the unit circle.
-      Acute angles in standard position must terminate in the first quadrant,
-      as illustrated below:
-    </p>
-    <p>
-      <image width="37%" source="TaalmanPage406b.png"/>
-    </p>
-    <p>
-      If the radius of the circle is 1, then the hypotenuse of the triangle is 1, and so we can see that
-      <me>
-        \sin\theta = \frac{\text{ opp } }{\text{ hyp } } = \frac{y}{1} = y
-      </me>
-      <me>
-        \cos\theta =  \frac{\text{ adj } }{\text{ hyp } } = \frac{x}{1} = x
-      </me>
-      <me>
-        \tan\theta = \frac{\text{ opp } }{\text{ adj } } = \frac{y}{x} = \frac{\sin\theta}{\cos\theta}
-      </me>
-    </p>
-    <p>
-      The functions cosecant, secant,
-      and cotangent are defined for arbitrary angles as the reciprocals of sine, cosine,
-      and tangent, respectively, just as they are for acute angles.
-    </p>
-    <remark>
-      <p>
-        One thing to notice is that it is not necessary to use the <em>unit</em>
-        circle to define the sine and cosine functions.
-        It is simply convenient.
-        We see from the right-triangle definitions that any size radius will give us the same value for sine and cosine,
-        provided that we take the <em>ratio</em>
-        of the side lengths to the radius.
-        So we could define
-        <me>
-          \sin\theta = \frac{y}{r}\text{ and } \cos\theta = \frac{x}{r}
-        </me>
-        if we choose to use a circle of radius <m>r</m>, instead of radius 1.
-      </p>
-    </remark>
-    <p>
-      Now that we have formally defined all six of the trigonometric functions,
-      here is one more example of calculating the values of the trigonometric functions by hand using a reference triangle:
-    </p>
-    <example xml:id="ex_negative11piover4">
-      <statement>
-        <p>
-          Sketch the angle <m>-\frac{11\pi}{4}</m> in standard position,
-          and then use the unit circle to find the values of all six trigonometric functions of that angle.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Note that
-          <me>
-            -\frac{11\pi}{4} = -\frac{8\pi}{4}-\frac{3\pi}{4} = -2\pi-\frac{3\pi}{4}
-          </me>.
-          Since <m>2\pi</m> radians is one full revolution around the unit circle,
-          the angle <m>-\frac{11\pi}{4}</m> opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle,
-          as shown at the left:
-        </p>
-        <p>
-          <image width="93%" source="TaalmanPage410a.png"/>
-        </p>
-        <p>
-          In the right-hand picture above,
-          we see a 45-45-90 reference triangle with the labeled side lengths of <m>\sqrt{2}/2</m>.
-          Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative.
-          By the unit-circle definitions of sine and cosine,
-          <me>
-            (x.y) =\left(\cos\left(-\frac{11\pi}{4}\right),\sin\left(-\frac{11\pi}{4}\right)\right)= \left(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}\right)
-          </me>
-        </p>
-        <p>
-          Therefore
-          <me>
-            \cos\left(-\frac{11\pi}{4}\right) =-\frac{\sqrt{2}}{2} \text{ and }  \sin\left(-\frac{11\pi}{4}\right) =-\frac{\sqrt{2}}{2}
-          </me>
-        </p>
-      </solution>
-    </example>
-    <exercise>
-      <statement>
-        <p>
-          Finish <xref ref="ex_negative11piover4">Example</xref>: Use the values of <m>\cos\left(-\frac{11\pi}{4}\right)</m> and
-          <m>\sin\left(-\frac{11\pi}{4}\right)</m> calculated there to determine
-          <ol>
-            <li>
-              <p>
-                <m>\tan\left(-\frac{11\pi}{4}\right)</m>
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\csc\left(-\frac{11\pi}{4}\right)</m>,
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\sec\left(-\frac{11\pi}{4}\right)</m>, and
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>\cot\left(-\frac{11\pi}{4}\right)</m>
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
+    
+</remark>
+<figure xml:id="fig_unit_circle_familiar">
+    <caption>The 16 familiar angles of the unit circle</caption>
+    <image width="100%">
+        <shortdescription>Unit circle with 16 familiar angles</shortdescription>
+        <sageplot>
+var('t')
+c(t)=vector([cos(t),sin(t)])
+C=parametric_plot(c(t),(t,0,2*pi),color='blue', ticks=[[-1,-.5,.5,1],[-1,-.5,.5,1]])
+L=line([(0,0),c(pi/6)], linestyle='dashed', color='black')
+p1=point([c(n*pi/6) for n in range(13)], size=50, color='red')
+p2=point([c(n*pi/4) for n in range(9)], size=50, color='red')
+t1=text(r"$P_{\pi/6}=(\frac{\sqrt{3}}{2},\frac{1}{2})$", 1.3*c(pi/6-.1), color='black', fontsize=14)
+t2=text(r"$P_{\pi/4}=(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$", 1.3*c(pi/4-.1), color='black', fontsize=14)
+t3=text(r"$P_{\pi/3}=(\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.3*c(pi/3-.1), color='black', fontsize=14)
+t4=text(r"$P_{5\pi/6}=(-\frac{\sqrt{3}}{2},\frac{1}{2})$", 1.35*c(5*pi/6+.05), color='black', fontsize=14)
+t5=text(r"$P_{3\pi/4}=(-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$", 1.35*c(3*pi/4+.1), color='black', fontsize=14)
+t6=text(r"$P_{2\pi/3}=(-\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.3*c(2*pi/3+.1), color='black', fontsize=14)
+t7=text(r"$P_{7\pi/6}=(-\frac{\sqrt{3}}{2},-\frac{1}{2})$", 1.4*c(7*pi/6-.1), color='black', fontsize=14)
+t8=text(r"$P_{5\pi/4}=(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2})$", 1.4*c(5*pi/4-.1), color='black', fontsize=14)
+t9=text(r"$P_{4\pi/3}=(-\frac{1}{2},-\frac{\sqrt{3}}{2})$", 1.4*c(4*pi/3-.1), color='black', fontsize=14)
+t10=text(r"$P_{11\pi/6}=(\frac{\sqrt{3}}{2},-\frac{1}{2})$", 1.4*c(11*pi/6+.1), color='black', fontsize=14)
+t11=text(r"$P_{3\pi/2}=(0,-1)$", 1.2*c(3*pi/2+.1), color='black', fontsize=14)
+t12=text(r"$P_{0}=(1,0)$", 1.35*c(2*pi+.04), color='black', fontsize=14)
+t13=text(r"$P_{\pi}=(-1,0)$", 1.35*c(pi-.04), color='black', fontsize=14)
+t14=text(r"$P_{\pi/2}=(0,1)$", 1.15*c(pi/2-.051), color='black', fontsize=14)
+t15=text(r"$P_{5\pi/3}=(-\frac{1}{2},\frac{\sqrt{3}}{2})$", 1.35*c(5*pi/3+.2), color='black', fontsize=14)
+t16=text(r"$P_{7\pi/4}=(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2})$", 1.42*c(7*pi/4+.2), color='black', fontsize=14)
+C+L+p1+p2+t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14+t15+t16
+        </sageplot>
+    </image>
+</figure>
   </subsection>
+ 
  
 </section>
