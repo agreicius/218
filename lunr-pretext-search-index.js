@@ -6571,6 +6571,114 @@ var ptx_lunr_docs = [
   "body": " The 16 familiar angles of the unit circle   Unit circle with 16 familiar angles    "
 },
 {
+  "id": "s_trig_prop",
+  "level": "1",
+  "url": "s_trig_prop.html",
+  "type": "Section",
+  "number": "2.18",
+  "title": "Trigonometric functions: properties",
+  "body": " Trigonometric functions: properties     Derive algebraic and graphical properties of and from their unit circle definitions.    Introduce the remaining trigonometric functions , , , and .    Learn to give detailed sketches of trigonometric functions.    Solve equations involving trigonometric functions.      Properties of and   ties the values of and intimately to the geometry of the unit circle with defining equation . As a result we can easily prove some useful properties about and , and their relationship to one another.   Properties of and      Pythagorean identity   for all .    Periodicity   and are periodic with period : , for all .    Range of and   . In particular, we have for all .    Even\/odd properties   for all .    Cofunction identities   for all .          The Pythagorean idenity follows almost immediately from the definition of and . Given any angle , let be the point where the terminal edge of intersects the unit circle. By definition of the unit circle, and satisfy . By definition of and , on the other hand, we have and . We conclude that .    For any , the two angles and are coterminal. As a result, both angles are associated to the same point , following the recipe of . We conclude that .    Given any , we have and , where is a certain point on the unit circle. Since by definition of the unit circle these coordinates satisfy , it is easy to see that we must have and , or equivalently, . We conclude that and for all , and thus and .  We now show that in fact we have . Given any , since ,we may define . Since , it is easy to see that and that . Thus is a point on the unit circle. Letting be the central angle in standard position subtended by the arc from to , we see that . This proves . A similar argument shows that .    Adding a suitable multiple of and using periodicity, we may assume that and . Let be the point where the terminal edge of intersects the unit circe, and let be the point where the terminal edge of intersects the intersection of the unit circle. The oriented arc associated to starts from , moves counterclockwise and ends at ; the oriented arc associated to traverses the same length of the circle (since ) starting from , but in the clockwise direction. It follows that the latter arc is just the reflection of the former arc across the -axis. As a result we have and . We conclude that .   Unit circle picture of theta and minus theta      We will prove for all . It then follows that . Given any , adding a suitable multiple of and using periodicity, we may assume that . If , then is coterminal to an angle in . Since and , we see that if and only if . Thus we may assume that . Since furthemore, the result is easily verified for and , we assume that . Let be the point where the terminal edge of intersects the unit circle, and let be the corresponding reference triangle with vertices , , and obtained by dropping the perpendicular from to the -axis.  Consider the the case where is acute: , . In this case the angle of at is and the angle of at is , since is a right triangle. Using triangular interpretations of and , we conclude that , as desired.  The case for obtuse ( , ) is similar, with some sign details. The point is now in the second quadrant of the plane, which means the -coordinate is negative . Now the angle at is , and the angle at is . The same triangular reasoning as above can be applied, but now we have to be careful about sign: we have in this case, since . Using the oddness of sine, we conclude that , as desired!       The interdependence of and articulated in , allows us in many situations to derive the value of one of the two function and from the other, at least up to sign. The next example illustrates this idea.   Interdependence of and   For a fixed but indeterminate angle , information about one of the two values and is given. If possible, determine the value of the other function; if not, explain why the exact value cannot be determined.         and                Using the Pythagorean identity, we can attempt to solve for : . We see that there are two possible values of , without further information, we cannot determine which one applies in the given situation. Indeed, there are two separate points and on the unit circle with -coordinates equal to . Letting be the angle associated to , we have and . Similarly, letting be the angle associated to , we have and .    Using the Pythagorean identity, we can attempt to solve for : . Again, we so far only know up to sign. However, since , the point associated to is in the second or third quadrant of the plane, where the -coordinate is always negative. (See .) We conclude that .    Using the cofunction identity, we conclude immediately that .         Right-triangle trigonometry  There is another standard approach to defining the trigonometric functions, at least for acute angles, meaning angles measure between and . Sine, cosine, and tangent can be defined in terms of side lengths of triangles. Every acute angle can be realized as part of a right triangle with opposite and adjacent sides as labeled in Figure below:   Opposite and adjacent sides to an acute angle. The hypotenuse is opposite the right angle.    For any given acute angle there are many possible right triangles that we could draw, but as illustrated in Figure , all of the possibilities will have the same three angles and thus be similar triangles.   Right triangles with the same acute angles must be similar.    This relationship is key, since the Law of Similar Triangles tells us that the similar triangles may have different side lengths, but always have the same ratios of side lengths:   We have defined three of the functions that result from these ratios already: sine results from the ratio of the opposite side to the hypotenuse, cosine results from the ratio of the adjacent side to the hypotenuse, and tangent results from the ratio of the opposite side to the adjacent side. There are three other trigonometric functions that we have not yet mentioned that result from the reciprocals of these ratios: cosecant, secant, and cotangent, respectively.  In the following definition, \"opp,\" \"adj,\" and \"hyp\" denote the lengths of the opposite side, adjacent side, and hypotenuse, respectively:   Trigonometric functions for acute angles   Given an acute angle , the six trigonometric functions are defined as the following six ratios of side lengths:                                  It is worth noting in particular that for most values of .      For example, consider the angle shown in the right triangle shown below:  The side lengths here are opp , adj , and hyp . The ratios of these side lengths give us        The same angle as in Example can be thought of inside the triangle:     Although all the side lengths are twice as large, their ratios will be exactly the same. Find , , and using the side lengths in the triangle, and simplify in order to verify that they are the same as in Example .    The right-triangle definitions of sine, cosine and tangent for acute angles are compatible with the original definitions via the unit circle. Acute angles in standard position must terminate in the first quadrant, as illustrated below:     If the radius of the circle is 1, then the hypotenuse of the triangle is 1, and so we can see that     The functions cosecant, secant, and cotangent are defined for arbitrary angles as the reciprocals of sine, cosine, and tangent, respectively, just as they are for acute angles.   One thing to notice is that it is not necessary to use the unit circle to define the sine and cosine functions. It is simply convenient. We see from the right-triangle definitions that any size radius will give us the same value for sine and cosine, provided that we take the ratio of the side lengths to the radius. So we could define if we choose to use a circle of radius , instead of radius 1.   Now that we have formally defined all six of the trigonometric functions, here is one more example of calculating the values of the trigonometric functions by hand using a reference triangle:    Sketch the angle in standard position, and then use the unit circle to find the values of all six trigonometric functions of that angle.    Note that . Since radians is one full revolution around the unit circle, the angle opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle, as shown at the left:     In the right-hand picture above, we see a 45-45-90 reference triangle with the labeled side lengths of . Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative. By the unit-circle definitions of sine and cosine,   Therefore       Finish Example : Use the values of and calculated there to determine         ,     , and             "
+},
+{
+  "id": "s_trig_prop-2",
+  "level": "2",
+  "url": "s_trig_prop.html#s_trig_prop-2",
+  "type": "Objectives",
+  "number": "2.18",
+  "title": "",
+  "body": "   Derive algebraic and graphical properties of and from their unit circle definitions.    Introduce the remaining trigonometric functions , , , and .    Learn to give detailed sketches of trigonometric functions.    Solve equations involving trigonometric functions.    "
+},
+{
+  "id": "th_sin_cos_props",
+  "level": "2",
+  "url": "s_trig_prop.html#th_sin_cos_props",
+  "type": "Theorem",
+  "number": "2.18.1",
+  "title": "Properties of <span class=\"process-math\">\\(\\cos\\)<\/span> and <span class=\"process-math\">\\(\\sin\\)<\/span>.",
+  "body": " Properties of and      Pythagorean identity   for all .    Periodicity   and are periodic with period : , for all .    Range of and   . In particular, we have for all .    Even\/odd properties   for all .    Cofunction identities   for all .          The Pythagorean idenity follows almost immediately from the definition of and . Given any angle , let be the point where the terminal edge of intersects the unit circle. By definition of the unit circle, and satisfy . By definition of and , on the other hand, we have and . We conclude that .    For any , the two angles and are coterminal. As a result, both angles are associated to the same point , following the recipe of . We conclude that .    Given any , we have and , where is a certain point on the unit circle. Since by definition of the unit circle these coordinates satisfy , it is easy to see that we must have and , or equivalently, . We conclude that and for all , and thus and .  We now show that in fact we have . Given any , since ,we may define . Since , it is easy to see that and that . Thus is a point on the unit circle. Letting be the central angle in standard position subtended by the arc from to , we see that . This proves . A similar argument shows that .    Adding a suitable multiple of and using periodicity, we may assume that and . Let be the point where the terminal edge of intersects the unit circe, and let be the point where the terminal edge of intersects the intersection of the unit circle. The oriented arc associated to starts from , moves counterclockwise and ends at ; the oriented arc associated to traverses the same length of the circle (since ) starting from , but in the clockwise direction. It follows that the latter arc is just the reflection of the former arc across the -axis. As a result we have and . We conclude that .   Unit circle picture of theta and minus theta      We will prove for all . It then follows that . Given any , adding a suitable multiple of and using periodicity, we may assume that . If , then is coterminal to an angle in . Since and , we see that if and only if . Thus we may assume that . Since furthemore, the result is easily verified for and , we assume that . Let be the point where the terminal edge of intersects the unit circle, and let be the corresponding reference triangle with vertices , , and obtained by dropping the perpendicular from to the -axis.  Consider the the case where is acute: , . In this case the angle of at is and the angle of at is , since is a right triangle. Using triangular interpretations of and , we conclude that , as desired.  The case for obtuse ( , ) is similar, with some sign details. The point is now in the second quadrant of the plane, which means the -coordinate is negative . Now the angle at is , and the angle at is . The same triangular reasoning as above can be applied, but now we have to be careful about sign: we have in this case, since . Using the oddness of sine, we conclude that , as desired!      "
+},
+{
+  "id": "eg_cos_sin_props",
+  "level": "2",
+  "url": "s_trig_prop.html#eg_cos_sin_props",
+  "type": "Example",
+  "number": "2.18.2",
+  "title": "Interdependence of <span class=\"process-math\">\\(cos\\)<\/span> and <span class=\"process-math\">\\(\\sin\\)<\/span>.",
+  "body": " Interdependence of and   For a fixed but indeterminate angle , information about one of the two values and is given. If possible, determine the value of the other function; if not, explain why the exact value cannot be determined.         and                Using the Pythagorean identity, we can attempt to solve for : . We see that there are two possible values of , without further information, we cannot determine which one applies in the given situation. Indeed, there are two separate points and on the unit circle with -coordinates equal to . Letting be the angle associated to , we have and . Similarly, letting be the angle associated to , we have and .    Using the Pythagorean identity, we can attempt to solve for : . Again, we so far only know up to sign. However, since , the point associated to is in the second or third quadrant of the plane, where the -coordinate is always negative. (See .) We conclude that .    Using the cofunction identity, we conclude immediately that .      "
+},
+{
+  "id": "fig_TaalmanPage402a",
+  "level": "2",
+  "url": "s_trig_prop.html#fig_TaalmanPage402a",
+  "type": "Figure",
+  "number": "2.18.3",
+  "title": "",
+  "body": " Opposite and adjacent sides to an acute angle. The hypotenuse is opposite the right angle.   "
+},
+{
+  "id": "fig_TaalmanPage402b",
+  "level": "2",
+  "url": "s_trig_prop.html#fig_TaalmanPage402b",
+  "type": "Figure",
+  "number": "2.18.4",
+  "title": "",
+  "body": " Right triangles with the same acute angles must be similar.   "
+},
+{
+  "id": "s_trig_prop-4-9",
+  "level": "2",
+  "url": "s_trig_prop.html#s_trig_prop-4-9",
+  "type": "Definition",
+  "number": "2.18.5",
+  "title": "Trigonometric functions for acute angles.",
+  "body": " Trigonometric functions for acute angles   Given an acute angle , the six trigonometric functions are defined as the following six ratios of side lengths:                                  It is worth noting in particular that for most values of .   "
+},
+{
+  "id": "ex_3-4-5",
+  "level": "2",
+  "url": "s_trig_prop.html#ex_3-4-5",
+  "type": "Example",
+  "number": "2.18.6",
+  "title": "",
+  "body": "  For example, consider the angle shown in the right triangle shown below:  The side lengths here are opp , adj , and hyp . The ratios of these side lengths give us     "
+},
+{
+  "id": "s_trig_prop-4-11",
+  "level": "2",
+  "url": "s_trig_prop.html#s_trig_prop-4-11",
+  "type": "Checkpoint",
+  "number": "2.18.7",
+  "title": "",
+  "body": "  The same angle as in Example can be thought of inside the triangle:     Although all the side lengths are twice as large, their ratios will be exactly the same. Find , , and using the side lengths in the triangle, and simplify in order to verify that they are the same as in Example .   "
+},
+{
+  "id": "s_trig_prop-4-16",
+  "level": "2",
+  "url": "s_trig_prop.html#s_trig_prop-4-16",
+  "type": "Remark",
+  "number": "2.18.8",
+  "title": "",
+  "body": " One thing to notice is that it is not necessary to use the unit circle to define the sine and cosine functions. It is simply convenient. We see from the right-triangle definitions that any size radius will give us the same value for sine and cosine, provided that we take the ratio of the side lengths to the radius. So we could define if we choose to use a circle of radius , instead of radius 1.  "
+},
+{
+  "id": "ex_negative11piover4",
+  "level": "2",
+  "url": "s_trig_prop.html#ex_negative11piover4",
+  "type": "Example",
+  "number": "2.18.9",
+  "title": "",
+  "body": "  Sketch the angle in standard position, and then use the unit circle to find the values of all six trigonometric functions of that angle.    Note that . Since radians is one full revolution around the unit circle, the angle opens up in the clockwise direction for one full revolution and then an additional three-quarters of the bottom half of the unit circle, as shown at the left:     In the right-hand picture above, we see a 45-45-90 reference triangle with the labeled side lengths of . Because the angle terminates in Quadrant III, both coordinates of the point on the unit circle are negative. By the unit-circle definitions of sine and cosine,   Therefore    "
+},
+{
+  "id": "s_trig_prop-4-19",
+  "level": "2",
+  "url": "s_trig_prop.html#s_trig_prop-4-19",
+  "type": "Checkpoint",
+  "number": "2.18.10",
+  "title": "",
+  "body": "  Finish Example : Use the values of and calculated there to determine         ,     , and           "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",
