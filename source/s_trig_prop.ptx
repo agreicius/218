@@ -243,6 +243,260 @@ For a fixed but indeterminate angle <m>\theta</m>, information about one of the 
 </example>
 
 </subsection>
+<subsection xml:id="ss_graph_sin_cos">
+<title>Graphs of <m>\cos</m> and <m>\sin</m></title>
+<p>
+    The properties of <m>\cos</m> and <m>\sin</m> spelled out in <xref ref="th_sin_cos_props"/> are readily interpreted visually in terms of the graphs of these two functions. For example, the fact that <m>\range\cos=\range\sin=[-1,1]</m> tells us that the <m>y</m>-coordinates of points on the these graphs always lie between <m>-1</m> and <m>1</m>, and furthermore that every value in that range is the <m>y</m>-value of some point on the graph. Next, the fact that <m>\cos</m> and <m>\sin</m> both have period <m>2\pi</m> tells us that once we know what the graph looks like over the interval <m>[0,2\pi]</m> (or any interval of length <m>2\pi</m>), we can produce the rest of the graph by <q>cutting and pasting</q>: in more detail, take the graph of the function over <m>[0,2\pi]</m> and simply shift to the right by <m>2\pi</m> to get the graph over <m>[2\pi, 4\pi]</m>; similarly, shift to the left by <m>2\pi</m> to get the graph over <m>[-2\pi, 0]</m>. Lastly, the even/odd properties of <m>\cos</m> and <m>\sin</m> tell us the usual symmetry properties of graphs of even and odd functions. (See <xref ref="d_even_odd"/> and the discussion that follows it.)
+</p>
+<p>
+    But what exactly does the graph of one these functions look like for <m>x\in [0,2\pi]</m>. We can give a fairly precise qualitative description of this by examining what happens to the <m>x</m>-coordinate of the point <m>P_\theta</m> associated to the central angle <m>\theta</m>, as we let <m>\theta</m> range from <m>0</m> to <m>2\pi</m>. It is useful to think of this as an animation, where the point <m>P_\theta</m> associated to <m>\theta</m> travels all the way around the unit circle as we <m>\theta</m> increases from <m>0</m> to <m>2\pi</m>. Focusing just on the <m>x</m>-coordinate of <m>P_\theta</m>, we deduce the following qualitative summary. 
+    <ul>
+        <li>
+            <p>
+                As <m>\theta</m> increases from <m>0</m> to <m>\pi/2</m>, the <m>x</m>-coordinate of <m>P_\theta</m> decreases from <m>1</m> to <m>0</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                As <m>\theta</m> increases from <m>\pi/2</m> to <m>\pi</m>, the <m>x</m>-coordinate of <m>P_\theta</m> decreases from <m>0</m> to <m>-1</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                As <m>\theta</m> increases from <m>\pi</m> to <m>3\pi/2</m>, the <m>x</m>-coordinate of <m>P_\theta</m> increases from <m>-1</m> to <m>0</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                As <m>\theta</m> increases from <m>3\pi/2</m> to <m>2\pi</m>, the <m>x</m>-coordinate of <m>P_\theta</m> increases from <m>0</m> to <m>1</m>.
+            </p>
+        </li>
+    </ul>
+    Remembering that <m>\cos \theta</m> is by definition the <m>x</m>-coordinate of this point <m>P_\theta</m>, our summary above leads pretty directly to the graph of <m>\cos\theta</m> below. We have enhanced this sketch with some actual plotted points: namely, the point <m>(\theta, \cos\theta)</m>, for each of the 16 familiar angles from <xref ref="fig_unit_circle_familiar"/>. 
+</p>
+<figure xml:id="fig_graph_cos">
+    <caption>Graph of <m>\cos</m> including points <m>(\theta, \cos\theta)</m> for familiar angles.</caption>
+    <image width="75%">
+        <shortdescription>Graph of cosine with some plotted points</shortdescription>
+        <sageplot>
+costicks=[n*pi/4 for n in range(-2,10)]
+costicks_labels=[r"$\frac{"+str(n)+r"\pi}{4}$" for n in range(-2,9)]
+f(t)=cos(t)
+cosG=plot(f(x),x,-pi/2,5*pi/2,ticks=[costicks,[-1,-.5,.5,1]], tick_formatter=[[r"$-\frac{\pi}{2}$",r"$-\frac{\pi}{4}$","",r"$\frac{\pi}{4}$",r"$\frac{\pi}{2}$",r"$\frac{3\pi}{4}$",r"$\pi$",r"$\frac{5\pi}{4}$",r"$\frac{3\pi}{2}$",r"$\frac{7\pi}{4}$", r"$2\pi$",r"$\frac{9\pi}{4}$"],["$-1$",r"$-\frac{1}{2}$",r"$\frac{1}{2}$",r"$1$"]], ymin=-1.25, ymax=1.25)
+P=points([(t,f(t)) for t in [n*pi/6 for n in range(12)]+[n*pi/4 for n in range(8)]], size=50, color='red')
+cosG+P
+        </sageplot>      
+    </image>
+</figure>
+<p>
+    A similar description can be obtained for the graph of <m>\sin</m> by looking at the <m>y</m>-coordinates of the points <m>P_\theta</m> as <m>\theta</m> ranges from <m>0</m> to <m>2\pi</m>. These values begin at <m>0</m>, increase to <m>1</m> as <m>\theta</m> increases from <m>0</m> to <m>\pi/2</m>, decrease back to <m>0</m> as <m>\theta</m> increases from <m>\pi/2</m> to <m>\pi</m>, decrease further to <m>-1</m> as <m>\theta</m> increases from <m>\pi</m> to <m>3\pi/2</m>, and finally increase back to <m>0</m> as <m>\theta</m> increases from <m>3\pi/2</m> to <m>2\pi</m>. Identifying this changing <m>y</m>-value of <m>P_\theta</m> with <m>\sin\theta</m>, we obtain the following graph. 
+</p>
+<figure xml:id="fig_graph_sine">
+    <caption>Graph of <m>\sin</m> including points <m>(\theta, \sin\theta)</m> for familiar angles.</caption>
+    <image width="75%">
+        <shortdescription>Graph of sine with some plotted points</shortdescription>
+        <sageplot>
+costicks=[n*pi/4 for n in range(-2,10)]
+costicks_labels=[r"$\frac{"+str(n)+r"\pi}{4}$" for n in range(-2,9)]
+f(t)=sin(t)
+cosG=plot(f(x),x,-pi/2,5*pi/2,ticks=[costicks,[-1,-.5,.5,1]], tick_formatter=[[r"$-\frac{\pi}{2}$",r"$-\frac{\pi}{4}$","",r"$\frac{\pi}{4}$",r"$\frac{\pi}{2}$",r"$\frac{3\pi}{4}$",r"$\pi$",r"$\frac{5\pi}{4}$",r"$\frac{3\pi}{2}$",r"$\frac{7\pi}{4}$", r"$2\pi$",r"$\frac{9\pi}{4}$"],["$-1$",r"$-\frac{1}{2}$",r"$\frac{1}{2}$",r"$1$"]], ymin=-1.25, ymax=1.25)
+P=points([(t,f(t)) for t in [n*pi/6 for n in range(12)]+[n*pi/4 for n in range(8)]], size=50, color='red')
+cosG+P
+        </sageplot>
+        
+    </image>
+</figure>
+<p>
+    Understanding the basic pattern of the changing values of <m>\cos</m> and <m>\sin</m> allows us to quickly give a detailed sketch of these functions. Incorporating our shifting and scaling techniques, it is then not difficult to obtain the graphs of more general functions of the form 
+    <md>
+        <mrow>f(\theta) \amp =A\cos(k\theta)+B \amp g(\theta)\amp=A\sin(k\theta)+B</mrow>
+    </md>,
+    where <m>A,B,k</m> are fixed constants. Such functions are called <term>sinusoidal</term>. Here is a summary of these parameters affect the graphs of the functions. We work from the inner most operation (multiplying <m>x</m> by <m>k</m>) to the outermost (adding <m>B</m>)
+    <ul>
+        <li>
+            <p>
+                Assume <m>k&gt; 0</m>. Scaling the input <m>\theta</m> by <m>k</m> shrinks the graph of <m>\cos</m> horizontally by <m>1/k</m>. As a result, the period of the functions <m>f(\theta)=\cos k\theta</m> and  <m>g(\theta)=\sin k\theta</m> is <m>2\pi/k</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Since scaling by <m>A</m> scales the <m>y</m>-values of the graph of <m>\cos</m> or <m>\sin</m> by a factor of <m>A</m>, the functions <m>f(\theta)=A\cos k\theta</m> and <m>g(\theta)=A\sin k\theta</m> vary (or <term>oscillate</term>) between <m>-A</m> and <m>A</m>. Accordingly, <m>\abs{A}</m> is called the <term>amplitude</term> of the the functions <m>f</m> and <m>g</m>. The amplitude measures how much the <m>y</m>-values vary from midline <m>y=0</m> of the graph of <m>f</m> and <m>g</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Lastly, the parameter <m>B</m> shifts the graph vertically by <m>B</m>. As a result, the midline of the functions <m>f(\theta)=A\cos k\theta+B</m> and <m>g(\theta)=A\sin k \theta+B</m> is shifted from <m>y=0</m> to <m>y=B</m>. 
+            </p>
+        </li>
+    </ul>
+The foregoing gives us the following general procedure for producing a detailed graph of a sinusoidal function. 
+</p>
+<algorithm xml:id="proc_sinusoidal">
+    <title>Graphing sinusoidal functions</title>
+    <statement>
+        <p>
+            Let <m>f(\theta)=A\cos k \theta+B</m> and <m>g(\theta)=A\sin k\theta+B</m>, where <m>A</m> and <m>k</m> are positive constants, and <m>B</m> is any constant. To produce a graph of <m>f</m> and/or <m>g</m>, proceed as follows. 
+            <ol>
+                <li>
+                    <title>Determine period</title>
+                    <p>
+                        The period of <m>f</m> and <m>g</m> is <m>2\pi/k</m>. 
+                    </p>
+                </li>
+                <li>
+                    <title>Midline and amplitude</title>
+        
+                    <p>
+                        The midline of <m>f</m> and <m>g</m> is the horizontal line <m>y=B</m>. The amplitude of <m>f</m> and <m>g</m> is <m>\abs{A}=A</m>, which means the <m>y</m>-values of these functions vary between <m>B-A</m> and <m>B+A</m>. Draw the dotted lines <m>y=B-A</m>, <m>y=B</m>, and <m>y=B+A</m> on your coordinate plane. These will help scaffold your graph of <m>f</m> and <m>g</m>, as they indicate the bottom, middle, and top of the graph. 
+                    </p>
+                </li>
+                <li>
+                    <title>Divide period into fourths and plot</title>
+                    <p>
+                       Divide the fundamental period interval <m>[0,2\pi/k]</m> into 4 equal subintervals 
+                       <md>
+                        <mrow>0\amp &lt; 2\pi/4k &lt; \pi/k&lt; 3\pi/4k &lt; 2\pi/k
+                        </mrow>
+                       </md>.
+                       The functions <m>f</m> and <m>g</m> are monotonic on each subinterval. Plot the 5 points with inputs 
+                       <md>
+                        <mrow>0,\frac{\pi}{2k},\frac{\pi}{k},\frac{3\pi}{2k},\frac{2\pi}{k}</mrow>
+                       </md>
+                       and connect them with smooth curves to produce a graph of <m>f</m> and/or <m>g</m> over <m>[0,2\pi/k]</m>. 
+                    </p>
+                    <p>
+                        In the given situation, where <m>A</m> and <m>k</m> are both <em>positive</em>, the <m>y</m>-values of these 5 plotted points follow the bottom/middle/top patterns below. 
+                        <ul>
+                            <li>
+                                <p>
+                                    For <m>f(\theta)=A\cos k \theta+B</m>, the points follow the <q>cosine</q> pattern: top-middle-bottom-middle-top.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    For <m>g(\theta)=A\sin k \theta+B</m>, the points follow the <q>sine</q> pattern: middle-top-middle-bottom-middle.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <title>Cut and paste</title>
+                    <p>
+                        Extend the graph horizontally as much as you like by shifting the graph for <m>\theta\in [0,2\pi/k]</m> to the right and/or left by integer multiples of <m>2\pi/k</m>. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</algorithm>
+<remark>
+    <title>Graphing sinusoidal functions</title>
+    <p>
+        We assume <m>A</m> and <m>k</m> are positive in <xref ref="proc_sinusoidal"/> only for convenience. The case where either one of these parameters is negative can be derived from the positive case by making use of an appropriate reflection: either through the midline <m>y=B</m> (if <m>A</m> is negative), or through the <m>y</m>-axis (if <m>k</m> is negative). 
+    </p>
+    <p>
+        In the case where <m>A</m> is negative, the cosine and sine patterns described in Step 3 of <xref ref="proc_sinusoidal"/> are flipped about the midline. In more detail, if <m>A&lt;0 </m>, then the 5 plotted points of <m>f</m> follow the <q>negative cosine pattern</q> (bottom-middle-top-middle-bottom), and the 5 plotted points of <m>g</m> follow the <q>negative sine pattern</q> (middle-bottom-middle-top-middle).
+    </p>
+</remark>
+<example xml:id="eg_sinusoidal">
+<title>Graphing sinusoidal functions</title>
+<statement>
+<p>
+Produce a detailed graph of <m>f(t)=3\cos(t/2)-1</m> following <xref ref="proc_sinusoidal"/>.
+</p>
+</statement>
+<solution>
+<p>
+In this case we have <m>A=3</m>, <m>k=1/2</m>, and <m>B=-1</m>. It follows that the period of <m>f</m> is <m>2\pi/(1/2)=4\pi</m>, the midline is <m>y=-1</m>, and the <m>y</m>-values of the graph of <m>f</m> oscillate between <m>y=-1-3=-4</m> and <m>y=-1+3=2</m>.
+
+</p>
+<p>
+    We divide the period interval <m>[0,4\pi]</m> into <m>4</m> equal subintervals and plot points with inputs <m>0,\pi, 2\pi, 3\pi, 4\pi</m>. Since <m>f</m> is defined in terms of <m>\cos</m>, these plotted points follow the top-middle-bottom-middle-top <q>cosine pattern</q>. Putting this all together, we obtain the graph in <xref ref="fig_graph_sinusoidal_cos"/>.
+</p>
+<figure xml:id="fig_graph_sinusoidal_cos">
+    <caption>Graph of <m>f(t)=3\cos(t/2)-1</m></caption>
+    <image width="75%">
+        <shortdescription>Graph of 3 times cos(t/2)-1 with some plotted points</shortdescription>
+        <sageplot>
+f(x)=3*cos(x/2)-1
+P=plot(f(x),x,-pi,5*pi, ticks=[[n*pi for n in range(-1,6)],[-4,-3,-2,-1,1,2]], tick_formatter=pi, ymin=-4.5, ymax=2.5)
+L1=line([(-pi, -4), (5*pi, -4)], color='red', linestyle='dashed')
+L2=line([(-pi, -1), (5*pi, -1)], color='red', linestyle='dashed')
+L3=line([(-pi, 2), (5*pi, 2)], color='red', linestyle='dashed')
+t1=text("$y=-4$", (pi/2, -4.15), color='black', fontsize=14)
+t2=text("$y=-1$", (pi/2, -1.15), color='black', fontsize=14)
+t3=text("$y=2$", (pi/2, 2.15), color='black', fontsize=14)
+Q=point([(n*pi,f(n*pi)) for n in range(-1,6)], size=50, color='red')
+P+L1+L2+L3+t1+t2+t3+Q
+        </sageplot>
+    </image>
+</figure>
+</solution>
+</example>
+
+</subsection>
+<subsection xml:id="ss_six_trig_functions">
+<title>The six trigonometric functions</title>
+<p>
+    In addition to <m>\cos</m> and <m>\sin</m>, there are four additional standard trigonometric functions formed by taking simple algebraic combination. We introduce these now.
+</p>
+<definition xml:id="d_trig_funct">
+<title>Trigonometric functions</title>
+<statement>
+<p>
+The <term>trigonometric functions</term> are the six functions consisting of <m>\cos</m> and <m>\sin</m>, together with the following four functions. 
+<ol>
+    <li>
+        <title>Tangent</title>
+        
+        
+        <p>
+           The <term>tangent function</term>, is defined as 
+           <md number="yes">
+            <mrow>\tan \theta \amp =\frac{\sin\theta}{\cos\theta}</mrow>
+           </md>.
+           The domain of <m>\tan</m> is <m>D=\{\theta\in \R\mid \theta\ne \pi/2+\pi n \text{ for } n\in \Z\}</m>.
+        </p>
+    </li>
+    <li>
+        <title>Cotangent</title>
+        <p>
+            The <term>cotangent function</term> is defined as 
+            <md number="yes">
+                <mrow>\cot\theta \amp =\frac{1}{\tan\theta}=\frac{\cos\theta}{\sin\theta}</mrow>
+            </md>.
+            The domain of <m>\cot\theta</m> is <m>D=\{\theta\in \R\mid \theta\ne \pi n \text{ for } n\in \Z\}</m>.
+        </p>
+    </li>
+    
+    <li>
+        <title>Secant</title>
+        <p>
+            The <term>secant function</term> is defined as 
+            <md number="yes">
+                <mrow>\sec\theta \amp =\frac{1}{\cos\theta}</mrow>
+            </md>.
+            The domain of <m>\sec\theta</m> is <m>D=\{\theta\in \R\mid \theta\ne \pi/2+\pi n \text{ for } n\in \Z\}</m>.
+        </p>
+    </li>
+    <li>
+        <title>Cosecant</title>
+        <p>
+            The <term>cosecant function</term> is defined as 
+            <md number="yes">
+                <mrow>\csc\theta \amp =\frac{1}{\sin\theta}</mrow>
+            </md>.
+            The domain of <m>\csc\theta</m> is <m>D=\{\theta\in \R\mid \theta\ne \pi n \text{ for } n\in \Z\}</m>.
+        </p>
+    </li>
+    
+</ol>
+</p>
+</statement>
+</definition>
+
+</subsection>
 <!--     
  <subsection>
     <title>Right-triangle trigonometry</title>
