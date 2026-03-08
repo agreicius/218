@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_trig_solve" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Solving trigonometric equations</title>
+<objectives>
+    <ul>
+        <li>
+            <p>
+                Give complete solutions to elementary trigonometric equations.
+            </p>
+        </li>
+        <li>
+            <p>
+                Understand elementary trigonometric equations geometrically via a unit circle picture.
+            </p>
+        </li>
+        <li>
+            <p>
+                Solve more complicated trigonometric equations by reducing to elementary ones. 
+            </p>
+        </li>
+    </ul>
+</objectives>
+<p>
+    By an elementary trigonometric equation, we will mean an equation of one of the three forms,
+    <md>
+        <mrow>\cos\theta \amp =a \amp \sin\theta\amp =b \amp \tan\theta\amp=c</mrow>
+    </md>,
+    where <m>a</m>, <m>b</m>, and <m>c</m> are fixed constants, and <m>\theta</m> is the unknown. 
+    As a result of the periodic nature of trigonometric functions, combined with some intrinsic symmetries of the unit circle, we will see that elementary trigonometric equations will usually have infinitely many solutions; and indeed, the solutions often come in two independent infinite lists! 
+</p>
+<p>
+    Let's begin with the equation form <m>\cos\theta=a</m>. First observe that since <m>\range \cos=[-1,1]</m>, this equation has a solution in the unknown <m>\theta</m> if and only if <m>-1\leq a\leq 1</m>. Next, using the definition of <m>\cos\theta</m> as the <m>x</m>-coordinate of the corresponding point <m>P_\theta</m> on the unit circle, we see that a solution <m>\theta</m> corresponds to an angle <m>\theta</m> whose corresponding point <m>P_\theta</m> has <m>x</m>-coordinate equal to <m>a</m>. In other words, solutions to <m>\cos\theta=a</m> correspond to points on the intersection of the vertical line <m>x=a</m> and the unit circle <m>x^2+y^2=1</m>. As illustrated in <xref ref="fig_elem_cos"/> the vertical line <m>x=a</m> will intersect the unit circle <m>C</m> either not at all (if <m>a\notin [-1,1]</m>), in exactly one point (if <m>a=\pm 1</m>), or in exactly two points (if <m>a\in (-1,1)</m>). 
+</p>
+<figure xml:id="fig_elem_cos">
+    <caption>Intersection of line <m>x=a</m> and unit circle</caption>
+    <sidebyside>
+        <figure xml:id="fig_elem_cos_empty">
+            <caption>Empty intersection: <m>a\notin [-1,1]</m></caption>
+            <image>
+                <shortdescription>Vertical line not intersecting with circle</shortdescription>
+                <sageplot>
+a=-1.25
+c(x)=vector((cos(x),sin(x)))
+C=parametric_plot(c(x),(x,0,2*pi),color="blue")
+L1=line([(a,-1.5),(a,1.5)],color="red", linestyle="dashed", xmin=-1.5, xmax=1.5)
+t=text(r"$x=a$", (a+.175,1.25), color='black', fontsize=14)
+C+L1+t
+            </sageplot>
+            </image>
+        </figure>
+        <figure xml:id="fig_elem_cos_unique">
+            <caption>Intersection is unique point: <m>x=\pm a</m></caption>
+            <image>
+                <shortdescription>Vertical lines intersecting with circle at one point</shortdescription>
+                <sageplot>
+a=1
+b=-1
+c(x)=vector((cos(x),sin(x)))
+C=parametric_plot(c(x),(x,0,2*pi),color="blue")
+L1=line([(a,-1.5),(a,1.5)],color="red", linestyle="dashed", xmin=-1.5, xmax=1.5)
+L2=line([(b,-1.5),(b,1.5)],color="red", linestyle="dashed", xmin=-1.5, xmax=1.5)
+t1=text(r"$x=1$", (a+.175,1.25), color='black', fontsize=14)
+t2=text(r"$x=-1$", (b+.175,1.25), color='black', fontsize=14)
+C+L1+L2+t1+t2
+                </sageplot>
+            </image>
+        </figure>
+        <figure xml:id="fig_elem_cos_two">
+            <caption>Intersection is two points: <m>a\in (-1,1)</m></caption>
+            <image>
+                <shortdescription>Vertical line intersecting with circle at two points</shortdescription>
+                <sageplot>
+a=-0.5
+c(x)=vector((cos(x),sin(x)))
+C=parametric_plot(c(x),(x,0,2*pi),color="blue")
+L1=line([(a,-1.5),(a,1.5)],color="red", linestyle="dashed", xmin=-1.5, xmax=1.5)
+t=text(r"$x=a$", (a+.175,1.25), color='black', fontsize=14)
+C+L1+t
+                </sageplot>
+            </image>
+        </figure>
+    </sidebyside>
+</figure>
+<p>
+    Let's see how to solve the equation <m>\cos\theta=a</m> in the case when <m>a\in (-1,1)</m>. An angle <m>\theta</m> solving this equation will have associated point <m>P_\theta</m> lying on the intersection of the line <m>x=a</m> and the unit circle. From the diagram above, we see there are two such points, and by symmetry, we see that if <m>P_\theta</m> is one of the points, then <m>P_{-\theta}</m> is the other, as indicated in <xref ref="fig_elem_cos_thetas"/> 
+</p>
+<figure xml:id="fig_elem_cos_thetas">
+    <caption>Solving <m>\cos\theta=a</m> </caption>
+    <image width="75%">
+        <shortdescription>Visualizing solutions to elementary cosine equation on unit circle</shortdescription>
+        <sageplot>
+a=-0.5
+theta=2*pi/3
+c(x)=vector((cos(x),sin(x)))
+C=parametric_plot(c(x),(x,0,2*pi),color="blue")
+a1=parametric_plot(.2*c(x),(x,0,theta), color="red")
+a2=parametric_plot(.2*c(x),(x,-theta,0),color="green")
+P1=point(c(theta), color="blue", size=50)
+P2=point(c(-theta), color="blue", size=50)
+L1=line([(a,-1.5),(a,1.5)],color="red", linestyle="dashed", xmin=-1.5, xmax=1.5)
+L2=line([(0,0),c(theta)], color="blue")
+L3=line([(0,0), c(-theta)], color="blue")
+t=text(r"$x=a$", (a+.175,1.35), color='black', fontsize=14)
+t1=text(r"$\theta$", .3*c(theta/2), color='black', fontsize=14)
+t2=text(r"$-\theta$", .3*c(-theta/2), color='black', fontsize=14)
+t3=text(r"$P_\theta$",1.1*c(theta)+vector([-.05,0]), color="black", fontsize=14)
+t4=text(r"$P_{-\theta}$",1.1*c(-theta)+vector([-.075,0]), color="black", fontsize=14)
+C+L1+L2+L3+a1+a2+P1+P2+t1+t2+t3+t4+t
+        </sageplot>
+    </image>
+</figure>
+<p>
+    Now, imagine we have found one solution <m>\theta</m> to <m>\cos\theta=a</m>, corresponding to the point <m>P_\theta</m>. Any angle coterminal with <m>\theta</m> will intersect the unit circle in the same point <m>P_\theta</m>. We conclude that any angle of the form <m>\theta+2\pi n</m>, <m>n\in\Z</m>, is also a solution to <m>\cos\theta=a</m>. The same reasoning tells us that any angle of the form <m>-\theta+2\pi n</m>, <m>n\in \Z</m> is a solution to <m>\cos\theta=a</m>. From a single solution <m>\theta</m> to the equation, we have thus generated two independent infinite lists of solutions:
+    <md>
+        <mrow>\alpha \amp =\theta+2\pi n, \ n\in \Z</mrow>
+        <mrow>\beta \amp = -\theta+2\pi n, \ n \in \Z</mrow>
+    </md>.
+    Similar reasoning applies to an elementary sine equation <m>\sin\theta=b</m>. Now we are looking for angles <m>\theta</m> for which the corresponding point <m>P_\theta</m> has <m>y</m>-coordinate equal to <m>b</m>. This is a point lying on the intersection of the <em>horizontal line</em> <m>y=b</m> and the unit circle. For the case when <m>b\in (-1,1)</m>, if <m>P_\theta</m> is one such point, <m>P_{\pi-\theta}</m> is the other.
+</p>
+<figure xml:id="fig_elem_sine_thetas">
+    <caption>Solving <m>\sin\theta=b</m></caption>
+       <image width="75%">
+        <shortdescription>Visualizing solutions to elementary cosine equation on unit circle</shortdescription>
+        <sageplot>
+b=0.5
+theta=pi/6
+c(x)=vector((cos(x),sin(x)))
+C=parametric_plot(c(x),(x,0,2*pi),color="blue")
+a1=parametric_plot(.4*c(x),(x,0,theta), color="red")
+a2=parametric_plot(.2*c(x),(x,0, pi-theta),color="green")
+P1=point(c(theta), color="blue", size=50)
+P2=point(c(pi-theta), color="blue", size=50)
+L1=line([(-1.5,b),(1.5,b)],color="red", linestyle="dashed", xmin=-1.5, xmax=1.5)
+L2=line([(0,0),c(theta)], color="blue")
+L3=line([(0,0), c(pi-theta)], color="blue")
+t=text(r"$y=b$", (.5,.6), color='black', fontsize=14)
+t1=text(r"$\theta$", .45*c(theta/2), color='black', fontsize=14)
+t2=text(r"$\pi-\theta$", .25*c((pi-theta)/1.55), color='black', fontsize=14)
+t3=text(r"$P_\theta$",1.15*c(theta)+vector([-.05,0]), color="black", fontsize=14)
+t4=text(r"$P_{\pi-\theta}$",1.1*c(pi-theta-.05)+vector([-.075,0]), color="black", fontsize=14)
+C+L1+L2+L3+a1+a2+P1+P2+t1+t2+t3+t4+t
+        </sageplot>
+    </image>
+</figure>
+<p>
+    From the unit circle picture, we see that from a single solution <m>\theta</m> to <m>\sin\theta=b</m>, we can generate two independent infinite lists of solutions: 
+    <md>
+        <mrow>\alpha \amp =\theta+2\pi n, \ n\in \Z</mrow>
+        <mrow>\beta \amp = (\pi-\theta)+2\pi n, \ n \in \Z</mrow>
+    </md>.
+    Finally, consider the the equation <m>\tan \theta=c</m>. Recall that <m>\tan\theta</m> is the <em>slope</em> of the terminal edge of the angle <m>\theta</m>. As indicated below the angles <m>\theta</m> and <m>\theta+\pi</m> have terminal edges with the same slope. It follows that if <m>\theta</m> is one solution to <m>\tan\theta=c</m>, then <m>\theta+\pi n</m>, <m>n\in \Z</m> is the set of all solutions. 
+</p>
+<figure xml:id="fig_elem_tan_theta">
+    <caption>Solving <m>\tan\theta=c</m></caption>
+    <image width="75%">
+        <shortdescription>Visualizing solutions to elementary tan equation on unit circle</shortdescription>
+        <sageplot>
+theta=pi/3
+c(x)=vector((cos(x),sin(x)))
+C=parametric_plot(c(x),(x,0,2*pi),color="blue")
+a1=parametric_plot(.4*c(x),(x,0,theta), color="red")
+a2=parametric_plot(.2*c(x),(x,0, theta+pi),color="green")
+P1=point(c(theta), color="blue", size=50)
+P2=point(c(theta+pi), color="blue", size=50)
+L2=line([(0,0),c(theta)], color="blue")
+L3=line([(0,0), c(theta+pi)], color="blue")
+t1=text(r"$\theta$", .45*c(theta/2), color='black', fontsize=14)
+t2=text(r"$\theta+\pi$", .275*c((pi+theta)/2), color='black', fontsize=14)
+t3=text(r"$P_\theta$",1.1*c(theta), color="black", fontsize=14)
+t4=text(r"$P_{\theta+\pi}$",1.1*c(pi+theta), color="black", fontsize=14)
+C+L2+L3+a1+a2+P1+P2+t1+t2+t3+t4
+        </sageplot>
+        
+    </image>
+</figure>
+<p>
+    We summarize our conclusions with a general procedure for finding all solutions to an elementary trigonometric equation. 
+</p>
+<algorithm xml:id="proc_solve_elem_trig">
+    <title>Solving elementary trigonometric equations</title>
+    <statement>
+        <ul>
+            <li>
+                <title>Solving <m>\cos\theta=a</m></title>
+                <p>
+                The equations 
+                <md>
+                    <mrow>\cos\theta \amp =1 \amp \cos\theta\amp=-1</mrow>
+                </md>
+                have solutions 
+                <md>
+                    <mrow>\theta \amp =2\pi n,\  n\in \Z \amp \theta=\pi+2\pi n,\  n\in \Z</mrow>
+                </md>.
+                If <m>a\in (-1,1)</m> and <m>\theta_0</m> is one solution to <m>\cos\theta=a</m>, then the complete list of solutions is 
+                <md number="yes">
+                    <mrow xml:id="eq_cos_complete"> \theta \amp = \theta_0+2\pi n, \  n\in \Z </mrow>
+                    <mrow> \theta \amp= -\theta_0+2\pi n, \ n\in \Z </mrow>
+                </md>.
+                </p>
+            </li>
+             <li>
+                <title>Solving <m>\sin\theta=b</m></title>
+                <p>
+                The equations 
+                <md>
+                    <mrow>\sin\theta \amp =1 \amp \sin\theta\amp=-1</mrow>
+                </md>
+                have solutions 
+                <md>
+                    <mrow>\theta \amp =\pi/2+2\pi n, \ n\in \Z \amp \theta=-\pi+2\pi n,\  n\in \Z</mrow>
+                </md>.
+                If <m>b\in (-1,1)</m> and <m>\theta_0</m> is one solution to <m>\sin\theta=b</m>, then the complete list of solutions is 
+                <md number="yes">
+                    <mrow xml:id="eq_sine_complete"> \theta \amp = \theta_0+2\pi n, n\in \Z </mrow>
+                    <mrow> \theta \amp= (\pi-\theta_0)+2\pi n, \ n\in \Z </mrow>
+                </md>.
+                </p>
+            </li>
+             <li>
+                <title>Solving <m>\tan\theta=c</m></title>
+                <p>
+                    If <m>\theta_0</m> is a solution to <m>\tan\theta=c</m>, then the complete list of solutions is 
+                    <md>
+                        <mrow xml:id="eq_tan_complete"> \theta \amp = \theta_0+\pi n, \ n\in \Z </mrow>
+                    </md>
+                </p>
+            </li>
+        </ul>
+    </statement>
+</algorithm>
+<p>
+    Note that except for the simple equations <m>\cos\theta=\pm 1</m> and <m>\sin\theta=\pm 1</m>,  <xref ref="proc_solve_elem_trig"/> does not give an explicit formula for the general solution to an elementary trigonometric equation: it only describes how to get all solutions <em>starting from a given solution</em> <m>\theta_0</m>. When solving elementary trigonometric equations by hand, the way to proceed is to find one solution <m>\theta_0</m> corresponding to one of the 16 familiar angles, and then write all other solutions in terms of <m>\theta_0</m>. 
+</p>
+<example xml:id="eg_elem_trig">
+<title>Elementary trigonometric equations</title>
+<statement>
+<p>
+Find all solutions to the given equation. 
+<ol>
+    <li>
+        <p>
+            <m>\cos\theta=-1/2</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\sin x=-\sqrt{2}/2</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\tan t=\sqrt{3}</m>
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+<ol>
+    <li>
+        <p>
+            First we observe that <m>\theta_0=2\pi/3</m> is one solution to the given equation, making use of the familiar angles in <xref ref="fig_unit_circle_familiar"/>. It follows that the complete list of solutions is 
+            <md number="yes">
+                <mrow>\theta \amp = 2\pi/3+2\pi n, \ n\in \Z </mrow>
+                <mrow> \theta \amp= -2\pi/3+2\pi n, \ n\in \Z </mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            We observe that <m>x_0=5\pi/4</m> is one solution to the given equation, making use of the familiar angles in <xref ref="fig_unit_circle_familiar"/>. It follows that the complete list of solutions is 
+            <md number="yes">
+                <mrow>x \amp = 5\pi/4+2\pi n, \ n\in \Z </mrow>
+                <mrow> x \amp= (\pi-5\pi/4)+2\pi n=(-\pi/4)+2\pi n, \ n\in \Z </mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <p>
+            To find a familiar solution to <m>\tan t=\sqrt{3}</m>, it helps to write <m>\sqrt{3}</m> as <m>(\sqrt{3}/2)/(1/2)</m>, since now we recognize the numerator as <m>\sin \pi/3</m> and the denominator as <m>\cos\pi/3</m>. It follows that <m>t_0=\pi/3</m> is a solution to the given equation, and thus that the complete list of solutions is 
+            <md>
+                <mrow>t \amp = \pi/3+\pi n, \ n\in \Z </mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+
+</section>
