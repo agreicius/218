@@ -691,23 +691,24 @@ from which it follows that
         <shortdescription>Trigonometry in an arbitrary circle of radius r</shortdescription>
         <sageplot>
 c(x)=(cos(x),sin(x))
-C=parametric_plot(c(x),(x,0,2*pi),color='blue', ticks=[[-1,-.5,cos(3*pi/16),1],[-1,-.5,sin(3*pi/16),1]], tick_formatter=[["$-1$","$-\\frac{1}{2}$",r"$x=r\cos\theta$","$1$"],["$-1$","$-\\frac{1}{2}$",r"$y=r\sin\theta$","$1$"]], xmin=-.25, ymin=-.25)
+C=parametric_plot(c(x),(x,0,2*pi),color='blue', ticks=[[-1,-.5,cos(3*pi/16),1],[-1,-.5,sin(3*pi/16),1]], tick_formatter=[["$-r$","$-\\frac{1}{2}$",r"$x=r\,\cos\theta$","$r$"],["$-r$","$-\\frac{1}{2}$",r"$y=r\,\sin\theta$","$r$"]], xmin=-.25, ymin=-.25, fontsize=15)
 L1=line([(0,0),c(3*pi/16)], color='blue', xmin=-.25, ymin=-.25)
 L2=line([c(3*pi/16), (c(3*pi/16)[0],0)], linestyle='dashed', color='red')
 L3=line([(0,0), (c(3*pi/16)[0],0)], linestyle='dashed', color='red')
 L4=line([c(3*pi/16), (0,c(3*pi/16)[1])], linestyle='dashed', color='red')
 P1=point(c(3*pi/16), size=50, color='red')
 t1=text(r"$P_{r,\theta}=(x,y)$", 1.2*c(3*pi/16-.05), color='black', fontsize=15)
-t2=text(r"$m_\theta=\frac{\Delta y}{\Delta x}=\frac{\sin\theta}{\cos\theta}=\tan\theta$", .5*c(1*pi/16), color='black', fontsize=15)
-t3=text(r"$r$", .5*c(3*pi/16+.1), color='black', fontsize=15)
-C+L1+P1+t1+t3+L2+L4
+<!-- t2=text(r"$y$", (cos(3*pi/16)+.05, sin(3*pi/16)/2), color='black', fontsize=15)
+t3=text(r"$x$", (cos(3*pi/16)/2, 0.05), color='black', fontsize=15) -->
+t2=text(r"$r$", .5*c(3*pi/16+.1), color='black', fontsize=15)
+C+L1+P1+t1+t2+L2+L4
         </sageplot>
     </image>
 </figure>
 </statement>
 <proof>
 <p>
-    This slight generalization of the definitions of the trigonometric functions in terms of the unit circle, is a consequence of the law of similar triangles. As indicated in <xref ref="fig_trig_circle_r_proof"/>, we simply relate the reference triangle associated to <m>P_{r,\theta}</m> to the reference triangle for the point <m>P_\theta</m> where the terminal edge of the angle <m>\theta</m>.
+    This slight generalization of the definitions of the trigonometric functions in terms of the unit circle, is a consequence of the law of similar triangles. As indicated in <xref ref="fig_trig_circle_r_proof"/>, we simply relate the reference triangle associated to <m>P_{r,\theta}</m> to the reference triangle for the point <m>P_\theta</m> where the terminal edge of the angle <m>\theta</m> intersects the unit circle.
 </p>
 <figure xml:id="fig_trig_circle_r_proof">
     <caption>Similar reference triangels</caption>
@@ -766,7 +767,23 @@ C3+C+P3+P+L+t1+t2+t3+t4+L1+L2+L3+L4
     </p>
     <figure xml:id="fig_trig_right_tri">
         <caption>Trigonometry of right triangles</caption>
-        <image width="50%" source="TaalmanPage402a.png"/>
+        <image width="65%">
+            <shortdescription>Right triangle with labels adjacent, opposite, hypotenuse</shortdescription>
+            <sageplot>
+theta=pi/4
+c(x)=vector((cos(x),sin(x)))
+P=c(theta)
+C=parametric_plot(.2*c(x), (x,0,theta), color='red', ticks=[[],[]], axes=False)
+L1=line([(0,0), P], color="blue", ticks=[[],[]], axes=False)
+L2=line([(0,0),(P[0],0)], color="blue")
+L3=line([P,(P[0],0)], color="blue")
+t1=text("hypotenuse",.5*P+vector([-.03,.03]), rotation=44.0, color="black", fontsize=15)
+t2=text("adjacent",(cos(theta)/2,-.03), color="black", fontsize=15)
+t3=text("opposite", (cos(theta)+.03, sin(theta)/2), rotation=90, color="black", fontsize=15)
+t4=text(r"$\theta$", .25*c(theta/2), color="black", fontsize=16)
+C+L1+L2+L3+t1+t2+t3+t4
+            </sageplot>
+        </image>
     </figure>
     </statement>
     
