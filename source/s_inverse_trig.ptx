@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_inverse_trig" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Inverse trigonometric functions</title>
+    <objectives>
+        <ul>
+            <li>
+                <p>
+                    Define the inverse trigonometric functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Understand the graphical properties of inverse trigonometric functions.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Derive derivative formulas for the inverse trigonometric functions using our inverse function derivative rule. 
+                </p>
+            </li>
+        </ul>
+    </objectives>
+    <p>
+        The trigonometric functions are fail to be one-to-one in a spectacular fashion: letting <m>f</m> be any one of our six trigonometric functions, using the periodicity of these functions, we have 
+        <md>
+            <mrow>\dots=f(x-2\pi)=f(x) \amp =f(x+2\pi)=f(x+4\pi)=\dots</mrow>
+        </md>.
+        However, by restricting each of these functions to a certain interval where it is monotonic, and hence one-to-one, we obtain an invertible function. 
+    </p>
+    
+    <definition xml:id="d_inverse_trig">
+        <title>Inverse trigonometric functions</title>
+      <statement>
+        <p>
+          The following are examples of what are called
+          <term>inverse trigonometric functions</term>.
+          <ul>
+            <li>
+              <p>
+                On the restricted domain <m>[-\pi/2, \pi/2]</m> the function
+                <m>f(x)=\sin x</m> is one-to-one, with range <m>[-1,1]</m>.
+                The inverse function of <m>f</m> restricted to this domain is called the
+                <em>arcsine function</em>,
+                denoted <m>f^{-1}(x)=\arcsin x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                On the restricted domain <m>[0, \pi]</m> the function
+                <m>g(x)=\cos x</m> is one-to-one, with range <m>[-1,1]</m>.
+                The inverse function of <m>g</m> restricted to this domain is called the
+                <em>arccosine function</em>,
+                denoted <m>g^{-1}(x)=\arccos x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                On the restricted domain <m>(-\pi/2, \pi/2)</m> the function <m>h(x)=\tan x</m> is one-to-one,
+                with range <m>(-\infty, \infty)</m>.
+                The inverse function of <m>h</m> restricted to this domain is called the
+                <em>arctangent function</em>,
+                denoted <m>h^{-1}(x)=\arctan x</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+    <remark>
+      <p>
+        Occasionally an alternative notation is used to denote inverse trigonometric functions: namely, 
+        <md>
+          <mrow>\arcsin x \amp = \sin^{-1}x \amp \arccos x\amp =\cos^{-1} x \amp \arctan x\amp=\tan^{-1} x</mrow>    
+        </md>.
+        We will avoid this notation as it misleadingly suggests that the inverse trigonometric functions are <em>reciprocals</em> of the corresponding trigonometric functions. They are not! 
+      </p>
+    </remark>
+    <p>
+        The usual connections between an invertible function <m>f</m> and its inverse <m>f^{-1}</m> allow us to deduce properties of the inverse trigonometric functions from their paired trigonometric function. 
+    </p>
+    <theorem xml:id="th_inverse_trig_props">
+        <title>Properties of inverse trigonometric functions</title>
+        <statement>
+          <p>
+            <ul>
+            <li>
+              <p>
+                The function <m>\arcsin</m> is an increasing function with domain <m>[-1,1]</m> and range <m>[0,\pi]</m>.
+                It satisfies the following properties:
+                <md number="yes">
+                  <mrow xml:id="eq_arcsin"> \arcsin(x)=\theta \amp \iff \sin\theta=x \text{ and }  -\pi/2\leq \theta\leq \pi/2 </mrow>
+                  <mrow xml:id="eq_arcsin_sin">\arcsin(\sin \theta)\amp =\theta \text{ for all }  -\pi/2\leq \theta\leq \pi/2</mrow>
+                  <mrow xml:id="eq_sin_arcsin">\sin(\arcsin x)\amp =x \text{ for all }  -1\leq x\leq 1</mrow>
+                </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>\arccos</m> is a decreasing function with domain <m>[-1,1]</m> and range <m>[0,\pi]</m>.
+                It satisfies the following properties:
+                <mdn>
+                  <mrow xml:id="eq_arccos">\arccos(x)=\theta \amp \iff \cos\theta=x \text{ and }  0\leq \theta\leq \pi</mrow>
+                  <mrow>\arccos(\cos \theta)\amp =\theta \text{ for all }  0\leq \theta\leq \pi</mrow>
+                  <mrow>\cos(\arccos x)\amp =x \text{ for all }  -1\leq x\leq 1</mrow>
+                </mdn>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>\arctan</m> is an increasing function with domain
+                <m>(-\infty, \infty)</m> and range <m>(-\pi/2, \pi/2)</m>.
+                It satisfies the following properties:
+                <md number="yes">
+                  <mrow xml:id="eq_arctan"> \arctan(x)=\theta \amp \iff \tan\theta=x \text{ and }  -\pi/2\lt  \theta\lt  \pi/2 </mrow>
+                  <mrow>\arctan(\tan \theta)\amp =\theta \text{ for all }  -\pi/2\lt  \theta\lt  \pi/2</mrow>
+                  <mrow>\tan(\arctan x)\amp =x \text{ for all }  x</mrow>
+                  <mrow>\lim_{x\to\infty}\arctan x\amp =\pi/2,\hspace{5pt} \lim_{x\to-\infty}\arctan x=-\pi/2</mrow>
+                </md>
+              </p>
+            </li>
+          </ul>
+        </p>
+        </statement>
+    </theorem>
+    <example xml:id="eg_inverse_trig_compute">
+      <title>Computing with inverse trig functions</title>
+      <statement>
+              <p>
+                Compute the following values of trigonometric functions by hand.
+                <ol>
+                  <li>
+                    <p>
+                      <m>\displaystyle\arcsin(-1)</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\arccos(-\sqrt{2}/2)</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\arctan(-1/\sqrt{3})</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle\arcsin\left(\sin\left(\frac{10\pi}{11}\right)\right)</m> <em>Hint</em>.
+                      The answer is not <m>10\pi/11</m>.
+                    </p>
+                  </li>
+                </ol>
+              </p>
+      </statement>
+      <solution>
+          <p>
+             <ol>
+              <li>
+                <p>
+                  Common mistake: <m>\arcsin(-1)\ne 3\pi/2</m>. Why? By definition, the outputs of <m>\arcsin</m> lie in the interval <m>[-\pi/2, \pi/2]</m>. Instead, 
+                  using <xref ref="eq_arcsin"/>, we have <m>\arcsin(-1)=\theta</m> if and only if <m>\sin \theta=-1</m> and <m>-\pi/2\leq \theta\leq \pi/2</m>. The unique <m>\theta</m> satisfying these two conditions is <m>\theta=-\pi/2</m>. We conclude that <m>\arcsin(-1)=-\pi/2</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using <xref ref="eq_arcsin"/>, we have <m>\arccos(-\sqrt{2}/2)=\theta</m> if and only if <m>\cos \theta=-\sqrt{2}/2</m> and <m>0/\leq \theta\leq \pi</m>. The unique <m>\theta</m> satisfying these two conditions is <m>\theta=3\pi/4</m>. We conclude that <m>\arccos(-\sqrt{2}/2)=3\pi/4</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using <xref ref="eq_arctan"/>, we have <m>\arctan(-1/\sqrt{3})=\theta</m> if and only if <m>\tan \theta=-1/\sqrt{3}</m> and <m>-\pi/2 &lt; \theta &lt; \pi/2</m>. Since <m>\theta=-\pi/6</m> is the unique angle satifying these two conditions, we conclude that that <m>\arctan(-1/\sqrt{3})=-\pi/6</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Recall that <m>\sin(\theta)=\sin (\pi-\theta)</m> for any <m>\theta\in \R</m>. (You can convince yourself of this either by drawing a unit circle picture, or by using the difference identity for <m>\sin</m>.) It follows that 
+                  <md>
+                    <mrow>\arcsin(\sin(10\pi/11)) \amp =\arcsin(\sin(\pi-10\pi/11))</mrow>
+                    <mrow> \amp = \arcsin(\sin (\pi /11))</mrow>
+                    <mrow> \amp = \frac{\pi}{11} \amp (<xref ref="eq_arcsin_sin"/>, -\frac{\pi}{2}\leq \frac{\pi}{11}\leq\frac{\pi}{2})</mrow>
+                  </md>.
+                </p>
+              </li>
+             </ol> 
+          </p>
+      </solution>
+  </example>
+  <p>
+    The inverse trigonometric functions are often used to provide a single solution to an elementary trigonometric equation that we cannot solve <q>by hand</q>: <ie/>, equations whose solutions <m>\theta</m> do not correspond to one of the <q>familiar</q> angles of the unit circle. For example, <m>\theta_0=\arcsin(1/3)</m> is a particular solution to the equation <m>\sin \theta=\frac{1}{3}</m>. But what if we are asked to find <em>all</em> solutions to such an equation? In this case we make use of <xref ref="proc_solve_elem_trig"/>. 
+  </p>
+  
+    <example xml:id="eg_inverse_trig_solve">
+        <title>Solving trig equations</title>
+        <statement>
+            <p>
+                Find all solutions to the following trigonometric equations lying within the interval <m>[0,2\pi]</m>.
+                You may express your answer in terms of values of inverse trigonometric functions.
+                <ol>
+                  <li>
+                    <p>
+                      <m>\displaystyle 3\sin 2\theta +4=6</m>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>\displaystyle \tan (\theta+\pi)=-10</m>
+                    </p>
+                  </li>
+                </ol>
+              </p>
+        </statement>
+        <solution>
+            <p>
+                <ol>
+                  <li>
+                    <p>
+                      After some algebra we rewrite the equation as 
+                      <me>
+                        \sin 2\theta=\frac{2}{3}
+                      </me>
+                      or 
+                      <men xml:id="eq_arcsin_u">
+                        \sin u=\frac{2}{3}
+                      </men>, 
+                      where <m>u=2\theta</m>. Since <m>u_0=\arcsin(2/3)</m> is a solution to <xref ref="eq_arcsin_u"/>, according to <xref ref="proc_solve_elem_trig"/> the general solution is 
+                      <me>
+                        u=\arcsin(2/3)+2\pi n \text{ or } u=(\pi-\arcsin(2/3))+2\pi n
+                      </me>.
+                      Since <m>u=2\theta</m>, we conclude that the general solution to the original equation is 
+                      <me>
+                        \theta=\frac{1}{2}\arcsin(2/3)+\pi n \text{ or } \theta=\frac{1}{2}(\pi-\arcsin(2/3))+\pi n
+                      </me>.
+                      Which of these infinitely-many solutions lies in the prescribed interval <m>[0,2\pi]</m>? Since <m>\arcsin(2/3)\in [0,\pi/2]</m>, we have  <m>\frac{1}{2}\arcsin(2/3)\in [0,\pi/4]</m> and <m>\frac{1}{2}(\pi-\arcsin(2/3)\in [\pi/4, \pi/2]</m>. It follows that the solutions lying in <m>[0,2\pi]</m> are 
+                      <me>
+                        \theta=\frac{1}{2}\arcsin(2/3), \frac{1}{2}\arcsin(2/3)+\pi, \frac{1}{2}(\pi-\arcsin(2/3)), \frac{1}{2}(\pi-\arcsin(2/3))+\pi
+                      </me>.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Since <m>\theta_0=\arctan(-10)-\pi</m> is one solution to the given equation, the general solution is given by 
+                      <me>
+                        \theta=\arctan(-10)-\pi +\pi n= \arctan(-10)+(n-1)\pi 
+                      </me>,
+                      where <m>n</m> is any integer. Which of these lie in the interval <m>[0,2\pi]</m>? Since <m>\arctan(-10)\in (-\pi/2, 0]</m>, we have <m>\arctan(-10)+\pi\in (\pi/2, \pi]</m> and <m>\arctan(-10)+2\pi \in (3\pi/2, 2\pi]</m>. Thus the solutions <m>\theta</m> lying in <m>[0,2\pi]</m> are <m>\theta=\arctan(-10)+\pi</m> and <m>\theta=\arctan(-10)+2\pi</m>. 
+                    </p>
+                  </li>
+                </ol>
+            </p>
+        </solution>
+    </example>
+    <p>
+        Lastly, we can deduce derivative formulas for <m>\arcsin</m>, <m>\arccos</m>, and <m>\arctan</m> using the <xref ref="th_IFT" text="custom">inverse function derivative</xref> rule: 
+        <md>
+            <mrow>\frac{d}{dx}(f^{-1}(x)) \amp = \frac{1}{f'(f^{-1}(x))} </mrow>
+        </md>.
+    </p>
+    <theorem xml:id="th_inverse_trig_derivative">
+        <title>Derivatives of inverse trig functions</title>
+      <statement>
+        <p>
+          <mdn>
+            <mrow xml:id="eq_arcsin_der">\frac{d}{dx} \arcsin x\amp =\frac{1}{\sqrt{1-x^2}} \text{ for all } x\in (-1,1)</mrow>
+            <mrow xml:id="eq_arccos_der">\frac{d}{dx} \arccos x\amp =-\frac{1}{\sqrt{1-x^2}} \text{ for all } x\in (-1,1)</mrow>
+            <mrow xml:id="eq_arctan_der">\frac{d}{dx} \arctan x\amp =\frac{1}{1+x^2}\amp \text{ for all } x\in \R </mrow>
+          </mdn>.
+        </p>
+      </statement>
+       
+    </theorem>
+     <p>
+          We prove <xref ref="eq_arcsin_der"/> and <xref ref="eq_arctan"/>; the proof of <xref ref="eq_arccos_der"/> proceeds along similar lines. 
+        </p>
+        <proof>
+          <title>Proof of <xref ref="eq_arcsin_der"/>  </title>
+          <p>
+            Let <m>f(x)=\sin x</m> restricted to the domain <m>D=[-\pi/2, \pi/2]</m>, and let <m>f^{-1}(x)=\arcsin x</m>. Using <xref ref="th_IFT"/>, we have 
+            <md>
+              <mrow>\frac{d}{dx} \arcsin x \amp = \frac{1}{f'(\arcsin x)}</mrow>
+              <mrow> \amp = \frac{1}{\cos(\arcsin x)}</mrow>
+              <mrow> \amp = \frac{1}{\sqrt{1-x^2}}</mrow>
+            </md>.
+            The last step here is perhaps the most interesting, and follows from the fact that <m>\cos(\arcsin x)=\sqrt{1-x^2}</m> for any <m>x\in [-1,1]</m>. Why is this true? Set <m>\arcsin x=\theta</m>, an angle lying in <m>[-\pi/2,\pi/2]</m>. Using the fact that <m>\sin \theta=x</m>, we can draw a unit circle picture like the one below. Since the vertical leg of the right triangle there has length <m>\abs{x}</m>, the horizontal leg has length <m>\sqrt{1-\abs{x}^2}=\sqrt{1-x^2}</m>. Since this length is equal to the <m>x</m>-coordinate of the point <m>P</m> below, we have <m>\cos \theta=\sqrt{1-x^2}</m> and thus <m>\cos(\arcsin x)=\sqrt{1-x^2}</m>, as claimed.   
+          </p>
+          <image source="arcsin_der.png" width="75%">
+              <description>Unit circle picture for arcsin derivative proof</description>
+            </image>
+        </proof>
+        <proof>
+          <title>Proof of <xref ref="eq_arctan_der"/>  </title>
+          <p>
+            Let <m>f(x)=\tan x</m> restricted to the domain <m>D=(-\pi/2, \pi/2)</m>, and let <m>f^{-1}(x)=\arctan x</m>. Using <xref ref="th_IFT"/>, we have 
+            <md>
+              <mrow>\frac{d}{dx}\arctan x \amp = \frac{1}{f'(\arctan x)}</mrow>
+              <mrow> \amp = \frac{1}{\sec^2 (\arctan x)}</mrow>
+              <mrow> \amp = \frac{1}{(\tan(\arctan x))^2+1} \amp (\tan^2 x+1=\sec^2x)</mrow>
+              <mrow> \amp = \frac{1}{x^2+1} \amp (\tan(\arctan x)=x)</mrow>
+            </md>.
+          </p>
+        </proof>
+
+    <example xml:id="eg_inverse_trig_derivative">
+        <title>Derivatives of inverse trig functions</title>
+        
+        <statement>
+            <p>
+                Find the equation of the tangent line to <m>f(x)=\arccos x</m> at <m>x=1/2</m>.
+              </p>
+        </statement>
+        <solution>
+            <p>
+               The tangent line passes through the point 
+               <me>
+                P=(1/2, \arccos(1/2))=(1/2, \pi/3)
+               </me>
+               and has slope 
+               <me>
+                m=f'(1/2)=-\frac{1}{\sqrt{1-(1/2)^2}}=-\frac{2}{\sqrt{3}}
+               </me>.
+               Using point-slope form, we see that the line has equation 
+               <me>
+                y-\frac{\pi}{3}=\frac{-2}{\sqrt{3}}\left(x-\frac{1}{2}\right)
+               </me>.
+                
+            </p>
+        </solution>
+    </example>
+    <example>
+      <title>Limit computation</title>
+      <statement>
+        <p>
+          Compute <m>\displaystyle\lim_{x\rightarrow 1^{-}}\frac{\arccos(x^2)}{\sqrt{1-x}}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since <m>\arccos(1)=0</m>, we have 
+          <md>
+            <mrow> \lim_{x\rightarrow 1^{-}}\frac{\arccos(x^2)}{\sqrt{1-x}}\amp = 
+              \lim_{x\rightarrow 1^{-}}\frac{(\arccos(x^2))'}{(\sqrt{1-x})'} \amp (\text{L'Hop }, 0/0) </mrow>
+              <mrow> \amp = \lim_{x\rightarrow 1^{-}}\frac{-2x/\sqrt{1-x^4}}{-1/2\sqrt{1-x}}</mrow>
+              <mrow> \amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1-x}{1-x^4}}</mrow>
+              <mrow> \amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1-x}{(1-x^2)(1+x^2)}}</mrow>
+              <mrow> \amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1-x}{(1-x)(1+x)(1+x^2)}}</mrow>
+              <mrow> \amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1}{(1+x)(1+x^2)}}</mrow>
+              <mrow> \amp = 4\cdot \frac{1}{2}</mrow>
+              <mrow> \amp = 2</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+   
+
+</section>

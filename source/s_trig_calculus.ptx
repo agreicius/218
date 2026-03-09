@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_trig_calculus" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Squeeze theorem and the calculus of trigonometric functions</title>
+    <objectives>
+        <ul>
+            <li>
+                <p>
+                    Learn to use the squeeze theorem to compute limits.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Establish the continuity of the trigonometric functions.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Establish derivative formulas for the trigonometric functions. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Perform curve sketching and optimization with functions built from trigonometric functions. 
+                </p>
+            </li>
+        </ul>
+    </objectives>
+    <subsection xml:id="ss_squeeze_theorem">
+    <title>Squeeze theorem</title>
+    <p>
+       In order to derive continuity and derivative results for the trigonometric functions, we will need to make use of a somewhat technical limit rule called the <em>squeeze theorem</em>. We will often reach for this tool in situations where our basic limit rules might not suffice to compute a given limit is when the function <m>f</m> in question is unreasonably complicated, making its behavior near a point difficult to pin down. The <xref ref="th_squeeze" text="custom">squeeze theorem</xref> potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function <m>f</m>, whose behavior is a mystery to us, with two simpler <q>bounding</q> functions <m>g</m> and <m>h</m>, whose behavior we understand. It is called the squeeze theorem as the necessary inequality <m>g(x)\leq f(x)\leq h(x)</m> has <m>f</m> <q>squeezed</q> between the functions <m>g</m> and <m>h</m>.   
+        </p>
+        <theorem xml:id="th_squeeze">
+            <title>Squeeze theorem</title>
+            <statement>
+                <p>
+                Fix a point <m>a\in \R</m> and suppose that functions <m>f,g,h</m> satisfy <m>g(x)\leq f(x)\leq h(x)</m> for all <m>x\ne a</m> lying in an open interval containing <m>a</m>. If 
+                <me>
+                    \lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L
+                </me>,
+                then
+                <me>
+                    \lim_{x\to a}f(x)=L
+                </me>.
+                Using logical shorthand: 
+                <md>
+                    <mrow>\left(g(x)\leq f(x)\leq h(x) \text{ and }  \lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L\right)\amp\implies \lim_{x\to a}f(x)=L </mrow>
+                </md>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    This theorem, like the other limit rules we have discussed, can be proved in a straightforward manner using <xref ref="d_lim_formal"/>, the epsilon-delta definition of the limit.
+                </p>
+            </proof>
+        </theorem>
+        <p>
+            Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner. 
+        </p>
+        <algorithm xml:id="proc_sandwich">
+            <title>Sandwich theorem</title>
+            <statement>
+                <p>
+                    To compute <m>\lim_{x\to a}f(x)</m> using the sandwich theorem, proceed as follows. 
+                    <ol>
+                        <li>
+                            <p>
+                                Find bounding functions <m>g</m> and <m>h</m> satisfying the two following conditions: 
+                                <ol>
+                                    <li>
+                                        <p>
+                                            <m>g(x)\leq f(x)\leq h(x)</m> for all <m>x\ne a</m> lying in an open interval containing <m>a</m>.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <m>\lim\limits_{x\to a}g(x)=\lim\limits_{x\to a}h(x)=L</m> for some <m>L\in \R</m>. 
+                                        </p>
+                                    </li>
+                                </ol>
+                            For your own convenience, make sure to <em>name</em> these functions, as opposed to just providing formulas for them. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Conclude (citing the sandwich theorem) that <m>\lim\limits_{x\to a}f(x)=L</m>
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+        </algorithm>
+    <remark xml:id="rm_sandwich">
+        <title>Sandwich theorem</title>
+        <p>
+        As the examples below will illustrate, the art of using <xref ref="proc_sandwich"/> lies in being able to find <em>useful</em> bounding functions <m>g</m> and <m>h</m>.  Use these examples as a model for your own use of <xref ref="proc_sandwich"/>. Note in particular how 
+        <ul>
+            <li>
+                <p>
+                    the explanations make explicit the two conditions that the bounding functions must satisfy;
+                </p>
+            </li>
+            <li>
+                <p>
+                    the explanations end with a concluding statement explicitly citing the sandwich theorem;
+                </p>
+            </li>
+            <li>
+                <p>
+                    giving the bounding functions <em>names</em> (<eg/>, <m>g</m> and <m>h</m>), as opposed to just providing formulas (<eg/>, <m>1-x^2/4</m>, <m>1+x^2/4</m>), makes these explanations more concise. 
+                </p>
+            </li>
+        </ul>
+    </p></remark>
+    <example xml:id="eg_sandwich_easy">
+        <title>Sandwich theorem: easy</title>
+        <statement>
+            <p>
+                Suppose the function <m>f(x)</m> satisfies 
+                <me>
+                    1-\frac{x^2}{4}\leq f(x)\leq 1+\frac{x^2}{4}
+                </me>
+                for all <m>x\ne 0</m> in the interval <m>(-1/3, 1/3)</m>. Compute <m>\lim_{x\to 0}f(x)</m>. 
+            </p>
+        </statement>
+        <solution>
+            <p>
+            We follow the steps of <xref ref="proc_sandwich"/>. In this case our bounding functions <m>g(x)=1-x^2/4</m> and <m>h(x)=1+x^2/4</m> are provided for us, making life much easier. By assumption our mystery function <m>f</m> satisfies 
+            <men xml:id="eq_sand_easy">
+                g(x)\leq f(x)\leq h(x)
+            </men>
+            for all <m>x\ne 0\in (-1/3, 1/3)</m>. Next we compute 
+            <md>
+                <mrow>\lim_{x\to 0}g(x) \amp = 1-0^2/4 \amp \text{(poly. eval.)}</mrow>
+                <mrow> \amp =1</mrow>
+                <mrow>\lim_{x\to 0}h(x) \amp = 1+0^2/4 \amp \text{(poly. eval.)}</mrow>
+                <mrow> \amp =1</mrow>
+            </md>.
+            Since <xref ref="eq_sand_easy"/> holds for all <m>x\ne 0\in (-1/3,1/3)</m>, and since 
+            <me>
+                \lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=1
+            </me>,
+            we conclude that <m>\lim\limits_{x\to 0}f(x)=1</m>. 
+            </p>
+        </solution>
+    </example>
+    <example xml:base="eg_sandwich_harder">
+        <title>Sandwich theorem: less easy</title>
+        <statement>
+            <p>
+                Use the sandwich theorem to compute <m>\lim\limits_{x\to 0}x^2\cos(1/x)</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Here we make use of a well-known and important inequality for the cosine function: namely, that 
+                <me>
+                    -1\leq \cos t\leq 1
+                </me>
+                for all <m>t\in \R</m>. It follows that 
+                <men xml:id="eq_cos_ineq">
+                    -1\leq \cos(1/x)\leq 1
+                </men>
+                for all <m>x\ne 0</m>. Since <m>x^2\geq 0</m> for all <m>x</m>, the inequalities in <xref ref="eq_cos_ineq"/> still hold after multiplying each expression by <m>x^2</m>: that is 
+                <me>
+                    -x^2\leq x^2\cos(1/x)\leq x^2
+                </me>
+                for all <m>x\ne 0</m>. Thus, letting <m>g(x)=-x^2</m> and <m>h(x)=x^2</m>, we have 
+                <men xml:id="eq_harder">
+                    g(x)\leq f(x)\leq h(x)
+                </men>
+                for all <m>x\ne 0</m> in the open inteval <m>\R=(-\infty,\infty)</m>. Lastly, we compute 
+                <md>
+                    <mrow>\lim_{x\to 0}g(x) \amp = -0^2 \amp \text{(poly. eval.)}</mrow>
+                    <mrow> \amp = 0</mrow>
+                    <mrow>\lim_{x\to 0}h(x) \amp = 0^2 \amp \text{(poly. eval.)}</mrow>
+                    <mrow> \amp = 0</mrow>
+                </md>.
+                Since <xref ref="eq_harder"/> holds for all <m>x\ne 0</m> in <m>\R</m>, and since 
+                <me>
+                    \lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=0
+                </me>,
+                we conclude using the sandwich theorem that <m>\lim\limits_{x\to 0}f(x)=0</m>.
+            </p>
+        </solution>
+    </example>
+    <p>
+        The next result is a useful consequence of the squeeze theorem that can be used in the special case where we want to show <m>\lim\limits_{x\to a}f(x)=0</m> for some function <m>f</m>. 
+    </p>
+    <theorem xml:id="th_abs_lim">
+        <title>Limits and absolute value</title>
+        <statement>
+            <p>
+              Let <m>f</m> be a function defined on an open interval containing <m>a\in \R</m>, except possibly at <m>a</m> itself. We have 
+              <md number="yes">
+                <mrow xml:id="eq_zero_lim_abs"> \lim\limits_{x\to a}f(x)= 0 \amp \text{ if and only if } \lim\limits_{x\to a}\abs{f(x)}=0 </mrow>
+              </md>. 
+            </p>
+        </statement>
+        <proof>
+            <p>
+                First note the an <q>if and only if</q> statement like the given one is in fact a statement that two separate implications are true: namely, 
+                <ul>
+                    <li>
+                        <p>
+                            if <m>\lim\limits_{x\to a}f(x)=0</m>, then <m>\lim\limits_{x\to a}\abs{f(x)}=0</m>;
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                           if <m>\lim\limits_{x\to a}\abs{f(x)}=0</m>, then <m>\lim\limits_{x\to a}f(x)=0</m>.
+                        </p>
+                    </li>
+                </ul>
+                Thus to prove the given theorem, we must prove each of these implications.
+            </p>
+            <p>
+                The first implication follows almost immediately from the epsilon-delta definition of the limit. If <m>\lim\limits_{x\to a}f(x)=0</m>, then for all <m>\epsilon &gt; 0</m>, there is a <m>\delta&gt; 0</m> such that 
+                <md>
+                    <mrow>\abs{f(x)-0} \amp =\abs{f(x)}&lt; \epsilon</mrow>
+                </md>
+                for all <m>x</m> satisfying <m>0&lt; \abs{x-a}&lt; \delta</m>. But since 
+                <md>
+                    <mrow>\abs{\abs{f}-0} \amp =\abs{f(x)}</mrow>
+                </md>,
+                we see that the same is true for the function <m>\abs{f}</m>, showing that <m>\lim\limits_{x\to a}\abs{f(x)}=0</m>.
+            </p>
+            <p>
+                Now consider the second implication. We will assume <m>\lim\limits_{x\to a}\abs{f(x)}=0</m> and prove that <m>\lim\limits_{x\to a}f(x)=0</m> using the squeeze theorem. Recall that for any <m>b\in \R</m> we have <m>-\abs{b}\leq b\leq \abs{b}</m>. It follows that 
+                            <me>
+                                -\abs{f(x)}\leq f(x)\leq \abs{f(x)}
+                            </me>
+                            for all <m>x</m> in the domain of <m>f</m>. Thus, letting <m>g(x)=-\abs{f(x)}</m> and <m>h(x)=\abs{f(x)}</m>, we have 
+                            <me>
+                                g(x)\leq f(x)\leq h(x)
+                            </me>
+                            for all <m>x</m> in the domain of <m>f</m>. Using our assumption, we see that 
+                            <md>
+                                <mrow>\lim_{x\to a}g(x) \amp = \lim_{x\to a}-\abs{f(x)}</mrow>
+                                <mrow> \amp = -\lim_{x\to a}\abs{f(x)} \amp \text{(scal. mult.)}</mrow>
+                                <mrow> \amp =0 \amp \text{(by assumption)}</mrow>
+                                <mrow>\lim_{x\to a}h(x) \amp = \lim_{x\to a}\abs{f(x)}</mrow>
+                                <mrow> \amp =0 \amp \text{(by assumption)}</mrow>
+                            </md>.
+                            It now follows from the sandwich theorem that <m>\lim\limits_{x\to a}f(x)=0</m>. 
+                        </p>
+        </proof>
+    </theorem>
+    <p>
+        Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero. 
+    </p>
+    <theorem xml:id="th_lim_sine_cos">
+        <title>Sine and cosine limits at <m>0</m></title>
+        <statement>
+            <p>
+            <ol>
+                    <li>
+                    <title>Sine limit at zero</title>
+                    <p>
+                        <m>
+                            \lim\limits_{\theta\to 0}\sin \theta=0
+                        </m>.
+                    </p>
+                </li>
+                <li>
+                    <title>Cosine limit at zero</title> 
+                    <p>
+                        <m>
+                            \lim\limits_{\theta\to 0}\cos \theta=1
+                        </m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely 
+                            <men xml:id="eq_sine_ineq">
+                                -\abs{\theta}\leq \sin \theta\leq \abs{\theta}
+                            </men>
+                            for all <m>\theta\in \R</m>. The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume <xref ref="eq_sine_ineq"/> holds for the purpose of this proof. 
+                            With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting <m>g(\theta)=-\abs{\theta}</m> and <m>h(\theta)=\abs{\theta}</m>, we have 
+                            <me>
+                                g(\theta)\leq \sin \theta\leq h(\theta)
+                            </me>
+                            for all <m>\theta</m>, by inequality <xref ref="eq_sine_ineq"/>, and 
+                            <me>
+                                \lim_{\theta\to 0}g(\theta)=\lim_{\theta\to 0}h(\theta)=0
+                            </me>,
+                            since <m>\lim_{\theta\to 0}\abs{\theta}=0</m>. The sandwich theorem now implies <m>\lim\limits_{\theta\to 0}\sin \theta=0</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            First note that for all <m>\theta\in (-\pi/2, \pi/2)</m>, we have <m>\cos \theta\geq 0</m>, and hence 
+                            <md>
+                                <mrow> \cos \theta  \amp = \abs{\cos \theta} \amp (\cos \theta\geq 0) </mrow>
+                                <mrow> \amp = \sqrt{\cos^2\theta} \amp (\ans{a}=\sqrt{a^2})</mrow>
+                                <mrow> \amp = \sqrt{1-\sin^2\theta} \amp (\cos^2\theta+\sin^2\theta=1)</mrow>
+                            </md>
+                            for all <m>\theta\in (-\pi/2, \pi,2)</m>. We then have 
+                            <md>
+                                <mrow>\lim_{\theta\to 0}\cos\theta \amp = \lim_{\theta\to 0}\sqrt{1-\sin^2\theta} \amp (\text{repl. rule})</mrow>
+                                <mrow> \amp = \sqrt{\lim_{\theta\to 0}1-(\lim_{\theta\to 0}\sin\theta)^2} \amp \text{(root, sum,power)}</mrow>
+                                <mrow> \amp = \sqrt{1-0^2} \amp \text{(sine eval.)}</mrow>
+                                <mrow> \amp = 1</mrow>
+                            </md>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </theorem>
+    <p>
+        As promised in the proof of <xref ref="th_lim_sine_cos"/>, we provide a proof of the inequality <m>-\abs{\theta}\leq \sin \theta\leq \abs{\theta}</m>, or equivalently, <m>\abs{\sin \theta}\leq \abs{\theta}</m> for all <m>\theta\in \R</m>. You are not responsible for understanding this proof, but you might find the argument instructive nonetheless. 
+    </p>
+    <proof>
+        <title>Proof of <m>\abs{\sin\theta}\leq \abs{\theta}</m></title>
+        <p>
+        We will prove that 
+        <men xml:id="eq_sine_ineq_abs">
+            \abs{\sin \theta}\leq \abs{\theta}
+        </men>
+        for all <m>\theta\in \R</m>. First, observe that since <m>\sin(-\theta)=-\sin\theta</m>, we have 
+        <me>
+            \abs{\sin (-\theta)}=\abs{-\sin \theta}=\abs{\sin \theta}
+        </me>. 
+        Thus the function <m>f(\theta)=\abs{\sin \theta}</m> is even. Since <m>g(\theta)=\abs{\theta}</m> is also even, it suffices to prove <xref ref="eq_sine_ineq_abs"/> for all <m>\theta\geq 0</m>. Furthermore, since 
+        <me>
+            \theta\geq \pi/2\implies \sin\theta\leq 1 \leq \pi/2 \leq \theta
+        </me>,
+        and since <m>\sin(0)=0</m>, it suffices to show <xref ref="eq_sine_ineq_abs"/> for all <m>\theta\in (0,\pi/2)</m>. To this end, take any <m>\theta\in (0,\pi/2)</m> and consider the usual reference triangle <m>T</m> for the central angle <m>\theta</m>. As shown below <m>T</m> lies completely within the interior <m>S</m> of the angle <m>\theta</m>. 
+    </p>
+    <image width="65%">
+        <shortdescription>Reference triangle within interior of angle theta</shortdescription>
+        <sageplot>
+var('x y')
+c(x)=vector((cos(x),sin(x)))
+theta=3*pi/16
+T=line([(0,0),c(theta),(cos(theta),0),(0,0)],color="blue", thickness=2, ymax=.8)
+P=point([(0,0),c(theta),(cos(theta),0)], size=50, color='blue')
+C=parametric_plot(c(x),(x,-.1,theta+.2),color="blue")
+a=parametric_plot(.2*c(x),(x,0,theta), color="red")
+S=region_plot([x>0, y>0, 1>x^2+y^2, theta > arctan(y/x)],(0,1),(0,1), incol="green", alpha=.25)
+t1=text(r"$\theta$", .25*c(theta/2), color='black', fontsize=14)
+t2=text(r"$S$", (cos(theta)+.05,sin(theta)/2),color="black", fontsize=16)
+S+T+P+C+a+t1+t2
+        </sageplot>
+    </image>
+    <p>
+     Elementary trigonometry tells us that <m>\operatorname{area} T=\frac{1}{2}\sin \theta</m>; elementary geometry tells us that <m>\operatorname{area} S=\pi\cdot \frac{\theta}{2\pi}=\frac{\theta}{2}</m>. We conclude that 
+        <md>
+            <mrow>\frac{1}{2}\sin \theta \amp= \operatorname{area} T</mrow>
+            <mrow> \amp \leq \operatorname{area} S</mrow>
+            <mrow> \amp =\frac{\theta}{2}</mrow>
+        </md>,
+        or equivalently, 
+        <me>
+            \sin\theta\leq \theta
+        </me>
+        for all <m>\theta\in (0,\pi/2)</m>. Since furthermore <m>\sin\theta\geq 0</m> and <m>\theta\geq 0</m> for <m>\theta\in (0,\pi/2)</m>, we see that 
+        <me>
+            \abs{\sin\theta}\leq \abs{\theta}
+        </me>
+        for all <m>\theta\in (0,\pi/2)</m>, as desired. 
+        </p>
+    </proof>
+    </subsection>
+    <subsection xml:id="ss_continuity_trig">
+    <title>Continuity of trigonometric functions</title>
+    <p>
+        Since <m>\sin(0)=0</m> and <m>\cos(0)=1</m>, the limit equalities of <xref ref="th_lim_sine_cos"/> can be reinterpreted as follows:
+        <md>
+            <mrow>\lim\limits_{x\to 0}\sin x \amp =\sin(0) </mrow>
+            <mrow>\lim\limits_{x\to 0}\cos x \amp = \cos(0) </mrow>
+        </md>.
+        In other words, <m>\sin</m> and <m>\cos</m> are both continuous at <m>x=0</m>. Amazingly, with the help of the <xref ref="th_sum_diff_identities" text="custom">sum and difference identities</xref> stated below, we will be able to deduce that <m>\sin</m> and <m>\cos</m> are continuous at all inputs <m>a</m>. 
+    </p>
+    <theorem xml:id="th_sum_diff_identities">
+    <title>Further trigonometric identities</title>
+    <statement>
+    <p>
+    Let <m>\theta,\phi\in \R</m>. 
+    <ol>
+        <li>
+            <title>Sum and difference identities</title>
+            <p>
+                <md number="yes">
+        <mrow xml:id="eq_sum_diff"> \cos(\theta+\phi) \amp = \cos\theta\cos\phi-\sin\theta\sin\phi </mrow>
+        <mrow>\cos(\theta-\phi) \amp = \cos\theta\cos\phi+\sin\theta\sin\phi</mrow>
+        <mrow>\sin(\theta+\phi) \amp = \sin\theta\cos\phi+\cos\theta\sin\phi</mrow>
+        <mrow>\sin(\theta-\phi) \amp = \sin\theta\cos\phi-\cos\theta\sin\phi</mrow>
+    </md>
+            </p>
+        </li>
+        <li>
+            <title>Double-angle identities</title>
+            <p>
+                <md number="yes">
+                    <mrow xml:id="eq_double_angle"> \cos(2\theta) \amp = \cos^2\theta-\sin^2\theta=2\cos^2\theta-1=1-2\sin^2\theta </mrow>
+                    <mrow>\sin(2\theta) \amp =2\sin\theta\cos\theta</mrow>
+                </md>
+            </p>
+        </li>
+        <li>
+            <title>Half-angle identities</title>
+            <p>
+                <md number="yes">
+                    <mrow xml:id="eq_half_angle"> \cos^2(\theta/2)\amp =\frac{1}{2}(\cos(\theta)+1) </mrow>
+                    <mrow>\sin^2(\theta/2) \amp =\frac{1}{2}(1-\cos\theta)</mrow>
+                </md>
+            </p>
+        </li>
+        <li>
+            <title>Product identities</title>
+            <p>
+                <md number="yes">
+                    <mrow xml:id="eq_prod_identities"> \cos\theta\cos\phi \amp = \frac{1}{2}(\cos(\theta+\phi)+\cos(\theta-\phi)) </mrow>
+                    <mrow>\sin\theta\sin\phi \amp = \frac{1}{2}(\cos(\theta-\phi)-\cos(\theta+\phi))</mrow>
+                    <mrow>\sin\theta\cos\phi \amp = \frac{1}{2}(\sin(\theta+\phi)+\sin(\theta-\phi))</mrow>
+                </md>
+            </p>
+        </li>
+        
+        
+        
+        
+    </ol>
+    
+    </p>
+    </statement>
+    </theorem>
+    <p>
+        With these identities in hand we will prove that <m>\lim_{x\to a}\sin x=\sin(a)</m> and <m>\lim\limits_{x\to a}\cos(x)=\cos(a)</m> using the following trick: for any function <m>f</m>, we have <m>\lim\limits_{x\to a}f(x)=\lim\limits_{x\to 0}f(x+a)</m>. We now compute our two limits simultaneously: 
+        <md>
+            <mrow>\lim\limits_{x\to a}\sin x \amp = \lim\limits_{x\to 0}\sin(x+a) \amp \lim\limits_{x\to a}\cos x \amp = \lim\limits_{x\to 0}\cos(x+a)</mrow>
+            <mrow> \amp = \lim\limits_{x\to 0}\sin x\cos a + \cos x\sin a  \amp \amp  = \lim\limits_{x\to 0}\cos x\cos a - \sin x\sin a  </mrow>
+            <mrow> \amp = \sin(0)\cos(a)+\cos(0)\sin(a) \amp \amp = \cos(0)\cos(a)-\sin(0)\sin(a) </mrow>
+            <mrow> \amp = \sin(a)  \amp \amp = \cos(a)  </mrow>
+        </md>.
+        We have thus shown that <m>\cos</m> and <m>\sin</m> are continuous on their entire domain. Since the remaining trigonometric functions are defined as quotients and reciprocals of these two functions, we see that all of the trigonometric functions are continuous. 
+    </p>
+    <theorem xml:id="th_trig_cont">
+    <title>Trigonometric functions are continuous</title>
+    <statement>
+    <p>
+    All six trigonometric functions are continuous. As a result, we have 
+    <md number="yes">
+        <mrow>\lim\limits_{x\to a}\cos x \amp = \cos(a) \amp \lim\limits_{x\to a}\sin x\amp =\sin(a) </mrow>
+        <mrow>\lim\limits_{x\to a}\tan x \amp =\tan(a) \amp \lim\limits_{x\to a}\cot x\amp =\cot(a)  </mrow>
+        <mrow>\lim\limits_{x\to a}\sec x \amp = \sec(a) \amp \lim\limits_{x\to a}\csc x\amp =\csc(a) </mrow>
+    </md>
+    for all <m>a</m> for which the right side of the equality is defined. 
+    </p>
+    </statement>
+    
+    </theorem>
+    
+        
+
+    </subsection>
+    <subsection xml:id="ss_trig_der">
+    <title>Trigonometric derivatives</title>
+    <p>
+        Lastly, we treat differentiability of the trigonometric functions. Not surprisingly, the situation here is as good as could be hoped for: the trigonometric functions are differentiable everywhere on their domain. We begin with <m>\cos</m> and <m>\sin</m>. 
+    </p>
+     <theorem xml:id="th_der_sin_cos">
+        <title>Derivative formulas: sine and cosine</title>
+        <statement>
+            <p>
+               The functions <m>\cos</m> and <m>\sin</m> are differentiable on their domain. Moreover, we have 
+                <md number="yes">
+                    <mrow xml:id="eq_trig_der_cos_sin">\frac{d}{dx}\sin x \amp = \cos x \amp \frac{d}{dx}\cos x\amp =-\sin x</mrow>
+                </md>. 
+            </p>
+        </statement>
+        <proof>
+            <p>
+                We prove the derivative formula for <m>\sin</m>; the argument for <m>\cos</m> is very similar. Using the limit definition of the derivative, we have 
+                <md>
+                    <mrow>\frac{d}{dx}(\sin x) \amp = \lim\limits_{h\to 0}\frac{\sin(x+h)-\sin x}{h}</mrow>
+                    <mrow> \amp \lim\limits_{h\to 0}\frac{\sin x\cos h+\cos x\sin h-\sin x}{h}</mrow>
+                    <mrow> \amp = \lim\limits_{h\to 0}\frac{\sin x(\cos h-1)}{h}+\frac{\cos x\sin h}{h}</mrow>
+                    <mrow> \amp = \sin x\lim\limits_{h\to 0}\frac{\cos h-1}{h}+\cos x \lim\limits_{h\to 0}\frac{\sin h}{h} </mrow>
+                    <mrow> \amp = \sin x\cdot 0 +\cos x\cdot 1</mrow>
+                    <mrow> \amp = \cos x</mrow>
+                </md>,
+                where the penultimate step makes use of our previously discussed limits 
+                <md>
+                    <mrow>\lim\limits_{t\to 0}\frac{\sin t}{t}  \amp =1 \amp \lim\limits_{t\to 0}\frac{\cos t-1}{t}=0  </mrow>
+                </md>.
+            </p>
+        </proof>
+    </theorem>
+    <example xml:id="eg_tangent_trig">
+    <title>Tangent lines: sinusoidal</title>
+    <statement>
+    <p>
+    Let <m>f(x)=\cos x-\sin x</m>. 
+    <ol>
+        <li>
+            <p>
+                Find an equation for the tangent line to the graph of <m>f</m> at <m>x=\pi/3</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Find all points on the graph of <m>f</m> where the tangent line is horizontal. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    The tangent line to the graph of <m>f</m> at <m>x=\pi/3</m>, passes through the point 
+                    <me>
+                        P=(\pi/3, f(\pi/3))=(\pi/3, \cos(\pi/3)-\sin(\pi/3))=(\pi/3, 1/2-\sqrt{3}/2).
+                    </me>
+                    The slope of the tangent line here is given by <m>f'(\pi/3)</m>. We first compute 
+                    <md>
+                        <mrow>f'(x) \amp = (\cos x)'-(\sin x)' \amp \text{(lin. comb.)}</mrow>
+                        <mrow> \amp = -\sin x-\cos x</mrow>
+                    </md>.
+                    Thus the slope of the tangent line is 
+                    <me>
+                        f'(\pi/3)=-\sin(\pi/3)-\cos(\pi/3)=-(\frac{\sqrt{3}+1}{2})
+                    </me>,
+                    We conclude that an equation for the tangent line here is 
+                    <me>
+                        y-\frac{1-\sqrt{3}}{2}=-\frac{1+\sqrt{3}}{2}(x-\frac{\pi}{3})
+                    </me>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    The tangent line to a point <m>P=(x,f(x))</m> on the graph of <m>f</m> is horizontal when its slope <m>f'(x)=0</m>. Thus we need to find all <m>x</m> such that 
+                    <me>
+                        f'(x)=-\sin x-\cos x=0
+                    </me>,
+                    or equivalently, 
+                    <me>
+                        \tan x=-1
+                    </me>.
+                    The solutions to this trig equation are 
+                    <me>
+                        x=\frac{3\pi}{4}+\pi n, 
+                    </me>
+                    where <m>n</m> is an integer. The corresponding points on the graph are 
+                    <me>
+                        P=\left(\frac{3\pi}{4}+\pi n, f\left(\frac{3\pi}{4}+\pi n\right)\right)
+                        = \begin{cases}
+                        \left(\frac{3\pi}{4}+\pi n, -\sqrt{2}\right) \amp \text{if } n \text{ is even}\\
+                        \left(\frac{3\pi}{4}+\pi n, \sqrt{2}\right) \amp \text{if } n \text{ is odd}\\
+                        \end{cases}
+                    </me>.
+                    
+                    
+                    
+                    
+                </p>
+            </li>
+        </ol>
+    </p>
+    </solution>
+    </example>
+    <p>
+        The differentiability of the remaining trigonometric functions now follows from the quotient and chain rules. For example, we have 
+        <md>
+            <mrow>\frac{d}{dx}(\tan x) \amp =\frac{d}{dx}(\sin x/\cos x)</mrow>
+            <mrow> \amp = \frac{(\sin x)'\cos x-\sin x(\cos x)'}{\cos^2 x}</mrow>
+            <mrow> \amp = \frac{\cos^2 x+\sin^2x}{\cos^2 x}</mrow>
+            <mrow> \amp = \frac{1}{\cos^2 x}</mrow>
+            <mrow> \amp = (1/\cos x)^2</mrow>
+            <mrow> \amp = \sec^2 x</mrow>
+        </md>,
+        and 
+        <md>
+            <mrow>\frac{d}{dx}\sec x \amp =\frac{d}{dx}(\cos x)^{-1}</mrow>
+            <mrow> \amp =-1(\cos x)^{-2}(\cos x)'</mrow>
+            <mrow> \amp =\frac{\sin x}{\cos^2 x}</mrow>
+            <mrow> \amp = \frac{\sin x}{\cos x}\cdot \frac{1}{\cos x}</mrow>
+            <mrow> \amp = \tan x\sec x</mrow>
+        </md>.
+        The other derivative formulas below follow in a similar vein. 
+    </p>
+    <theorem xml:id="th_der_trig">
+        <title>Derivative formulas: trig functions</title>
+        <statement>
+            <p>
+               We have the following derivative formulas: 
+               <md>
+                <mrow>\frac{d}{dx}\sin x \amp = \cos x \amp \frac{d}{dx}\cos x\amp =-\sin x</mrow>
+                <mrow>\frac{d}{dx}\tan x \amp = \sec^2 x \amp \frac{d}{dx}\cot x\amp =-\csc^2 x</mrow>
+                <mrow>\frac{d}{dx}\sec x \amp = \sec x\tan x \amp \frac{d}{dx}\csc x\amp =-\csc x\cot x</mrow>
+               </md>.
+            </p>
+        </statement>
+    </theorem>
+    
+    <example xml:id="eg_first_der_test_trig">
+        <title>Curve sketching with trigonometric functions</title>
+
+        <statement>
+            <p>
+                Let <m>f(x)=2\cos x+\sqrt{2}\cos^2 x</m> and let <m>I=[\pi/2, 3\pi/2]</m>.
+                <ol>
+                    <li>
+                        <p>
+                            Find all critical points of <m>f</m>, and for each critical point <m>a</m> classify <m>f(a)</m> as a local maximum value of <m>f</m>, a local minimum value of <m>f</m>, or neither.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Apply <xref ref="proc_intervals_monoto"/> to find the intervals of monotonicity of <m>f</m> within <m>I</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                We first compute
+                <md>
+                    <mrow>f'(x) \amp = -2\sin x-\sqrt{2}\cos x\sin x=-2\sin x(1+\sqrt{2}\cos x) </mrow>
+                </md>.
+                Since <m>f</m> is differentiable everywhere, critical points of <m>f</m> are solutions to <m>f'(x)=0</m>.
+                We thus solve:
+                <md>
+                    <mrow>f'(x) \amp =0</mrow>
+                    <mrow>-2\sin x(1+\sqrt{2}\cos x) \amp = 0</mrow>
+                    <mrow>\sin x =0 \amp\text{ or } 1+\sqrt{2}\cos x=0 </mrow>
+                    <mrow>\sin x =0 \amp \text{ or } \cos x=-\frac{1}{\sqrt{2}} </mrow>
+                </md>.
+                We have <m>\sin x=0</m> if and only if <m>x=\pi n</m> for some integer <m>n\in \Z</m>.
+                Only one of these solutions lies in <m>I=[\pi/2,3\pi /2]</m>: namely, <m>x=\pi</m>.
+                Next, observing that <m>1/\sqrt{2}=\sqrt{2}/2</m>, and recalling facts about the unit circle, we see that <m>x</m> solves <m>\cos x=-1/\sqrt{2}=-\sqrt{2}/2</m> if and only if
+                <me>
+                    x=\frac{3\pi }{4}+2\pi n \text{ or } x=\frac{5\pi }{4}+2\pi n
+                </me>
+                for some integer <m>n\in \Z</m>.
+                There are exactly two such solutions lying in <m>[\pi/2, 3\pi/2]</m>: namely, <m>x=3\pi/4</m> and <m>x=5\pi /4</m>.
+                In conclusion, the critical points of <m>f</m> are <m>3\pi/4, \pi, 5\pi/4</m>.
+            </p>
+
+            <p>
+                To finish the problem essentially all we have to do is produce the sign diagram of <m>f'</m>.
+            </p>
+
+            <figure xml:base="fig_first_der_test_trig">
+                <caption>Sign diagram for <m>f'(x)</m></caption>
+                <image xml:id="im_first_der_test_trig">
+                    <shortdescription>
+                        Sign diagram of derivative of trig function
+                    </shortdescription>
+                    <latex-image>
+    \begin{tikzpicture}
+        \draw (0,0) -- (10.5,0);
+        \path foreach \X/\Y  in 
+         {1/\frac{\pi}{2}, 3/\frac{3\pi}{4}, 5/\pi, 7/\frac{5\pi}{4}, 9/\frac{3\pi}{2}}
+            { (\X,0) node[circle,fill,inner sep=0.5mm,
+               label=below:{$\Y$}]  {}};
+            \draw (0,.5) node {$f'\colon$};
+            \draw (0,-.5) node{$f\colon $};
+       \draw(2,.5) node{$-$};
+       \draw(4,.5) node{$+$};
+       \draw(6,.5) node{$-$};
+       \draw(8,.5) node{$+$};
+       \draw(2,-.5) node{$\searrow$};
+       \draw(4,-.5) node{$\nearrow$};
+       \draw(6,-.5) node{$\searrow$};
+       \draw(8,-.5) node{$\nearrow$};
+    \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+
+            <p>
+                This was produced by performing the following test point evaluations:
+                <md>
+                    <mrow>f'(2\pi/3) \amp = -2(\sqrt{3}/2)(1-\sqrt{2}/2)&lt; 0 </mrow>
+                    <mrow>f'(5\pi/6) \amp = -2(1/2)(1-\sqrt{6}/2)&gt; 0 \amp (\sqrt{6}&gt; 2)</mrow>
+                    <mrow>f'(7\pi/6) \amp = -2(-1/2)(1-\sqrt{2}/2)&lt;  0 \amp (\sqrt{6}&gt; 2)</mrow>
+                    <mrow>f'(4\pi/3) \amp = -2(-\sqrt{3}/2)(1-\sqrt{2}/2)&gt; 0 </mrow>
+                </md>.
+            </p>
+
+            <p>
+                It follows that <m>f(3\pi/4)</m> is a local minimum value, <m>f(\pi)</m> is a local maximum value, and <m>f(5\pi/4)</m> is a local minimum value of <m>f</m>.
+            </p>
+
+            <p>
+                Furthermore, we see that within the interval <m>[\pi,3\pi/2]</m> the function <m>f</m> is increasing on <m>[\pi,3\pi/4]</m> and <m>[\pi, 5\pi /4]</m>,  and decreasing on <m>[3\pi/4, \pi]</m> and <m>[5\pi/4, 3\pi /2]</m>.
+            </p>
+
+            <p>
+                We verify our conclusions below with the actual graph of <m>f</m> on <m>[\pi, 3\pi/2]</m>.
+            </p>
+
+            <figure xml:id="fig_first_der_test_trig">
+                <caption>Graph of <m>f(x)=2\cos x+\sqrt{2}\cos^2 x</m></caption>
+                <image>
+                    <shortdescription>
+                        Graph of the trig function of the example
+                    </shortdescription>
+                    <sageplot>
+            f=plot(2*cos(x)+sqrt(2)*(cos(x))^2,x,pi/2, 3*pi/2, tick_formatter=[pi,None], ticks=[[pi/4,pi/2,3*pi/4, pi, 5*pi/4, 3*pi/2],[-1/4,-1/2,-3/4]])
+            L=plot(0,x,0,3*pi/2, color="black")
+            f+L
+                    </sageplot>
+                </image>
+            </figure>
+        </solution>
+    </example>
+
+    <example xml:id="eg_extreme_trig">
+    <title>Extreme value theorem with trigonometric function</title>
+    <statement>
+    <p>
+        Let <m>f(x)=x+2\cos x</m>. Find the absolute maximum and minimum values of <m>f</m> on the interval <m>I=[0,2\pi]</m>.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    The function <m>f</m> is easily seen to be differentiable everywhere, with <m>f'(x)=1-2\sin x</m>. To find critical points, we solve: 
+    <md>
+        <mrow>f'(x) \amp =0</mrow>
+        <mrow>1-2\sin x \amp = 0</mrow>
+        <mrow>\sin x \amp = \frac{1}{2}</mrow>
+    </md>.
+    Reactivating our trig expertise, we realize that the solutions to the last equation come in two infinite lists: 
+    <md>
+        <mrow>x \amp = \frac{\pi}{6}+2\pi n, \hspace{10pt} n \in \Z</mrow>
+        <mrow>x \amp= \frac{5\pi}{6}+2\pi n, \hspace{10pt} n \in \Z </mrow>
+    </md>.
+    Thus the solutions lying in the interior <m>(0,2\pi)</m> of the given interval are 
+    <me>
+        x=\frac{\pi}{6}, \frac{5\pi}{6}
+    </me>.
+    Now evaluate <m>f</m> at our candidates, the two critical points and the two endpoints: 
+    <md>
+        <mrow>f(0) \amp = 2</mrow>
+        <mrow>f(\pi/6) \amp =\frac{\pi}{6}+2\cos(\pi/6)=\frac{\pi}{6}+\sqrt{3}</mrow>
+        <mrow>f(5\pi/6) \amp = 5\pi/6+2\cos(5\pi/6)=5\pi/6-\sqrt{3}</mrow>
+        <mrow>f(2\pi) \amp = 2\pi+2=2(\pi+1)</mrow>
+    </md>.
+    Admittedly, comparing these values is somewhat challenging without the use of technology. It turns out that 
+    <me>
+        f(5\pi/6)\leq f(2)\leq f(\pi/6)\leq f(2\pi)
+    </me>,
+     and thus that <m>f(5\pi/6)=5\pi/6-\sqrt{3}</m> is the absolute minimum value of <m>f</m> on <m>I</m>, and <m>f(2\pi)=2\pi+2</m> is the absolute maximum value of <m>f</m> on <m>I</m>. Below you find a graph of <m>f</m> that bears out our analysis. 
+    </p>
+    <image xml:id="im_extreme_trig" width="50%">
+        <shortdescription>Graph of example function revealing the extreme values.</shortdescription>
+        <sageplot>
+            f(x)=x+2*cos(x)
+            plot(f(x),x,0,2*pi, tick_formatter=(pi,None),ticks=[[pi/6, 5*pi/6, 2*pi],[2,4,6,8]], aspect_ratio=.7)
+        </sageplot>
+    </image>
+    </solution>
+    </example>
+
+
+    
+    
+    </subsection>
+
+</section>
