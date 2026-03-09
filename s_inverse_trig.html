@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Inverse trigonometric functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.18';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.1d92cd109bc12c4d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.98ef3b0c170cd180.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.74f6fa0c85f09c79.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_trig_calculus.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_alg_func" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Math 218-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_extreme.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Extreme value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_mean_value.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_linearize.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_first_der_test.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Monotonicity and first derivative test</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_concavity.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Concavity and inflection points</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_curve_sketch_I.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Curve sketching</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_from_derivative" class="internal"><span class="title">Curve sketching from derivative</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_applied_opt_I.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Applied optimization</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_expfunctions.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Exponential functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-3" class="internal"><span class="title">Motivating exponential functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-4" class="internal"><span class="title">Defining Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-5" class="internal"><span class="title">Growth of exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-6" class="internal"><span class="title">Finding Formulas for Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-7" class="internal"><span class="title">Properties of Exponential Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_expfunctions.html#ex_exp_func" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_lim_deriv.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Exponential functions: limit and graphical properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ss_" class="internal"><span class="title">Limit properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ss_exp_grap" class="internal"><span class="title">Graphing exponential functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_inverse_func.html" class="internal"><span class="codenumber">2.10</span> <span class="title">One-to-one and invertible functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_invertibility" class="internal"><span class="title">One-to-one functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_invertible_functions" class="internal"><span class="title">Invertible functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_relating_func_inv" class="internal"><span class="title">Relating functions and their inverses</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_inverse_func.html#ex_inverse" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_log.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log.html#ss_log_def_alg" class="internal"><span class="title">Definition and algebraic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log.html#ss_log_graph" class="internal"><span class="title">Graphical properties</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_log.html#ex_log" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_deriv.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Exponential derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_deriv.html#ss_derivative" class="internal"><span class="title">The natural exponential function and its derivative</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_exp_deriv.html#ss_exp_der_gen" class="internal"><span class="title">General derivative formula for <span class="process-math">\(\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_exp_deriv.html#ex_exp_der" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_log_deriv.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Derivative of logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log_deriv.html#ss_log_der" class="internal"><span class="title">Derivative of inverse functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_log_deriv.html#ss_der_log" class="internal"><span class="title">Derivative formula for logarithmic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_log_deriv.html#ex_log_der" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_log_sketch.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Exponential and logarithmic curve sketching</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_log_sketch.html#ss_exp_log_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lHop_A.html" class="internal"><span class="codenumber">2.15</span> <span class="title">L’Hôpital’s rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_indeterminate_forms" class="internal"><span class="title">Indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_lHop" class="internal"><span class="title">L’Hôpital’s rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_other_indeterminate_forms" class="internal"><span class="title">Other indetermiante forms</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_unit_circle_trig.html" class="internal"><span class="codenumber">2.16</span> <span class="title">Trigonometric functions via the unit circle</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#s_unit_circle_trig-3" class="internal"><span class="title">Functions defined by circular motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#sec_theunitcircle" class="internal"><span class="title">The unit circle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#s_unit_circle_trig-5" class="internal"><span class="title">The sine and cosine functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_trig_computing.html" class="internal"><span class="codenumber">2.17</span> <span class="title">Computing with trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-3" class="internal"><span class="title">Side lengths of two special right triangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-4" class="internal"><span class="title">Computing with angles <span class="process-math">\(\theta\)</span> outside of <span class="process-math">\([0,2\pi]\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_trig_prop.html" class="internal"><span class="codenumber">2.18</span> <span class="title">Trigonometric functions: properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_prop.html#ss_props_cos_sine" class="internal"><span class="title">Properties of <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_prop.html#ss_graph_sin_cos" class="internal"><span class="title">Graphs of <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_prop.html#ss_six_trig_functions" class="internal"><span class="title">The six trigonometric functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_trig_solve.html" class="internal"><span class="codenumber">2.19</span> <span class="title">Solving trigonometric equations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_trig_calculus.html" class="internal"><span class="codenumber">2.20</span> <span class="title">Squeeze theorem and the calculus of trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_calculus.html#ss_squeeze_theorem" class="internal"><span class="title">Squeeze theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_calculus.html#ss_continuity_trig" class="internal"><span class="title">Continuity of trigonometric functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_calculus.html#ss_trig_der" class="internal"><span class="title">Trigonometric derivatives</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_inverse_trig.html" class="internal"><span class="codenumber">2.21</span> <span class="title">Inverse trigonometric functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_inverse_trig"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inverse trigonometric functions</span>
+</h2>
+<article class="objectives goal-like" id="s_inverse_trig-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ul class="disc" id="s_inverse_trig-2-1">
+<li id="s_inverse_trig-2-1-1">
+<div class="para" id="s_inverse_trig-2-1-1-1">Define the inverse trigonometric functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_inverse_trig-2-1-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_inverse_trig-2-1-2">
+<div class="para" id="s_inverse_trig-2-1-2-1">Understand the graphical properties of inverse trigonometric functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_inverse_trig-2-1-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_inverse_trig-2-1-3">
+<div class="para" id="s_inverse_trig-2-1-3-1">Derive derivative formulas for the inverse trigonometric functions using our inverse function derivative rule.<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_inverse_trig-2-1-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives 2.21"><a href="#s_inverse_trig-2" title="Copy heading and permalink for Objectives 2.21" aria-label="Copy heading and permalink for Objectives 2.21">🔗</a></div></article><div class="para logical" id="s_inverse_trig-3">
+<div class="para">The trigonometric functions are fail to be one-to-one in a spectacular fashion: letting <span class="process-math">\(f\)</span> be any one of our six trigonometric functions, using the periodicity of these functions, we have</div>
+<div class="displaymath process-math" id="s_inverse_trig-3-2">
+\begin{align*}
+\dots=f(x-2\pi)=f(x) \amp =f(x+2\pi)=f(x+4\pi)=\dots\text{.}
+\end{align*}
+</div>
+<div class="para">However, by restricting each of these functions to a certain interval where it is monotonic, and hence one-to-one, we obtain an invertible function.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_inverse_trig"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inverse trigonometric functions.</span>
+</h3>
+<div class="para logical" id="d_inverse_trig-2-1">
+<div class="para">The following are examples of what are called <dfn class="terminology">inverse trigonometric functions</dfn>.</div>
+<ul class="disc" id="d_inverse_trig-2-1-2">
+<li id="d_inverse_trig-2-1-2-1">
+<div class="para" id="d_inverse_trig-2-1-2-1-1">On the restricted domain <span class="process-math">\([-\pi/2, \pi/2]\)</span> the function <span class="process-math">\(f(x)=\sin x\)</span> is one-to-one, with range <span class="process-math">\([-1,1]\text{.}\)</span> The inverse function of <span class="process-math">\(f\)</span> restricted to this domain is called the <em class="emphasis">arcsine function</em>, denoted <span class="process-math">\(f^{-1}(x)=\arcsin x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_inverse_trig-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_inverse_trig-2-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="d_inverse_trig-2-1-2-2">
+<div class="para" id="d_inverse_trig-2-1-2-2-1">On the restricted domain <span class="process-math">\([0, \pi]\)</span> the function <span class="process-math">\(g(x)=\cos x\)</span> is one-to-one, with range <span class="process-math">\([-1,1]\text{.}\)</span> The inverse function of <span class="process-math">\(g\)</span> restricted to this domain is called the <em class="emphasis">arccosine function</em>, denoted <span class="process-math">\(g^{-1}(x)=\arccos x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_inverse_trig-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_inverse_trig-2-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="d_inverse_trig-2-1-2-3">
+<div class="para" id="d_inverse_trig-2-1-2-3-1">On the restricted domain <span class="process-math">\((-\pi/2, \pi/2)\)</span> the function <span class="process-math">\(h(x)=\tan x\)</span> is one-to-one, with range <span class="process-math">\((-\infty, \infty)\text{.}\)</span> The inverse function of <span class="process-math">\(h\)</span> restricted to this domain is called the <em class="emphasis">arctangent function</em>, denoted <span class="process-math">\(h^{-1}(x)=\arctan x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_inverse_trig-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#d_inverse_trig-2-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_inverse_trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.21.1: Inverse trigonometric functions"><a href="#d_inverse_trig" title="Copy heading and permalink for Definition 2.21.1: Inverse trigonometric functions" aria-label="Copy heading and permalink for Definition 2.21.1: Inverse trigonometric functions">🔗</a></div></article><article class="remark remark-like" id="s_inverse_trig-5"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="s_inverse_trig-5-1">
+<div class="para">Occasionally an alternative notation is used to denote inverse trigonometric functions: namely,</div>
+<div class="displaymath process-math" id="s_inverse_trig-5-1-1">
+\begin{align*}
+\arcsin x \amp = \sin^{-1}x \amp \arccos x\amp =\cos^{-1} x \amp \arctan x\amp=\tan^{-1} x\text{.}
+\end{align*}
+</div>
+<div class="para">We will avoid this notation as it misleadingly suggests that the inverse trigonometric functions are <em class="emphasis">reciprocals</em> of the corresponding trigonometric functions. They are not!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.21.2"><a href="#s_inverse_trig-5" title="Copy heading and permalink for Remark 2.21.2" aria-label="Copy heading and permalink for Remark 2.21.2">🔗</a></div></article><div class="para" id="s_inverse_trig-6">The usual connections between an invertible function <span class="process-math">\(f\)</span> and its inverse <span class="process-math">\(f^{-1}\)</span> allow us to deduce properties of the inverse trigonometric functions from their paired trigonometric function.<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_inverse_trig_props"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of inverse trigonometric functions.</span>
+</h3>
+<div class="para logical" id="th_inverse_trig_props-2-1">
+<ul class="disc" id="th_inverse_trig_props-2-1-1">
+<li id="th_inverse_trig_props-2-1-1-1">
+<div class="para logical" id="th_inverse_trig_props-2-1-1-1-1">
+<div class="para">The function <span class="process-math">\(\arcsin\)</span> is an increasing function with domain <span class="process-math">\([-1,1]\)</span> and range <span class="process-math">\([0,\pi]\text{.}\)</span> It satisfies the following properties:</div>
+<div class="displaymath process-math" id="th_inverse_trig_props-2-1-1-1-1-4">
+\begin{align}
+\arcsin(x)=\theta \amp \iff \sin\theta=x \text{ and }  -\pi/2\leq \theta\leq \pi/2 \tag{2.117}\\
+\arcsin(\sin \theta)\amp =\theta \text{ for all }  -\pi/2\leq \theta\leq \pi/2\tag{2.118}\\
+\sin(\arcsin x)\amp =x \text{ for all }  -1\leq x\leq 1\text{.}\tag{2.119}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_inverse_trig_props-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_inverse_trig_props-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="th_inverse_trig_props-2-1-1-2">
+<div class="para logical" id="th_inverse_trig_props-2-1-1-2-1">
+<div class="para">The function <span class="process-math">\(\arccos\)</span> is a decreasing function with domain <span class="process-math">\([-1,1]\)</span> and range <span class="process-math">\([0,\pi]\text{.}\)</span> It satisfies the following properties:</div>
+<div class="displaymath process-math" id="th_inverse_trig_props-2-1-1-2-1-4">
+\begin{align}
+\arccos(x)=\theta \amp \iff \cos\theta=x \text{ and }  0\leq \theta\leq \pi\tag{2.120}\\
+\arccos(\cos \theta)\amp =\theta \text{ for all }  0\leq \theta\leq \pi\tag{2.121}\\
+\cos(\arccos x)\amp =x \text{ for all }  -1\leq x\leq 1\text{.}\tag{2.122}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_inverse_trig_props-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_inverse_trig_props-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="th_inverse_trig_props-2-1-1-3">
+<div class="para logical" id="th_inverse_trig_props-2-1-1-3-1">
+<div class="para">The function <span class="process-math">\(\arctan\)</span> is an increasing function with domain <span class="process-math">\((-\infty, \infty)\)</span> and range <span class="process-math">\((-\pi/2, \pi/2)\text{.}\)</span> It satisfies the following properties:</div>
+<div class="displaymath process-math" id="th_inverse_trig_props-2-1-1-3-1-4">
+\begin{align}
+\arctan(x)=\theta \amp \iff \tan\theta=x \text{ and }  -\pi/2\lt  \theta\lt  \pi/2 \tag{2.123}\\
+\arctan(\tan \theta)\amp =\theta \text{ for all }  -\pi/2\lt  \theta\lt  \pi/2\tag{2.124}\\
+\tan(\arctan x)\amp =x \text{ for all }  x\tag{2.125}\\
+\lim_{x\to\infty}\arctan x\amp =\pi/2,\hspace{5pt} \lim_{x\to-\infty}\arctan x=-\pi/2\tag{2.126}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_inverse_trig_props-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_inverse_trig_props-2-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_inverse_trig_props-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.21.3: Properties of inverse trigonometric functions"><a href="#th_inverse_trig_props" title="Copy heading and permalink for Theorem 2.21.3: Properties of inverse trigonometric functions" aria-label="Copy heading and permalink for Theorem 2.21.3: Properties of inverse trigonometric functions">🔗</a></div></article><article class="example example-like" id="eg_inverse_trig_compute"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing with inverse trig functions.</span>
+</h3>
+<div class="para logical" id="eg_inverse_trig_compute-2-1">
+<div class="para">Compute the following values of trigonometric functions by hand.</div>
+<ol class="decimal" id="eg_inverse_trig_compute-2-1-1">
+<li id="eg_inverse_trig_compute-2-1-1-1">
+<div class="para" id="eg_inverse_trig_compute-2-1-1-1-1">
+<span class="process-math">\(\displaystyle \displaystyle\arcsin(-1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_inverse_trig_compute-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_compute-2-1-1-2">
+<div class="para" id="eg_inverse_trig_compute-2-1-1-2-1">
+<span class="process-math">\(\displaystyle \displaystyle\arccos(-\sqrt{2}/2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_inverse_trig_compute-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_compute-2-1-1-3">
+<div class="para" id="eg_inverse_trig_compute-2-1-1-3-1">
+<span class="process-math">\(\displaystyle \displaystyle\arctan(-1/\sqrt{3})\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_inverse_trig_compute-2-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_compute-2-1-1-4">
+<div class="para" id="eg_inverse_trig_compute-2-1-1-4-1">
+<span class="process-math">\(\displaystyle\arcsin\left(\sin\left(\frac{10\pi}{11}\right)\right)\)</span> <em class="emphasis">Hint</em>. The answer is not <span class="process-math">\(10\pi/11\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_inverse_trig_compute-2-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_inverse_trig_compute-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_inverse_trig_compute-3-1">
+<ol class="decimal" id="eg_inverse_trig_compute-3-1-1">
+<li id="eg_inverse_trig_compute-3-1-1-1">
+<div class="para" id="eg_inverse_trig_compute-3-1-1-1-1">Common mistake: <span class="process-math">\(\arcsin(-1)\ne 3\pi/2\text{.}\)</span> Why? By definition, the outputs of <span class="process-math">\(\arcsin\)</span> lie in the interval <span class="process-math">\([-\pi/2, \pi/2]\text{.}\)</span> Instead, using <a href="s_inverse_trig.html#th_inverse_trig_props-2-1-1-1-1-4" class="xref" data-knowl="./knowl/xref/eq_arcsin.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.117">(2.117)</a>, we have <span class="process-math">\(\arcsin(-1)=\theta\)</span> if and only if <span class="process-math">\(\sin \theta=-1\)</span> and <span class="process-math">\(-\pi/2\leq \theta\leq \pi/2\text{.}\)</span> The unique <span class="process-math">\(\theta\)</span> satisfying these two conditions is <span class="process-math">\(\theta=-\pi/2\text{.}\)</span> We conclude that <span class="process-math">\(\arcsin(-1)=-\pi/2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_inverse_trig_compute-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_compute-3-1-1-2">
+<div class="para" id="eg_inverse_trig_compute-3-1-1-2-1">Using <a href="s_inverse_trig.html#th_inverse_trig_props-2-1-1-1-1-4" class="xref" data-knowl="./knowl/xref/eq_arcsin.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.117">(2.117)</a>, we have <span class="process-math">\(\arccos(-\sqrt{2}/2)=\theta\)</span> if and only if <span class="process-math">\(\cos \theta=-\sqrt{2}/2\)</span> and <span class="process-math">\(0/\leq \theta\leq \pi\text{.}\)</span> The unique <span class="process-math">\(\theta\)</span> satisfying these two conditions is <span class="process-math">\(\theta=3\pi/4\text{.}\)</span> We conclude that <span class="process-math">\(\arccos(-\sqrt{2}/2)=3\pi/4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_inverse_trig_compute-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_compute-3-1-1-3">
+<div class="para" id="eg_inverse_trig_compute-3-1-1-3-1">Using <a href="s_inverse_trig.html#th_inverse_trig_props-2-1-1-3-1-4" class="xref" data-knowl="./knowl/xref/eq_arctan.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.123">(2.123)</a>, we have <span class="process-math">\(\arctan(-1/\sqrt{3})=\theta\)</span> if and only if <span class="process-math">\(\tan \theta=-1/\sqrt{3}\)</span> and <span class="process-math">\(-\pi/2 &lt; \theta &lt; \pi/2\text{.}\)</span> Since <span class="process-math">\(\theta=-\pi/6\)</span> is the unique angle satifying these two conditions, we conclude that that <span class="process-math">\(\arctan(-1/\sqrt{3})=-\pi/6\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_inverse_trig_compute-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_compute-3-1-1-4">
+<div class="para logical" id="eg_inverse_trig_compute-3-1-1-4-1">
+<div class="para">Recall that <span class="process-math">\(\sin(\theta)=\sin (\pi-\theta)\)</span> for any <span class="process-math">\(\theta\in \R\text{.}\)</span> (You can convince yourself of this either by drawing a unit circle picture, or by using the difference identity for <span class="process-math">\(\sin\text{.}\)</span>) It follows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_arcsin_sin.html" id="eg_inverse_trig_compute-3-1-1-4-1-4">
+\begin{align*}
+\arcsin(\sin(10\pi/11)) \amp =\arcsin(\sin(\pi-10\pi/11))\\
+\amp = \arcsin(\sin (\pi /11))\\
+\amp = \frac{\pi}{11} \amp (\knowl{./knowl/xref/eq_arcsin_sin.html}{\text{(2.118)}}, -\frac{\pi}{2}\leq \frac{\pi}{11}\leq\frac{\pi}{2})\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_inverse_trig_compute-3-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_compute-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.21.4.1"><a href="#eg_inverse_trig_compute-3" title="Copy heading and permalink for Solution 2.21.4.1" aria-label="Copy heading and permalink for Solution 2.21.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.21.4: Computing with inverse trig functions"><a href="#eg_inverse_trig_compute" title="Copy heading and permalink for Example 2.21.4: Computing with inverse trig functions" aria-label="Copy heading and permalink for Example 2.21.4: Computing with inverse trig functions">🔗</a></div></article><div class="para" id="s_inverse_trig-9">The inverse trigonometric functions are often used to provide a single solution to an elementary trigonometric equation that we cannot solve “by hand”: i.e., equations whose solutions <span class="process-math">\(\theta\)</span> do not correspond to one of the “familiar” angles of the unit circle. For example, <span class="process-math">\(\theta_0=\arcsin(1/3)\)</span> is a particular solution to the equation <span class="process-math">\(\sin \theta=\frac{1}{3}\text{.}\)</span> But what if we are asked to find <em class="emphasis">all</em> solutions to such an equation? In this case we make use of <a href="s_trig_solve.html#proc_solve_elem_trig" class="xref" data-knowl="./knowl/xref/proc_solve_elem_trig.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.19.5: Solving elementary trigonometric equations">Procedure 2.19.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_inverse_trig_solve"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving trig equations.</span>
+</h3>
+<div class="para logical" id="eg_inverse_trig_solve-2-1">
+<div class="para">Find all solutions to the following trigonometric equations lying within the interval <span class="process-math">\([0,2\pi]\text{.}\)</span> You may express your answer in terms of values of inverse trigonometric functions.</div>
+<ol class="decimal" id="eg_inverse_trig_solve-2-1-2">
+<li id="eg_inverse_trig_solve-2-1-2-1">
+<div class="para" id="eg_inverse_trig_solve-2-1-2-1-1">
+<span class="process-math">\(\displaystyle \displaystyle 3\sin 2\theta +4=6\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_solve-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_inverse_trig_solve-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_solve-2-1-2-2">
+<div class="para" id="eg_inverse_trig_solve-2-1-2-2-1">
+<span class="process-math">\(\displaystyle \displaystyle \tan (\theta+\pi)=-10\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_solve-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_inverse_trig_solve-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_solve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_inverse_trig_solve-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_inverse_trig_solve-3-1">
+<ol class="decimal" id="eg_inverse_trig_solve-3-1-1">
+<li id="eg_inverse_trig_solve-3-1-1-1">
+<div class="para logical" id="eg_inverse_trig_solve-3-1-1-1-1">
+<div class="para">After some algebra we rewrite the equation as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_arcsin_u.html ./knowl/xref/proc_solve_elem_trig.html" id="eg_inverse_trig_solve-3-1-1-1-1-1">
+\begin{equation*}
+\sin 2\theta=\frac{2}{3}
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_arcsin_u.html ./knowl/xref/proc_solve_elem_trig.html" id="eq_arcsin_u">
+\begin{equation}
+\sin u=\frac{2}{3}\text{,}\tag{2.127}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(u=2\theta\text{.}\)</span> Since <span class="process-math">\(u_0=\arcsin(2/3)\)</span> is a solution to <a href="s_inverse_trig.html#eq_arcsin_u" class="xref" data-knowl="./knowl/xref/eq_arcsin_u.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.127">(2.127)</a>, according to <a href="s_trig_solve.html#proc_solve_elem_trig" class="xref" data-knowl="./knowl/xref/proc_solve_elem_trig.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.19.5: Solving elementary trigonometric equations">Procedure 2.19.5</a> the general solution is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_arcsin_u.html ./knowl/xref/proc_solve_elem_trig.html" id="eg_inverse_trig_solve-3-1-1-1-1-7">
+\begin{equation*}
+u=\arcsin(2/3)+2\pi n \text{ or } u=(\pi-\arcsin(2/3))+2\pi n\text{.}
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(u=2\theta\text{,}\)</span> we conclude that the general solution to the original equation is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_arcsin_u.html ./knowl/xref/proc_solve_elem_trig.html" id="eg_inverse_trig_solve-3-1-1-1-1-9">
+\begin{equation*}
+\theta=\frac{1}{2}\arcsin(2/3)+\pi n \text{ or } \theta=\frac{1}{2}(\pi-\arcsin(2/3))+\pi n\text{.}
+\end{equation*}
+</div>
+<div class="para">Which of these infinitely-many solutions lies in the prescribed interval <span class="process-math">\([0,2\pi]\text{?}\)</span> Since <span class="process-math">\(\arcsin(2/3)\in [0,\pi/2]\text{,}\)</span> we have  <span class="process-math">\(\frac{1}{2}\arcsin(2/3)\in [0,\pi/4]\)</span> and <span class="process-math">\(\frac{1}{2}(\pi-\arcsin(2/3)\in [\pi/4, \pi/2]\text{.}\)</span> It follows that the solutions lying in <span class="process-math">\([0,2\pi]\)</span> are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_arcsin_u.html ./knowl/xref/proc_solve_elem_trig.html" id="eg_inverse_trig_solve-3-1-1-1-1-15">
+\begin{equation*}
+\theta=\frac{1}{2}\arcsin(2/3), \frac{1}{2}\arcsin(2/3)+\pi, \frac{1}{2}(\pi-\arcsin(2/3)), \frac{1}{2}(\pi-\arcsin(2/3))+\pi\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_solve-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_inverse_trig_solve-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_inverse_trig_solve-3-1-1-2">
+<div class="para logical" id="eg_inverse_trig_solve-3-1-1-2-1">
+<div class="para">Since <span class="process-math">\(\theta_0=\arctan(-10)-\pi\)</span> is one solution to the given equation, the general solution is given by</div>
+<div class="displaymath process-math" id="eg_inverse_trig_solve-3-1-1-2-1-2">
+\begin{equation*}
+\theta=\arctan(-10)-\pi +\pi n= \arctan(-10)+(n-1)\pi \text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(n\)</span> is any integer. Which of these lie in the interval <span class="process-math">\([0,2\pi]\text{?}\)</span> Since <span class="process-math">\(\arctan(-10)\in (-\pi/2, 0]\text{,}\)</span> we have <span class="process-math">\(\arctan(-10)+\pi\in (\pi/2, \pi]\)</span> and <span class="process-math">\(\arctan(-10)+2\pi \in (3\pi/2, 2\pi]\text{.}\)</span> Thus the solutions <span class="process-math">\(\theta\)</span> lying in <span class="process-math">\([0,2\pi]\)</span> are <span class="process-math">\(\theta=\arctan(-10)+\pi\)</span> and <span class="process-math">\(\theta=\arctan(-10)+2\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_solve-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_inverse_trig_solve-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_solve-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.21.5.1"><a href="#eg_inverse_trig_solve-3" title="Copy heading and permalink for Solution 2.21.5.1" aria-label="Copy heading and permalink for Solution 2.21.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.21.5: Solving trig equations"><a href="#eg_inverse_trig_solve" title="Copy heading and permalink for Example 2.21.5: Solving trig equations" aria-label="Copy heading and permalink for Example 2.21.5: Solving trig equations">🔗</a></div></article><div class="para logical" id="s_inverse_trig-11">
+<div class="para">Lastly, we can deduce derivative formulas for <span class="process-math">\(\arcsin\text{,}\)</span> <span class="process-math">\(\arccos\text{,}\)</span> and <span class="process-math">\(\arctan\)</span> using the <a href="s_log_deriv.html#th_IFT" class="xref" data-knowl="./knowl/xref/th_IFT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.13.1: Derivative of inverse function">inverse function derivative</a> rule:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_IFT.html" id="s_inverse_trig-11-5">
+\begin{align*}
+\frac{d}{dx}(f^{-1}(x)) \amp = \frac{1}{f'(f^{-1}(x))} \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_inverse_trig_derivative"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivatives of inverse trig functions.</span>
+</h3>
+<div class="para logical" id="th_inverse_trig_derivative-2-1">
+<div class="displaymath process-math" id="th_inverse_trig_derivative-2-1-1">
+\begin{align}
+\frac{d}{dx} \arcsin x\amp =\frac{1}{\sqrt{1-x^2}} \text{ for all } x\in (-1,1)\tag{2.128}\\
+\frac{d}{dx} \arccos x\amp =-\frac{1}{\sqrt{1-x^2}} \text{ for all } x\in (-1,1)\tag{2.129}\\
+\frac{d}{dx} \arctan x\amp =\frac{1}{1+x^2}\amp \text{ for all } x\in \R \text{.}\tag{2.130}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_inverse_trig_derivative-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.21.6: Derivatives of inverse trig functions"><a href="#th_inverse_trig_derivative" title="Copy heading and permalink for Theorem 2.21.6: Derivatives of inverse trig functions" aria-label="Copy heading and permalink for Theorem 2.21.6: Derivatives of inverse trig functions">🔗</a></div></article><div class="para" id="s_inverse_trig-13">We prove <a href="s_inverse_trig.html#th_inverse_trig_derivative-2-1-1" class="xref" data-knowl="./knowl/xref/eq_arcsin_der.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.128">(2.128)</a> and <a href="s_inverse_trig.html#th_inverse_trig_props-2-1-1-3-1-4" class="xref" data-knowl="./knowl/xref/eq_arctan.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.123">(2.123)</a>; the proof of <a href="s_inverse_trig.html#th_inverse_trig_derivative-2-1-1" class="xref" data-knowl="./knowl/xref/eq_arccos_der.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.129">(2.129)</a> proceeds along similar lines.<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="s_inverse_trig-14" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof of (2.128).</span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="s_inverse_trig-14-2">
+<div class="para">Let <span class="process-math">\(f(x)=\sin x\)</span> restricted to the domain <span class="process-math">\(D=[-\pi/2, \pi/2]\text{,}\)</span> and let <span class="process-math">\(f^{-1}(x)=\arcsin x\text{.}\)</span> Using <a href="s_log_deriv.html#th_IFT" class="xref" data-knowl="./knowl/xref/th_IFT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.13.1: Derivative of inverse function">Theorem 2.13.1</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_IFT.html" id="s_inverse_trig-14-2-5">
+\begin{align*}
+\frac{d}{dx} \arcsin x \amp = \frac{1}{f'(\arcsin x)}\\
+\amp = \frac{1}{\cos(\arcsin x)}\\
+\amp = \frac{1}{\sqrt{1-x^2}}\text{.}
+\end{align*}
+</div>
+<div class="para">The last step here is perhaps the most interesting, and follows from the fact that <span class="process-math">\(\cos(\arcsin x)=\sqrt{1-x^2}\)</span> for any <span class="process-math">\(x\in [-1,1]\text{.}\)</span> Why is this true? Set <span class="process-math">\(\arcsin x=\theta\text{,}\)</span> an angle lying in <span class="process-math">\([-\pi/2,\pi/2]\text{.}\)</span> Using the fact that <span class="process-math">\(\sin \theta=x\text{,}\)</span> we can draw a unit circle picture like the one below. Since the vertical leg of the right triangle there has length <span class="process-math">\(\abs{x}\text{,}\)</span> the horizontal leg has length <span class="process-math">\(\sqrt{1-\abs{x}^2}=\sqrt{1-x^2}\text{.}\)</span> Since this length is equal to the <span class="process-math">\(x\)</span>-coordinate of the point <span class="process-math">\(P\)</span> below, we have <span class="process-math">\(\cos \theta=\sqrt{1-x^2}\)</span> and thus <span class="process-math">\(\cos(\arcsin x)=\sqrt{1-x^2}\text{,}\)</span> as claimed.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/arcsin_der.png" class="contained" alt="Unit circle picture for arcsin derivative proof"></div>
+<div class="autopermalink" data-description="Proof 2.21.1: Proof of (2.128)"><a href="#s_inverse_trig-14" title="Copy heading and permalink for Proof 2.21.1: Proof of (2.128)" aria-label="Copy heading and permalink for Proof 2.21.1: Proof of (2.128)">🔗</a></div></article></details><details id="s_inverse_trig-15" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof of (2.130).</span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="s_inverse_trig-15-2">
+<div class="para">Let <span class="process-math">\(f(x)=\tan x\)</span> restricted to the domain <span class="process-math">\(D=(-\pi/2, \pi/2)\text{,}\)</span> and let <span class="process-math">\(f^{-1}(x)=\arctan x\text{.}\)</span> Using <a href="s_log_deriv.html#th_IFT" class="xref" data-knowl="./knowl/xref/th_IFT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.13.1: Derivative of inverse function">Theorem 2.13.1</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_IFT.html" id="s_inverse_trig-15-2-5">
+\begin{align*}
+\frac{d}{dx}\arctan x \amp = \frac{1}{f'(\arctan x)}\\
+\amp = \frac{1}{\sec^2 (\arctan x)}\\
+\amp = \frac{1}{(\tan(\arctan x))^2+1} \amp (\tan^2 x+1=\sec^2x)\\
+\amp = \frac{1}{x^2+1} \amp (\tan(\arctan x)=x)\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.21.2: Proof of (2.130)"><a href="#s_inverse_trig-15" title="Copy heading and permalink for Proof 2.21.2: Proof of (2.130)" aria-label="Copy heading and permalink for Proof 2.21.2: Proof of (2.130)">🔗</a></div></article></details><article class="example example-like" id="eg_inverse_trig_derivative"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivatives of inverse trig functions.</span>
+</h3>
+<div class="para" id="eg_inverse_trig_derivative-2-1">Find the equation of the tangent line to <span class="process-math">\(f(x)=\arccos x\)</span> at <span class="process-math">\(x=1/2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_derivative-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_inverse_trig_derivative-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_inverse_trig_derivative-3-1">
+<div class="para">The tangent line passes through the point</div>
+<div class="displaymath process-math" id="eg_inverse_trig_derivative-3-1-1">
+\begin{equation*}
+P=(1/2, \arccos(1/2))=(1/2, \pi/3)
+\end{equation*}
+</div>
+<div class="para">and has slope</div>
+<div class="displaymath process-math" id="eg_inverse_trig_derivative-3-1-2">
+\begin{equation*}
+m=f'(1/2)=-\frac{1}{\sqrt{1-(1/2)^2}}=-\frac{2}{\sqrt{3}}\text{.}
+\end{equation*}
+</div>
+<div class="para">Using point-slope form, we see that the line has equation</div>
+<div class="displaymath process-math" id="eg_inverse_trig_derivative-3-1-3">
+\begin{equation*}
+y-\frac{\pi}{3}=\frac{-2}{\sqrt{3}}\left(x-\frac{1}{2}\right)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_inverse_trig_derivative-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.21.7.1"><a href="#eg_inverse_trig_derivative-3" title="Copy heading and permalink for Solution 2.21.7.1" aria-label="Copy heading and permalink for Solution 2.21.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.21.7: Derivatives of inverse trig functions"><a href="#eg_inverse_trig_derivative" title="Copy heading and permalink for Example 2.21.7: Derivatives of inverse trig functions" aria-label="Copy heading and permalink for Example 2.21.7: Derivatives of inverse trig functions">🔗</a></div></article><article class="example example-like" id="s_inverse_trig-17"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.21.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit computation.</span>
+</h3>
+<div class="para" id="s_inverse_trig-17-2-1">Compute <span class="process-math">\(\displaystyle\lim_{x\rightarrow 1^{-}}\frac{\arccos(x^2)}{\sqrt{1-x}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-17-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="s_inverse_trig-17-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="s_inverse_trig-17-3-1">
+<div class="para">Since <span class="process-math">\(\arccos(1)=0\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="s_inverse_trig-17-3-1-2">
+\begin{align*}
+\lim_{x\rightarrow 1^{-}}\frac{\arccos(x^2)}{\sqrt{1-x}}\amp = 
+\lim_{x\rightarrow 1^{-}}\frac{(\arccos(x^2))'}{(\sqrt{1-x})'} \amp (\text{L'Hop }, 0/0) \\
+\amp = \lim_{x\rightarrow 1^{-}}\frac{-2x/\sqrt{1-x^4}}{-1/2\sqrt{1-x}}\\
+\amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1-x}{1-x^4}}\\
+\amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1-x}{(1-x^2)(1+x^2)}}\\
+\amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1-x}{(1-x)(1+x)(1+x^2)}}\\
+\amp =\lim_{x\rightarrow 1^{-}}4x\sqrt{\frac{1}{(1+x)(1+x^2)}}\\
+\amp = 4\cdot \frac{1}{2}\\
+\amp = 2\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_inverse_trig-17-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.21.8.1"><a href="#s_inverse_trig-17-3" title="Copy heading and permalink for Solution 2.21.8.1" aria-label="Copy heading and permalink for Solution 2.21.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.21.8: Limit computation"><a href="#s_inverse_trig-17" title="Copy heading and permalink for Example 2.21.8: Limit computation" aria-label="Copy heading and permalink for Example 2.21.8: Limit computation">🔗</a></div></article><div class="autopermalink" data-description="Section 2.21: Inverse trigonometric functions"><a href="#s_inverse_trig" title="Copy heading and permalink for Section 2.21: Inverse trigonometric functions" aria-label="Copy heading and permalink for Section 2.21: Inverse trigonometric functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_trig_calculus.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -6730,7 +6730,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.19",
   "title": "Solving trigonometric equations",
-  "body": " Solving trigonometric equations     Give complete solutions to elementary trigonometric equations.    Understand elementary trigonometric equations geometrically via a unit circle picture.    Solve more complicated trigonometric equations by reducing to elementary ones.     By an elementary trigonometric equation, we will mean an equation of one of the three forms, , where , , and are fixed constants, and is the unknown. As a result of the periodic nature of trigonometric functions, combined with some intrinsic symmetries of the unit circle, we will see that elementary trigonometric equations will usually have infinitely many solutions; and indeed, the solutions often come in two independent infinite lists!  Let's begin with the equation form . First observe that since , this equation has a solution in the unknown if and only if . Next, using the definition of as the -coordinate of the corresponding point on the unit circle, we see that a solution corresponds to an angle whose corresponding point has -coordinate equal to . In other words, solutions to correspond to points on the intersection of the vertical line and the unit circle . As illustrated in the vertical line will intersect the unit circle either not at all (if ), in exactly one point (if ), or in exactly two points (if ).   Intersection of line and unit circle    Empty intersection:   Vertical line not intersecting with circle      Intersection is unique point:   Vertical lines intersecting with circle at one point      Intersection is two points:   Vertical line intersecting with circle at two points       Let's see how to solve the equation in the case when . An angle solving this equation will have associated point lying on the intersection of the line and the unit circle. From the diagram above, we see there are two such points, and by symmetry, we see that if is one of the points, then is the other, as indicated in    Solving    Visualizing solutions to elementary cosine equation on unit circle     Now, imagine we have found one solution to , corresponding to the point . Any angle coterminal with will intersect the unit circle in the same point . We conclude that any angle of the form , , is also a solution to . The same reasoning tells us that any angle of the form , is a solution to . From a single solution to the equation, we have thus generated two independent infinite lists of solutions: . Similar reasoning applies to an elementary sine equation . Now we are looking for angles for which the corresponding point has -coordinate equal to . This is a point lying on the intersection of the horizontal line  and the unit circle. For the case when , if is one such point, is the other.   Solving   Visualizing solutions to elementary cosine equation on unit circle     From the unit circle picture, we see that from a single solution to , we can generate two independent infinite lists of solutions: . Finally, consider the the equation . Recall that is the slope of the terminal edge of the angle . As indicated below the angles and have terminal edges with the same slope. It follows that if is one solution to , then , is the set of all solutions.   Solving   Visualizing solutions to elementary tan equation on unit circle     We summarize our conclusions with a general procedure for finding all solutions to an elementary trigonometric equation.   Solving elementary trigonometric equations     Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  If is a solution to , then the complete list of solutions is       Note that except for the simple equations and , does not give an explicit formula for the general solution to an elementary trigonometric equation: it only describes how to get all solutions starting from a given solution  . When solving elementary trigonometric equations by hand, the way to proceed is to find one solution corresponding to one of the 16 familiar angles, and then write all other solutions in terms of .   Elementary trigonometric equations   Find all solutions to the given equation.                        First we observe that is one solution to the given equation, making use of the familiar angles in . It follows that the complete list of solutions is .    We observe that is one solution to the given equation, making use of the familiar angles in . It follows that the complete list of solutions is .    To find a familiar solution to , it helps to write as , since now we recognize the numerator as and the denominator as . It follows that is a solution to the given equation, and thus that the complete list of solutions is .       "
+  "body": " Solving trigonometric equations     Give complete solutions to elementary trigonometric equations.    Understand elementary trigonometric equations geometrically via a unit circle picture.    Solve more complicated trigonometric equations by reducing to elementary ones.     By an elementary trigonometric equation, we will mean an equation of one of the three forms, , where , , and are fixed constants, and is the unknown. As a result of the periodic nature of trigonometric functions, combined with some intrinsic symmetries of the unit circle, we will see that elementary trigonometric equations will usually have infinitely many solutions; and indeed, the solutions often come in two independent infinite lists!  Let's begin with the equation form . First observe that since , this equation has a solution in the unknown if and only if . Next, using the definition of as the -coordinate of the corresponding point on the unit circle, we see that a solution corresponds to an angle whose corresponding point has -coordinate equal to . In other words, solutions to correspond to points on the intersection of the vertical line and the unit circle . As illustrated in the vertical line will intersect the unit circle either not at all (if ), in exactly one point (if ), or in exactly two points (if ).   Intersection of line and unit circle    Empty intersection:   Vertical line not intersecting with circle      Intersection is unique point:   Vertical lines intersecting with circle at one point      Intersection is two points:   Vertical line intersecting with circle at two points       Let's see how to solve the equation in the case when . An angle solving this equation will have associated point lying on the intersection of the line and the unit circle. From the diagram above, we see there are two such points, and by symmetry, we see that if is one of the points, then is the other, as indicated in    Solving    Visualizing solutions to elementary cosine equation on unit circle     Now, imagine we have found one solution to , corresponding to the point . Any angle coterminal with will intersect the unit circle in the same point . We conclude that any angle of the form , , is also a solution to . The same reasoning tells us that any angle of the form , is a solution to . From a single solution to the equation, we have thus generated two independent infinite lists of solutions: . Similar reasoning applies to an elementary sine equation . Now we are looking for angles for which the corresponding point has -coordinate equal to . This is a point lying on the intersection of the horizontal line  and the unit circle. For the case when , if is one such point, is the other.   Solving   Visualizing solutions to elementary cosine equation on unit circle     From the unit circle picture, we see that from a single solution to , we can generate two independent infinite lists of solutions: . Finally, consider the the equation . Recall that is the slope of the terminal edge of the angle . As indicated below the angles and have terminal edges with the same slope. It follows that if is one solution to , then , is the set of all solutions.   Solving   Visualizing solutions to elementary tan equation on unit circle     We summarize our conclusions with a general procedure for finding all solutions to an elementary trigonometric equation.   Solving elementary trigonometric equations      Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  If is a solution to , then the complete list of solutions is        Note that except for the simple equations and , does not give an explicit formula for the general solution to an elementary trigonometric equation: it only describes how to get all solutions starting from a given solution  . When solving elementary trigonometric equations by hand, the way to proceed is to find one solution corresponding to one of the 16 familiar angles, and then write all other solutions in terms of .   Elementary trigonometric equations   Find all solutions to the given equation.                        First we observe that is one solution to the given equation, making use of the familiar angles in . It follows that the complete list of solutions is .    We observe that is one solution to the given equation, making use of the familiar angles in . It follows that the complete list of solutions is .    To find a familiar solution to , it helps to write as , since now we recognize the numerator as and the denominator as . It follows that is a solution to the given equation, and thus that the complete list of solutions is .       "
 },
 {
   "id": "s_trig_solve-2",
@@ -6784,7 +6784,7 @@ var ptx_lunr_docs = [
   "type": "Procedure",
   "number": "2.19.5",
   "title": "Solving elementary trigonometric equations.",
-  "body": " Solving elementary trigonometric equations     Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  If is a solution to , then the complete list of solutions is      "
+  "body": " Solving elementary trigonometric equations      Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  The equations have solutions . If and is one solution to , then the complete list of solutions is .    Solving  If is a solution to , then the complete list of solutions is       "
 },
 {
   "id": "eg_elem_trig",
@@ -6794,6 +6794,267 @@ var ptx_lunr_docs = [
   "number": "2.19.6",
   "title": "Elementary trigonometric equations.",
   "body": " Elementary trigonometric equations   Find all solutions to the given equation.                        First we observe that is one solution to the given equation, making use of the familiar angles in . It follows that the complete list of solutions is .    We observe that is one solution to the given equation, making use of the familiar angles in . It follows that the complete list of solutions is .    To find a familiar solution to , it helps to write as , since now we recognize the numerator as and the denominator as . It follows that is a solution to the given equation, and thus that the complete list of solutions is .      "
+},
+{
+  "id": "s_trig_calculus",
+  "level": "1",
+  "url": "s_trig_calculus.html",
+  "type": "Section",
+  "number": "2.20",
+  "title": "Squeeze theorem and the calculus of trigonometric functions",
+  "body": " Squeeze theorem and the calculus of trigonometric functions     Learn to use the squeeze theorem to compute limits.    Establish the continuity of the trigonometric functions.    Establish derivative formulas for the trigonometric functions.    Perform curve sketching and optimization with functions built from trigonometric functions.      Squeeze theorem  In order to derive continuity and derivative results for the trigonometric functions, we will need to make use of a somewhat technical limit rule called the squeeze theorem . We will often reach for this tool in situations where our basic limit rules might not suffice to compute a given limit is when the function in question is unreasonably complicated, making its behavior near a point difficult to pin down. The squeeze theorem potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function , whose behavior is a mystery to us, with two simpler bounding functions and , whose behavior we understand. It is called the squeeze theorem as the necessary inequality has  squeezed between the functions and .   Squeeze theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    This theorem, like the other limit rules we have discussed, can be proved in a straightforward manner using , the epsilon-delta definition of the limit.    Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.   Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that         Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.      Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .     Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .    The next result is a useful consequence of the squeeze theorem that can be used in the special case where we want to show for some function .   Limits and absolute value   Let be a function defined on an open interval containing , except possibly at itself. We have .    First note the an if and only if statement like the given one is in fact a statement that two separate implications are true: namely,   if , then ;    if , then .   Thus to prove the given theorem, we must prove each of these implications.  The first implication follows almost immediately from the epsilon-delta definition of the limit. If , then for all , there is a such that for all satisfying . But since , we see that the same is true for the function , showing that .  Now consider the second implication. We will assume and prove that using the squeeze theorem. Recall that for any we have . It follows that for all in the domain of . Thus, letting and , we have for all in the domain of . Using our assumption, we see that . It now follows from the sandwich theorem that .    Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.   Sine and cosine limits at      Sine limit at zero   .    Cosine limit at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .       As promised in the proof of , we provide a proof of the inequality , or equivalently, for all . You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.   Proof of  We will prove that for all . First, observe that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any and consider the usual reference triangle for the central angle . As shown below lies completely within the interior of the angle .   Reference triangle within interior of angle theta    Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.     Continuity of trigonometric functions  Since and , the limit equalities of can be reinterpreted as follows: . In other words, and are both continuous at . Amazingly, with the help of the sum and difference identities stated below, we will be able to deduce that and are continuous at all inputs .   Further trigonometric identities   Let .   Sum and difference identities       Double-angle identities       Half-angle identities       Product identities          With these identities in hand we will prove that and using the following trick: for any function , we have . We now compute our two limits simultaneously: . We have thus shown that and are continuous on their entire domain. Since the remaining trigonometric functions are defined as quotients and reciprocals of these two functions, we see that all of the trigonometric functions are continuous.   Trigonometric functions are continuous   All six trigonometric functions are continuous. As a result, we have for all for which the right side of the equality is defined.      Trigonometric derivatives  Lastly, we treat differentiability of the trigonometric functions. Not surprisingly, the situation here is as good as could be hoped for: the trigonometric functions are differentiable everywhere on their domain. We begin with and .   Derivative formulas: sine and cosine   The functions and are differentiable on their domain. Moreover, we have .    We prove the derivative formula for ; the argument for is very similar. Using the limit definition of the derivative, we have , where the penultimate step makes use of our previously discussed limits .     Tangent lines: sinusoidal   Let .   Find an equation for the tangent line to the graph of at .    Find all points on the graph of where the tangent line is horizontal.          The tangent line to the graph of at , passes through the point The slope of the tangent line here is given by . We first compute . Thus the slope of the tangent line is , We conclude that an equation for the tangent line here is .    The tangent line to a point on the graph of is horizontal when its slope . Thus we need to find all such that , or equivalently, . The solutions to this trig equation are where is an integer. The corresponding points on the graph are .       The differentiability of the remaining trigonometric functions now follows from the quotient and chain rules. For example, we have , and . The other derivative formulas below follow in a similar vein.   Derivative formulas: trig functions   We have the following derivative formulas: .     Curve sketching with trigonometric functions   Let and let .   Find all critical points of , and for each critical point classify as a local maximum value of , a local minimum value of , or neither.    Apply to find the intervals of monotonicity of within .       We first compute . Since is differentiable everywhere, critical points of are solutions to . We thus solve: . We have if and only if for some integer . Only one of these solutions lies in : namely, . Next, observing that , and recalling facts about the unit circle, we see that solves if and only if for some integer . There are exactly two such solutions lying in : namely, and . In conclusion, the critical points of are .  To finish the problem essentially all we have to do is produce the sign diagram of .   Sign diagram for   Sign diagram of derivative of trig function     This was produced by performing the following test point evaluations: .  It follows that is a local minimum value, is a local maximum value, and is a local minimum value of .  Furthermore, we see that within the interval the function is increasing on and , and decreasing on and .  We verify our conclusions below with the actual graph of on .   Graph of   Graph of the trig function of the example        Extreme value theorem with trigonometric function   Let . Find the absolute maximum and minimum values of on the interval .    The function is easily seen to be differentiable everywhere, with . To find critical points, we solve: . Reactivating our trig expertise, we realize that the solutions to the last equation come in two infinite lists: . Thus the solutions lying in the interior of the given interval are . Now evaluate at our candidates, the two critical points and the two endpoints: . Admittedly, comparing these values is somewhat challenging without the use of technology. It turns out that , and thus that is the absolute minimum value of on , and is the absolute maximum value of on . Below you find a graph of that bears out our analysis.   Graph of example function revealing the extreme values.       "
+},
+{
+  "id": "s_trig_calculus-2",
+  "level": "2",
+  "url": "s_trig_calculus.html#s_trig_calculus-2",
+  "type": "Objectives",
+  "number": "2.20",
+  "title": "",
+  "body": "   Learn to use the squeeze theorem to compute limits.    Establish the continuity of the trigonometric functions.    Establish derivative formulas for the trigonometric functions.    Perform curve sketching and optimization with functions built from trigonometric functions.    "
+},
+{
+  "id": "th_squeeze",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_squeeze",
+  "type": "Theorem",
+  "number": "2.20.1",
+  "title": "Squeeze theorem.",
+  "body": " Squeeze theorem   Fix a point and suppose that functions satisfy for all lying in an open interval containing . If , then . Using logical shorthand: .    This theorem, like the other limit rules we have discussed, can be proved in a straightforward manner using , the epsilon-delta definition of the limit.   "
+},
+{
+  "id": "proc_sandwich",
+  "level": "2",
+  "url": "s_trig_calculus.html#proc_sandwich",
+  "type": "Procedure",
+  "number": "2.20.2",
+  "title": "Sandwich theorem.",
+  "body": " Sandwich theorem   To compute using the sandwich theorem, proceed as follows.   Find bounding functions and satisfying the two following conditions:    for all lying in an open interval containing .     for some .   For your own convenience, make sure to name these functions, as opposed to just providing formulas for them.    Conclude (citing the sandwich theorem) that       "
+},
+{
+  "id": "rm_sandwich",
+  "level": "2",
+  "url": "s_trig_calculus.html#rm_sandwich",
+  "type": "Remark",
+  "number": "2.20.3",
+  "title": "Sandwich theorem.",
+  "body": " Sandwich theorem  As the examples below will illustrate, the art of using lies in being able to find useful bounding functions and . Use these examples as a model for your own use of . Note in particular how   the explanations make explicit the two conditions that the bounding functions must satisfy;    the explanations end with a concluding statement explicitly citing the sandwich theorem;    giving the bounding functions names ( , and ), as opposed to just providing formulas ( , , ), makes these explanations more concise.    "
+},
+{
+  "id": "eg_sandwich_easy",
+  "level": "2",
+  "url": "s_trig_calculus.html#eg_sandwich_easy",
+  "type": "Example",
+  "number": "2.20.4",
+  "title": "Sandwich theorem: easy.",
+  "body": " Sandwich theorem: easy   Suppose the function satisfies for all in the interval . Compute .    We follow the steps of . In this case our bounding functions and are provided for us, making life much easier. By assumption our mystery function satisfies for all . Next we compute . Since holds for all , and since , we conclude that .   "
+},
+{
+  "id": "ss_squeeze_theorem-8",
+  "level": "2",
+  "url": "s_trig_calculus.html#ss_squeeze_theorem-8",
+  "type": "Example",
+  "number": "2.20.5",
+  "title": "Sandwich theorem: less easy.",
+  "body": " Sandwich theorem: less easy   Use the sandwich theorem to compute .    Here we make use of a well-known and important inequality for the cosine function: namely, that for all . It follows that for all . Since for all , the inequalities in still hold after multiplying each expression by : that is for all . Thus, letting and , we have for all in the open inteval . Lastly, we compute . Since holds for all in , and since , we conclude using the sandwich theorem that .   "
+},
+{
+  "id": "th_abs_lim",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_abs_lim",
+  "type": "Theorem",
+  "number": "2.20.6",
+  "title": "Limits and absolute value.",
+  "body": " Limits and absolute value   Let be a function defined on an open interval containing , except possibly at itself. We have .    First note the an if and only if statement like the given one is in fact a statement that two separate implications are true: namely,   if , then ;    if , then .   Thus to prove the given theorem, we must prove each of these implications.  The first implication follows almost immediately from the epsilon-delta definition of the limit. If , then for all , there is a such that for all satisfying . But since , we see that the same is true for the function , showing that .  Now consider the second implication. We will assume and prove that using the squeeze theorem. Recall that for any we have . It follows that for all in the domain of . Thus, letting and , we have for all in the domain of . Using our assumption, we see that . It now follows from the sandwich theorem that .   "
+},
+{
+  "id": "th_lim_sine_cos",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_lim_sine_cos",
+  "type": "Theorem",
+  "number": "2.20.7",
+  "title": "Sine and cosine limits at <span class=\"process-math\">\\(0\\)<\/span>.",
+  "body": " Sine and cosine limits at      Sine limit at zero   .    Cosine limit at zero   .          We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely for all . The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting and , we have for all , by inequality , and , since . The sandwich theorem now implies .    First note that for all , we have , and hence for all . We then have .      "
+},
+{
+  "id": "ss_squeeze_theorem-14",
+  "level": "2",
+  "url": "s_trig_calculus.html#ss_squeeze_theorem-14",
+  "type": "Proof",
+  "number": "1",
+  "title": "Proof of <span class=\"process-math\">\\(\\abs{\\sin\\theta}\\leq \\abs{\\theta}\\)<\/span>.",
+  "body": " Proof of  We will prove that for all . First, observe that since , we have . Thus the function is even. Since is also even, it suffices to prove for all . Furthermore, since , and since , it suffices to show for all . To this end, take any and consider the usual reference triangle for the central angle . As shown below lies completely within the interior of the angle .   Reference triangle within interior of angle theta    Elementary trigonometry tells us that ; elementary geometry tells us that . We conclude that , or equivalently, for all . Since furthermore and for , we see that for all , as desired.  "
+},
+{
+  "id": "th_sum_diff_identities",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_sum_diff_identities",
+  "type": "Theorem",
+  "number": "2.20.8",
+  "title": "Further trigonometric identities.",
+  "body": " Further trigonometric identities   Let .   Sum and difference identities       Double-angle identities       Half-angle identities       Product identities         "
+},
+{
+  "id": "th_trig_cont",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_trig_cont",
+  "type": "Theorem",
+  "number": "2.20.9",
+  "title": "Trigonometric functions are continuous.",
+  "body": " Trigonometric functions are continuous   All six trigonometric functions are continuous. As a result, we have for all for which the right side of the equality is defined.   "
+},
+{
+  "id": "th_der_sin_cos",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_der_sin_cos",
+  "type": "Theorem",
+  "number": "2.20.10",
+  "title": "Derivative formulas: sine and cosine.",
+  "body": " Derivative formulas: sine and cosine   The functions and are differentiable on their domain. Moreover, we have .    We prove the derivative formula for ; the argument for is very similar. Using the limit definition of the derivative, we have , where the penultimate step makes use of our previously discussed limits .   "
+},
+{
+  "id": "eg_tangent_trig",
+  "level": "2",
+  "url": "s_trig_calculus.html#eg_tangent_trig",
+  "type": "Example",
+  "number": "2.20.11",
+  "title": "Tangent lines: sinusoidal.",
+  "body": " Tangent lines: sinusoidal   Let .   Find an equation for the tangent line to the graph of at .    Find all points on the graph of where the tangent line is horizontal.          The tangent line to the graph of at , passes through the point The slope of the tangent line here is given by . We first compute . Thus the slope of the tangent line is , We conclude that an equation for the tangent line here is .    The tangent line to a point on the graph of is horizontal when its slope . Thus we need to find all such that , or equivalently, . The solutions to this trig equation are where is an integer. The corresponding points on the graph are .      "
+},
+{
+  "id": "th_der_trig",
+  "level": "2",
+  "url": "s_trig_calculus.html#th_der_trig",
+  "type": "Theorem",
+  "number": "2.20.12",
+  "title": "Derivative formulas: trig functions.",
+  "body": " Derivative formulas: trig functions   We have the following derivative formulas: .   "
+},
+{
+  "id": "eg_first_der_test_trig",
+  "level": "2",
+  "url": "s_trig_calculus.html#eg_first_der_test_trig",
+  "type": "Example",
+  "number": "2.20.13",
+  "title": "Curve sketching with trigonometric functions.",
+  "body": " Curve sketching with trigonometric functions   Let and let .   Find all critical points of , and for each critical point classify as a local maximum value of , a local minimum value of , or neither.    Apply to find the intervals of monotonicity of within .       We first compute . Since is differentiable everywhere, critical points of are solutions to . We thus solve: . We have if and only if for some integer . Only one of these solutions lies in : namely, . Next, observing that , and recalling facts about the unit circle, we see that solves if and only if for some integer . There are exactly two such solutions lying in : namely, and . In conclusion, the critical points of are .  To finish the problem essentially all we have to do is produce the sign diagram of .   Sign diagram for   Sign diagram of derivative of trig function     This was produced by performing the following test point evaluations: .  It follows that is a local minimum value, is a local maximum value, and is a local minimum value of .  Furthermore, we see that within the interval the function is increasing on and , and decreasing on and .  We verify our conclusions below with the actual graph of on .   Graph of   Graph of the trig function of the example      "
+},
+{
+  "id": "eg_extreme_trig",
+  "level": "2",
+  "url": "s_trig_calculus.html#eg_extreme_trig",
+  "type": "Example",
+  "number": "2.20.16",
+  "title": "Extreme value theorem with trigonometric function.",
+  "body": " Extreme value theorem with trigonometric function   Let . Find the absolute maximum and minimum values of on the interval .    The function is easily seen to be differentiable everywhere, with . To find critical points, we solve: . Reactivating our trig expertise, we realize that the solutions to the last equation come in two infinite lists: . Thus the solutions lying in the interior of the given interval are . Now evaluate at our candidates, the two critical points and the two endpoints: . Admittedly, comparing these values is somewhat challenging without the use of technology. It turns out that , and thus that is the absolute minimum value of on , and is the absolute maximum value of on . Below you find a graph of that bears out our analysis.   Graph of example function revealing the extreme values.     "
+},
+{
+  "id": "s_inverse_trig",
+  "level": "1",
+  "url": "s_inverse_trig.html",
+  "type": "Section",
+  "number": "2.21",
+  "title": "Inverse trigonometric functions",
+  "body": " Inverse trigonometric functions     Define the inverse trigonometric functions.    Understand the graphical properties of inverse trigonometric functions.    Derive derivative formulas for the inverse trigonometric functions using our inverse function derivative rule.     The trigonometric functions are fail to be one-to-one in a spectacular fashion: letting be any one of our six trigonometric functions, using the periodicity of these functions, we have . However, by restricting each of these functions to a certain interval where it is monotonic, and hence one-to-one, we obtain an invertible function.   Inverse trigonometric functions   The following are examples of what are called inverse trigonometric functions .   On the restricted domain the function is one-to-one, with range . The inverse function of restricted to this domain is called the arcsine function , denoted .    On the restricted domain the function is one-to-one, with range . The inverse function of restricted to this domain is called the arccosine function , denoted .    On the restricted domain the function is one-to-one, with range . The inverse function of restricted to this domain is called the arctangent function , denoted .        Occasionally an alternative notation is used to denote inverse trigonometric functions: namely, . We will avoid this notation as it misleadingly suggests that the inverse trigonometric functions are reciprocals of the corresponding trigonometric functions. They are not!   The usual connections between an invertible function and its inverse allow us to deduce properties of the inverse trigonometric functions from their paired trigonometric function.   Properties of inverse trigonometric functions      The function is an increasing function with domain and range . It satisfies the following properties: .    The function is a decreasing function with domain and range . It satisfies the following properties: .    The function is an increasing function with domain and range . It satisfies the following properties:         Computing with inverse trig functions   Compute the following values of trigonometric functions by hand.                    Hint . The answer is not .          Common mistake: . Why? By definition, the outputs of lie in the interval . Instead, using , we have if and only if and . The unique satisfying these two conditions is . We conclude that .    Using , we have if and only if and . The unique satisfying these two conditions is . We conclude that .    Using , we have if and only if and . Since is the unique angle satifying these two conditions, we conclude that that .    Recall that for any . (You can convince yourself of this either by drawing a unit circle picture, or by using the difference identity for .) It follows that .       The inverse trigonometric functions are often used to provide a single solution to an elementary trigonometric equation that we cannot solve by hand : , equations whose solutions do not correspond to one of the familiar angles of the unit circle. For example, is a particular solution to the equation . But what if we are asked to find all solutions to such an equation? In this case we make use of .   Solving trig equations   Find all solutions to the following trigonometric equations lying within the interval . You may express your answer in terms of values of inverse trigonometric functions.                   After some algebra we rewrite the equation as or , where . Since is a solution to , according to the general solution is . Since , we conclude that the general solution to the original equation is . Which of these infinitely-many solutions lies in the prescribed interval ? Since , we have and . It follows that the solutions lying in are .    Since is one solution to the given equation, the general solution is given by , where is any integer. Which of these lie in the interval ? Since , we have and . Thus the solutions lying in are and .       Lastly, we can deduce derivative formulas for , , and using the inverse function derivative rule: .   Derivatives of inverse trig functions    .    We prove and ; the proof of proceeds along similar lines.   Proof of   Let restricted to the domain , and let . Using , we have . The last step here is perhaps the most interesting, and follows from the fact that for any . Why is this true? Set , an angle lying in . Using the fact that , we can draw a unit circle picture like the one below. Since the vertical leg of the right triangle there has length , the horizontal leg has length . Since this length is equal to the -coordinate of the point below, we have and thus , as claimed.   Unit circle picture for arcsin derivative proof     Proof of   Let restricted to the domain , and let . Using , we have .    Derivatives of inverse trig functions   Find the equation of the tangent line to at .    The tangent line passes through the point and has slope . Using point-slope form, we see that the line has equation .     Limit computation   Compute .    Since , we have .    "
+},
+{
+  "id": "s_inverse_trig-2",
+  "level": "2",
+  "url": "s_inverse_trig.html#s_inverse_trig-2",
+  "type": "Objectives",
+  "number": "2.21",
+  "title": "",
+  "body": "   Define the inverse trigonometric functions.    Understand the graphical properties of inverse trigonometric functions.    Derive derivative formulas for the inverse trigonometric functions using our inverse function derivative rule.    "
+},
+{
+  "id": "d_inverse_trig",
+  "level": "2",
+  "url": "s_inverse_trig.html#d_inverse_trig",
+  "type": "Definition",
+  "number": "2.21.1",
+  "title": "Inverse trigonometric functions.",
+  "body": " Inverse trigonometric functions   The following are examples of what are called inverse trigonometric functions .   On the restricted domain the function is one-to-one, with range . The inverse function of restricted to this domain is called the arcsine function , denoted .    On the restricted domain the function is one-to-one, with range . The inverse function of restricted to this domain is called the arccosine function , denoted .    On the restricted domain the function is one-to-one, with range . The inverse function of restricted to this domain is called the arctangent function , denoted .      "
+},
+{
+  "id": "s_inverse_trig-5",
+  "level": "2",
+  "url": "s_inverse_trig.html#s_inverse_trig-5",
+  "type": "Remark",
+  "number": "2.21.2",
+  "title": "",
+  "body": " Occasionally an alternative notation is used to denote inverse trigonometric functions: namely, . We will avoid this notation as it misleadingly suggests that the inverse trigonometric functions are reciprocals of the corresponding trigonometric functions. They are not!  "
+},
+{
+  "id": "th_inverse_trig_props",
+  "level": "2",
+  "url": "s_inverse_trig.html#th_inverse_trig_props",
+  "type": "Theorem",
+  "number": "2.21.3",
+  "title": "Properties of inverse trigonometric functions.",
+  "body": " Properties of inverse trigonometric functions      The function is an increasing function with domain and range . It satisfies the following properties: .    The function is a decreasing function with domain and range . It satisfies the following properties: .    The function is an increasing function with domain and range . It satisfies the following properties:       "
+},
+{
+  "id": "eg_inverse_trig_compute",
+  "level": "2",
+  "url": "s_inverse_trig.html#eg_inverse_trig_compute",
+  "type": "Example",
+  "number": "2.21.4",
+  "title": "Computing with inverse trig functions.",
+  "body": " Computing with inverse trig functions   Compute the following values of trigonometric functions by hand.                    Hint . The answer is not .          Common mistake: . Why? By definition, the outputs of lie in the interval . Instead, using , we have if and only if and . The unique satisfying these two conditions is . We conclude that .    Using , we have if and only if and . The unique satisfying these two conditions is . We conclude that .    Using , we have if and only if and . Since is the unique angle satifying these two conditions, we conclude that that .    Recall that for any . (You can convince yourself of this either by drawing a unit circle picture, or by using the difference identity for .) It follows that .      "
+},
+{
+  "id": "eg_inverse_trig_solve",
+  "level": "2",
+  "url": "s_inverse_trig.html#eg_inverse_trig_solve",
+  "type": "Example",
+  "number": "2.21.5",
+  "title": "Solving trig equations.",
+  "body": " Solving trig equations   Find all solutions to the following trigonometric equations lying within the interval . You may express your answer in terms of values of inverse trigonometric functions.                   After some algebra we rewrite the equation as or , where . Since is a solution to , according to the general solution is . Since , we conclude that the general solution to the original equation is . Which of these infinitely-many solutions lies in the prescribed interval ? Since , we have and . It follows that the solutions lying in are .    Since is one solution to the given equation, the general solution is given by , where is any integer. Which of these lie in the interval ? Since , we have and . Thus the solutions lying in are and .      "
+},
+{
+  "id": "th_inverse_trig_derivative",
+  "level": "2",
+  "url": "s_inverse_trig.html#th_inverse_trig_derivative",
+  "type": "Theorem",
+  "number": "2.21.6",
+  "title": "Derivatives of inverse trig functions.",
+  "body": " Derivatives of inverse trig functions    .   "
+},
+{
+  "id": "s_inverse_trig-14",
+  "level": "2",
+  "url": "s_inverse_trig.html#s_inverse_trig-14",
+  "type": "Proof",
+  "number": "2.21.1",
+  "title": "Proof of (2.128).",
+  "body": " Proof of   Let restricted to the domain , and let . Using , we have . The last step here is perhaps the most interesting, and follows from the fact that for any . Why is this true? Set , an angle lying in . Using the fact that , we can draw a unit circle picture like the one below. Since the vertical leg of the right triangle there has length , the horizontal leg has length . Since this length is equal to the -coordinate of the point below, we have and thus , as claimed.   Unit circle picture for arcsin derivative proof   "
+},
+{
+  "id": "s_inverse_trig-15",
+  "level": "2",
+  "url": "s_inverse_trig.html#s_inverse_trig-15",
+  "type": "Proof",
+  "number": "2.21.2",
+  "title": "Proof of (2.130).",
+  "body": " Proof of   Let restricted to the domain , and let . Using , we have .  "
+},
+{
+  "id": "eg_inverse_trig_derivative",
+  "level": "2",
+  "url": "s_inverse_trig.html#eg_inverse_trig_derivative",
+  "type": "Example",
+  "number": "2.21.7",
+  "title": "Derivatives of inverse trig functions.",
+  "body": " Derivatives of inverse trig functions   Find the equation of the tangent line to at .    The tangent line passes through the point and has slope . Using point-slope form, we see that the line has equation .   "
+},
+{
+  "id": "s_inverse_trig-17",
+  "level": "2",
+  "url": "s_inverse_trig.html#s_inverse_trig-17",
+  "type": "Example",
+  "number": "2.21.8",
+  "title": "Limit computation.",
+  "body": " Limit computation   Compute .    Since , we have .   "
 },
 {
   "id": "appendix-notation",

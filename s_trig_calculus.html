@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Squeeze theorem and the calculus of trigonometric functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and single-variable calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.18';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.1d92cd109bc12c4d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.98ef3b0c170cd180.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.74f6fa0c85f09c79.css">
+<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and single-variable calculus</span> <span class="subtitle">A course resource for Math 218</span></a></h1>
+<p class="byline">Ellen Goldstein, Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_trig_solve.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_218-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_inverse_trig.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\bnpoly}{b_nx^n+b_{n-1}x^{n-1}\cdots +b_1x+b_0}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">0</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">0.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">0.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">0.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_218-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 218-1</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is a function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-2" class="internal"><span class="title">Learning goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="title">Definition of a function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_set_notation" class="internal"><span class="title">Set-builder notation and intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_implied_domain" class="internal"><span class="title">Implied domain and range</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_graphs" class="internal"><span class="title">Tables and graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="title">Definitions of linear and quadratic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="title">Properties of linear functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#ss_quad_func_props" class="internal"><span class="title">Vertex form</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ss_avg_rate_change" class="internal"><span class="title">Average rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-7" class="internal"><span class="title">Modeling with quadratic functions: falling objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#ex_lin_quad_model" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_alg_func" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Transformations and symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="title">Vertex form of a quadratic function</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_func_transf.html#ex_transf" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Function composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="title">Function composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="title">Implied domain of compositions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Solving inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="title">Elementary inequality rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="title">Sign diagram technique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_comp_domain.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Domains of algebraic functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Piecewise-defined functions and absolute value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="title">Piecewise-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="title">Absolute value and distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="title">Graphs of absolute values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_limits_naive.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Introduction to limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#subsec-naive-definition-of-limit" class="internal"><span class="title">Informal definition of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_limits_naive.html#ss_def" class="internal"><span class="title">One-sided limits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lim_rules.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Limit rules</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lim_rules.html#ss_limit_laws" class="internal"><span class="title">Limit rules</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_algebra.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Limits: algebraic technique</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_formal.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Limits: formal definition</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_continuous.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_cont" class="internal"><span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_continuous.html#ss_ivt" class="internal"><span class="title">Intermediate value theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_lim_at_infty.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_infinite_limits.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_at_point.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Derivative: at a point</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_function.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Derivative: function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_der_rules.html" class="internal"><span class="codenumber">1.20</span> <span class="title">Derivative: rules</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_der_rate_change.html" class="internal"><span class="codenumber">1.21</span> <span class="title">Derivative as rate of change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_der_rate_of" class="internal"><span class="title">Rate of change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_dynamics" class="internal"><span class="title">Position, velocity, acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_der_rate_change.html#ss_marginal_cost" class="internal"><span class="title">Rates of change in economics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chain.html" class="internal"><span class="codenumber">1.22</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_implicit.html" class="internal"><span class="codenumber">1.23</span> <span class="title">Implicit differentiation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_I.html" class="internal"><span class="codenumber">1.24</span> <span class="title">Related rates I</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_related_rates_II.html" class="internal"><span class="codenumber">1.25</span> <span class="title">Related rates II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_218-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Math 218-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_extreme.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Extreme value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_mean_value.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_linearize.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_first_der_test.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Monotonicity and first derivative test</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_concavity.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Concavity and inflection points</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_curve_sketch_I.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Curve sketching</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_curve_sketch_I.html#ss_from_derivative" class="internal"><span class="title">Curve sketching from derivative</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_applied_opt_I.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Applied optimization</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_expfunctions.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Exponential functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-3" class="internal"><span class="title">Motivating exponential functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-4" class="internal"><span class="title">Defining Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-5" class="internal"><span class="title">Growth of exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-6" class="internal"><span class="title">Finding Formulas for Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-7" class="internal"><span class="title">Properties of Exponential Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_expfunctions.html#ex_exp_func" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_lim_deriv.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Exponential functions: limit and graphical properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ss_" class="internal"><span class="title">Limit properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_lim_deriv.html#ss_exp_grap" class="internal"><span class="title">Graphing exponential functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_inverse_func.html" class="internal"><span class="codenumber">2.10</span> <span class="title">One-to-one and invertible functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_invertibility" class="internal"><span class="title">One-to-one functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_invertible_functions" class="internal"><span class="title">Invertible functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_inverse_func.html#ss_relating_func_inv" class="internal"><span class="title">Relating functions and their inverses</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_inverse_func.html#ex_inverse" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_log.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log.html#ss_log_def_alg" class="internal"><span class="title">Definition and algebraic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log.html#ss_log_graph" class="internal"><span class="title">Graphical properties</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_log.html#ex_log" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_deriv.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Exponential derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_deriv.html#ss_derivative" class="internal"><span class="title">The natural exponential function and its derivative</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_exp_deriv.html#ss_exp_der_gen" class="internal"><span class="title">General derivative formula for <span class="process-math">\(\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_exp_deriv.html#ex_exp_der" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_log_deriv.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Derivative of logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_log_deriv.html#ss_log_der" class="internal"><span class="title">Derivative of inverse functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_log_deriv.html#ss_der_log" class="internal"><span class="title">Derivative formula for logarithmic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_log_deriv.html#ex_log_der" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_exp_log_sketch.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Exponential and logarithmic curve sketching</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_exp_log_sketch.html#ss_exp_log_curve_sketching" class="internal"><span class="title">Curve sketching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_lHop_A.html" class="internal"><span class="codenumber">2.15</span> <span class="title">L’Hôpital’s rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_indeterminate_forms" class="internal"><span class="title">Indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_lHop" class="internal"><span class="title">L’Hôpital’s rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_lHop_A.html#ss_other_indeterminate_forms" class="internal"><span class="title">Other indetermiante forms</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_unit_circle_trig.html" class="internal"><span class="codenumber">2.16</span> <span class="title">Trigonometric functions via the unit circle</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#s_unit_circle_trig-3" class="internal"><span class="title">Functions defined by circular motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#sec_theunitcircle" class="internal"><span class="title">The unit circle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_unit_circle_trig.html#s_unit_circle_trig-5" class="internal"><span class="title">The sine and cosine functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_trig_computing.html" class="internal"><span class="codenumber">2.17</span> <span class="title">Computing with trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-3" class="internal"><span class="title">Side lengths of two special right triangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_computing.html#s_trig_computing-4" class="internal"><span class="title">Computing with angles <span class="process-math">\(\theta\)</span> outside of <span class="process-math">\([0,2\pi]\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_trig_prop.html" class="internal"><span class="codenumber">2.18</span> <span class="title">Trigonometric functions: properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_prop.html#ss_props_cos_sine" class="internal"><span class="title">Properties of <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_prop.html#ss_graph_sin_cos" class="internal"><span class="title">Graphs of <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_prop.html#ss_six_trig_functions" class="internal"><span class="title">The six trigonometric functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_trig_solve.html" class="internal"><span class="codenumber">2.19</span> <span class="title">Solving trigonometric equations</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="s_trig_calculus.html" class="internal"><span class="codenumber">2.20</span> <span class="title">Squeeze theorem and the calculus of trigonometric functions</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_calculus.html#ss_squeeze_theorem" class="internal"><span class="title">Squeeze theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_calculus.html#ss_continuity_trig" class="internal"><span class="title">Continuity of trigonometric functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_trig_calculus.html#ss_trig_der" class="internal"><span class="title">Trigonometric derivatives</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_inverse_trig.html" class="internal"><span class="codenumber">2.21</span> <span class="title">Inverse trigonometric functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_trig_calculus"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Squeeze theorem and the calculus of trigonometric functions</span>
+</h2>
+<article class="objectives goal-like" id="s_trig_calculus-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ul class="disc" id="s_trig_calculus-2-1">
+<li id="s_trig_calculus-2-1-1">
+<div class="para" id="s_trig_calculus-2-1-1-1">Learn to use the squeeze theorem to compute limits.<div class="autopermalink" data-description="Paragraph"><a href="#s_trig_calculus-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_trig_calculus-2-1-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_trig_calculus-2-1-2">
+<div class="para" id="s_trig_calculus-2-1-2-1">Establish the continuity of the trigonometric functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_trig_calculus-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_trig_calculus-2-1-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_trig_calculus-2-1-3">
+<div class="para" id="s_trig_calculus-2-1-3-1">Establish derivative formulas for the trigonometric functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_trig_calculus-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_trig_calculus-2-1-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="s_trig_calculus-2-1-4">
+<div class="para" id="s_trig_calculus-2-1-4-1">Perform curve sketching and optimization with functions built from trigonometric functions.<div class="autopermalink" data-description="Paragraph"><a href="#s_trig_calculus-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#s_trig_calculus-2-1-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives 2.20"><a href="#s_trig_calculus-2" title="Copy heading and permalink for Objectives 2.20" aria-label="Copy heading and permalink for Objectives 2.20">🔗</a></div></article><section class="subsection" id="ss_squeeze_theorem"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Squeeze theorem</span>
+</h3>
+<div class="para" id="ss_squeeze_theorem-2">In order to derive continuity and derivative results for the trigonometric functions, we will need to make use of a somewhat technical limit rule called the <em class="emphasis">squeeze theorem</em>. We will often reach for this tool in situations where our basic limit rules might not suffice to compute a given limit is when the function <span class="process-math">\(f\)</span> in question is unreasonably complicated, making its behavior near a point difficult to pin down. The <a href="s_trig_calculus.html#th_squeeze" class="xref" data-knowl="./knowl/xref/th_squeeze.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.20.1: Squeeze theorem">squeeze theorem</a> potentially gives a technique for getting around this issue. You can think of it as a means of replacing the complicated function <span class="process-math">\(f\text{,}\)</span> whose behavior is a mystery to us, with two simpler “bounding” functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\text{,}\)</span> whose behavior we understand. It is called the squeeze theorem as the necessary inequality <span class="process-math">\(g(x)\leq f(x)\leq h(x)\)</span> has <span class="process-math">\(f\)</span> “squeezed” between the functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_squeeze"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Squeeze theorem.</span>
+</h4>
+<div class="para logical" id="th_squeeze-2-1">
+<div class="para">Fix a point <span class="process-math">\(a\in \R\)</span> and suppose that functions <span class="process-math">\(f,g,h\)</span> satisfy <span class="process-math">\(g(x)\leq f(x)\leq h(x)\)</span> for all <span class="process-math">\(x\ne a\)</span> lying in an open interval containing <span class="process-math">\(a\text{.}\)</span> If</div>
+<div class="displaymath process-math" id="th_squeeze-2-1-6">
+\begin{equation*}
+\lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L\text{,}
+\end{equation*}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math" id="th_squeeze-2-1-7">
+\begin{equation*}
+\lim_{x\to a}f(x)=L\text{.}
+\end{equation*}
+</div>
+<div class="para">Using logical shorthand:</div>
+<div class="displaymath process-math" id="th_squeeze-2-1-8">
+\begin{align*}
+\left(g(x)\leq f(x)\leq h(x) \text{ and }  \lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L\right)\amp\implies \lim_{x\to a}f(x)=L \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_squeeze-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.1: Squeeze theorem"><a href="#th_squeeze" title="Copy heading and permalink for Theorem 2.20.1: Squeeze theorem" aria-label="Copy heading and permalink for Theorem 2.20.1: Squeeze theorem">🔗</a></div></article><details id="th_squeeze-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="th_squeeze-3-1">This theorem, like the other limit rules we have discussed, can be proved in a straightforward manner using <a href="s_lim_formal.html#d_lim_formal" class="xref" data-knowl="./knowl/xref/d_lim_formal.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.14.1: Limit (formal)">Definition 1.14.1</a>, the epsilon-delta definition of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#th_squeeze-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.20.1.1"><a href="#th_squeeze-3" title="Copy heading and permalink for Proof 2.20.1.1" aria-label="Copy heading and permalink for Proof 2.20.1.1">🔗</a></div></article></details><div class="para" id="ss_squeeze_theorem-4">Making use of the sandwich theorem requires carrying out a number of steps (with justification). The following procedure will be useful for doing this in an organized manner.<div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="proc_sandwich"><h4 class="heading">
+<span class="type">Procedure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem.</span>
+</h4>
+<div class="para logical" id="proc_sandwich-2-1">
+<div class="para">To compute <span class="process-math">\(\lim_{x\to a}f(x)\)</span> using the sandwich theorem, proceed as follows.</div>
+<ol class="decimal" id="proc_sandwich-2-1-2">
+<li id="proc_sandwich-2-1-2-1">
+<div class="para logical" id="proc_sandwich-2-1-2-1-1">
+<div class="para">Find bounding functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\)</span> satisfying the two following conditions:</div>
+<ol class="lower-alpha lower-alpha-level-1" id="proc_sandwich-2-1-2-1-1-3">
+<li id="proc_sandwich-2-1-2-1-1-3-1">
+<div class="para" id="proc_sandwich-2-1-2-1-1-3-1-1">
+<span class="process-math">\(g(x)\leq f(x)\leq h(x)\)</span> for all <span class="process-math">\(x\ne a\)</span> lying in an open interval containing <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-1-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#proc_sandwich-2-1-2-1-1-3-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="proc_sandwich-2-1-2-1-1-3-2">
+<div class="para" id="proc_sandwich-2-1-2-1-1-3-2-1">
+<span class="process-math">\(\lim\limits_{x\to a}g(x)=\lim\limits_{x\to a}h(x)=L\)</span> for some <span class="process-math">\(L\in \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-1-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#proc_sandwich-2-1-2-1-1-3-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+</ol>
+<div class="para">For your own convenience, make sure to <em class="emphasis">name</em> these functions, as opposed to just providing formulas for them.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#proc_sandwich-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="proc_sandwich-2-1-2-2">
+<div class="para" id="proc_sandwich-2-1-2-2-1">Conclude (citing the sandwich theorem) that <span class="process-math">\(\lim\limits_{x\to a}f(x)=L\)</span><div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#proc_sandwich-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#proc_sandwich-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Procedure 2.20.2: Sandwich theorem"><a href="#proc_sandwich" title="Copy heading and permalink for Procedure 2.20.2: Sandwich theorem" aria-label="Copy heading and permalink for Procedure 2.20.2: Sandwich theorem">🔗</a></div></article><article class="remark remark-like" id="rm_sandwich"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem.</span>
+</h4>
+<div class="para logical" id="rm_sandwich-2">
+<div class="para">As the examples below will illustrate, the art of using <a href="s_trig_calculus.html#proc_sandwich" class="xref" data-knowl="./knowl/xref/proc_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.20.2: Sandwich theorem">Procedure 2.20.2</a> lies in being able to find <em class="emphasis">useful</em> bounding functions <span class="process-math">\(g\)</span> and <span class="process-math">\(h\text{.}\)</span>  Use these examples as a model for your own use of <a href="s_trig_calculus.html#proc_sandwich" class="xref" data-knowl="./knowl/xref/proc_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.20.2: Sandwich theorem">Procedure 2.20.2</a>. Note in particular how</div>
+<ul class="disc" id="rm_sandwich-2-6">
+<li id="rm_sandwich-2-6-1">
+<div class="para" id="rm_sandwich-2-6-1-1">the explanations make explicit the two conditions that the bounding functions must satisfy;<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_sandwich-2-6-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_sandwich-2-6-2">
+<div class="para" id="rm_sandwich-2-6-2-1">the explanations end with a concluding statement explicitly citing the sandwich theorem;<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_sandwich-2-6-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rm_sandwich-2-6-3">
+<div class="para" id="rm_sandwich-2-6-3-1">giving the bounding functions <em class="emphasis">names</em> (e.g., <span class="process-math">\(g\)</span> and <span class="process-math">\(h\)</span>), as opposed to just providing formulas (e.g., <span class="process-math">\(1-x^2/4\text{,}\)</span> <span class="process-math">\(1+x^2/4\)</span>), makes these explanations more concise.<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rm_sandwich-2-6-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#rm_sandwich-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.20.3: Sandwich theorem"><a href="#rm_sandwich" title="Copy heading and permalink for Remark 2.20.3: Sandwich theorem" aria-label="Copy heading and permalink for Remark 2.20.3: Sandwich theorem">🔗</a></div></article><article class="example example-like" id="eg_sandwich_easy"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem: easy.</span>
+</h4>
+<div class="para logical" id="eg_sandwich_easy-2-1">
+<div class="para">Suppose the function <span class="process-math">\(f(x)\)</span> satisfies</div>
+<div class="displaymath process-math" id="eg_sandwich_easy-2-1-2">
+\begin{equation*}
+1-\frac{x^2}{4}\leq f(x)\leq 1+\frac{x^2}{4}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\)</span> in the interval <span class="process-math">\((-1/3, 1/3)\text{.}\)</span> Compute <span class="process-math">\(\lim_{x\to 0}f(x)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_sandwich_easy-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_sandwich_easy-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_sandwich_easy-3-1">
+<div class="para">We follow the steps of <a href="s_trig_calculus.html#proc_sandwich" class="xref" data-knowl="./knowl/xref/proc_sandwich.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.20.2: Sandwich theorem">Procedure 2.20.2</a>. In this case our bounding functions <span class="process-math">\(g(x)=1-x^2/4\)</span> and <span class="process-math">\(h(x)=1+x^2/4\)</span> are provided for us, making life much easier. By assumption our mystery function <span class="process-math">\(f\)</span> satisfies</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_sandwich.html ./knowl/xref/eq_sand_easy.html" id="eq_sand_easy">
+\begin{equation}
+g(x)\leq f(x)\leq h(x)\tag{2.96}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\in (-1/3, 1/3)\text{.}\)</span> Next we compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_sandwich.html ./knowl/xref/eq_sand_easy.html" id="eg_sandwich_easy-3-1-7">
+\begin{align*}
+\lim_{x\to 0}g(x) \amp = 1-0^2/4 \amp \text{(poly. eval.)}\\
+\amp =1\\
+\lim_{x\to 0}h(x) \amp = 1+0^2/4 \amp \text{(poly. eval.)}\\
+\amp =1\text{.}
+\end{align*}
+</div>
+<div class="para">Since <a href="s_trig_calculus.html#eq_sand_easy" class="xref" data-knowl="./knowl/xref/eq_sand_easy.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.96">(2.96)</a> holds for all <span class="process-math">\(x\ne 0\in (-1/3,1/3)\text{,}\)</span> and since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/proc_sandwich.html ./knowl/xref/eq_sand_easy.html" id="eg_sandwich_easy-3-1-10">
+\begin{equation*}
+\lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=1\text{,}
+\end{equation*}
+</div>
+<div class="para">we conclude that <span class="process-math">\(\lim\limits_{x\to 0}f(x)=1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_sandwich_easy-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.20.4.1"><a href="#eg_sandwich_easy-3" title="Copy heading and permalink for Solution 2.20.4.1" aria-label="Copy heading and permalink for Solution 2.20.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.20.4: Sandwich theorem: easy"><a href="#eg_sandwich_easy" title="Copy heading and permalink for Example 2.20.4: Sandwich theorem: easy" aria-label="Copy heading and permalink for Example 2.20.4: Sandwich theorem: easy">🔗</a></div></article><article class="example example-like" id="ss_squeeze_theorem-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sandwich theorem: less easy.</span>
+</h4>
+<div class="para" id="ss_squeeze_theorem-8-2-1">Use the sandwich theorem to compute <span class="process-math">\(\lim\limits_{x\to 0}x^2\cos(1/x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ss_squeeze_theorem-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ss_squeeze_theorem-8-3-1">
+<div class="para">Here we make use of a well-known and important inequality for the cosine function: namely, that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="ss_squeeze_theorem-8-3-1-1">
+\begin{equation*}
+-1\leq \cos t\leq 1
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(t\in \R\text{.}\)</span> It follows that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="eq_cos_ineq">
+\begin{equation}
+-1\leq \cos(1/x)\leq 1\tag{2.97}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\text{.}\)</span> Since <span class="process-math">\(x^2\geq 0\)</span> for all <span class="process-math">\(x\text{,}\)</span> the inequalities in <a href="s_trig_calculus.html#eq_cos_ineq" class="xref" data-knowl="./knowl/xref/eq_cos_ineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.97">(2.97)</a> still hold after multiplying each expression by <span class="process-math">\(x^2\text{:}\)</span> that is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="ss_squeeze_theorem-8-3-1-9">
+\begin{equation*}
+-x^2\leq x^2\cos(1/x)\leq x^2
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\text{.}\)</span> Thus, letting <span class="process-math">\(g(x)=-x^2\)</span> and <span class="process-math">\(h(x)=x^2\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="eq_harder">
+\begin{equation}
+g(x)\leq f(x)\leq h(x)\tag{2.98}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(x\ne 0\)</span> in the open inteval <span class="process-math">\(\R=(-\infty,\infty)\text{.}\)</span> Lastly, we compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="ss_squeeze_theorem-8-3-1-16">
+\begin{align*}
+\lim_{x\to 0}g(x) \amp = -0^2 \amp \text{(poly. eval.)}\\
+\amp = 0\\
+\lim_{x\to 0}h(x) \amp = 0^2 \amp \text{(poly. eval.)}\\
+\amp = 0\text{.}
+\end{align*}
+</div>
+<div class="para">Since <a href="s_trig_calculus.html#eq_harder" class="xref" data-knowl="./knowl/xref/eq_harder.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.98">(2.98)</a> holds for all <span class="process-math">\(x\ne 0\)</span> in <span class="process-math">\(\R\text{,}\)</span> and since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cos_ineq.html ./knowl/xref/eq_harder.html" id="ss_squeeze_theorem-8-3-1-20">
+\begin{equation*}
+\lim_{x\to 0}g(x)=\lim_{x\to 0}h(x)=0\text{,}
+\end{equation*}
+</div>
+<div class="para">we conclude using the sandwich theorem that <span class="process-math">\(\lim\limits_{x\to 0}f(x)=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.20.5.1"><a href="#ss_squeeze_theorem-8-3" title="Copy heading and permalink for Solution 2.20.5.1" aria-label="Copy heading and permalink for Solution 2.20.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.20.5: Sandwich theorem: less easy"><a href="#ss_squeeze_theorem-8" title="Copy heading and permalink for Example 2.20.5: Sandwich theorem: less easy" aria-label="Copy heading and permalink for Example 2.20.5: Sandwich theorem: less easy">🔗</a></div></article><div class="para" id="ss_squeeze_theorem-9">The next result is a useful consequence of the squeeze theorem that can be used in the special case where we want to show <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\)</span> for some function <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_abs_lim"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits and absolute value.</span>
+</h4>
+<div class="para logical" id="th_abs_lim-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function defined on an open interval containing <span class="process-math">\(a\in \R\text{,}\)</span> except possibly at <span class="process-math">\(a\)</span> itself. We have</div>
+<div class="displaymath process-math" id="th_abs_lim-2-1-4">
+\begin{align}
+\lim\limits_{x\to a}f(x)= 0 \amp \text{ if and only if } \lim\limits_{x\to a}\abs{f(x)}=0 \text{.}\tag{2.99}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.6: Limits and absolute value"><a href="#th_abs_lim" title="Copy heading and permalink for Theorem 2.20.6: Limits and absolute value" aria-label="Copy heading and permalink for Theorem 2.20.6: Limits and absolute value">🔗</a></div></article><details id="th_abs_lim-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_abs_lim-3-1">
+<div class="para">First note the an “if and only if” statement like the given one is in fact a statement that two separate implications are true: namely,</div>
+<ul class="disc" id="th_abs_lim-3-1-2">
+<li id="th_abs_lim-3-1-2-1">
+<div class="para" id="th_abs_lim-3-1-2-1-1">if <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to a}\abs{f(x)}=0\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_abs_lim-3-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="th_abs_lim-3-1-2-2">
+<div class="para" id="th_abs_lim-3-1-2-2-1">if <span class="process-math">\(\lim\limits_{x\to a}\abs{f(x)}=0\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_abs_lim-3-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Thus to prove the given theorem, we must prove each of these implications.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="th_abs_lim-3-2">
+<div class="para">The first implication follows almost immediately from the epsilon-delta definition of the limit. If <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\text{,}\)</span> then for all <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there is a <span class="process-math">\(\delta&gt; 0\)</span> such that</div>
+<div class="displaymath process-math" id="th_abs_lim-3-2-4">
+\begin{align*}
+\abs{f(x)-0} \amp =\abs{f(x)}&lt; \epsilon
+\end{align*}
+</div>
+<div class="para">for all <span class="process-math">\(x\)</span> satisfying <span class="process-math">\(0&lt; \abs{x-a}&lt; \delta\text{.}\)</span> But since</div>
+<div class="displaymath process-math" id="th_abs_lim-3-2-7">
+\begin{align*}
+\abs{\abs{f}-0} \amp =\abs{f(x)}\text{,}
+\end{align*}
+</div>
+<div class="para">we see that the same is true for the function <span class="process-math">\(\abs{f}\text{,}\)</span> showing that <span class="process-math">\(\lim\limits_{x\to a}\abs{f(x)}=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="th_abs_lim-3-3">
+<div class="para">Now consider the second implication. We will assume <span class="process-math">\(\lim\limits_{x\to a}\abs{f(x)}=0\)</span> and prove that <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\)</span> using the squeeze theorem. Recall that for any <span class="process-math">\(b\in \R\)</span> we have <span class="process-math">\(-\abs{b}\leq b\leq \abs{b}\text{.}\)</span> It follows that</div>
+<div class="displaymath process-math" id="th_abs_lim-3-3-5">
+\begin{equation*}
+-\abs{f(x)}\leq f(x)\leq \abs{f(x)}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span> Thus, letting <span class="process-math">\(g(x)=-\abs{f(x)}\)</span> and <span class="process-math">\(h(x)=\abs{f(x)}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="th_abs_lim-3-3-10">
+\begin{equation*}
+g(x)\leq f(x)\leq h(x)
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span> Using our assumption, we see that</div>
+<div class="displaymath process-math" id="th_abs_lim-3-3-13">
+\begin{align*}
+\lim_{x\to a}g(x) \amp = \lim_{x\to a}-\abs{f(x)}\\
+\amp = -\lim_{x\to a}\abs{f(x)} \amp \text{(scal. mult.)}\\
+\amp =0 \amp \text{(by assumption)}\\
+\lim_{x\to a}h(x) \amp = \lim_{x\to a}\abs{f(x)}\\
+\amp =0 \amp \text{(by assumption)}\text{.}
+\end{align*}
+</div>
+<div class="para">It now follows from the sandwich theorem that <span class="process-math">\(\lim\limits_{x\to a}f(x)=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_abs_lim-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.20.6.1"><a href="#th_abs_lim-3" title="Copy heading and permalink for Proof 2.20.6.1" aria-label="Copy heading and permalink for Proof 2.20.6.1">🔗</a></div></article></details><div class="para" id="ss_squeeze_theorem-11">Our final result uses the sandwich theorem to investigate the limits of sine and cosine at zero.<div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_lim_sine_cos"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sine and cosine limits at <span class="process-math">\(0\)</span>.</span>
+</h4>
+<div class="para logical" id="th_lim_sine_cos-2-1">
+<ol class="decimal" id="th_lim_sine_cos-2-1-1">
+<li id="th_lim_sine_cos-2-1-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Sine limit at zero.</span></span><div class="para" id="th_lim_sine_cos-2-1-1-1-2">
+<span class="process-math">\(\lim\limits_{\theta\to 0}\sin \theta=0
+\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-2-1-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Sine limit at zero"><a href="#th_lim_sine_cos-2-1-1-1" title="Copy heading and permalink for Item 1: Sine limit at zero" aria-label="Copy heading and permalink for Item 1: Sine limit at zero">🔗</a></div>
+</li>
+<li id="th_lim_sine_cos-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Cosine limit at zero.</span></span><div class="para" id="th_lim_sine_cos-2-1-1-2-2">
+<span class="process-math">\(\lim\limits_{\theta\to 0}\cos \theta=1
+\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Cosine limit at zero"><a href="#th_lim_sine_cos-2-1-1-2" title="Copy heading and permalink for Item 2: Cosine limit at zero" aria-label="Copy heading and permalink for Item 2: Cosine limit at zero">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.7: Sine and cosine limits at 0"><a href="#th_lim_sine_cos" title="Copy heading and permalink for Theorem 2.20.7: Sine and cosine limits at 0" aria-label="Copy heading and permalink for Theorem 2.20.7: Sine and cosine limits at 0">🔗</a></div></article><details id="th_lim_sine_cos-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_lim_sine_cos-3-1">
+<ol class="decimal" id="th_lim_sine_cos-3-1-1">
+<li id="th_lim_sine_cos-3-1-1-1">
+<div class="para logical" id="th_lim_sine_cos-3-1-1-1-1">
+<div class="para">We use the sandwich theorem to prove this limit formula. Our choice of bounding functions will rely on an important inequality involving the sine function: namely</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq.html ./knowl/xref/eq_sine_ineq.html" id="eq_sine_ineq">
+\begin{equation}
+-\abs{\theta}\leq \sin \theta\leq \abs{\theta}\tag{2.100}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in \R\text{.}\)</span> The proof of this inequality (given at the end of this section) is nontrivial, but also instructive: it appeals to some of the unit circle geometry that goes into the definition of the trigonometric functions. In any case, we will simply assume <a href="s_trig_calculus.html#eq_sine_ineq" class="xref" data-knowl="./knowl/xref/eq_sine_ineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.100">(2.100)</a> holds for the purpose of this proof. With that in place, our result is an easy consequence of the sandwich theorem. Indeed, setting <span class="process-math">\(g(\theta)=-\abs{\theta}\)</span> and <span class="process-math">\(h(\theta)=\abs{\theta}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq.html ./knowl/xref/eq_sine_ineq.html" id="th_lim_sine_cos-3-1-1-1-1-6">
+\begin{equation*}
+g(\theta)\leq \sin \theta\leq h(\theta)
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\text{,}\)</span> by inequality <a href="s_trig_calculus.html#eq_sine_ineq" class="xref" data-knowl="./knowl/xref/eq_sine_ineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.100">(2.100)</a>, and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq.html ./knowl/xref/eq_sine_ineq.html" id="th_lim_sine_cos-3-1-1-1-1-9">
+\begin{equation*}
+\lim_{\theta\to 0}g(\theta)=\lim_{\theta\to 0}h(\theta)=0\text{,}
+\end{equation*}
+</div>
+<div class="para">since <span class="process-math">\(\lim_{\theta\to 0}\abs{\theta}=0\text{.}\)</span> The sandwich theorem now implies <span class="process-math">\(\lim\limits_{\theta\to 0}\sin \theta=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_lim_sine_cos-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_lim_sine_cos-3-1-1-2">
+<div class="para logical" id="th_lim_sine_cos-3-1-1-2-1">
+<div class="para">First note that for all <span class="process-math">\(\theta\in (-\pi/2, \pi/2)\text{,}\)</span> we have <span class="process-math">\(\cos \theta\geq 0\text{,}\)</span> and hence</div>
+<div class="displaymath process-math" id="th_lim_sine_cos-3-1-1-2-1-3">
+\begin{align*}
+\cos \theta  \amp = \abs{\cos \theta} \amp (\cos \theta\geq 0) \\
+\amp = \sqrt{\cos^2\theta} \amp (\ans{a}=\sqrt{a^2})\\
+\amp = \sqrt{1-\sin^2\theta} \amp (\cos^2\theta+\sin^2\theta=1)
+\end{align*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in (-\pi/2, \pi,2)\text{.}\)</span> We then have</div>
+<div class="displaymath process-math" id="th_lim_sine_cos-3-1-1-2-1-5">
+\begin{align*}
+\lim_{\theta\to 0}\cos\theta \amp = \lim_{\theta\to 0}\sqrt{1-\sin^2\theta} \amp (\text{repl. rule})\\
+\amp = \sqrt{\lim_{\theta\to 0}1-(\lim_{\theta\to 0}\sin\theta)^2} \amp \text{(root, sum,power)}\\
+\amp = \sqrt{1-0^2} \amp \text{(sine eval.)}\\
+\amp = 1\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_lim_sine_cos-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_lim_sine_cos-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.20.7.1"><a href="#th_lim_sine_cos-3" title="Copy heading and permalink for Proof 2.20.7.1" aria-label="Copy heading and permalink for Proof 2.20.7.1">🔗</a></div></article></details><div class="para" id="ss_squeeze_theorem-13">As promised in the proof of <a href="s_trig_calculus.html#th_lim_sine_cos" class="xref" data-knowl="./knowl/xref/th_lim_sine_cos.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.20.7: Sine and cosine limits at 0">Theorem 2.20.7</a>, we provide a proof of the inequality <span class="process-math">\(-\abs{\theta}\leq \sin \theta\leq \abs{\theta}\text{,}\)</span> or equivalently, <span class="process-math">\(\abs{\sin \theta}\leq \abs{\theta}\)</span> for all <span class="process-math">\(\theta\in \R\text{.}\)</span> You are not responsible for understanding this proof, but you might find the argument instructive nonetheless.<div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ss_squeeze_theorem-14" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="title">Proof of <span class="process-math">\(\abs{\sin\theta}\leq \abs{\theta}\)</span>.</span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="ss_squeeze_theorem-14-2">
+<div class="para">We will prove that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html" id="eq_sine_ineq_abs">
+\begin{equation}
+\abs{\sin \theta}\leq \abs{\theta}\tag{2.101}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in \R\text{.}\)</span> First, observe that since <span class="process-math">\(\sin(-\theta)=-\sin\theta\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html" id="ss_squeeze_theorem-14-2-4">
+\begin{equation*}
+\abs{\sin (-\theta)}=\abs{-\sin \theta}=\abs{\sin \theta}\text{.}
+\end{equation*}
+</div>
+<div class="para">Thus the function <span class="process-math">\(f(\theta)=\abs{\sin \theta}\)</span> is even. Since <span class="process-math">\(g(\theta)=\abs{\theta}\)</span> is also even, it suffices to prove <a href="s_trig_calculus.html#eq_sine_ineq_abs" class="xref" data-knowl="./knowl/xref/eq_sine_ineq_abs.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.101">(2.101)</a> for all <span class="process-math">\(\theta\geq 0\text{.}\)</span> Furthermore, since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_sine_ineq_abs.html ./knowl/xref/eq_sine_ineq_abs.html" id="ss_squeeze_theorem-14-2-9">
+\begin{equation*}
+\theta\geq \pi/2\implies \sin\theta\leq 1 \leq \pi/2 \leq \theta\text{,}
+\end{equation*}
+</div>
+<div class="para">and since <span class="process-math">\(\sin(0)=0\text{,}\)</span> it suffices to show <a href="s_trig_calculus.html#eq_sine_ineq_abs" class="xref" data-knowl="./knowl/xref/eq_sine_ineq_abs.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.101">(2.101)</a> for all <span class="process-math">\(\theta\in (0,\pi/2)\text{.}\)</span> To this end, take any <span class="process-math">\(\theta\in (0,\pi/2)\)</span> and consider the usual reference triangle <span class="process-math">\(T\)</span> for the central angle <span class="process-math">\(\theta\text{.}\)</span> As shown below <span class="process-math">\(T\)</span> lies completely within the interior <span class="process-math">\(S\)</span> of the angle <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="generated/sageplot/ss_squeeze_theorem-14-3.svg" role="img" class="contained" alt="Reference triangle within interior of angle theta"></div>
+<div class="para logical" id="ss_squeeze_theorem-14-4">
+<div class="para">Elementary trigonometry tells us that <span class="process-math">\(\operatorname{area} T=\frac{1}{2}\sin \theta\text{;}\)</span> elementary geometry tells us that <span class="process-math">\(\operatorname{area} S=\pi\cdot \frac{\theta}{2\pi}=\frac{\theta}{2}\text{.}\)</span> We conclude that</div>
+<div class="displaymath process-math" id="ss_squeeze_theorem-14-4-3">
+\begin{align*}
+\frac{1}{2}\sin \theta \amp= \operatorname{area} T\\
+\amp \leq \operatorname{area} S\\
+\amp =\frac{\theta}{2}\text{,}
+\end{align*}
+</div>
+<div class="para">or equivalently,</div>
+<div class="displaymath process-math" id="ss_squeeze_theorem-14-4-4">
+\begin{equation*}
+\sin\theta\leq \theta
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in (0,\pi/2)\text{.}\)</span> Since furthermore <span class="process-math">\(\sin\theta\geq 0\)</span> and <span class="process-math">\(\theta\geq 0\)</span> for <span class="process-math">\(\theta\in (0,\pi/2)\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" id="ss_squeeze_theorem-14-4-9">
+\begin{equation*}
+\abs{\sin\theta}\leq \abs{\theta}
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\theta\in (0,\pi/2)\text{,}\)</span> as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_squeeze_theorem-14-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1: Proof of \abs{\sin\theta}\leq \abs{\theta}"><a href="#ss_squeeze_theorem-14" title="Copy heading and permalink for Proof 1: Proof of \abs{\sin\theta}\leq \abs{\theta}" aria-label="Copy heading and permalink for Proof 1: Proof of \abs{\sin\theta}\leq \abs{\theta}">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Squeeze theorem"><a href="#ss_squeeze_theorem" title="Copy heading and permalink for Subsection: Squeeze theorem" aria-label="Copy heading and permalink for Subsection: Squeeze theorem">🔗</a></div></section><section class="subsection" id="ss_continuity_trig"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Continuity of trigonometric functions</span>
+</h3>
+<div class="para logical" id="ss_continuity_trig-2">
+<div class="para">Since <span class="process-math">\(\sin(0)=0\)</span> and <span class="process-math">\(\cos(0)=1\text{,}\)</span> the limit equalities of <a href="s_trig_calculus.html#th_lim_sine_cos" class="xref" data-knowl="./knowl/xref/th_lim_sine_cos.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.20.7: Sine and cosine limits at 0">Theorem 2.20.7</a> can be reinterpreted as follows:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_lim_sine_cos.html ./knowl/xref/th_sum_diff_identities.html" id="ss_continuity_trig-2-4">
+\begin{align*}
+\lim\limits_{x\to 0}\sin x \amp =\sin(0) \\
+\lim\limits_{x\to 0}\cos x \amp = \cos(0) \text{.}
+\end{align*}
+</div>
+<div class="para">In other words, <span class="process-math">\(\sin\)</span> and <span class="process-math">\(\cos\)</span> are both continuous at <span class="process-math">\(x=0\text{.}\)</span> Amazingly, with the help of the <a href="s_trig_calculus.html#th_sum_diff_identities" class="xref" data-knowl="./knowl/xref/th_sum_diff_identities.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.20.8: Further trigonometric identities">sum and difference identities</a> stated below, we will be able to deduce that <span class="process-math">\(\sin\)</span> and <span class="process-math">\(\cos\)</span> are continuous at all inputs <span class="process-math">\(a\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_continuity_trig-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_sum_diff_identities"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Further trigonometric identities.</span>
+</h4>
+<div class="para logical" id="th_sum_diff_identities-2-1">
+<div class="para">Let <span class="process-math">\(\theta,\phi\in \R\text{.}\)</span>
+</div>
+<ol class="decimal" id="th_sum_diff_identities-2-1-2">
+<li id="th_sum_diff_identities-2-1-2-1">
+<span class="heading li--heading"><span class="title li--heading-title">Sum and difference identities.</span></span><div class="para logical" id="th_sum_diff_identities-2-1-2-1-2">
+<div class="displaymath process-math" id="th_sum_diff_identities-2-1-2-1-2-1">
+\begin{align}
+\cos(\theta+\phi) \amp = \cos\theta\cos\phi-\sin\theta\sin\phi \tag{2.102}\\
+\cos(\theta-\phi) \amp = \cos\theta\cos\phi+\sin\theta\sin\phi\tag{2.103}\\
+\sin(\theta+\phi) \amp = \sin\theta\cos\phi+\cos\theta\sin\phi\tag{2.104}\\
+\sin(\theta-\phi) \amp = \sin\theta\cos\phi-\cos\theta\sin\phi\tag{2.105}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_sum_diff_identities-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1: Sum and difference identities"><a href="#th_sum_diff_identities-2-1-2-1" title="Copy heading and permalink for Item 1: Sum and difference identities" aria-label="Copy heading and permalink for Item 1: Sum and difference identities">🔗</a></div>
+</li>
+<li id="th_sum_diff_identities-2-1-2-2">
+<span class="heading li--heading"><span class="title li--heading-title">Double-angle identities.</span></span><div class="para logical" id="th_sum_diff_identities-2-1-2-2-2">
+<div class="displaymath process-math" id="th_sum_diff_identities-2-1-2-2-2-1">
+\begin{align}
+\cos(2\theta) \amp = \cos^2\theta-\sin^2\theta=2\cos^2\theta-1=1-2\sin^2\theta \tag{2.106}\\
+\sin(2\theta) \amp =2\sin\theta\cos\theta\tag{2.107}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_sum_diff_identities-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2: Double-angle identities"><a href="#th_sum_diff_identities-2-1-2-2" title="Copy heading and permalink for Item 2: Double-angle identities" aria-label="Copy heading and permalink for Item 2: Double-angle identities">🔗</a></div>
+</li>
+<li id="th_sum_diff_identities-2-1-2-3">
+<span class="heading li--heading"><span class="title li--heading-title">Half-angle identities.</span></span><div class="para logical" id="th_sum_diff_identities-2-1-2-3-2">
+<div class="displaymath process-math" id="th_sum_diff_identities-2-1-2-3-2-1">
+\begin{align}
+\cos^2(\theta/2)\amp =\frac{1}{2}(\cos(\theta)+1) \tag{2.108}\\
+\sin^2(\theta/2) \amp =\frac{1}{2}(1-\cos\theta)\tag{2.109}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_sum_diff_identities-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3: Half-angle identities"><a href="#th_sum_diff_identities-2-1-2-3" title="Copy heading and permalink for Item 3: Half-angle identities" aria-label="Copy heading and permalink for Item 3: Half-angle identities">🔗</a></div>
+</li>
+<li id="th_sum_diff_identities-2-1-2-4">
+<span class="heading li--heading"><span class="title li--heading-title">Product identities.</span></span><div class="para logical" id="th_sum_diff_identities-2-1-2-4-2">
+<div class="displaymath process-math" id="th_sum_diff_identities-2-1-2-4-2-1">
+\begin{align}
+\cos\theta\cos\phi \amp = \frac{1}{2}(\cos(\theta+\phi)+\cos(\theta-\phi)) \tag{2.110}\\
+\sin\theta\sin\phi \amp = \frac{1}{2}(\cos(\theta-\phi)-\cos(\theta+\phi))\tag{2.111}\\
+\sin\theta\cos\phi \amp = \frac{1}{2}(\sin(\theta+\phi)+\sin(\theta-\phi))\tag{2.112}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_sum_diff_identities-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4: Product identities"><a href="#th_sum_diff_identities-2-1-2-4" title="Copy heading and permalink for Item 4: Product identities" aria-label="Copy heading and permalink for Item 4: Product identities">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_sum_diff_identities-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.8: Further trigonometric identities"><a href="#th_sum_diff_identities" title="Copy heading and permalink for Theorem 2.20.8: Further trigonometric identities" aria-label="Copy heading and permalink for Theorem 2.20.8: Further trigonometric identities">🔗</a></div></article><div class="para logical" id="ss_continuity_trig-4">
+<div class="para">With these identities in hand we will prove that <span class="process-math">\(\lim_{x\to a}\sin x=\sin(a)\)</span> and <span class="process-math">\(\lim\limits_{x\to a}\cos(x)=\cos(a)\)</span> using the following trick: for any function <span class="process-math">\(f\text{,}\)</span> we have <span class="process-math">\(\lim\limits_{x\to a}f(x)=\lim\limits_{x\to 0}f(x+a)\text{.}\)</span> We now compute our two limits simultaneously:</div>
+<div class="displaymath process-math" id="ss_continuity_trig-4-5">
+\begin{align*}
+\lim\limits_{x\to a}\sin x \amp = \lim\limits_{x\to 0}\sin(x+a) \amp \lim\limits_{x\to a}\cos x \amp = \lim\limits_{x\to 0}\cos(x+a)\\
+\amp = \lim\limits_{x\to 0}\sin x\cos a + \cos x\sin a  \amp \amp  = \lim\limits_{x\to 0}\cos x\cos a - \sin x\sin a  \\
+\amp = \sin(0)\cos(a)+\cos(0)\sin(a) \amp \amp = \cos(0)\cos(a)-\sin(0)\sin(a) \\
+\amp = \sin(a)  \amp \amp = \cos(a)  \text{.}
+\end{align*}
+</div>
+<div class="para">We have thus shown that <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span> are continuous on their entire domain. Since the remaining trigonometric functions are defined as quotients and reciprocals of these two functions, we see that all of the trigonometric functions are continuous.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_continuity_trig-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_trig_cont"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Trigonometric functions are continuous.</span>
+</h4>
+<div class="para logical" id="th_trig_cont-2-1">
+<div class="para">All six trigonometric functions are continuous. As a result, we have</div>
+<div class="displaymath process-math" id="th_trig_cont-2-1-1">
+\begin{align}
+\lim\limits_{x\to a}\cos x \amp = \cos(a) \amp \lim\limits_{x\to a}\sin x\amp =\sin(a) \tag{2.113}\\
+\lim\limits_{x\to a}\tan x \amp =\tan(a) \amp \lim\limits_{x\to a}\cot x\amp =\cot(a)  \tag{2.114}\\
+\lim\limits_{x\to a}\sec x \amp = \sec(a) \amp \lim\limits_{x\to a}\csc x\amp =\csc(a) \tag{2.115}
+\end{align}
+</div>
+<div class="para">for all <span class="process-math">\(a\)</span> for which the right side of the equality is defined.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_trig_cont-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.9: Trigonometric functions are continuous"><a href="#th_trig_cont" title="Copy heading and permalink for Theorem 2.20.9: Trigonometric functions are continuous" aria-label="Copy heading and permalink for Theorem 2.20.9: Trigonometric functions are continuous">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Continuity of trigonometric functions"><a href="#ss_continuity_trig" title="Copy heading and permalink for Subsection: Continuity of trigonometric functions" aria-label="Copy heading and permalink for Subsection: Continuity of trigonometric functions">🔗</a></div></section><section class="subsection" id="ss_trig_der"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Trigonometric derivatives</span>
+</h3>
+<div class="para" id="ss_trig_der-2">Lastly, we treat differentiability of the trigonometric functions. Not surprisingly, the situation here is as good as could be hoped for: the trigonometric functions are differentiable everywhere on their domain. We begin with <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_trig_der-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_der_sin_cos"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative formulas: sine and cosine.</span>
+</h4>
+<div class="para logical" id="th_der_sin_cos-2-1">
+<div class="para">The functions <span class="process-math">\(\cos\)</span> and <span class="process-math">\(\sin\)</span> are differentiable on their domain. Moreover, we have</div>
+<div class="displaymath process-math" id="th_der_sin_cos-2-1-3">
+\begin{align}
+\frac{d}{dx}\sin x \amp = \cos x \amp \frac{d}{dx}\cos x\amp =-\sin x\text{.}\tag{2.116}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_der_sin_cos-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.10: Derivative formulas: sine and cosine"><a href="#th_der_sin_cos" title="Copy heading and permalink for Theorem 2.20.10: Derivative formulas: sine and cosine" aria-label="Copy heading and permalink for Theorem 2.20.10: Derivative formulas: sine and cosine">🔗</a></div></article><details id="th_der_sin_cos-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_der_sin_cos-3-1">
+<div class="para">We prove the derivative formula for <span class="process-math">\(\sin\text{;}\)</span> the argument for <span class="process-math">\(\cos\)</span> is very similar. Using the limit definition of the derivative, we have</div>
+<div class="displaymath process-math" id="th_der_sin_cos-3-1-3">
+\begin{align*}
+\frac{d}{dx}(\sin x) \amp = \lim\limits_{h\to 0}\frac{\sin(x+h)-\sin x}{h}\\
+\amp \lim\limits_{h\to 0}\frac{\sin x\cos h+\cos x\sin h-\sin x}{h}\\
+\amp = \lim\limits_{h\to 0}\frac{\sin x(\cos h-1)}{h}+\frac{\cos x\sin h}{h}\\
+\amp = \sin x\lim\limits_{h\to 0}\frac{\cos h-1}{h}+\cos x \lim\limits_{h\to 0}\frac{\sin h}{h} \\
+\amp = \sin x\cdot 0 +\cos x\cdot 1\\
+\amp = \cos x\text{,}
+\end{align*}
+</div>
+<div class="para">where the penultimate step makes use of our previously discussed limits</div>
+<div class="displaymath process-math" id="th_der_sin_cos-3-1-4">
+\begin{align*}
+\lim\limits_{t\to 0}\frac{\sin t}{t}  \amp =1 \amp \lim\limits_{t\to 0}\frac{\cos t-1}{t}=0  \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_der_sin_cos-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.20.10.1"><a href="#th_der_sin_cos-3" title="Copy heading and permalink for Proof 2.20.10.1" aria-label="Copy heading and permalink for Proof 2.20.10.1">🔗</a></div></article></details><article class="example example-like" id="eg_tangent_trig"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Tangent lines: sinusoidal.</span>
+</h4>
+<div class="para logical" id="eg_tangent_trig-2-1">
+<div class="para">Let <span class="process-math">\(f(x)=\cos x-\sin x\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_tangent_trig-2-1-2">
+<li id="eg_tangent_trig-2-1-2-1">
+<div class="para" id="eg_tangent_trig-2-1-2-1-1">Find an equation for the tangent line to the graph of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=\pi/3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_tangent_trig-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_tangent_trig-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_tangent_trig-2-1-2-2">
+<div class="para" id="eg_tangent_trig-2-1-2-2-1">Find all points on the graph of <span class="process-math">\(f\)</span> where the tangent line is horizontal.<div class="autopermalink" data-description="Paragraph"><a href="#eg_tangent_trig-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_tangent_trig-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_tangent_trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_tangent_trig-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_tangent_trig-3-1">
+<ol class="decimal" id="eg_tangent_trig-3-1-1">
+<li id="eg_tangent_trig-3-1-1-1">
+<div class="para logical" id="eg_tangent_trig-3-1-1-1-1">
+<div class="para">The tangent line to the graph of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=\pi/3\text{,}\)</span> passes through the point</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-1-1-3">
+\begin{equation*}
+P=(\pi/3, f(\pi/3))=(\pi/3, \cos(\pi/3)-\sin(\pi/3))=(\pi/3, 1/2-\sqrt{3}/2).
+\end{equation*}
+</div>
+<div class="para">The slope of the tangent line here is given by <span class="process-math">\(f'(\pi/3)\text{.}\)</span> We first compute</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-1-1-5">
+\begin{align*}
+f'(x) \amp = (\cos x)'-(\sin x)' \amp \text{(lin. comb.)}\\
+\amp = -\sin x-\cos x\text{.}
+\end{align*}
+</div>
+<div class="para">Thus the slope of the tangent line is</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-1-1-6">
+\begin{equation*}
+f'(\pi/3)=-\sin(\pi/3)-\cos(\pi/3)=-(\frac{\sqrt{3}+1}{2})\text{,}
+\end{equation*}
+</div>
+<div class="para">We conclude that an equation for the tangent line here is</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-1-1-7">
+\begin{equation*}
+y-\frac{1-\sqrt{3}}{2}=-\frac{1+\sqrt{3}}{2}(x-\frac{\pi}{3})\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_tangent_trig-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_tangent_trig-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_tangent_trig-3-1-1-2">
+<div class="para logical" id="eg_tangent_trig-3-1-1-2-1">
+<div class="para">The tangent line to a point <span class="process-math">\(P=(x,f(x))\)</span> on the graph of <span class="process-math">\(f\)</span> is horizontal when its slope <span class="process-math">\(f'(x)=0\text{.}\)</span> Thus we need to find all <span class="process-math">\(x\)</span> such that</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-2-1-5">
+\begin{equation*}
+f'(x)=-\sin x-\cos x=0\text{,}
+\end{equation*}
+</div>
+<div class="para">or equivalently,</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-2-1-6">
+\begin{equation*}
+\tan x=-1\text{.}
+\end{equation*}
+</div>
+<div class="para">The solutions to this trig equation are</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-2-1-7">
+\begin{equation*}
+x=\frac{3\pi}{4}+\pi n, 
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(n\)</span> is an integer. The corresponding points on the graph are</div>
+<div class="displaymath process-math" id="eg_tangent_trig-3-1-1-2-1-9">
+\begin{equation*}
+P=\left(\frac{3\pi}{4}+\pi n, f\left(\frac{3\pi}{4}+\pi n\right)\right)
+= \begin{cases}
+\left(\frac{3\pi}{4}+\pi n, -\sqrt{2}\right) \amp \text{if } n \text{ is even}\\
+\left(\frac{3\pi}{4}+\pi n, \sqrt{2}\right) \amp \text{if } n \text{ is odd}\\
+\text{.}\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_tangent_trig-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_tangent_trig-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_tangent_trig-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.20.11.1"><a href="#eg_tangent_trig-3" title="Copy heading and permalink for Solution 2.20.11.1" aria-label="Copy heading and permalink for Solution 2.20.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.20.11: Tangent lines: sinusoidal"><a href="#eg_tangent_trig" title="Copy heading and permalink for Example 2.20.11: Tangent lines: sinusoidal" aria-label="Copy heading and permalink for Example 2.20.11: Tangent lines: sinusoidal">🔗</a></div></article><div class="para logical" id="ss_trig_der-5">
+<div class="para">The differentiability of the remaining trigonometric functions now follows from the quotient and chain rules. For example, we have</div>
+<div class="displaymath process-math" id="ss_trig_der-5-1">
+\begin{align*}
+\frac{d}{dx}(\tan x) \amp =\frac{d}{dx}(\sin x/\cos x)\\
+\amp = \frac{(\sin x)'\cos x-\sin x(\cos x)'}{\cos^2 x}\\
+\amp = \frac{\cos^2 x+\sin^2x}{\cos^2 x}\\
+\amp = \frac{1}{\cos^2 x}\\
+\amp = (1/\cos x)^2\\
+\amp = \sec^2 x\text{,}
+\end{align*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="ss_trig_der-5-2">
+\begin{align*}
+\frac{d}{dx}\sec x \amp =\frac{d}{dx}(\cos x)^{-1}\\
+\amp =-1(\cos x)^{-2}(\cos x)'\\
+\amp =\frac{\sin x}{\cos^2 x}\\
+\amp = \frac{\sin x}{\cos x}\cdot \frac{1}{\cos x}\\
+\amp = \tan x\sec x\text{.}
+\end{align*}
+</div>
+<div class="para">The other derivative formulas below follow in a similar vein.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_trig_der-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_der_trig"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative formulas: trig functions.</span>
+</h4>
+<div class="para logical" id="th_der_trig-2-1">
+<div class="para">We have the following derivative formulas:</div>
+<div class="displaymath process-math" id="th_der_trig-2-1-1">
+\begin{align*}
+\frac{d}{dx}\sin x \amp = \cos x \amp \frac{d}{dx}\cos x\amp =-\sin x\\
+\frac{d}{dx}\tan x \amp = \sec^2 x \amp \frac{d}{dx}\cot x\amp =-\csc^2 x\\
+\frac{d}{dx}\sec x \amp = \sec x\tan x \amp \frac{d}{dx}\csc x\amp =-\csc x\cot x\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_der_trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.20.12: Derivative formulas: trig functions"><a href="#th_der_trig" title="Copy heading and permalink for Theorem 2.20.12: Derivative formulas: trig functions" aria-label="Copy heading and permalink for Theorem 2.20.12: Derivative formulas: trig functions">🔗</a></div></article><article class="example example-like" id="eg_first_der_test_trig"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curve sketching with trigonometric functions.</span>
+</h4>
+<div class="para logical" id="eg_first_der_test_trig-2-1">
+<div class="para">Let <span class="process-math">\(f(x)=2\cos x+\sqrt{2}\cos^2 x\)</span> and let <span class="process-math">\(I=[\pi/2, 3\pi/2]\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_first_der_test_trig-2-1-3">
+<li id="eg_first_der_test_trig-2-1-3-1">
+<div class="para" id="eg_first_der_test_trig-2-1-3-1-1">Find all critical points of <span class="process-math">\(f\text{,}\)</span> and for each critical point <span class="process-math">\(a\)</span> classify <span class="process-math">\(f(a)\)</span> as a local maximum value of <span class="process-math">\(f\text{,}\)</span> a local minimum value of <span class="process-math">\(f\text{,}\)</span> or neither.<div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_first_der_test_trig-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg_first_der_test_trig-2-1-3-2">
+<div class="para" id="eg_first_der_test_trig-2-1-3-2-1">Apply <a href="s_first_der_test.html#proc_intervals_monoto" class="xref" data-knowl="./knowl/xref/proc_intervals_monoto.html" data-reveal-label="Reveal" data-close-label="Close" title="Procedure 2.4.5: Intervals of monotonicity">Procedure 2.4.5</a> to find the intervals of monotonicity of <span class="process-math">\(f\)</span> within <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_first_der_test_trig-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_first_der_test_trig-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_first_der_test_trig-3-1">
+<div class="para">We first compute</div>
+<div class="displaymath process-math" id="eg_first_der_test_trig-3-1-1">
+\begin{align*}
+f'(x) \amp = -2\sin x-\sqrt{2}\cos x\sin x=-2\sin x(1+\sqrt{2}\cos x) \text{.}
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(f\)</span> is differentiable everywhere, critical points of <span class="process-math">\(f\)</span> are solutions to <span class="process-math">\(f'(x)=0\text{.}\)</span> We thus solve:</div>
+<div class="displaymath process-math" id="eg_first_der_test_trig-3-1-5">
+\begin{align*}
+f'(x) \amp =0\\
+-2\sin x(1+\sqrt{2}\cos x) \amp = 0\\
+\sin x =0 \amp\text{ or } 1+\sqrt{2}\cos x=0 \\
+\sin x =0 \amp \text{ or } \cos x=-\frac{1}{\sqrt{2}} \text{.}
+\end{align*}
+</div>
+<div class="para">We have <span class="process-math">\(\sin x=0\)</span> if and only if <span class="process-math">\(x=\pi n\)</span> for some integer <span class="process-math">\(n\in \Z\text{.}\)</span> Only one of these solutions lies in <span class="process-math">\(I=[\pi/2,3\pi /2]\text{:}\)</span> namely, <span class="process-math">\(x=\pi\text{.}\)</span> Next, observing that <span class="process-math">\(1/\sqrt{2}=\sqrt{2}/2\text{,}\)</span> and recalling facts about the unit circle, we see that <span class="process-math">\(x\)</span> solves <span class="process-math">\(\cos x=-1/\sqrt{2}=-\sqrt{2}/2\)</span> if and only if</div>
+<div class="displaymath process-math" id="eg_first_der_test_trig-3-1-14">
+\begin{equation*}
+x=\frac{3\pi }{4}+2\pi n \text{ or } x=\frac{5\pi }{4}+2\pi n
+\end{equation*}
+</div>
+<div class="para">for some integer <span class="process-math">\(n\in \Z\text{.}\)</span> There are exactly two such solutions lying in <span class="process-math">\([\pi/2, 3\pi/2]\text{:}\)</span> namely, <span class="process-math">\(x=3\pi/4\)</span> and <span class="process-math">\(x=5\pi /4\text{.}\)</span> In conclusion, the critical points of <span class="process-math">\(f\)</span> are <span class="process-math">\(3\pi/4, \pi, 5\pi/4\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="eg_first_der_test_trig-3-2">To finish the problem essentially all we have to do is produce the sign diagram of <span class="process-math">\(f'\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="eg_first_der_test_trig-3-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/im_first_der_test_trig.svg" role="img" class="contained" alt="Sign diagram of derivative of trig function"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sign diagram for <span class="process-math">\(f'(x)\)</span><div class="autopermalink" data-description="Figure 2.20.14"><a href="#eg_first_der_test_trig-3-3" title="Copy heading and permalink for Figure 2.20.14" aria-label="Copy heading and permalink for Figure 2.20.14">🔗</a></div></figcaption></figure><div class="para logical" id="eg_first_der_test_trig-3-4">
+<div class="para">This was produced by performing the following test point evaluations:</div>
+<div class="displaymath process-math" id="eg_first_der_test_trig-3-4-1">
+\begin{align*}
+f'(2\pi/3) \amp = -2(\sqrt{3}/2)(1-\sqrt{2}/2)&lt; 0 \\
+f'(5\pi/6) \amp = -2(1/2)(1-\sqrt{6}/2)&gt; 0 \amp (\sqrt{6}&gt; 2)\\
+f'(7\pi/6) \amp = -2(-1/2)(1-\sqrt{2}/2)&lt;  0 \amp (\sqrt{6}&gt; 2)\\
+f'(4\pi/3) \amp = -2(-\sqrt{3}/2)(1-\sqrt{2}/2)&gt; 0 \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="eg_first_der_test_trig-3-5">It follows that <span class="process-math">\(f(3\pi/4)\)</span> is a local minimum value, <span class="process-math">\(f(\pi)\)</span> is a local maximum value, and <span class="process-math">\(f(5\pi/4)\)</span> is a local minimum value of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="eg_first_der_test_trig-3-6">Furthermore, we see that within the interval <span class="process-math">\([\pi,3\pi/2]\)</span> the function <span class="process-math">\(f\)</span> is increasing on <span class="process-math">\([\pi,3\pi/4]\)</span> and <span class="process-math">\([\pi, 5\pi /4]\text{,}\)</span>  and decreasing on <span class="process-math">\([3\pi/4, \pi]\)</span> and <span class="process-math">\([5\pi/4, 3\pi /2]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="eg_first_der_test_trig-3-7">We verify our conclusions below with the actual graph of <span class="process-math">\(f\)</span> on <span class="process-math">\([\pi, 3\pi/2]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_first_der_test_trig-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_first_der_test_trig"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/fig_first_der_test_trig-2.svg" role="img" class="contained" alt="Graph of the trig function of the example"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of <span class="process-math">\(f(x)=2\cos x+\sqrt{2}\cos^2 x\)</span><div class="autopermalink" data-description="Figure 2.20.15"><a href="#fig_first_der_test_trig" title="Copy heading and permalink for Figure 2.20.15" aria-label="Copy heading and permalink for Figure 2.20.15">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.20.13.1"><a href="#eg_first_der_test_trig-3" title="Copy heading and permalink for Solution 2.20.13.1" aria-label="Copy heading and permalink for Solution 2.20.13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.20.13: Curve sketching with trigonometric functions"><a href="#eg_first_der_test_trig" title="Copy heading and permalink for Example 2.20.13: Curve sketching with trigonometric functions" aria-label="Copy heading and permalink for Example 2.20.13: Curve sketching with trigonometric functions">🔗</a></div></article><article class="example example-like" id="eg_extreme_trig"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.20.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme value theorem with trigonometric function.</span>
+</h4>
+<div class="para" id="eg_extreme_trig-2-1">Let <span class="process-math">\(f(x)=x+2\cos x\text{.}\)</span> Find the absolute maximum and minimum values of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\(I=[0,2\pi]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_trig-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_extreme_trig-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_extreme_trig-3-1">
+<div class="para">The function <span class="process-math">\(f\)</span> is easily seen to be differentiable everywhere, with <span class="process-math">\(f'(x)=1-2\sin x\text{.}\)</span> To find critical points, we solve:</div>
+<div class="displaymath process-math" id="eg_extreme_trig-3-1-3">
+\begin{align*}
+f'(x) \amp =0\\
+1-2\sin x \amp = 0\\
+\sin x \amp = \frac{1}{2}\text{.}
+\end{align*}
+</div>
+<div class="para">Reactivating our trig expertise, we realize that the solutions to the last equation come in two infinite lists:</div>
+<div class="displaymath process-math" id="eg_extreme_trig-3-1-4">
+\begin{align*}
+x \amp = \frac{\pi}{6}+2\pi n, \hspace{10pt} n \in \Z\\
+x \amp= \frac{5\pi}{6}+2\pi n, \hspace{10pt} n \in \Z \text{.}
+\end{align*}
+</div>
+<div class="para">Thus the solutions lying in the interior <span class="process-math">\((0,2\pi)\)</span> of the given interval are</div>
+<div class="displaymath process-math" id="eg_extreme_trig-3-1-6">
+\begin{equation*}
+x=\frac{\pi}{6}, \frac{5\pi}{6}\text{.}
+\end{equation*}
+</div>
+<div class="para">Now evaluate <span class="process-math">\(f\)</span> at our candidates, the two critical points and the two endpoints:</div>
+<div class="displaymath process-math" id="eg_extreme_trig-3-1-8">
+\begin{align*}
+f(0) \amp = 2\\
+f(\pi/6) \amp =\frac{\pi}{6}+2\cos(\pi/6)=\frac{\pi}{6}+\sqrt{3}\\
+f(5\pi/6) \amp = 5\pi/6+2\cos(5\pi/6)=5\pi/6-\sqrt{3}\\
+f(2\pi) \amp = 2\pi+2=2(\pi+1)\text{.}
+\end{align*}
+</div>
+<div class="para">Admittedly, comparing these values is somewhat challenging without the use of technology. It turns out that</div>
+<div class="displaymath process-math" id="eg_extreme_trig-3-1-9">
+\begin{equation*}
+f(5\pi/6)\leq f(2)\leq f(\pi/6)\leq f(2\pi)\text{,}
+\end{equation*}
+</div>
+<div class="para">and thus that <span class="process-math">\(f(5\pi/6)=5\pi/6-\sqrt{3}\)</span> is the absolute minimum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(f(2\pi)=2\pi+2\)</span> is the absolute maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> Below you find a graph of <span class="process-math">\(f\)</span> that bears out our analysis.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_extreme_trig-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/sageplot/im_extreme_trig.svg" role="img" class="contained" alt="Graph of example function revealing the extreme values."></div>
+<div class="autopermalink" data-description="Solution 2.20.16.1"><a href="#eg_extreme_trig-3" title="Copy heading and permalink for Solution 2.20.16.1" aria-label="Copy heading and permalink for Solution 2.20.16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.20.16: Extreme value theorem with trigonometric function"><a href="#eg_extreme_trig" title="Copy heading and permalink for Example 2.20.16: Extreme value theorem with trigonometric function" aria-label="Copy heading and permalink for Example 2.20.16: Extreme value theorem with trigonometric function">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Trigonometric derivatives"><a href="#ss_trig_der" title="Copy heading and permalink for Subsection: Trigonometric derivatives" aria-label="Copy heading and permalink for Subsection: Trigonometric derivatives">🔗</a></div></section><div class="autopermalink" data-description="Section 2.20: Squeeze theorem and the calculus of trigonometric functions"><a href="#s_trig_calculus" title="Copy heading and permalink for Section 2.20: Squeeze theorem and the calculus of trigonometric functions" aria-label="Copy heading and permalink for Section 2.20: Squeeze theorem and the calculus of trigonometric functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_trig_solve.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_inverse_trig.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
