@@ -1,18 +1,744 @@
-<exercise>
-   <statement>
-    <p>
-        Blah    
-    </p>
-   </statement> 
-   <hint>
-    <p>
-        
-    </p>
-   </hint>
-   <solution>
-    <p>
-        
-    </p>
-   </solution>
-   
-</exercise>
+<exercises xml:id="s_func_ex">
+    
+    
+    <exercise>
+                <statement>
+
+                <p>
+                    Write the following sets using interval notation and sketch
+                    them on the real number line.
+                    Your answer should be an interval or a union of intervals.
+                    
+            <ol marker="(a)" cols="2"><li>
+
+                            <p>
+                                <m>\{x\in\mathbb{R}| -1\leq x&lt;5\}</m>
+                                
+                            </p>
+                                        </li>
+
+            <li>
+
+                            <p>
+                                <m>\{x\in\mathbb{R}| x&gt;2 \text{ or }x&lt;-2\}</m>
+                                
+                            </p>
+                                        </li>
+
+            <li>
+
+                            <p>
+                                <m>\{x\in\mathbb{R}| x \text{ is a nonnegative number whose absolute value is less than }3\}</m>
+                                
+                            </p>
+                                        </li></ol>
+                            </p>
+</statement>
+                    <solution>
+                        <p>
+<ol marker="(a)" cols="2">
+                        <li>
+                                    <p>
+	
+                                        <m>[-1,5)</m>.
+                                        </p>
+<image>
+<latex-image>
+\begin{tikzpicture}
+					% Number line
+					\draw[-&gt;] (-2,0) -- (6,0);
+					
+					% Tick marks
+					\foreach \x in {-1,0,1,2,3,4,5}
+					\draw (\x,0.1) -- (\x,-0.1);
+					
+					% Labels
+					\foreach \x in {-1,0,1,2,3,4,5}
+					\node[below] at (\x,-0.1) {\x};
+					
+					% Interval
+					\draw[very thick, blue] (-1,0) -- (5,0);
+					
+					% Closed endpoint at -1
+					\draw[very thick, blue, fill=blue] (-1,0) circle (2.5pt);
+					
+					% Open endpoint at 5
+					\draw[very thick, blue, fill=white] (5,0) circle (2.5pt);
+				\end{tikzpicture}
+</latex-image>
+</image>
+                                   
+                                </li>
+                        <li>
+                                    <p>
+                                        <m>(-\infty,-2)\cup (2,\infty)</m>.
+                                        </p>
+<image>
+<latex-image>
+\begin{tikzpicture}
+			% Number line
+			\draw[-&gt;] (-5,0) -- (5,0);
+			
+			% Tick marks
+			\foreach \x in {-4,-3,-2,-1,0,1,2,3,4}
+			\draw (\x,0.1) -- (\x,-0.1);
+			
+			% Labels
+			\foreach \x in {-4,-3,-2,-1,0,1,2,3,4}
+			\node[below] at (\x,-0.1) {\x};
+			
+			% Blue interval
+			\draw[very thick, blue, -latex] (-2,0.35) -- (-4.5,0.35);
+			\draw[very thick, blue, -latex] (2,0.35) -- (4.5,0.35);
+			
+			% Hollow endpoints
+			\draw[very thick, blue, fill=white] (-2,0.35) circle (2.5pt);
+			\draw[very thick, blue, fill=white] (2,0.35) circle (2.5pt);
+		\end{tikzpicture}
+</latex-image>
+</image>
+ </li>
+                        <li>
+                                    <p>
+                                        <m>[0,3)</m>.
+                                        </p>
+<image>
+<latex-image>
+\begin{tikzpicture}
+					% Number line
+					\draw[-&gt;] (-1,0) -- (4,0);
+					
+					% Tick marks
+					\foreach \x in {0,1,2,3}
+					\draw (\x,0.1) -- (\x,-0.1);
+					
+					% Labels
+					\foreach \x in {0,1,2,3}
+					\node[below] at (\x,-0.1) {\x};
+					
+					% Blue interval
+					\draw[very thick, blue] (0,0.35) -- (3,0.35);
+					
+					% Closed endpoint at 0
+					\fill[blue] (0,0.35) circle (2.5pt);
+					
+					% Open endpoint at 3
+					\draw[very thick, blue, fill=white] (3,0.35) circle (2.5pt);
+				\end{tikzpicture}
+</latex-image>
+</image>
+
+
+                                </li>
+                        </ol>
+</p>
+                    </solution>
+            </exercise>
+
+            <exercise>
+                <statement>
+
+                <p>
+                    Consider the graphs given below.
+                    Determine which of them are graphs of functions.
+                </p>
+
+                <p>
+                    <ol marker="(a)">
+                        <li>
+                           
+<image>
+<latex-image>
+\begin{tikzpicture}
+			\begin{axis}[
+				axis lines = middle,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				xmin = -3, xmax = 3,
+				ymin = -2, ymax = 10,
+				grid = both
+				]
+				
+				% f(x) = x^2 - 1 for x &lt;= 0
+				\addplot[
+				domain=-3:0,
+				samples=100,
+				blue,
+				thick
+				] {x^2 - 1};
+				
+				% f(x) = x^2 + 1 for x &gt;= 0
+				\addplot[
+				domain=0:3,
+				samples=100,
+				blue,
+				thick
+				] {x^2 + 1};
+				
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				blue
+				] coordinates {(0,-1)};
+				
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				blue
+				] coordinates {(0,1)};
+				
+				
+			\end{axis}
+			
+		
+		\end{tikzpicture}
+</latex-image>
+</image>
+                           
+                        </li>
+
+                        <li>
+                            
+<image>
+<latex-image>
+\begin{tikzpicture}
+			\begin{axis}[
+				axis lines = middle,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				xmin = -3, xmax = 3,
+				ymin = -2, ymax = 10,
+				grid = both
+				]
+				
+				% f(x) = x^2 - 1 for x &lt;= 0
+				\addplot[
+				domain=-3:0,
+				samples=100,
+				blue,
+				thick
+				] {x^2 - 1};
+				
+				% f(x) = x^2 + 1 for x &gt;= 0
+				\addplot[
+				domain=0:3,
+				samples=100,
+				blue,
+				thick
+				] {x^2 + 1};
+				
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				blue
+				] coordinates {(0,-1)};
+				
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				fill=white,
+				draw=blue,
+				thick
+				] coordinates {(0,1)};
+				
+			\end{axis}
+			
+			
+		\end{tikzpicture}
+</latex-image>
+</image>
+
+                            
+                        </li>
+
+                        <li>
+                            
+<image>
+<latex-image>
+\begin{tikzpicture}
+		\begin{axis}[
+			axis lines = middle,
+			xlabel = {$x$},
+			ylabel = {$y$},
+			xmin = -3, xmax = 3,
+			ymin = -3, ymax = 3,
+			xtick={-3,-2,-1,0,1,2,3},
+			ytick={-3,-2,-1,0,1,2,3},
+			grid = both,
+			axis equal
+			]
+			
+			% Circle x^2 + y^2 = 4
+			\addplot[
+			domain=0:360,
+			samples=100,
+			blue,
+			thick
+			] ({2*cos(x)}, {2*sin(x)});
+			
+		\end{axis}
+	\end{tikzpicture}
+</latex-image>
+</image>
+
+                        </li>
+
+                        <li>
+                            
+<image>
+<latex-image>
+\begin{tikzpicture}
+		\begin{axis}[
+			axis lines = middle,
+			xlabel = {$x$},
+			ylabel = {$y$},
+			xmin = -3, xmax = 3,
+			ymin = -3, ymax = 3,
+			xtick={-3,-2,-1,0,1,2,3},
+			ytick={-3,-2,-1,0,1,2,3},
+			grid = both,
+			axis equal
+			]
+			
+			% Circle x^2 + y^2 = 4
+			\addplot[
+			domain=0:360,
+			samples=100,
+			blue,
+			thick
+			] ({2*cos(x)}, {2*sin(x)});
+			
+			% Hole at (2,0)
+			\addplot[
+			only marks,
+			mark=*,
+			mark size=2pt,
+			fill=white,
+			draw=blue,
+			thick
+			] coordinates {(0,2)};
+			
+		\end{axis}
+	\end{tikzpicture}
+</latex-image>
+</image>
+</li>
+                    </ol>
+                </p>
+                            </statement>
+                    <solution>
+                        <p>
+<ol marker="(a)">
+                        <li>
+                                    <p>
+                                        Not a function.
+                                        The <m>y</m>-axis is a vertical line
+                                        that intersects the graph at 2 points.
+                                        Therefore, the graph fails the vertical
+                                        line test.
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        This is a graph of a function.
+                                        Every vertical line intersects the graph
+                                        at at most one point.
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        Not a function.
+                                        The <m>y</m>-axis is a vertical line
+                                        that intersects the graph at two points.
+                                        Therefore, the graph fails the vertical
+                                        line test.
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        While the <m>y</m>-axis intersects the
+                                        graph at only one point, the vertical
+                                        line <m>x=1</m> intersects it at two
+                                        points.
+                                        Therefore, this is not the graph of a
+                                        function.
+                                    </p>
+                                </li>
+                        </ol>
+</p>
+                    </solution>
+            </exercise>
+
+            <exercise>
+                <statement>
+
+                <p>
+                    The graphs of some functions are given below.
+                    Assume that the functions are defined only on the given
+                    grid.
+                    <ul>
+                        <li>
+                            <p>
+                                Find the domain and range of the functions based
+                                on the graphs.
+                                Your answer should be an interval or a union of
+                                intervals.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                For each function, find the values of
+                                <m>f(0), f(1), f(-1)</m>, or state that a value
+                                does not exist.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                For each function, find all the values of
+                                <m>x</m> such that <m>f(x)=0</m> (if any).
+                            </p>
+                        </li>
+                    </ul>
+
+                    <ol marker="(a)">
+                        <li>
+                           
+<image>
+<latex-image>
+\begin{tikzpicture}
+				\begin{axis}[
+					axis lines = middle,
+					xlabel = {$x$},
+					ylabel = {$y$},
+					xmin = -4, xmax = 4,
+					ymin = -4, ymax = 4,
+					xtick={-4,-3,-2,-1,0,1,2,3,4},
+					ytick={-4,-3,-2,-1,0,1,2,3,4},
+					grid = both
+					]
+					
+					% Concave down quadratic on (-infty,-1)
+					\addplot[
+					domain=-3:-1,
+					samples=100,
+					blue,
+					thick
+					] {-x^2};
+					
+					% Linear function on (-1,1)
+					\addplot[
+					domain=-1:1,
+					samples=100,
+					blue,
+					thick
+					] {x};
+					
+					% Concave up quadratic y = x^2 + 1 on (1,infty)
+					\addplot[
+					domain=1:3,
+					samples=100,
+					blue,
+					thick
+					] {2*x};
+					
+					% Hole at (1,2)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					fill=white,
+					draw=blue,
+					thick
+					] coordinates {(1,2)};
+					
+					% Hole at (1,1)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					fill=white,
+					draw=blue,
+					thick
+					] coordinates {(1,1)};
+					
+						% Hole at (0,0)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					fill=white,
+					draw=blue,
+					thick
+					] coordinates {(0,0)};
+					
+					% Point at (1,0)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					blue
+					] coordinates {(1,0)};
+					
+				\end{axis}
+			\end{tikzpicture}
+</latex-image>
+</image>
+
+                            
+                        </li>
+
+                        <li>
+                           
+<image>
+<latex-image>
+\begin{tikzpicture}
+				\begin{axis}[
+					axis lines = middle,
+					xlabel = {$x$},
+					ylabel = {$y$},
+					xmin = -3, xmax = 3,
+					ymin = -3, ymax = 3,
+					xtick={-3,-2,-1,0,1,2,3},
+					ytick={-3,-2,-1,0,1,2,3},
+					grid = both
+					]
+					
+					% y = x - 1 for x &lt; 0
+					\addplot[
+					domain=-3:0,
+					samples=100,
+					blue,
+					thick
+					] {x - 1};
+					
+					% y = x + 1 for 0 &lt; x &lt; 1
+					\addplot[
+					domain=0:1,
+					samples=100,
+					blue,
+					thick
+					] {x + 1};
+					
+					% y = 2 for x &gt; 1
+					\addplot[
+					domain=1:3,
+					samples=100,
+					blue,
+					thick
+					] {2};
+					
+					% Hole at (0,-1)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					fill=white,
+					draw=blue,
+					thick
+					] coordinates {(0,-1)};
+					
+					% Point at (0,1)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					blue
+					] coordinates {(0,1)};
+					
+					% Hole at (1,2)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					fill=white,
+					draw=blue,
+					thick
+					] coordinates {(1,2)};
+					
+					% Point at (1,1)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2pt,
+					blue
+					] coordinates {(1,1)};
+					
+				\end{axis}
+			\end{tikzpicture}
+</latex-image>
+</image>
+
+                            
+                        </li>
+                    </ol>
+                </p>
+                            </statement>
+                    <solution>
+                        <p>
+<ol marker="(a)">
+                        <li>
+                                    <p>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    The domain is
+                                                    <m>[-2,0)\cup (0,2)</m>, the
+                                                    range is
+                                                    <m>[-4,1)\cup(2,4]</m>.
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <p>
+                                                    <m>f(0)</m> does not exist,
+                                                    <m>f(1)=0</m> and
+                                                    <m>f(-1)=-1</m>.
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <p>
+                                                    <m>x=1</m>.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    The domain is <m>[-2,3]</m>
+                                                    and the range is
+                                                    <m>[-3,-1)\cup[1,2]</m>.
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <p>
+                                                    <m>f(0)=1,f(1)=1,f(-1)=-2</m>.
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <p>
+                                                    There are no <m>x</m> such
+                                                    that <m>f(x)=0</m>.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </li>
+                        </ol>
+</p>
+                    </solution>
+            </exercise>
+
+            <exercise>
+                <statement>
+
+                <p>
+                    Determine whether the following statements are true or
+                    false.
+                    Justify your reasoning.
+                    <ol marker="(a)">
+                        <li>
+                            <p>
+                                It is not possible for two intervals to
+                                intersect at exactly one point.
+                                
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                A function assigns exactly one output to each
+                                input.
+                                
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                The following points are points on the graph of
+                                a function <m>(0,2),(1,1),(1,2),(2,1)</m>.
+                                
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                The following points are points on the graph of
+                                a function <m>(0,2),(1,2),(2,1),(-1,1)</m>.
+                                
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                If the range of a function consists of only one
+                                point, the domain also consists of only one
+                                point.
+                                
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+                            </statement>
+                    <solution>
+                        <p>
+<ol marker="(a)">
+                        <li>
+                                    <p>
+                                        False.
+                                        For example, the intervals <m>(-1,1]</m>
+                                        and <m>[1,2]</m> intersect at exactly
+                                        one point.
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        True.
+                                        This is part of the definition of a
+                                        function.
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        False.
+                                        The input 1 has two outputs 1 and 2.
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        True.
+                                        Every input has exactly one output (even
+                                        though two different inputs have the
+                                        same output).
+                                    </p>
+                                </li>
+                        <li>
+                                    <p>
+                                        False.
+                                        It is possible for different inputs of a
+                                        function to have the same output.
+                                        An example is the function <m>f</m> with
+                                        domain <m>\{1,2\}</m> and range
+                                        <m>\{3\}</m>, defined by
+                                        <m>f(1)=3,f(2)=3</m> (or any other
+                                        constant function).
+                                    </p>
+                                </li>
+                        </ol>
+</p>
+                    </solution>
+            </exercise>
+
+</exercises>
