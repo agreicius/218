@@ -9,10 +9,11 @@
 \usetikzlibrary{arrows}
 \usepackage{esvect}
 \usepackage{pgfplots}
+\usepackage{xcolor}
 
 \title{Math 218-1 Workbook}
 \author{Aaron Greicius, Gabriela Laboska}
-\date{Last update 09/14/2026}
+\date{Last update 09/17/2026}
 
 \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 %\newenvironment{read}{\renewcommand{\qedsymbol} \begin{proof}[Required reading]}{\end{proof}}
@@ -1350,20 +1351,490 @@
 		\section{Transformations and Symmetry}
 	
 	\begin{enumerate}
-		\item The graph of the function $f(x)$ is given below. Sketch the graphs of the following functions and state the transformation of $f(x)$.
+		\item The graph of the function $f(x)$ is given below.
+		
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines=middle,
+				xmin=-3, xmax=3,
+				ymin=-5, ymax=5,
+				xlabel={$x$},
+				ylabel={$y$},
+				xtick={-3,-2,-1,0,1,2,3},
+				ytick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+				grid=both,
+				width=9cm,
+				height=7cm,
+				]
+				
+				\addplot[
+				domain=-3:3,
+				samples=100,
+				thick,
+				black
+				] {x^3};
+				
+			\end{axis}
+		\end{tikzpicture}
+		
+		 Sketch the graphs of the following functions and state the transformation of $f(x)$.
 		\begin{enumerate}
 			\item $f(x)+1, f(x)-1, f(x+1), f(x-1)$
 			\item $2f(x), \dfrac{1}{2}f(x), f(2x), f(\dfrac{1}{2}x)$
 			\item $-f(x),f(-x)$
 		\end{enumerate}
-		\item The graph of the function $f(x)$ is given below. Sketch the graphs of the following functions and explain which function transformations of $f(x)$  (and in what order) give $g(x)$. 
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] 
+				
+				\begin{tikzpicture}
+					\begin{axis}[
+						axis lines=middle,
+						xmin=-4, xmax=4,
+						ymin=-5, ymax=5,
+						xlabel={$x$},
+						ylabel={$y$},
+						xtick={-4,-3,-2,-1,0,1,2,3,4},
+						ytick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+						grid=both,
+						width=9cm,
+						height=7cm,
+						legend style={
+							at={(1.05,1)},
+							anchor=north west
+						}
+						]
+						
+						% f(x) = x^3
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						black
+						] {x^3};
+						\addlegendentry{$f(x)=x^3$}
+						
+						% f(x) + 1
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						red
+						] {x^3+1};
+						\addlegendentry{$f(x)+1$}
+						
+						% f(x) - 1
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						blue
+						] {x^3-1};
+						\addlegendentry{$f(x)-1$}
+						
+						% f(x + 1)
+						\addplot[
+						domain=-4: 4,
+						samples=100,
+						thick,
+						green!60!black
+						] {(x+1)^3};
+						\addlegendentry{$f(x+1)$}
+						
+						% f(x - 1)
+						\addplot[
+						domain=-2:4,
+						samples=100,
+						thick,
+						orange
+						] {(x-1)^3};
+						\addlegendentry{$f(x-1)$}
+						
+					\end{axis}
+				\end{tikzpicture}
+				
+				\item[(b)] \begin{tikzpicture}
+					\begin{axis}[
+						axis lines=middle,
+						xmin=-3, xmax=3,
+						ymin=-5, ymax=5,
+						xlabel={$x$},
+						ylabel={$y$},
+						xtick={-3,-2,-1,0,1,2,3},
+						ytick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+						grid=both,
+						width=9cm,
+						height=7cm,
+						legend style={
+							at={(1.05,1)},
+							anchor=north west
+						}
+						]
+						
+						% f(x) = x^3
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						black
+						] {x^3};
+						\addlegendentry{$f(x)=x^3$}
+						
+						% 2f(x)
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						red
+						] {2*x^3};
+						\addlegendentry{$2f(x)$}
+						
+						% (1/2)f(x)
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						blue
+						] {0.5*x^3};
+						\addlegendentry{$\dfrac{1}{2}f(x)$}
+						
+						% f(2x)
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						green!60!black
+						] {(2*x)^3};
+						\addlegendentry{$f(2x)$}
+						
+						% f(1/2 x)
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						orange
+						] {(0.5*x)^3};
+						\addlegendentry{$f(\dfrac{1}{2}x)$}
+						
+					\end{axis}
+				\end{tikzpicture}
+				
+				\item[(c)]
+				
+				\begin{tikzpicture}
+					\begin{axis}[
+						axis lines=middle,
+						xmin=-3, xmax=3,
+						ymin=-5, ymax=5,
+						xlabel={$x$},
+						ylabel={$y$},
+						xtick={-3,-2,-1,0,1,2,3},
+						ytick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+						grid=both,
+						width=9cm,
+						height=7cm,
+						legend style={
+							at={(1.05,1)},
+							anchor=north west
+						}
+						]
+						
+						% f(x) = x^3
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						black
+						] {x^3};
+						\addlegendentry{$f(x)=x^3$}
+						
+						% -f(x) = -x^3, fully red
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						red
+						] {-x^3+0.05};
+						\addlegendentry{$-f(x)$}
+						
+						% f(-x) = -x^3, fully blue
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						blue
+						] {(-x)^3};
+						\addlegendentry{$f(-x)$}
+						
+					\end{axis}
+				\end{tikzpicture}
+			\end{itemize}
+		\end{solution}
+		\item The graph of the function $f(x)$ is given below.
+		
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines=middle,
+				xmin=-3, xmax=3,
+				ymin=-3, ymax=5,
+				xlabel={$x$},
+				ylabel={$y$},
+				xtick={-4,-3,-2,-1,0,1,2,3,4},
+				ytick={-3,-2,-1,0,1,2,3,4,5},
+				grid=both,
+				width=9cm,
+				height=7cm,
+				axis equal
+				]
+				
+				\addplot[
+				domain=-3:3,
+				samples=100,
+				thick,
+				black
+				] {x^2};
+				
+				
+			\end{axis}
+		\end{tikzpicture}
+		
+		 Sketch the graphs of the following functions and explain which transformations of the graph of $f(x)$, and in what order, produce the graph of $g(x)$.
 		\begin{enumerate}
 			\item $g(x)=-2f(x-1)+1$
-			\item $g(x)=$
-			\item $g(x)=$
+			\item $g(x)=\dfrac{1}{2}f(2x+3)-2$
 		\end{enumerate}
-		\item Determine whether the given functions are even, odd, or neither.
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] Shift to the right by 1 $\Rightarrow$ Reflection about the $x$-axis $\Rightarrow$ Stretch vertically by a factor of 2 $\Rightarrow$ shift up by 1.
+				
+				
+				\begin{tikzpicture}
+					\begin{axis}[
+						axis lines=middle,
+						xmin=-3, xmax=3,
+						ymin=-3, ymax=5,
+						xlabel={$x$},
+						ylabel={$y$},
+						xtick={-4,-3,-2,-1,0,1,2,3,4},
+						ytick={-3,-2,-1,0,1,2,3,4,5},
+						grid=both,
+						width=9cm,
+						height=7cm,
+						axis equal,
+						legend style={
+							at={(1.05,1)},
+							anchor=north west
+						}
+						]
+						
+						% f(x) = x^2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						black
+						] {x^2};
+						\addlegendentry{$f(x)$}
+						
+						% Step 1: f(x-1)
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						red
+						] {(x-1)^2};
+						\addlegendentry{$f(x-1)$}
+						
+						% Step 2: -f(x-1) -- reflection
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						blue
+						] {-(x-1)^2};
+						\addlegendentry{$-f(x-1)$}
+						
+						% Step 3: -2f(x-1) -- vertical stretch by 2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						green!60!black
+						] {-2*(x-1)^2};
+						\addlegendentry{$-2f(x-1)$}
+						
+						% Step 4: -2f(x-1)+1 -- shift up 1
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						orange
+						] {-2*(x-1)^2+1};
+						\addlegendentry{$g(x)=-2f(x-1)+1$}
+						
+					\end{axis}
+				\end{tikzpicture}
+				
+				\item[(b)] Horizontal compression by a factor of 2 $\Rightarrow$ Shift left by $3/2$ since $f(2x+3)=f(2(x+3/2))$ $\Rightarrow$ Vertical compression by a factor of 2 $\Rightarrow$ Shift down by 2 units
+				
+				
+				\begin{tikzpicture}
+					\begin{axis}[
+						axis lines=middle,
+						xmin=-3, xmax=3,
+						ymin=-3, ymax=5,
+						xlabel={$x$},
+						ylabel={$y$},
+						xtick={-4,-3,-2,-1,0,1,2,3,4},
+						ytick={-3,-2,-1,0,1,2,3,4,5},
+						grid=both,
+						width=9cm,
+						height=7cm,
+						axis equal,
+						legend style={
+							at={(1.05,1)},
+							anchor=north west
+						}
+						]
+						
+						% f(x) = x^2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						black
+						] {x^2};
+						\addlegendentry{$f(x)$}
+						
+						% Step 1: f(2x) -- horizontal compression by a factor of 2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						red
+						] {(2*x)^2};
+						\addlegendentry{$f(2x)$}
+						
+						% Step 2: f(2x+3) -- shift left by 3/2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						blue
+						] {(2*x+3)^2};
+						\addlegendentry{$f(2x+3)$}
+						
+						% Step 3: (1/2)f(2x+3) -- vertical compression by a factor of 2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						green!60!black
+						] {0.5*(2*x+3)^2};
+						\addlegendentry{$\dfrac{1}{2}f(2x+3)$}
+						
+						% Step 4: (1/2)f(2x+3)-2 -- shift down 2
+						\addplot[
+						domain=-3:3,
+						samples=100,
+						thick,
+						orange
+						] {0.5*(2*x+3)^2-2};
+						\addlegendentry{$g(x)=\dfrac{1}{2}f(2x+3)-2$}
+						
+					\end{axis}
+				\end{tikzpicture}
+			\end{itemize}
+		\end{solution}
+		\item Determine whether the following functions are even, odd, or neither.
+		\begin{enumerate}
+			\item $f(x)=\dfrac{x^2}{x-1}$
+			\item $f(x)=\dfrac{x^2-1}{x}$
+			\item $f(x)=\sqrt{x^2-4}$
+			\item $f(x)=x^{3/2}+1$
+			\item $f(x)=|2x^3-1|$
+			\item $f(x)=|2x^2-1|$
+		\end{enumerate}
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] The domain of the function is $(-\infty,1)\cup(1,\infty)$. Since this is not a set that is symmetric with respect to the origin, the function is neither even, nor odd.
+				\item[(b)] The domain of the function is $(-\infty,0)\cup(0,\infty)$, which is a symmetric set with respect to the origin, so we proceed with checking whether $f(-x)=f(x)$ or $f(-x)=-f(x)$, or neither. We have $$f(-x)=\dfrac{(-x)^2-1}{-x}=\dfrac{x^2-1}{-x}=-\dfrac{x^2-1}{x}=-f(x).$$ Hence, the function is odd.
+				\item[(c)] The domain of the function is all $x$ such that $x^2-4\geq0$, i.e. $(\infty,-2]\cup [2,\infty)$. This is a symmetric set with respect to the origin. We have $$f(-x)=\sqrt{(-x)^2-4}=\sqrt{x^2-4}=f(x).$$
+				Hence, the function is even.
+				\item[(d)] The domain of this function is $[0,\infty)$, which is not a symmetric set with respect to the origin. Hence, the function is neither even, nor odd.
+				\item[(e)] The domain of the function is $\mathbb{R}$, which is a symmetric set with respect to the origin. We have $$f(-x)=|2(-x)^3-1|=|-2x^3-1|,$$
+				so $f(-x)\neq f(x)$ and $f(-x)\neq -f(x)$. Thus, the function is neither even, nor odd.
+				\item[(f)] The domain of the function is $\mathbb{R}$, which is a symmetric set with respect to the origin. We have
+				$$f(-x)=|2(-x)^2-1|=|2x^2-1|=f(x).$$
+				Hence, the function is even.
+			\end{itemize}
+		\end{solution}
+		
+		\item Determine whether the following statements are true or false. Justify your reasoning.
+		\begin{enumerate}
+			
+			\item If $g(x)=f(3x)$, then the graph of $g$ is obtained by vertically compressing the graph of $f$ by a factor of $3$.
+			
+			\item If $g(x)=\frac{1}{3}f(x)$, then every point on the graph of $f$ is moved one-third of the way toward the $x$-axis.
+			
+			\item If $g(x)=-f(-x)$, then the graph of $g$ can be obtained by reflecting the graph of $f$ about the $y$-axis and then reflecting the result about the $x$-axis.
+			
+			\item If $f$ is an odd function, then $-f(x)$ is also an odd function.
+			
+			\item The function
+			$
+			f(x)=\sqrt{x^2-9}
+			$
+			is even.
+			
+			\item The function
+			$
+			f(x)=|x^3|
+			$
+			is odd.
+			\item If the domain of a function is not symmetric about the origin, then the function cannot be even or odd.
+			
+			\item The graph of
+			$
+			g(x)=-2f(x-3)+4
+			$
+			can be obtained from the graph of $f$ by shifting right $3$ units, reflecting about the $y$-axis, vertically stretching by a factor of $2$, and shifting up $4$ units.
+			
+		\end{enumerate}
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] False. Replacing $x$ by $3x$ produces a horizontal compression by a factor of $3$.
+					
+				\item[(b)] True.	Multiplying the function by $\frac{1}{3}$ multiplies every $y$-coordinate by $\frac{1}{3}$, moving each point one-third of the way toward the $x$-axis.
+					
+				\item[(c)] True. Replacing $x$ by $-x$ reflects the graph across the $y$-axis, and multiplying by $-1$ reflects it across the $x$-axis.
+					
+				\item[(d)] True. If $f$ is odd, then $f(-x)=-f(x)$. Let $g(x)=-f(x)$. Then
+					$$g(-x)=-f(-x)=-[-f(x)]=f(x)=-g(x),	$$
+					so $g$ is odd.
+					
+				\item[(e)] True. The domain is
+					$(-\infty,-3]\cup[3,\infty),$
+					which is symmetric about the origin. Also,
+					$$f(-x)=\sqrt{(-x)^2-9}
+					=\sqrt{x^2-9}
+					=f(x).$$
+					Therefore, $f$ is even.
+					
+				\item[(f)] False. Although $x^3$ is odd, taking the absolute value changes the symmetry. We have
+					$$f(-x)=|-x^3|=|x^3|=f(x).$$
+					Thus, $f(x)=|x^3|$ is even, not odd.
+					
+				\item[(g)] True. Symmetry of the domain about the origin is a necessary condition for a function to be even or odd. Therefore, if the domain is not symmetric about the origin, the function is neither even nor odd.
+					
+				\item[(h)] False. The reflection should be about the $x$-axis.
+					
+				
+			\end{itemize}
+		\end{solution}
 	\end{enumerate}
+	
+	\newpage
 	
 		\section{Operations with Functions}
 	
@@ -1399,19 +1870,216 @@
 				$f\circ g(1)=f(g(1))$, but $g$ is not defined at $1$, so $f\circ g(1)$ is undefined.
 			\end{solution}
 			\item $f\circ g(2)=f(g(2))=f\left(\dfrac{2\cdot 2}{2-1}\right)=f(4)=\dfrac{4}{4-2}=2$.
-			\item $g \circ f(x)$
+			\item a formula for $g \circ f(x)$
 			\begin{solution}
 				$g\circ f(x)=g(f(x))=g\left(\dfrac{x}{x-2}\right)=\dfrac{2\cdot\dfrac{x}{x-2}}{\dfrac{x}{x-2}-1}=\dfrac{\dfrac{2x}{x-2}}{\dfrac{2}{x-2}}\\=\dfrac{2x}{x-2}\cdot \dfrac{2}{x-2}=x$.
 			\end{solution}
-			\item $f \circ f (x)$
+			\item a formula for $f \circ f (x)$
 			\begin{solution}
 				$f\circ f(x)=f(f(x))=f\left(\dfrac{x}{x-2}\right)=\dfrac{\dfrac{x}{x-2}}{\dfrac{x}{x-2}-2}=\dfrac{\dfrac{x}{x-2}}{\dfrac{-x+4}{x-2}}=\dfrac{x}{4-x}$.
 			\end{solution}
 		\end{enumerate}
 		
-		\item Use the table to find the indicated values or state that they cannot be determined based solely on the table. 
+		\item Use the table to find the indicated values or state that they cannot be determined based solely on the table.
 		
-		\item Using the graphs of the function $f$ and $g$ below, find the following values or state they cannot be determined based on the image.
+		\begin{center}
+			\begin{tabular}{c|ccccc}
+				$x$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
+				\hline
+				$f(x)$& 1&$-2$ &3 &0 & $-1$ \\
+				$g(x)$ & 1&0 &$-1$ &2 &$-3$ \\
+			\end{tabular}
+		\end{center} 
+		\begin{enumerate}
+			\item $(f+g)(-2),(fg)(0),\dfrac{f}{g}(1),\dfrac{g}{f}(1)$
+			\item $f\circ g(-2), g\circ f(0),g\circ g(1), f\circ f(2)$
+		\end{enumerate}
+		
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] $(f+g)(-2)=f(-2)+g(-2)=1+1=2,\\
+				(fg)(0)=f(0)g(0)=3\cdot(-1)=-3,\\
+				\dfrac{f}{g}(1)=\dfrac{f(1)}{g(1)}=\dfrac{0}{2}=0,\\
+				\dfrac{g}{f}(1)$ is undefined since $f(1)=0$.
+				\item[(b)] $f\circ g(-2)=f(g(-2))=f(1)=0,\\
+				 g\circ f(0)=g(f(0))=g(3) \text{ cannot be determined based solely on the table,}\\
+				 g\circ g(1)=g(g(1))=g(2)=-3,\\
+				  f\circ f(2)=f(f(2))=f(-2)$ cannot be determined based solely on the table.
+			\end{itemize}
+		\end{solution}
+		
+		\item Using the graphs of the function \textcolor{blue}{$f$} and \textcolor{red}{$g$} below, find the following values or state they cannot be determined based on the image.
+		
+			\begin{tikzpicture}
+			\begin{axis}[
+				axis lines = middle,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				xmin = -3, xmax = 3,
+				ymin = -3, ymax = 3,
+				xtick={-3,-2,-1,0,1,2,3},
+				ytick={-3,-2,-1,0,1,2,3},
+				grid = both
+				]
+				
+				% y = x - 1 for x < 0
+				\addplot[
+				domain=-3:0,
+				samples=100,
+				blue,
+				thick
+				] {x - 1};
+				
+				% y = x + 1 for 0 < x < 1
+				\addplot[
+				domain=0:1,
+				samples=100,
+				blue,
+				thick
+				] {x + 1};
+				
+				% y = 2 for x > 1
+				\addplot[
+				domain=1:3,
+				samples=100,
+				blue,
+				thick
+				] {2};
+				
+				% Hole at (0,-1)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				fill=white,
+				draw=blue,
+				thick
+				] coordinates {(0,-1)};
+				
+				% Point at (0,1)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				blue
+				] coordinates {(0,1)};
+				
+				% Hole at (1,2)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				fill=white,
+				draw=blue,
+				thick
+				] coordinates {(1,2)};
+				
+				% Point at (1,1)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				blue
+				] coordinates {(1,1)};
+				
+			\end{axis}
+		\end{tikzpicture}
+		
+		
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines = middle,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				xmin = -4, xmax = 4,
+				ymin = -4, ymax = 4,
+				xtick={-4,-3,-2,-1,0,1,2,3,4},
+				ytick={-4,-3,-2,-1,0,1,2,3,4},
+				grid = both
+				]
+				
+				% Concave down quadratic on (-infty,-1)
+				\addplot[
+				domain=-3:-1,
+				samples=100,
+				red,
+				thick
+				] {-x^2};
+				
+				% Linear function on (-1,1)
+				\addplot[
+				domain=-1:1,
+				samples=100,
+				red,
+				thick
+				] {x};
+				
+				% Concave up quadratic y = x^2 + 1 on (1,infty)
+				\addplot[
+				domain=1:3,
+				samples=100,
+				red,
+				thick
+				] {2*x};
+				
+				% Hole at (1,2)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				fill=white,
+				draw=red,
+				thick
+				] coordinates {(1,2)};
+				
+				% Hole at (1,1)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				fill=white,
+				draw=red,
+				thick
+				] coordinates {(1,1)};
+				
+				% Hole at (0,0)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				fill=white,
+				draw=red,
+				thick
+				] coordinates {(0,0)};
+				
+				% Point at (1,0)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2pt,
+				red
+				] coordinates {(1,0)};
+				
+			\end{axis}
+		\end{tikzpicture}
+		
+		\begin{enumerate}
+			\item $(f+g)(-2),(fg)(0),\dfrac{f}{g}(1),\dfrac{g}{f}(1)$
+			\item $f\circ g(-2), g\circ f(0),g\circ g(1), f\circ f(2)$
+		\end{enumerate}
+		
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] $(f+g)(-2)=f(-2)+g(-2)=-3+(-4)=-7,\\
+				(fg)(0) \text{ is undefined since } g(0) \text{ is undefined,}\\
+				\dfrac{f}{g}(1) \text{ is undefined since } g(1)=0\\
+				\dfrac{g}{f}(1)=\dfrac{g(1)}{f(1)}=\dfrac{0}{1}=0$.
+				\item[(b)] $f\circ g(-2)=f(g(-2))=f(-4) \text{ cannot be determined based on the image},\\
+				g\circ f(0)=g(f(0))=g(1)=0,\\
+				g\circ g(1)=g(g(1))=g(0) \text{ is undefined},\\
+				f\circ f(2)=f(f(2))=f(2)=2$.
+			\end{itemize}
+		\end{solution}
 		
 		\item Write the functions as a composition of at least three different functions. Note that there are several ways to do this, so the answer is not unique.
 		\begin{enumerate}
@@ -1429,24 +2097,101 @@
 			\end{solution}
 		\end{enumerate}
 		
-		\item Find the domain of the functions $f\circ g$, $g\circ f$, $f\circ f$, $g\circ g$, if
+		\item Find the implied domain of the function $f\circ g$ and $g\circ f$, if
 		\begin{enumerate}
-			\item $f(x)=, g(x)=$
+			\item $f(x)=\sqrt{x}, g(x)=x-3$
+			\item $f(x)=x+1, g(x)=\sqrt{x-2}$
+			\item $f(x)=\dfrac{1}{x-2}, g(x)=x+1$
+			\item $f(x)=\sqrt{x},g(x)=\dfrac{1}{x-1}$
 		\end{enumerate}
+		
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] $g(x)$ is a polynomial function, so it is defined for all real numbers. We have
+				$$f\circ g(x)=f(g(x))=\sqrt{x-3}.$$
+				For this function to be defined, we need $x-3\geq0\iff x\geq 3$.
+				
+				Thus, the domain is $[3,\infty)$.
+				\item[(b)] For $g(x)$ to be defined, we need $x-2\geq 0 \iff x\geq 2$. We have 
+				$$f\circ g(x)=f(g(x))=\sqrt{x-2}+1,$$
+				which is again defined for all $x$ such that $x\geq 2$. 
+				
+				Thus, the domain is $[2,\infty).$
+				\item[(c)] $g(x)$ is a polynomial function, so it is defined for all real numbers. We have 
+				$$f\circ g(x)
+				=f(g(x))
+				=\dfrac{1}{(x+1)-2}
+				=\dfrac{1}{x-1},$$
+				which is defined for all $x-1\neq 0 \iff x\neq 1$.
+				
+				Thus, the domain is $\mathbb{R}\setminus\{1\}$.
+				\item[(d)] $g(x)$ is defined for all $x$ such that $x-1\neq0 \iff x\neq 1$. We have
+				$$f\circ g(x)
+				=f(g(x))
+				=\sqrt{\frac{1}{x-1}}.$$
+				which is defined for all $x\neq 1$ such that $\dfrac{1}{x-1}\geq 0$. Solving this inequality gives $x>1$.
+				
+				Thus, the domain is $(1,\infty).$
+			\end{itemize}
+		\end{solution}
+		
+		\item Determine whether the following statements are true or false. Justify your reasoning.
+		
+		\begin{enumerate}
+				
+			\item If $f(x)=\dfrac{x}{x-2}$ and $g(x)=\dfrac{2x}{x-1}$, then the formula for $f\circ g$ is  $f\circ g(x)=\dfrac{x}{2x-3}$.
+	
+			\item If $f(x)=\dfrac{x}{x-2}$, then $f(f(4))$ is undefined.
+			
+			\item Suppose $f(0)=2$ and $g(2)=5$. Then the value of $f\circ g(0)$ can be determined from this information.
+			
+			\item Suppose $f(0)=2$ and $g(2)=5$. Then the value of $g\circ f(0)$ can be determined from this information.
+				
+			\item If $g(0)$ is undefined, then $(fg)(0)$ must also be undefined.
+			
+			\item If $g(a)$ is defined and $f(g(a))$ is defined, then $f\circ g(a)$ is defined.
+			
+			\item If $f\circ g$ is defined at $a$, then both $f(a)$ and $g(a)$ must be defined.
+			
+			\item If the domain of $g$ is all real numbers and the domain of $f$ is $[0,\infty)$, then the domain of $f\circ g$ is all real numbers.
+			
+			\item If $f(x)=\sqrt{x}$ and $g(x)=x^2-4$, then the domain of $f\circ g$ is $(-\infty,-2]\cup[2,\infty)$.
+			
+			\item If $f(x)=\sqrt{x}$ and $g(x)=x^2-4$, then the domain of $g\circ f$ is	$[2,\infty)$.		
+			
+		\end{enumerate}
+		
+		\begin{solution}
+			\begin{itemize}
+				\item[(a)] False. $$f\circ g(x)=f(g(x))=f\left(\dfrac{2x}{x-1}\right)=\dfrac{\dfrac{2x}{x-1}}{\dfrac{2x}{x-1}-2}=\dfrac{\dfrac{2x}{x-1}}{\dfrac{2x-2(x-1)}{x-1}}=\dfrac{\dfrac{2x}{x-1}}{\dfrac{2}{x-1}}=x.$$
+				\item[(b)] True. $f(4)=\dfrac{4}{4-2}=2$ and $f(x)$ is undefined at 2.
+				\item[(c)] False. $f\circ g (0)=f(g(0))$ but there is no information given about the value of $g(0)$.
+				\item[(d)] True. $g\circ f(0)=g(f(0))=g(2)=5$.
+				\item[(e)] True. In order for $(fg)(0)$ to be defined, both $f(0)$ and $g(0)$ have to be defined.
+				\item[(f)] True. $f\circ g(a)=f(g(a))$, so this follows by definition.
+				\item[(g)] False. If $f\circ g$ is defined at $a$, then $g(a)$ and $f(g(a))$ must be defined. However, $f(a)$ can be undefined. For example, let $f(x)=\sqrt{x},g(x)=x+1$. Then
+				$f\circ g(-1)=f(0)=0$
+				is defined, even though $f(-1)$ is undefined.
+				\item[(h)] False. The domain of $f\circ g$ consists of all $x$ such that $g(x)\geq 0$. This is not necessarily all real numbers.
+				\item[(i)] True. $g(x)$ is a polynomial function so it is defined for all real numbers. We have 
+				$$f\circ g(x)=f(g(x))=f(x^2-4)=\sqrt{x^2-4}.$$
+				The domain of this function consists of all $x$ such that $x^2-4\geq 0$, i.e., all $x$ such that $x\leq -2$ or $x\geq 2$. Thus, the domain is $(-\infty,-2]\cup[2,\infty)$.
+				\item[(j)] False. We have $g\circ f(x)=g(f(x))
+				=g(\sqrt{x})=(\sqrt{x})^2-4=x-4$.
+				Since $f(x)=\sqrt{x}$, we need $x\geq0$.
+				The function $g$ is defined for all real numbers, so there are no additional restrictions. Thus, the domain is $[0,\infty)$.
+			\end{itemize}
+		\end{solution}
+		
 	\end{enumerate}
 	
-	
+	\newpage
 	\section{Solving Inequalities}
 	
 	\begin{enumerate}
 		\item Find all the real values of $x$ that satisfy the following inequalities. Write your answer using interval notation or set builder notation.
 		\begin{enumerate}
 			\item $5x-3>2x+1$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Elementary inequality rules
-			\end{reading}
 			\begin{solution}
 				\begin{align*}
 					5x-3&>3x+1\\
@@ -1457,12 +2202,7 @@
 				The solution is $\left(\dfrac{4}{3},\infty\right)$.
 			\end{solution}
 			\item $(x-2)^2\leq (x+1)^2$
-				\begin{reading}
-					Section: 1.8. 
-					
-					Subsection: Elementary inequality rules
-				\end{reading}
-				
+							
 				\begin{solution}
 					\begin{align*}
 						(x-2)^2&\leq (x+1)^2\\
@@ -1476,11 +2216,7 @@
 				\end{solution}
 			\item $x^2-4x+3\leq 0$
 			
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
+			
 			
 			\begin{solution}
 				We need to solve the inequality $x^2-4x+3\leq 0$. In other words, we need to find all $x$ such that $g(x) \geq 0$, where $g(x)=x^2-4x+3$. The first step is to find the domain of $g(x)$. The domain of $g(x)$ is $\mathbb{R}$. Next, we find the zeroes by solving the equation $g(x)=0$.
@@ -1515,11 +2251,7 @@
 				
 			\end{solution}
 			\item $x(x-1)>(x-\dfrac{1}{2})^2$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
+			
 			
 			\begin{solution}
 				\begin{align*}
@@ -1531,31 +2263,18 @@
 				Since $0>\dfrac{1}{4}$ is false for any $x$, there is no real solution to this inequality. We say that the solution is $\emptyset$ (the \textit{empty set}).
 			\end{solution}
 			\item $3x^2+5x+7>0$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
+			
 			
 			\begin{solution}
 				We need to solve the inequality $3x^2+5x+7> 0$. In other words, we need to find all $x$ such that $g(x) \geq 0$, where $g(x)=3x^2+5x+7$. However, this equation has no real solutions, so $g(x)$ is either positive everywhere or negative everywhere. We notice that for all $x$, $g(x)>0$. Hence, all real numbers satisfy this inequality, so the solution is $(-\infty,\infty)=\mathbb{R}$.
 			\end{solution}
 			\item $3x^2+5x+7\leq 0$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
+			
 			
 			\begin{solution}
 				From the previous exercise, we notice there are no $x$ such that $3x^2+5x+7\leq 0$, so the solution is $\emptyset$.
 			\end{solution}
 			\item $\dfrac{2x-1}{x+2}\geq 0$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
 			
 			\begin{solution}
 				We need to solve the inequality $\dfrac{2x-1}{x+2}\geq 0$. In other words, we need to find all $x$ such that $g(x) \geq 0$, where $g(x)=\dfrac{2x-1}{x+2}$. The first step is to find the domain of $g(x)$, which is all real numbers such that $x+2\neq0$. Thus, the domain of $g(x)$ is $(-\infty, -2) \cup (-2, \infty) $. Next, we find the zeroes by solving the equation $g(x)=0$.
@@ -1589,11 +2308,6 @@
 				Since we are trying to find all $x$ such that $\dfrac{2x-1}{x+2}$ is positive or equal to $0$, using the sign chart, we conclude that the solution is $(\infty, -2) \cup [1/2, \infty]$.
 			\end{solution}
 			\item $\dfrac{2x-1}{x+2} \geq 2$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
 			
 			\begin{solution}
 				\begin{align*}
@@ -1634,11 +2348,6 @@
 				Since we are trying to find all $x$ such that $\dfrac{-5}{x+2}$ is positive or equal to $0$, using the sign chart, we conclude that the solution is $(-\infty,-2)$.
 			\end{solution}
 			\item $(x+1)(2x-1)^2(2-x)<0$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
 			
 			\begin{solution}
 					We need to solve the inequality $(x+1)(2x-1)^2(2-x)< 0$. In other words, we need to find all $x$ such that $g(x) < 0$, where $g(x)=(x+1)(2x-1)^2(2-x)$. The first step is to find the domain of $g(x)$. The domain of $g(x)$ is $\mathbb{R}$. Next, we find the zeroes by solving the equation $(x+1)(2x-1)^2(2-x)=0$. The solutions are $x=-1,x=\dfrac{1}{2},x=2$ and all three solutions are in the domain.
@@ -1668,11 +2377,6 @@
 				\end{solution}
 
 			\item $\dfrac{(x+1)(2x-1)^2}{2-x}\leq 0$
-			\begin{reading}
-				Section: 1.8. 
-				
-				Subsection: Sign diagram technique
-			\end{reading}
 			
 				\begin{solution}
 				We need to solve the inequality $\dfrac{(x+1)(2x-1)^2}{2-x}\leq 0$. In other words, we need to find all $x$ such that $g(x) \leq 0$, where $g(x)=\dfrac{(x+1)(2x-1)^2}{2-x}$. The first step is to find the domain of $g(x)$. The domain of $g(x)$ is $\mathbb{R}\setminus \{2\}$. Next, we find the zeroes by solving the equation $\dfrac{(x+1)(2x-1)^2}{2-x}=0$. The solutions are $x=-1,x=\dfrac{1}{2}$ and both are in the domain.
@@ -1717,9 +2421,6 @@
 		
 		\item Determine whether the following statements are true or false. Justify your reasoning.
 		
-		\begin{reading}
-			Section: 1.8. 
-		\end{reading}
 		
 		
 		\begin{enumerate}
@@ -1865,6 +2566,8 @@
 					$|2x+1|>0$ for all $x$ except when $|2x+1|=0$, i.e., $x\in\mathbb{R} \setminus \{-1/2\}=(-\infty,-1/2)\cup(-1/2,\infty)$.
 				\end{solution}
 			\end{enumerate}
+			
+		\item The graphs of $f(x)$ and $g(x)$ are given below. Sketch the graphs of $|f(x)|$ and $|g(x)|$.
 		\item Determine whether the following statements are true or false. Justify your reasoning.
 		\begin{enumerate}
 			\item $|a+b|=|a|+|b|$ for all real numbers $a,b$.
@@ -1888,7 +2591,7 @@
 				False. If we try to use the same idea as before and multiply by $1/3$, we get $|x-2|<\dfrac{10}{3}$, but $\dfrac{10}{3}>3$. Hence, any value of $x$, such that $3<|x-2|<10/3$ will make this statement false. For example, if you take $x=5.2$, $|3\cdot 5.2-6|<10$, but $|5.2-2|>3$.
 			\end{solution}
 		\end{enumerate}
-		\item The graphs of $f(x)$ and $g(x)$ are given below. Sketch the graphs of $|f(x)|$ and $|g(x)|$.
+		
 	\end{enumerate}
 	
 
