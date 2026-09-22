@@ -106,9 +106,9 @@
         </example>
         <p>
             As <xref ref="eg_function_behavior"/> illustrates, an English description of how a function behaves for inputs near a given value can be quite a mouthful. Consider the limit notation introduced below as a means of making these descriptions much more concise. Roughly speaking, we will write 
-            <me>
+            <md>
                 \lim\limits_{x\to a}f(x)=L
-            </me>
+            </md>
             to say that the values of <m>f</m> approach <m>L</m> as the input <m>x</m> appraoches <m>a</m>. This is the basic gist of <xref ref="d_limit_informal"/>, though it takes a little more care in the setup.
             
         </p>
@@ -120,9 +120,9 @@
                 </p>
                 <p>
                     When this is the case, we call <m>L</m> the limit of <m>f</m> as <m>x</m> approaches <m>a</m> and write 
-                    <men xml:id="eq_limit_informal">
+                    <md number="yes" xml:id="eq_limit_informal">
                         \lim_{x\to a}f(x)=L
-                    </men>.
+                    </md>.
                     When the limit does not exist we will say that <m>\lim\limits_{x\to a}f(x)</m> does not exist. 
                 </p>
             </statement>
@@ -232,9 +232,9 @@
       <statement>
         <p>
           Consider the function
-          <me>
+          <md>
             h(x) = \frac{x-3}{x^3 - 3 x^2 - 2 x + 6}
-          </me>.
+          </md>.
           You can verify for your self that <m>3</m> is a root of the denominator of <m>h</m>, and hence that <m>h</m> is not defined at <m>x=3</m>.
           <ol>
             <li>
@@ -282,39 +282,39 @@
                 <li>
                     <p>
                         First note that the table provides values <m>h(x)</m> for inputs <m>x</m> that get reasonably close to <m>3</m>: from the left, we have the sequence of inputs <m>2.9, 2.99, 2.999</m>, and from the right we have the sequence <m>3.1, 3.01, 3.001</m>. The closest inputs included in the table are <m>2.999</m> and <m>3.001</m>, which are a distance of 
-                        <me>
+                        <md>
                             .001=\abs{3.0001-3}=\abs{2.999-3}
-                        </me>
+                        </md>
                         away from <m>3</m>. Moreover, we notice that as these inputs get closer to <m>3</m>, the outputs <m>h(x)</m> seem to approach a value between <m>0.142</m> and <m>0.143</m>. Thus, we are inclined to believe that the limit <m>\lim\limits_{x\to 3}h(x)</m> does indeed exist, and that 
-                        <me>
+                        <md>
                             0.142 \leq \lim\limits_{x\to 3}h(x) \leq 0.143 
-                        </me>.
+                        </md>.
                          In fact, since the values <m>h(x)</m> decrease as <m>x</m> approaches from the left, and increase as <m>x</m> approaches from the right, we might further guess that
-                         <me>
+                         <md>
                             0.14273 \leq \lim\limits_{x\to 3}h(x) \leq 0.14298
-                        </me>.
+                        </md>.
                         Notice, however, that that guess would be conditioned on the assumption that <m>h</m> is decreasing for all <m>x</m> sufficiently close to <m>3</m> on the left, and all <m>x</m> sufficiently close to <m>x</m> on the right; and this is an assumption we are not in a position to verify at the moment.
                     </p>
                 </li>
                 <li>
                     <p>
                         We can factor the denominator of <m>h</m> as 
-                        <me>
+                        <md>
                             x^3 - 3 x^2 - 2 x + 6 = (x-3)(x^2-2)
-                        </me>, 
+                        </md>, 
                         which means that we have 
-                        <me>
+                        <md>
                             h(x)=\frac{1}{x^2-2}
-                        </me>
+                        </md>
                         for all <m>x\ne 3</m> in the domain of <m>h</m>. Let <m>g(x)=\frac{1}{x^2-2}</m>. Since <m>h(x)=g(x)</m> for all <m>x\ne 3</m>, the limit behaviors of the two functions are the same at <m>x=3</m>. Note that <m>g</m> is defined at <m>x=3</m> and satisfies 
-                        <me>
+                        <md>
                             g(3)=\frac{1}{9-2}=\frac{1}{7}\approx 0.142857
-                        </me>.
+                        </md>.
                         Wait a minute, that looks a whole lot like our estimate of 
                         <m>\lim\limits_{x\to a}h(x)</m> in part (a)! Are we in a position to say with assurance that 
-                        <me>
+                        <md>
                             \lim\limits_{x\to 3}h(x)=\frac{1}{7}?
-                        </me>
+                        </md>
                         Not quite yet, but the evidence is stacking up. We could conclude this if we knew that <m>\lim\limits{x\to 3}g(x)=1/7</m>. This seems like it should be true since <m>g</m> is actually defined at <m>x=3</m> and we have seen that rational functions behave <q>nicely</q> around points in their domain. Soon we will have a more precise way of saying this that will give us the answer we desire.
                     </p>
                 </li>
@@ -327,13 +327,13 @@
         <title>One-sided limits</title>
         <p>
             Let's look at the limit behavior of the sign function 
-            <me>
+            <md>
                 \sgn(x)=\begin{cases}
                 1\amp \text{if } x&gt; 0 \\
                 -1\amp \text{if } x&lt; 0\\
                 0\amp \text{if } x=0.
                 \end{cases}
-            </me>
+            </md>
             near <m>x=0</m>. (See <xref ref="fig_signfunc"/>.)  Since the function is defined piecwise, it is natural to look at the behavior for <m>x&gt; 0</m> and <m>x&lt; 0</m> separately. Since <m>f(x)=1</m> for all <m>x&gt; 0</m>, we conclude that <m>f(x)</m> approaches <m>1</m> for all <m>x</m> sufficiently close to <m>0</m> and lying <em>to its right</em>. Similarly, we see that <m>f(x)</m> approaches <m>-1</m> for all <m>x</m> sufficiently close to <m>0</m> and lying <em>to its left</em>. Wouldn't it be nice if we had some notation to capture this <q>from the left</q> and <q>from the right</q> behavior? The notion of <em>one-sided limits</em>, defined below, gives us just what we need. In particular, using its notation, we can say more succinctly that 
             <md>
                 <mrow>\lim\limits_{x\to 0^+}\sgn(x) \amp =1</mrow>
@@ -353,9 +353,9 @@
                             Assume <m>f</m> is defined on an open interval of the form <m>(c,a)</m>. We say the <term>left-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the left exists if there is a value <m>L</m> such that <m>f(x)</m> can be made arbitrarily close to <m>L</m> provided <m>x</m> is sufficiently close to <m>a</m> and lying to its left. 
                         </p>
                         <p> When this is the case we call <m>L</m> the <term>left-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the left, and write 
-                            <me>
+                            <md>
                                 \lim_{x\to a^-}f(x)=L
-                            </me>.
+                            </md>.
                         When no such <m>L</m> exists, we say that the left-hand limit <m>\lim\limits_{x\to a^-}f(x)</m> does not exist. 
                         </p>
                     </li>
@@ -365,9 +365,9 @@
                             Assume <m>f</m> is defined on an open interval of the form <m>(a,d)</m>. We say the <term>right-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the right exists if there is a value <m>L</m> such that <m>f(x)</m> can be made arbitrarily close to <m>L</m> provided <m>x</m> is sufficiently close to <m>a</m> and lying to its right.
                         </p>
                         <p> When this is the case we call <m>L</m> the <term>right-hand limit</term> of <m>f</m> as <m>x</m> approaches <m>a</m> from the right, and write 
-                            <me>
+                            <md>
                                 \lim_{x\to a^+}f(x)=L
-                            </me>.
+                            </md>.
                         When no such <m>L</m> exists, we say that the right-hand limit <m>\lim\limits_{x\to a^+}f(x)</m> does not exist. 
                         </p>
                     </li>
@@ -442,7 +442,7 @@
     </p></li>
     <li><p>
         We have 
-        <me>\lim\limits_{x\to e^-}f(x)=\lim\limits_{x\to e^+}f(x)=D</me>.
+        <md number="no">\lim\limits_{x\to e^-}f(x)=\lim\limits_{x\to e^+}f(x)=D</md>.
     </p></li>
 </ul>
 </p>
@@ -469,9 +469,9 @@
             </li>
            </ol> 
            When this the case, we have 
-           <me>
+           <md>
             \lim\limits_{x\to a}f(x)=\lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=L
-           </me>.
+           </md>.
         </p>
         <p>
            As a consequence, if one of the one-sided limits does not exist, or if both one-sided limits exist but are not equal to one another, then the limit <m>\lim\limits_{x\to a}f(x)</m> does not exist. 
@@ -500,9 +500,9 @@
         <mrow>\lim\limits_{x\to e^-}f(x) \amp = \lim\limits_{x\to e^+}f(x)=D </mrow>
     </md>,
     we conclude that <m>\lim\limits_{x\to e}f(x)</m> exists and that
-    <me>
+    <md>
         \lim\limits_{x\to e}f(x)=\lim\limits_{x\to e^-}f(x)=\lim\limits_{x\to e^+}f(x)=D
-    </me>.
+    </md>.
 </p>
 
 <p>
@@ -519,9 +519,9 @@
                     <title>Right endpoint</title>
                     <p>
                         If <m>f</m> is defined for all <m>x</m> on an open interval <m>(c,a)</m>, but not for all <m>x\ne a</m> in a full open interval containing <m>a</m>, then we say the limit of <m>f</m> as <m>x</m> approaches <m>a</m> exists if <m>\lim\limits_{x\to a^-}f(x)</m> exists. When this is the case, we define 
-                        <me>
+                        <md>
                             \lim_{x\to a}f(x)=\lim_{x\to a^-}f(x)
-                        </me>. 
+                        </md>. 
                         
                     </p>
                 </li>
@@ -529,9 +529,9 @@
                     <title>Left endpoint</title>
                     <p>
                         If <m>f</m> is defined for all <m>x</m> on an open interval <m>(a,d)</m>, but not for all <m>x\ne a</m> in a full open interval containing <m>a</m>, then we say the limit of <m>f</m> as <m>x</m> approaches <m>a</m> exists if <m>\lim\limits_{x\to a^+}f(x)</m> exists. When this is the case, we define 
-                        <me>
+                        <md>
                             \lim_{x\to a}f(x)=\lim_{x\to a^+}f(x)
-                        </me>. 
+                        </md>. 
                         
                     </p>
                 </li>
@@ -543,4 +543,5 @@
 
 </subsection>
 
+    <xi:include href="s_limits_naive_ex.ptx" />
 </section>

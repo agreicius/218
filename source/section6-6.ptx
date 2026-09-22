@@ -72,9 +72,9 @@
     <p>
       To determine the derivative of an exponential function <m>f(x) = b^x</m>,
       we must return to the limit definition of the derivative:
-      <me>
+      <md>
         f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
-      </me>
+      </md>
     </p>
     <p>
       Let's apply this definition to the function <m>f(x) = b^x</m>.
@@ -91,9 +91,9 @@
       Although we have simplified as much as possible,
       this is a limit that we do not yet know how to calculate.
       The expression
-      <me>
+      <md>
         \frac{b^h - 1}{h}
-      </me>
+      </md>
       will still evaluate to <m>\frac{0}{0}</m> as <m>h\to 0</m> and so is still indeterminate.
       Let's numerically estimate
       (using a table)
@@ -216,9 +216,9 @@
       <em>What is the significance of these limits?</em>
       Interpreting them visually will give us some clue as to how to proceed.
       Note that, because <m>b^0 = 1</m>, the quantity
-      <me>
+      <md>
         f'(0) =  \left(\lim_{h\to 0}\ b^0\cdot \frac{b^h - 1}{h}\right) =  \left(\lim_{h\to 0} \frac{b^h - 1}{h}\right)
-      </me>
+      </md>
       represents the slope <m>f'(0)</m> of the tangent line to
       <m>f(x) = b^x</m> at the point <m>(0,1)</m>.
       We can see these tangent lines visualized for <m>b=2</m> and <m>b=3</m> in the pictures below:
@@ -235,9 +235,9 @@
     </figure>
     <p>
       Wouldn't it be fabulous if the entire expression
-      <me>
+      <md>
         \frac{b^h-1}{h}
-      </me>
+      </md>
       would just go away?? The amazing thing in this case is that yes, it can.
       There is a special number, called <m>e</m>,
       defined specifically so that the slope of the tangent line to
@@ -256,9 +256,9 @@
       <statement>
         <p>
           The number <m>e</m> satisfies the following limit statement:
-          <me>
+          <md>
             \lim_{h\to 0}\frac{e^h-1}{h} = 1
-          </me>.
+          </md>.
         </p>
       </statement>
     </definition>
@@ -309,9 +309,9 @@
       <statement>
         <p>
           The number <m>e</m> is the infinite sum
-          <me>
+          <md>
             e = 1+\frac{1}{1!}+\frac{2}{2!}+\frac{3}{3!}+\ldots
-          </me>
+          </md>
         </p>
         <p>
           From this, <m>e\approx 2.718\ldots</m>.
@@ -368,9 +368,9 @@
       In order to take derivatives of an arbitrary exponential function <m>f(x) = Ab^x</m>,
       we will need to know that every exponential function can be written so that its base is the number <m>e</m>.
       In order to do this, we note that
-      <me>
+      <md>
         b^x = e^{(\log_e b) x}
-      </me>
+      </md>
       because of the cancellation properties of logarithms (part (f) of <xref ref="thm_relationshipsoflogsandexp">Theorem</xref>).
       Using a base of <m>e</m> in a logarithm is so common that there is a special name and notation for such logarithmic functions:
       the base-<m>e</m> logarithmic function is the
@@ -383,9 +383,9 @@
         <p>
           Every exponential function
           <m>f(x) = Ab^x</m> can be written in the form
-          <me>
+          <md>
             f(x) = Ae^{kx}
-          </me>
+          </md>
           for <m>k=\log_e b =\ln b</m>.
         </p>
       </statement>
@@ -443,9 +443,9 @@
       <statement>
         <p>
           How does this compare to the estimates of the limits
-          <me>
+          <md>
             \lim_{h\to 0}\frac{b^h-1}{h}
-          </me>
+          </md>
           we found in <xref ref="ex_estimatingexplimits">Example</xref>?
         </p>
         <p>
@@ -475,9 +475,9 @@
       <statement>
         <p>
           For example, we can quickly calculate
-          <me>
+          <md>
             \frac{d}{dx}(5(2^x)) = 5\cdot \frac{d}{dx}(2^x) = 5(\ln 2)2^x
-          </me>,
+          </md>,
           first by applying the constant-multiple rule,
           then applying part (b) of <xref ref="thm_derivativesofexponentialfunctions">Theorem</xref> using a base of <m>b=2</m>.
         </p>
@@ -492,12 +492,12 @@
     <theorem>
       <title>The chain rule for exponential functions</title>
       <statement>
-        <me>
+        <md>
           \frac{d}{dx}\left(e^{g(x)}\right) = g'(x)e^{g(x)}
-        </me>
-        <me>
+        </md>
+        <md>
           \frac{d}{dx}\left(b^{g(x)}\right) = (\ln b)g'(x)b^{g(x)}
-        </me>
+        </md>
       </statement>
     </theorem>
     <proof>
@@ -506,24 +506,24 @@
         and the "inside" function is <m>u=g(x)</m>,
         so that <m>e^{g(x)} = f(g(x))</m>.
         The chain rule tells us that
-        <me>
+        <md>
           \frac{d}{dx}(f(g(x))) = f'(g(x))g'(x)
-        </me>
+        </md>
         and in this case we have
-        <me>
+        <md>
           f'(u) = e^u
-        </me>.
+        </md>.
         Combining these,
-        <me>
+        <md>
           \begin{aligned}\frac{d}{dx}\left(e^{g(x)}\right) \amp = \frac{d}{dx}\left(f(g(x))\right)\\ \amp =f'(g(x))g'(x)\\ \amp = e^{g(x)} g'(x) \amp \amp  \text{ since } f'(u) = e^u \end{aligned}
-        </me>
+        </md>
       </p>
       <p>
         Similarly, if <m>f(x) = b^x</m>,
         then <m>f'(x) = (\ln b)b^x</m> and so
-        <me>
+        <md>
           \begin{aligned}\frac{d}{dx}\left(b^{g(x)}\right) \amp = \frac{d}{dx}\left(f(g(x))\right)\\ \amp =f'(g(x))g'(x)\\ \amp = (\ln b)b^{g(x)} g'(x) \amp \amp  \text{ since } f'(u) = (\ln b)b^u \end{aligned}
-        </me>
+        </md>
       </p>
     </proof>
     <example>
@@ -532,9 +532,9 @@
           A special case of the chain rule is when we have a function of the form <m>f(x) = e^{kx}</m>.
           Then if <m>g(x) = kx</m> is the "inside" function in the exponent,
           <m>g'(x) = k</m> and so
-          <me>
+          <md>
             \frac{d}{dx}\left(e^{kx}\right)  = ke^{kx}
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -542,9 +542,9 @@
       <statement>
         <p>
           For another example, we have
-          <me>
+          <md>
             \begin{aligned}\frac{d}{dx}(e^{x^2+1}) \amp = e^{x^2+1}\cdot \frac{d}{dx}(x^2+1)\\ \amp = e^{x^2+1}(2x)\\ \amp = 2xe^{x^2+1} \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           It's not required,
@@ -558,9 +558,9 @@
         <p>
           Remember that when the base <m>b</m> is not <m>e</m>,
           the derivative has an additional <m>\ln b</m>:
-          <me>
+          <md>
             \begin{aligned}\frac{d}{dx}(3^{x^2+1}) \amp = (\ln 3)3^{x^2+1}\cdot \frac{d}{dx}(x^2+1)\\ \amp = (\ln 3)3^{x^2+1}(2x)\\ \amp = (\ln 3)(2x)3^{x^2+1} \end{aligned}
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -568,9 +568,9 @@
       <statement>
         <p>
           Find the derivative of the function
-          <me>
+          <md>
             f(x) = \frac{5^{3x}}{1+x}
-          </me>
+          </md>
         </p>
         <p>
           Starting with the quotient rule, we have
@@ -586,15 +586,15 @@
       <statement>
         <p>
           Find the derivative of
-          <me>
+          <md>
             g(x) = \sqrt{x}e^{x^2}
-          </me>
+          </md>
         </p>
         <p>
           Using the product and chain rules, we have
-          <me>
+          <md>
             \begin{aligned}\frac{d}{dx}(\sqrt{x}) \amp =  \sqrt{x}\cdot \frac{d}{dx}(e^{x^2})+e^{x^2}\cdot\frac{d}{dx}(\sqrt{x})\\ \amp =\sqrt{x}\cdot e^{x^2}(2x)+e^{x^2}\cdot \frac{1}{2}x^{-1/2}\\ \amp = 2x^{3/2}e^{x^2}+\frac{e^{x^2}}{2\sqrt{x}}\\ \amp = \left(2x^{3/2}+\frac{1}{2\sqrt{x}}\right)e^{x^2} \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Factoring the <m>e^{x^2}</m> in the last step isn't necessary,
@@ -608,9 +608,9 @@
       <statement>
         <p>
           Find the derivative of
-          <me>
+          <md>
             h(x) = 3\sqrt{e^x}-x^2
-          </me>
+          </md>
         </p>
         <p>
           There are two possible ways to approach this problem.
@@ -651,9 +651,9 @@
         <p>
           In a later section,
           we'll learn that another model for how a population grows over time can be given by a function of the form
-          <me>
+          <md>
             P(t) = \frac{A}{1+Me^{-kt}}
-          </me>
+          </md>
           where <m>A</m>, <m>M</m>, and <m>k</m> are positive constants.
           <ol>
             <li>
