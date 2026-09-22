@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Mean Value Theorem and Critical Points</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Functions and differential calculus">
+<meta property="book:author" content="Ellen Goldstein">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.8.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.962d00926ef9460e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.2e7f40e86ae7d163.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Functions and differential calculus</span></a></h1>
+<p class="byline">Ellen Goldstein</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_relatedrates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="my-great-book-7.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_maxandminvalues.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">1</span> <span class="title">How to Learn Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_howtoread.html" class="internal"><span class="codenumber">1.1</span> <span class="title">How to Read Mathematics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-2" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-3" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General "Do’s" for Reading Math</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_defexthm" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Definitions, Examples, and Theorems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_howtoread.html#sec_howtoread-5" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_problemsolving.html" class="internal"><span class="codenumber">1.2</span> <span class="title">How to Problem-Solve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Why Problem Solving?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Problem-Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-6" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Some Myths of Problem-Solving</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-7" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Examples of Worked Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_problemsolving.html#sec_problemsolving-8" class="internal"><span class="codenumber">1.2.6</span> <span class="title">References and Notes:</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_howtostudy.html" class="internal"><span class="codenumber">1.3</span> <span class="title">How to Study Math</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_func.html" class="internal"><span class="codenumber">2</span> <span class="title">Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_func.html" class="internal"><span class="codenumber">2.1</span> <span class="title">What is a Function?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">The Definition of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Domain and Range of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-6" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Non-Functions and the Vertical Line Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-7" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Real-world Examples of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-8" class="internal"><span class="codenumber">2.1.6</span> <span class="title">Interval Notation for Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#s_func-9" class="internal"><span class="codenumber">2.1.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Definitions of linear and quadratic functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-4-3" class="internal"><span class="codenumber">2.2.2.1</span> <span class="title">Parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#subsec_propgraphs1" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Properties of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Different Equations of Lines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-7" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Finding <span class="process-math">\(x\)</span>-intercepts of Quadratic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticfunctions.html#sec_linearandquadraticfunctions-8" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_avgchange.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Average Rate of Change</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Definition of Average Rate of Change of a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Average Change of a Linear Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-6" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Visualizing Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-7" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Average Change in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-8" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Concavity and Average Change of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_avgchange.html#sec_avgchange-9" class="internal"><span class="codenumber">2.3.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Modeling with Linear and Quadratic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">The Mathematical Modeling Process</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-5" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Using Linear Functions as Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Modeling with Quadratic Functions: Falling Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_costrevenueprofit-take1" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Cost, Revenue, and Profit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_linearandquadraticmodeling.html#sec_linearandquadraticmodeling-8" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_polyandratfuncs.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Polynomial and Rational Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Definition of Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">The Structure of Polynomial Functions: Factors and Zeros</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Rules for Fractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-7" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Definition of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-8" class="internal"><span class="codenumber">2.5.6</span> <span class="title">Domain and Zeros of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_polyandratfuncs.html#sec_polyandratfuncs-9" class="internal"><span class="codenumber">2.5.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_power_alg.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Power Functions and Other Algebraic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Review of Exponent Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Definitions of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-6" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Integer Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-7" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Power Functions with Rational Powers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-8" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Using Square Roots to Find Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-9" class="internal"><span class="codenumber">2.6.7</span> <span class="title">A Summary of Algebraic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_power_alg.html#sec_power_alg-10" class="internal"><span class="codenumber">2.6.8</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pdfuncsandabsval.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Piecewise-Defined Functions and Absolute Value</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-3" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-4" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Definition of Piecewise-Defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-5" class="internal"><span class="codenumber">2.7.3</span> <span class="title">An Application of Piecewise-defined Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-6" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Absolute Value and Distance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-7" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Graphs of Absolute Values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pdfuncsandabsval.html#sec_pdfuncsandabsval-8" class="internal"><span class="codenumber">2.7.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Solving Inequalities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-3" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-4" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Rules for Inequalities and Solving Linear Inequalities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5" class="internal"><span class="codenumber">2.8.3</span> <span class="title">Solving Inequalities That Involve Quadratics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-5-3" class="internal"><span class="codenumber">2.8.3.1</span> <span class="title">Application: Rewriting a Piecewise-Defined Function by Solving an Inequality</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6" class="internal"><span class="codenumber">2.8.4</span> <span class="title">Solving Inequalities That Involve Products and Quotients</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-6-3" class="internal"><span class="codenumber">2.8.4.1</span> <span class="title">Application: Finding the Domain of a Function with an Even Root</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solvinginequalities.html#sec_solvinginequalities-7" class="internal"><span class="codenumber">2.8.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_comp.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Composition of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-3" class="internal"><span class="codenumber">2.9.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-4" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Motivation and Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-5" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Definition of Composition of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-6" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Domain of Compositions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-7" class="internal"><span class="codenumber">2.9.5</span> <span class="title">Function Composition and Average Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_comp.html#sec_func_comp-8" class="internal"><span class="codenumber">2.9.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_func_transf.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Transformations and Symmetry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-3" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-4" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_symmetry" class="internal"><span class="codenumber">2.10.3</span> <span class="title">Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-6" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Application: The Vertex Form of a Quadratic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_func_transf.html#sec_func_transf-7" class="internal"><span class="codenumber">2.10.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_limits.html" class="internal"><span class="codenumber">3</span> <span class="title">An Introduction to Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_lim_def.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Instantaneous Velocity and the Definition of Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-2" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-3" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The Idea of a Limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-4" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Definition of a Limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-5" class="internal"><span class="codenumber">3.1.4</span> <span class="title">One-Sided Limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_def.html#sec_lim_def-6" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_continuity.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-2" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-3" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Definition of Continuity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-3-3" class="internal"><span class="codenumber">3.2.2.1</span> <span class="title">Left and Right Continuity</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-4" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Types of Discontinuities</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-5" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Rules for Calculating Limits</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-5-3" class="internal"><span class="codenumber">3.2.4.1</span> <span class="title">Limits of Combinations of Functions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_continuity.html#sec_continuity-6" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ivt.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Intermediate Value Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-2" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-3" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Motivational Scenario</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-4" class="internal"><span class="codenumber">3.3.3</span> <span class="title">The Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-5" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Why All of the Hypotheses of the IVT are Necessary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-6" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Where a Function Can Change Sign</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ivt.html#sec_ivt-7" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_inf_lims.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Infinite Limits and Limits at Infinity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_inf_lims-2" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_inf_lims-3" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Definitions: Infinite Limits and Limits at Infinity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_VAsandHAs" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Vertical and Horizontal Asymptotes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_oneoverzerolimits" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Limits of the form <span class="process-math">\(\frac{1}{0}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inf_lims.html#sec_inf_lims-6" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_lim_rules.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Calculating Limits Algebraically: <span class="process-math">\(\frac{0}{0}\)</span> Limits and Cancellation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_lim_rules-2" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_zerooverzerolimits" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Cancellation Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_lim_rules-4" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Indeterminate Limit Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_holeorVA" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Hole or Vertical Asymptote?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_rules.html#sec_lim_rules-6" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_lim_indet.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Calculating Limits Algebraically: Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-2" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#subsec_endbehaviorpowerfuncs" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Limits at Infinity of Power Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#subsec_endbehaviorofpolys" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Limits at Infinity of Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_endbehaviorofrationalfunctions" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Limits at Infinity of Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-6" class="internal"><span class="codenumber">3.6.5</span> <span class="title">Other Limit Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-6-3" class="internal"><span class="codenumber">3.6.5.1</span> <span class="title">Non-indeterminate Limit Forms</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_lim_indet.html#sec_lim_indet-7" class="internal"><span class="codenumber">3.6.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-6.html" class="internal"><span class="codenumber">4</span> <span class="title">An Introduction to Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Three Perspectives of the Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-2" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-3" class="internal"><span class="codenumber">4.1.2</span> <span class="title">The Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-4" class="internal"><span class="codenumber">4.1.3</span> <span class="title">The Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_associatedslopefunction" class="internal"><span class="codenumber">4.1.4</span> <span class="title">The Derivative as an Associated Slope Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_threeperspectivesofthederivative.html#sec_threeperspectivesofthederivative-6" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-3.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The Definition of the Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-2" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-3" class="internal"><span class="codenumber">4.2.2</span> <span class="title">The Limit Definition of the Derivative at a Point</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-4" class="internal"><span class="codenumber">4.2.3</span> <span class="title">The Derivative as a Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-5" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-6" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-3.html#my-great-book-6-3-7" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-4.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Differentiability and Local Linearity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-2" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-3" class="internal"><span class="codenumber">4.3.2</span> <span class="title">When is a Function Differentiable?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-4" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Differentiable vs. Continuous</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-5" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Local Linearizations and Approximating Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-4.html#my-great-book-6-4-6" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-5.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Elementary Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-2" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-3" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Derivatives of Constant and Linear Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-4" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Leibniz Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-5" class="internal"><span class="codenumber">4.4.4</span> <span class="title">The Power Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-6" class="internal"><span class="codenumber">4.4.5</span> <span class="title">The Constant Multiple and Sum Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-7" class="internal"><span class="codenumber">4.4.6</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-5.html#my-great-book-6-5-8" class="internal"><span class="codenumber">4.4.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-6.html" class="internal"><span class="codenumber">4.5</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-2" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-3" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Derivatives Do NOT Distribute Over Products and Quotients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#sec_productruleincontext" class="internal"><span class="codenumber">4.5.3</span> <span class="title">Real-World Motivation for the Derivative of a Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-5" class="internal"><span class="codenumber">4.5.4</span> <span class="title">The Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-6" class="internal"><span class="codenumber">4.5.5</span> <span class="title">The Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-7" class="internal"><span class="codenumber">4.5.6</span> <span class="title">The Proof of the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-6.html#my-great-book-6-6-8" class="internal"><span class="codenumber">4.5.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-6-7.html" class="internal"><span class="codenumber">4.6</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-2" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-3" class="internal"><span class="codenumber">4.6.2</span> <span class="title">A Review of Function Composition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-4" class="internal"><span class="codenumber">4.6.3</span> <span class="title">Real-World Motivation for the Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-5" class="internal"><span class="codenumber">4.6.4</span> <span class="title">The Formula for the Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-6" class="internal"><span class="codenumber">4.6.5</span> <span class="title">More Examples Using the Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-7" class="internal"><span class="codenumber">4.6.6</span> <span class="title">Combining Derivative Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-8" class="internal"><span class="codenumber">4.6.7</span> <span class="title">A Proof of the Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-6-7.html#my-great-book-6-7-9" class="internal"><span class="codenumber">4.6.8</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="my-great-book-7.html" class="internal"><span class="codenumber">5</span> <span class="title">Using Derivatives, Part 1</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-2" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-3" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Curves Described by Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-4" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Finding Derivatives of Implicit Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-5" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Tangent Lines to Implicitly Defined Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-6" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Vertical and Horizontal Tangent Lines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-2.html#my-great-book-7-2-7" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_relatedrates.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-2" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-3" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Review: Problem Solving Framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-4" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Rates of Change that are Related</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedratesformulas" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Useful Formulas for Related Rates Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedratesmethod" class="internal"><span class="codenumber">5.2.5</span> <span class="title">How to Solve Related Rates Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_relatedrates.html#sec_relatedrates-7" class="internal"><span class="codenumber">5.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="my-great-book-7-4.html" class="internal"><span class="codenumber">5.3</span> <span class="title">The Mean Value Theorem and Critical Points</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-2" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-3" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Real-World Motivation for the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-4" class="internal"><span class="codenumber">5.3.3</span> <span class="title">The Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-5" class="internal"><span class="codenumber">5.3.4</span> <span class="title">The Hypotheses of the Mean Value Theorem are Important</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-6" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Critical Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-4.html#my-great-book-7-4-7" class="internal"><span class="codenumber">5.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_maxandminvalues.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Minimum and Maximum Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-2" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">The First Derivative Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_concavity" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Concavity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-5" class="internal"><span class="codenumber">5.4.4</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-6" class="internal"><span class="codenumber">5.4.5</span> <span class="title">Proof of Theorem \xautoref{thm_firstderivativeinfo} Using the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_maxandminvalues.html#sec_maxandminvalues-7" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-6.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Global Extrema and Optimization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-2" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-3" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Defining Global Extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-4" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Optimization: Global Extrema in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-5" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Optimization with Constraint Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-6.html#my-great-book-7-6-6" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-7.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Introduction to Curve Sketch Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-2" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-3" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Inflection Points: Where Concavity Changes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#sec_curvesketching" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Curve Sketching with  First and Second Derivative Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-5" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Sketching from Only Derivative Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-7.html#my-great-book-7-7-6" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-7-8.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Curve Sketch Analysis of Rational Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-2" class="internal"><span class="codenumber">5.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-3" class="internal"><span class="codenumber">5.7.2</span> <span class="title">Curve Sketching Summary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-3-3" class="internal"><span class="codenumber">5.7.2.1</span> <span class="title">A Brief Review of Symmetry</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-4" class="internal"><span class="codenumber">5.7.3</span> <span class="title">Examples of Sketching Polynomial Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-5" class="internal"><span class="codenumber">5.7.4</span> <span class="title">Some  general observations about graphs of polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-6" class="internal"><span class="codenumber">5.7.5</span> <span class="title">Reviewing Asymptotes and Limit Calculations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#sec_curvesketchingwithasymptotes" class="internal"><span class="codenumber">5.7.6</span> <span class="title">Examples of Sketching Rational Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-7-8.html#my-great-book-7-8-8" class="internal"><span class="codenumber">5.7.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-8.html" class="internal"><span class="codenumber">6</span> <span class="title">Calculus with Exponential and Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_inversefunctions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Inverse Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-2" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-3" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Why Inverse Functions?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-4" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Brief Review of Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-5" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Defining Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-6" class="internal"><span class="codenumber">6.1.5</span> <span class="title">When is a Function Invertible?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-7" class="internal"><span class="codenumber">6.1.6</span> <span class="title">Properties of Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_inversefunctions.html#sec_inversefunctions-8" class="internal"><span class="codenumber">6.1.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_expfunctions.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Exponential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-2" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-3" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Motivating Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-4" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Defining Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-5" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Growth of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-6" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Finding Formulas for Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-7" class="internal"><span class="codenumber">6.2.6</span> <span class="title">Properties of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_expfunctions.html#sec_expfunctions-8" class="internal"><span class="codenumber">6.2.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_logfunctions.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-2" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-3" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Defining Logarithmic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-4" class="internal"><span class="codenumber">6.3.3</span> <span class="title">The Shapes of Graphs of Logarithms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-5" class="internal"><span class="codenumber">6.3.4</span> <span class="title">The Logarithm Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-6" class="internal"><span class="codenumber">6.3.5</span> <span class="title">Justifications for the Logarithm Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logfunctions.html#sec_logfunctions-7" class="internal"><span class="codenumber">6.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-5.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Modeling with Exponential and Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-2" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-3" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Percentage Growth</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#sec_doublingtime" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Doubling Time and Half-Life</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-5" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Modeling Temperature Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-6" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Measuring Earthquakes and Sound</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-5.html#my-great-book-8-5-7" class="internal"><span class="codenumber">6.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-6.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Limits of exponential and logarithmic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-2" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-3" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Exponential and Logarithmic Functions are Continuous on their Domains</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-4" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Limits at Infinity of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-5" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Limits of Logarithmic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#sec_examplesoflimitsoflogandexpfunctions" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Calculating limits involving exponential and logarithmic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-6.html#my-great-book-8-6-7" class="internal"><span class="codenumber">6.5.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-7.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Derivatives of exponential functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-2" class="internal"><span class="codenumber">6.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-3" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Defining <span class="process-math">\(e\)</span> via Derivatives of Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-4" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Derivatives of Other Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-7.html#my-great-book-8-7-5" class="internal"><span class="codenumber">6.6.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-8-8.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Derivatives of Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-2" class="internal"><span class="codenumber">6.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-3" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Computing Derivatives of Logarithmic Functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-3-3" class="internal"><span class="codenumber">6.7.2.1</span> <span class="title">A Detail About Domains and Absolute Value:</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-4" class="internal"><span class="codenumber">6.7.3</span> <span class="title">The Chain Rule with Logarithmic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-5" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Logarithmic differentiation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-6" class="internal"><span class="codenumber">6.7.5</span> <span class="title">Functions with Variables in the Base and Exponent</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-8-8.html#my-great-book-8-8-7" class="internal"><span class="codenumber">6.7.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-9.html" class="internal"><span class="codenumber">7</span> <span class="title">Using Derivatives, Part 2</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-9-2.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Curve Sketching and Applications of Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-2" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-3" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Review of Curve Sketching Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-4" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Curve Sketching with Exponential Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-5" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Curve sketching with logarithms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-6" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Exponential Functions Grow Proportionally to Themselves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-7" class="internal"><span class="codenumber">7.1.6</span> <span class="title">A more realistic model for population growth</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-2.html#my-great-book-9-2-8" class="internal"><span class="codenumber">7.1.7</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-9-3.html" class="internal"><span class="codenumber">7.2</span> <span class="title">L’Hôpital’s Rule</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-2" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-3" class="internal"><span class="codenumber">7.2.2</span> <span class="title">A Visual Approach to Indeterminate Limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-4" class="internal"><span class="codenumber">7.2.3</span> <span class="title">L’Hôpital’s Rule for the Indeterminate Forms <span class="process-math">\(\frac{0}{0}\)</span> and <span class="process-math">\(\frac{\infty}{\infty}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-5" class="internal"><span class="codenumber">7.2.4</span> <span class="title">L’Hôpital’s Rule for the Indeterminate Forms <span class="process-math">\(0\cdot \infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-3.html#my-great-book-9-3-6" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_findingglobalextrema.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Finding Global Extrema</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-2" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-3" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Defining Global Extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-4" class="internal"><span class="codenumber">7.3.3</span> <span class="title">How to Find Global Maxima and Minima</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-5" class="internal"><span class="codenumber">7.3.4</span> <span class="title">The Extreme Value Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-6" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Examples of Global Extrema in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_findingglobalextrema.html#sec_findingglobalextrema-7" class="internal"><span class="codenumber">7.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-9-5.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Applied Optimization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-2" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-3" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Applications: Drug Concentrations, Maximizing Profit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-4" class="internal"><span class="codenumber">7.4.3</span> <span class="title">The Surge Function and Drug Concentration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-5" class="internal"><span class="codenumber">7.4.4</span> <span class="title">Defining Marginal Cost and Revenue</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-6" class="internal"><span class="codenumber">7.4.5</span> <span class="title">Maximizing Profit and Revenue</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-9-5.html#my-great-book-9-5-7" class="internal"><span class="codenumber">7.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-10.html" class="internal"><span class="codenumber">8</span> <span class="title">Calculus with Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-2.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Trigonometric Functions via Circles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-2" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-3" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Functions Defined by Circular Motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#sec_theunitcircle" class="internal"><span class="codenumber">8.1.3</span> <span class="title">The Unit Circle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-5" class="internal"><span class="codenumber">8.1.4</span> <span class="title">The Sine and Cosine Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-2.html#my-great-book-10-2-6" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-3.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Calculating Values of Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-2" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-3" class="internal"><span class="codenumber">8.2.2</span> <span class="title"><span class="process-math">\(45-45-90\)</span> and <span class="process-math">\(30-60-90\)</span> Triangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-4" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Using Reference Triangles to Calculate Values of Sine and Cosine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-5" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Calculating Values of Sine and Cosine Beyond <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-6" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Right-Triangle Trigonometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-3.html#my-great-book-10-3-7" class="internal"><span class="codenumber">8.2.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_identitiespart1.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Properties of Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-2" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-3" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Trigonometric Functions as Graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-4" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Solving Equations Involving Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-5" class="internal"><span class="codenumber">8.3.4</span> <span class="title">A Practical Example of Using Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-6" class="internal"><span class="codenumber">8.3.5</span> <span class="title">A Few Trigonometric Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_identitiespart1.html#sec_identitiespart1-7" class="internal"><span class="codenumber">8.3.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-5.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Defining Inverse Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-2" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-3" class="internal"><span class="codenumber">8.4.2</span> <span class="title">A Brief Recap of Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-4" class="internal"><span class="codenumber">8.4.3</span> <span class="title">The arccosine function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-5" class="internal"><span class="codenumber">8.4.4</span> <span class="title">The arcsine function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-6" class="internal"><span class="codenumber">8.4.5</span> <span class="title">The arctangent function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-5.html#my-great-book-10-5-7" class="internal"><span class="codenumber">8.4.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-6.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Trigonometric Identities and Formulas</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-2" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-3" class="internal"><span class="codenumber">8.5.2</span> <span class="title">Overview: A Few More Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#sec_simplifyingcompositionsoftrigandinversetrig" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Simplifying compositions of inverse trigonometric and trigonometric functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-5" class="internal"><span class="codenumber">8.5.4</span> <span class="title">The Sum Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-6" class="internal"><span class="codenumber">8.5.5</span> <span class="title">Double-Angle Identities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-6.html#my-great-book-10-6-7" class="internal"><span class="codenumber">8.5.6</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_triglimits.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Limits of Trigonometric and Inverse Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-2" class="internal"><span class="codenumber">8.6.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-3" class="internal"><span class="codenumber">8.6.2</span> <span class="title">Continuity of Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-4" class="internal"><span class="codenumber">8.6.3</span> <span class="title">Infinite Limits and Limits at Infinity of Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-5" class="internal"><span class="codenumber">8.6.4</span> <span class="title">Limits at Infinity of Inverse Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_triglimits.html#sec_triglimits-6" class="internal"><span class="codenumber">8.6.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Derivatives of Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-2" class="internal"><span class="codenumber">8.7.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-3" class="internal"><span class="codenumber">8.7.2</span> <span class="title">Derivatives of Sine and Cosine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-4" class="internal"><span class="codenumber">8.7.3</span> <span class="title">Derivatives of the Other Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_derivativesoftrigfunctions.html#sec_derivativesoftrigfunctions-5" class="internal"><span class="codenumber">8.7.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-10-9.html" class="internal"><span class="codenumber">8.8</span> <span class="title">Derivatives of Inverse  Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-2" class="internal"><span class="codenumber">8.8.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-3" class="internal"><span class="codenumber">8.8.2</span> <span class="title">Derivatives of Inverse Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-4" class="internal"><span class="codenumber">8.8.3</span> <span class="title">Derivatives of Arbitrary Inverse Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-5" class="internal"><span class="codenumber">8.8.4</span> <span class="title">Derivatives of Arccosine and Arctangent</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-10-9.html#my-great-book-10-9-6" class="internal"><span class="codenumber">8.8.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="my-great-book-11.html" class="internal"><span class="codenumber">9</span> <span class="title">Using Derivatives, Part 3</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-2.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Related Rates with Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-2" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-3" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Trigonometric Relationships</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-4" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Related Rates with Trigonometric Functions in Context</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-2.html#my-great-book-11-2-5" class="internal"><span class="codenumber">9.1.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-3.html" class="internal"><span class="codenumber">9.2</span> <span class="title">The Squeeze Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-2" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-3" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Statement of the Squeeze Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-4" class="internal"><span class="codenumber">9.2.3</span> <span class="title">Using the Squeeze Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-5" class="internal"><span class="codenumber">9.2.4</span> <span class="title">The Derivatives of Sine and Cosine: Rigorous Proofs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-3.html#my-great-book-11-3-6" class="internal"><span class="codenumber">9.2.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-4.html" class="internal"><span class="codenumber">9.3</span> <span class="title">L’Hôpital’s Rule with Trigonometric Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-4.html#my-great-book-11-4-2" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-4.html#my-great-book-11-4-3" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Examples of applying L’Hôpital’s Rule with Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-4.html#my-great-book-11-4-4" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-5.html" class="internal"><span class="codenumber">9.4</span> <span class="title">A Complete List of Indeterminate Limit Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-2" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-3" class="internal"><span class="codenumber">9.4.2</span> <span class="title">A Few New Indeterminate Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-4" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Indeterminate Limits of the Form <span class="process-math">\(0^0, 1^\infty\text{,}\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-5" class="internal"><span class="codenumber">9.4.4</span> <span class="title">Summary of Methods for Indeterminate Limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-5.html#my-great-book-11-5-6" class="internal"><span class="codenumber">9.4.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="my-great-book-11-6.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Curve Sketching Revisited</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-2" class="internal"><span class="codenumber">9.5.1</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-3" class="internal"><span class="codenumber">9.5.2</span> <span class="title">Recap of Curve Sketch Analyses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-4" class="internal"><span class="codenumber">9.5.3</span> <span class="title">Full Curve Sketching Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="my-great-book-11-6.html#my-great-book-11-6-5" class="internal"><span class="codenumber">9.5.4</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="my-great-book-7-4"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.3</span><span class="space"> </span><span class="title">The Mean Value Theorem and Critical Points</span>
+</h2>
+<section class="subsection" id="my-great-book-7-4-2"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="space"> </span><span class="title">Learning Goals</span>
+</h3>
+<ul class="disc" id="my-great-book-7-4-2-2">
+<li id="my-great-book-7-4-2-2-1">
+<div class="para" id="my-great-book-7-4-2-2-1-1">Explain the meaning of the Mean Value Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-2-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-7-4-2-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-7-4-2-2-2">
+<div class="para" id="my-great-book-7-4-2-2-2-1">Understand why the hypotheses of the Mean Value Theorem are necessary for the conclusion of the theorem to be true.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-2-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-7-4-2-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-7-4-2-2-3">
+<div class="para" id="my-great-book-7-4-2-2-3-1">Visualize the Mean Value Theorem in terms of secant and tangent lines.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-2-2-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-7-4-2-2-3" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="my-great-book-7-4-2-2-4">
+<div class="para" id="my-great-book-7-4-2-2-4-1">The Mean Value Theorem implies that local extrema must occur at points where the derivative is equal to zero or is undefined.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-2-2-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#my-great-book-7-4-2-2-4" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Subsection 5.3.1: Learning Goals"><a href="#my-great-book-7-4-2" title="Copy permalink for Subsection 5.3.1: Learning Goals">🔗</a></div></section><section class="subsection" id="my-great-book-7-4-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="space"> </span><span class="title">Real-World Motivation for the Mean Value Theorem</span>
+</h3>
+<div class="para" id="my-great-book-7-4-3-2">Let’s begin with a practical question: should the driver of the car photographed below be issued a speeding ticket?<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-3-3">The two cameras that took these images are located at a distance of 0.2 miles apart on this particular roadway, which has a speed limit of 70 mph. The times printed in the upper left hand corner of each image are (top photo) 12:03:52 and (bottom photo) 12:04:01 (in the format hours:minutes:seconds).<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-3-4">
+<div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/speedcamera.pdf" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="my-great-book-7-4-3-5">
+<div class="para">This means that it took the car 9 seconds to travel the 0.2 miles between cameras, so had an average speed of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{0.2\text{ miles } }{9\text{ seconds } } = \frac{1}{45} = 0.0\overline{2} \text{ miles per second }\text{.}
+\end{equation*}
+</div>
+<div class="para">Converting this to a more standard unit of miles per hour, we multiply by <span class="process-math">\(60\times60 = 3600\,\frac{\text{ seconds } }{\text{ hour } }\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{45} \,\frac{\text{ miles } }{\text{ second } }\times 3600\,\frac{\text{ seconds } }{\text{ hour } } =  80 \text{ miles per hour }\text{.}
+\end{equation*}
+</div>
+<div class="para">The speed limit on this stretch of road is 70 mph, so this driver will get a speeding ticket.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-3-6">
+<em class="emphasis">What assumptions underly this decision?</em> Here are a few observations about this: we calculated that the driver’s <em class="emphasis">average speed</em> was 80 mph, so we don’t actually know that they were going 80 mph the entire time. Intuitively, they were probably going faster sometimes and slower at other times, and so naturally at some point they must have been going exactly 80 mph.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-3-7">Said using mathematical language, our intuition tells us that the driver’s <em class="emphasis">instantaneous speed</em> must have been 80 mph at some point, meaning that the derivative of the driver’s position function must have been equal to 80 mph at some point. We don’t know <em class="emphasis">when</em> precisely, but it must have been somewhere between the two cameras.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-7" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-3-8">Intuitively and mathematically, this driver has no chance of getting out of the speeding ticket because of a very important theorem called the Mean Value Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="my-great-book-7-4-3-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="my-great-book-7-4-3-9-1-1">In your own words, explain how the average speed of a car on a stretch of road is different from the instantaneous speed of the car at a particular point on that road.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-3-9-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.3.1"><a href="#my-great-book-7-4-3-9" title="Copy permalink for Checkpoint 5.3.1">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.3.2: Real-World Motivation for the Mean Value Theorem"><a href="#my-great-book-7-4-3" title="Copy permalink for Subsection 5.3.2: Real-World Motivation for the Mean Value Theorem">🔗</a></div></section><section class="subsection" id="my-great-book-7-4-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="space"> </span><span class="title">The Mean Value Theorem</span>
+</h3>
+<div class="para" id="my-great-book-7-4-4-2">The Mean Value Theorem states what we understand intuitively to be true for moving objects:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-3">This intuition requires that the movement of that object is continuous (it cannot jump forward or backward) and that the movement is "smooth," meaning that the derivative should be defined everywhere. We state this theorem formally and then explain the details of the notation.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_meanvaluetheorem"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">The Mean Value Theorem.</span>
+</h4>
+<div class="para logical" id="thm_meanvaluetheorem-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([a,b]\)</span> and differentiable on <span class="process-math">\((a,b)\text{,}\)</span> then there exists at least one value <span class="process-math">\(x=c\)</span> with <span class="process-math">\(a\lt c\lt b\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(c) = \frac{f(b)-f(a)}{b-a}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_meanvaluetheorem-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.3.2: The Mean Value Theorem"><a href="#thm_meanvaluetheorem" title="Copy permalink for Theorem 5.3.2: The Mean Value Theorem">🔗</a></div></article><div class="para logical" id="my-great-book-7-4-4-5">
+<div class="para">Let’s look at the right-hand side of the equation in Theorem <a href="my-great-book-7-4.html#thm_meanvaluetheorem" class="xref" data-knowl="./knowl/xref/thm_meanvaluetheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: The Mean Value Theorem">Theorem 5.3.2</a>. The "mean" in the "Mean Value Theorem" refers to an <em class="emphasis">average</em>, specifically the <em class="emphasis">average rate of change</em> of <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_meanvaluetheorem.html">
+\begin{equation*}
+AV_{[a,b]} = \frac{f(b)-f(a)}{b-a}
+\end{equation*}
+</div>
+<div class="para">that we studied extensively in previous sections. Recall that we can visualize the average rate of change on an interval <span class="process-math">\([a,b]\)</span> as the slope of the secant line between the points <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((b,f(b))\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-6">The left-hand side of the equation in Theorem <a href="my-great-book-7-4.html#thm_meanvaluetheorem" class="xref" data-knowl="./knowl/xref/thm_meanvaluetheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: The Mean Value Theorem">Theorem 5.3.2</a> is the derivative, which we remember is also called the <em class="emphasis">instantaneous rate of change</em>. We can visualize this as the slope of the tangent line at the point <span class="process-math">\((c,f(c))\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-7">Visually, the Mean Value Theorem tells us that there is a tangent line at some point <span class="process-math">\(x=c\)</span> that is parallel to the secant line through the points at <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\text{,}\)</span> as illustrated in the figures below:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-7" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-8">
+<div class="image-box" style="width: 93%; margin-left: 3.5%; margin-right: 3.5%;"><img src="external/TaalmanPage226.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-9">There could in fact be several points <span class="process-math">\(x=c_1, c_2, \ldots\)</span> where the tangent line is parallel to the secant line through the points at <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-9" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-10">
+<div class="image-box" style="width: 37%; margin-left: 31.5%; margin-right: 31.5%;"><img src="external/MVT2.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-10" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-4-11">In our example of the car going an average speed of 80 mph, it is very reasonable to believe that the car’s speed varied over the 0.2 miles and that there were quite a few points when the car was traveling exactly 80 mph. As in this example, the Mean Value Theorem does not tell us precisely where the instantaneous rate of change is equal to the average rate of change, simply that it must be equal somewhere. If we had an equation for the velocity of the car, of course, we could determine where precisely the velocity was equal to 80. In the examples that follow, since we have a function, we can find its derivative, and so solve for the value of <span class="process-math">\(c\)</span> algebraically.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-11" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex_MVTExample1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex_MVTExample1-1-1">Verify that the function <span class="process-math">\(f(x) = 2x^3-4x+5\)</span> satisfies the hypotheses of the Mean Value Theorem on the interval <span class="process-math">\([-1,2]\text{.}\)</span> What does the conclusion of the Mean Value Theorem tell us?<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_MVTExample1-1-2">Separately, find all numbers <span class="process-math">\(x=c\)</span> that satisfy the conclusion of the Mean Value Theorem. Sketch the secant line between <span class="process-math">\((-1,f(-1))\)</span> and <span class="process-math">\((2,f(2))\)</span> along with the tangent line at the value <span class="process-math">\(x=c\)</span> to check that they are indeed parallel.<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_MVTExample1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex_MVTExample1-2-1">
+<div class="para">First, we check the hypotheses of the Mean Value Theorem: <span class="process-math">\(f(x)\)</span> must be</div>
+<ul class="disc" id="ex_MVTExample1-2-1-2">
+<li id="ex_MVTExample1-2-1-2-1">
+<div class="para" id="ex_MVTExample1-2-1-2-1-1">continuous on <span class="process-math">\([-1,2]\)</span> and<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-1-2-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex_MVTExample1-2-1-2-1" title="Copy permalink for Item">🔗</a></div>
+</li>
+<li id="ex_MVTExample1-2-1-2-2">
+<div class="para" id="ex_MVTExample1-2-1-2-2-1">differentiable on <span class="process-math">\((-1,2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-1-2-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex_MVTExample1-2-1-2-2" title="Copy permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex_MVTExample1-2-2">Since <span class="process-math">\(f(x)\)</span> is a polynomial (a type of algebraic function), it is continuous everywhere within its domain by <a href="sec_continuity.html#thm_contofalgebraicfunctions" class="xref" data-knowl="./knowl/xref/thm_contofalgebraicfunctions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.2.39: Continuity of Algebraic Functions">Theorem 3.2.39</a>. In particular, it is continuous on <span class="process-math">\([-1,2]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex_MVTExample1-2-3">
+<span class="process-math">\(f'(x) = 6x^2-4\)</span> and this is defined for all <span class="process-math">\(x\)</span>-values, so including on <span class="process-math">\((-1,2)\text{,}\)</span> making <span class="process-math">\(f(x)\)</span> differentiable<details class="ptx-footnote" aria-live="polite" id="ex_MVTExample1-2-3-5"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ex_MVTExample1-2-3-5">Remember that "differentiable" means "able to take the derivative," so as long as the derivative is defined, a function is differentiable.</div></details> on <span class="process-math">\((-1,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex_MVTExample1-2-4">The conclusion of the Mean Value Theorem tells us:<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<span class="process-math">\(x=c\)</span><span class="process-math">\(-1\lt c\lt 2\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_contofalgebraicfunctions.html">
+\begin{equation*}
+f'(c) = \frac{f(2)-f(-1)}{2-(-1)}\text{.}
+\end{equation*}
+</div>
+<div class="para" id="ex_MVTExample1-2-8">The Mean Value Theorem does not tell us what the value of <span class="process-math">\(c\)</span> is, besides knowing that there must be one between <span class="process-math">\(x=-1\)</span> and <span class="process-math">\(x=2\text{.}\)</span> However, since we have a function for <span class="process-math">\(f(x)\text{,}\)</span> we can find <span class="process-math">\(c\)</span> explicitly.<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex_MVTExample1-2-9">
+<div class="para">First, we simplify <span class="process-math">\(\frac{f(2)-f(-1)}{2-(-1)}\text{.}\)</span> Since <span class="process-math">\(f(2) = 2(2)^3-4(2)+5 = 13\)</span> and <span class="process-math">\(f(-1) = 2(-1)^3-4(-1)+5 = 7\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{f(2)-f(-1)}{2-(-1)} = \frac{13-7}{2+1} = \frac{6}{3}=2\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-9" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex_MVTExample1-2-10">
+<div class="para">Thus we are trying to find <span class="process-math">\(c\)</span> with <span class="process-math">\(f'(c) = 2\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}f'(c)  \amp = 2\\ 6c^2-4 \amp = 2\\ 6c^2 \amp = 6\\ c^2 \amp = 1\\ c \amp =\pm 1 \end{aligned}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-10" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex_MVTExample1-2-11">Even though <span class="process-math">\(f'(1)=2\)</span> and <span class="process-math">\(f'(-1)=2\text{,}\)</span> we notice that the Mean Value Theorem specifies that <span class="process-math">\(-1\lt c\lt 2\text{,}\)</span> and so only <span class="process-math">\(c=1\)</span> satisfies the conclusion of the Mean Value Theorem on this particular interval.<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-11" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex_MVTExample1-2-12">
+<span class="process-math">\(f(x)\)</span> is graphed below along with the secant line between <span class="process-math">\((-1,f(-1))\)</span> and <span class="process-math">\((2,f(2))\)</span> (in green) and the tangent line at <span class="process-math">\((1,f(1))\text{,}\)</span> which are indeed parallel.<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-12" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex_MVTExample1-2-13">
+<div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/MVTExample1.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_MVTExample1-2-13" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.3.3.1"><a href="#ex_MVTExample1-2" title="Copy permalink for Solution 5.3.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.3.3"><a href="#ex_MVTExample1" title="Copy permalink for Example 5.3.3">🔗</a></div></article></details><details id="my-great-book-7-4-4-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="my-great-book-7-4-4-13-1-1">
+<div class="para">Repeat the same steps from <a href="my-great-book-7-4.html#ex_MVTExample1" class="xref" data-knowl="./knowl/xref/ex_MVTExample1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.3.3">Example 5.3.3</a> with <span class="process-math">\(g(x) = \sqrt{x}\)</span> on the interval <span class="process-math">\([0,4]\text{:}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-1" id="my-great-book-7-4-4-13-1-1-4">
+<li id="my-great-book-7-4-4-13-1-1-4-1">
+<div class="para" id="my-great-book-7-4-4-13-1-1-4-1-1">Verify that <span class="process-math">\(g(x) = \sqrt{x}\)</span> is continuous on <span class="process-math">\([0,4]\)</span> (by stating its domain) and differentiable on <span class="process-math">\((0,4)\)</span> (by calculating the derivative <span class="process-math">\(g'(x)\)</span> and stating its domain).<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-13-1-1-4-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.3.4.a"><a href="#my-great-book-7-4-4-13-1-1-4-1" title="Copy permalink for Item 5.3.4.a">🔗</a></div>
+</li>
+<li id="my-great-book-7-4-4-13-1-1-4-2">
+<div class="para" id="my-great-book-7-4-4-13-1-1-4-2-1">What does the Mean Value Theorem allow you to conclude?<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-13-1-1-4-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.3.4.b"><a href="#my-great-book-7-4-4-13-1-1-4-2" title="Copy permalink for Item 5.3.4.b">🔗</a></div>
+</li>
+<li id="my-great-book-7-4-4-13-1-1-4-3">
+<div class="para" id="my-great-book-7-4-4-13-1-1-4-3-1">Find all numbers <span class="process-math">\(x=c\)</span> that satisfy the conclusion of the Mean Value Theorem on the interval <span class="process-math">\([0,4]\)</span> by explicitly solving the equation <span class="process-math">\(g'(c) = \frac{g(4)-g(0)}{4-0}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-13-1-1-4-3-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.3.4.c"><a href="#my-great-book-7-4-4-13-1-1-4-3" title="Copy permalink for Item 5.3.4.c">🔗</a></div>
+</li>
+<li id="my-great-book-7-4-4-13-1-1-4-4">
+<div class="para" id="my-great-book-7-4-4-13-1-1-4-4-1">Sketch the graph of <span class="process-math">\(y=g(x) = \sqrt{x}\)</span> and the secant line between <span class="process-math">\((0,g(0))\)</span> and <span class="process-math">\((4,g(4))\text{,}\)</span> along with the tangent line at the value <span class="process-math">\(x=c\)</span> to check that they are indeed parallel.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-13-1-1-4-4-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.3.4.d"><a href="#my-great-book-7-4-4-13-1-1-4-4" title="Copy permalink for Item 5.3.4.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-13-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.3.4"><a href="#my-great-book-7-4-4-13" title="Copy permalink for Checkpoint 5.3.4">🔗</a></div></article></details><details id="my-great-book-7-4-4-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">An Application of the Mean Value Theorem.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-7-4-4-14-2-1">Two runners start a race at the same time and finish in a tie. We can use the Mean Value Theorem to show that at some time during the race, the two runners have the same speed.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-14-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-4-14-2-2">Let <span class="process-math">\(s_1(t)\)</span> be the position of the first runner, and let <span class="process-math">\(s_2(t)\)</span> be the position of the second runner. If we let <span class="process-math">\(t=a\)</span> denote the beginning of the race and <span class="process-math">\(t=b\)</span> denote the end of the race, we translate the information given in the problem into <span class="process-math">\(s_1(a)=s_2(a)\)</span> (the runners start a race at the same time) and <span class="process-math">\(s_1(b) = s_2(b)\)</span> (the runners finish in a tie).<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-14-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-4-14-2-3">Let <span class="process-math">\(f(t) = s_1(t)-s_2(t)\)</span> be the difference in the positions of the two runners. The runner’s position functions are both continuous on <span class="process-math">\([a,b]\)</span> and differentiable<details class="ptx-footnote" aria-live="polite" id="my-great-book-7-4-4-14-2-3-3"><summary class="ptx-footnote__number" title="Footnote 5.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="my-great-book-7-4-4-14-2-3-3">Position functions of moving objects are always continuous since objects cannot jump from one place to another. And since the runners must have some speed at every moment, the position functions are also differentiable.</div></details> on <span class="process-math">\((a,b)\text{,}\)</span> so <span class="process-math">\(f(x)\)</span> is also continuous on <span class="process-math">\([a,b]\)</span> and differentiable on <span class="process-math">\((a,b)\)</span> as a difference of continuous and differentiable functions. Hence we know <span class="process-math">\(f(x)\)</span> satisfies the hypotheses of the Mean Value Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-14-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-4-14-2-4">Since <span class="process-math">\(s_1(a)=s_2(a)\)</span> and <span class="process-math">\(s_1(b) = s_2(b)\text{,}\)</span> we know that <span class="process-math">\(f(a)=s_1(a)-s_2(a)=0\)</span> and <span class="process-math">\(f(b)=s_1(b)-s_2(b)=0\text{.}\)</span> Thus the conclusion of the mean value theorem tells us<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-14-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div> There exists at least one value <span class="process-math">\(x=c\)</span>  with <span class="process-math">\(a\lt c\lt b\)</span> such that<div class="displaymath process-math">
+\begin{equation*}
+f'(c) = \frac{f(b)-f(a)}{b-a} = \frac{0-0}{b-a} = 0\text{.}
+\end{equation*}
+</div>
+<div class="para" id="my-great-book-7-4-4-14-2-8">
+<span class="process-math">\(f'(t) = s_1'(t)-s_2'(t)\)</span> and so we have some <span class="process-math">\(c\)</span> with <span class="process-math">\(f'(c) = s_1'(c)-s_2'(c)=0\text{.}\)</span> This tells us that <span class="process-math">\(s_1'(c)=s_2'(c)\text{,}\)</span> meaning that the runners’ speeds are the same at <span class="process-math">\(t=c\text{,}\)</span> which is exactly what we said we would show.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-4-14-2-8" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.5: An Application of the Mean Value Theorem"><a href="#my-great-book-7-4-4-14" title="Copy permalink for Example 5.3.5: An Application of the Mean Value Theorem">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.3.3: The Mean Value Theorem"><a href="#my-great-book-7-4-4" title="Copy permalink for Subsection 5.3.3: The Mean Value Theorem">🔗</a></div></section><section class="subsection" id="my-great-book-7-4-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="space"> </span><span class="title">The Hypotheses of the Mean Value Theorem are Important</span>
+</h3>
+<div class="para" id="my-great-book-7-4-5-2">If the driver of our speeding car could convince a judge that they were able to skip instantaneously from the first camera to the second, they would stand a chance of getting out of paying the speeding ticket, at least if the judge knows mathematics. If the hypotheses of the Mean Value Theorem are not satisfied (if the function is not continuous or not differentiable) then the conclusion does not have to be true.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="my-great-book-7-4-5-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Non-Examples.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-7-4-5-3-2-1">The functions in the pictures below are either not continuous or not differentiable at some point, and the conclusion of the Mean Value Theorem is false for all three:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-5-3-2-2">
+<div class="image-box" style="width: 92.5%; margin-left: 3.75%; margin-right: 3.75%;"><img src="external/TaalmanPage228b.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="my-great-book-7-4-5-3-2-3">
+<div class="para">For all three functions, <span class="process-math">\(f(1)=f(3)=0\)</span> and so in the conclusion of the theorem, we would want to have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(c) = \frac{f(3)-f(1)}{3-1} = \frac{0}{2} = 0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-5-3-2-4">Recall that points where <span class="process-math">\(f'(c)=0\)</span> are where the tangent line is horizontal. None of the three graphs have a horizontal tangent line at any point, and so there is no <span class="process-math">\(x=c\)</span> with <span class="process-math">\(f'(c)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-5-3-2-5">The function <span class="process-math">\(f\)</span> in the left-most graph fails to be differentiable at <span class="process-math">\(x=2\text{,}\)</span> and therefore can "turn around" at <span class="process-math">\(x=2\)</span> without having a horizontal tangent line.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-5-3-2-6">In the middle graph, the function <span class="process-math">\(g(x)\)</span> fails to be continuous at the very place where we would have expected its derivative to be zero. Since this function is not continuous at <span class="process-math">\(x=2\text{,}\)</span> it is also not differentiable at <span class="process-math">\(x=2\text{,}\)</span> and <span class="process-math">\(g'(2)\)</span> does not exist, so cannot be equal to 0.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-5-3-2-7">The right-most graph illustrates a function <span class="process-math">\(h(x)\)</span> that fails to be continuous at the right endpoint <span class="process-math">\(x=3\)</span> of the interval. There is no value of <span class="process-math">\(c\)</span> with <span class="process-math">\(h'(c)=0\text{;}\)</span> the function never has to "turn around" since it just jumps down to the zero at <span class="process-math">\(x=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-3-2-7" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.6: Non-Examples"><a href="#my-great-book-7-4-5-3" title="Copy permalink for Example 5.3.6: Non-Examples">🔗</a></div></article></details><details id="my-great-book-7-4-5-4" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.7</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="my-great-book-7-4-5-4-1-1">Draw an example of a function for which <span class="process-math">\(AV_{[1,3]} = -1\)</span> but <span class="process-math">\(f'(c)\)</span> is never equal to <span class="process-math">\(-1\)</span> for any <span class="process-math">\(c\)</span> with <span class="process-math">\(1\lt c\lt 3\text{.}\)</span> <em class="emphasis">Note: For this to be true, the hypotheses of the Mean Value Theorem must be false on <span class="process-math">\([1,3]\text{,}\)</span> so the function must either fail to be continuous or differentiable at some point.</em><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-5-4-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.3.7"><a href="#my-great-book-7-4-5-4" title="Copy permalink for Checkpoint 5.3.7">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.3.4: The Hypotheses of the Mean Value Theorem are Important"><a href="#my-great-book-7-4-5" title="Copy permalink for Subsection 5.3.4: The Hypotheses of the Mean Value Theorem are Important">🔗</a></div></section><section class="subsection" id="my-great-book-7-4-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="space"> </span><span class="title">Critical Points</span>
+</h3>
+<div class="para" id="my-great-book-7-4-6-2">The Mean Value Theorem is important for many theoretical reasons in mathematics. Our main use for this theorem will be in understanding the ways in which the graph of a function can have a local minimum or maximum.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-3">Suppose a differentiable function has the same value at <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\text{,}\)</span> meaning that <span class="process-math">\(f(a)=f(b)\text{.}\)</span> What does the Mean Value Theorem say about the graph of <span class="process-math">\(f\)</span> between <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{?}\)</span> The three graphs that follow next provide a clue: if the graph of a function is smooth and unbroken, and if the function is not constant between <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\text{,}\)</span> then somewhere between <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\)</span> the function must turn around. The Mean Value Theorem tells us what we can see visually: there must be a point (or several points) between <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\)</span> where <span class="process-math">\(f'(c)=\frac{f(b)-f(a)}{b-a} = \frac{0}{b-a} = 0\text{,}\)</span> since we are assuming that <span class="process-math">\(f(a)=f(b)\)</span> so that <span class="process-math">\(f(b)-f(a)=0\text{.}\)</span> In other words, <span class="process-math">\(f\)</span> must have a horizontal tangent line, and the location <span class="process-math">\(x=c\)</span> of that horizontal tangent is the turning point:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-4">
+<div class="image-box" style="width: 92.5%; margin-left: 3.75%; margin-right: 3.75%;"><img src="external/TaalmanPage225.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-5">However, it may be the case that a continuous function can turn around without having a horizontal tangent line, as the pictures below illustrate. In this case, the function must either be discontinuous or not differentiable, so that the Mean Value Theorem does not apply.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-6">
+<div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/ACFigure3-1-5.png" class="contained"></div> <div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/ACFigure3-1-5b.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-7">These "turning points" are also called <em class="emphasis">local extrema,</em> since they are the largest or smallest (most extreme) points nearby (locally).<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-7" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def_localextrema"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Local Extrema of a Function.</span>
+</h4>
+<div class="para" id="def_localextrema-2-1">We say that <span class="process-math">\(f(c)\)</span> is a <em class="emphasis">local maximum</em> or <em class="emphasis">relative maximum</em> of <span class="process-math">\(f\)</span> provided that <span class="process-math">\(f(c)\geq f(x)\)</span> for all <span class="process-math">\(x\)</span> near <span class="process-math">\(c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_localextrema-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def_localextrema-2-2">Similarly, <span class="process-math">\(f(c)\)</span> is a <em class="emphasis">local</em> or <em class="emphasis">relative minimum</em> of <span class="process-math">\(f\)</span> whenever <span class="process-math">\(f(c)\leq f(x)\)</span> for all <span class="process-math">\(x\)</span> near <span class="process-math">\(c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_localextrema-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.3.8: Local Extrema of a Function"><a href="#def_localextrema" title="Copy permalink for Definition 5.3.8: Local Extrema of a Function">🔗</a></div></article><details id="my-great-book-7-4-6-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.9</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-7-4-6-9-1-1">For example, the function <span class="process-math">\(g(x)\)</span> below has a local minimum, a.k.a. relative minimum, of <span class="process-math">\(g(b)\)</span> at the point <span class="process-math">\((b,g(b))\)</span> (the center red dot) and two relative maxima, one of <span class="process-math">\(g(a)\)</span> at <span class="process-math">\(x=a\)</span> and one of <span class="process-math">\(g(c)\)</span> at <span class="process-math">\(x=c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-9-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-6-9-1-2">
+<div class="image-box" style="width: 46%; margin-left: 27%; margin-right: 27%;"><img src="external/ACFigure3-1-2.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-9-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.9"><a href="#my-great-book-7-4-6-9" title="Copy permalink for Example 5.3.9">🔗</a></div></article></details><div class="para" id="my-great-book-7-4-6-10">We would like to be able to find local minima and maxima of a function, and calculus provides us with the tools to do this. Of course, if we are given the graph of a function, it is often straightforward to locate these important behaviors visually. But how can we find them algebraically if we only have the formula that defines a function? The following graphs below give us a clue:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-10" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-11">
+<div class="image-box" style="width: 92.5%; margin-left: 3.75%; margin-right: 3.75%;"><img src="external/TaalmanPage224.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-11" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-6-12">Intuitively, at a local minimum or maximum, the tangent line of a function must be either horizontal or undefined. If a continuous function has a relative maximum at <span class="process-math">\(x=c\text{,}\)</span> then it must be that the function changes from being increasing just before <span class="process-math">\(c\)</span> to decreasing just after <span class="process-math">\(c\text{.}\)</span> A continuous function has a relative minimum at <span class="process-math">\(x=c\)</span> if and only if the function changes from decreasing to increasing at <span class="process-math">\(c\text{.}\)</span> Because of the Intermediate Value Theorem and <a href="sec_ivt.html#thm_changesign" class="xref" data-knowl="./knowl/xref/thm_changesign.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.3.12: A Function Can Change Sign Only at Zeros and Discontinuities">Theorem 3.3.12</a>, there are only two possible ways for these changes in behavior to occur: either <span class="process-math">\(f'(c)=0\)</span> or <span class="process-math">\(f'(c)\)</span> is undefined. Because these values of <span class="process-math">\(c\)</span> are so important, we call them <em class="emphasis">critical numbers</em> or <em class="emphasis">critical points</em>.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-12" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def_criticalnumbers"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.10</span><span class="period">.</span><span class="space"> </span><span class="title">Critical Points of a Function.</span>
+</h4>
+<div class="para" id="def_criticalnumbers-2-1">We say that a function <span class="process-math">\(f\)</span> has a <em class="emphasis">critical point</em> at <span class="process-math">\(x=c\)</span> provided that <span class="process-math">\(c\)</span> is in the domain of <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(f'(c)=0\)</span> or <span class="process-math">\(f'(c)\)</span> is undefined.<div class="autopermalink" data-description="Paragraph"><a href="#def_criticalnumbers-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.3.10: Critical Points of a Function"><a href="#def_criticalnumbers" title="Copy permalink for Definition 5.3.10: Critical Points of a Function">🔗</a></div></article><div class="para" id="my-great-book-7-4-6-14">Notice that only points in the domain of <span class="process-math">\(f\)</span> are considered critical points.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-14" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="my-great-book-7-4-6-15" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.11</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="my-great-book-7-4-6-15-1-1">For example, consider the function <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> whose derivative is <span class="process-math">\(f'(x) = -\frac{1}{x^2}\text{.}\)</span> Clearly <span class="process-math">\(f'(0)\)</span> does not exist; however, since <span class="process-math">\(x=0\)</span> is not in the domain of <span class="process-math">\(f\text{,}\)</span> it is not called a critical point.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-15-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.11"><a href="#my-great-book-7-4-6-15" title="Copy permalink for Example 5.3.11">🔗</a></div></article></details><div class="para" id="my-great-book-7-4-6-16">The preceding graphs suggest that every local extremum must occur at a critical point. This seemingly obvious relationship between critical points and extrema turns out to be the foundation on which we will build our development of calculus:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-16" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_localextremaarecriticalpoints"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.12</span><span class="period">.</span><span class="space"> </span><span class="title">Local Extrema are Critical Points.</span>
+</h4>
+<div class="para" id="thm_localextremaarecriticalpoints-2-1">If <span class="process-math">\(x=c\)</span> is the location of a local extremum of <span class="process-math">\(f\text{,}\)</span> then <span class="process-math">\(x=c\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_localextremaarecriticalpoints-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.3.12: Local Extrema are Critical Points"><a href="#thm_localextremaarecriticalpoints" title="Copy permalink for Theorem 5.3.12: Local Extrema are Critical Points">🔗</a></div></article><div class="para" id="my-great-book-7-4-6-18">\fbox{ The converse of Theorem <a href="my-great-book-7-4.html#thm_localextremaarecriticalpoints" class="xref" data-knowl="./knowl/xref/thm_localextremaarecriticalpoints.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.12: Local Extrema are Critical Points">Theorem 5.3.12</a> is not true. That is, not every critical point is a local extremum of <span class="process-math">\(f\text{.}\)</span> <a href="my-great-book-7-4.html#thm_localextremaarecriticalpoints" class="xref" data-knowl="./knowl/xref/thm_localextremaarecriticalpoints.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.12: Local Extrema are Critical Points">Theorem 5.3.12</a> is also known as <em class="emphasis">Fermat’s Theorem for Local Extrema</em> when formulated equivalently as saying that if <span class="process-math">\(x=c\)</span> is a local extremum and <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(x=c\text{,}\)</span> then <span class="process-math">\(f'(c)\)</span> must be zero. }<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-18" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex_notallcriticalpoints" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">Not every critical point is a local extremum.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="ex_notallcriticalpoints-2-1">
+<div class="para">The function <span class="process-math">\(f(x) = x^3-3x^2+3x\)</span> has derivative <span class="process-math">\(f'(x) = 3x^2-6x+3\text{.}\)</span> In order to find the critical points of <span class="process-math">\(f\text{,}\)</span> we set this derivative equal to 0 and solve (by factoring).</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x) =  3x^2-6x+3 = 3(x^2-2x+1) = 3(x-1)(x-1) = 0
+\end{equation*}
+</div>
+<div class="para">when <span class="process-math">\(x=1\text{.}\)</span> Note that since <span class="process-math">\(f\)</span> is a polynomial, <span class="process-math">\(f'\)</span> is also a polynomial and so is defined everywhere, thus there are no critical points where <span class="process-math">\(f'\)</span> undefined.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_notallcriticalpoints-2-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_notallcriticalpoints-2-2">Thus <span class="process-math">\(x=1\)</span> is the critical point of <span class="process-math">\(f(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_notallcriticalpoints-2-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_notallcriticalpoints-2-3">However, looking at the following graph of <span class="process-math">\(f\text{,}\)</span> we can see that <span class="process-math">\(f\)</span> has neither a local minimum nor a local maximum at <span class="process-math">\(x=1\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_notallcriticalpoints-2-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_notallcriticalpoints-2-4">
+<div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/TaalmanPage228a.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_notallcriticalpoints-2-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.13: Not every critical point is a local extremum"><a href="#ex_notallcriticalpoints" title="Copy permalink for Example 5.3.13: Not every critical point is a local extremum">🔗</a></div></article></details><details id="my-great-book-7-4-6-20" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.14</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-7-4-6-20-1-1">
+<div class="para">The critical points of the function <span class="process-math">\(f(x) = \sqrt{x-2}\)</span> are the points in the domain of <span class="process-math">\(f\)</span> where <span class="process-math">\(f'(x)=0\)</span> or is undefined. The domain of <span class="process-math">\(f\)</span> is <span class="process-math">\(x-2\geq 0\text{,}\)</span> or <span class="process-math">\(x\geq 2\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(x) = \frac{1}{2}(x-2)^{-1/2} = \frac{1}{2\sqrt{x-2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-20-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="my-great-book-7-4-6-20-1-2">
+<div class="para">Since the numerator of this expression cannot be equal to 0, <span class="process-math">\(f'(x)\neq 0\)</span> for any <span class="process-math">\(x\text{.}\)</span> On the other hand, the denominator can be 0, making <span class="process-math">\(f'(x)\)</span> undefined:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2\sqrt{x-2}=0  \Leftrightarrow  x-2=0  \Leftrightarrow  x=2
+\end{equation*}
+</div>
+<div class="para">and since <span class="process-math">\(x=2\)</span> is in the domain of <span class="process-math">\(f\text{,}\)</span> it is a critical point.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-20-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.14"><a href="#my-great-book-7-4-6-20" title="Copy permalink for Example 5.3.14">🔗</a></div></article></details><details id="my-great-book-7-4-6-21" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.15</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="my-great-book-7-4-6-21-1-1">
+<div class="para">The function <span class="process-math">\(f(x) = x^3-4x^2+3x\)</span> has two critical points since <span class="process-math">\(f'(x) = 3x^2-8x+3 = 0\)</span> when</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x=\frac{-(-8)\pm\sqrt{8^2-4(3)(3)}}{2(3)} = \frac{8\pm\sqrt{28}}{6} \approx 0.451, 2.215\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-21-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-6-21-1-2">If we look at the graph of <span class="process-math">\(f(x)\text{,}\)</span> then we can see that the smaller of these two <span class="process-math">\(x\)</span>-values is the location of a local maximum and the larger is the location of a local minimum:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-21-1-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="my-great-book-7-4-6-21-1-3">
+<div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/TaalmanExample3-1-4Graph.png" class="contained"></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-21-1-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.15"><a href="#my-great-book-7-4-6-21" title="Copy permalink for Example 5.3.15">🔗</a></div></article></details><details id="my-great-book-7-4-6-22" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.16</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="my-great-book-7-4-6-22-1-1">If <span class="process-math">\(f\)</span> has a local maximum at <span class="process-math">\(x=1\text{,}\)</span> then what can you say about <span class="process-math">\(f'(1)\text{?}\)</span> What if you also know that <span class="process-math">\(f\)</span> is differentiable?<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-6-22-1-1" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.3.16"><a href="#my-great-book-7-4-6-22" title="Copy permalink for Checkpoint 5.3.16">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.3.5: Critical Points"><a href="#my-great-book-7-4-6" title="Copy permalink for Subsection 5.3.5: Critical Points">🔗</a></div></section><section class="subsection" id="my-great-book-7-4-7"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="space"> </span><span class="title">Summary</span>
+</h3>
+<div class="para" id="my-great-book-7-4-7-2">The following terms and theorems were introduced in this section:<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-7-2" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-7-3">
+<em class="emphasis">Key ideas:</em> The Mean Value Theorem tells us that a continuous and differentiable function must have a point within an interval where the instantaneous rate of change is equal to the average rate of change on the interval. The theorem does not tell us exactly where that point is, but we can calculate it separately by setting the derivative equal to the average rate of change on the interval and solving for <span class="process-math">\(x\text{.}\)</span> The Mean Value Theorem allows us to conclude that local extrema (minimum or maximum values) must occur at critical points, meaning where the derivative is zero or undefined.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-7-3" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-7-4">
+<em class="emphasis">Other ideas reinforced/introduced:</em> Algebraic functions are continuous on their domains, and differentiable on the domain of their derivative. Average rates of change can be visualized as slopes of secant lines. Instantaneous rates of change can be visualized as slopes of tangent lines. Horizontal tangent lines occur where the derivative is equal to zero. A continuous function has a local minimum where the derivative changes from negative to positive, and a local maximum where the derivative changes from positive to negative.<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-7-4" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-7-5">\fbox{\fbox{ End of Section 4.3}}<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-7-5" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="my-great-book-7-4-7-6">\rule{1.1\textwidth}{2pt}<div class="autopermalink" data-description="Paragraph"><a href="#my-great-book-7-4-7-6" title="Copy permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 5.3.6: Summary"><a href="#my-great-book-7-4-7" title="Copy permalink for Subsection 5.3.6: Summary">🔗</a></div></section><div class="autopermalink" data-description="Section 5.3: The Mean Value Theorem and Critical Points"><a href="#my-great-book-7-4" title="Copy permalink for Section 5.3: The Mean Value Theorem and Critical Points">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_relatedrates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_maxandminvalues.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

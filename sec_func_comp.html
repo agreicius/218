@@ -20,79 +20,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-                var display = !!node.type.match(/; *mode=display/);
-                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                var text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = {node: text, delim: '', n: 0};
-                math.end = {node: text, delim: '', n: 0};
-                doc.math.push(math);
-            });
-        },
-        ""
-      ]
-    }
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: true,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Functions and single-variable calculus">
@@ -120,16 +55,16 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.12';
+eBookConfig.runestone_version = '8.1.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.561f7165d9bf3626.css">
-<script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/prefix-runtime.dcab57465a404e85.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.79fbb790b185d712.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="_static/pretext/js/pretext-webwork/2.20/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="changeme" class="pretext book ignore-math">
@@ -211,8 +146,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_vlt" class="internal"><span class="title">Vertical line test</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_relations" class="internal"><span class="title">Functions and relations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ss_func_model" class="internal"><span class="title">Modeling with functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">WeBWorK exercises</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#s_func_ex" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_func.html#ex_func" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -238,23 +172,23 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="s_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
+<div class="toc-title-box"><a href="sec_algebraic_func.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Algebraic functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func.html#s_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func.html#ss_alg_func" class="internal"><span class="title">Algebraic functions</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#sec_algebraic_func-3" class="internal"><span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_power" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_poly" class="internal"><span class="title">Polynomial functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_rational" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func.html#ss_alg_func" class="internal"><span class="title">Algebraic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_algebraic_func.html#exs_algebraic_func" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="s_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
+<div class="toc-title-box"><a href="sec_algebraic_func_II.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Algebraic functions: continued</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_lo_alg" class="internal"><span class="title">Learning objectives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_power_func_II" class="internal"><span class="title">Power functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_polynomials" class="internal"><span class="title">Polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_algebraic_func_II.html#ss_rational_funcs" class="internal"><span class="title">Rational functions</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -465,10 +399,15 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_func_comp"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_func_comp">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Function composition</span>
 </h2>
-<section class="introduction" id="sec_func_comp-2"><div class="para" id="sec_func_comp-2-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="subsection" id="sec_func_comp-3"><h3 class="heading hide-type">
+<section class="introduction" id="sec_func_comp-2">
+<div class="para" id="sec_func_comp-2-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section>
+<section class="subsection" id="sec_func_comp-3">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Learning Goals</span>
 </h3>
 <div class="para logical" id="sec_func_comp-3-2">
@@ -501,7 +440,10 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_func_comp-3" title="Copy heading and permalink for Subsection: Learning Goals" aria-label="Copy heading and permalink for Subsection: Learning Goals">🔗</a></div></section><section class="subsection" id="sec_func_comp-4"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection: Learning Goals"><a href="#sec_func_comp-3" title="Copy heading and permalink for Subsection: Learning Goals" aria-label="Copy heading and permalink for Subsection: Learning Goals">🔗</a></div>
+</section>
+<section class="subsection" id="sec_func_comp-4">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Motivation and Examples</span>
 </h3>
 <div class="para" id="sec_func_comp-4-2">Recall that a function, by definition, is a process that takes a collection of inputs and produces a corresponding collection of outputs in such a way that the process produces one and only one output value for any single input value. Because every function is a process, it makes sense to think that it may be possible to take two function processes and do one of the processes first, and then apply the second process to the result.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -526,7 +468,9 @@ C = g(F) = \frac{5}{9}(F-32)
 </h4>
 <div class="para" id="sec_func_comp-4-7-1-1">Using Dolbear’s model, what is the temperature in degrees Celsius assuming we observe crickets chirping at 80 chirps per minute?<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-4-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_func_comp-4-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="sec_func_comp-4-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="sec_func_comp-4-7-2-1">
 <div class="para">First, we compute that the temperature in degrees Fahrenheit is</div>
 <div class="displaymath process-math" id="sec_func_comp-4-7-2-1-1">
@@ -548,13 +492,18 @@ C = G(60) = \frac{5}{9}(60-32) = \frac{140}{9} =15\frac{5}{9}^\circ C\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-4-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.1.1"><a href="#sec_func_comp-4-7-2" title="Copy heading and permalink for Solution 1.7.1.1" aria-label="Copy heading and permalink for Solution 1.7.1.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.1"><a href="#sec_func_comp-4-7" title="Copy heading and permalink for Example 1.7.1" aria-label="Copy heading and permalink for Example 1.7.1">🔗</a></div></article><article class="example example-like" id="sec_func_comp-4-8"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.1"><a href="#sec_func_comp-4-7" title="Copy heading and permalink for Example 1.7.1" aria-label="Copy heading and permalink for Example 1.7.1">🔗</a></div>
+</article>
+<article class="example example-like" id="sec_func_comp-4-8"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_func_comp-4-8-1-1">Determine a formula for the new function <span class="process-math">\(C=h(N)\)</span> that takes as input the number <span class="process-math">\(N\)</span> of cricket chirps per minute and gives as output the temperature <span class="process-math">\(C\)</span> in degrees Celsius.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-4-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_func_comp-4-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="sec_func_comp-4-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="sec_func_comp-4-8-2-1">
 <div class="para">Using <span class="process-math">\(F=f(N)\)</span> as the input for the function <span class="process-math">\(C=g(F)\text{,}\)</span> we simplify to find a formula directly from <span class="process-math">\(N\)</span> to <span class="process-math">\(C\)</span> that does not involve the variable <span class="process-math">\(F\text{:}\)</span>
 </div>
@@ -575,8 +524,13 @@ C = \frac{5}{9}(8+0.25N)\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-4-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.2.1"><a href="#sec_func_comp-4-8-2" title="Copy heading and permalink for Solution 1.7.2.1" aria-label="Copy heading and permalink for Solution 1.7.2.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.2"><a href="#sec_func_comp-4-8" title="Copy heading and permalink for Example 1.7.2" aria-label="Copy heading and permalink for Example 1.7.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Motivation and Examples"><a href="#sec_func_comp-4" title="Copy heading and permalink for Subsection: Motivation and Examples" aria-label="Copy heading and permalink for Subsection: Motivation and Examples">🔗</a></div></section><section class="subsection" id="sec_func_comp-5"><h3 class="heading hide-type">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.2"><a href="#sec_func_comp-4-8" title="Copy heading and permalink for Example 1.7.2" aria-label="Copy heading and permalink for Example 1.7.2">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Motivation and Examples"><a href="#sec_func_comp-4" title="Copy heading and permalink for Subsection: Motivation and Examples" aria-label="Copy heading and permalink for Subsection: Motivation and Examples">🔗</a></div>
+</section>
+<section class="subsection" id="sec_func_comp-5">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Function composition</span>
 </h3>
 <div class="para" id="sec_func_comp-5-2">The function <span class="process-math">\(h\)</span> explored in the examples above is called the <em class="emphasis">composition</em> of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> denoted <span class="process-math">\(h=g\circ f\text{.}\)</span> Let’s make this definition official.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -595,8 +549,12 @@ f\circ g\, (a)=f(g(a))\tag{1.52}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_func_comp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.7.3: Function composition"><a href="#d_func_comp" title="Copy heading and permalink for Definition 1.7.3: Function composition" aria-label="Copy heading and permalink for Definition 1.7.3: Function composition">🔗</a></div></article><figure class="figure figure-like" id="fig_comositionoffunctions"><div class="image-box" style="width: 93%; margin-left: 3.5%; margin-right: 3.5%;"><img src="external/CompositionOfFunctions.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The composition <span class="process-math">\((f\circ g)(x) = f(g(x))\)</span> uses the outputs <span class="process-math">\(g(x)\)</span> of <span class="process-math">\(g\)</span> as the inputs of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Figure 1.7.4"><a href="#fig_comositionoffunctions" title="Copy heading and permalink for Figure 1.7.4" aria-label="Copy heading and permalink for Figure 1.7.4">🔗</a></div></figcaption></figure><article class="remark remark-like" id="sec_func_comp-5-5"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.7.3: Function composition"><a href="#d_func_comp" title="Copy heading and permalink for Definition 1.7.3: Function composition" aria-label="Copy heading and permalink for Definition 1.7.3: Function composition">🔗</a></div>
+</article>
+<figure class="figure figure-like" id="fig_comositionoffunctions"><div class="image-box" style="width: 93%; margin-left: 3.5%; margin-right: 3.5%;"><img src="external/CompositionOfFunctions.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The composition <span class="process-math">\((f\circ g)(x) = f(g(x))\)</span> uses the outputs <span class="process-math">\(g(x)\)</span> of <span class="process-math">\(g\)</span> as the inputs of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Figure 1.7.4"><a href="#fig_comositionoffunctions" title="Copy heading and permalink for Figure 1.7.4" aria-label="Copy heading and permalink for Figure 1.7.4">🔗</a></div></figcaption>
+</figure>
+<article class="remark remark-like" id="sec_func_comp-5-5"><h4 class="heading">
 <span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Function composition.</span>
 </h4>
 <div class="para" id="sec_func_comp-5-5-2">Observe the important condition in the setup of a composition of two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{:}\)</span> we need the range of <span class="process-math">\(g\)</span> to be a subset of the domain of <span class="process-math">\(f\text{.}\)</span> Let’s think through why this must be the case.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -612,7 +570,9 @@ h(x)=f(g(x))\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.7.5: Function composition"><a href="#sec_func_comp-5-5" title="Copy heading and permalink for Remark 1.7.5: Function composition" aria-label="Copy heading and permalink for Remark 1.7.5: Function composition">🔗</a></div></article><article class="warning remark-like" id="sec_func_comp-5-6"><h4 class="heading">
+<div class="autopermalink" data-description="Remark 1.7.5: Function composition"><a href="#sec_func_comp-5-5" title="Copy heading and permalink for Remark 1.7.5: Function composition" aria-label="Copy heading and permalink for Remark 1.7.5: Function composition">🔗</a></div>
+</article>
+<article class="warning remark-like" id="sec_func_comp-5-6"><h4 class="heading">
 <span class="type">Warning</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition is not multiplication.</span>
 </h4>
 <div class="para logical" id="sec_func_comp-5-6-2">
@@ -626,7 +586,9 @@ f\cdot g\, (x) \amp =f(x)g(x)\text{,}
 <div class="para">which are by no means the same thing.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Warning 1.7.6: Composition is not multiplication"><a href="#sec_func_comp-5-6" title="Copy heading and permalink for Warning 1.7.6: Composition is not multiplication" aria-label="Copy heading and permalink for Warning 1.7.6: Composition is not multiplication">🔗</a></div></article><article class="example example-like" id="eg_comp_evaluation_form"><h4 class="heading">
+<div class="autopermalink" data-description="Warning 1.7.6: Composition is not multiplication"><a href="#sec_func_comp-5-6" title="Copy heading and permalink for Warning 1.7.6: Composition is not multiplication" aria-label="Copy heading and permalink for Warning 1.7.6: Composition is not multiplication">🔗</a></div>
+</article>
+<article class="example example-like" id="eg_comp_evaluation_form"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition: evaluation and formulas.</span>
 </h4>
 <div class="para logical" id="eg_comp_evaluation_form-2-1">
@@ -646,7 +608,9 @@ f\cdot g\, (x) \amp =f(x)g(x)\text{,}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_evaluation_form-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_comp_evaluation_form-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_comp_evaluation_form-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_comp_evaluation_form-3-1">
 <ol class="decimal" id="eg_comp_evaluation_form-3-1-1">
 <li id="eg_comp_evaluation_form-3-1-1-1">
@@ -689,8 +653,11 @@ h(x) \amp =f(g(x))\\
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_evaluation_form-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.7.1"><a href="#eg_comp_evaluation_form-3" title="Copy heading and permalink for Solution 1.7.7.1" aria-label="Copy heading and permalink for Solution 1.7.7.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.7: Composition: evaluation and formulas"><a href="#eg_comp_evaluation_form" title="Copy heading and permalink for Example 1.7.7: Composition: evaluation and formulas" aria-label="Copy heading and permalink for Example 1.7.7: Composition: evaluation and formulas">🔗</a></div></article><article class="example example-like" id="eg_func_comp_order"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.7: Composition: evaluation and formulas"><a href="#eg_comp_evaluation_form" title="Copy heading and permalink for Example 1.7.7: Composition: evaluation and formulas" aria-label="Copy heading and permalink for Example 1.7.7: Composition: evaluation and formulas">🔗</a></div>
+</article>
+<article class="example example-like" id="eg_func_comp_order"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition: order matters.</span>
 </h4>
 <div class="para logical" id="eg_func_comp_order-2-1">
@@ -716,7 +683,9 @@ f\colon \R \amp \rightarrow \R \amp g\colon \R\amp \rightarrow \R
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_order-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_func_comp_order-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_func_comp_order-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_func_comp_order-3-1">
 <ol class="decimal" id="eg_func_comp_order-3-1-1">
 <li id="eg_func_comp_order-3-1-1-1">
@@ -739,7 +708,7 @@ g\circ f\, (x) \amp =g(f(x))\\
 <div class="autopermalink" data-description="Item 1"><a href="#eg_func_comp_order-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
 <li id="eg_func_comp_order-3-1-1-2">
-<div class="para" id="eg_func_comp_order-3-1-1-2-1">From the above we see that <span class="process-math">\(f\circ g\)</span> and <span class="process-math">\(g\circ f\)</span> are both quadratic polynomials. Recall that two polynomials of the same degree are equal as functions if and only if their coefficients are all equal. (See <a href="s_algebraic_func_II.html#cor_poly_equality" class="xref" data-knowl="./knowl/xref/cor_poly_equality.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.5.26: Polynomial equality">Corollary 1.5.26</a>.) Comparing coefficients above, we see easily that <span class="process-math">\(f\circ g\ne g\circ f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_order-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="eg_func_comp_order-3-1-1-2-1">From the above we see that <span class="process-math">\(f\circ g\)</span> and <span class="process-math">\(g\circ f\)</span> are both quadratic polynomials. Recall that two polynomials of the same degree are equal as functions if and only if their coefficients are all equal. (See <a href="sec_algebraic_func_II.html#cor_poly_equality" class="xref" data-knowl="./knowl/xref/cor_poly_equality.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.5.26: Polynomial equality">Corollary 1.5.26</a>.) Comparing coefficients above, we see easily that <span class="process-math">\(f\circ g\ne g\circ f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_order-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="eg_func_comp_order-3-1-1-2-2">Moral of the story: the order of composition matters! That is, the function <span class="process-math">\(f\circ g\)</span> is not necessarily the same as <span class="process-math">\(g\circ f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_order-3-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -749,8 +718,11 @@ g\circ f\, (x) \amp =g(f(x))\\
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_order-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.8.1"><a href="#eg_func_comp_order-3" title="Copy heading and permalink for Solution 1.7.8.1" aria-label="Copy heading and permalink for Solution 1.7.8.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.8: Composition: order matters"><a href="#eg_func_comp_order" title="Copy heading and permalink for Example 1.7.8: Composition: order matters" aria-label="Copy heading and permalink for Example 1.7.8: Composition: order matters">🔗</a></div></article><article class="remark remark-like" id="sec_func_comp-5-9"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.8: Composition: order matters"><a href="#eg_func_comp_order" title="Copy heading and permalink for Example 1.7.8: Composition: order matters" aria-label="Copy heading and permalink for Example 1.7.8: Composition: order matters">🔗</a></div>
+</article>
+<article class="remark remark-like" id="sec_func_comp-5-9"><h4 class="heading">
 <span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inner/outer function.</span>
 </h4>
 <div class="para logical" id="sec_func_comp-5-9-2">
@@ -766,7 +738,9 @@ h(x)=\overset{\text{outer}}{\overbrace{f(\underset{\text{inner}}{\underbrace{g(x
 </div>
 <div class="para" id="sec_func_comp-5-9-3">This sequential way of looking at composition is especially helpful when trying to describe a given function <span class="process-math">\(h\)</span> as a composition <span class="process-math">\(h=f\circ g\)</span> of two functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.7.9: Inner/outer function"><a href="#sec_func_comp-5-9" title="Copy heading and permalink for Remark 1.7.9: Inner/outer function" aria-label="Copy heading and permalink for Remark 1.7.9: Inner/outer function">🔗</a></div></article><article class="example example-like" id="eg_h_comp"><h4 class="heading">
+<div class="autopermalink" data-description="Remark 1.7.9: Inner/outer function"><a href="#sec_func_comp-5-9" title="Copy heading and permalink for Remark 1.7.9: Inner/outer function" aria-label="Copy heading and permalink for Remark 1.7.9: Inner/outer function">🔗</a></div>
+</article>
+<article class="example example-like" id="eg_h_comp"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Expressing functions as compositions.</span>
 </h4>
 <div class="para logical" id="eg_h_comp-2-1">
@@ -788,7 +762,9 @@ h(x)=\overset{\text{outer}}{\overbrace{f(\underset{\text{inner}}{\underbrace{g(x
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_h_comp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_h_comp-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_h_comp-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_h_comp-3-1">
 <ol class="decimal" id="eg_h_comp-3-1-1">
 <li id="eg_h_comp-3-1-1-1">
@@ -827,14 +803,18 @@ f(g(x)) \amp =f(3x-7) \amp (g(x)=3x-7)\\
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_h_comp-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.10.1"><a href="#eg_h_comp-3" title="Copy heading and permalink for Solution 1.7.10.1" aria-label="Copy heading and permalink for Solution 1.7.10.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.10: Expressing functions as compositions"><a href="#eg_h_comp" title="Copy heading and permalink for Example 1.7.10: Expressing functions as compositions" aria-label="Copy heading and permalink for Example 1.7.10: Expressing functions as compositions">🔗</a></div></article><div class="para" id="sec_func_comp-5-11">The next two examples illustrate how to compute values of a composition of functions when the function information is provided by tables or graphs.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.10: Expressing functions as compositions"><a href="#eg_h_comp" title="Copy heading and permalink for Example 1.7.10: Expressing functions as compositions" aria-label="Copy heading and permalink for Example 1.7.10: Expressing functions as compositions">🔗</a></div>
+</article>
+<div class="para" id="sec_func_comp-5-11">The next two examples illustrate how to compute values of a composition of functions when the function information is provided by tables or graphs.<div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-5-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_func_comp_tables"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition: using tables.</span>
 </h4>
 <div class="para" id="eg_func_comp_tables-2-1">Suppose that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are given by the table<div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_tables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="image-box" style="width: 28%; margin-left: 36%; margin-right: 36%;"><img src="external/APCTable1-6-3.png" class="contained"></div> <div class="para logical" id="eg_func_comp_tables-2-3">
+</div> <div class="image-box" style="width: 28%; margin-left: 36%; margin-right: 36%;"><img src="external/APCTable1-6-3.png" class="contained"></div> 
+<div class="para logical" id="eg_func_comp_tables-2-3">
 <ol class="decimal" id="eg_func_comp_tables-2-3-1">
 <li id="eg_func_comp_tables-2-3-1-1">
 <div class="para logical" id="eg_func_comp_tables-2-3-1-1-1">
@@ -876,7 +856,9 @@ f(g(x)) \amp =f(3x-7) \amp (g(x)=3x-7)\\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_tables-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_func_comp_tables-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_func_comp_tables-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_func_comp_tables-3-1">
 <ol class="decimal" id="eg_func_comp_tables-3-1-1">
 <li id="eg_func_comp_tables-3-1-1-1">
@@ -916,12 +898,16 @@ g\circ f\, (2) \amp = g(f(2))\\
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_func_comp_tables-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.11.1"><a href="#eg_func_comp_tables-3" title="Copy heading and permalink for Solution 1.7.11.1" aria-label="Copy heading and permalink for Solution 1.7.11.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.11: Composition: using tables"><a href="#eg_func_comp_tables" title="Copy heading and permalink for Example 1.7.11: Composition: using tables" aria-label="Copy heading and permalink for Example 1.7.11: Composition: using tables">🔗</a></div></article><article class="example example-like" id="eg_comp_graphs"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.11: Composition: using tables"><a href="#eg_func_comp_tables" title="Copy heading and permalink for Example 1.7.11: Composition: using tables" aria-label="Copy heading and permalink for Example 1.7.11: Composition: using tables">🔗</a></div>
+</article>
+<article class="example example-like" id="eg_comp_graphs"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition: using graphs.</span>
 </h4>
 <div class="para" id="eg_comp_graphs-2-1">The graphs of functions <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are given below.<div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_graphs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/APCFigure1-6-4.png" class="contained"></div> <div class="para logical" id="eg_comp_graphs-2-3">
+</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/APCFigure1-6-4.png" class="contained"></div> 
+<div class="para logical" id="eg_comp_graphs-2-3">
 <div class="para">Compute the following function values.</div>
 <ol class="decimal" id="eg_comp_graphs-2-3-1">
 <li id="eg_comp_graphs-2-3-1-1">
@@ -945,7 +931,9 @@ g\circ f\, (2) \amp = g(f(2))\\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_graphs-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_comp_graphs-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_comp_graphs-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_comp_graphs-3-1">
 <ol class="decimal" id="eg_comp_graphs-3-1-1">
 <li id="eg_comp_graphs-3-1-1-1">
@@ -994,8 +982,13 @@ p\circ p\, (-3/2) \amp = p(p(-3/2))\\
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_graphs-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.12.1"><a href="#eg_comp_graphs-3" title="Copy heading and permalink for Solution 1.7.12.1" aria-label="Copy heading and permalink for Solution 1.7.12.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.12: Composition: using graphs"><a href="#eg_comp_graphs" title="Copy heading and permalink for Example 1.7.12: Composition: using graphs" aria-label="Copy heading and permalink for Example 1.7.12: Composition: using graphs">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Function composition"><a href="#sec_func_comp-5" title="Copy heading and permalink for Subsection: Function composition" aria-label="Copy heading and permalink for Subsection: Function composition">🔗</a></div></section><section class="subsection" id="sec_func_comp-6"><h3 class="heading hide-type">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.12: Composition: using graphs"><a href="#eg_comp_graphs" title="Copy heading and permalink for Example 1.7.12: Composition: using graphs" aria-label="Copy heading and permalink for Example 1.7.12: Composition: using graphs">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Function composition"><a href="#sec_func_comp-5" title="Copy heading and permalink for Subsection: Function composition" aria-label="Copy heading and permalink for Subsection: Function composition">🔗</a></div>
+</section>
+<section class="subsection" id="sec_func_comp-6">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implied domain of compositions</span>
 </h3>
 <div class="para logical" id="sec_func_comp-6-2">
@@ -1028,7 +1021,9 @@ D=\{x\in \R \mid g \text{ defined at } x\}\cap \{x\in \R \mid f \text{ defined a
 </h4>
 <div class="para" id="eg_comp_implied_domain-2-1">Let <span class="process-math">\(f(x)=1/x\)</span> and <span class="process-math">\(g(x)=\sqrt{x+1}\text{.}\)</span> Find the implied domain of <span class="process-math">\(f\circ g\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_implied_domain-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_comp_implied_domain-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_comp_implied_domain-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para" id="eg_comp_implied_domain-3-1">The implied domain of <span class="process-math">\(f\circ g\)</span> is the set of <span class="process-math">\(x\)</span> where <span class="process-math">\(g(x)=\sqrt{x+1}\)</span> is defined <em class="emphasis">and</em> where <span class="process-math">\(f(g(x))=1/\sqrt{x+1}\)</span> is defined.<div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_implied_domain-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="eg_comp_implied_domain-3-2">For <span class="process-math">\(g(x)=\sqrt{x+1}\)</span> to be defined, we need <span class="process-math">\(x+1\geq 0\text{,}\)</span> or equivalently <span class="process-math">\(x\geq -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_implied_domain-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1038,8 +1033,11 @@ D=\{x\in \R \mid g \text{ defined at } x\}\cap \{x\in \R \mid f \text{ defined a
 <div class="para" id="eg_comp_implied_domain-3-4">Thus both conditions are satisfied if and only if <span class="process-math">\(x\in [-1,\infty)\)</span> and <span class="process-math">\(x\ne -1\text{.}\)</span> In other words, the implied domain of <span class="process-math">\(f\circ g\)</span> is <span class="process-math">\((-1,\infty)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_implied_domain-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.13.1"><a href="#eg_comp_implied_domain-3" title="Copy heading and permalink for Solution 1.7.13.1" aria-label="Copy heading and permalink for Solution 1.7.13.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.13: Composition: implied domain"><a href="#eg_comp_implied_domain" title="Copy heading and permalink for Example 1.7.13: Composition: implied domain" aria-label="Copy heading and permalink for Example 1.7.13: Composition: implied domain">🔗</a></div></article><article class="example example-like" id="eg_comp_implied_domain_2"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.13: Composition: implied domain"><a href="#eg_comp_implied_domain" title="Copy heading and permalink for Example 1.7.13: Composition: implied domain" aria-label="Copy heading and permalink for Example 1.7.13: Composition: implied domain">🔗</a></div>
+</article>
+<article class="example example-like" id="eg_comp_implied_domain_2"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition: implied domain.</span>
 </h4>
 <div class="para logical" id="eg_comp_implied_domain_2-2-1">
@@ -1059,7 +1057,9 @@ D=\{x\in \R \mid g \text{ defined at } x\}\cap \{x\in \R \mid f \text{ defined a
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_implied_domain_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_comp_implied_domain_2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_comp_implied_domain_2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_comp_implied_domain_2-3-1">
 <ol class="decimal" id="eg_comp_implied_domain_2-3-1-1">
 <li id="eg_comp_implied_domain_2-3-1-1-1">
@@ -1090,8 +1090,11 @@ D=\{x\in \R \mid g \text{ defined at } x\}\cap \{x\in \R \mid f \text{ defined a
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_comp_implied_domain_2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.7.14.1"><a href="#eg_comp_implied_domain_2-3" title="Copy heading and permalink for Solution 1.7.14.1" aria-label="Copy heading and permalink for Solution 1.7.14.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.7.14: Composition: implied domain"><a href="#eg_comp_implied_domain_2" title="Copy heading and permalink for Example 1.7.14: Composition: implied domain" aria-label="Copy heading and permalink for Example 1.7.14: Composition: implied domain">🔗</a></div></article><article class="warning remark-like" id="sec_func_comp-6-5"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.7.14: Composition: implied domain"><a href="#eg_comp_implied_domain_2" title="Copy heading and permalink for Example 1.7.14: Composition: implied domain" aria-label="Copy heading and permalink for Example 1.7.14: Composition: implied domain">🔗</a></div>
+</article>
+<article class="warning remark-like" id="sec_func_comp-6-5"><h4 class="heading">
 <span class="type">Warning</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composition: implied domain.</span>
 </h4>
 <div class="para logical" id="sec_func_comp-6-5-2">
@@ -1107,7 +1110,11 @@ h(x) \amp =f(g(x))\\
 <div class="para">suggesting that the implied domain of <span class="process-math">\(h=f\circ g\)</span> should be <span class="process-math">\(\R\text{.}\)</span> How do we reconcile these two different conclusions? Here’s how: the steps in the algebra above used to compute the formula for <span class="process-math">\(h\)</span> are only valid for inputs <span class="process-math">\(x\)</span> where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are defined in the first place! In other words, our identity <span class="process-math">\(h(x)=x\)</span> is itself only true for <span class="process-math">\(x\ne 0\text{,}\)</span> and this is consistent with our determination of the implied domain.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_func_comp-6-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Warning 1.7.15: Composition: implied domain"><a href="#sec_func_comp-6-5" title="Copy heading and permalink for Warning 1.7.15: Composition: implied domain" aria-label="Copy heading and permalink for Warning 1.7.15: Composition: implied domain">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Implied domain of compositions"><a href="#sec_func_comp-6" title="Copy heading and permalink for Subsection: Implied domain of compositions" aria-label="Copy heading and permalink for Subsection: Implied domain of compositions">🔗</a></div></section><div class="autopermalink" data-description="Section 1.7: Function composition"><a href="#sec_func_comp" title="Copy heading and permalink for Section 1.7: Function composition" aria-label="Copy heading and permalink for Section 1.7: Function composition">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Warning 1.7.15: Composition: implied domain"><a href="#sec_func_comp-6-5" title="Copy heading and permalink for Warning 1.7.15: Composition: implied domain" aria-label="Copy heading and permalink for Warning 1.7.15: Composition: implied domain">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Implied domain of compositions"><a href="#sec_func_comp-6" title="Copy heading and permalink for Subsection: Implied domain of compositions" aria-label="Copy heading and permalink for Subsection: Implied domain of compositions">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 1.7: Function composition"><a href="#sec_func_comp" title="Copy heading and permalink for Section 1.7: Function composition" aria-label="Copy heading and permalink for Section 1.7: Function composition">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_func_transf.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_solvinginequalities.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
