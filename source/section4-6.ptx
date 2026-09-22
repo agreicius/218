@@ -38,24 +38,24 @@
     </p>
     <p>
       For instance, let's consider the function
-      <me>
+      <md>
         h(x) = \sqrt{x^2+1}
-      </me>
+      </md>
       and observe that any input <m>x</m> passes through a
       <em>chain</em> of functions.
       In the process that defines the function <m>h(x)</m>,
       <m>x</m> is squared and increased by 1, and then the square root of the result is taken.
       Using an arrow diagram,
-      <me>
+      <md>
         x \rightarrow  x^2+1 \rightarrow  \sqrt{x^2+1}
-      </me>.
+      </md>.
       In terms of the elementary functions
       <m>f(x)   = \sqrt{x}</m> and <m>g(x) = x^2+1</m>,
       we observe that <m>x</m> is the input for the function <m>g</m> and the output of <m>g</m> is used as the input for <m>f</m>.
       We write
-      <me>
+      <md>
         h(x) = f(g(x)) =\sqrt{x^2+1}
-      </me>
+      </md>
       and say that <m>h</m> is the <em>composition</em>
       of <m>f</m> and <m>g</m>.
       We will refer to <m>g</m>,
@@ -99,9 +99,9 @@
     </p>
     <p>
       We arrive at the answer by using a product:
-      <me>
+      <md>
         300\ \frac{\text{ dollars } }{\text{ hour } }=\left(10\ \frac{\text{ dollars } }{\text{ pumpkin } }\right)\cdot\left(30\ \frac{\text{ pumpkins } }{\text{ hour } }\right)
-      </me>
+      </md>
     </p>
     <p>
       Let's now relate this to derivatives and composition of functions.
@@ -117,9 +117,9 @@
       along with which variable is used for the derivative!
       Repeating our previous calculation,
       we can relate the derivatives of the composition <m>m(p(t))</m> to the derivatives of <m>m(p)</m> and <m>p(t)</m>:
-      <me>
+      <md>
         \frac{dm}{dt} = \left(\frac{dm}{dp}\right)\cdot \left(\frac{dp}{dt}\right)
-      </me>
+      </md>
     </p>
     <p>
       If we take a closer look at the Leibniz notation,
@@ -138,15 +138,15 @@
       In other words,
       we are taking pumpkins <m>p(t)</m> and getting out the change in money <m>m'</m>.
       In prime notation,
-      <me>
+      <md>
         \frac{dm}{dp} = m'(p) = m'(p(t))
-      </me>
+      </md>
     </p>
     <p>
       So the computation that we did in computing <m>300\text{ dollars/hour }  = (10\text{ dollars/pumpkin } )\times (30\text{ pumpkins/hour } )</m> was actually
-      <me>
+      <md>
         \big[m(p(t))\big]' = m'(p(t))\cdot p'(t)
-      </me>
+      </md>
     </p>
   </subsection>
   <subsection>
@@ -159,17 +159,17 @@
           Then for all values of <m>x</m> at which <m>u</m> is differentiable at <m>x</m> and <m>f</m> is differentiable at <m>u(x)</m>,
           the derivative of <m>f</m> with respect to <m>x</m> is equal to the product of the derivative of <m>f</m> with respect to <m>u</m> and the derivative of <m>u</m> with respect to <m>x</m>.
           In Leibniz notation, we write this as
-          <me>
+          <md>
             \frac{df}{dx}=\frac{df}{du}\cdot\frac{du}{dx}
-          </me>
+          </md>
         </p>
         <p>
           In
           <q>prime</q>
           notation, we write it as
-          <me>
+          <md>
             (f\circ u)'(x)=f'(u(x))\cdot u'(x)
-          </me>
+          </md>
         </p>
       </statement>
     </theorem>
@@ -179,30 +179,30 @@
           Consider the function <m>f(x) = (x^4+5x)^3</m>.
           The "inner" function is <m>u(x) = x^4+5x</m> while the "outer" function is <m>f(u) = u^3</m>.
           Taking the derivative of each:
-          <me>
+          <md>
             \frac{du}{dx} = u'(x) = 4x^3+5
-          </me>
+          </md>
           and
-          <me>
+          <md>
             \frac{df}{du} = f'(u) =  3u^2
-          </me>.
+          </md>.
         </p>
         <p>
           We will need to use <m>f'(u(x))</m> in the chain rule,
           not just <m>f'(u)</m>.
           Substituting <m>u=x^4+5x</m> into <m>f'(u)</m> results in
-          <me>
+          <md>
             f'(u(x)) = 3(x^4+5x)^2
-          </me>.
+          </md>.
         </p>
         <p>
           Putting all of this together in the whole chain rule,
           the derivative of <m>f(x)</m> is
-          <me>
+          <md>
             <md>
               \frac{df}{dx} \amp = \frac{df}{du}\cdot\frac{du}{dx} \amp  \leftarrow \text{ Chain Rule } \\ \amp = (3u^2)\cdot (4x^3+5) \amp  \leftarrow \frac{df}{du} = 3u^2\text{ and } \frac{du}{dx} = 4x^3+5\\ \amp = 3(x^4+5x)^2 \cdot (4x^3+5) \amp  \leftarrow \text{ Substitute } u=x^4+5x
             </md>
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -215,27 +215,27 @@
           The function <m>h(x) =\sqrt{x^2+1} = (x^2+1)^{1/2}</m> is a composition of the outer function
           <m>f(u)=\sqrt{u}=u^{1/2}</m> with the inner function <m>u(x)=x^2+1</m>.
           The chain rule says that we should take the derivative of the outside function <m>f</m> with respect to <m>u</m> and then multiply the result by the derivative of the inside function:
-          <me>
+          <md>
             h'(x) =\frac{df}{du}\cdot\frac{du}{dx}= f'(u(x))\cdot u'(x)
-          </me>
+          </md>
         </p>
         <p>
           First let's calculate the derivatives of <m>f</m> and <m>u</m>,
           then put them into the formula.
-          <me>
+          <md>
             \frac{df}{du}=f'(u) = \frac{1}{2}u^{-1/2}
-          </me>
+          </md>
           and
-          <me>
+          <md>
             \frac{du}{dx} = u'(x)  = 2x
-          </me>.
+          </md>.
           We don't want our derivative in terms of <m>u</m>'s, however,
           so we will substitute the function <m>u=x^2+1</m> into our final answer:
-          <me>
+          <md>
             <md>
               h'(x)\amp =f'(u(x))\cdot u'(x)\amp  \leftarrow \text{ Chain Rule } \\ \amp =\frac{1}{2}(u)^{-1/2}\cdot(2x)\amp  \leftarrow f'(u) = \frac{1}{2}u^{-1/2}\text{ and } u'(x)  = 2x\\ \amp =\frac{1}{2}(x^2+1)^{-1/2}(2x). \amp  \leftarrow \text{ Substitute } u=x^2+1
             </md>
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -284,24 +284,24 @@
         <p>
           Let <m>h(x) = f(g(x))</m> and <m>k(x) = g(f(x))</m>.
           Evaluate (a) <m>h'(1)</m> and (b) <m>k'(1)</m> given that
-          <me>
+          <md>
             f(1) = 1, f'(0) = 0,  f'(1) = 3, g(1)=0,  g'(1) = 1
-          </me>.
+          </md>.
           <ol>
             <li>
               <p>
                 The chain rule tells us that <m>h'(x) = f'(g(x))\cdot g'(x)</m>, so
-                <me>
+                <md>
                   \begin{aligned}h'(1) \amp =  f'(g(1))\cdot g'(1)\\ \amp = f'(0)\cdot g'(1)\\ \amp = 0\cdot 1\\ \amp =0. \end{aligned}
-                </me>
+                </md>
               </p>
             </li>
             <li>
               <p>
                 The chain rule tells us that <m>k'(x) = g'(f(x))\cdot f'(x)</m>, so
-                <me>
+                <md>
                   \begin{aligned}k'(1) \amp = g'(f(1))\cdot f'(1)\\ \amp = g'(1)\cdot f'(1)\\ \amp = 1\cdot 3\\ \amp = 3. \end{aligned}
-                </me>
+                </md>
               </p>
             </li>
           </ol>
@@ -330,9 +330,9 @@
           <m>u'(x) = 8x+3</m> and <m>f'(u) = 9u^8</m>,
           so that <m>f'(u(x)) = f'(4x^2+3x) = 9(4x^2+3x)^8</m>.
           Then
-          <me>
+          <md>
             \begin{aligned}y' \amp = f'(u(x)) u'(x)\\ \amp =9(u(x))^8 (8x+3)\\ \amp = 9(4x^2+3x)^8(8x+3) \end{aligned}
-          </me>
+          </md>
         </p>
       </solution>
     </example>
@@ -345,9 +345,9 @@
       <solution>
         <p>
           First we notice that we can rewrite
-          <me>
+          <md>
             y=\dfrac{1}{(4x^2+3x)^9} = (4x^2+3x)^{-9}
-          </me>
+          </md>
           so that we DO NOT have to use the quotient rule.
           Yay!
         </p>
@@ -356,9 +356,9 @@
           <m>u'(x) = 8x+3</m> and <m>f'(u) = -9u^{-10}</m>,
           so that <m>f'(u(x)) = f'(4x^2+3x) = -9(4x^2+3x)^{-10}</m>.
           Then
-          <me>
+          <md>
             \begin{aligned}y' \amp = f'(u(x)) u'(x)\\ \amp =-9(u(x))^{-10} (8x+3)\\ \amp = -9(4x^2+3x)^{-10}(8x+3)\\ \amp = \frac{-9(8x+3)}{(4x^2+3x)^{10}} \end{aligned}
-          </me>
+          </md>
         </p>
       </solution>
     </example>
@@ -392,13 +392,13 @@
       <statement>
         <p>
           The derivative of
-          <me>
+          <md>
             y = (x^3+4x^2+5)^7
-          </me>
+          </md>
           is
-          <me>
+          <md>
             y' = 7(x^3+4x^2+5)^6\ (3x^2+8x)
-          </me>
+          </md>
           where the outside function is <m>f(u) = u^7</m> with derivative
           <m>f'(u) = 7u^6</m> and the inside function is
           <m>u(x) = x^3+4x^2+5</m> with derivative <m>u'(x) = 3x^2+8x</m>.
@@ -409,13 +409,13 @@
       <statement>
         <p>
           The derivative of
-          <me>
+          <md>
             y=\sqrt[3]{5-2x}
-          </me>
+          </md>
           is
-          <me>
+          <md>
             y' = \frac{1}{3}(5-2x)^{-2/3}(-2) = \frac{-2}{(5-2x)^{2/3}}
-          </me>.
+          </md>.
           where the outside function is <m>f(u) = \sqrt[3]{u} = u^{1/3}</m> with derivative
           <m>f'(u) = \frac{1}{3}u^{-2/3}</m> and the inside function is
           <m>u(x) = 5-2x</m> with derivative <m>u'(x) = -2</m>.
@@ -426,13 +426,13 @@
       <statement>
         <p>
           The derivative of
-          <me>
+          <md>
             y=4(2x+1)^3+5x
-          </me>
+          </md>
           is
-          <me>
+          <md>
             y' = 4(3)(2x+1)^2\cdot(2)+5 = 24(2x+1)^2+5
-          </me>
+          </md>
         </p>
         <p>
           We use the chain rule in the first term,
@@ -448,13 +448,13 @@
       <statement>
         <p>
           The derivative of
-          <me>
+          <md>
             y = \frac{3}{\sqrt{x^2-1}} = 3(x^2-1)^{-1/2}
-          </me>
+          </md>
           is
-          <me>
+          <md>
             y' = 3\left(-\frac{1}{2}\right)(x^2-1)^{-3/2}\ (2x) = \frac{-3}{(x^2-1)^{3/2}}
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -488,11 +488,11 @@
           You found in the previous exercise that the derivative of
           <m>(2x-1)^3</m> is <m>3(2x-1)^2\cdot (2) = 6(2x-1)^2</m>.
           Putting these together and simplifying, we have
-          <me>
+          <md>
             <md>
               y'\amp  = \frac{1}{2}\left(1+(2x-1)^3\right)^{-1/2}\cdot 3(2x-1)^2\cdot (2) \\ \amp = \frac{(3)(2)(2x-1)^2}{2\left(1+(2x-1)^3\right)^{1/2}}\\ \amp =\frac{3(2x-1)^2}{\sqrt{1+(2x-1)^3}}
             </md>
-          </me>
+          </md>
         </p>
         <p>
           Note that some 2's cancel.
@@ -511,9 +511,9 @@
       <statement>
         <p>
           Find the derivative of
-          <me>
+          <md>
             h(x) = (x^2-1)^5(3x-1)^2
-          </me>
+          </md>
         </p>
       </statement>
       <solution>
@@ -521,41 +521,41 @@
           The function <m>h(x)</m> at its outermost layer is a product of <m>(x^2-1)^5</m> and <m>(3x-1)^2</m>.
           We begin by applying the product rule,
           using Leibniz notation to denote derivatives that we have not yet computed:
-          <me>
+          <md>
             h'(x) = \frac{d}{dx}\Big[(x^2-1)^5\Big]\cdot (3x-1)^2 + (x^2-1)^5\cdot \frac{d}{dx}\Big[(3x-1)^2\Big]
-          </me>
+          </md>
         </p>
         <p>
           We must use the chain rule to find the derivatives
           <m>\frac{d}{dx}\left[(x^2-1)^5\right]</m> and <m>\frac{d}{dx}\left[(3x-1)^2\right]</m>:
-          <me>
+          <md>
             \frac{d}{dx}\left[(x^2-1)^5\right] = 5(x^2-1)^4(2x)
-          </me>
-          <me>
+          </md>
+          <md>
             \frac{d}{dx}\left[(3x-1)^2\right] = 2(3x-1)^1(3)
-          </me>
+          </md>
         </p>
         <p>
           Putting these into the product rule that we already started, we have
-          <me>
+          <md>
             \begin{aligned}h'(x) \amp = \frac{d}{dx}\Big[(x^2-1)^5\Big]\cdot (3x-1)^2 + (x^2-1)^5\cdot \frac{d}{dx}\Big[(3x-1)^2\Big]\\ \amp =\left(5(x^2-1)^4(2x)\right)\cdot (3x-1)^2+(x^2-1)^5\cdot \left(2(3x-1)^1(3)\right) \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           This expression can be simplified <em>substantially</em>.
           To do so, first notice that there are common factors of <m>2</m>,
           <m>(x^2-1)^4</m>,
           and <m>(3x-1)</m> in both terms that can be pulled out:
-          <me>
+          <md>
             \begin{aligned}h'(x) \amp =\left(5(x^2-1)^4(2x)\right)\cdot (3x-1)^2+(x^2-1)^5\cdot \left(2(3x-1)^1(3)\right)\\ \amp = 2(x^2-1)^4(3x-1)\left[5(x)(3x-1)+(x^2-1)(3)\right] \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Lastly, we can simplify the remaining expression inside the brackets,
           leaving the rest factored:
-          <me>
+          <md>
             \begin{aligned}h'(x) \amp = 2(x^2-1)^4(3x-1)\left[5(x)(3x-1)+(x^2-1)(3)\right]\\ \amp = 2(x^2-1)^4(3x-1)[15x^2-5x+3x^2-3]\\ \amp = 2(x^2-1)^4(3x-1)(18x^2-5x-3) \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           While simplifying to this final form is not essential (WeBWorK will not require you to simplify),
@@ -597,14 +597,14 @@
     </p>
     <p>
       Suppose we wish to take the derivative of
-      <me>
+      <md>
         h(x) = \frac{f(x)}{g(x)}
-      </me>
+      </md>
       but would rather not use the Quotient Rule.
       Instead, we can rewrite <m>h(x)</m> using a negative exponent with <m>g(x)</m>:
-      <me>
+      <md>
         h(x) = f(x)\cdot (g(x))^{-1}
-      </me>
+      </md>
     </p>
     <p>
       This is now a product of <m>f(x)</m> and <m>(g(x))^{-1}</m>,
@@ -612,18 +612,18 @@
       Carrying out these rules
       (in the proper order),
       we have
-      <me>
+      <md>
         \begin{aligned}h'(x) \amp = f'(x)\cdot (g(x))^{-1} + f(x)\cdot \left(-(g(x))^{-2}\cdot g'(x)\right)\\ \amp = \frac{f'(x)}{g(x)}-\frac{f(x)g'(x)}{g(x)^2} \end{aligned}
-      </me>
+      </md>
     </p>
     <p>
       In the second line,
       we have simplified by writing anything with a negative exponent in the denominator.
       Rewriting this as a single fraction via a common denominator of <m>g(x)^2</m>,
       we arrive at the Quotient Rule:
-      <me>
+      <md>
         \begin{aligned}h'(x) \amp =\frac{f'(x)\cdot g(x)}{g(x)\cdot g(x)}-\frac{f(x)g'(x)}{(g(x))^2}\\ \amp = \frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2} \end{aligned}
-      </me>
+      </md>
     </p>
   </subsection>
   <subsection>
