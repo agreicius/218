@@ -10,10 +10,11 @@
 \usepackage{esvect}
 \usepackage{pgfplots}
 \usepackage{xcolor}
+\usepackage{multicol}
 
 \title{Math 218-1 Workbook}
 \author{Aaron Greicius, Gabriela Laboska}
-\date{Last update: 09/21/2026}
+\date{Last update: 10/08/2026}
 
 \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 
@@ -2506,7 +2507,728 @@
 			\end{solution}
 			\end{enumerate}
 			
+			\newpage
 			
+				\section{Domains of Algebraic Functions}
+			\begin{enumerate}
+				\item Find the domain and zeroes of the following algebraic functions.
+				
+				\begin{enumerate}
+					\item $f(x)=\sqrt{|3-2x|-1}$
+					
+					\item $f(x)=\dfrac{(x-1)(x-4)}{\sqrt{x^2-4x+3}}$
+				
+					\item $f(x)=\dfrac{(x-1)^{3/2}-8}{x^2-6x+5}$
+					
+				\end{enumerate}
+				
+				\begin{solution}
+					\begin{itemize}
+						\item[(a)] 	To find the domain, we need to solve the inequality $|3-2x|-1\geq 0$, i.e. $|3-2x|\geq 1$. Hence, $3-2x\geq1$ or $3-2x\leq-1$. Solving these inequalities, we get $x\leq1$ or $x\geq2$. Thus, the domain of the function is $(-\infty,1]\cup[2,\infty)$.
+						
+						To find the zeroes, we need to solve the equation $\sqrt{|3-2x|-1}=0$, i.e. $|3-2x|-1=0$. 
+						\begin{align*}
+							|3-2x|-1=0 &\iff |3-2x|=1\\
+							&\iff 3-2x=1 \text{ or } 3-2x=-1\\
+							&\iff x=1 \text{ or } x=2
+						\end{align*}
+						Both 1 and 2 are in the domain, so both are zeroes of the function.
+						\item[(b)] To find the domain, we need to solve the inequality $x^2-4x+3>0$. Using a sign chart,
+						\[
+						\begin{tikzpicture}[scale=1]
+							\draw[->] (-5,0) -- (5,0);
+							
+							\draw (-2.5,0) node[circle,blue,fill,inner sep=2pt]{};
+							\draw (1.5,0) node[circle,blue,fill,inner sep=2pt]{};
+							%	\draw[blue, thick, fill=white] (0,0) circle (2.5pt);
+							
+							\node at (-2.5, .5) {1};
+							\node at (1.5, .5) {3};
+							%\node at (0, .5) {$0$};
+							%\node at (-5,.5) {$g\colon$};
+							\node at (-3.5,.5) {$+$};
+							\node at (-0.4,.5) {$-$};
+							\node at (3, .5) {$+$};
+						\end{tikzpicture}
+						\]
+						we conclude that the domain is $(-\infty,1)\cup(3,\infty)$.
+						
+						To find the zeroes, we need to solve the equation $f(x)=\dfrac{(x-1)(x-4)}{\sqrt{x^2-4x+3}}$, i.e., $(x-1)(x-4)=0\iff x=1 \text{ or } x=4$. But 1 is not in the domain of the function, so the only zero is 4.
+						\item[(c)] 	The domain of the function is all $x$ such that $x-1\geq 0\iff x\geq 1$ and such that $x^2-6x+5\neq 0$, i.e. $(1,5)\cup(5,\infty)$.
+						
+						To find the zeroes, we need to solve the equation $\dfrac{(x-1)^{3/2}-8}{x^2-6x+5}=0$, i.e., $(x-1)^{3/2}-8=0$.
+						\begin{align*}
+							(x-1)^{3/2}-8=0&\iff (x-1)^{3/2}=8\\
+							&\iff x-1=8^{2/3}\\
+							&\iff x-1=4\\
+							&\iff x=5
+						\end{align*}
+						But 5 is not in the domain of the function, so the function has no zeroes.
+					\end{itemize}
+				\end{solution}
+				
+				\item Determine which of the following statements are true and which are false. Justify your reasoning.
+				\begin{enumerate}
+					
+					\item If $f(x)=\sqrt{x-3}$, then the domain of $f$ is $[3,\infty)$.
+					
+					\item The function $f(x)=\sqrt[3]{x-5}$ has domain $[5,\infty)$.
+					
+					\item The domain of  $f(x)=\dfrac{\sqrt{4-x}}{x^2-5x+6}$ is $(-\infty,2)\cup(2,3)\cup(3,4].$
+					
+				\begin{solution}
+					\begin{itemize}
+						\item[(a)] True. The domain of the function is all real numbers such that $x-3\geq 0 \iff x\geq 3$, so the domain is $[3,\infty)$.
+						\item[(b)] False. The domain of the function is $\mathbb{R}$.
+						
+						\item[(c)] True. For the square root to be defined, we need $4-x\geq 0$, which gives $x\leq 4$. Also, the denominator cannot be zero, so $x^2-5x+6=(x-2)(x-3)\neq 0$. Thus, $ x\neq 2,x\neq 3.$ Therefore, the domain is $(-\infty,2)\cup(2,3)\cup(3,4]$.
+					\end{itemize}
+				\end{solution}	
+						
+				\end{enumerate}
+			
+				
+			\end{enumerate}
+			
+			
+			\newpage
+			
+			\section{Piecewise Defined Functions and Absolute Value}
+			\begin{enumerate}
+				\item Sketch the graph of the given function and evaluate it at $-1,0,1,2$.
+				\begin{enumerate}
+					\item $f(x)=
+					\begin{cases}
+						x^2+2, & x<1,\\
+						0, & x=1,\\
+						2x, & x>1.
+					\end{cases}$
+					
+					\item $f(x)=
+					\begin{cases}
+						\dfrac{1}{x}, & x\leq -1,\\
+						x, & -1<x\leq 2,\\
+						-2x+2, & x>2.
+					\end{cases}$
+					
+					\begin{solution}
+						\begin{itemize}
+							\item[(a)]
+							
+							\begin{tikzpicture}
+								\begin{axis}[
+									axis lines=middle,
+									xmin=-3, xmax=3,
+									ymin=-3, ymax=5,
+									xlabel={$x$},
+									ylabel={$y$},
+									xtick={-4,-3,-2,-1,0,1,2,3,4},
+									ytick={-3,-2,-1,0,1,2,3,4,5},
+									grid=both,
+									width=11cm,
+									height=8.5cm,
+									axis equal
+									]
+									
+									% x^2 + 2 for x < 1
+									\addplot[
+									domain=-3:0.96,
+									samples=100,
+									thick,
+									blue
+									] {x^2+2};
+									
+									% 2x for x > 1
+									\addplot[
+									domain=1.04:3,
+									samples=100,
+									thick,
+									blue
+									] {2*x};
+									
+									% Empty hole at (1,3)
+									\addplot[
+									only marks,
+									mark=o,
+									mark size=2.8pt,
+									thick,
+									blue,
+									fill=white
+									] coordinates {(1,3)};
+									
+									% Empty hole at (1,2)
+									\addplot[
+									only marks,
+									mark=o,
+									mark size=2.8pt,
+									thick,
+									blue,
+									fill=white
+									] coordinates {(1,2)};
+									
+									% Filled point at (1,0)
+									\addplot[
+									only marks,
+									mark=*,
+									mark size=2.8pt,
+									blue
+									] coordinates {(1,0)};
+									
+								\end{axis}
+							\end{tikzpicture}
+							
+							$f(-1)=(-1)^2+2=3, f(0)=0^2+2=2, f(1)=0, f(2)=2\cdot 2=4.$
+							\item[(b)]
+							
+							\begin{tikzpicture}
+								\begin{axis}[
+									axis lines=middle,
+									xmin=-5, xmax=3,
+									ymin=-4, ymax=5,
+									xlabel={$x$},
+									ylabel={$y$},
+									xtick={-4,-3,-2,-1,0,1,2,3},
+									ytick={-4,-3,-2,-1,0,1,2,3,4,5},
+									grid=both,
+									clip=true,
+									width=11cm,
+									height=9cm,
+									scale only axis,
+									axis equal
+									]
+									
+									% 1/x for x <= -1
+									\addplot[
+									domain=-4.9:-1,
+									samples=100,
+									thick,
+									blue
+									] {1/x};
+									
+									% x for -1 < x <= 2
+									\addplot[
+									domain=-1:2,
+									samples=100,
+									thick,
+									blue
+									] {x};
+									
+									% -2x + 2 for x > 2
+									\addplot[
+									domain=2.04:3,
+									samples=100,
+									thick,
+									blue
+									] {-2*x+2};
+									
+									% Filled point at (-1,-1)
+									\addplot[
+									only marks,
+									mark=*,
+									mark size=2.8pt,
+									blue
+									] coordinates {(-1,-1)};
+									
+									% Filled point at (2,2)
+									\addplot[
+									only marks,
+									mark=*,
+									mark size=2.8pt,
+									blue
+									] coordinates {(2,2)};
+									
+									% Empty hole at (2,-2)
+									\addplot[
+									only marks,
+									mark=o,
+									mark size=2.8pt,
+									thick,
+									blue,
+									fill=white
+									] coordinates {(2,-2)};
+									
+								\end{axis}
+							\end{tikzpicture}
+							
+							$f(-1)=-1, f(0)=0, f(1)=1, f(2)=2$
+						\end{itemize}
+					\end{solution}
+				\end{enumerate}
+				\item Find all the real values of $x$ that satisfy the following inequalities. Write your answer using interval notation or set builder notation.
+				\begin{enumerate}
+					\item $\left| 2x+1\right|\leq 3$
+				
+					\item $\left|3x-2\right|>4$
+					
+					\item $\left| 2x+1\right|\leq 0$
+				
+					\item $\left| 2x+1\right|< 0$
+				
+					\item $\left| 2x+1\right|\geq 0$
+				
+					\item $\left| 2x+1\right|>0$
+					
+				\end{enumerate}
+				\begin{solution}
+					\begin{itemize}
+						\item[(a)] 	Note that you can use a sign chart to solve these exercises. 
+						$$\left| 2x+1\right|\leq 3$$
+						$$-3\leq2x+1\leq3$$
+						$$-4\leq2x\leq2$$
+						$$-2\leq x \leq 1$$
+						Thus, the solution is the interval $[-2,1]$.
+						\item[(b)] 	$$\left|3x-2\right|>4$$
+						$$3x-2>4 \text{ or } 3x-2<-4$$
+						$$3x>6 \text{ or } 3x<-2$$
+						$$x>2 \text{ or } x<-\dfrac{2}{3}$$
+						Thus, the solution is $(-\infty,-\dfrac{2}{3})\cup(2,\infty).$
+						\item[(c)] Note that there are no $x$ such that $|2x+1|<0$, so we only need to solve the equation $|2x+1|=0$. 
+						$$|2x+1|=0$$
+						$$2x+1=0$$
+						$$x=-\dfrac{1}{2}$$
+						Thus, the solution is the set $\{-\dfrac{1}{2}\}$.
+						\item[(d)] 	Since there are no such $x$ such that $|2x+1|<0$, the solution is $\emptyset$.
+						\item[(e)] Since $|2x+1|\geq0$ for all $x$, the solution is $\mathbb{R}$.
+						\item[(f)] $|2x+1|>0$ for all $x$ except when $|2x+1|=0$, i.e., $x\in\mathbb{R} \setminus \{-1/2\}=(-\infty,-1/2)\cup(-1/2,\infty)$.
+					\end{itemize}
+				\end{solution}
+				
+				\item Consider the graph of the function $f(x)$ from exercise 1b. Sketch the graph of $|f(x)|$.
+				
+				\begin{solution}
+					\begin{tikzpicture}
+						\begin{axis}[
+							axis lines=middle,
+							xmin=-5, xmax=3,
+							ymin=-1, ymax=5,
+							xlabel={$x$},
+							ylabel={$y$},
+							xtick={-4,-3,-2,-1,0,1,2,3},
+							ytick={-1,0,1,2,3,4,5},
+							grid=both,
+							clip=true,
+							width=11cm,
+							height=9cm,
+							scale only axis,
+							axis equal
+							]
+							
+							% |1/x| = -1/x for x <= -1
+							\addplot[
+							domain=-4.9:-1,
+							samples=100,
+							thick,
+							blue
+							] {-1/x};
+							
+							% |x| = -x for -1 < x < 0
+							\addplot[
+							domain=-1:0,
+							samples=100,
+							thick,
+							blue
+							] {-x};
+							
+							% |x| = x for 0 <= x <= 2
+							\addplot[
+							domain=0:2,
+							samples=100,
+							thick,
+							blue
+							] {x};
+							
+							% |-2x + 2| = 2x - 2 for x > 2
+							\addplot[
+							domain=2.04:3,
+							samples=100,
+							thick,
+							blue
+							] {2*x-2};
+							
+							% Filled point at (-1,1)
+							\addplot[
+							only marks,
+							mark=*,
+							mark size=2.8pt,
+							blue
+							] coordinates {(-1,1)};
+							
+							% Filled point at (2,2)
+							\addplot[
+							only marks,
+							mark=*,
+							mark size=2.8pt,
+							blue
+							] coordinates {(2,2)};
+							
+							% Empty hole at (2,2)
+							\addplot[
+							only marks,
+							mark=o,
+							mark size=2.8pt,
+							thick,
+							blue,
+							fill=white
+							] coordinates {(2,2)};
+							
+						\end{axis}
+					\end{tikzpicture}
+				\end{solution}
+				
+				\item Determine whether the following statements are true or false. Justify your reasoning.
+				\begin{enumerate}
+					\item $|a+b|=|a|+|b|$ for all real numbers $a,b$.
+					
+					\item $|ab|=|a||b|$ for all real numbers $a,b$.
+				
+					\item $\left|\dfrac{a}{b}\right|=\dfrac{|a|}{|b|}$ for all real numbers $a,b$.
+					
+					\item If $x$ is a real number such that $|x-2|<3$, then $|3x-6|<10$.
+				
+					\item If $x$ is a real number such that $|3x-6|<10$, then $|x-2|<3$.
+					
+				\end{enumerate}
+				
+				\begin{solution}
+					\begin{itemize}
+						\item[(a)] False. For example, the equality is not true if $a=-1, b=1$.
+						\item[(b)] True. 
+						
+						If $a,b\geq0$, then $ab\geq0$, so $|ab|=ab=|a||b|$. 
+						
+						If $a,b<0$, then $ab>0$, so $|ab|=ab=(-a)(-b)=|a||b|$.
+						
+						If $a>0, b<0$ (and similarly for $a<0,b>0$), then $ab<0$, so $|ab|=-ab=a(-b)=|a||b|$.
+						\item[(c)] False. If $b=0$, neither side of the equality is defined.
+						\item[(d)] True. Multiply both sides of $|x-2|<3$ by $3$ to get $3|x-2|<9$, which is equivalent to $|3x-6|<9$. But $9<10$, so $|3x-6|<10$.
+						\item[(e)] False. If we try to use the same idea as before and multiply by $1/3$, we get $|x-2|<\dfrac{10}{3}$, but $\dfrac{10}{3}>3$. Hence, any value of $x$, such that $3<|x-2|<10/3$ will make this statement false. For example, if you take $x=5.2$, $|3\cdot 5.2-6|<10$, but $|5.2-2|>3$.
+					\end{itemize}
+				\end{solution}
+				
+			\end{enumerate}
+			
+		\newpage
+		
+		
+		\section{Introduction to Limits}
+		
+		\begin{enumerate}
+			\item 		Consider the graph of the function $f(x)$ given below. 
+		
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+					axis lines=middle,
+					xmin=-4.5, xmax=4.5,
+					ymin=-4, ymax=6,
+					xlabel={$x$},
+					ylabel={$y$},
+					xtick={-4,-3,-2,-1,0,1,2,3,4},
+					ytick={-4,-3,-2,-1,0,1,2,3,4,5,6},
+					grid=both,
+					width=11cm,
+					height=8.5cm,
+					axis equal image,
+					clip=true
+					]
+					
+					% Left piece: x < -2
+					\addplot[
+					domain=-4.5:-2,
+					samples=100,
+					thick,
+					blue
+					] {x+1};
+					
+					% Middle linear piece: -2 < x <= 0
+					\addplot[
+					domain=-2:0,
+					samples=100,
+					thick,
+					blue
+					] {x};
+					
+					% Quadratic piece: 0 <= x < 2
+					\addplot[
+					domain=0:2,
+					samples=100,
+					thick,
+					blue
+					] {x^2};
+					
+					% Decreasing piece: x > 2
+					\addplot[
+					domain=2:4.5,
+					samples=100,
+					thick,
+					blue
+					] {-x+6};
+					
+					
+					% White circles covering the holes at x=-2
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=3.5pt,
+					white
+					] coordinates {(-2,-1) (-2,-2)};
+					
+					% Black outlines
+					\addplot[
+					only marks,
+					mark=o,
+					mark size=2.8pt,
+					thick,
+					blue
+					] coordinates {(-2,-1) (-2,-2)};
+					
+					
+					% White circle covering the hole at (2,4)
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=3.5pt,
+					white
+					] coordinates {(2,4)};
+					
+					% Black outline
+					\addplot[
+					only marks,
+					mark=o,
+					mark size=2.8pt,
+					thick,
+					blue
+					] coordinates {(2,4)};
+					
+					
+					% Filled point f(2)=5
+					\addplot[
+					only marks,
+					mark=*,
+					mark size=2.8pt,
+					blue
+					] coordinates {(2,5)};
+					
+				\end{axis}
+			\end{tikzpicture}
+			
+		\end{center}
+		
+	 Find the following values or state they do not exist.
+			\begin{multicols}{2} 
+				\begin{enumerate}
+					\item $\displaystyle{\lim_{x\to -2^-} f(x)}$
+					\item $\displaystyle{\lim_{x\to -2^+} f(x)}$
+					\item $\displaystyle{\lim_{x\to -2} f(x)}$
+					\item $\displaystyle{\lim_{x\to 0^-} f(x)}$
+					\item $\displaystyle{\lim_{x\to 0^+} f(x)}$
+					\item $f(-2)$
+					\item $f(2)$
+					\item $f(0)$
+					\item $\displaystyle{\lim_{x\to 2^-} f(x)}$
+					\item $\displaystyle{\lim_{x\to 2^+} f(x)}$
+				\end{enumerate}
+			\end{multicols}
+		
+		\bigskip
+		
+		\begin{solution}
+			\begin{multicols}{2} 
+				\begin{enumerate}
+					\item $\displaystyle{\lim_{x\to -2^-} f(x)}=-1$
+					\item $\displaystyle{\lim_{x\to -2^+} f(x)}=-2$
+					\item $\displaystyle{\lim_{x\to -2} f(x)}$ DNE
+					\item $\displaystyle{\lim_{x\to 0^-} f(x)}=0$
+					\item $\displaystyle{\lim_{x\to 0^+} f(x)}=0$
+					\item $f(-2)$ DNE
+					\item $f(2)=5$
+					\item $f(0)=0$
+					\item $\displaystyle{\lim_{x\to 2^-} f(x)}=4$
+					\item $\displaystyle{\lim_{x\to 2^+} f(x)}=4$
+				\end{enumerate}
+			\end{multicols}
+		\end{solution}
+		
+		\newpage
+		
+		\item Consider the graph of the following function.
+		
+		\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines=middle,
+				xmin=-3, xmax=4,
+				ymin=-2, ymax=5,
+				xlabel={$x$},
+				ylabel={$y$},
+				xtick={-3,-2,-1,0,1,2,3,4},
+				ytick={-2,-1,0,1,2,3,4,5},
+				grid=both,
+				width=9cm,
+				height=7cm,
+				axis equal
+				]
+				
+				% f(x) = -x^2 for x < 0
+				\addplot[
+				domain=-3:-0.001,
+				samples=100,
+				thick,
+				blue
+				] {-x^2};
+				
+				% f(x) = x^2 for 0 < x < 2
+				\addplot[
+				domain=0.001:1.999,
+				samples=100,
+				thick,
+				blue
+				] {x^2};
+				
+				% White hole at (2,2)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=3pt,
+				fill=white,
+				draw=blue,
+				thick
+				] coordinates {(2,2)};
+				
+				% f(2) = 3
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=2.5pt,
+				blue
+				] coordinates {(2,3)};
+				
+				% f(x) = 2 for x > 2
+				\addplot[
+				domain=2.001:4,
+				samples=2,
+				thick,
+				blue
+				] {2};
+				
+				% White hole at (0,0)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=3pt,
+				fill=white,
+				draw=blue,
+				thick
+				] coordinates {(0,0)};
+				
+				% White hole at (2,4)
+				\addplot[
+				only marks,
+				mark=*,
+				mark size=3pt,
+				fill=white,
+				draw=blue,
+				thick
+				] coordinates {(2,4)};
+				
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		
+		Find the following values or state that they do not exist.
+		
+		\begin{multicols}{3}
+			\begin{enumerate}
+				\item $\displaystyle{\lim_{x\to 0^-} f(x)}$
+				\item $\displaystyle{\lim_{x\to 0^+} f(x)}$
+				\item $\displaystyle{\lim_{x\to 0} f(x)}$
+				\item $f(0)$
+				\item $\displaystyle{\lim_{x\to 1^-} f(x)}$
+				\item $\displaystyle{\lim_{x\to 1^+} f(x)}$
+				\item $\displaystyle{\lim_{x\to 1} f(x)}$
+				\item $f(1)$
+				\item $\displaystyle{\lim_{x\to 2^-} f(x)}$
+				\item $\displaystyle{\lim_{x\to 2^+} f(x)}$
+				\item $\displaystyle{\lim_{x\to 2} f(x)}$
+				\item $f(2)$
+			\end{enumerate}
+		\end{multicols}
+		
+		\bigskip
+		
+		\begin{solution}
+			
+				\begin{multicols}{3}
+				\begin{enumerate}
+					\item $\displaystyle{\lim_{x\to 0^-} f(x)}=0$
+					\item $\displaystyle{\lim_{x\to 0^+} f(x)}=0$
+					\item $\displaystyle{\lim_{x\to 0} f(x)}=0$
+					\item $f(0)$ DNE
+					\item $\displaystyle{\lim_{x\to 1^-} f(x)}=1$
+					\item $\displaystyle{\lim_{x\to 1^+} f(x)}=1$
+					\item $\displaystyle{\lim_{x\to 1} f(x)}=1$
+					\item $f(1)=1$
+					\item $\displaystyle{\lim_{x\to 2^-} f(x)}=4$
+					\item $\displaystyle{\lim_{x\to 2^+} f(x)}=2$
+					\item $\displaystyle{\lim_{x\to 2} f(x)}$ DNE
+					\item $f(2)=3$
+				\end{enumerate}
+			\end{multicols}
+		\end{solution}
+		
+		\item Determine whether the following statements are true or false. Justify your reasoning.
+		
+		\begin{enumerate}
+		
+			
+			\item If $f(2)=5$, then $\displaystyle \lim_{x\to 2}f(x)=5$.
+			
+			\item If $\displaystyle \lim_{x\to a^-}f(x)=L$ and 
+			$\displaystyle \lim_{x\to a^+}f(x)=L$, then 
+			$\displaystyle \lim_{x\to a}f(x)=L$.
+			
+			\item If $\displaystyle \lim_{x\to a^-}f(x)\neq
+			\lim_{x\to a^+}f(x)$, then $\displaystyle \lim_{x\to a}f(x)$
+			does not exist.
+			
+			
+			
+			\item If $f(1)$ is undefined, then 
+			$\displaystyle \lim_{x\to 1}f(x)$ does not exist.
+		\end{enumerate}
+		
+		\bigskip
+		
+		\begin{solution}
+		
+		\begin{enumerate}
+					
+			\item False. Knowing that $f(2)=5$ does not tell us what
+			happens to $f(x)$ as $x$ approaches $2$. For example, let
+			$f(x)=1$ for $x\neq2$ and $f(2)=5$. Then
+			$\displaystyle \lim_{x\to2}f(x)=1\neq5$.
+			
+			\item True. A limit exists if and only if the
+			left-hand and right-hand limits both exist and are equal. Since
+			both one-sided limits equal $L$, we have
+			$\displaystyle \lim_{x\to a}f(x)=L.$
+			
+			\item True. For a limit to exist, the left-hand
+			and right-hand limits must exist and be equal. Since they are
+			not equal, $\displaystyle \lim_{x\to a}f(x)$ does not exist.
+			
+			
+			\item False. A function does not need to be defined at
+			$a$ for $\displaystyle \lim_{x\to a}f(x)$ to exist. For example, $f(x)=\dfrac{x^2-1}{x-1}.$ Although $f(1)$ is undefined,
+			$\displaystyle
+			\lim_{x\to1}f(x)
+			=\lim_{x\to1}(x+1)=2.$
+		\end{enumerate}
+		\end{solution}
+		
+		
+		\end{enumerate}
+		
 		
 
 \end{document}
