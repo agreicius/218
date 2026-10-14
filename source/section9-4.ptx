@@ -44,9 +44,9 @@
           Each of the following is an <em>indeterminate form,</em>
           meaning that a limit in one of these forms may or may not exist,
           depending on the details of the situation:
-          <me>
+          <md>
             \frac{0}{0}\qquad \frac{\infty}{\infty}\qquad 0\cdot\infty\qquad \infty-\infty\qquad 0^0\qquad 1^\infty \qquad \infty^0
-          </me>
+          </md>
         </p>
       </statement>
     </theorem>
@@ -137,9 +137,9 @@
     <p>
       In contrast to the above examples,
       note that the following limit forms are NOT indeterminate:
-      <me>
+      <md>
         0^\infty\qquad 0^1\qquad \infty^\infty\qquad \infty^1
-      </me>
+      </md>
     </p>
     <p>
       The first two (<m>0^\infty</m> and <m>0^1</m>) must both be equal to 0
@@ -160,9 +160,9 @@
       <statement>
         <p>
           Consider the limit
-          <me>
+          <md>
             \lim_{x\to\infty}\left(\frac{x}{x-1}\right)^{x^2}
-          </me>.
+          </md>.
           First note that the base <m>\frac{x}{x-1}</m> approaches 1 as <m>x\to\infty</m>,
           while the exponent <m>x^2</m> approaches <m>\infty</m> as <m>x\to\infty</m>.
           Thus the limit has the form <m>1^\infty</m>.
@@ -200,9 +200,9 @@
       <statement>
         <p>
           Consider the limit
-          <me>
+          <md>
             \lim_{x\to 1^+} x^{1/(x^2-1)}
-          </me>.
+          </md>.
           The base approaches <m>1</m> while the exponent
           <m>\frac{1}{x^2-1}</m> approaches <m>\frac{1}{0^+} = \infty</m>,
           so the limit has the form <m>1^\infty</m>.
@@ -261,13 +261,13 @@
       <statement>
         <p>
           For a function <m>f(x)</m> such that
-          <me>
+          <md>
             \lim_{x\to c}\ln(f(x)) = L
-          </me>,
+          </md>,
           then
-          <me>
+          <md>
             \lim_{x\to c}f(x) = e^L
-          </me>.
+          </md>.
           In particular,
           <ul>
             <li>
@@ -289,13 +289,13 @@
     <p>
       This theorem is true because of the composition rule for limits of continuous functions from <xref ref="thm_limitrules">Theorem</xref>.
       To use this theorem to calculate a limit of the form
-      <me>
+      <md>
         \lim_{x\to c}u(x)^{v(x)}
-      </me>,
+      </md>,
       we consider instead the <em>different</em> limit
-      <me>
+      <md>
         \ln\left(\lim_{x\to c}u(x)^{v(x)}\right) = \lim_{x\to c}\ln(u(x)^{v(x)}) = \lim_{x\to c} v(x)\ln(u(x))
-      </me>.
+      </md>.
       <xref ref="thm_limitrules">Theorem</xref>
       is what allows us to reverse the order of the limit and the natural logarithm.
     </p>
@@ -307,9 +307,9 @@
       In other words,
       we take the natural logarithm to evaluate the limit,
       so we must undo this by raising <m>e</m> to the limit:
-      <me>
+      <md>
         \begin{aligned}\ln(\text{ limit } ) \amp = L\\ \text{ limit }  \amp = e^L \end{aligned}
-      </me>
+      </md>
     </p>
     <p>
       Of course, if instead of a finite number for <m>L</m> we get <m>L=\pm\infty</m>,
@@ -323,36 +323,36 @@
       <statement>
         <p>
           The limit
-          <me>
+          <md>
             \lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x
-          </me>
+          </md>
           has the form <m>1^\infty</m>.
           After taking <m>\ln</m> we have the
           <em>different limit</em>
-          <me>
+          <md>
             \lim_{x\to\infty} \ln\left(1+\frac{1}{x}\right)^x = \lim_{x\to\infty}x\cdot\ln\left(1+\frac{1}{x}\right)
-          </me>
+          </md>
         </p>
         <p>
           Since <m>x\to\infty</m> and <m>\ln(1) =0</m>,
           this limit has the form <m>\infty\cdot 0</m>.
           It is still indeterminate, but is a different type of indeterminate limit.
           We can solve it by moving the <m>x</m> to the denominator and applying L'H&#xf4;pital's rule:
-          <me>
+          <md>
             \begin{aligned}\lim_{x\to\infty}x\cdot\ln\left(1+\frac{1}{x}\right) \amp = \lim_{x\to\infty}\frac{\ln\left(1+\frac{1}{x}\right)}{x^{-1}} \amp  \leftarrow \text{ algebra: } x = \frac{1}{x^{-1}}\\ \amp =\lim_{x\to\infty}\frac{\ln\left(1+\frac{1}{x}\right)}{\frac{1}{x}} \amp \leftarrow \text{ now of the form }  \frac{0}{0}\\ \amp \stackrel[L'H]{}=\lim_{x\to\infty}\frac{\frac{1}{1+\frac{1}{x}}\cdot -\frac{1}{x^2}}{-\frac{1}{x^2}} \amp \leftarrow\text{ applying L'H\^opital's rule } \\ \amp =\lim_{x\to\infty}\frac{1}{1+\frac{1}{x}}\amp \leftarrow\text{ simplifying by cancelling } -\frac{1}{x^2}\\ \amp = \frac{1}{1+0} = 1 \amp \leftarrow\text{ evaluating the limit } \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Remember that this is equal to the natural logarithm of our original limit:
-          <me>
+          <md>
             \ln\left(\lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x\right) = 1
-          </me>
+          </md>
         </p>
         <p>
           Thus our original limit is equal to <m>e^1 = e</m>:
-          <me>
+          <md>
             \lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x = e
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -360,9 +360,9 @@
       <p>
         The limit in <xref ref="ex_einfinitelimit">Example</xref>
         is sometimes given as the definition of the number <m>e</m> and can be shown to be equivalent to our previous characterization of <m>e</m> in <xref ref="d_limitdefe">Definition</xref>:
-        <me>
+        <md>
           \lim_{h\to 0}\frac{e^h-1}{h} = 1
-        </me>.
+        </md>.
       </p>
     </remark>
     <exercise>
@@ -378,20 +378,20 @@
       <statement>
         <p>
           Returning to
-          <me>
+          <md>
             \lim_{x\to\infty}\left(\frac{x}{x-1}\right)^{x^2}
-          </me>
+          </md>
           from <xref ref="ex_infindetexample1">Example</xref>
           and taking the natural logarithm, we have
-          <me>
+          <md>
             \begin{aligned}\lim_{x\to\infty}\ln\left(\frac{x}{x-1}\right)^{x^2} \amp = \lim_{x\to\infty}x^2\ln\left(\frac{x}{x-1}\right)\amp \leftarrow\text{ form } \infty\cdot 0\\ \amp =\lim_{x\to\infty}\frac{\ln\left(\frac{x}{x-1}\right)}{\frac{1}{x^2}} \amp \leftarrow\text{ form }  \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{\frac{1}{x/(x-1)}\cdot\frac{(x-1)(1)-(x)(1)}{(x-1)^2}}{-\frac{2}{x^3}}\amp \leftarrow\text{ L'H\^opital's. Note chain, quotient rules. } \\ \amp = \lim_{x\to\infty}\frac{\frac{x-1}{x}\cdot\frac{-1}{(x-1)^2}}{-\frac{2}{x^3}}\amp \leftarrow\text{ simplifying } \\ \amp = \lim_{x\to\infty}\frac{-1}{x(x-1)}\cdot\frac{x^3}{-2}\amp \leftarrow\text{ more simplifying } \\ \amp = \lim_{x\to\infty} \frac{x^3}{2x(x-1)} \amp \leftarrow\text{ even more simplifying } \\ \amp = \infty \amp \leftarrow\text{ higher degree in the numerator } \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Recalling that we had to take the natural logarithm and must now undo this:
-          <me>
+          <md>
             \lim_{x\to\infty}\left(\frac{x}{x-1}\right)^{x^2} = e^\infty = \infty
-          </me>.
+          </md>.
           This confirms what we expected based on the table of values in <xref ref="ex_infindetexample1">Example</xref>.
         </p>
       </statement>
@@ -425,21 +425,21 @@
       <statement>
         <p>
           Looking at the limit
-          <me>
+          <md>
             \lim_{x\to 1^+} x^{1/(x^2-1)}
-          </me>
+          </md>
           from <xref ref="ex_infindetexample2">Example</xref>,
           we again begin by taking the natural logarithm and moving the exponent down:
-          <me>
+          <md>
             \begin{aligned}\lim_{x\to 1^+} \ln\left(x^{1/(x^2-1)}\right) \amp = \lim_{x\to1^+} \frac{1}{x^2-1}\cdot\ln(x)\amp \leftarrow\text{ form } \infty\cdot 0\\ \amp =\lim_{x\to1^+}\frac{\ln(x)}{x^2-1} \amp \leftarrow\text{ form } \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to1+}\frac{1/x}{2x}\amp \leftarrow\text{ L'H\^opital's } \\ \amp =\lim_{x\to1^+}\frac{1}{2x^2}\amp \leftarrow\text{ simplifying } \\ \amp = \frac{1}{2}\amp \leftarrow\text{ evaluating } \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           We've seen that <m>\ln(\text{ original limit } ) = \frac{1}{2}</m> and thus the original limit is <m>e^{1/2} = \sqrt{e}</m>.
           Hence
-          <me>
+          <md>
             \lim_{x\to 1^+} x^{1/(x^2-1)} = \sqrt{e}
-          </me>
+          </md>
           and now we've discovered that the value the table in <xref ref="ex_infindetexample2">Example</xref>
           was approaching <m>\sqrt{e}\approx 1.6487</m>!
         </p>
@@ -449,9 +449,9 @@
       <statement>
         <p>
           Follow the steps below in order to evaluate
-          <me>
+          <md>
             \lim_{x\to 0^+} \left(\frac{1}{x}\right)^{x}
-          </me>
+          </md>
           <ul>
             <li>
               <p>
@@ -490,22 +490,22 @@
       <statement>
         <p>
           The limit
-          <me>
+          <md>
             \lim_{x\to\infty}x^{1/x}
-          </me>
+          </md>
           has the indeterminate form
           <m>\infty^0</m> since <m>x\to\infty</m> and
           <m>\frac{1}{x}\to 0</m> as <m>x</m> approaches <m>\infty</m>.
           Taking <m>\ln</m>:
-          <me>
+          <md>
             \begin{aligned}\lim_{x\to\infty}\ln\left(x^{1/x}\right) \amp = \lim_{x\to\infty}\frac{1}{x}\ln x \amp \leftarrow\text{ form }  0\cdot\infty\\ \amp = \lim_{x\to\infty} \frac{\ln x}{x} \amp \leftarrow\text{ form } \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to\infty}\frac{1/x}{1} \amp \leftarrow\text{ L'H\^opital's } \\ \amp = \lim_{x\to\infty} \frac{1}{x} \amp \leftarrow\text{ simplify } \\ \amp =0 \amp \leftarrow\text{ evaluate } \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Returning to the original limit, we have
-          <me>
+          <md>
             \lim_{x\to\infty}x^{1/x} = e^0 = 1
-          </me>
+          </md>
         </p>
       </statement>
     </example>
@@ -513,21 +513,21 @@
       <statement>
         <p>
           The limit
-          <me>
+          <md>
             \lim_{x\to 0^+}(\sin x)^x
-          </me>
+          </md>
           has the form <m>0^0</m> since as
           <m>x\to 0^+</m> we have <m>\sin x\to 0</m> and <m>x\to 0</m>.
           Taking <m>\ln</m>:
-          <me>
+          <md>
             \begin{aligned}\lim_{x\to 0^+}\ln\left((\sin x)^x\right) \amp = \lim_{x\to 0^+} x\ln(\sin x) \amp \leftarrow \sin x\to 0^+\text{ so } \ln(\sin x)\to -\infty\text{ ; form }  0\cdot\infty\\ \amp = \lim_{x\to 0^+}\frac{\ln(\sin x)}{1/x} \amp \leftarrow\text{ form } \frac{\infty}{\infty}\\ \amp \stackrel[L'H]{}= \lim_{x\to 0^+} \frac{(\cos x)/(\sin x)}{-1/x^2} \amp \leftarrow\text{ L'H\^opital's } \\ \amp = \lim_{x\to0^+}\frac{-x^2\cos x}{\sin x}\amp \leftarrow\text{ simplify; form } \frac{0}{0}\\ \amp \stackrel[L'H]{}= \lim_{x\to 0^+}\frac{-2x\cos x+x^2\sin x}{\cos x}\amp \leftarrow\text{ L'H\^opital's again; product rule } \\ \amp = \frac{0+0}{1} = 0\amp \leftarrow\text{ evaluate } \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Returning to the original limit, we have
-          <me>
+          <md>
             \lim_{x\to 0^+}(\sin x)^x = e^0 = 1
-          </me>.
+          </md>.
         </p>
       </statement>
     </example>

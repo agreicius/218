@@ -1,4 +1,4 @@
-<section xml:id="s_func_comp">
+<section xml:id="s_func_comp" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Function composition</title>
   <introduction>
     <p>
@@ -55,9 +55,9 @@
     <p>
       The Celsius and Fahrenheit temperature scales are connected by a linear function.
       Indeed, the function that converts Fahrenheit to Celsius is
-      <me>
+      <md>
         C = g(F) = \frac{5}{9}(F-32)
-      </me>
+      </md>
     </p>
     <p>
       For instance,
@@ -76,15 +76,15 @@
       <solution>
         <p>
           First, we compute that the temperature in degrees Fahrenheit is
-          <me>
+          <md>
             F = D(80) = 40+0.25(80) = 60
-          </me>.
+          </md>.
         </p>
         <p>
           It remains only to convert this Fahrenheit temperature to degrees Celsius:
-          <me>
+          <md>
             C = G(60) = \frac{5}{9}(60-32) = \frac{140}{9} =15\frac{5}{9}^\circ C
-          </me>.
+          </md>.
           Thus, if crickets chirp at 80 chirps per minute, Dolbear's model predicts the temperature is <m>9^\circ C</m>.
         </p>
       </solution>
@@ -101,24 +101,24 @@
         <p>
           Using <m>F=f(N)</m> as the input for the function <m>C=g(F)</m>,
           we simplify to find a formula directly from <m>N</m> to <m>C</m> that does not involve the variable <m>F</m>:
-          <me>
+          <md>
             \begin{aligned}C \amp = g(F)\\ \amp = g(f(N))\\ \amp = \frac{5}{9}(f(N)-32)\\ \amp = \frac{5}{9}((40+0.25N)-32)\\ \amp =\frac{5}{9}(8+0.25N) \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           So the function <m>C=h(N)</m> is given by
-          <me>
+          <md>
             C = \frac{5}{9}(8+0.25N)
-          </me>.
+          </md>.
         </p>
       </solution>
     </example>
     <!-- <p>
       There is, of course,
       a shorthand notation for this process of using the output of <m>f</m> as the input of <m>g</m>:
-      <me>
+      <md>
         h=g\circ f
-      </me>.
+      </md>.
     </p>
     <p>
       <m>g\circ f</m> is the function that first applies the process given by the function <m>D</m> and then applies the process given by the function <m>G</m>.
@@ -142,13 +142,13 @@
         <p>
           In order to determine the range,
           we must find the resulting degrees Celsius from the range of degrees Fahrenheit of <m>[50,85]</m>.
-          <me>
+          <md>
             G(50) = \frac{5}{9}(50-32) = 10
-          </me>
+          </md>
           and
-          <me>
+          <md>
             G(85) = \frac{5}{9}(85-32) = \frac{265}{9}= 29\frac{4}{9}
-          </me>.
+          </md>.
           We know that a linear function's range will stay within these two values based on the shape of the graph.
           Thus the range of <m>H</m> is in degrees Celsius instead of Fahrenheit,
           and is <m>[10,29\frac{4}{9}]</m>.
@@ -170,9 +170,9 @@
             f\circ g\colon A\rightarrow C
           </m>
           defined as 
-          <men xml:id="eq_func_comp">
+          <md number="yes" xml:id="eq_func_comp">
             f\circ g\, (a)=f(g(a))
-          </men>
+          </md>
           for all <m>a\in A</m>. 
         </p>
       </statement>
@@ -188,9 +188,9 @@
       </p>
       <p>
         By definition the composition function <m>h=f\circ g</m> takes an input <m>x</m> and maps it to the output 
-        <me>
+        <md>
           h(x)=f(g(x))
-        </me>.
+        </md>.
         In order for this to make sense, we need <m>g(x)</m> to be in the domain of <m>f</m>. In other words, the outputs of <m>g</m> must lie in the domain of <m>f</m>: this is equivalent to saying that the range of <m>g</m> is a subset of the domain of <m>f</m>.
       </p>
     </remark>
@@ -315,9 +315,9 @@
       <title>Inner/outer function</title>
       <p>
         The function <m>g</m> in a composition <m>h=f\circ g</m> is often called the <q>inner function</q> of the composition, and <m>f</m> is called the <q>outer function</q>. This terminology derives naturally from the definition
-        <men xml:id="eq_inner_outer">
+        <md number="yes" xml:id="eq_inner_outer">
           h(x)=\overset{\text{outer}}{\overbrace{f(\underset{\text{inner}}{\underbrace{g(x)}})}}
-        </men>.
+        </md>.
          Alternatively, we can use sequential language when describing the roles of <m>f</m> and <m>g</m> in the composition <m>f\circ g</m>. That is, when computing <m>h(x)</m> using definition <xref ref="eq_inner_outer"/>, we <em>first</em> evaluate <m>g</m> at <m>x</m> to produce the output <m>g(x)</m>, and <em>then</em> evaluate <m>f</m> at <m>g(x)</m> to produce the output <m>f(g(x))</m>. 
       </p>
       <p>
@@ -538,9 +538,9 @@
           </li>
         </ol>
         Thus the implied domain <m>D</m> of <m>f\circ g</m> is the set of <m>x\in \R</m> for which both <m>g(x)</m> and <m>f(g(x))</m> are defined. Using set intersection notation (see <xref ref="d_union_intersection"/>), we have 
-        <me>
+        <md>
           D=\{x\in \R \mid g \text{ defined at } x\}\cap \{x\in \R \mid f \text{ defined at } g(x)\}
-        </me>.
+        </md>.
         Let's compute some simple examples. After we develop techniques for solving inequalities, we will consider more complicated examples. 
       </p>
     <example xml:id="eg_comp_implied_domain">
@@ -592,17 +592,17 @@
             <li>
               <p>
                 The function <m>g</m> is defined for all <m>x\ne 0</m>. Since <m>f</m> is defined everywhere, there is not further constraint. Thus the implied domain is 
-                <me>
+                <md>
                   \{x\in \R\mid x\ne 0\}
-                </me>.
+                </md>.
               </p>
             </li>
             <li>
               <p>
                 For <m>g\circ f</m> to be defined at <m>x</m> we need <m>f</m> to be defined at <m>x</m> and <m>g</m> to be defined at <m>f(x)</m>. As mentioned above, <m>f</m> is defined everywhere, so the first condition creates no restriction. Since <m>g</m> is defined only when the input is nonzero, we need <m>f(x)\ne 0</m> for <m>g</m> to be defined at <m>f(x)</m>. The usual algebra shows that <m>f(x)=0</m> if and only if <m>x=\pm 1</m>. We conclude that the domain of <m>g\circ f</m> is 
-                <me>
+                <md>
                   \{x\in \R\mid x\ne \pm 1\}=(-\infty, -1)\cup (-1,1)\cup (1,\infty)
-                </me>.
+                </md>.
               </p>
             </li>
           </ol>
@@ -633,9 +633,9 @@
     </p>
     <p>
       Recall that the average rate of change of a function <m>f</m> on the interval <m>[a,b]</m> is given by
-      <me>
+      <md>
         AV_{[a,b]} = \frac{f(b)-f(a)}{b-a}
-      </me>.
+      </md>.
       In the figure below, we see the familiar representation of
       <m>AV_{[a,b]}</m> as the slope of the line joining the points <m>(a,f(a))</m> and
       <m>(b,f(b))</m> on the graph of <m>f</m>.
@@ -661,9 +661,9 @@
     <p>
       This allows us to eventually think about <m>h</m> getting closer and closer to <m>0</m>,
       and in that context we consider the equivalent expression
-      <me>
+      <md>
         AV_{[a,a+h]}  = \frac{f(a+h)-f(a)}{(a+h)-a} =\frac{f(a+h)-f(a)}{h}
-      </me>
+      </md>
       for the average rate of change of <m>f</m> on <m>[a,a+h]</m>.
     </p>
     <p>
@@ -683,22 +683,22 @@
       <solution>
         <p>
           By definition, we know that
-          <me>
+          <md>
             AV_{[3,3+h]} = \frac{f(3+h)-f(3)}{h}
-          </me>
+          </md>
         </p>
         <p>
           Using the formula for <m>f</m>,
           we have <m>f(3+h) = (3+h)^2+1</m> and <m>f(3) = 3^2+1</m>, so that
-          <me>
+          <md>
             AV_{[3,3+h]} = \frac{((3+h)^2+1)-(3^2+1)}{h}
-          </me>
+          </md>
         </p>
         <p>
           Expanding the numerator and combining like terms, it follows that
-          <me>
+          <md>
             \begin{aligned}AV_{[3,3+h]} \amp = \frac{9+6h+h^2+1-10}{h}\\ \amp = \frac{6h+h^2}{h}\\ \amp =\frac{h(6+h)}{h}\\ \amp = 6+h. \end{aligned}
-          </me>
+          </md>
         </p>
         <p>
           Hence <m>AV_{[3,3+h]} = 6+h</m>,
@@ -760,4 +760,5 @@
       \rule{1.1\textwidth}{2pt}
     </p>
   </subsection> -->
+  <xi:include href="s_func_comp_ex.ptx" />
 </section>
